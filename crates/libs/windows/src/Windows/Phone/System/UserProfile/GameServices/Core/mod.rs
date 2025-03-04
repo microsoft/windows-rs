@@ -128,6 +128,7 @@ impl windows_core::RuntimeType for IGameService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -147,6 +148,7 @@ impl windows_core::RuntimeType for IGameService2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameService2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NotifyPartnerTokenExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -157,6 +159,7 @@ impl windows_core::RuntimeType for IGameServicePropertyCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameServicePropertyCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPropertyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

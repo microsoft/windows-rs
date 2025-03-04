@@ -23,6 +23,7 @@ impl IDDEInitializer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDDEInitializer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell")]

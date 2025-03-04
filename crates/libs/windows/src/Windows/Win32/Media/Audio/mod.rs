@@ -957,7 +957,7 @@ impl Default for ACMDRVFORMATSUGGEST {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACMDRVOPENDESCA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -969,13 +969,8 @@ pub struct ACMDRVOPENDESCA {
     pub pszAliasName: windows_core::PCSTR,
     pub dnDevNode: u32,
 }
-impl Default for ACMDRVOPENDESCA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACMDRVOPENDESCW {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -986,11 +981,6 @@ pub struct ACMDRVOPENDESCW {
     pub pszSectionName: windows_core::PCWSTR,
     pub pszAliasName: windows_core::PCWSTR,
     pub dnDevNode: u32,
-}
-impl Default for ACMDRVOPENDESCW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1042,17 +1032,12 @@ impl Default for ACMDRVSTREAMINSTANCE {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACMDRVSTREAMSIZE {
     pub cbStruct: u32,
     pub fdwSize: u32,
     pub cbSrcLength: u32,
     pub cbDstLength: u32,
-}
-impl Default for ACMDRVSTREAMSIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ACMERR_BASE: u32 = 512u32;
 pub const ACMERR_BUSY: u32 = 513u32;
@@ -1583,15 +1568,10 @@ pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
 pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
 pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     pub TargetProcessId: u32,
     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
-}
-impl Default for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
 #[repr(transparent)]
@@ -1633,16 +1613,11 @@ impl core::ops::Not for AUDIO_DUCKING_OPTIONS {
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0i32);
 pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUDIO_EFFECT {
     pub id: windows_core::GUID,
     pub canSetState: windows_core::BOOL,
     pub state: AUDIO_EFFECT_STATE,
-}
-impl Default for AUDIO_EFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1762,40 +1737,25 @@ pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(9i
 pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(13i32);
 pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(14i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_core::GUID,
 }
-impl Default for AudioClient3ActivationParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
     pub bIsOffload: windows_core::BOOL,
     pub eCategory: AUDIO_STREAM_CATEGORY,
     pub Options: AUDCLNT_STREAMOPTIONS,
 }
-impl Default for AudioClientProperties {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
     pub pEndpoint: core::mem::ManuallyDrop<Option<IMMDevice>>,
     pub pPnpInterface: core::mem::ManuallyDrop<Option<IMMDevice>>,
     pub pPnpDevnode: core::mem::ManuallyDrop<Option<IMMDevice>>,
-}
-impl Default for AudioExtensionParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1896,16 +1856,11 @@ pub const DEVINTERFACE_AUDIO_RENDER: windows_core::GUID = windows_core::GUID::fr
 pub const DEVINTERFACE_MIDI_INPUT: windows_core::GUID = windows_core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
 pub const DEVINTERFACE_MIDI_OUTPUT: windows_core::GUID = windows_core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
     pub cbDirectXAudioActivationParams: u32,
     pub guidAudioSession: windows_core::GUID,
     pub dwAudioStreamFlags: u32,
-}
-impl Default for DIRECTX_AUDIO_ACTIVATION_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DRVM_MAPPER: u32 = 8192u32;
 pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
@@ -1923,16 +1878,11 @@ pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = AudioSe
 pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = AudioSessionDisconnectReason(4i32);
 pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = AudioSessionDisconnectReason(3i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
     pub dwDelay: u32,
-}
-impl Default for ECHOWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2233,6 +2183,7 @@ impl IAcousticEchoCancellationControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAcousticEchoCancellationControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetEchoCancellationRenderEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2266,6 +2217,7 @@ impl IActivateAudioInterfaceAsyncOperation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetActivateResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2299,6 +2251,7 @@ impl IActivateAudioInterfaceCompletionHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActivateAudioInterfaceCompletionHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ActivateCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2341,6 +2294,7 @@ impl IAudioAmbisonicsControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioAmbisonicsControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *const AMBISONICS_PARAMS, u32) -> windows_core::HRESULT,
@@ -2413,6 +2367,7 @@ impl IAudioAutoGainControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioAutoGainControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2462,6 +2417,7 @@ impl core::ops::Deref for IAudioBass {
 }
 windows_core::imp::interface_hierarchy!(IAudioBass, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioBass_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -2492,6 +2448,7 @@ impl IAudioCaptureClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioCaptureClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, *mut u32, *mut u64, *mut u64) -> windows_core::HRESULT,
@@ -2555,6 +2512,7 @@ impl IAudioChannelConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioChannelConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetChannelConfig: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -2652,6 +2610,7 @@ impl IAudioClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, AUDCLNT_SHAREMODE, u32, i64, i64, *const WAVEFORMATEX, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -2823,6 +2782,7 @@ impl IAudioClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClient2_Vtbl {
     pub base__: IAudioClient_Vtbl,
     pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2892,6 +2852,7 @@ impl IAudioClient3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClient3_Vtbl {
     pub base__: IAudioClient2_Vtbl,
     pub GetSharedModeEnginePeriod: unsafe extern "system" fn(*mut core::ffi::c_void, *const WAVEFORMATEX, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -2943,6 +2904,7 @@ impl IAudioClientDuckingControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClientDuckingControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDuckingOptionsForCurrentStream: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_DUCKING_OPTIONS) -> windows_core::HRESULT,
@@ -2988,6 +2950,7 @@ impl IAudioClock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -3051,6 +3014,7 @@ impl IAudioClock2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClock2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDevicePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
@@ -3081,6 +3045,7 @@ impl IAudioClockAdjustment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioClockAdjustment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSampleRate: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
@@ -3111,6 +3076,7 @@ impl IAudioEffectsChangedNotificationClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEffectsChangedNotificationClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAudioEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3156,6 +3122,7 @@ impl IAudioEffectsManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEffectsManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterAudioEffectsChangedNotificationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3225,6 +3192,7 @@ impl IAudioFormatEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFormatEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3281,6 +3249,7 @@ impl IAudioInputSelector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioInputSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3335,6 +3304,7 @@ impl IAudioLoudness {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioLoudness_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -3384,6 +3354,7 @@ impl core::ops::Deref for IAudioMidrange {
 }
 windows_core::imp::interface_hierarchy!(IAudioMidrange, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioMidrange_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -3411,6 +3382,7 @@ impl IAudioMute {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioMute_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMute: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3461,6 +3433,7 @@ impl IAudioOutputSelector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioOutputSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3518,6 +3491,7 @@ impl IAudioPeakMeter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioPeakMeter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3578,6 +3552,7 @@ impl IAudioRenderClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioRenderClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -3674,6 +3649,7 @@ impl IAudioSessionControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioSessionState) -> windows_core::HRESULT,
@@ -3830,6 +3806,7 @@ impl IAudioSessionControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionControl2_Vtbl {
     pub base__: IAudioSessionControl_Vtbl,
     pub GetSessionIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -3926,6 +3903,7 @@ impl IAudioSessionEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4004,6 +3982,7 @@ impl IAudioSessionEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDisplayNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -4100,6 +4079,7 @@ impl IAudioSessionManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAudioSessionControl: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4188,6 +4168,7 @@ impl IAudioSessionManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionManager2_Vtbl {
     pub base__: IAudioSessionManager_Vtbl,
     pub GetSessionEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4266,6 +4247,7 @@ impl IAudioSessionNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSessionCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4305,6 +4287,7 @@ impl IAudioStateMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStateMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterCallback: unsafe extern "system" fn(*mut core::ffi::c_void, PAudioStateMonitorCallback, *const core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -4380,6 +4363,7 @@ impl IAudioStreamVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStreamVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4461,6 +4445,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
@@ -4527,6 +4512,7 @@ impl IAudioSystemEffectsPropertyStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -4645,6 +4631,7 @@ impl core::ops::Deref for IAudioTreble {
 }
 windows_core::imp::interface_hierarchy!(IAudioTreble, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioTreble_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -4666,6 +4653,7 @@ impl IAudioViewManagerService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioViewManagerService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioStreamWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -4705,6 +4693,7 @@ impl IAudioVolumeDuckNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioVolumeDuckNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnVolumeDuckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -4748,6 +4737,7 @@ impl core::ops::Deref for IAudioVolumeLevel {
 }
 windows_core::imp::interface_hierarchy!(IAudioVolumeLevel, windows_core::IUnknown, IPerChannelDbLevel);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioVolumeLevel_Vtbl {
     pub base__: IPerChannelDbLevel_Vtbl,
 }
@@ -4787,6 +4777,7 @@ impl IChannelAudioVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChannelAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4910,6 +4901,7 @@ impl IConnector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConnector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ConnectorType) -> windows_core::HRESULT,
@@ -5042,6 +5034,7 @@ impl IControlChangeNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IControlChangeNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -5081,6 +5074,7 @@ impl IControlInterface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IControlInterface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5143,6 +5137,7 @@ impl IDeviceSpecificProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceSpecificProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -5252,6 +5247,7 @@ impl IDeviceTopology {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceTopology_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetConnectorCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5405,6 +5401,7 @@ impl IMMDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -5496,6 +5493,7 @@ impl IMMDeviceActivator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDeviceActivator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -5541,6 +5539,7 @@ impl IMMDeviceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDeviceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5621,6 +5620,7 @@ impl IMMDeviceEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMDeviceEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumAudioEndpoints: unsafe extern "system" fn(*mut core::ffi::c_void, EDataFlow, DEVICE_STATE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5711,6 +5711,7 @@ impl IMMEndpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMEndpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDataFlow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EDataFlow) -> windows_core::HRESULT,
@@ -5774,6 +5775,7 @@ impl IMMNotificationClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMNotificationClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnDeviceStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, DEVICE_STATE) -> windows_core::HRESULT,
@@ -5850,6 +5852,7 @@ impl IMessageFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMessageFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5979,6 +5982,7 @@ impl IPart {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPart_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -6189,6 +6193,7 @@ impl IPartsList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPartsList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6260,6 +6265,7 @@ impl IPerChannelDbLevel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPerChannelDbLevel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6365,6 +6371,7 @@ impl ISimpleAudioVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimpleAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMasterVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -6476,6 +6483,7 @@ impl ISpatialAudioClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStaticObjectPosition: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
@@ -6620,6 +6628,7 @@ impl ISpatialAudioClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioClient2_Vtbl {
     pub base__: ISpatialAudioClient_Vtbl,
     pub IsOffloadCapable: unsafe extern "system" fn(*mut core::ffi::c_void, AUDIO_STREAM_CATEGORY, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6701,6 +6710,7 @@ impl ISpatialAudioMetadataClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ActivateSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6809,6 +6819,7 @@ impl ISpatialAudioMetadataCopier {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataCopier_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6893,6 +6904,7 @@ impl ISpatialAudioMetadataItems {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataItems_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -6998,6 +7010,7 @@ impl ISpatialAudioMetadataItemsBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataItemsBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
@@ -7061,6 +7074,7 @@ impl ISpatialAudioMetadataReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7133,6 +7147,7 @@ impl ISpatialAudioMetadataWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioMetadataWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7202,6 +7217,7 @@ impl ISpatialAudioObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObject_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32) -> windows_core::HRESULT,
@@ -7259,6 +7275,7 @@ impl ISpatialAudioObjectBase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -7352,6 +7369,7 @@ impl ISpatialAudioObjectForHrtf {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectForHrtf_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32) -> windows_core::HRESULT,
@@ -7436,6 +7454,7 @@ impl ISpatialAudioObjectForMetadataCommands {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataCommands_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub WriteNextMetadataCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -7475,6 +7494,7 @@ impl ISpatialAudioObjectForMetadataItems {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectForMetadataItems_Vtbl {
     pub base__: ISpatialAudioObjectBase_Vtbl,
     pub GetSpatialAudioMetadataItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7520,6 +7540,7 @@ impl ISpatialAudioObjectRenderStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStream_Vtbl {
     pub base__: ISpatialAudioObjectRenderStreamBase_Vtbl,
     pub ActivateSpatialAudioObject: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7584,6 +7605,7 @@ impl ISpatialAudioObjectRenderStreamBase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableDynamicObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7686,6 +7708,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
     pub base__: ISpatialAudioObjectRenderStreamBase_Vtbl,
     pub ActivateSpatialAudioObjectForHrtf: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7740,6 +7763,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
     pub base__: ISpatialAudioObjectRenderStreamBase_Vtbl,
     pub ActivateSpatialAudioObjectForMetadataCommands: unsafe extern "system" fn(*mut core::ffi::c_void, AudioObjectType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7797,6 +7821,7 @@ impl ISpatialAudioObjectRenderStreamNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAvailableDynamicObjectCountChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i64, u32) -> windows_core::HRESULT,
@@ -7825,6 +7850,7 @@ impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamNotify {}
 windows_core::imp::define_interface!(ISubunit, ISubunit_Vtbl, 0x82149a85_dba6_4487_86bb_ea8f7fefcc71);
 windows_core::imp::interface_hierarchy!(ISubunit, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISubunit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -8045,42 +8071,27 @@ impl Default for MIDIOUTCAPSW {
 }
 pub const MIDIPATCHSIZE: u32 = 128u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDIPROPTEMPO {
     pub cbStruct: u32,
     pub dwTempo: u32,
 }
-impl Default for MIDIPROPTEMPO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDIPROPTIMEDIV {
     pub cbStruct: u32,
     pub dwTimeDiv: u32,
-}
-impl Default for MIDIPROPTIMEDIV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MIDIPROP_GET: i32 = 1073741824i32;
 pub const MIDIPROP_SET: i32 = -2147483648i32;
 pub const MIDIPROP_TEMPO: i32 = 2i32;
 pub const MIDIPROP_TIMEDIV: i32 = 1i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIDISTRMBUFFVER {
     pub dwVersion: u32,
     pub dwMid: u32,
     pub dwOEMVersion: u32,
-}
-impl Default for MIDISTRMBUFFVER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MIDISTRM_ERROR: i32 = -2i32;
 pub const MIDI_CACHE_ALL: u32 = 1u32;
@@ -8221,26 +8232,16 @@ impl Default for MIXERCONTROLA_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-impl Default for MIXERCONTROLA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
-}
-impl Default for MIXERCONTROLA_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8281,14 +8282,9 @@ impl Default for MIXERCONTROLDETAILS_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
     pub fValue: i32,
-}
-impl Default for MIXERCONTROLDETAILS_BOOLEAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8315,24 +8311,14 @@ impl Default for MIXERCONTROLDETAILS_LISTTEXTW {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_SIGNED {
     pub lValue: i32,
 }
-impl Default for MIXERCONTROLDETAILS_SIGNED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
     pub dwValue: u32,
-}
-impl Default for MIXERCONTROLDETAILS_UNSIGNED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8365,26 +8351,16 @@ impl Default for MIXERCONTROLW_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLW_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-impl Default for MIXERCONTROLW_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLW_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
-}
-impl Default for MIXERCONTROLW_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8662,15 +8638,10 @@ pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32)
 pub const Out: DataFlow = DataFlow(1i32);
 pub type PAudioStateMonitorCallback = Option<unsafe extern "system" fn(audiostatemonitor: windows_core::Ref<'_, IAudioStateMonitor>, context: *const core::ffi::c_void)>;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
     pub wBitsPerSample: u16,
-}
-impl Default for PCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PKEY_AudioEndpointLogo_IconEffects: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0 };
 pub const PKEY_AudioEndpointLogo_IconPath: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 1 };
@@ -8831,7 +8802,7 @@ pub const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: windows_core::HRESULT = windows_core:
 pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x88890201_u32 as _);
 pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: windows_core::HRESULT = windows_core::HRESULT(0x88890204_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SpatialAudioClientActivationParams {
     pub tracingContextId: windows_core::GUID,
     pub appId: windows_core::GUID,
@@ -8839,11 +8810,6 @@ pub struct SpatialAudioClientActivationParams {
     pub minorVersion1: i32,
     pub minorVersion2: i32,
     pub minorVersion3: i32,
-}
-impl Default for SpatialAudioClientActivationParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 pub struct SpatialAudioHrtfActivationParams {
@@ -8885,38 +8851,23 @@ impl Default for SpatialAudioHrtfActivationParams2 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDirectivity {
     pub Type: SpatialAudioHrtfDirectivityType,
     pub Scaling: f32,
 }
-impl Default for SpatialAudioHrtfDirectivity {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDirectivityCardioid {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub Order: f32,
 }
-impl Default for SpatialAudioHrtfDirectivityCardioid {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDirectivityCone {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub InnerAngle: f32,
     pub OuterAngle: f32,
-}
-impl Default for SpatialAudioHrtfDirectivityCone {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8937,18 +8888,13 @@ pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType 
 pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(2i32);
 pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDistanceDecay {
     pub Type: SpatialAudioHrtfDistanceDecayType,
     pub MaxGain: f32,
     pub MinGain: f32,
     pub UnityGainDistance: f32,
     pub CutoffDistance: f32,
-}
-impl Default for SpatialAudioHrtfDistanceDecay {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8971,17 +8917,12 @@ pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCop
 pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(2i32);
 pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(0i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SpatialAudioMetadataItemsInfo {
     pub FrameCount: u16,
     pub ItemCount: u16,
     pub MaxItemCount: u16,
     pub MaxValueBufferLength: u32,
-}
-impl Default for SpatialAudioMetadataItemsInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9067,15 +9008,10 @@ pub const UnknownDigitalPassthrough: EndpointFormFactor = EndpointFormFactor(7i3
 pub const UnknownFormFactor: EndpointFormFactor = EndpointFormFactor(10i32);
 pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: windows_core::PCWSTR = windows_core::w!("VAD\\Process_Loopback");
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VOLUMEWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
-}
-impl Default for VOLUMEWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WAVECAPS_LRVOLUME: u32 = 8u32;
 pub const WAVECAPS_PITCH: u32 = 1u32;
@@ -9097,7 +9033,7 @@ impl Default for WAVEFILTER {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WAVEFORMAT {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -9105,13 +9041,8 @@ pub struct WAVEFORMAT {
     pub nAvgBytesPerSec: u32,
     pub nBlockAlign: u16,
 }
-impl Default for WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WAVEFORMATEX {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -9120,11 +9051,6 @@ pub struct WAVEFORMATEX {
     pub nBlockAlign: u16,
     pub wBitsPerSample: u16,
     pub cbSize: u16,
-}
-impl Default for WAVEFORMATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]

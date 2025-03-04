@@ -103,26 +103,16 @@ pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) ->
     unsafe { WintrustSetRegPolicyFlags(dwpolicyflags) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAT_MEMBERINFO {
     pub pwszSubjGuid: windows_core::PWSTR,
     pub dwCertVersion: u32,
 }
-impl Default for CAT_MEMBERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAT_MEMBERINFO2 {
     pub SubjectGuid: windows_core::GUID,
     pub dwCertVersion: u32,
-}
-impl Default for CAT_MEMBERINFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CAT_MEMBERINFO2_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.3");
 pub const CAT_MEMBERINFO2_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2223i32 as _);
@@ -130,17 +120,11 @@ pub const CAT_MEMBERINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.
 pub const CAT_MEMBERINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2222i32 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAT_NAMEVALUE {
     pub pwszTag: windows_core::PWSTR,
     pub fdwFlags: u32,
     pub Value: super::Cryptography::CRYPT_INTEGER_BLOB,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for CAT_NAMEVALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CAT_NAMEVALUE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.1");
 pub const CAT_NAMEVALUE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2221i32 as _);
@@ -172,17 +156,12 @@ impl Default for CONFIG_CI_PROV_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONFIG_CI_PROV_INFO_RESULT {
     pub hr: windows_core::HRESULT,
     pub dwResult: u32,
     pub dwPolicyIndex: u32,
     pub fIsExplicitDeny: bool,
-}
-impl Default for CONFIG_CI_PROV_INFO_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -406,7 +385,7 @@ impl Default for CRYPT_PROVIDER_SIGSTATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CRYPT_PROVUI_DATA {
     pub cbStruct: u32,
     pub dwFinalError: u32,
@@ -417,11 +396,6 @@ pub struct CRYPT_PROVUI_DATA {
     pub pCopyActionText: windows_core::PWSTR,
     pub pCopyActionTextNoTS: windows_core::PWSTR,
     pub pCopyActionTextNotSigned: windows_core::PWSTR,
-}
-impl Default for CRYPT_PROVUI_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -441,7 +415,7 @@ impl Default for CRYPT_PROVUI_FUNCS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CRYPT_REGISTER_ACTIONID {
     pub cbStruct: u32,
     pub sInitProvider: CRYPT_TRUST_REG_ENTRY,
@@ -453,22 +427,12 @@ pub struct CRYPT_REGISTER_ACTIONID {
     pub sTestPolicyProvider: CRYPT_TRUST_REG_ENTRY,
     pub sCleanupProvider: CRYPT_TRUST_REG_ENTRY,
 }
-impl Default for CRYPT_REGISTER_ACTIONID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CRYPT_TRUST_REG_ENTRY {
     pub cbStruct: u32,
     pub pwszDLLName: windows_core::PWSTR,
     pub pwszFunctionName: windows_core::PWSTR,
-}
-impl Default for CRYPT_TRUST_REG_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DRIVER_ACTION_VERIFY: windows_core::GUID = windows_core::GUID::from_u128(0xf750e6c3_38ee_11d1_85e5_00c04fc295ee);
 pub const DRIVER_CLEANUPPOLICY_FUNCTION: windows_core::PCWSTR = windows_core::w!("DriverCleanupPolicy");
@@ -498,15 +462,10 @@ impl Default for DRIVER_VER_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRIVER_VER_MAJORMINOR {
     pub dwMajor: u32,
     pub dwMinor: u32,
-}
-impl Default for DRIVER_VER_MAJORMINOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
 pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(2u32);
@@ -517,15 +476,10 @@ pub const HTTPS_CERTTRUST_FUNCTION: windows_core::PCWSTR = windows_core::w!("HTT
 pub const HTTPS_CHKCERT_FUNCTION: windows_core::PCWSTR = windows_core::w!("HTTPSCheckCertProv");
 pub const HTTPS_FINALPOLICY_FUNCTION: windows_core::PCWSTR = windows_core::w!("HTTPSFinalProv");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
     pub seal: bool,
-}
-impl Default for INTENT_TO_SEAL_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2010i32 as _);
 pub const OFFICESIGN_ACTION_VERIFY: windows_core::GUID = windows_core::GUID::from_u128(0x5555c2cd_17fb_11d1_85c4_00c04fc295ee);
@@ -584,33 +538,21 @@ impl Default for PROVDATA_SIP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub version: u32,
     pub signerIndex: u32,
     pub signatureAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub encryptedDigest: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for SEALING_SIGNATURE_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2011i32 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEALING_TIMESTAMP_ATTRIBUTE {
     pub version: u32,
     pub signerIndex: u32,
     pub sealTimeStampToken: super::Cryptography::CRYPT_INTEGER_BLOB,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for SEALING_TIMESTAMP_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2012i32 as _);
 pub const SGNR_TYPE_TIMESTAMP: u32 = 16u32;
@@ -622,15 +564,10 @@ pub const SPC_COMMON_NAME_OBJID: windows_core::PCWSTR = windows_core::w!("2.5.4.
 pub const SPC_ENCRYPTED_DIGEST_RETRY_COUNT_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.6.2");
 pub const SPC_FILE_LINK_CHOICE: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPC_FINANCIAL_CRITERIA {
     pub fFinancialInfoAvailable: windows_core::BOOL,
     pub fMeetsCriteria: windows_core::BOOL,
-}
-impl Default for SPC_FINANCIAL_CRITERIA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPC_FINANCIAL_CRITERIA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.27");
 pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2002i32 as _);
@@ -653,17 +590,11 @@ impl Default for SPC_IMAGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPC_INDIRECT_DATA_CONTENT {
     pub Data: super::Cryptography::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::Cryptography::CRYPT_INTEGER_BLOB,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for SPC_INDIRECT_DATA_CONTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2003i32 as _);
 pub const SPC_INDIRECT_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.4");
@@ -736,7 +667,7 @@ impl Default for SPC_SERIALIZED_OBJECT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SPC_SIGINFO {
     pub dwSipVersion: u32,
     pub gSIPGuid: windows_core::GUID,
@@ -745,11 +676,6 @@ pub struct SPC_SIGINFO {
     pub dwReserved3: u32,
     pub dwReserved4: u32,
     pub dwReserved5: u32,
-}
-impl Default for SPC_SIGINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SPC_SIGINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.30");
 pub const SPC_SIGINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2130i32 as _);
@@ -1173,27 +1099,17 @@ impl Default for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE {
     pub hFile: super::super::Foundation::HANDLE,
     pub lpPath: windows_core::PCWSTR,
 }
-impl Default for WIN_TRUST_SUBJECT_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     pub hFile: super::super::Foundation::HANDLE,
     pub lpPath: windows_core::PCWSTR,
     pub lpDisplayName: windows_core::PCWSTR,
-}
-impl Default for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WIN_TRUST_SUBJTYPE_CABINET: windows_core::GUID = windows_core::GUID::from_u128(0xd17c5374_a392_11cf_9df5_00aa00c184e0);
 pub const WIN_TRUST_SUBJTYPE_CABINETEX: windows_core::GUID = windows_core::GUID::from_u128(0x6f458114_c2f1_11cf_8a69_00aa006c3706);

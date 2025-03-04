@@ -4206,6 +4206,7 @@ impl windows_core::RuntimeType for IAggregateContactManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAggregateContactManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindRawContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4218,6 +4219,7 @@ impl windows_core::RuntimeType for IAggregateContactManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAggregateContactManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetRemoteIdentificationInformationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4227,6 +4229,7 @@ impl windows_core::RuntimeType for IContact {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContact_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4246,6 +4249,7 @@ impl windows_core::RuntimeType for IContact2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContact2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4271,6 +4275,7 @@ impl windows_core::RuntimeType for IContact3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContact3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4314,6 +4319,7 @@ impl windows_core::RuntimeType for IContactAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAddress_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StreetAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4336,6 +4342,7 @@ impl windows_core::RuntimeType for IContactAnnotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAnnotation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4357,6 +4364,7 @@ impl windows_core::RuntimeType for IContactAnnotation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAnnotation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactListId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4367,6 +4375,7 @@ impl windows_core::RuntimeType for IContactAnnotationList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAnnotationList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4384,6 +4393,7 @@ impl windows_core::RuntimeType for IContactAnnotationStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAnnotationStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindContactIdsByEmailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4400,6 +4410,7 @@ impl windows_core::RuntimeType for IContactAnnotationStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactAnnotationStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindAnnotationsForContactListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4409,6 +4420,7 @@ impl windows_core::RuntimeType for IContactBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactBatch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Contacts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4419,6 +4431,7 @@ impl windows_core::RuntimeType for IContactCardDelayedDataLoader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactCardDelayedDataLoader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4428,6 +4441,7 @@ impl windows_core::RuntimeType for IContactCardOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactCardOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HeaderKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactCardHeaderKind) -> windows_core::HRESULT,
@@ -4440,6 +4454,7 @@ impl windows_core::RuntimeType for IContactCardOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactCardOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServerSearchContactListIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4449,6 +4464,7 @@ impl windows_core::RuntimeType for IContactChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactChange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactChangeType) -> windows_core::HRESULT,
@@ -4459,6 +4475,7 @@ impl windows_core::RuntimeType for IContactChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactChangeReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AcceptChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4470,6 +4487,7 @@ impl windows_core::RuntimeType for IContactChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactChangeTracker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4481,6 +4499,7 @@ impl windows_core::RuntimeType for IContactChangeTracker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactChangeTracker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTracking: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -4490,6 +4509,7 @@ impl windows_core::RuntimeType for IContactChangedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactChangedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4499,6 +4519,7 @@ impl windows_core::RuntimeType for IContactChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4508,6 +4529,7 @@ impl windows_core::RuntimeType for IContactConnectedServiceAccount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactConnectedServiceAccount_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4520,6 +4542,7 @@ impl windows_core::RuntimeType for IContactDate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactDate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Day: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4538,6 +4561,7 @@ impl windows_core::RuntimeType for IContactEmail {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactEmail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4656,6 +4680,7 @@ impl IContactField_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactField_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactFieldType) -> windows_core::HRESULT,
@@ -4752,6 +4777,7 @@ impl IContactFieldFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactFieldFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateField_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ContactFieldType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4763,6 +4789,7 @@ impl windows_core::RuntimeType for IContactGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -4771,6 +4798,7 @@ impl windows_core::RuntimeType for IContactInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4790,6 +4818,7 @@ impl windows_core::RuntimeType for IContactInstantMessageField {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactInstantMessageField_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4889,6 +4918,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactInstantMessageFieldFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstantMessage_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4900,6 +4930,7 @@ impl windows_core::RuntimeType for IContactJobInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactJobInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CompanyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4924,6 +4955,7 @@ impl windows_core::RuntimeType for IContactLaunchActionVerbsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactLaunchActionVerbsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4937,6 +4969,7 @@ impl windows_core::RuntimeType for IContactList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4970,6 +5003,7 @@ impl windows_core::RuntimeType for IContactList2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactList2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RegisterSyncManagerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4981,6 +5015,7 @@ impl windows_core::RuntimeType for IContactList3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactList3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LimitedWriteOperations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4991,6 +5026,7 @@ impl windows_core::RuntimeType for IContactListLimitedWriteOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactListLimitedWriteOperations_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreateOrUpdateContactAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5001,6 +5037,7 @@ impl windows_core::RuntimeType for IContactListSyncConstraints {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactListSyncConstraints_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanSyncDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -5065,6 +5102,7 @@ impl windows_core::RuntimeType for IContactListSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactListSyncManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactListSyncStatus) -> windows_core::HRESULT,
@@ -5079,6 +5117,7 @@ impl windows_core::RuntimeType for IContactListSyncManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactListSyncManager2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, ContactListSyncStatus) -> windows_core::HRESULT,
@@ -5090,6 +5129,7 @@ impl windows_core::RuntimeType for IContactLocationField {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactLocationField_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UnstructuredAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5188,6 +5228,7 @@ impl IContactLocationFieldFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactLocationFieldFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateLocation_Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5199,6 +5240,7 @@ impl windows_core::RuntimeType for IContactManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManagerForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -5229,6 +5271,7 @@ impl windows_core::RuntimeType for IContactManagerForUser2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManagerForUser2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowFullContactCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5238,6 +5281,7 @@ impl windows_core::RuntimeType for IContactManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowContactCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
@@ -5255,6 +5299,7 @@ impl windows_core::RuntimeType for IContactManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5264,6 +5309,7 @@ impl windows_core::RuntimeType for IContactManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -5301,6 +5347,7 @@ impl windows_core::RuntimeType for IContactManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -5313,6 +5360,7 @@ impl windows_core::RuntimeType for IContactManagerStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactManagerStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsShowFullContactCardSupportedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5324,6 +5372,7 @@ impl windows_core::RuntimeType for IContactMatchReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactMatchReason_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Field: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactMatchReasonKind) -> windows_core::HRESULT,
@@ -5338,6 +5387,7 @@ impl windows_core::RuntimeType for IContactName {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactName_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FirstName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5362,6 +5412,7 @@ impl windows_core::RuntimeType for IContactPanel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPanel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ClosePanel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5383,6 +5434,7 @@ impl windows_core::RuntimeType for IContactPanelClosingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPanelClosingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5392,6 +5444,7 @@ impl windows_core::RuntimeType for IContactPanelLaunchFullAppRequestedEventArgs 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPanelLaunchFullAppRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -5402,6 +5455,7 @@ impl windows_core::RuntimeType for IContactPhone {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPhone_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Number: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5416,6 +5470,7 @@ impl windows_core::RuntimeType for IContactPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CommitButtonText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5431,6 +5486,7 @@ impl windows_core::RuntimeType for IContactPicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPicker2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5442,6 +5498,7 @@ impl windows_core::RuntimeType for IContactPicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPicker3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -5454,6 +5511,7 @@ impl windows_core::RuntimeType for IContactPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactPickerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -5467,6 +5525,7 @@ impl windows_core::RuntimeType for IContactQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactQueryOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TextSearch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5484,6 +5543,7 @@ impl windows_core::RuntimeType for IContactQueryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactQueryOptionsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5494,6 +5554,7 @@ impl windows_core::RuntimeType for IContactQueryTextSearch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactQueryTextSearch_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Fields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactQuerySearchFields) -> windows_core::HRESULT,
@@ -5508,6 +5569,7 @@ impl windows_core::RuntimeType for IContactReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5518,6 +5580,7 @@ impl windows_core::RuntimeType for IContactSignificantOther {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactSignificantOther_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5530,6 +5593,7 @@ impl windows_core::RuntimeType for IContactSignificantOther2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactSignificantOther2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Relationship: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ContactRelationship) -> windows_core::HRESULT,
@@ -5540,6 +5604,7 @@ impl windows_core::RuntimeType for IContactStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindContactsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5551,6 +5616,7 @@ impl windows_core::RuntimeType for IContactStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5570,6 +5636,7 @@ impl windows_core::RuntimeType for IContactStore3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactStore3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5579,6 +5646,7 @@ impl windows_core::RuntimeType for IContactStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactStoreNotificationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -5587,6 +5655,7 @@ impl windows_core::RuntimeType for IContactWebsite {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactWebsite_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5599,6 +5668,7 @@ impl windows_core::RuntimeType for IContactWebsite2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContactWebsite2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RawValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5609,6 +5679,7 @@ impl windows_core::RuntimeType for IFullContactCardOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFullContactCardOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_ViewManagement")]
@@ -5628,6 +5699,7 @@ impl windows_core::RuntimeType for IKnownContactFieldStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownContactFieldStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Email: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5642,6 +5714,7 @@ impl windows_core::RuntimeType for IPinnedContactIdsQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPinnedContactIdsQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5651,6 +5724,7 @@ impl windows_core::RuntimeType for IPinnedContactManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPinnedContactManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -5670,6 +5744,7 @@ impl windows_core::RuntimeType for IPinnedContactManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPinnedContactManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

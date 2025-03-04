@@ -9,6 +9,7 @@ impl windows_core::RuntimeType for IPerceptionTimestamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPerceptionTimestamp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -19,6 +20,7 @@ impl windows_core::RuntimeType for IPerceptionTimestamp2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPerceptionTimestamp2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SystemRelativeTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -28,6 +30,7 @@ impl windows_core::RuntimeType for IPerceptionTimestampHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromHistoricalTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37,6 +40,7 @@ impl windows_core::RuntimeType for IPerceptionTimestampHelperStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromSystemRelativeTargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

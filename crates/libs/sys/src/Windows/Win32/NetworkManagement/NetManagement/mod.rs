@@ -211,6 +211,11 @@ pub const ACCESS_GROUP: u32 = 32768u32;
 pub struct ACCESS_INFO_0 {
     pub acc0_resource_name: windows_sys::core::PWSTR,
 }
+impl Default for ACCESS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACCESS_INFO_1 {
@@ -218,8 +223,13 @@ pub struct ACCESS_INFO_1 {
     pub acc1_attr: u32,
     pub acc1_count: u32,
 }
+impl Default for ACCESS_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACCESS_INFO_1002 {
     pub acc1002_attr: u32,
 }
@@ -229,6 +239,11 @@ pub const ACCESS_LETTERS: windows_sys::core::PCSTR = windows_sys::core::s!("RWCX
 pub struct ACCESS_LIST {
     pub acl_ugname: windows_sys::core::PWSTR,
     pub acl_access: u32,
+}
+impl Default for ACCESS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACCESS_NONE: u32 = 0u32;
 pub const ACCESS_RESOURCE_NAME_PARMNUM: u32 = 1u32;
@@ -240,13 +255,13 @@ pub const ACCESS_SUCCESS_WRITE: u32 = 32u32;
 pub const ACTION_ADMINUNLOCK: u32 = 1u32;
 pub const ACTION_LOCKOUT: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ADMIN_OTHER_INFO {
     pub alrtad_errcode: u32,
     pub alrtad_numstrings: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_ACCLIM {
     pub ae_al_compname: u32,
     pub ae_al_username: u32,
@@ -256,7 +271,7 @@ pub struct AE_ACCLIM {
 pub const AE_ACCLIMITEXCD: u32 = 17u32;
 pub const AE_ACCRESTRICT: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_ACLMOD {
     pub ae_am_compname: u32,
     pub ae_am_username: u32,
@@ -274,7 +289,7 @@ pub const AE_ADMIN_CLOSE: u32 = 2u32;
 pub const AE_AUTODIS: u32 = 2u32;
 pub const AE_BADPW: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_CLOSEFILE {
     pub ae_cf_compname: u32,
     pub ae_cf_username: u32,
@@ -285,7 +300,7 @@ pub struct AE_CLOSEFILE {
 }
 pub const AE_CLOSEFILE: u32 = 9u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_CONNREJ {
     pub ae_cr_compname: u32,
     pub ae_cr_username: u32,
@@ -294,7 +309,7 @@ pub struct AE_CONNREJ {
 }
 pub const AE_CONNREJ: u32 = 6u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_CONNSTART {
     pub ae_ct_compname: u32,
     pub ae_ct_username: u32,
@@ -303,7 +318,7 @@ pub struct AE_CONNSTART {
 }
 pub const AE_CONNSTART: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_CONNSTOP {
     pub ae_cp_compname: u32,
     pub ae_cp_username: u32,
@@ -316,7 +331,7 @@ pub const AE_DELETE: u32 = 1u32;
 pub const AE_ERROR: u32 = 1u32;
 pub const AE_GENERAL: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_GENERIC {
     pub ae_ge_msgfile: u32,
     pub ae_ge_msgnum: u32,
@@ -340,7 +355,7 @@ pub const AE_LIM_INVAL_WKSTA: u32 = 3u32;
 pub const AE_LIM_LOGONHOURS: u32 = 1u32;
 pub const AE_LIM_UNKNOWN: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_LOCKOUT {
     pub ae_lk_compname: u32,
     pub ae_lk_username: u32,
@@ -351,7 +366,7 @@ pub const AE_LOCKOUT: u32 = 20u32;
 pub const AE_MOD: u32 = 0u32;
 pub const AE_NETLOGDENIED: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_NETLOGOFF {
     pub ae_nf_compname: u32,
     pub ae_nf_username: u32,
@@ -360,7 +375,7 @@ pub struct AE_NETLOGOFF {
 }
 pub const AE_NETLOGOFF: u32 = 15u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_NETLOGON {
     pub ae_no_compname: u32,
     pub ae_no_username: u32,
@@ -372,7 +387,7 @@ pub const AE_NOACCESSPERM: u32 = 3u32;
 pub const AE_NORMAL: u32 = 0u32;
 pub const AE_NORMAL_CLOSE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_RESACCESS {
     pub ae_ra_compname: u32,
     pub ae_ra_username: u32,
@@ -385,7 +400,7 @@ pub struct AE_RESACCESS {
 pub const AE_RESACCESS: u32 = 7u32;
 pub const AE_RESACCESS2: u32 = 18u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_RESACCESSREJ {
     pub ae_rr_compname: u32,
     pub ae_rr_username: u32,
@@ -394,7 +409,7 @@ pub struct AE_RESACCESSREJ {
 }
 pub const AE_RESACCESSREJ: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_SERVICESTAT {
     pub ae_ss_compname: u32,
     pub ae_ss_username: u32,
@@ -407,7 +422,7 @@ pub struct AE_SERVICESTAT {
 pub const AE_SERVICESTAT: u32 = 11u32;
 pub const AE_SESSDIS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_SESSLOGOFF {
     pub ae_sf_compname: u32,
     pub ae_sf_username: u32,
@@ -415,7 +430,7 @@ pub struct AE_SESSLOGOFF {
 }
 pub const AE_SESSLOGOFF: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_SESSLOGON {
     pub ae_so_compname: u32,
     pub ae_so_username: u32,
@@ -423,7 +438,7 @@ pub struct AE_SESSLOGON {
 }
 pub const AE_SESSLOGON: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_SESSPWERR {
     pub ae_sp_compname: u32,
     pub ae_sp_username: u32,
@@ -434,14 +449,14 @@ pub const AE_SRVCONT: u32 = 2u32;
 pub const AE_SRVPAUSED: u32 = 1u32;
 pub const AE_SRVSTART: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_SRVSTATUS {
     pub ae_sv_status: u32,
 }
 pub const AE_SRVSTATUS: u32 = 0u32;
 pub const AE_SRVSTOP: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AE_UASMOD {
     pub ae_um_compname: u32,
     pub ae_um_username: u32,
@@ -482,6 +497,11 @@ pub struct AT_ENUM {
     pub Flags: u8,
     pub Command: windows_sys::core::PWSTR,
 }
+impl Default for AT_ENUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AT_INFO {
@@ -491,8 +511,13 @@ pub struct AT_INFO {
     pub Flags: u8,
     pub Command: windows_sys::core::PWSTR,
 }
+impl Default for AT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUDIT_ENTRY {
     pub ae_len: u32,
     pub ae_reserved: u32,
@@ -511,6 +536,11 @@ pub type COMPONENT_CHARACTERISTICS = i32;
 pub struct CONFIG_INFO_0 {
     pub cfgi0_key: windows_sys::core::PWSTR,
     pub cfgi0_data: windows_sys::core::PWSTR,
+}
+impl Default for CONFIG_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const COULD_NOT_VERIFY_VOLUMES: i32 = -1073727512i32;
 pub const CREATE_BYPASS_CSC: u32 = 2u32;
@@ -603,6 +633,12 @@ pub struct DSREG_JOIN_INFO {
     pub pszUserSettingSyncUrl: windows_sys::core::PWSTR,
     pub pUserInfo: *mut DSREG_USER_INFO,
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl Default for DSREG_JOIN_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DSREG_JOIN_TYPE = i32;
 pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = 0i32;
 #[repr(C)]
@@ -612,6 +648,11 @@ pub struct DSREG_USER_INFO {
     pub pszUserKeyId: windows_sys::core::PWSTR,
     pub pszUserKeyName: windows_sys::core::PWSTR,
 }
+impl Default for DSREG_USER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = 2i32;
 pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = 1i32;
 pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = 2i32;
@@ -620,7 +661,7 @@ pub type ENUM_BINDING_PATHS_FLAGS = i32;
 pub const ERRLOG2_BASE: u32 = 5700u32;
 pub const ERRLOG_BASE: u32 = 3100u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ERRLOG_OTHER_INFO {
     pub alrter_errcode: u32,
     pub alrter_offset: u32,
@@ -637,6 +678,11 @@ pub struct ERROR_LOG {
     pub el_data: *mut u8,
     pub el_data_size: u32,
     pub el_nstrings: u32,
+}
+impl Default for ERROR_LOG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EVENT_BAD_ACCOUNT_NAME: i32 = -1073734816i32;
 pub const EVENT_BAD_SERVICE_STATE: i32 = -1073734808i32;
@@ -1143,6 +1189,11 @@ pub struct FLAT_STRING {
     pub Length: i16,
     pub Buffer: [i8; 1],
 }
+impl Default for FLAT_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FORCE_LEVEL_FLAGS = u32;
 pub const GNLEN: u32 = 256u32;
 pub const GROUPIDMASK: u32 = 32768u32;
@@ -1154,19 +1205,34 @@ pub const GROUP_COMMENT_PARMNUM: u32 = 2u32;
 pub struct GROUP_INFO_0 {
     pub grpi0_name: windows_sys::core::PWSTR,
 }
+impl Default for GROUP_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GROUP_INFO_1 {
     pub grpi1_name: windows_sys::core::PWSTR,
     pub grpi1_comment: windows_sys::core::PWSTR,
 }
+impl Default for GROUP_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GROUP_INFO_1002 {
     pub grpi1002_comment: windows_sys::core::PWSTR,
 }
+impl Default for GROUP_INFO_1002 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GROUP_INFO_1005 {
     pub grpi1005_attributes: u32,
 }
@@ -1178,6 +1244,11 @@ pub struct GROUP_INFO_2 {
     pub grpi2_group_id: u32,
     pub grpi2_attributes: u32,
 }
+impl Default for GROUP_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1186,6 +1257,12 @@ pub struct GROUP_INFO_3 {
     pub grpi3_comment: windows_sys::core::PWSTR,
     pub grpi3_group_sid: super::super::Security::PSID,
     pub grpi3_attributes: u32,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for GROUP_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GROUP_NAME_PARMNUM: u32 = 1u32;
 pub const GROUP_SPECIALGRP_ADMINS: windows_sys::core::PCWSTR = windows_sys::core::w!("ADMINS");
@@ -1197,21 +1274,36 @@ pub const GROUP_SPECIALGRP_USERS: windows_sys::core::PCWSTR = windows_sys::core:
 pub struct GROUP_USERS_INFO_0 {
     pub grui0_name: windows_sys::core::PWSTR,
 }
+impl Default for GROUP_USERS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GROUP_USERS_INFO_1 {
     pub grui1_name: windows_sys::core::PWSTR,
     pub grui1_attributes: u32,
 }
+impl Default for GROUP_USERS_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HARDWARE_ADDRESS {
     pub Address: [u8; 6],
 }
+impl Default for HARDWARE_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HARDWARE_ADDRESS_LENGTH: u32 = 6u32;
 pub const HELP_MSG_FILENAME: windows_sys::core::PCWSTR = windows_sys::core::w!("NETH");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HLOG {
     pub time: u32,
     pub last_flags: u32,
@@ -1255,22 +1347,43 @@ pub const LOCALGROUP_COMMENT_PARMNUM: u32 = 2u32;
 pub struct LOCALGROUP_INFO_0 {
     pub lgrpi0_name: windows_sys::core::PWSTR,
 }
+impl Default for LOCALGROUP_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_INFO_1 {
     pub lgrpi1_name: windows_sys::core::PWSTR,
     pub lgrpi1_comment: windows_sys::core::PWSTR,
 }
+impl Default for LOCALGROUP_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_INFO_1002 {
     pub lgrpi1002_comment: windows_sys::core::PWSTR,
+}
+impl Default for LOCALGROUP_INFO_1002 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
     pub lgrmi0_sid: super::super::Security::PSID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for LOCALGROUP_MEMBERS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -1280,6 +1393,12 @@ pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi1_name: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for LOCALGROUP_MEMBERS_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -1288,16 +1407,32 @@ pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi2_domainandname: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for LOCALGROUP_MEMBERS_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_3 {
     pub lgrmi3_domainandname: windows_sys::core::PWSTR,
+}
+impl Default for LOCALGROUP_MEMBERS_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LOCALGROUP_NAME_PARMNUM: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_USERS_INFO_0 {
     pub lgrui0_name: windows_sys::core::PWSTR,
+}
+impl Default for LOCALGROUP_USERS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LOGFLAGS_BACKWARD: u32 = 1u32;
 pub const LOGFLAGS_FORWARD: u32 = 0u32;
@@ -1355,6 +1490,11 @@ pub struct MPR_PROTOCOL_0 {
     pub wszProtocol: [u16; 41],
     pub wszDLLName: [u16; 49],
 }
+impl Default for MPR_PROTOCOL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MRINFO_DISABLED_FLAG: u32 = 32u32;
 pub const MRINFO_DOWN_FLAG: u32 = 16u32;
 pub const MRINFO_LEAF_FLAG: u32 = 128u32;
@@ -1362,7 +1502,7 @@ pub const MRINFO_PIM_FLAG: u32 = 4u32;
 pub const MRINFO_QUERIER_FLAG: u32 = 64u32;
 pub const MRINFO_TUNNEL_FLAG: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MSA_INFO_0 {
     pub State: MSA_INFO_STATE,
 }
@@ -1376,12 +1516,22 @@ pub const MSGNAME_NOT_FORWARDED: u32 = 0u32;
 pub struct MSG_INFO_0 {
     pub msgi0_name: windows_sys::core::PWSTR,
 }
+impl Default for MSG_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MSG_INFO_1 {
     pub msgi1_name: windows_sys::core::PWSTR,
     pub msgi1_forward_flag: u32,
     pub msgi1_forward: windows_sys::core::PWSTR,
+}
+impl Default for MSG_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MS_ROUTER_VERSION: u32 = 1536u32;
 pub const MsaInfoCanInstall: MSA_INFO_STATE = 4i32;
@@ -2050,7 +2200,7 @@ pub const NETLOGON_FULL_SYNC_REPLICATION: u32 = 4u32;
 pub const NETLOGON_HAS_IP: u32 = 16u32;
 pub const NETLOGON_HAS_TIMESERV: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETLOGON_INFO_1 {
     pub netlog1_flags: u32,
     pub netlog1_pdc_connection_status: u32,
@@ -2063,8 +2213,13 @@ pub struct NETLOGON_INFO_2 {
     pub netlog2_trusted_dc_name: windows_sys::core::PWSTR,
     pub netlog2_tc_connection_status: u32,
 }
+impl Default for NETLOGON_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETLOGON_INFO_3 {
     pub netlog3_flags: u32,
     pub netlog3_logon_attempts: u32,
@@ -2079,6 +2234,11 @@ pub struct NETLOGON_INFO_3 {
 pub struct NETLOGON_INFO_4 {
     pub netlog4_trusted_dc_name: windows_sys::core::PWSTR,
     pub netlog4_trusted_domain_name: windows_sys::core::PWSTR,
+}
+impl Default for NETLOGON_INFO_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NETLOGON_REDO_NEEDED: u32 = 8u32;
 pub const NETLOGON_REPLICATION_IN_PROGRESS: u32 = 2u32;
@@ -2144,6 +2304,11 @@ pub struct NETSETUP_PROVISIONING_PARAMS {
     pub lpSiteName: windows_sys::core::PWSTR,
     pub lpPrimaryDNSDomain: windows_sys::core::PWSTR,
 }
+impl Default for NETSETUP_PROVISIONING_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: u32 = 2u32;
 pub const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: u32 = 1u32;
 pub const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648u32;
@@ -2158,7 +2323,7 @@ pub const NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = 32768u32;
 pub const NETSETUP_WIN9X_UPGRADE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 16u32;
 pub type NETWORK_INSTALL_TIME = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NETWORK_NAME {
     pub Name: FLAT_STRING,
 }
@@ -2175,6 +2340,11 @@ pub struct NET_DISPLAY_GROUP {
     pub grpi3_attributes: u32,
     pub grpi3_next_index: u32,
 }
+impl Default for NET_DISPLAY_GROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NET_DISPLAY_MACHINE {
@@ -2183,6 +2353,11 @@ pub struct NET_DISPLAY_MACHINE {
     pub usri2_flags: USER_ACCOUNT_FLAGS,
     pub usri2_user_id: u32,
     pub usri2_next_index: u32,
+}
+impl Default for NET_DISPLAY_MACHINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2194,6 +2369,11 @@ pub struct NET_DISPLAY_USER {
     pub usri1_user_id: u32,
     pub usri1_next_index: u32,
 }
+impl Default for NET_DISPLAY_USER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NET_IGNORE_UNSUPPORTED_FLAGS: u32 = 1u32;
 pub type NET_JOIN_DOMAIN_JOIN_OPTIONS = u32;
 pub type NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = u32;
@@ -2201,7 +2381,7 @@ pub type NET_REQUEST_PROVISION_OPTIONS = u32;
 pub type NET_SERVER_TYPE = u32;
 pub type NET_USER_ENUM_FILTER_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub PasswordMatched: bool,
@@ -2210,7 +2390,7 @@ pub const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8u32;
 pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2u32;
 pub const NET_VALIDATE_LOCKOUT_TIME: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NET_VALIDATE_OUTPUT_ARG {
     pub ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ValidationStatus: u32,
@@ -2224,11 +2404,21 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
     pub PasswordMatch: bool,
 }
+impl Default for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NET_VALIDATE_PASSWORD_HASH {
     pub Length: u32,
     pub Hash: *mut u8,
+}
+impl Default for NET_VALIDATE_PASSWORD_HASH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NET_VALIDATE_PASSWORD_HISTORY: u32 = 32u32;
 pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16u32;
@@ -2243,6 +2433,11 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub PasswordMustChangeAtNextLogon: bool,
     pub ClearLockout: bool,
 }
+impl Default for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type NET_VALIDATE_PASSWORD_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2254,6 +2449,11 @@ pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub BadPasswordCount: u32,
     pub PasswordHistoryLength: u32,
     pub PasswordHistory: *mut NET_VALIDATE_PASSWORD_HASH,
+}
+impl Default for NET_VALIDATE_PERSISTED_FIELDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NON_VALIDATED_LOGON: u32 = 3u32;
 pub const NOT_A_DFS_PATH: i32 = 1073756224i32;
@@ -2344,6 +2544,11 @@ pub struct OBO_TOKEN {
     pub pszwDisplayName: windows_sys::core::PCWSTR,
     pub fRegistered: windows_sys::core::BOOL,
 }
+impl Default for OBO_TOKEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type OBO_TOKEN_TYPE = i32;
 pub const OBO_USER: OBO_TOKEN_TYPE = 1i32;
 pub const OS2MSG_FILENAME: windows_sys::core::PCWSTR = windows_sys::core::w!("BASE");
@@ -2362,7 +2567,7 @@ pub const PREFIX_MISMATCH: i32 = -1073727510i32;
 pub const PREFIX_MISMATCH_FIXED: i32 = -1073727509i32;
 pub const PREFIX_MISMATCH_NOT_FIXED: i32 = -1073727508i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRINT_OTHER_INFO {
     pub alrtpr_jobid: u32,
     pub alrtpr_status: u32,
@@ -2426,6 +2631,11 @@ pub struct RASCON_IPUI {
     pub dwIPv4InfMetric: u32,
     pub dwIPv6InfMetric: u32,
 }
+impl Default for RASCON_IPUI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RASCON_UIINFO_FLAGS = i32;
 pub const RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = 2i32;
 pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = 32768i32;
@@ -2449,6 +2659,11 @@ pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: windows_sys::core::PCSTR = windo
 pub struct REPL_EDIR_INFO_0 {
     pub rped0_dirname: windows_sys::core::PWSTR,
 }
+impl Default for REPL_EDIR_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_1 {
@@ -2456,13 +2671,18 @@ pub struct REPL_EDIR_INFO_1 {
     pub rped1_integrity: u32,
     pub rped1_extent: u32,
 }
+impl Default for REPL_EDIR_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_EDIR_INFO_1000 {
     pub rped1000_integrity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_EDIR_INFO_1001 {
     pub rped1001_extent: u32,
 }
@@ -2475,6 +2695,11 @@ pub struct REPL_EDIR_INFO_2 {
     pub rped2_lockcount: u32,
     pub rped2_locktime: u32,
 }
+impl Default for REPL_EDIR_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const REPL_EXPORT_EXTENT_INFOLEVEL: u32 = 1001u32;
 pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: u32 = 1000u32;
 pub const REPL_EXTENT_FILE: u32 = 1u32;
@@ -2485,6 +2710,11 @@ pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002u32;
 pub struct REPL_IDIR_INFO_0 {
     pub rpid0_dirname: windows_sys::core::PWSTR,
 }
+impl Default for REPL_IDIR_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REPL_IDIR_INFO_1 {
@@ -2494,6 +2724,11 @@ pub struct REPL_IDIR_INFO_1 {
     pub rpid1_last_update_time: u32,
     pub rpid1_lockcount: u32,
     pub rpid1_locktime: u32,
+}
+impl Default for REPL_IDIR_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2509,23 +2744,28 @@ pub struct REPL_INFO_0 {
     pub rp0_guardtime: u32,
     pub rp0_random: u32,
 }
+impl Default for REPL_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_INFO_1000 {
     pub rp1000_interval: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_INFO_1001 {
     pub rp1001_pulse: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_INFO_1002 {
     pub rp1002_guardtime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPL_INFO_1003 {
     pub rp1003_random: u32,
 }
@@ -2563,9 +2803,14 @@ pub struct RTR_INFO_BLOCK_HEADER {
     pub TocEntriesCount: u32,
     pub TocEntry: [RTR_TOC_ENTRY; 1],
 }
+impl Default for RTR_INFO_BLOCK_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const RTR_INFO_BLOCK_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RTR_TOC_ENTRY {
     pub InfoType: u32,
     pub InfoSize: u32,
@@ -2582,10 +2827,20 @@ pub struct SERVER_INFO_100 {
     pub sv100_platform_id: u32,
     pub sv100_name: windows_sys::core::PWSTR,
 }
+impl Default for SERVER_INFO_100 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_1005 {
     pub sv1005_comment: windows_sys::core::PWSTR,
+}
+impl Default for SERVER_INFO_1005 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2597,23 +2852,28 @@ pub struct SERVER_INFO_101 {
     pub sv101_type: NET_SERVER_TYPE,
     pub sv101_comment: windows_sys::core::PWSTR,
 }
+impl Default for SERVER_INFO_101 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1010 {
     pub sv1010_disc: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1016 {
     pub sv1016_hidden: SERVER_INFO_HIDDEN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1017 {
     pub sv1017_announce: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1018 {
     pub sv1018_anndelta: u32,
 }
@@ -2634,6 +2894,11 @@ pub struct SERVER_INFO_102 {
     pub sv102_licenses: u32,
     pub sv102_userpath: windows_sys::core::PWSTR,
 }
+impl Default for SERVER_INFO_102 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_INFO_103 {
@@ -2652,448 +2917,453 @@ pub struct SERVER_INFO_103 {
     pub sv103_userpath: windows_sys::core::PWSTR,
     pub sv103_capabilities: u32,
 }
+impl Default for SERVER_INFO_103 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1107 {
     pub sv1107_users: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1501 {
     pub sv1501_sessopens: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1502 {
     pub sv1502_sessvcs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1503 {
     pub sv1503_opensearch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1506 {
     pub sv1506_maxworkitems: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1509 {
     pub sv1509_maxrawbuflen: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1510 {
     pub sv1510_sessusers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1511 {
     pub sv1511_sessconns: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1512 {
     pub sv1512_maxnonpagedmemoryusage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1513 {
     pub sv1513_maxpagedmemoryusage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1514 {
     pub sv1514_enablesoftcompat: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1515 {
     pub sv1515_enableforcedlogoff: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1516 {
     pub sv1516_timesource: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1518 {
     pub sv1518_lmannounce: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1520 {
     pub sv1520_maxcopyreadlen: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1521 {
     pub sv1521_maxcopywritelen: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1522 {
     pub sv1522_minkeepsearch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1523 {
     pub sv1523_maxkeepsearch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1524 {
     pub sv1524_minkeepcomplsearch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1525 {
     pub sv1525_maxkeepcomplsearch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1528 {
     pub sv1528_scavtimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1529 {
     pub sv1529_minrcvqueue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1530 {
     pub sv1530_minfreeworkitems: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1533 {
     pub sv1533_maxmpxct: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1534 {
     pub sv1534_oplockbreakwait: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1535 {
     pub sv1535_oplockbreakresponsewait: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1536 {
     pub sv1536_enableoplocks: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1537 {
     pub sv1537_enableoplockforceclose: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1538 {
     pub sv1538_enablefcbopens: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1539 {
     pub sv1539_enableraw: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1540 {
     pub sv1540_enablesharednetdrives: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1541 {
     pub sv1541_minfreeconnections: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1542 {
     pub sv1542_maxfreeconnections: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1543 {
     pub sv1543_initsesstable: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1544 {
     pub sv1544_initconntable: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1545 {
     pub sv1545_initfiletable: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1546 {
     pub sv1546_initsearchtable: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1547 {
     pub sv1547_alertschedule: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1548 {
     pub sv1548_errorthreshold: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1549 {
     pub sv1549_networkerrorthreshold: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1550 {
     pub sv1550_diskspacethreshold: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1552 {
     pub sv1552_maxlinkdelay: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1553 {
     pub sv1553_minlinkthroughput: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1554 {
     pub sv1554_linkinfovalidtime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1555 {
     pub sv1555_scavqosinfoupdatetime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1556 {
     pub sv1556_maxworkitemidletime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1557 {
     pub sv1557_maxrawworkitems: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1560 {
     pub sv1560_producttype: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1561 {
     pub sv1561_serversize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1562 {
     pub sv1562_connectionlessautodisc: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1563 {
     pub sv1563_sharingviolationretries: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1564 {
     pub sv1564_sharingviolationdelay: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1565 {
     pub sv1565_maxglobalopensearch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1566 {
     pub sv1566_removeduplicatesearches: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1567 {
     pub sv1567_lockviolationretries: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1568 {
     pub sv1568_lockviolationoffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1569 {
     pub sv1569_lockviolationdelay: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1570 {
     pub sv1570_mdlreadswitchover: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1571 {
     pub sv1571_cachedopenlimit: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1572 {
     pub sv1572_criticalthreads: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1573 {
     pub sv1573_restrictnullsessaccess: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1574 {
     pub sv1574_enablewfw311directipx: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1575 {
     pub sv1575_otherqueueaffinity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1576 {
     pub sv1576_queuesamplesecs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1577 {
     pub sv1577_balancecount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1578 {
     pub sv1578_preferredaffinity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1579 {
     pub sv1579_maxfreerfcbs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1580 {
     pub sv1580_maxfreemfcbs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1581 {
     pub sv1581_maxfreemlcbs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1582 {
     pub sv1582_maxfreepagedpoolchunks: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1583 {
     pub sv1583_minpagedpoolchunksize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1584 {
     pub sv1584_maxpagedpoolchunksize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1585 {
     pub sv1585_sendsfrompreferredprocessor: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1586 {
     pub sv1586_maxthreadsperqueue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1587 {
     pub sv1587_cacheddirectorylimit: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1588 {
     pub sv1588_maxcopylength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1590 {
     pub sv1590_enablecompression: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1591 {
     pub sv1591_autosharewks: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1592 {
     pub sv1592_autosharewks: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1593 {
     pub sv1593_enablesecuritysignature: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1594 {
     pub sv1594_requiresecuritysignature: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1595 {
     pub sv1595_minclientbuffersize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1596 {
     pub sv1596_ConnectionNoSessionsTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1597 {
     pub sv1597_IdleThreadTimeOut: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1598 {
     pub sv1598_enableW9xsecuritysignature: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1599 {
     pub sv1598_enforcekerberosreauthentication: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1600 {
     pub sv1598_disabledos: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1601 {
     pub sv1598_lowdiskspaceminimum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_1602 {
     pub sv_1598_disablestrictnamechecking: windows_sys::core::BOOL,
 }
@@ -3131,6 +3401,11 @@ pub struct SERVER_INFO_402 {
     pub sv402_netioalert: u32,
     pub sv402_maxauditsz: u32,
     pub sv402_srvheuristics: windows_sys::core::PWSTR,
+}
+impl Default for SERVER_INFO_402 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3170,8 +3445,13 @@ pub struct SERVER_INFO_403 {
     pub sv403_autoprofile: u32,
     pub sv403_autopath: windows_sys::core::PWSTR,
 }
+impl Default for SERVER_INFO_403 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_502 {
     pub sv502_sessopens: u32,
     pub sv502_sessvcs: u32,
@@ -3238,8 +3518,13 @@ pub struct SERVER_INFO_503 {
     pub sv503_minfreeconnections: u32,
     pub sv503_maxfreeconnections: u32,
 }
+impl Default for SERVER_INFO_503 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVER_INFO_598 {
     pub sv598_maxrawworkitems: u32,
     pub sv598_maxthreadsperqueue: u32,
@@ -3345,6 +3630,11 @@ pub struct SERVER_INFO_599 {
     pub sv599_scavqosinfoupdatetime: u32,
     pub sv599_maxworkitemidletime: u32,
 }
+impl Default for SERVER_INFO_599 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SERVER_INFO_HIDDEN = i32;
 pub type SERVER_INFO_SECURITY = u32;
 #[repr(C)]
@@ -3356,6 +3646,11 @@ pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_transportaddresslength: u32,
     pub svti0_networkaddress: windows_sys::core::PWSTR,
 }
+impl Default for SERVER_TRANSPORT_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVER_TRANSPORT_INFO_1 {
@@ -3365,6 +3660,11 @@ pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_transportaddresslength: u32,
     pub svti1_networkaddress: windows_sys::core::PWSTR,
     pub svti1_domain: windows_sys::core::PWSTR,
+}
+impl Default for SERVER_TRANSPORT_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3376,6 +3676,11 @@ pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_networkaddress: windows_sys::core::PWSTR,
     pub svti2_domain: windows_sys::core::PWSTR,
     pub svti2_flags: u32,
+}
+impl Default for SERVER_TRANSPORT_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3389,6 +3694,11 @@ pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_flags: u32,
     pub svti3_passwordlength: u32,
     pub svti3_password: [u8; 256],
+}
+impl Default for SERVER_TRANSPORT_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE2_BASE: u32 = 5600u32;
 pub const SERVICE_ACCOUNT_FLAG_ADD_AGAINST_RODC: i32 = 2i32;
@@ -3422,6 +3732,11 @@ pub const SERVICE_DSROLE: windows_sys::core::PCWSTR = windows_sys::core::w!("DsR
 pub struct SERVICE_INFO_0 {
     pub svci0_name: windows_sys::core::PWSTR,
 }
+impl Default for SERVICE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVICE_INFO_1 {
@@ -3429,6 +3744,11 @@ pub struct SERVICE_INFO_1 {
     pub svci1_status: u32,
     pub svci1_code: u32,
     pub svci1_pid: u32,
+}
+impl Default for SERVICE_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3440,6 +3760,11 @@ pub struct SERVICE_INFO_2 {
     pub svci2_text: windows_sys::core::PWSTR,
     pub svci2_specific_error: u32,
     pub svci2_display_name: windows_sys::core::PWSTR,
+}
+impl Default for SERVICE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_INSTALLED: u32 = 3u32;
 pub const SERVICE_INSTALL_PENDING: u32 = 1u32;
@@ -3576,7 +3901,7 @@ pub const SESSION_CRYPT_KLEN: u32 = 21u32;
 pub const SESSION_PWLEN: u32 = 24u32;
 pub const SHPWLEN: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMB_COMPRESSION_INFO {
     pub Switch: bool,
     pub Reserved1: u8,
@@ -3584,7 +3909,7 @@ pub struct SMB_COMPRESSION_INFO {
     pub Reserved3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMB_TREE_CONNECT_PARAMETERS {
     pub EABufferOffset: u32,
     pub EABufferLen: u32,
@@ -3592,7 +3917,7 @@ pub struct SMB_TREE_CONNECT_PARAMETERS {
     pub TreeConnectAttributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
@@ -3607,6 +3932,11 @@ pub struct STD_ALERT {
     pub alrt_timestamp: u32,
     pub alrt_eventname: [u16; 17],
     pub alrt_servicename: [u16; 81],
+}
+impl Default for STD_ALERT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STXTLEN: u32 = 256u32;
 pub const SUPPORTS_ANY: i32 = -1i32;
@@ -3822,7 +4152,7 @@ pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
 pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
 pub const ServiceAccountPasswordGUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x262e99c9_6160_4871_acec_4e61736b6f21);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIME_OF_DAY_INFO {
     pub tod_elapsedt: u32,
     pub tod_msecs: u32,
@@ -3846,7 +4176,7 @@ pub const TRACE_USE_FILE: u32 = 1u32;
 pub const TRACE_USE_MASK: u32 = 2u32;
 pub const TRACE_USE_MSEC: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
     pub SkipCertificateCheck: bool,
@@ -3902,6 +4232,11 @@ pub const USER_HOME_DIR_PARMNUM: u32 = 6u32;
 pub struct USER_INFO_0 {
     pub usri0_name: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1 {
@@ -3914,6 +4249,11 @@ pub struct USER_INFO_1 {
     pub usri1_flags: USER_ACCOUNT_FLAGS,
     pub usri1_script_path: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_10 {
@@ -3922,13 +4262,23 @@ pub struct USER_INFO_10 {
     pub usri10_usr_comment: windows_sys::core::PWSTR,
     pub usri10_full_name: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1003 {
     pub usri1003_password: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1003 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1005 {
     pub usri1005_priv: USER_PRIV,
 }
@@ -3937,13 +4287,23 @@ pub struct USER_INFO_1005 {
 pub struct USER_INFO_1006 {
     pub usri1006_home_dir: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1006 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1007 {
     pub usri1007_comment: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1007 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1008 {
     pub usri1008_flags: USER_ACCOUNT_FLAGS,
 }
@@ -3952,8 +4312,13 @@ pub struct USER_INFO_1008 {
 pub struct USER_INFO_1009 {
     pub usri1009_script_path: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1009 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1010 {
     pub usri1010_auth_flags: AF_OP,
 }
@@ -3962,28 +4327,48 @@ pub struct USER_INFO_1010 {
 pub struct USER_INFO_1011 {
     pub usri1011_full_name: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1011 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1012 {
     pub usri1012_usr_comment: windows_sys::core::PWSTR,
+}
+impl Default for USER_INFO_1012 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1013 {
     pub usri1013_parms: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1013 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1014 {
     pub usri1014_workstations: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1014 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1017 {
     pub usri1017_acct_expires: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1018 {
     pub usri1018_max_storage: u32,
 }
@@ -3993,23 +4378,33 @@ pub struct USER_INFO_1020 {
     pub usri1020_units_per_week: u32,
     pub usri1020_logon_hours: *mut u8,
 }
+impl Default for USER_INFO_1020 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1023 {
     pub usri1023_logon_server: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1023 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1024 {
     pub usri1024_country_code: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1025 {
     pub usri1025_code_page: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_INFO_1051 {
     pub usri1051_primary_group_id: u32,
 }
@@ -4018,10 +4413,20 @@ pub struct USER_INFO_1051 {
 pub struct USER_INFO_1052 {
     pub usri1052_profile: windows_sys::core::PWSTR,
 }
+impl Default for USER_INFO_1052 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_1053 {
     pub usri1053_home_dir_drive: windows_sys::core::PWSTR,
+}
+impl Default for USER_INFO_1053 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4046,6 +4451,11 @@ pub struct USER_INFO_11 {
     pub usri11_units_per_week: u32,
     pub usri11_logon_hours: *mut u8,
     pub usri11_code_page: u32,
+}
+impl Default for USER_INFO_11 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4075,6 +4485,11 @@ pub struct USER_INFO_2 {
     pub usri2_country_code: u32,
     pub usri2_code_page: u32,
 }
+impl Default for USER_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_20 {
@@ -4084,10 +4499,20 @@ pub struct USER_INFO_20 {
     pub usri20_flags: USER_ACCOUNT_FLAGS,
     pub usri20_user_id: u32,
 }
+impl Default for USER_INFO_20 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_21 {
     pub usri21_password: [u8; 16],
+}
+impl Default for USER_INFO_21 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4117,6 +4542,11 @@ pub struct USER_INFO_22 {
     pub usri22_country_code: u32,
     pub usri22_code_page: u32,
 }
+impl Default for USER_INFO_22 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -4127,6 +4557,12 @@ pub struct USER_INFO_23 {
     pub usri23_flags: USER_ACCOUNT_FLAGS,
     pub usri23_user_sid: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for USER_INFO_23 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -4136,6 +4572,12 @@ pub struct USER_INFO_24 {
     pub usri24_internet_provider_name: windows_sys::core::PWSTR,
     pub usri24_internet_principal_name: windows_sys::core::PWSTR,
     pub usri24_user_sid: super::super::Security::PSID,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for USER_INFO_24 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4169,6 +4611,11 @@ pub struct USER_INFO_3 {
     pub usri3_profile: windows_sys::core::PWSTR,
     pub usri3_home_dir_drive: windows_sys::core::PWSTR,
     pub usri3_password_expired: u32,
+}
+impl Default for USER_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -4204,13 +4651,19 @@ pub struct USER_INFO_4 {
     pub usri4_home_dir_drive: windows_sys::core::PWSTR,
     pub usri4_password_expired: u32,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for USER_INFO_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const USER_LAST_LOGOFF_PARMNUM: u32 = 16u32;
 pub const USER_LAST_LOGON_PARMNUM: u32 = 15u32;
 pub const USER_LOGON_HOURS_PARMNUM: u32 = 20u32;
 pub const USER_LOGON_SERVER_PARMNUM: u32 = 23u32;
 pub const USER_MAX_STORAGE_PARMNUM: u32 = 18u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_0 {
     pub usrmod0_min_passwd_len: u32,
     pub usrmod0_max_passwd_age: u32,
@@ -4224,33 +4677,38 @@ pub struct USER_MODALS_INFO_1 {
     pub usrmod1_role: u32,
     pub usrmod1_primary: windows_sys::core::PWSTR,
 }
+impl Default for USER_MODALS_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_1001 {
     pub usrmod1001_min_passwd_len: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_1002 {
     pub usrmod1002_max_passwd_age: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_1003 {
     pub usrmod1003_min_passwd_age: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_1004 {
     pub usrmod1004_force_logoff: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_1005 {
     pub usrmod1005_password_hist_len: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_1006 {
     pub usrmod1006_role: USER_MODALS_ROLES,
 }
@@ -4259,6 +4717,11 @@ pub struct USER_MODALS_INFO_1006 {
 pub struct USER_MODALS_INFO_1007 {
     pub usrmod1007_primary: windows_sys::core::PWSTR,
 }
+impl Default for USER_MODALS_INFO_1007 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -4266,8 +4729,14 @@ pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: windows_sys::core::PWSTR,
     pub usrmod2_domain_id: super::super::Security::PSID,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for USER_MODALS_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MODALS_INFO_3 {
     pub usrmod3_lockout_duration: u32,
     pub usrmod3_lockout_observation_window: u32,
@@ -4277,7 +4746,7 @@ pub type USER_MODALS_ROLES = u32;
 pub const USER_NAME_PARMNUM: u32 = 1u32;
 pub const USER_NUM_LOGONS_PARMNUM: u32 = 22u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_OTHER_INFO {
     pub alrtus_errcode: u32,
     pub alrtus_numstrings: u32,
@@ -4316,6 +4785,11 @@ pub struct USE_INFO_0 {
     pub ui0_local: windows_sys::core::PWSTR,
     pub ui0_remote: windows_sys::core::PWSTR,
 }
+impl Default for USE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USE_INFO_1 {
@@ -4326,6 +4800,11 @@ pub struct USE_INFO_1 {
     pub ui1_asg_type: USE_INFO_ASG_TYPE,
     pub ui1_refcount: u32,
     pub ui1_usecount: u32,
+}
+impl Default for USE_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4340,8 +4819,13 @@ pub struct USE_INFO_2 {
     pub ui2_username: windows_sys::core::PWSTR,
     pub ui2_domainname: windows_sys::core::PWSTR,
 }
+impl Default for USE_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USE_INFO_3 {
     pub ui3_ui2: USE_INFO_2,
     pub ui3_flags: u32,
@@ -4352,6 +4836,11 @@ pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
     pub ui4_auth_identity: *mut u8,
+}
+impl Default for USE_INFO_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4364,6 +4853,11 @@ pub struct USE_INFO_5 {
     pub ui5_use_options_length: u32,
     pub ui5_use_options: *mut u8,
 }
+impl Default for USE_INFO_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type USE_INFO_ASG_TYPE = u32;
 pub const USE_IPC: USE_INFO_ASG_TYPE = 3u32;
 pub const USE_LOCAL_PARMNUM: u32 = 1u32;
@@ -4373,14 +4867,14 @@ pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = 0u32;
 pub const USE_OK: u32 = 0u32;
 pub const USE_OPTIONS_PARMNUM: u32 = 10u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USE_OPTION_GENERIC {
     pub Tag: u32,
     pub Length: u16,
@@ -4393,8 +4887,13 @@ pub struct USE_OPTION_PROPERTIES {
     pub pInfo: *mut core::ffi::c_void,
     pub Length: usize,
 }
+impl Default for USE_OPTION_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USE_OPTION_TRANSPORT_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
@@ -4435,6 +4934,11 @@ pub struct WKSTA_INFO_100 {
     pub wki100_ver_major: u32,
     pub wki100_ver_minor: u32,
 }
+impl Default for WKSTA_INFO_100 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_101 {
@@ -4445,28 +4949,33 @@ pub struct WKSTA_INFO_101 {
     pub wki101_ver_minor: u32,
     pub wki101_lanroot: windows_sys::core::PWSTR,
 }
+impl Default for WKSTA_INFO_101 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1010 {
     pub wki1010_char_wait: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1011 {
     pub wki1011_collection_time: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1012 {
     pub wki1012_maximum_collection_count: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1013 {
     pub wki1013_keep_conn: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1018 {
     pub wki1018_sess_timeout: u32,
 }
@@ -4481,138 +4990,143 @@ pub struct WKSTA_INFO_102 {
     pub wki102_lanroot: windows_sys::core::PWSTR,
     pub wki102_logged_on_users: u32,
 }
+impl Default for WKSTA_INFO_102 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1023 {
     pub wki1023_siz_char_buf: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1027 {
     pub wki1027_errlog_sz: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1028 {
     pub wki1028_print_buf_time: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1032 {
     pub wki1032_wrk_heuristics: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1033 {
     pub wki1033_max_threads: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1041 {
     pub wki1041_lock_quota: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1042 {
     pub wki1042_lock_increment: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1043 {
     pub wki1043_lock_maximum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1044 {
     pub wki1044_pipe_increment: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1045 {
     pub wki1045_pipe_maximum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1046 {
     pub wki1046_dormant_file_limit: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1047 {
     pub wki1047_cache_file_timeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1048 {
     pub wki1048_use_opportunistic_locking: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1049 {
     pub wki1049_use_unlock_behind: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1050 {
     pub wki1050_use_close_behind: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1051 {
     pub wki1051_buf_named_pipes: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1052 {
     pub wki1052_use_lock_read_unlock: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1053 {
     pub wki1053_utilize_nt_caching: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1054 {
     pub wki1054_use_raw_read: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1055 {
     pub wki1055_use_raw_write: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1056 {
     pub wki1056_use_write_raw_data: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1057 {
     pub wki1057_use_encryption: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1058 {
     pub wki1058_buf_files_deny_write: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1059 {
     pub wki1059_buf_read_only_files: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1060 {
     pub wki1060_force_core_create_mode: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1061 {
     pub wki1061_use_512_byte_max_transfer: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_1062 {
     pub wki1062_read_ahead_throughput: u32,
 }
@@ -4640,6 +5154,11 @@ pub struct WKSTA_INFO_302 {
     pub wki302_mailslots: u32,
     pub wki302_num_dgram_buf: u32,
 }
+impl Default for WKSTA_INFO_302 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_INFO_402 {
@@ -4665,8 +5184,13 @@ pub struct WKSTA_INFO_402 {
     pub wki402_num_dgram_buf: u32,
     pub wki402_max_threads: u32,
 }
+impl Default for WKSTA_INFO_402 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WKSTA_INFO_502 {
     pub wki502_char_wait: u32,
     pub wki502_collection_time: u32,
@@ -4742,6 +5266,11 @@ pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_transport_address: windows_sys::core::PWSTR,
     pub wkti0_wan_ish: windows_sys::core::BOOL,
 }
+impl Default for WKSTA_TRANSPORT_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WKSTA_USE512BYTESMAXTRANSFER_PARMNUM: u32 = 61u32;
 pub const WKSTA_USECLOSEBEHIND_PARMNUM: u32 = 50u32;
 pub const WKSTA_USEENCRYPTION_PARMNUM: u32 = 57u32;
@@ -4754,6 +5283,11 @@ pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55u32;
 pub struct WKSTA_USER_INFO_0 {
     pub wkui0_username: windows_sys::core::PWSTR,
 }
+impl Default for WKSTA_USER_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_USER_INFO_1 {
@@ -4762,10 +5296,20 @@ pub struct WKSTA_USER_INFO_1 {
     pub wkui1_oth_domains: windows_sys::core::PWSTR,
     pub wkui1_logon_server: windows_sys::core::PWSTR,
 }
+impl Default for WKSTA_USER_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WKSTA_USER_INFO_1101 {
     pub wkui1101_oth_domains: windows_sys::core::PWSTR,
+}
+impl Default for WKSTA_USER_INFO_1101 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WKSTA_USEUNLOCKBEHIND_PARMNUM: u32 = 49u32;
 pub const WKSTA_USEWRITERAWWITHDATA_PARMNUM: u32 = 56u32;

@@ -28,7 +28,7 @@ pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
 pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
@@ -81,5 +81,10 @@ pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
+}
+impl Default for SECURITY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WIN32_ERROR = u32;

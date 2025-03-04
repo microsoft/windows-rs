@@ -53,6 +53,7 @@ impl windows_core::RuntimeType for ICardAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICardAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -62,6 +63,7 @@ impl windows_core::RuntimeType for ICardRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICardRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -71,6 +73,7 @@ impl windows_core::RuntimeType for IKnownSmartCardAppletIds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownSmartCardAppletIds_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -87,6 +90,7 @@ impl windows_core::RuntimeType for ISmartCard {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCard_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -101,6 +105,7 @@ impl windows_core::RuntimeType for ISmartCardAppletIdGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAppletIdGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -121,6 +126,7 @@ impl windows_core::RuntimeType for ISmartCardAppletIdGroup2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAppletIdGroup2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -145,6 +151,7 @@ impl windows_core::RuntimeType for ISmartCardAppletIdGroupFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAppletIdGroupFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -157,6 +164,7 @@ impl windows_core::RuntimeType for ISmartCardAppletIdGroupRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ActivationPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardAppletIdGroupActivationPolicy) -> windows_core::HRESULT,
@@ -170,6 +178,7 @@ impl windows_core::RuntimeType for ISmartCardAppletIdGroupRegistration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SmartCardReaderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -183,6 +192,7 @@ impl windows_core::RuntimeType for ISmartCardAppletIdGroupStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAppletIdGroupStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxAppletIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -192,6 +202,7 @@ impl windows_core::RuntimeType for ISmartCardAutomaticResponseApdu {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -234,6 +245,7 @@ impl windows_core::RuntimeType for ISmartCardAutomaticResponseApdu2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InputState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -246,6 +258,7 @@ impl windows_core::RuntimeType for ISmartCardAutomaticResponseApdu3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowWhenCryptogramGeneratorNotPrepared: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -256,6 +269,7 @@ impl windows_core::RuntimeType for ISmartCardAutomaticResponseApduFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApduFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -268,6 +282,7 @@ impl windows_core::RuntimeType for ISmartCardChallengeContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardChallengeContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -296,6 +311,7 @@ impl windows_core::RuntimeType for ISmartCardConnect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardConnect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -305,6 +321,7 @@ impl windows_core::RuntimeType for ISmartCardConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -317,6 +334,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGenerator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SupportedCryptogramMaterialTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -346,6 +364,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGenerator2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -362,6 +381,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGeneratorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetSmartCardCryptogramGeneratorAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -371,6 +391,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGeneratorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -380,6 +401,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramMaterialC
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
@@ -390,6 +412,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramMaterialP
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
@@ -400,6 +423,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramGetAllCryptogramStorageKe
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
@@ -410,6 +434,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramMaterialCharacteristics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialCharacteristics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaterialName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -426,6 +451,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramMaterialPackageCharacteri
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PackageName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -438,6 +464,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramMaterialPossessionProof {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPossessionProof_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
@@ -451,6 +478,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramPlacementStep {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramPlacementStep_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Algorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramAlgorithm) -> windows_core::HRESULT,
@@ -483,6 +511,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramStorageKeyCharacteristics
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyCharacteristics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StorageKeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -495,6 +524,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramStorageKeyInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramGeneratorOperationStatus) -> windows_core::HRESULT,
@@ -522,6 +552,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramStorageKeyInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperationalRequirements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -531,6 +562,7 @@ impl windows_core::RuntimeType for ISmartCardEmulator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnablementPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardEmulatorEnablementPolicy) -> windows_core::HRESULT,
@@ -540,6 +572,7 @@ impl windows_core::RuntimeType for ISmartCardEmulator2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulator2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ApduReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -554,6 +587,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorApduReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -572,6 +606,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorApduReceivedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -585,6 +620,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorApduReceivedEventArgsWithCr
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -601,6 +637,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorConnectionDeactivatedEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -611,6 +648,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorConnectionProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -621,6 +659,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -630,6 +669,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAppletIdGroupRegistrationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -642,6 +682,7 @@ impl windows_core::RuntimeType for ISmartCardEmulatorStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardEmulatorStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -651,6 +692,7 @@ impl windows_core::RuntimeType for ISmartCardPinPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardPinPolicy_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -671,6 +713,7 @@ impl windows_core::RuntimeType for ISmartCardPinResetDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardPinResetDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -680,6 +723,7 @@ impl windows_core::RuntimeType for ISmartCardPinResetRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardPinResetRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -698,6 +742,7 @@ impl windows_core::RuntimeType for ISmartCardProvisioning {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardProvisioning_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -712,6 +757,7 @@ impl windows_core::RuntimeType for ISmartCardProvisioning2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardProvisioning2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAuthorityKeyContainerNameAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -721,6 +767,7 @@ impl windows_core::RuntimeType for ISmartCardProvisioningStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardProvisioningStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromSmartCardAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -739,6 +786,7 @@ impl windows_core::RuntimeType for ISmartCardProvisioningStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardProvisioningStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -755,6 +803,7 @@ impl windows_core::RuntimeType for ISmartCardReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -772,6 +821,7 @@ impl windows_core::RuntimeType for ISmartCardReaderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardReaderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -783,6 +833,7 @@ impl windows_core::RuntimeType for ISmartCardTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TriggerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardTriggerType) -> windows_core::HRESULT,
@@ -800,6 +851,7 @@ impl windows_core::RuntimeType for ISmartCardTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Emulator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -811,6 +863,7 @@ impl windows_core::RuntimeType for ISmartCardTriggerDetails3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartCardTriggerDetails3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2853,6 +2906,7 @@ impl SmartCardPinResetHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct SmartCardPinResetHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT,

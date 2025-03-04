@@ -193,6 +193,7 @@ impl windows_core::RuntimeType for IBackgroundEnergyManagerStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundEnergyManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LowUsageLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -216,6 +217,7 @@ impl windows_core::RuntimeType for IForegroundEnergyManagerStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IForegroundEnergyManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LowUsageLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -234,6 +236,7 @@ impl windows_core::RuntimeType for IPowerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPowerManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnergySaverStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnergySaverStatus) -> windows_core::HRESULT,

@@ -1278,7 +1278,7 @@ pub const C3_NOTAPPLICABLE: u32 = 0u32;
 pub const C3_SYMBOL: u32 = 8u32;
 pub const C3_VOWELMARK: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CALDATETIME {
     pub CalId: u32,
     pub Era: u32,
@@ -1378,7 +1378,7 @@ pub const CAL_UMALQURA: u32 = 23u32;
 pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
 pub const CANITER_SKIP_ZEROES: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CHARSETINFO {
     pub ciCharset: u32,
     pub ciACP: u32,
@@ -1404,6 +1404,11 @@ pub struct CPINFO {
     pub DefaultChar: [u8; 2],
     pub LeadByte: [u8; 12],
 }
+impl Default for CPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CPINFOEXA {
@@ -1414,6 +1419,11 @@ pub struct CPINFOEXA {
     pub CodePage: u32,
     pub CodePageName: [i8; 260],
 }
+impl Default for CPINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CPINFOEXW {
@@ -1423,6 +1433,11 @@ pub struct CPINFOEXW {
     pub UnicodeDefaultChar: u16,
     pub CodePage: u32,
     pub CodePageName: [u16; 260],
+}
+impl Default for CPINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CPIOD_FORCE_PROMPT: i32 = -2147483648i32;
 pub const CPIOD_PEEK: i32 = 1073741824i32;
@@ -1565,6 +1580,11 @@ pub struct CURRENCYFMTA {
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_sys::core::PSTR,
 }
+impl Default for CURRENCYFMTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CURRENCYFMTW {
@@ -1576,6 +1596,11 @@ pub struct CURRENCYFMTW {
     pub NegativeOrder: u32,
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_sys::core::PWSTR,
+}
+impl Default for CURRENCYFMTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
 pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: u32) -> windows_sys::core::BOOL>;
@@ -1592,7 +1617,7 @@ pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = 4u32;
 pub const DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = 8u32;
 pub const DayUnit: CALDATETIME_DATEUNIT = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DetectEncodingInfo {
     pub nLangID: u32,
     pub nCodePage: u32,
@@ -1610,14 +1635,14 @@ pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: windows_sys::core::GUID = windo
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTA,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTW,
@@ -1644,6 +1669,11 @@ pub struct FILEMUIINFO {
     pub dwTypeNameMUIOffset: u32,
     pub abBuffer: [u8; 8],
 }
+impl Default for FILEMUIINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FIND_ENDSWITH: u32 = 2097152u32;
 pub const FIND_FROMEND: u32 = 8388608u32;
 pub const FIND_FROMSTART: u32 = 4194304u32;
@@ -1654,6 +1684,11 @@ pub type FOLD_STRING_MAP_FLAGS = u32;
 pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
     pub fsCsb: [u32; 2],
+}
+impl Default for FONTSIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GEOCLASS_ALL: SYSGEOCLASS = 0i32;
 pub const GEOCLASS_NATION: SYSGEOCLASS = 16i32;
@@ -1680,7 +1715,7 @@ pub const GEO_PARENT: SYSGEOTYPE = 13i32;
 pub const GEO_RFC1766: SYSGEOTYPE = 6i32;
 pub const GEO_TIMEZONES: SYSGEOTYPE = 10i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
@@ -1763,6 +1798,11 @@ pub struct LOCALESIGNATURE {
     pub lsUsb: [u32; 4],
     pub lsCsbDefault: [u32; 2],
     pub lsCsbSupported: [u32; 2],
+}
+impl Default for LOCALESIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
@@ -1958,6 +1998,11 @@ pub struct MAPPING_DATA_RANGE {
     pub dwActionsCount: u32,
     pub prgActionDisplayNames: *mut windows_sys::core::PWSTR,
 }
+impl Default for MAPPING_DATA_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAPPING_ENUM_OPTIONS {
@@ -1971,6 +2016,11 @@ pub struct MAPPING_ENUM_OPTIONS {
     pub pszOutputContentType: windows_sys::core::PWSTR,
     pub pGuid: *mut windows_sys::core::GUID,
     pub _bitfield: u32,
+}
+impl Default for MAPPING_ENUM_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1992,6 +2042,11 @@ pub struct MAPPING_OPTIONS {
     pub dwServiceFlag: u32,
     pub _bitfield: u32,
 }
+impl Default for MAPPING_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MAPPING_PROPERTY_BAG {
@@ -2003,6 +2058,11 @@ pub struct MAPPING_PROPERTY_BAG {
     pub pCallerData: *mut core::ffi::c_void,
     pub dwCallerDataSize: u32,
     pub pContext: *mut core::ffi::c_void,
+}
+impl Default for MAPPING_PROPERTY_BAG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2032,6 +2092,11 @@ pub struct MAPPING_SERVICE_INFO {
     pub pPrivateData: *mut core::ffi::c_void,
     pub pContext: *mut core::ffi::c_void,
     pub _bitfield: u32,
+}
+impl Default for MAPPING_SERVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MAP_COMPOSITE: FOLD_STRING_MAP_FLAGS = 64u32;
 pub const MAP_EXPAND_LIGATURES: FOLD_STRING_MAP_FLAGS = 8192u32;
@@ -2078,12 +2143,22 @@ pub struct MIMECPINFO {
     pub wszProportionalFont: [u16; 32],
     pub bGDICharset: u8,
 }
+impl Default for MIMECPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIMECSETINFO {
     pub uiCodePage: u32,
     pub uiInternetEncoding: u32,
     pub wszCharset: [u16; 50],
+}
+impl Default for MIMECSETINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
 pub type MLCONVCHAR = i32;
@@ -2151,20 +2226,20 @@ pub const MinuteUnit: CALDATETIME_DATEUNIT = 6i32;
 pub const MonthUnit: CALDATETIME_DATEUNIT = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICA,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICW,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NLSVERSIONINFO {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -2173,7 +2248,7 @@ pub struct NLSVERSIONINFO {
     pub guidCustomVersion: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NLSVERSIONINFOEX {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -2201,6 +2276,11 @@ pub struct NUMBERFMTA {
     pub lpThousandSep: windows_sys::core::PSTR,
     pub NegativeOrder: u32,
 }
+impl Default for NUMBERFMTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NUMBERFMTW {
@@ -2211,6 +2291,11 @@ pub struct NUMBERFMTW {
     pub lpThousandSep: windows_sys::core::PWSTR,
     pub NegativeOrder: u32,
 }
+impl Default for NUMBERFMTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
 pub const NormalizationC: NORM_FORM = 1i32;
 pub const NormalizationD: NORM_FORM = 2i32;
@@ -2220,7 +2305,7 @@ pub const NormalizationOther: NORM_FORM = 0i32;
 pub const OFFLINE_SERVICES: u32 = 2u32;
 pub const ONLINE_SERVICES: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPENTYPE_FEATURE_RECORD {
     pub tagFeature: u32,
     pub lParameter: i32,
@@ -2232,6 +2317,11 @@ pub struct RFC1766INFO {
     pub lcid: u32,
     pub wszRfc1766: [u16; 6],
     pub wszLocaleName: [u16; 32],
+}
+impl Default for RFC1766INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SCRIPTCONTF = i32;
 pub const SCRIPTCONTF_FIXED_FONT: SCRIPTFONTCONTF = 1i32;
@@ -2246,6 +2336,11 @@ pub struct SCRIPTFONTINFO {
     pub scripts: i64,
     pub wszFont: [u16; 32],
 }
+impl Default for SCRIPTFONTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SCRIPTINFO {
@@ -2255,24 +2350,29 @@ pub struct SCRIPTINFO {
     pub wszFixedWidthFont: [u16; 32],
     pub wszProportionalFont: [u16; 32],
 }
+impl Default for SCRIPTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
@@ -2283,7 +2383,7 @@ pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1u32;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_FONTPROPERTIES {
     pub cBytes: i32,
     pub wgBlank: u16,
@@ -2293,14 +2393,14 @@ pub struct SCRIPT_FONTPROPERTIES {
     pub iKashidaWidth: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_GLYPHPROP {
     pub sva: SCRIPT_VISATTR,
     pub reserved: u16,
 }
 pub type SCRIPT_IS_COMPLEX_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
     pub a: SCRIPT_ANALYSIS,
@@ -2323,18 +2423,18 @@ pub const SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = 3i32;
 pub const SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = 5i32;
 pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = 6i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
 }
@@ -2346,10 +2446,15 @@ pub struct SCRIPT_TABDEF {
     pub pTabStops: *mut i32,
     pub iTabOrigin: i32,
 }
+impl Default for SCRIPT_TABDEF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
 pub const SCRIPT_UNDEFINED: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
 }
@@ -2396,6 +2501,11 @@ pub const TCI_SRCLOCALE: TRANSLATE_CHARSET_INFO_FLAGS = 4096u32;
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
     pub cotfRecords: i32,
+}
+impl Default for TEXTRANGE_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TIMEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
 pub type TIMEFMT_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::Foundation::LPARAM) -> windows_sys::core::BOOL>;
@@ -3140,6 +3250,11 @@ pub struct UCPTrie {
     pub dataNullOffset: i32,
     pub nullValue: u32,
 }
+impl Default for UCPTrie {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union UCPTrieData {
@@ -3147,6 +3262,11 @@ pub union UCPTrieData {
     pub ptr16: *const u16,
     pub ptr32: *const u32,
     pub ptr8: *const u8,
+}
+impl Default for UCPTrieData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type UCPTrieType = i32;
 pub type UCPTrieValueWidth = i32;
@@ -3194,6 +3314,11 @@ pub struct UCharIterator {
     pub getState: UCharIteratorGetState,
     pub setState: UCharIteratorSetState,
 }
+impl Default for UCharIterator {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type UCharIteratorCurrent = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
 pub type UCharIteratorGetIndex = Option<unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
 pub type UCharIteratorGetState = Option<unsafe extern "system" fn(iter: *const UCharIterator) -> u32>;
@@ -3232,6 +3357,11 @@ pub struct UConverterFromUnicodeArgs {
     pub targetLimit: windows_sys::core::PCSTR,
     pub offsets: *mut i32,
 }
+impl Default for UConverterFromUnicodeArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type UConverterPlatform = i32;
 pub type UConverterSelector = isize;
 pub type UConverterToUCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: windows_sys::core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
@@ -3246,6 +3376,11 @@ pub struct UConverterToUnicodeArgs {
     pub target: *mut u16,
     pub targetLimit: *const u16,
     pub offsets: *mut i32,
+}
+impl Default for UConverterToUnicodeArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type UConverterType = i32;
 pub type UConverterUnicodeSet = i32;
@@ -3514,7 +3649,7 @@ pub const UFMT_OBJECT: UFormattableType = 6i32;
 pub const UFMT_STRING: UFormattableType = 3i32;
 pub type UFieldCategory = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UFieldPosition {
     pub field: i32,
     pub beginIndex: i32,
@@ -3538,7 +3673,7 @@ pub type UHangulSyllableType = i32;
 pub type UHashtable = isize;
 pub type UIDNA = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UIDNAInfo {
     pub size: i16,
     pub isTransitionalDifferent: i8,
@@ -3698,7 +3833,7 @@ pub type UMessagePatternPartType = i32;
 pub type UMutableCPTrie = isize;
 pub type UNESCAPE_CHAR_AT = Option<unsafe extern "system" fn(offset: i32, context: *mut core::ffi::c_void) -> u16>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,
@@ -3902,6 +4037,11 @@ pub struct UParseError {
     pub preContext: [u16; 16],
     pub postContext: [u16; 16],
 }
+impl Default for UParseError {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type UPluralRules = isize;
 pub type UPluralType = i32;
 pub type UProperty = i32;
@@ -3939,7 +4079,7 @@ pub type URelativeDateTimeFormatter = isize;
 pub type URelativeDateTimeFormatterField = i32;
 pub type URelativeDateTimeUnit = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UReplaceableCallbacks {
     pub length: isize,
     pub charAt: isize,
@@ -4228,6 +4368,11 @@ pub struct USerializedSet {
     pub length: i32,
     pub staticArray: [u16; 8],
 }
+impl Default for USerializedSet {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type USet = isize;
 pub type USetSpanCondition = i32;
 pub type USpoofCheckResult = isize;
@@ -4364,13 +4509,18 @@ pub struct UText {
     pub privB: i32,
     pub privC: i32,
 }
+impl Default for UText {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type UTextAccess = Option<unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
 pub type UTextClone = Option<unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
 pub type UTextClose = Option<unsafe extern "system" fn(ut: *mut UText)>;
 pub type UTextCopy = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
 pub type UTextExtract = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,
@@ -4407,7 +4557,7 @@ pub type UTraceFunctionNumber = i32;
 pub type UTraceLevel = i32;
 pub type UTransDirection = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UTransPosition {
     pub contextStart: i32,
     pub contextLimit: i32,

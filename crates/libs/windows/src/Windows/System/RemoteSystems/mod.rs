@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IKnownRemoteSystemCapabilitiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownRemoteSystemCapabilitiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15,6 +16,7 @@ impl windows_core::RuntimeType for IRemoteSystem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28,6 +30,7 @@ impl windows_core::RuntimeType for IRemoteSystem2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystem2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAvailableBySpatialProximity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -38,6 +41,7 @@ impl windows_core::RuntimeType for IRemoteSystem3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystem3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ManufacturerDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -48,6 +52,7 @@ impl windows_core::RuntimeType for IRemoteSystem4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystem4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Platform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemPlatform) -> windows_core::HRESULT,
@@ -57,6 +62,7 @@ impl windows_core::RuntimeType for IRemoteSystem5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystem5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Apps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -66,6 +72,7 @@ impl windows_core::RuntimeType for IRemoteSystem6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystem6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -75,6 +82,7 @@ impl windows_core::RuntimeType for IRemoteSystemAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -84,6 +92,7 @@ impl windows_core::RuntimeType for IRemoteSystemApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemApp_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -97,6 +106,7 @@ impl windows_core::RuntimeType for IRemoteSystemApp2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemApp2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -107,6 +117,7 @@ impl windows_core::RuntimeType for IRemoteSystemAppRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemAppRegistration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -118,6 +129,7 @@ impl windows_core::RuntimeType for IRemoteSystemAppRegistrationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemAppRegistrationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -128,6 +140,7 @@ impl windows_core::RuntimeType for IRemoteSystemAuthorizationKindFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemAuthorizationKindFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystemAuthorizationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemAuthorizationKind) -> windows_core::HRESULT,
@@ -137,6 +150,7 @@ impl windows_core::RuntimeType for IRemoteSystemAuthorizationKindFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemAuthorizationKindFilterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteSystemAuthorizationKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -146,6 +160,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsProximal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -155,6 +170,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
@@ -167,6 +183,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -176,6 +193,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionRequest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystemApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -185,6 +203,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionRequest3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionRequest3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -194,6 +213,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -203,6 +223,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionRequestStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateForApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -212,6 +233,7 @@ impl windows_core::RuntimeType for IRemoteSystemConnectionRequestStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromConnectionToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -222,6 +244,7 @@ impl windows_core::RuntimeType for IRemoteSystemDiscoveryTypeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemDiscoveryTypeFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystemDiscoveryType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemDiscoveryType) -> windows_core::HRESULT,
@@ -231,6 +254,7 @@ impl windows_core::RuntimeType for IRemoteSystemDiscoveryTypeFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemDiscoveryTypeFilterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteSystemDiscoveryType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -240,6 +264,7 @@ impl windows_core::RuntimeType for IRemoteSystemEnumerationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemEnumerationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -261,6 +286,7 @@ impl IRemoteSystemFilter_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -269,6 +295,7 @@ impl windows_core::RuntimeType for IRemoteSystemKindFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemKindFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystemKinds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -278,6 +305,7 @@ impl windows_core::RuntimeType for IRemoteSystemKindFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemKindFilterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -287,6 +315,7 @@ impl windows_core::RuntimeType for IRemoteSystemKindStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemKindStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Phone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -300,6 +329,7 @@ impl windows_core::RuntimeType for IRemoteSystemKindStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemKindStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Iot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -311,6 +341,7 @@ impl windows_core::RuntimeType for IRemoteSystemRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -320,6 +351,7 @@ impl windows_core::RuntimeType for IRemoteSystemSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -335,6 +367,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SessionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -344,6 +377,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub JoinRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -356,6 +390,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionControllerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionControllerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -366,6 +401,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionCreationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionCreationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemSessionCreationStatus) -> windows_core::HRESULT,
@@ -376,6 +412,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionDisconnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionDisconnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemSessionDisconnectedReason) -> windows_core::HRESULT,
@@ -385,6 +422,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -396,6 +434,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionInvitation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionInvitation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Sender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -406,6 +445,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionInvitationListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionInvitationListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InvitationReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -416,6 +456,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionInvitationReceivedEventAr
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionInvitationReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Invitation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -425,6 +466,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionJoinRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionJoinRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Participant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -435,6 +477,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionJoinRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionJoinRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub JoinRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -445,6 +488,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionJoinResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionJoinResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemSessionJoinStatus) -> windows_core::HRESULT,
@@ -455,6 +499,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionMessageChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionMessageChannel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -478,6 +523,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionMessageChannelFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionMessageChannelFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -488,6 +534,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsInviteOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -498,6 +545,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionParticipant {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionParticipant_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -511,6 +559,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionParticipantAddedEventArgs
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Participant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -520,6 +569,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionParticipantRemovedEventAr
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Participant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -529,6 +579,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionParticipantWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -546,6 +597,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SessionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -555,6 +607,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -564,6 +617,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SessionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -573,6 +627,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionValueSetReceivedEventArgs
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionValueSetReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Sender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -586,6 +641,7 @@ impl windows_core::RuntimeType for IRemoteSystemSessionWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemSessionWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -603,6 +659,7 @@ impl windows_core::RuntimeType for IRemoteSystemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking")]
@@ -618,6 +675,7 @@ impl windows_core::RuntimeType for IRemoteSystemStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAuthorizationKindEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteSystemAuthorizationKind, *mut bool) -> windows_core::HRESULT,
@@ -627,6 +685,7 @@ impl windows_core::RuntimeType for IRemoteSystemStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWatcherForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -637,6 +696,7 @@ impl windows_core::RuntimeType for IRemoteSystemStatusTypeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemStatusTypeFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystemStatusType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemStatusType) -> windows_core::HRESULT,
@@ -646,6 +706,7 @@ impl windows_core::RuntimeType for IRemoteSystemStatusTypeFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemStatusTypeFilterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteSystemStatusType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -655,6 +716,7 @@ impl windows_core::RuntimeType for IRemoteSystemUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemUpdatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemoteSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -664,6 +726,7 @@ impl windows_core::RuntimeType for IRemoteSystemWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -680,6 +743,7 @@ impl windows_core::RuntimeType for IRemoteSystemWatcher2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemWatcher2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnumerationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -692,6 +756,7 @@ impl windows_core::RuntimeType for IRemoteSystemWatcher3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemWatcher3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -701,6 +766,7 @@ impl windows_core::RuntimeType for IRemoteSystemWatcherErrorOccurredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemWatcherErrorOccurredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RemoteSystemWatcherError) -> windows_core::HRESULT,
@@ -710,6 +776,7 @@ impl windows_core::RuntimeType for IRemoteSystemWebAccountFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemWebAccountFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -722,6 +789,7 @@ impl windows_core::RuntimeType for IRemoteSystemWebAccountFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteSystemWebAccountFilterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]

@@ -1611,7 +1611,7 @@ impl Default for FLT_CALLBACK_DATA_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_CALLBACK_DATA_QUEUE {
     pub Csq: super::super::super::System::SystemServices::IO_CSQ,
     pub Flags: FLT_CALLBACK_DATA_QUEUE_FLAGS,
@@ -1622,12 +1622,6 @@ pub struct FLT_CALLBACK_DATA_QUEUE {
     pub Acquire: PFLT_CALLBACK_DATA_QUEUE_ACQUIRE,
     pub Release: PFLT_CALLBACK_DATA_QUEUE_RELEASE,
     pub CompleteCanceledIo: PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IO,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_CALLBACK_DATA_QUEUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1669,7 +1663,7 @@ pub const FLT_FILE_CONTEXT: u32 = 4u32;
 pub const FLT_FILE_NAME_ALLOW_QUERY_ON_REPARSE: u32 = 67108864u32;
 pub const FLT_FILE_NAME_DO_NOT_CACHE: u32 = 33554432u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_FILE_NAME_INFORMATION {
     pub Size: u16,
     pub NamesParsed: u16,
@@ -1681,11 +1675,6 @@ pub struct FLT_FILE_NAME_INFORMATION {
     pub Stream: super::super::super::super::Win32::Foundation::UNICODE_STRING,
     pub FinalComponent: super::super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ParentDir: super::super::super::super::Win32::Foundation::UNICODE_STRING,
-}
-impl Default for FLT_FILE_NAME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FLT_FILE_NAME_NORMALIZED: u32 = 1u32;
 pub const FLT_FILE_NAME_OPENED: u32 = 2u32;
@@ -1722,14 +1711,9 @@ impl Default for FLT_IO_PARAMETER_BLOCK {
 }
 pub const FLT_MAX_DEVICE_REPARSE_ATTEMPTS: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_NAME_CONTROL {
     pub Name: super::super::super::super::Win32::Foundation::UNICODE_STRING,
-}
-impl Default for FLT_NAME_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -1903,17 +1887,11 @@ impl Default for FLT_PARAMETERS_13_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_13_0 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
     pub IoControlCode: u32,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_13_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2032,18 +2010,12 @@ impl Default for FLT_PARAMETERS_11_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FLT_PARAMETERS_25 {
     pub FileOffset: i64,
     pub Length: u32,
     pub LockKey: u32,
     pub CheckForReadOperation: bool,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_25 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2078,17 +2050,11 @@ impl Default for FLT_PARAMETERS_12_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_12_1 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
     pub FsControlCode: u32,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_12_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2196,15 +2162,9 @@ impl Default for FLT_PARAMETERS_30 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_31 {
     pub DeviceType: u32,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_31 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2283,40 +2243,22 @@ impl Default for FLT_PARAMETERS_20_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_20_1 {
     pub Type: super::super::super::System::SystemServices::DEVICE_RELATION_TYPE,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_20_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_20_8 {
     pub DeviceTextType: super::super::super::System::SystemServices::DEVICE_TEXT_TYPE,
     pub LocaleId: u32,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_20_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_20_7 {
     pub IdType: super::super::super::System::SystemServices::BUS_QUERY_ID_TYPE,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_20_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2351,15 +2293,9 @@ impl Default for FLT_PARAMETERS_20_5 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_20_6 {
     pub Lock: bool,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_20_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2569,16 +2505,10 @@ impl Default for FLT_PARAMETERS_6_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_6_0_0 {
     pub ReplaceIfExists: bool,
     pub AdvanceOnly: bool,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_6_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2596,16 +2526,10 @@ impl Default for FLT_PARAMETERS_19 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_PARAMETERS_16 {
     pub SecurityInformation: u32,
     pub SecurityDescriptor: super::super::super::super::Win32::Security::PSECURITY_DESCRIPTOR,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FLT_PARAMETERS_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2705,7 +2629,7 @@ pub const FLT_REGISTRATION_VERSION_0201: u32 = 513u32;
 pub const FLT_REGISTRATION_VERSION_0202: u32 = 514u32;
 pub const FLT_REGISTRATION_VERSION_0203: u32 = 515u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_RELATED_CONTEXTS {
     pub VolumeContext: PFLT_CONTEXT,
     pub InstanceContext: PFLT_CONTEXT,
@@ -2714,13 +2638,8 @@ pub struct FLT_RELATED_CONTEXTS {
     pub StreamHandleContext: PFLT_CONTEXT,
     pub TransactionContext: PFLT_CONTEXT,
 }
-impl Default for FLT_RELATED_CONTEXTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_RELATED_CONTEXTS_EX {
     pub VolumeContext: PFLT_CONTEXT,
     pub InstanceContext: PFLT_CONTEXT,
@@ -2729,11 +2648,6 @@ pub struct FLT_RELATED_CONTEXTS_EX {
     pub StreamHandleContext: PFLT_CONTEXT,
     pub TransactionContext: PFLT_CONTEXT,
     pub SectionContext: PFLT_CONTEXT,
-}
-impl Default for FLT_RELATED_CONTEXTS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2843,7 +2757,7 @@ pub const FLT_VALID_FILE_NAME_FORMATS: u32 = 255u32;
 pub const FLT_VALID_FILE_NAME_QUERY_METHODS: u32 = 65280u32;
 pub const FLT_VOLUME_CONTEXT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLT_VOLUME_PROPERTIES {
     pub DeviceType: u32,
     pub DeviceCharacteristics: u32,
@@ -2854,11 +2768,6 @@ pub struct FLT_VOLUME_PROPERTIES {
     pub FileSystemDriverName: super::super::super::super::Win32::Foundation::UNICODE_STRING,
     pub FileSystemDeviceName: super::super::super::super::Win32::Foundation::UNICODE_STRING,
     pub RealDeviceName: super::super::super::super::Win32::Foundation::UNICODE_STRING,
-}
-impl Default for FLT_VOLUME_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GUID_ECP_FLT_CREATEFILE_TARGET: windows_core::GUID = windows_core::GUID::from_u128(0xce08041d_f411_447f_b70d_ccee45c23fac);
 pub const IRP_MJ_ACQUIRE_FOR_CC_FLUSH: u16 = 65531u16;

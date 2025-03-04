@@ -156,6 +156,11 @@ pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = 1i32;
 pub struct MATRIX3X3 {
     pub Anonymous: MATRIX3X3_0,
 }
+impl Default for MATRIX3X3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MATRIX3X3_0 {
@@ -163,8 +168,13 @@ pub union MATRIX3X3_0 {
     pub Anonymous2: MATRIX3X3_0_1,
     pub M: [f32; 9],
 }
+impl Default for MATRIX3X3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MATRIX3X3_0_0 {
     pub A11: f32,
     pub A12: f32,
@@ -177,7 +187,7 @@ pub struct MATRIX3X3_0_0 {
     pub A33: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MATRIX3X3_0_1 {
     pub V1: VEC3D,
     pub V2: VEC3D,
@@ -205,7 +215,7 @@ pub const Proximity_Sensor_Human_Engagement_Capable: PROXIMITY_SENSOR_CAPABILITI
 pub const Proximity_Sensor_Human_Presence_Capable: PROXIMITY_SENSOR_CAPABILITIES = 1i32;
 pub const Proximity_Sensor_Supported_Capabilities: PROXIMITY_SENSOR_CAPABILITIES = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUATERNION {
     pub X: f32,
     pub Y: f32,
@@ -231,6 +241,12 @@ pub struct SENSOR_COLLECTION_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
     pub List: [SENSOR_VALUE_PAIR; 1],
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for SENSOR_COLLECTION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SENSOR_CONNECTION_TYPES = i32;
 pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = 1i32;
@@ -404,6 +420,11 @@ pub struct SENSOR_PROPERTY_LIST {
     pub Count: u32,
     pub List: [super::super::Foundation::PROPERTYKEY; 1],
 }
+impl Default for SENSOR_PROPERTY_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 pub const SENSOR_PROPERTY_LOCATION_DESIRED_ACCURACY: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 19 };
 pub const SENSOR_PROPERTY_MANUFACTURER: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 6 };
@@ -491,6 +512,12 @@ pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::Foundation::PROPERTYKEY,
     pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for SENSOR_VALUE_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SIMPLE_DEVICE_ORIENTATION = i32;
 pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = 0i32;
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = 2i32;
@@ -519,7 +546,7 @@ pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVI
 pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 3i32;
 pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VEC3D {
     pub X: f32,
     pub Y: f32,

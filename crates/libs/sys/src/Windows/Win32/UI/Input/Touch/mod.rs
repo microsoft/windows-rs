@@ -9,7 +9,7 @@ windows_targets::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super
 windows_targets::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> windows_sys::core::BOOL);
 windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GESTURECONFIG {
     pub dwID: GESTURECONFIG_ID,
     pub dwWant: u32,
@@ -29,6 +29,11 @@ pub struct GESTUREINFO {
     pub ullArguments: u64,
     pub cbExtraArgs: u32,
 }
+impl Default for GESTUREINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GESTURENOTIFYSTRUCT {
@@ -37,6 +42,11 @@ pub struct GESTURENOTIFYSTRUCT {
     pub hwndTarget: super::super::super::Foundation::HWND,
     pub ptsLocation: super::super::super::Foundation::POINTS,
     pub dwInstanceID: u32,
+}
+impl Default for GESTURENOTIFYSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GID_BEGIN: GESTURECONFIG_ID = 1u32;
 pub const GID_END: GESTURECONFIG_ID = 2u32;
@@ -80,6 +90,11 @@ pub struct TOUCHINPUT {
     pub dwExtraInfo: usize,
     pub cxContact: u32,
     pub cyContact: u32,
+}
+impl Default for TOUCHINPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = 4u32;
 pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = 2u32;

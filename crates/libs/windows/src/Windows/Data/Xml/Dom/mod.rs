@@ -524,6 +524,7 @@ impl windows_core::RuntimeType for IDtdEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtdEntity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PublicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -535,6 +536,7 @@ impl windows_core::RuntimeType for IDtdNotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtdNotation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PublicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -545,6 +547,7 @@ impl windows_core::RuntimeType for IXmlAttribute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlAttribute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -557,6 +560,7 @@ impl windows_core::RuntimeType for IXmlCDataSection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlCDataSection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -933,6 +937,7 @@ impl IXmlCharacterData_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlCharacterData_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -949,6 +954,7 @@ impl windows_core::RuntimeType for IXmlComment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlComment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -957,6 +963,7 @@ impl windows_core::RuntimeType for IXmlDocument {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlDocument_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Doctype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -982,6 +989,7 @@ impl windows_core::RuntimeType for IXmlDocumentFragment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlDocumentFragment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -990,6 +998,7 @@ impl windows_core::RuntimeType for IXmlDocumentIO {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlDocumentIO_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LoadXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1004,6 +1013,7 @@ impl windows_core::RuntimeType for IXmlDocumentIO2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlDocumentIO2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1020,6 +1030,7 @@ impl windows_core::RuntimeType for IXmlDocumentStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlDocumentStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LoadFromUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1038,6 +1049,7 @@ impl windows_core::RuntimeType for IXmlDocumentType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlDocumentType_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1049,6 +1061,7 @@ impl windows_core::RuntimeType for IXmlDomImplementation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlDomImplementation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HasFeature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1058,6 +1071,7 @@ impl windows_core::RuntimeType for IXmlElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TagName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1079,6 +1093,7 @@ impl windows_core::RuntimeType for IXmlEntityReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlEntityReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -1087,6 +1102,7 @@ impl windows_core::RuntimeType for IXmlLoadSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlLoadSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxElementDepth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1105,6 +1121,7 @@ impl windows_core::RuntimeType for IXmlNamedNodeMap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlNamedNodeMap_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1686,6 +1703,7 @@ impl IXmlNode_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1717,6 +1735,7 @@ impl windows_core::RuntimeType for IXmlNodeList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlNodeList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1839,6 +1858,7 @@ impl IXmlNodeSelector_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlNodeSelector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectSingleNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1925,6 +1945,7 @@ impl IXmlNodeSerializer_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlNodeSerializer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1936,6 +1957,7 @@ impl windows_core::RuntimeType for IXmlProcessingInstruction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlProcessingInstruction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Target: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2250,6 +2272,7 @@ impl IXmlText_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXmlText_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SplitText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

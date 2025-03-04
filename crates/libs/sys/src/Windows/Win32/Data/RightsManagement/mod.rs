@@ -101,6 +101,11 @@ pub struct DRMBOUNDLICENSEPARAMS {
     pub wszDefaultEnablingPrincipalCredentials: windows_sys::core::PWSTR,
     pub dwFlags: u32,
 }
+impl Default for DRMBOUNDLICENSEPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
 pub type DRMCALLBACK = Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: windows_sys::core::HRESULT, param2: *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
@@ -124,6 +129,11 @@ pub struct DRMID {
     pub uVersion: u32,
     pub wszIDType: windows_sys::core::PWSTR,
     pub wszID: windows_sys::core::PWSTR,
+}
+impl Default for DRMID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRMIDVERSION: u32 = 0u32;
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
@@ -151,6 +161,11 @@ pub struct DRM_ACTSERV_INFO {
     pub wszPubKey: windows_sys::core::PWSTR,
     pub wszURL: windows_sys::core::PWSTR,
 }
+impl Default for DRM_ACTSERV_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
 pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
 pub const DRM_AILT_CANCEL: u32 = 4u32;
@@ -170,6 +185,11 @@ pub struct DRM_CLIENT_VERSION_INFO {
     pub wszHierarchy: [u16; 256],
     pub wszProductId: [u16; 256],
     pub wszProductDescription: [u16; 256],
+}
+impl Default for DRM_CLIENT_VERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: windows_sys::core::PCWSTR = windows_sys::core::w!("PassportAuthProvider");
 pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: windows_sys::core::PCWSTR = windows_sys::core::w!("WindowsAuthProvider");
@@ -202,6 +222,11 @@ pub struct DRM_LICENSE_ACQ_DATA {
     pub pbPostData: *mut u8,
     pub dwPostDataSize: u32,
     pub wszFriendlyName: windows_sys::core::PWSTR,
+}
+impl Default for DRM_LICENSE_ACQ_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;

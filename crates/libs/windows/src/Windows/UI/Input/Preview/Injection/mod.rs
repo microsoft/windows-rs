@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IInjectedInputGamepadInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInjectedInputGamepadInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input")]
@@ -31,6 +32,7 @@ impl windows_core::RuntimeType for IInjectedInputGamepadInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input")]
@@ -43,6 +45,7 @@ impl windows_core::RuntimeType for IInjectedInputKeyboardInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub KeyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InjectedInputKeyOptions) -> windows_core::HRESULT,
@@ -57,6 +60,7 @@ impl windows_core::RuntimeType for IInjectedInputMouseInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInjectedInputMouseInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MouseOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InjectedInputMouseOptions) -> windows_core::HRESULT,
@@ -75,6 +79,7 @@ impl windows_core::RuntimeType for IInjectedInputPenInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInjectedInputPenInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PointerInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InjectedInputPointerInfo) -> windows_core::HRESULT,
@@ -97,6 +102,7 @@ impl windows_core::RuntimeType for IInjectedInputTouchInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInjectedInputTouchInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InjectedInputRectangle) -> windows_core::HRESULT,
@@ -115,6 +121,7 @@ impl windows_core::RuntimeType for IInputInjector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInputInjector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InjectKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -132,6 +139,7 @@ impl windows_core::RuntimeType for IInputInjector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInputInjector2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InitializeGamepadInjection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -143,6 +151,7 @@ impl windows_core::RuntimeType for IInputInjectorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInputInjectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -152,6 +161,7 @@ impl windows_core::RuntimeType for IInputInjectorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInputInjectorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

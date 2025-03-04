@@ -20,6 +20,7 @@ impl ISceSvcAttachmentData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceSvcAttachmentData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SCESVC_INFO_TYPE, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -86,6 +87,7 @@ impl ISceSvcAttachmentPersistInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceSvcAttachmentPersistInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i8, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,

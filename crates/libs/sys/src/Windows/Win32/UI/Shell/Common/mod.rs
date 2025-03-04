@@ -4,10 +4,15 @@ pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_sys::core::PCWSTR,
     pub pszSpec: windows_sys::core::PCWSTR,
 }
+impl Default for COMDLG_FILTERSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DEVICE_SCALE_FACTOR = i32;
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = 0i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
@@ -79,11 +84,21 @@ pub struct SHELLDETAILS {
     pub cxChar: i32,
     pub str: STRRET,
 }
+impl Default for SHELLDETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
+}
+impl Default for SHITEMID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -91,12 +106,22 @@ pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
 }
+impl Default for STRRET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STRRET_0 {
     pub pOleStr: windows_sys::core::PWSTR,
     pub uOffset: u32,
     pub cStr: [u8; 260],
+}
+impl Default for STRRET_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STRRET_CSTR: STRRET_TYPE = 2i32;
 pub const STRRET_OFFSET: STRRET_TYPE = 1i32;

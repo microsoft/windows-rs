@@ -280,6 +280,11 @@ pub struct AUTHENTICATION_INFO {
     pub pcwszUser: windows_sys::core::PCWSTR,
     pub pcwszPassword: windows_sys::core::PCWSTR,
 }
+impl Default for AUTHENTICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type AUTH_TYPE = i32;
 pub const BCP6xFILEFMT: u32 = 9u32;
 pub const BCPABORT: u32 = 6u32;
@@ -313,7 +318,7 @@ pub const BMK_DURABILITY_REORGANIZATION: i32 = 3i32;
 pub const BMK_DURABILITY_ROWSET: i32 = 0i32;
 pub const BMK_DURABILITY_XTRANSACTION: i32 = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BUCKETCATEGORIZE {
     pub cBuckets: u32,
     pub Distribution: u32,
@@ -349,6 +354,12 @@ pub struct CATEGORIZATION {
     pub Anonymous: CATEGORIZATION_0,
     pub csColumns: COLUMNSET,
 }
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for CATEGORIZATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -357,12 +368,24 @@ pub union CATEGORIZATION_0 {
     pub bucket: BUCKETCATEGORIZE,
     pub range: RANGECATEGORIZE,
 }
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for CATEGORIZATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct CATEGORIZATIONSET {
     pub cCat: u32,
     pub aCat: *mut CATEGORIZATION,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for CATEGORIZATIONSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CATEGORIZE_BUCKETS: u32 = 2u32;
 pub const CATEGORIZE_CLUSTER: u32 = 1u32;
@@ -443,6 +466,12 @@ pub struct COLUMNSET {
     pub cCol: u32,
     pub aCol: *mut super::super::Storage::IndexServer::FULLPROPSPEC,
 }
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for COLUMNSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = 0i32;
 pub const CONDITION_CREATION_NONE: CONDITION_CREATION_OPTIONS = 0i32;
 pub type CONDITION_CREATION_OPTIONS = i32;
@@ -459,6 +488,12 @@ pub struct CONTENTRESTRICTION {
     pub pwcsPhrase: windows_sys::core::PWSTR,
     pub lcid: u32,
     pub ulGenerateMethod: u32,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for CONTENTRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CONTENT_SOURCE_E_CONTENT_CLASS_READ: i32 = -2147208188i32;
 pub const CONTENT_SOURCE_E_CONTENT_SOURCE_COLUMN_TYPE: i32 = -2147208185i32;
@@ -536,7 +571,7 @@ pub type CatalogStatus = i32;
 pub const CompoundCondition: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
 pub const ConditionFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DATE_STRUCT {
     pub year: i16,
     pub month: u16,
@@ -563,12 +598,24 @@ pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: usize,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBBINDFLAGENUM = i32;
 pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = 1i32;
@@ -593,6 +640,13 @@ pub struct DBBINDING {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -613,6 +667,13 @@ pub struct DBBINDING {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBBINDSTATUSENUM = i32;
 pub const DBBINDSTATUS_BADBINDINFO: DBBINDSTATUSENUM = 3i32;
@@ -666,6 +727,13 @@ pub struct DBCOLUMNACCESS {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBCOLUMNACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -680,6 +748,13 @@ pub struct DBCOLUMNACCESS {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBCOLUMNACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -697,6 +772,13 @@ pub struct DBCOLUMNDESC {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -712,6 +794,13 @@ pub struct DBCOLUMNDESC {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBCOLUMNDESCFLAGSENUM = i32;
 pub const DBCOLUMNDESCFLAGS_CLSID: DBCOLUMNDESCFLAGSENUM = 8i32;
@@ -766,6 +855,13 @@ pub struct DBCOLUMNINFO {
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Default for DBCOLUMNINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -780,6 +876,13 @@ pub struct DBCOLUMNINFO {
     pub bPrecision: u8,
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Default for DBCOLUMNINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBCOMMANDPERSISTFLAGENUM = i32;
 pub type DBCOMMANDPERSISTFLAGENUM21 = i32;
@@ -831,6 +934,13 @@ pub struct DBCONSTRAINTDESC {
     pub cReserved: usize,
     pub rgReserved: *mut DBPROPSET,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -850,6 +960,13 @@ pub struct DBCONSTRAINTDESC {
     pub Deferrability: u32,
     pub cReserved: usize,
     pub rgReserved: *mut DBPROPSET,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBCONSTRAINTTYPEENUM = i32;
 pub const DBCONSTRAINTTYPE_CHECK: DBCONSTRAINTTYPEENUM = 3i32;
@@ -871,7 +988,7 @@ pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = 2048i32;
 pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = 512i32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
@@ -879,7 +996,7 @@ pub struct DBCOST {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
@@ -893,20 +1010,20 @@ pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = 4i32;
 pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = 2i32;
 pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBDATE {
     pub year: i16,
     pub month: u16,
     pub day: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBDATETIM4 {
     pub numdays: u16,
     pub nummins: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBDATETIME {
     pub dtdays: i32,
     pub dttime: u32,
@@ -929,7 +1046,7 @@ pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = 2i32;
 pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = 3i32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
@@ -937,7 +1054,7 @@ pub struct DBFAILUREINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
@@ -955,6 +1072,12 @@ pub struct DBIMPLICITSESSION {
     pub piid: *mut windows_sys::core::GUID,
     pub pSession: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -962,6 +1085,12 @@ pub struct DBIMPLICITSESSION {
     pub pUnkOuter: *mut core::ffi::c_void,
     pub piid: *mut windows_sys::core::GUID,
     pub pSession: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -971,6 +1100,13 @@ pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
     pub eIndexColOrder: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBINDEXCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -978,6 +1114,13 @@ pub struct DBINDEXCOLUMNDESC {
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
     pub eIndexColOrder: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBINDEXCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBINDEX_COL_ORDERENUM = i32;
 pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = 0i32;
@@ -996,6 +1139,12 @@ pub struct DBLITERALINFO {
     pub fSupported: windows_sys::core::BOOL,
     pub cchMaxLen: u32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBLITERALINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1006,6 +1155,12 @@ pub struct DBLITERALINFO {
     pub lt: u32,
     pub fSupported: windows_sys::core::BOOL,
     pub cchMaxLen: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBLITERALINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = 1i32;
 pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = 2i32;
@@ -1047,7 +1202,7 @@ pub type DBMEMOWNERENUM = i32;
 pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = 0i32;
 pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBMONEY {
     pub mnyhigh: i32,
     pub mnylow: u32,
@@ -1060,14 +1215,14 @@ pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = 512i32;
 pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = 1i32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_sys::core::GUID,
@@ -1083,6 +1238,12 @@ pub struct DBPARAMBINDINFO {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBPARAMBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1093,6 +1254,12 @@ pub struct DBPARAMBINDINFO {
     pub dwFlags: u32,
     pub bPrecision: u8,
     pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBPARAMBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBPARAMFLAGSENUM = i32;
 pub type DBPARAMFLAGSENUM20 = i32;
@@ -1116,6 +1283,13 @@ pub struct DBPARAMINFO {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBPARAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -1130,6 +1304,13 @@ pub struct DBPARAMINFO {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBPARAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DBPARAMIOENUM = i32;
 pub const DBPARAMIO_INPUT: DBPARAMIOENUM = 1i32;
 pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = 0i32;
@@ -1142,6 +1323,12 @@ pub struct DBPARAMS {
     pub cParamSets: usize,
     pub hAccessor: HACCESSOR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1149,6 +1336,12 @@ pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: usize,
     pub hAccessor: HACCESSOR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBPARAMTYPE_INPUT: u32 = 1u32;
 pub const DBPARAMTYPE_INPUTOUTPUT: u32 = 2u32;
@@ -1192,6 +1385,13 @@ pub struct DBPROP {
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Variant::VARIANT,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1202,6 +1402,13 @@ pub struct DBPROP {
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Variant::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBPROPENUM = i32;
 pub type DBPROPENUM15 = i32;
@@ -1241,6 +1448,12 @@ pub struct DBPROPIDSET {
     pub cPropertyIDs: u32,
     pub guidPropertySet: windows_sys::core::GUID,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1249,6 +1462,12 @@ pub struct DBPROPIDSET {
     pub cPropertyIDs: u32,
     pub guidPropertySet: windows_sys::core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1259,6 +1478,13 @@ pub struct DBPROPINFO {
     pub dwFlags: u32,
     pub vtType: super::Variant::VARENUM,
     pub vValues: super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1271,6 +1497,13 @@ pub struct DBPROPINFO {
     pub vtType: super::Variant::VARENUM,
     pub vValues: super::Variant::VARIANT,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1280,6 +1513,13 @@ pub struct DBPROPINFOSET {
     pub cPropertyInfos: u32,
     pub guidPropertySet: windows_sys::core::GUID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1288,6 +1528,13 @@ pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
     pub cPropertyInfos: u32,
     pub guidPropertySet: windows_sys::core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBPROPOPTIONSENUM = i32;
 pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = 1i32;
@@ -1302,6 +1549,13 @@ pub struct DBPROPSET {
     pub cProperties: u32,
     pub guidPropertySet: windows_sys::core::GUID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1310,6 +1564,13 @@ pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
     pub guidPropertySet: windows_sys::core::GUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBPROPSET_MSDAORA8_ROWSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7f06a375_dd6a_43db_b4e0_1fc121e5e62b);
 pub const DBPROPSET_MSDAORA_ROWSET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8cc4cbd_fdff_11d0_b865_00a0c9081c1d);
@@ -1864,7 +2125,7 @@ pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = 0i32;
 pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = 3i32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBROWWATCHCHANGE {
     pub hRegion: usize,
     pub eChangeKind: u32,
@@ -1873,7 +2134,7 @@ pub struct DBROWWATCHCHANGE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBROWWATCHCHANGE {
     pub hRegion: usize,
     pub eChangeKind: u32,
@@ -1940,7 +2201,7 @@ pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = 1i32;
 pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = 4i32;
 pub type DBTABLESTATISTICSTYPE26 = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
@@ -1948,7 +2209,7 @@ pub struct DBTIME {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -1960,7 +2221,7 @@ pub struct DBTIMESTAMP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -2041,11 +2302,21 @@ pub struct DBVARYBIN {
     pub len: i16,
     pub array: [u8; 8001],
 }
+impl Default for DBVARYBIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DBVARYCHAR {
     pub len: i16,
     pub str: [i8; 8001],
+}
+impl Default for DBVARYCHAR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -2054,12 +2325,24 @@ pub struct DBVECTOR {
     pub size: usize,
     pub ptr: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
+impl Default for DBVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct DBVECTOR {
     pub size: usize,
     pub ptr: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for DBVECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DBWATCHMODEENUM = i32;
 pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = 1i32;
@@ -2242,6 +2525,11 @@ pub struct DB_NUMERIC {
     pub sign: u8,
     pub val: [u8; 16],
 }
+impl Default for DB_NUMERIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DB_OUT: u32 = 2u32;
 pub const DB_PROT_LEVEL_CALL: u32 = 2u32;
 pub const DB_PROT_LEVEL_CONNECT: u32 = 1u32;
@@ -2295,12 +2583,23 @@ pub struct DB_VARNUMERIC {
     pub sign: u8,
     pub val: [u8; 1],
 }
+impl Default for DB_VARNUMERIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct DCINFO {
     pub eInfoType: u32,
     pub vData: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DCINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DCINFOTYPEENUM = i32;
 pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = 1i32;
@@ -2364,7 +2663,7 @@ pub const DataLinks: windows_sys::core::GUID = windows_sys::core::GUID::from_u12
 pub type EBindInfoOptions = i32;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ERRORINFO {
     pub hrError: windows_sys::core::HRESULT,
     pub dwMinor: u32,
@@ -2374,7 +2673,7 @@ pub struct ERRORINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ERRORINFO {
     pub hrError: windows_sys::core::HRESULT,
     pub dwMinor: u32,
@@ -2613,6 +2912,11 @@ pub struct FILTERED_DATA_SOURCES {
     pub pwcsMime: windows_sys::core::PCWSTR,
     pub pClsid: *const windows_sys::core::GUID,
     pub pwcsOverride: windows_sys::core::PCWSTR,
+}
+impl Default for FILTERED_DATA_SOURCES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: i32 = -2147212282i32;
 pub const FLTRDMN_E_ENCRYPTED_DOCUMENT: i32 = -2147212283i32;
@@ -2861,7 +3165,7 @@ pub const GTHR_S_TRANSACTION_IGNORED: i32 = 265577i32;
 pub const GTHR_S_USE_MIME_FILTER: i32 = 265639i32;
 pub type HACCESSOR = usize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HITRANGE {
     pub iPosition: u32,
     pub cLength: u32,
@@ -2929,7 +3233,7 @@ pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = 0i32;
 pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = 2i32;
 pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
     pub ftLastModifiedTime: super::super::Foundation::FILETIME,
@@ -2952,6 +3256,12 @@ pub struct ITEMPROP {
     pub variantValue: super::Variant::VARIANT,
     pub pwszName: windows_sys::core::PWSTR,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for ITEMPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ITEM_INFO {
@@ -2960,6 +3270,11 @@ pub struct ITEM_INFO {
     pub pcwszApplicationName: windows_sys::core::PCWSTR,
     pub pcwszCatalogName: windows_sys::core::PCWSTR,
     pub pcwszContentClass: windows_sys::core::PCWSTR,
+}
+impl Default for ITEM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const Interval: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
 pub const JET_GET_PROP_STORE_ERROR: i32 = -1073732822i32;
@@ -2985,6 +3300,12 @@ pub struct KAGGETDIAG {
     pub ulSize: u32,
     pub vDiagInfo: super::Variant::VARIANT,
     pub sDiagField: i16,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for KAGGETDIAG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KAGPROPVAL_CONCUR_LOCK: u32 = 4u32;
 pub const KAGPROPVAL_CONCUR_READ_ONLY: u32 = 8u32;
@@ -3029,7 +3350,7 @@ pub const KAGPROP_SYSTEMFUNCTIONS: u32 = 21u32;
 pub const KAGPROP_TIMEDATEFUNCTIONS: u32 = 22u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
     pub vt: super::Variant::VARENUM,
@@ -3058,6 +3379,12 @@ pub struct MDAXISINFO {
     pub rgcColumns: *mut usize,
     pub rgpwszDimensionNames: *mut windows_sys::core::PWSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3068,6 +3395,12 @@ pub struct MDAXISINFO {
     pub cCoordinates: usize,
     pub rgcColumns: *mut usize,
     pub rgpwszDimensionNames: *mut windows_sys::core::PWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MDAXIS_CHAPTERS: u32 = 4u32;
 pub const MDAXIS_COLUMNS: u32 = 0u32;
@@ -3282,6 +3615,12 @@ pub struct NATLANGUAGERESTRICTION {
     pub pwcsPhrase: windows_sys::core::PWSTR,
     pub lcid: u32,
 }
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for NATLANGUAGERESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = 2i32;
 pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = 0i32;
 pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = 1i32;
@@ -3301,6 +3640,12 @@ pub struct NODERESTRICTION {
     pub paRes: *mut *mut RESTRICTION,
     pub reserved: u32,
 }
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for NODERESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const NOTESPH_E_ATTACHMENTS: i32 = -2147211770i32;
 pub const NOTESPH_E_DB_ACCESS_DENIED: i32 = -2147211768i32;
 pub const NOTESPH_E_FAIL: i32 = -2147211759i32;
@@ -3317,6 +3662,12 @@ pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
 #[derive(Clone, Copy)]
 pub struct NOTRESTRICTION {
     pub pRes: *mut RESTRICTION,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for NOTRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NOT_N_PARSE_ERROR: windows_sys::core::HRESULT = 0x8092E_u32 as _;
 pub const NegationCondition: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
@@ -3371,17 +3722,32 @@ pub struct ODBC_VS_ARGS {
     pub Anonymous2: ODBC_VS_ARGS_1,
     pub RetCode: i16,
 }
+impl Default for ODBC_VS_ARGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_0 {
     pub wszArg: windows_sys::core::PWSTR,
     pub szArg: windows_sys::core::PSTR,
 }
+impl Default for ODBC_VS_ARGS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ODBC_VS_ARGS_1 {
     pub wszCorrelation: windows_sys::core::PWSTR,
     pub szCorrelation: windows_sys::core::PSTR,
+}
+impl Default for ODBC_VS_ARGS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ODBC_VS_FLAG_RETCODE: i32 = 4i32;
 pub const ODBC_VS_FLAG_STOP: i32 = 8i32;
@@ -3475,6 +3841,12 @@ pub struct PROPERTYRESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
     pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for PROPERTYRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
 pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
@@ -3492,6 +3864,11 @@ pub struct PROXY_INFO {
     pub dwPortNumber: u32,
     pub pcwszProxyName: windows_sys::core::PCWSTR,
     pub pcwszBypassList: windows_sys::core::PCWSTR,
+}
+impl Default for PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRRE: u32 = 6u32;
 pub const PRSomeBits: u32 = 8u32;
@@ -3597,6 +3974,12 @@ pub struct RANGECATEGORIZE {
     pub cRange: u32,
     pub aRangeBegin: *mut super::Com::StructuredStorage::PROPVARIANT,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for RANGECATEGORIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -3604,6 +3987,12 @@ pub struct RESTRICTION {
     pub rt: u32,
     pub weight: u32,
     pub res: RESTRICTION_0,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for RESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -3617,6 +4006,12 @@ pub union RESTRICTION_0 {
     pub cr: CONTENTRESTRICTION,
     pub nlr: NATLANGUAGERESTRICTION,
     pub pr: PROPERTYRESTRICTION,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for RESTRICTION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REXSPH_E_DUPLICATE_PROPERTY: i32 = -2147207927i32;
 pub const REXSPH_E_INVALID_CALL: i32 = -2147207936i32;
@@ -3648,6 +4043,13 @@ pub struct RMTPACK {
     pub cArray: u32,
     pub rgArray: *mut super::Variant::VARIANT,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3667,6 +4069,13 @@ pub struct RMTPACK {
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
     pub rgArray: *mut super::Variant::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ROWSETEVENT_ITEMSTATE = i32;
 pub const ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = 1i32;
@@ -3736,6 +4145,12 @@ pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::Com::StructuredStorage::PROPVARIANT,
     pub lcid: u32,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for SEARCH_COLUMN_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = 1i32;
 pub type SEARCH_INDEXING_PHASE = i32;
 pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = 0i32;
@@ -3751,8 +4166,14 @@ pub struct SEARCH_ITEM_CHANGE {
     pub lpwszURL: windows_sys::core::PWSTR,
     pub lpwszOldURL: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SEARCH_ITEM_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub dwDocID: u32,
     pub hrIndexingStatus: windows_sys::core::HRESULT,
@@ -3764,6 +4185,11 @@ pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub URL: windows_sys::core::PWSTR,
     pub OldURL: windows_sys::core::PWSTR,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
+}
+impl Default for SEARCH_ITEM_PERSISTENT_CHANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SEARCH_KIND_OF_CHANGE = i32;
 pub const SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 2i32;
@@ -3796,6 +4222,13 @@ pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -3803,6 +4236,13 @@ pub struct SEC_OBJECT {
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -3812,6 +4252,13 @@ pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: windows_sys::core::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -3819,6 +4266,13 @@ pub struct SEC_OBJECT_ELEMENT {
 pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: windows_sys::core::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SI_TEMPORARY: u32 = 2147483648u32;
 #[repr(C)]
@@ -3829,12 +4283,24 @@ pub struct SORTKEY {
     pub dwOrder: u32,
     pub locale: u32,
 }
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for SORTKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 #[derive(Clone, Copy)]
 pub struct SORTSET {
     pub cCol: u32,
     pub aCol: *mut SORTKEY,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for SORTSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SPS_WS_ERROR: i32 = -2147211753i32;
 pub const SQLAOPANY: u32 = 83u32;
@@ -3880,7 +4346,7 @@ pub const SQLNUMERIC: u32 = 108u32;
 pub const SQLNUMERICN: u32 = 108u32;
 pub const SQLNVARCHAR: u32 = 231u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SQLPERF {
     pub TimerResolution: u32,
     pub SQLidu: u32,
@@ -4532,7 +4998,7 @@ pub const SQL_DATETIME_LITERALS: u32 = 119u32;
 pub const SQL_DATE_LEN: u32 = 10u32;
 pub const SQL_DAY: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SQL_DAY_SECOND_STRUCT {
     pub day: u32,
     pub hour: u32,
@@ -4977,11 +5443,21 @@ pub struct SQL_INTERVAL_STRUCT {
     pub interval_sign: i16,
     pub intval: SQL_INTERVAL_STRUCT_0,
 }
+impl Default for SQL_INTERVAL_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SQL_INTERVAL_STRUCT_0 {
     pub year_month: SQL_YEAR_MONTH_STRUCT,
     pub day_second: SQL_DAY_SECOND_STRUCT,
+}
+impl Default for SQL_INTERVAL_STRUCT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SQL_INTERVAL_YEAR: i32 = -80i32;
 pub const SQL_INTERVAL_YEAR_TO_MONTH: i32 = -82i32;
@@ -5161,6 +5637,11 @@ pub struct SQL_NUMERIC_STRUCT {
     pub scale: i8,
     pub sign: u8,
     pub val: [u8; 16],
+}
+impl Default for SQL_NUMERIC_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SQL_NUM_FUNCTIONS: u32 = 23u32;
 pub const SQL_OAC_LEVEL1: u32 = 1u32;
@@ -5589,7 +6070,7 @@ pub const SQL_XL_ON: i32 = 1i32;
 pub const SQL_XOPEN_CLI_YEAR: u32 = 10000u32;
 pub const SQL_YEAR: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SQL_YEAR_MONTH_STRUCT {
     pub year: u32,
     pub month: u32,
@@ -5671,6 +6152,11 @@ pub struct SSERRORINFO {
     pub bClass: u8,
     pub wLineNumber: u16,
 }
+impl Default for SSERRORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SSPROPVAL_COMMANDTYPE_BULKLOAD: u32 = 22u32;
 pub const SSPROPVAL_COMMANDTYPE_REGULAR: u32 = 21u32;
 pub const SSPROPVAL_USEPROCFORPREP_OFF: u32 = 0u32;
@@ -5722,6 +6208,12 @@ pub struct SSVARIANT {
     pub dwReserved2: u32,
     pub Anonymous: SSVARIANT_0,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -5743,12 +6235,24 @@ pub union SSVARIANT_0 {
     pub UnknownType: SSVARIANT_0_3,
     pub BLOBType: SSVARIANT_0_4,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct SSVARIANT_0_4 {
     pub dbobj: DBOBJECT,
     pub pUnk: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -5758,6 +6262,12 @@ pub struct SSVARIANT_0_2 {
     pub sMaxLength: i16,
     pub prgbBinaryVal: *mut u8,
     pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -5770,6 +6280,12 @@ pub struct SSVARIANT_0_1 {
     pub dwReserved: u32,
     pub pwchReserved: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -5781,6 +6297,12 @@ pub struct SSVARIANT_0_0 {
     pub dwReserved: u32,
     pub pwchReserved: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -5788,6 +6310,12 @@ pub struct SSVARIANT_0_3 {
     pub dwActualLength: u32,
     pub rgMetadata: [u8; 16],
     pub pUnknownData: *mut u8,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STD_BOOKMARKLENGTH: u32 = 1u32;
 pub const STGM_COLLECTION: i32 = 8192i32;
@@ -5833,9 +6361,14 @@ pub struct SUBSCRIPTIONINFO {
     pub fTaskFlags: u32,
     pub dwReserved: u32,
 }
+impl Default for SUBSCRIPTIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SUBSCRIPTIONINFOFLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SUBSCRIPTIONITEMINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -5886,15 +6419,20 @@ pub struct TEXT_SOURCE {
     pub iEnd: u32,
     pub iCur: u32,
 }
+impl Default for TEXT_SOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIMEOUT_INFO {
     pub dwSize: u32,
     pub dwConnectTimeout: u32,
     pub dwDataTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIMESTAMP_STRUCT {
     pub year: i16,
     pub month: u16,
@@ -5905,7 +6443,7 @@ pub struct TIMESTAMP_STRUCT {
     pub fraction: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIME_STRUCT {
     pub hour: u16,
     pub minute: u16,
@@ -5916,7 +6454,7 @@ pub const TRACE_VERSION: u32 = 1000u32;
 pub const TRACE_VS_EVENT_ON: i32 = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VECTORRESTRICTION {
     pub Node: NODERESTRICTION,
     pub RankMethod: u32,

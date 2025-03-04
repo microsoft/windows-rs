@@ -39,7 +39,7 @@ pub const GD_RCDATA: u32 = 10u32;
 pub const GD_STRING: u32 = 6u32;
 pub const GD_USERDEFINED: u32 = 0u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GLOBALENTRY {
     pub dwSize: u32,
     pub dwAddress: u32,
@@ -54,11 +54,6 @@ pub struct GLOBALENTRY {
     pub wData: u16,
     pub dwNext: u32,
     pub dwNextAlt: u32,
-}
-impl Default for GLOBALENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GLOBAL_ALL: u32 = 0u32;
 pub const GLOBAL_FREE: u32 = 2u32;
@@ -128,16 +123,11 @@ pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
 pub type TASKENUMPROC = Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> windows_core::BOOL>;
 pub type TASKENUMPROCEX = Option<unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> windows_core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TEMP_BP_NOTE {
     pub Seg: u16,
     pub Offset: u32,
     pub bPM: windows_core::BOOL,
-}
-impl Default for TEMP_BP_NOTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const V86FLAGS_ALIGNMENT: u32 = 262144u32;
 pub const V86FLAGS_AUXCARRY: u32 = 16u32;
@@ -197,7 +187,7 @@ impl Default for VDMCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -223,12 +213,6 @@ pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub EFlags: u32,
     pub Esp: u32,
     pub SegSs: u32,
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for VDMCONTEXT_WITHOUT_XSAVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDMCONTEXT_i386: u32 = 65536u32;
 pub const VDMCONTEXT_i486: u32 = 65536u32;
@@ -304,30 +288,18 @@ impl Default for VDMLDT_ENTRY_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDMLDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for VDMLDT_ENTRY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDMLDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for VDMLDT_ENTRY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULEFIRSTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut core::ffi::c_void) -> windows_core::BOOL>;

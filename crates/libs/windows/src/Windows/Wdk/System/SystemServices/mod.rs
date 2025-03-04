@@ -6657,17 +6657,12 @@ impl Default for AMD_L1_CACHE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AMD_L1_CACHE_INFO_0 {
     pub LineSize: u8,
     pub LinesPerTag: u8,
     pub Associativity: u8,
     pub Size: u8,
-}
-impl Default for AMD_L1_CACHE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6681,16 +6676,11 @@ impl Default for AMD_L2_CACHE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AMD_L2_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield: u8,
     pub Size: u16,
-}
-impl Default for AMD_L2_CACHE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6704,16 +6694,11 @@ impl Default for AMD_L3_CACHE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AMD_L3_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield1: u8,
     pub _bitfield2: u16,
-}
-impl Default for AMD_L3_CACHE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ANY_SIZE: u32 = 1u32;
 pub const APC_LEVEL: u32 = 1u32;
@@ -6943,7 +6928,7 @@ impl Default for ARM64_NT_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -6976,12 +6961,6 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub X28: u64,
     pub Fp: u64,
     pub Lr: u64,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Default for ARM64_NT_CONTEXT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ARM64_PCR_RESERVED_MASK: u32 = 4095u32;
 pub const ARM_PROCESSOR_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe19e3d16_bc11_11e4_9caa_c2051d5d46b0);
@@ -7047,34 +7026,24 @@ impl Default for BDCB_IMAGE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BDCB_STATUS_UPDATE_CONTEXT {
     pub StatusType: BDCB_STATUS_UPDATE_TYPE,
-}
-impl Default for BDCB_STATUS_UPDATE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDCB_STATUS_UPDATE_TYPE(pub i32);
 pub const BMC_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x487565ba_6494_4367_95ca_4eff893522f6);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BOOTDISK_INFORMATION {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
     pub BootDeviceSignature: u32,
     pub SystemDeviceSignature: u32,
 }
-impl Default for BOOTDISK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BOOTDISK_INFORMATION_EX {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
@@ -7084,11 +7053,6 @@ pub struct BOOTDISK_INFORMATION_EX {
     pub SystemDeviceGuid: windows_core::GUID,
     pub BootDeviceIsGpt: bool,
     pub SystemDeviceIsGpt: bool,
-}
-impl Default for BOOTDISK_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7160,14 +7124,9 @@ impl Default for BUS_SPECIFIC_RESET_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
-}
-impl Default for BUS_SPECIFIC_RESET_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(4i32);
 pub const BdCbClassificationEnd: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(4i32);
@@ -7245,30 +7204,20 @@ impl Default for CMC_DRIVER_INFO {
 }
 pub const CMC_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x2dce8bb1_bdd7_450e_b9ad_9cf4ebd4f890);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_COMPONENT_INFORMATION {
     pub Flags: DEVICE_FLAGS,
     pub Version: u32,
     pub Key: u32,
     pub AffinityMask: usize,
 }
-impl Default for CM_COMPONENT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_DISK_GEOMETRY_DEVICE_DATA {
     pub BytesPerSector: u32,
     pub NumberOfCylinders: u32,
     pub SectorsPerTrack: u32,
     pub NumberOfHeads: u32,
-}
-impl Default for CM_DISK_GEOMETRY_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7293,7 +7242,7 @@ impl Default for CM_EISA_FUNCTION_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_EISA_SLOT_INFORMATION {
     pub ReturnCode: u8,
     pub ReturnFlags: u8,
@@ -7303,11 +7252,6 @@ pub struct CM_EISA_SLOT_INFORMATION {
     pub NumberFunctions: u8,
     pub FunctionInformation: u8,
     pub CompressedId: u32,
-}
-impl Default for CM_EISA_SLOT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7349,7 +7293,7 @@ impl Default for CM_FULL_RESOURCE_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_INT13_DRIVE_PARAMETER {
     pub DriveSelect: u16,
     pub MaxCylinders: u32,
@@ -7357,13 +7301,8 @@ pub struct CM_INT13_DRIVE_PARAMETER {
     pub MaxHeads: u16,
     pub NumberDrives: u16,
 }
-impl Default for CM_INT13_DRIVE_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -7371,13 +7310,8 @@ pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Subtype: u8,
     pub KeyboardFlags: u16,
 }
-impl Default for CM_KEYBOARD_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_MCA_POS_DATA {
     pub AdapterId: u16,
     pub PosData1: u8,
@@ -7385,13 +7319,8 @@ pub struct CM_MCA_POS_DATA {
     pub PosData3: u8,
     pub PosData4: u8,
 }
-impl Default for CM_MCA_POS_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_MONITOR_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -7420,11 +7349,6 @@ pub struct CM_MONITOR_DEVICE_DATA {
     pub VerticalSyncLow: u16,
     pub VerticalSync: u16,
     pub VerticalSyncHigh: u16,
-}
-impl Default for CM_MONITOR_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7463,19 +7387,14 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: u32,
     pub Length: u32,
     pub Reserved: u32,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: u8,
     pub Type: u8,
@@ -7483,11 +7402,6 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Reserved2: u8,
     pub IdLowPart: u32,
     pub IdHighPart: u32,
-}
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7500,19 +7414,14 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: u32,
     pub RequestLine: u32,
@@ -7521,89 +7430,49 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Reserved2: u8,
     pub Reserved3: u8,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: u32,
     pub Port: u32,
     pub Reserved1: u32,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Start: i64,
     pub Length: u32,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     pub Start: i64,
     pub Length40: u32,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     pub Start: i64,
     pub Length48: u32,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     pub Start: i64,
     pub Length64: u32,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Start: i64,
     pub Length: u32,
-}
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7627,40 +7496,25 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: u16,
     pub MessageCount: u16,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Start: i64,
     pub Length: u32,
-}
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7809,39 +7663,24 @@ pub const CM_RESOURCE_PORT_PASSIVE_DECODE: u32 = 64u32;
 pub const CM_RESOURCE_PORT_POSITIVE_DECODE: u32 = 32u32;
 pub const CM_RESOURCE_PORT_WINDOW_DECODE: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_ROM_BLOCK {
     pub Address: u32,
     pub Size: u32,
 }
-impl Default for CM_ROM_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_SCSI_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub HostIdentifier: u8,
 }
-impl Default for CM_SCSI_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_SERIAL_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub BaudClock: u32,
-}
-impl Default for CM_SERIAL_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
 #[repr(transparent)]
@@ -7861,19 +7700,14 @@ impl Default for CM_SONIC_DEVICE_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_VIDEO_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub VideoClock: u32,
 }
-impl Default for CM_VIDEO_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONFIGURATION_INFORMATION {
     pub DiskCount: u32,
     pub FloppyCount: u32,
@@ -7886,11 +7720,6 @@ pub struct CONFIGURATION_INFORMATION {
     pub AtDiskSecondaryAddressClaimed: bool,
     pub Version: u32,
     pub MediumChangerCount: u32,
-}
-impl Default for CONFIGURATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8176,15 +8005,10 @@ impl Default for DEBUG_DEVICE_ADDRESS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_DEVICE_ADDRESS_0_0 {
     pub BitWidth: u8,
     pub AccessSize: u8,
-}
-impl Default for DEBUG_DEVICE_ADDRESS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8231,14 +8055,9 @@ impl Default for DEBUG_DEVICE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_DEVICE_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
-}
-impl Default for DEBUG_DEVICE_DESCRIPTOR_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8267,18 +8086,13 @@ impl Default for DEBUG_MEMORY_REQUIREMENTS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_TRANSPORT_DATA {
     pub HwContextSize: u32,
     pub SharedVisibleDataSize: u32,
     pub UseSerialFraming: bool,
     pub ValidUSBCoreId: bool,
     pub USBCoreId: u8,
-}
-impl Default for DEBUG_TRANSPORT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEFAULT_DEVICE_DRIVER_CREATOR_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x57217c8d_5e66_44fb_8033_9b74cacedf5b);
 pub type DEVICE_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void, bustype: *const windows_core::GUID, resettypeselected: DEVICE_BUS_SPECIFIC_RESET_TYPE, flags: *const BUS_SPECIFIC_RESET_FLAGS, resetparameters: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -8306,24 +8120,14 @@ impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     pub _bitfield: u64,
 }
-impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     pub _bitfield: u64,
-}
-impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
@@ -8349,7 +8153,7 @@ impl Default for DEVICE_CAPABILITIES {
 }
 pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVICE_DESCRIPTION {
     pub Version: u32,
     pub Master: bool,
@@ -8372,11 +8176,6 @@ pub struct DEVICE_DESCRIPTION {
     pub DmaRequestLine: u32,
     pub DeviceAddress: i64,
 }
-impl Default for DEVICE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DEVICE_DESCRIPTION_VERSION: u32 = 0u32;
 pub const DEVICE_DESCRIPTION_VERSION1: u32 = 1u32;
 pub const DEVICE_DESCRIPTION_VERSION2: u32 = 2u32;
@@ -8397,14 +8196,9 @@ impl Default for DEVICE_FAULT_CONFIGURATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVICE_FLAGS {
     pub _bitfield: u32,
-}
-impl Default for DEVICE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8485,14 +8279,9 @@ impl Default for DEVICE_RESET_STATUS_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVICE_RESET_STATUS_FLAGS_0 {
     pub _bitfield: u64,
-}
-impl Default for DEVICE_RESET_STATUS_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8536,25 +8325,15 @@ impl Default for DISK_SIGNATURE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISK_SIGNATURE_0_1 {
     pub DiskId: windows_core::GUID,
 }
-impl Default for DISK_SIGNATURE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISK_SIGNATURE_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
-}
-impl Default for DISK_SIGNATURE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISPATCH_LEVEL: u32 = 2u32;
 pub const DMAV3_TRANFER_WIDTH_128: u32 = 4u32;
@@ -8612,18 +8391,13 @@ impl Default for DMA_ADAPTER_INFO_CRASHDUMP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_ADAPTER_INFO_V1 {
     pub ReadDmaCounterAvailable: u32,
     pub ScatterGatherLimit: u32,
     pub DmaAddressWidth: u32,
     pub Flags: u32,
     pub MinimumTransferUnit: u32,
-}
-impl Default for DMA_ADAPTER_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DMA_ADAPTER_INFO_VERSION1: u32 = 1u32;
 #[repr(C)]
@@ -8651,26 +8425,16 @@ impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
     pub Offset: u64,
     pub Length: u32,
-}
-impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8684,28 +8448,18 @@ pub type DMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dmaadapter: *
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMPLETION_STATUS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE0 {
     pub _bitfield: u8,
 }
-impl Default for DMA_CONFIGURATION_BYTE0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
 }
-impl Default for DMA_CONFIGURATION_BYTE1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DMA_FAIL_ON_BOUNCE: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE {
     pub Version: u32,
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
@@ -8721,11 +8475,6 @@ pub struct DMA_IOMMU_INTERFACE {
     pub UnmapIdentityRange: PIOMMU_UNMAP_IDENTITY_RANGE,
     pub SetDeviceFaultReporting: PIOMMU_SET_DEVICE_FAULT_REPORTING,
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
-}
-impl Default for DMA_IOMMU_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8756,7 +8505,7 @@ pub const DMA_IOMMU_INTERFACE_EX_VERSION_2: u32 = 2u32;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION_MAX: u32 = 2u32;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION_MIN: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V1 {
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -8772,13 +8521,8 @@ pub struct DMA_IOMMU_INTERFACE_V1 {
     pub SetDeviceFaultReporting: PIOMMU_SET_DEVICE_FAULT_REPORTING,
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
 }
-impl Default for DMA_IOMMU_INTERFACE_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDomainEx: PIOMMU_DOMAIN_CREATE_EX,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -8803,16 +8547,11 @@ pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDevice: PIOMMU_DEVICE_CREATE,
     pub DeleteDevice: PIOMMU_DEVICE_DELETE,
 }
-impl Default for DMA_IOMMU_INTERFACE_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DMA_IOMMU_INTERFACE_VERSION: u32 = 1u32;
 pub const DMA_IOMMU_INTERFACE_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_OPERATIONS {
     pub Size: u32,
     pub PutDmaAdapter: PPUT_DMA_ADAPTER,
@@ -8855,12 +8594,6 @@ pub struct DMA_OPERATIONS {
     pub FreeCommonBufferVector: PFREE_COMMON_BUFFER_VECTOR,
     pub CreateCommonBufferFromMdl: PCREATE_COMMON_BUFFER_FROM_MDL,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for DMA_OPERATIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_SPEED(pub i32);
@@ -8890,29 +8623,19 @@ impl Default for DMA_TRANSFER_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_TRANSFER_INFO_V1 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
     pub ScatterGatherListSize: u32,
 }
-impl Default for DMA_TRANSFER_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMA_TRANSFER_INFO_V2 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
     pub ScatterGatherListSize: u32,
     pub LogicalPageCount: u32,
-}
-impl Default for DMA_TRANSFER_INFO_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DMA_TRANSFER_INFO_VERSION1: u32 = 1u32;
 pub const DMA_TRANSFER_INFO_VERSION2: u32 = 2u32;
@@ -8947,7 +8670,7 @@ impl Default for DOMAIN_CONFIGURATION_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_ARCH(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub Ttbr0: i64,
     pub Ttbr1: i64,
@@ -8958,37 +8681,22 @@ pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub CoherentTableWalks: bool,
     pub TranslationEnabled: bool,
 }
-impl Default for DOMAIN_CONFIGURATION_ARM64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_X64 {
     pub FirstLevelPageTableRoot: i64,
     pub TranslationEnabled: bool,
 }
-impl Default for DOMAIN_CONFIGURATION_X64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DPC_NORMAL: u32 = 0u32;
 pub const DPC_THREADED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub Signature: u32,
     pub Revision: u16,
     pub Size: u16,
     pub DpcWatchdogProfileOffset: u16,
     pub DpcWatchdogProfileLength: u32,
-}
-impl Default for DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_REVISION_1: u32 = 1u32;
 pub const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_SIGNATURE: u32 = 2931740382u32;
@@ -9008,15 +8716,10 @@ pub const DRIVER_VERIFIER_INJECT_ALLOCATION_FAILURES: u32 = 4u32;
 pub const DRIVER_VERIFIER_IO_CHECKING: u32 = 16u32;
 pub const DRIVER_VERIFIER_SPECIAL_POOLING: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRIVER_VERIFIER_THUNK_PAIRS {
     pub PristineRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
     pub NewRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
-}
-impl Default for DRIVER_VERIFIER_THUNK_PAIRS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DRIVER_VERIFIER_TRACK_POOL_ALLOCATIONS: u32 = 8u32;
 pub const DRS_LEVEL: u32 = 14u32;
@@ -9118,15 +8821,10 @@ impl Default for EFI_ACPI_RAS_SIGNAL_TABLE {
 pub const EFLAG_SIGN: u32 = 32768u32;
 pub const EFLAG_ZERO: u32 = 16384u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_DMA_CONFIGURATION {
     pub ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
     pub ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
-}
-impl Default for EISA_DMA_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EISA_EMPTY_SLOT: u32 = 131u32;
 pub const EISA_FREE_FORM_DATA: u32 = 64u32;
@@ -9142,28 +8840,18 @@ pub const EISA_INVALID_CONFIGURATION: u32 = 130u32;
 pub const EISA_INVALID_FUNCTION: u32 = 129u32;
 pub const EISA_INVALID_SLOT: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_IRQ_CONFIGURATION {
     pub ConfigurationByte: EISA_IRQ_DESCRIPTOR,
     pub Reserved: u8,
 }
-impl Default for EISA_IRQ_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_IRQ_DESCRIPTOR {
     pub _bitfield: u8,
 }
-impl Default for EISA_IRQ_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EISA_MEMORY_CONFIGURATION {
     pub ConfigurationByte: EISA_MEMORY_TYPE,
     pub DataSize: u8,
@@ -9171,43 +8859,23 @@ pub struct EISA_MEMORY_CONFIGURATION {
     pub AddressHighByte: u8,
     pub MemorySize: u16,
 }
-impl Default for EISA_MEMORY_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
-}
-impl Default for EISA_MEMORY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EISA_MEMORY_TYPE_RAM: u32 = 1u32;
 pub const EISA_MORE_ENTRIES: u32 = 128u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EISA_PORT_CONFIGURATION {
     pub Configuration: EISA_PORT_DESCRIPTOR,
     pub PortAddress: u16,
 }
-impl Default for EISA_PORT_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
-}
-impl Default for EISA_PORT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EISA_SYSTEM_MEMORY: u32 = 0u32;
 pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: bool, enablemigrationinterrupt: bool, enablevirtualization: bool) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -9255,7 +8923,7 @@ pub const ERRTYP_UNIMPL: u32 = 19u32;
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 pub type ETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ETW_TRACE_SESSION_SETTINGS {
     pub Version: u32,
     pub BufferSize: u32,
@@ -9265,11 +8933,6 @@ pub struct ETW_TRACE_SESSION_SETTINGS {
     pub FlushTimer: u32,
     pub FlushThreshold: u32,
     pub ClockType: u32,
-}
-impl Default for ETW_TRACE_SESSION_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EVENT_QUERY_STATE: u32 = 1u32;
 pub const EXCEPTION_ALIGNMENT_CHECK: u32 = 17u32;
@@ -9438,14 +9101,9 @@ impl Default for FAULT_INFORMATION_ARM64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FAULT_INFORMATION_ARM64_FLAGS {
     pub _bitfield: u32,
-}
-impl Default for FAULT_INFORMATION_ARM64_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9466,14 +9124,9 @@ impl Default for FAULT_INFORMATION_X64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FAULT_INFORMATION_X64_FLAGS {
     pub _bitfield: u32,
-}
-impl Default for FAULT_INFORMATION_X64_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_128_BYTE_ALIGNMENT: u32 = 127u32;
 pub const FILE_256_BYTE_ALIGNMENT: u32 = 255u32;
@@ -9481,15 +9134,10 @@ pub const FILE_32_BYTE_ALIGNMENT: u32 = 31u32;
 pub const FILE_512_BYTE_ALIGNMENT: u32 = 511u32;
 pub const FILE_64_BYTE_ALIGNMENT: u32 = 63u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ATTRIBUTE_TAG_INFORMATION {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
-}
-impl Default for FILE_ATTRIBUTE_TAG_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_ATTRIBUTE_VALID_FLAGS: u32 = 32695u32;
 pub const FILE_ATTRIBUTE_VALID_KERNEL_SET_FLAGS: u32 = 5910951u32;
@@ -9514,29 +9162,19 @@ pub const FILE_DEVICE_IS_MOUNTED: u32 = 32u32;
 pub const FILE_DEVICE_REQUIRE_SECURITY_CHECK: u32 = 1048576u32;
 pub const FILE_DEVICE_SECURE_OPEN: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION {
     pub EndOfFile: i64,
 }
-impl Default for FILE_END_OF_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILE_FLOPPY_DISKETTE: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_DEVICE_INFORMATION {
     pub DeviceType: u32,
     pub Characteristics: u32,
 }
-impl Default for FILE_FS_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_FULL_SIZE_INFORMATION {
     pub TotalAllocationUnits: i64,
     pub CallerAvailableAllocationUnits: i64,
@@ -9544,13 +9182,8 @@ pub struct FILE_FS_FULL_SIZE_INFORMATION {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl Default for FILE_FS_FULL_SIZE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_FULL_SIZE_INFORMATION_EX {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -9566,11 +9199,6 @@ pub struct FILE_FS_FULL_SIZE_INFORMATION_EX {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
-impl Default for FILE_FS_FULL_SIZE_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_FS_LABEL_INFORMATION {
@@ -9583,16 +9211,11 @@ impl Default for FILE_FS_LABEL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_METADATA_SIZE_INFORMATION {
     pub TotalMetadataAllocationUnits: i64,
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
-}
-impl Default for FILE_FS_METADATA_SIZE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9606,17 +9229,12 @@ impl Default for FILE_FS_OBJECTID_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_SIZE_INFORMATION {
     pub TotalAllocationUnits: i64,
     pub AvailableAllocationUnits: i64,
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
-}
-impl Default for FILE_FS_SIZE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9644,49 +9262,27 @@ impl Default for FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
     pub Flags: u32,
 }
-impl Default for FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION {
     pub PriorityHint: super::super::Foundation::IO_PRIORITY_HINT,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for FILE_IO_PRIORITY_HINT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION_EX {
     pub PriorityHint: super::super::Foundation::IO_PRIORITY_HINT,
     pub BoostOutstanding: bool,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for FILE_IO_PRIORITY_HINT_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_IS_REMOTE_DEVICE_INFORMATION {
     pub IsRemote: bool,
-}
-impl Default for FILE_IS_REMOTE_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_LONG_ALIGNMENT: u32 = 3u32;
 #[repr(C)]
@@ -9723,14 +9319,9 @@ impl Default for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_NUMA_NODE_INFORMATION {
     pub NodeNumber: u16,
-}
-impl Default for FILE_NUMA_NODE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_OCTA_ALIGNMENT: u32 = 15u32;
 pub const FILE_PORTABLE_DEVICE: u32 = 262144u32;
@@ -9756,7 +9347,7 @@ pub const FILE_REMOTE_DEVICE: u32 = 16u32;
 pub const FILE_REMOTE_DEVICE_VSMB: u32 = 524288u32;
 pub const FILE_REMOVABLE_MEDIA: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestsPerPeriod: u32,
     pub Period: u32,
@@ -9765,27 +9356,17 @@ pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestSize: u32,
     pub NumOutstandingRequests: u32,
 }
-impl Default for FILE_SFIO_RESERVE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_SFIO_VOLUME_INFORMATION {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
     pub MinimumTransferSize: u32,
 }
-impl Default for FILE_SFIO_VOLUME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILE_SHARE_VALID_FLAGS: u32 = 7u32;
 pub const FILE_SKIP_SET_USER_EVENT_ON_FAST_IO: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STANDARD_INFORMATION_EX {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -9795,21 +9376,11 @@ pub struct FILE_STANDARD_INFORMATION_EX {
     pub AlternateStream: bool,
     pub MetadataAttribute: bool,
 }
-impl Default for FILE_STANDARD_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILE_USE_FILE_POINTER_POSITION: u32 = 4294967294u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_VALID_DATA_LENGTH_INFORMATION {
     pub ValidDataLength: i64,
-}
-impl Default for FILE_VALID_DATA_LENGTH_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_VALID_EXTENDED_OPTION_FLAGS: u32 = 268435456u32;
 pub const FILE_VIRTUAL_VOLUME: u32 = 64u32;
@@ -9991,50 +9562,34 @@ pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_C
 pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(0i32);
 pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_AMLI_BAD_IO_ADDRESS_LIST {
     pub BadAddrBegin: u32,
     pub BadAddrSize: u32,
     pub OSVersionTrigger: u32,
     pub IOHandler: PHALIOREADWRITEHANDLER,
 }
-impl Default for HAL_AMLI_BAD_IO_ADDRESS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_APIC_DESTINATION_MODE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_BUS_INFORMATION {
     pub BusType: INTERFACE_TYPE,
     pub ConfigurationType: BUS_DATA_TYPE,
     pub BusNumber: u32,
     pub Reserved: u32,
 }
-impl Default for HAL_BUS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_CALLBACKS {
     pub SetSystemInformation: super::super::Foundation::PCALLBACK_OBJECT,
     pub BusCheck: super::super::Foundation::PCALLBACK_OBJECT,
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for HAL_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_DISPATCH {
     pub Version: u32,
     pub HalQuerySystemInformation: pHalQuerySystemInformation,
@@ -10060,12 +9615,6 @@ pub struct HAL_DISPATCH {
     pub HalGetCachedAcpiTable: pHalGetAcpiTable,
     pub HalSetPciErrorHandlerCallback: pHalSetPciErrorHandlerCallback,
     pub HalGetPrmCache: pHalGetPrmCache,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for HAL_DISPATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HAL_DISPATCH_VERSION: u32 = 5u32;
 #[repr(transparent)]
@@ -10115,16 +9664,11 @@ pub const HAL_MASK_UNMASK_FLAGS_NONE: u32 = 0u32;
 pub const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: u32 = 2u32;
 pub const HAL_MASK_UNMASK_FLAGS_SERVICING_DEFERRED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_MCA_INTERFACE {
     pub Lock: PHALMCAINTERFACELOCK,
     pub Unlock: PHALMCAINTERFACEUNLOCK,
     pub ReadRegister: PHALMCAINTERFACEREADREGISTER,
-}
-impl Default for HAL_MCA_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(1i32);
 pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(0i32);
@@ -10134,44 +9678,24 @@ pub const HAL_PLATFORM_DISABLE_UC_MAIN_MEMORY: i32 = 8i32;
 pub const HAL_PLATFORM_DISABLE_WRITE_COMBINING: i32 = 1i32;
 pub const HAL_PLATFORM_ENABLE_WRITE_COMBINING_MMIO: i32 = 16i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_PLATFORM_INFORMATION {
     pub PlatformFlags: u32,
 }
-impl Default for HAL_PLATFORM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_POWER_INFORMATION {
     pub TBD: u32,
 }
-impl Default for HAL_POWER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_PROCESSOR_FEATURE {
     pub UsableFeatureBits: u32,
 }
-impl Default for HAL_PROCESSOR_FEATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HAL_PROCESSOR_SPEED_INFORMATION {
     pub ProcessorSpeed: u32,
-}
-impl Default for HAL_PROCESSOR_SPEED_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10180,16 +9704,11 @@ pub struct HAL_QUERY_INFORMATION_CLASS(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HAL_SET_INFORMATION_CLASS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HARDWARE_COUNTER {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Index: u64,
-}
-impl Default for HARDWARE_COUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10201,16 +9720,11 @@ pub const HIGH_LEVEL: u32 = 31u32;
 pub const HIGH_PRIORITY: u32 = 31u32;
 pub type HVL_WHEA_ERROR_NOTIFICATION = Option<unsafe extern "system" fn(recoverycontext: *const WHEA_RECOVERY_CONTEXT, platformdirected: bool, poisoned: bool) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HWPROFILE_CHANGE_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_core::GUID,
-}
-impl Default for HWPROFILE_CHANGE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HalAcpiAuditInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(26i32);
 pub const HalCallbackInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(5i32);
@@ -10329,14 +9843,9 @@ impl Default for IMAGE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_INFO_0_0 {
     pub _bitfield: u32,
-}
-impl Default for IMAGE_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -10381,14 +9890,9 @@ pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: u32 = 1u32;
 pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: u32 = 4u32;
 pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INPUT_MAPPING_ELEMENT {
     pub InputMappingId: u32,
-}
-impl Default for INPUT_MAPPING_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10402,14 +9906,9 @@ impl Default for INTEL_CACHE_INFO_EAX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTEL_CACHE_INFO_EAX_0 {
     pub _bitfield: i32,
-}
-impl Default for INTEL_CACHE_INFO_EAX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10423,14 +9922,9 @@ impl Default for INTEL_CACHE_INFO_EBX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INTEL_CACHE_INFO_EBX_0 {
     pub _bitfield: u32,
-}
-impl Default for INTEL_CACHE_INFO_EBX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10491,15 +9985,10 @@ impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
     pub InputMappingBase: u32,
     pub MappingsCount: u32,
-}
-impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10522,28 +10011,18 @@ impl Default for IOMMU_DMA_DOMAIN_CREATION_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     pub _bitfield: u64,
-}
-impl Default for IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DOMAIN_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
     pub LogicalAddressBase: u64,
     pub Size: usize,
-}
-impl Default for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10579,14 +10058,9 @@ impl Default for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
     pub AddressWidth: u32,
-}
-impl Default for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10649,14 +10123,9 @@ impl Default for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     pub _bitfield: u32,
-}
-impl Default for IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Wdk_Foundation")]
 pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const super::super::Foundation::IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -10695,16 +10164,10 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
     pub Base: i64,
     pub Size: usize,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
@@ -10791,14 +10254,9 @@ impl Default for IO_ATTRIBUTION_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_ATTRIBUTION_INFORMATION_0_0 {
     pub _bitfield: u32,
-}
-impl Default for IO_ATTRIBUTION_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IO_ATTRIBUTION_INFO_V1: u32 = 1u32;
 pub const IO_CHECK_CREATE_PARAMETERS: u32 = 512u32;
@@ -11015,7 +10473,7 @@ impl Default for IO_DRIVER_CREATE_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_ERROR_LOG_MESSAGE {
     pub Type: u16,
     pub Size: u16,
@@ -11023,11 +10481,6 @@ pub struct IO_ERROR_LOG_MESSAGE {
     pub TimeStamp: i64,
     pub DriverNameOffset: u32,
     pub EntryData: IO_ERROR_LOG_PACKET,
-}
-impl Default for IO_ERROR_LOG_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11093,15 +10546,9 @@ impl Default for IO_FOEXT_SILO_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_FOEXT_SILO_PARAMETERS_0_0 {
     pub _bitfield: u32,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for IO_FOEXT_SILO_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IO_FORCE_ACCESS_CHECK: u32 = 1u32;
 pub const IO_IGNORE_SHARE_ACCESS_CHECK: u32 = 2048u32;
@@ -11121,7 +10568,7 @@ impl Default for IO_INTERRUPT_MESSAGE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub MessageAddress: i64,
     pub TargetProcessorSet: usize,
@@ -11131,12 +10578,6 @@ pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub Irql: u8,
     pub Mode: KINTERRUPT_MODE,
     pub Polarity: KINTERRUPT_POLARITY,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for IO_INTERRUPT_MESSAGE_INFO_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IO_KEYBOARD_INCREMENT: u32 = 6u32;
 pub const IO_MOUSE_INCREMENT: u32 = 6u32;
@@ -11272,32 +10713,22 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub Length: u32,
     pub MinBusNumber: u32,
     pub MaxBusNumber: u32,
     pub Reserved: u32,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
     pub Priority: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub Class: u8,
     pub Type: u8,
@@ -11305,11 +10736,6 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub Reserved2: u8,
     pub IdLowPart: u32,
     pub IdHighPart: u32,
-}
-impl Default for IO_RESOURCE_DESCRIPTOR_0_12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11322,44 +10748,29 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
     pub RequestLine: u32,
     pub Reserved: u32,
     pub Channel: u32,
     pub TransferWidth: u32,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
     pub MinimumChannel: u32,
     pub MaximumChannel: u32,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub MinimumVector: u32,
     pub MaximumVector: u32,
@@ -11367,75 +10778,45 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub PriorityPolicy: IRQ_PRIORITY,
     pub TargetedProcessors: usize,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
     pub Length40: u32,
     pub Alignment40: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_10 {
     pub Length48: u32,
     pub Alignment48: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
     pub Length64: u32,
     pub Alignment64: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
-}
-impl Default for IO_RESOURCE_DESCRIPTOR_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11469,15 +10850,10 @@ impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
 }
 pub const IO_SERIAL_INCREMENT: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_SESSION_CONNECT_INFO {
     pub SessionId: u32,
     pub LocalSession: bool,
-}
-impl Default for IO_SESSION_CONNECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11492,16 +10868,11 @@ pub const IO_SESSION_STATE_CONNECT_EVENT: u32 = 4u32;
 pub const IO_SESSION_STATE_CREATION_EVENT: u32 = 1u32;
 pub const IO_SESSION_STATE_DISCONNECT_EVENT: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_SESSION_STATE_INFORMATION {
     pub SessionId: u32,
     pub SessionState: IO_SESSION_STATE,
     pub LocalSession: bool,
-}
-impl Default for IO_SESSION_STATE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IO_SESSION_STATE_LOGOFF_EVENT: u32 = 32u32;
 pub const IO_SESSION_STATE_LOGON_EVENT: u32 = 16u32;
@@ -11528,15 +10899,10 @@ pub const IO_SHARE_ACCESS_NON_PRIMARY_STREAM: u32 = 128u32;
 pub const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648u32;
 pub const IO_SOUND_INCREMENT: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STATUS_BLOCK32 {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub Information: u32,
-}
-impl Default for IO_STATUS_BLOCK32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11999,34 +11365,23 @@ pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1u32;
 pub type KDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const super::super::Foundation::KDPC, deferredcontext: *const core::ffi::c_void, systemargument1: *const core::ffi::c_void, systemargument2: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDEVICE_QUEUE_ENTRY {
     pub DeviceListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub SortKey: u32,
     pub Inserted: bool,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for KDEVICE_QUEUE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDPC_IMPORTANCE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDPC_WATCHDOG_INFORMATION {
     pub DpcTimeLimit: u32,
     pub DpcTimeCount: u32,
     pub DpcWatchdogLimit: u32,
     pub DpcWatchdogCount: u32,
     pub Reserved: u32,
-}
-impl Default for KDPC_WATCHDOG_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12043,31 +11398,21 @@ pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288u32;
 pub const KERNEL_LARGE_STACK_SIZE: u32 = 61440u32;
 pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: u32 = 8192u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_core::GUID,
 }
-impl Default for KERNEL_SOFT_RESTART_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KERNEL_SOFT_RESTART_NOTIFICATION_VERSION: u32 = 1u32;
 pub const KERNEL_STACK_SIZE: u32 = 12288u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERNEL_USER_TIMES {
     pub CreateTime: i64,
     pub ExitTime: i64,
     pub KernelTime: i64,
     pub UserTime: i64,
-}
-impl Default for KERNEL_USER_TIMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12083,7 +11428,7 @@ impl Default for KEY_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_CACHED_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -12094,20 +11439,10 @@ pub struct KEY_CACHED_INFORMATION {
     pub MaxValueDataLen: u32,
     pub NameLength: u32,
 }
-impl Default for KEY_CACHED_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_CONTROL_FLAGS_INFORMATION {
     pub ControlFlags: u32,
-}
-impl Default for KEY_CONTROL_FLAGS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12130,14 +11465,9 @@ impl Default for KEY_FULL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_LAYER_INFORMATION {
     pub _bitfield: u32,
-}
-impl Default for KEY_LAYER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12166,24 +11496,14 @@ impl Default for KEY_NODE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_SET_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
 }
-impl Default for KEY_SET_VIRTUALIZATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_TRUST_INFORMATION {
     pub _bitfield: u32,
-}
-impl Default for KEY_TRUST_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12214,14 +11534,9 @@ impl Default for KEY_VALUE_FULL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_VALUE_LAYER_INFORMATION {
     pub _bitfield: u32,
-}
-impl Default for KEY_VALUE_LAYER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12249,57 +11564,36 @@ impl Default for KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
 }
-impl Default for KEY_VIRTUALIZATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_WOW64_FLAGS_INFORMATION {
     pub UserFlags: u32,
 }
-impl Default for KEY_WOW64_FLAGS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEY_WRITE_TIME_INFORMATION {
     pub LastWriteTime: i64,
-}
-impl Default for KEY_WRITE_TIME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KE_MAX_TRIAGE_DUMP_DATA_MEMORY_SIZE: u32 = 33554432u32;
 pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     pub State: KE_PROCESSOR_CHANGE_NOTIFY_STATE,
     pub NtNumber: u32,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub ProcNumber: super::super::super::Win32::System::Kernel::PROCESSOR_NUMBER,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_STATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KFLOATING_SAVE {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -12309,11 +11603,6 @@ pub struct KFLOATING_SAVE {
     pub DataSelector: u32,
     pub Spare0: u32,
     pub Spare1: u32,
-}
-impl Default for KFLOATING_SAVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -12336,15 +11625,10 @@ pub struct KINTERRUPT_POLARITY(pub i32);
 pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: usize) -> usize>;
 pub const KI_USER_SHARED_DATA: u32 = 4292804608u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KLOCK_QUEUE_HANDLE {
     pub LockQueue: KSPIN_LOCK_QUEUE,
     pub OldIrql: u8,
-}
-impl Default for KLOCK_QUEUE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type KMESSAGE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const isize, servicecontext: *const core::ffi::c_void, messageid: u32) -> bool>;
 #[repr(transparent)]
@@ -12378,16 +11662,11 @@ impl Default for KSPIN_LOCK_QUEUE {
 pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: *const core::ffi::c_void)>;
 pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: *const core::ffi::c_void) -> bool>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KSYSTEM_TIME {
     pub LowPart: u32,
     pub High1Time: i32,
     pub High2Time: i32,
-}
-impl Default for KSYSTEM_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -12531,15 +11810,9 @@ impl Default for KUSER_SHARED_DATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KUSER_SHARED_DATA_0_0 {
     pub _bitfield: u8,
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Default for KUSER_SHARED_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -12568,15 +11841,9 @@ impl Default for KUSER_SHARED_DATA_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KUSER_SHARED_DATA_2_0 {
     pub _bitfield: u32,
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Default for KUSER_SHARED_DATA_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -12620,16 +11887,10 @@ impl Default for KUSER_SHARED_DATA_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KUSER_SHARED_DATA_4_0 {
     pub QpcBypassEnabled: u8,
     pub QpcShift: u8,
-}
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl Default for KUSER_SHARED_DATA_4_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12698,28 +11959,18 @@ pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY
 pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(7i32);
 pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LEGACY_BUS_INFORMATION {
     pub BusTypeGuid: windows_core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
 }
-impl Default for LEGACY_BUS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LINK_SHARE_ACCESS {
     pub OpenCount: u32,
     pub Deleters: u32,
     pub SharedDelete: u32,
-}
-impl Default for LINK_SHARE_ACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12781,17 +12032,12 @@ pub const LowPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(0i32);
 pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(8i32);
 pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(9i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MAILSLOT_CREATE_PARAMETERS {
     pub MailslotQuota: u32,
     pub MaximumMessageSize: u32,
     pub ReadTimeout: i64,
     pub TimeoutSpecified: bool,
-}
-impl Default for MAILSLOT_CREATE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -12866,15 +12112,10 @@ impl Default for MCA_EXCEPTION_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MCA_EXCEPTION_0_1 {
     pub Address: u64,
     pub Type: u64,
-}
-impl Default for MCA_EXCEPTION_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12893,14 +12134,9 @@ impl Default for MCG_CAP {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCG_CAP_0 {
     pub _bitfield: u64,
-}
-impl Default for MCG_CAP_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -12914,15 +12150,10 @@ impl Default for MCG_STATUS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCG_STATUS_0 {
     pub _bitfield: u32,
     pub Reserved2: u32,
-}
-impl Default for MCG_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12936,15 +12167,10 @@ impl Default for MCI_ADDR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MCI_ADDR_0 {
     pub Address: u32,
     pub Reserved: u32,
-}
-impl Default for MCI_ADDR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12958,16 +12184,11 @@ impl Default for MCI_STATS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MCI_STATS_0 {
     pub McaCod: u16,
     pub MsCod: u16,
     pub _bitfield: u32,
-}
-impl Default for MCI_STATS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -12983,34 +12204,19 @@ impl Default for MCI_STATUS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_AMD_BITS {
     pub _bitfield: u64,
 }
-impl Default for MCI_STATUS_AMD_BITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_BITS_COMMON {
     pub _bitfield: u64,
 }
-impl Default for MCI_STATUS_BITS_COMMON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_INTEL_BITS {
     pub _bitfield: u64,
-}
-impl Default for MCI_STATUS_INTEL_BITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MDL_ALLOCATED_FIXED_SIZE: u32 = 8u32;
 pub const MDL_DESCRIBES_AWE: u32 = 1024u32;
@@ -13027,17 +12233,12 @@ pub struct MEMORY_CACHING_TYPE_ORIG(pub i32);
 pub const MEMORY_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x0e36c93e_ca15_4a83_ba8a_cbe80f7f0017);
 pub const MEMORY_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa5bc1114_6f64_4ede_b863_3e83ed7c83b1);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     pub DedicatedMemoryTypeId: u64,
     pub HandleAttributes: u32,
     pub DesiredAccess: u32,
     pub DedicatedMemoryPartitionHandle: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MEM_COMMIT: u32 = 4096u32;
 pub const MEM_DECOMMIT: u32 = 16384u32;
@@ -13111,15 +12312,10 @@ pub type MM_MDL_ROUTINE = Option<unsafe extern "system" fn(drivercontext: *const
 pub struct MM_PAGE_PRIORITY(pub i32);
 pub const MM_PERMANENT_ADDRESS_IS_IO_SPACE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MM_PHYSICAL_ADDRESS_LIST {
     pub PhysicalAddress: i64,
     pub NumberOfBytes: usize,
-}
-impl Default for MM_PHYSICAL_ADDRESS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MM_PROTECT_DRIVER_SECTION_ALLOW_UNLOAD: u32 = 1u32;
 pub const MM_PROTECT_DRIVER_SECTION_VALID_FLAGS: u32 = 1u32;
@@ -13146,7 +12342,7 @@ pub const MPSAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(9i32);
 pub const MRLClosed: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(0i32);
 pub const MRLOpen: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(1i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MU_TELEMETRY_SECTION {
     pub ComponentID: windows_core::GUID,
     pub SubComponentID: windows_core::GUID,
@@ -13154,11 +12350,6 @@ pub struct MU_TELEMETRY_SECTION {
     pub ErrorStatusValue: u32,
     pub AdditionalInfo1: u64,
     pub AdditionalInfo2: u64,
-}
-impl Default for MU_TELEMETRY_SECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MU_TELEMETRY_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x85183a8b_9c41_429c_939c_5c3c087ca280);
 pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(1i32);
@@ -13284,7 +12475,7 @@ pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MON
 pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
 pub const MultiFunctionAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(12i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub NamedPipeType: u32,
     pub ReadMode: u32,
@@ -13294,11 +12485,6 @@ pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub OutboundQuota: u32,
     pub DefaultTimeout: i64,
     pub TimeoutSpecified: bool,
-}
-impl Default for NAMED_PIPE_CREATE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(1i32);
 pub type NMI_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, handled: bool) -> bool>;
@@ -13316,14 +12502,9 @@ impl Default for NPEM_CAPABILITY_STANDARD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NPEM_CAPABILITY_STANDARD_0 {
     pub _bitfield: u32,
-}
-impl Default for NPEM_CAPABILITY_STANDARD_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablenpem: bool) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
@@ -13398,15 +12579,10 @@ pub const NormalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(3i32);
 pub const NuBus: INTERFACE_TYPE = INTERFACE_TYPE(7i32);
 pub const NuBusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(6i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OBJECT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub GrantedAccess: u32,
-}
-impl Default for OBJECT_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OBJECT_TYPE_CREATE: u32 = 1u32;
 #[repr(C)]
@@ -13445,24 +12621,14 @@ impl Default for OB_OPERATION_REGISTRATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OB_POST_CREATE_HANDLE_INFORMATION {
     pub GrantedAccess: u32,
 }
-impl Default for OB_POST_CREATE_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OB_POST_DUPLICATE_HANDLE_INFORMATION {
     pub GrantedAccess: u32,
-}
-impl Default for OB_POST_DUPLICATE_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
@@ -13497,15 +12663,9 @@ impl Default for OB_POST_OPERATION_INFORMATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OB_POST_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for OB_POST_OPERATION_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13523,15 +12683,10 @@ impl Default for OB_POST_OPERATION_PARAMETERS {
 pub struct OB_PREOP_CALLBACK_STATUS(pub i32);
 pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = OB_PREOP_CALLBACK_STATUS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OB_PRE_CREATE_HANDLE_INFORMATION {
     pub DesiredAccess: u32,
     pub OriginalDesiredAccess: u32,
-}
-impl Default for OB_PRE_CREATE_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -13578,15 +12733,9 @@ impl Default for OB_PRE_OPERATION_INFORMATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OB_PRE_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for OB_PRE_OPERATION_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13629,14 +12778,9 @@ pub const PAGE_GUARD: u32 = 256u32;
 pub const PAGE_NOACCESS: u32 = 1u32;
 pub const PAGE_NOCACHE: u32 = 512u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PAGE_PRIORITY_INFORMATION {
     pub PagePriority: u32,
-}
-impl Default for PAGE_PRIORITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PAGE_READONLY: u32 = 2u32;
 pub const PAGE_READWRITE: u32 = 4u32;
@@ -13757,14 +12901,9 @@ impl Default for PCIX_BRIDGE_CAPABILITY_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_1_0 {
     pub _bitfield: u32,
-}
-impl Default for PCIX_BRIDGE_CAPABILITY_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13778,14 +12917,9 @@ impl Default for PCIX_BRIDGE_CAPABILITY_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_2_0 {
     pub _bitfield: u32,
-}
-impl Default for PCIX_BRIDGE_CAPABILITY_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13799,14 +12933,9 @@ impl Default for PCIX_BRIDGE_CAPABILITY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
     pub _bitfield: u16,
-}
-impl Default for PCIX_BRIDGE_CAPABILITY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCIX_MODE1_100MHZ: u32 = 2u32;
 pub const PCIX_MODE1_133MHZ: u32 = 3u32;
@@ -13859,14 +12988,9 @@ impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
     pub _bitfield: u8,
-}
-impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13880,14 +13004,9 @@ impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
     pub _bitfield: u8,
-}
-impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13901,70 +13020,40 @@ impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
     pub _bitfield: u8,
 }
-impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_APERTURE_PAGE_SIZE {
     pub _bitfield: u16,
 }
-impl Default for PCI_AGP_APERTURE_PAGE_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub _bitfield: u16,
     pub AGPStatus: PCI_AGP_CAPABILITY_0,
     pub AGPCommand: PCI_AGP_CAPABILITY_1,
 }
-impl Default for PCI_AGP_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_CAPABILITY_1 {
     pub _bitfield: u32,
 }
-impl Default for PCI_AGP_CAPABILITY_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_CAPABILITY_0 {
     pub _bitfield: u32,
 }
-impl Default for PCI_AGP_CAPABILITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_CONTROL {
     pub _bitfield: u32,
 }
-impl Default for PCI_AGP_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_EXTENDED_CAPABILITY {
     pub IsochStatus: PCI_AGP_ISOCH_STATUS,
     pub AgpControl: PCI_AGP_CONTROL,
@@ -13974,30 +13063,15 @@ pub struct PCI_AGP_EXTENDED_CAPABILITY {
     pub GartHigh: u32,
     pub IsochCommand: PCI_AGP_ISOCH_COMMAND,
 }
-impl Default for PCI_AGP_EXTENDED_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_ISOCH_COMMAND {
     pub _bitfield: u16,
 }
-impl Default for PCI_AGP_ISOCH_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_AGP_ISOCH_STATUS {
     pub _bitfield: u32,
-}
-impl Default for PCI_AGP_ISOCH_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_AGP_RATE_1X: u32 = 1u32;
 pub const PCI_AGP_RATE_2X: u32 = 2u32;
@@ -14046,15 +13120,10 @@ pub const PCI_BUS_INTERFACE_STANDARD_VERSION: u32 = 2u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_BUS_WIDTH(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_CAPABILITIES_HEADER {
     pub CapabilityID: u8,
     pub Next: u8,
-}
-impl Default for PCI_CAPABILITIES_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_CAPABILITY_ID_ADVANCED_FEATURES: u32 = 19u32;
 pub const PCI_CAPABILITY_ID_AGP: u32 = 2u32;
@@ -14215,34 +13284,24 @@ impl Default for PCI_COMMON_HEADER_0_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_2_0 {
     pub Base: u32,
     pub Limit: u32,
 }
-impl Default for PCI_COMMON_HEADER_0_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PCI_DATA_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_DEBUGGING_DEVICE_IN_USE {
     pub Segment: u16,
     pub Bus: u32,
     pub Slot: u32,
 }
-impl Default for PCI_DEBUGGING_DEVICE_IN_USE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_DEVICE_D3COLD_STATE_REASON(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
     pub Size: u32,
     pub Flags: u32,
@@ -14254,11 +13313,6 @@ pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
     pub BaseClass: u8,
     pub SubClass: u8,
     pub ProgIf: u8,
-}
-impl Default for PCI_DEVICE_PRESENCE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14316,14 +13370,9 @@ impl Default for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14337,14 +13386,9 @@ impl Default for PCI_EXPRESS_ACS_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ACS_CONTROL_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ACS_CONTROL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_ADVANCED_ERROR_REPORTING_CAP_ID: u32 = 1u32;
 #[repr(C)]
@@ -14359,14 +13403,9 @@ impl Default for PCI_EXPRESS_AER_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_AER_CAPABILITIES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14391,37 +13430,22 @@ impl Default for PCI_EXPRESS_AER_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ARI_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ARI_CONTROL_REGISTER,
 }
-impl Default for PCI_EXPRESS_ARI_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
-impl Default for PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PCI_EXPRESS_ARI_CAP_ID: u32 = 14u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CONTROL_REGISTER {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ARI_CONTROL_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14442,14 +13466,9 @@ impl Default for PCI_EXPRESS_ATS_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_ATS_CAP_ID: u32 = 15u32;
 #[repr(C)]
@@ -14464,14 +13483,9 @@ impl Default for PCI_EXPRESS_ATS_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14507,14 +13521,9 @@ impl Default for PCI_EXPRESS_CAPABILITIES_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14561,14 +13570,9 @@ impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14582,14 +13586,9 @@ impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14616,14 +13615,9 @@ impl Default for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14664,14 +13658,9 @@ impl Default for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14685,24 +13674,14 @@ impl Default for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Default for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
     pub MemBaseHigh: u32,
-}
-impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14716,24 +13695,14 @@ impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
     pub MemSizeHigh: u32,
-}
-impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14747,14 +13716,9 @@ impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14768,14 +13732,9 @@ impl Default for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14803,14 +13762,9 @@ impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14824,14 +13778,9 @@ impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14845,14 +13794,9 @@ impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14866,14 +13810,9 @@ impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14887,14 +13826,9 @@ impl Default for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14909,24 +13843,14 @@ impl Default for PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Default for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_DEVICE_SERIAL_NUMBER_CAP_ID: u32 = 3u32;
 #[repr(C)]
@@ -14941,14 +13865,9 @@ impl Default for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14962,14 +13881,9 @@ impl Default for PCI_EXPRESS_DEVICE_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15009,14 +13923,9 @@ impl Default for PCI_EXPRESS_DPC_CAPS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_DPC_CAP_ID: u32 = 29u32;
 #[repr(C)]
@@ -15031,14 +13940,9 @@ impl Default for PCI_EXPRESS_DPC_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15052,14 +13956,9 @@ impl Default for PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15073,14 +13972,9 @@ impl Default for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15114,14 +14008,9 @@ impl Default for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15135,14 +14024,9 @@ impl Default for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15156,14 +14040,9 @@ impl Default for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15177,14 +14056,9 @@ impl Default for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15208,25 +14082,15 @@ impl Default for PCI_EXPRESS_DPC_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
-impl Default for PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     pub CapabilityID: u16,
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
@@ -15241,26 +14105,16 @@ impl Default for PCI_EXPRESS_ERROR_SOURCE_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ERROR_SOURCE_ID_0 {
     pub _bitfield1: u16,
     pub _bitfield2: u16,
 }
-impl Default for PCI_EXPRESS_ERROR_SOURCE_ID_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub AssociationBitmap: u32,
-}
-impl Default for PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: u32 = 33u32;
@@ -15285,14 +14139,9 @@ impl Default for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15320,14 +14169,9 @@ impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15341,24 +14185,14 @@ impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LANE_ERROR_STATUS {
     pub LaneBitmap: u32,
-}
-impl Default for PCI_EXPRESS_LANE_ERROR_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15372,14 +14206,9 @@ impl Default for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15393,14 +14222,9 @@ impl Default for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15424,14 +14248,9 @@ impl Default for PCI_EXPRESS_LINK_CONTROL3_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CONTROL3_0_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_LINK_CONTROL3_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15445,14 +14264,9 @@ impl Default for PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15466,14 +14280,9 @@ impl Default for PCI_EXPRESS_LINK_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15504,14 +14313,9 @@ impl Default for PCI_EXPRESS_LINK_STATUS_2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15525,14 +14329,9 @@ impl Default for PCI_EXPRESS_LINK_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15562,14 +14361,9 @@ impl Default for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15606,14 +14400,9 @@ impl Default for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_NPEM_CAP_ID: u32 = 41u32;
 #[repr(C)]
@@ -15628,14 +14417,9 @@ impl Default for PCI_EXPRESS_NPEM_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15649,14 +14433,9 @@ impl Default for PCI_EXPRESS_NPEM_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_PAGE_REQUEST_CAP_ID: u32 = 19u32;
 #[repr(C)]
@@ -15683,14 +14462,9 @@ impl Default for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_PASID_CAP_ID: u32 = 27u32;
 #[repr(C)]
@@ -15705,14 +14479,9 @@ impl Default for PCI_EXPRESS_PASID_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15726,14 +14495,9 @@ impl Default for PCI_EXPRESS_PME_REQUESTOR_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_PME_REQUESTOR_ID_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_PME_REQUESTOR_ID_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_PMUX_CAP_ID: u32 = 26u32;
 pub const PCI_EXPRESS_POWER_BUDGETING_CAP_ID: u32 = 4u32;
@@ -15766,14 +14530,9 @@ impl Default for PCI_EXPRESS_PRI_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15787,14 +14546,9 @@ impl Default for PCI_EXPRESS_PRI_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15820,14 +14574,9 @@ impl Default for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_PTM_CAP_ID: u32 = 31u32;
 #[repr(C)]
@@ -15842,14 +14591,9 @@ impl Default for PCI_EXPRESS_PTM_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15883,14 +14627,9 @@ impl Default for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_RESIZABLE_BAR_CAP_ID: u32 = 21u32;
 #[repr(C)]
@@ -15905,14 +14644,9 @@ impl Default for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15957,14 +14691,9 @@ impl Default for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15978,14 +14707,9 @@ impl Default for PCI_EXPRESS_ROOT_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15999,14 +14723,9 @@ impl Default for PCI_EXPRESS_ROOT_ERROR_COMMAND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16020,14 +14739,9 @@ impl Default for PCI_EXPRESS_ROOT_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16058,14 +14772,9 @@ impl Default for PCI_EXPRESS_ROOT_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16092,14 +14801,9 @@ impl Default for PCI_EXPRESS_SEC_AER_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16113,14 +14817,9 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16134,14 +14833,9 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16155,26 +14849,16 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
-impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub LowSerialNumber: u32,
     pub HighSerialNumber: u32,
-}
-impl Default for PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_SINGLE_ROOT_IO_VIRTUALIZATION_CAP_ID: u32 = 16u32;
 #[repr(C)]
@@ -16189,14 +14873,9 @@ impl Default for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16210,14 +14889,9 @@ impl Default for PCI_EXPRESS_SLOT_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16231,14 +14905,9 @@ impl Default for PCI_EXPRESS_SLOT_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16278,14 +14947,9 @@ impl Default for PCI_EXPRESS_SRIOV_CAPS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_CAPS_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_SRIOV_CAPS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16299,14 +14963,9 @@ impl Default for PCI_EXPRESS_SRIOV_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_CONTROL_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_SRIOV_CONTROL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16320,14 +14979,9 @@ impl Default for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16341,14 +14995,9 @@ impl Default for PCI_EXPRESS_SRIOV_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_STATUS_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_SRIOV_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16374,14 +15023,9 @@ impl Default for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_TPH_REQUESTER_CAP_ID: u32 = 23u32;
 #[repr(C)]
@@ -16396,14 +15040,9 @@ impl Default for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_TPH_ST_LOCATION_MSIX_TABLE: u32 = 2u32;
 pub const PCI_EXPRESS_TPH_ST_LOCATION_NONE: u32 = 0u32;
@@ -16421,14 +15060,9 @@ impl Default for PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16442,14 +15076,9 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16463,14 +15092,9 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16484,27 +15108,17 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
-impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PCI_EXPRESS_VC_AND_MFVC_CAP_ID: u32 = 9u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub VsecId: u16,
     pub _bitfield: u16,
-}
-impl Default for PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_EXPRESS_VENDOR_SPECIFIC_CAP_ID: u32 = 11u32;
 #[repr(C)]
@@ -16543,27 +15157,17 @@ impl Default for PCI_FIRMWARE_BUS_CAPS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FIRMWARE_BUS_CAPS_0 {
     pub _bitfield: u8,
 }
-impl Default for PCI_FIRMWARE_BUS_CAPS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
     pub Version: u16,
     pub Status: u16,
     pub Length: u32,
     pub Caps: PCI_FIRMWARE_BUS_CAPS,
-}
-impl Default for PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16577,14 +15181,9 @@ impl Default for PCI_FPB_CAPABILITIES_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_FPB_CAPABILITIES_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16605,15 +15204,10 @@ impl Default for PCI_FPB_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_CAPABILITY_HEADER {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Reserved: u16,
-}
-impl Default for PCI_FPB_CAPABILITY_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16627,24 +15221,14 @@ impl Default for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Default for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
     pub MemHighVectorStartUpper: u32,
-}
-impl Default for PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16658,14 +15242,9 @@ impl Default for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16679,14 +15258,9 @@ impl Default for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16700,14 +15274,9 @@ impl Default for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16721,24 +15290,14 @@ impl Default for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
-impl Default for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
     pub VectorAccessData: u32,
-}
-impl Default for PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16779,45 +15338,25 @@ pub const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: u32 = 1u32;
 pub const PCI_MULTIFUNCTION: u32 = 128u32;
 pub type PCI_PIN_TO_LINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pcidata: *const PCI_COMMON_CONFIG)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_PMC {
     pub _bitfield: u8,
     pub Support: PCI_PMC_0,
 }
-impl Default for PCI_PMC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_PMC_0 {
     pub _bitfield: u8,
 }
-impl Default for PCI_PMC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_PMCSR {
     pub _bitfield: u16,
 }
-impl Default for PCI_PMCSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_PMCSR_BSE {
     pub _bitfield: u8,
-}
-impl Default for PCI_PMCSR_BSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16888,18 +15427,13 @@ impl Default for PCI_ROOT_BUS_HARDWARE_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
     pub BusCapabilitiesFound: bool,
     pub CurrentSpeedAndMode: u32,
     pub SupportedSpeedsAndModes: u32,
     pub DeviceIDMessagingCapable: bool,
     pub SecondaryBusWidth: PCI_BUS_WIDTH,
-}
-impl Default for PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16923,14 +15457,9 @@ impl Default for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_ROOT_BUS_OSC_METHOD_CAPABILITY_REVISION: u32 = 1u32;
 #[repr(C)]
@@ -16955,14 +15484,9 @@ impl Default for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_SECURITY_DIRECT_TRANSLATED_P2P: u32 = 4u32;
 pub const PCI_SECURITY_ENHANCED: u32 = 2u32;
@@ -17025,14 +15549,9 @@ impl Default for PCI_SEGMENT_BUS_NUMBER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_SEGMENT_BUS_NUMBER_0_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_SEGMENT_BUS_NUMBER_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PCI_SET_ACS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PCI_SET_ACS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -17059,14 +15578,9 @@ impl Default for PCI_SLOT_NUMBER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_SLOT_NUMBER_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_STATUS_66MHZ_CAPABLE: u32 = 32u32;
 pub const PCI_STATUS_CAPABILITIES_LIST: u32 = 16u32;
@@ -17167,17 +15681,12 @@ pub const PCI_SUBCLASS_WIRELESS_OTHER: u32 = 128u32;
 pub const PCI_SUBCLASS_WIRELESS_RF: u32 = 16u32;
 pub const PCI_SUBLCASS_VID_3D_CTLR: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_SUBSYSTEM_IDS_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Reserved: u16,
     pub SubVendorID: u16,
     pub SubSystemID: u16,
-}
-impl Default for PCI_SUBSYSTEM_IDS_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCI_TYPE0_ADDRESSES: u32 = 6u32;
 pub const PCI_TYPE1_ADDRESSES: u32 = 2u32;
@@ -17193,16 +15702,11 @@ pub const PCI_USE_REVISION: u32 = 2u32;
 pub const PCI_USE_SUBSYSTEM_IDS: u32 = 1u32;
 pub const PCI_USE_VENDEV_IDS: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub VscLength: u8,
     pub VendorSpecific: u8,
-}
-impl Default for PCI_VENDOR_SPECIFIC_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17250,14 +15754,9 @@ impl Default for PCI_X_CAPABILITY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_X_CAPABILITY_0_0 {
     pub _bitfield: u16,
-}
-impl Default for PCI_X_CAPABILITY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -17271,14 +15770,9 @@ impl Default for PCI_X_CAPABILITY_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCI_X_CAPABILITY_1_0 {
     pub _bitfield: u32,
-}
-impl Default for PCI_X_CAPABILITY_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PCIe_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcf93c01f_1a16_4dfc_b8bc_9c4daf67c104);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -17327,17 +15821,12 @@ impl Default for PCW_CALLBACK_INFORMATION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_CALLBACK_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCW_COUNTER_DESCRIPTOR {
     pub Id: u16,
     pub StructIndex: u16,
     pub Offset: u16,
     pub Size: u16,
-}
-impl Default for PCW_COUNTER_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17520,16 +16009,11 @@ pub type PHALMCAINTERFACEUNLOCK = Option<unsafe extern "system" fn()>;
 pub type PHAL_RESET_DISPLAY_PARAMETERS = Option<unsafe extern "system" fn(columns: u32, rows: u32) -> bool>;
 pub type PHVL_WHEA_ERROR_NOTIFICATION = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
     pub OverflowHandler: PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER,
     pub CustomEventBufferEntrySize: u32,
     pub EventThreshold: u32,
-}
-impl Default for PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -17558,15 +16042,10 @@ impl Default for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
     pub Begin: u32,
     pub End: u32,
-}
-impl Default for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17583,15 +16062,10 @@ impl Default for PHYSICAL_COUNTER_RESOURCE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PHYSICAL_MEMORY_RANGE {
     pub BaseAddress: i64,
     pub NumberOfBytes: i64,
-}
-impl Default for PHYSICAL_MEMORY_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PINITIALIZE_DMA_TRANSFER_CONTEXT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -17658,16 +16132,11 @@ pub type PKSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn() -> bool>;
 pub type PLEAVE_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PLOAD_IMAGE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(fullimagename: *const super::super::super::Win32::Foundation::UNICODE_STRING, processid: super::super::super::Win32::Foundation::HANDLE, imageinfo: *const IMAGE_INFO)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PLUGPLAY_NOTIFICATION_HEADER {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_core::GUID,
-}
-impl Default for PLUGPLAY_NOTIFICATION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PLUGPLAY_PROPERTY_PERSISTENT: u32 = 1u32;
 pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: u32 = 4u32;
@@ -17707,16 +16176,11 @@ pub const PNPISABus: INTERFACE_TYPE = INTERFACE_TYPE(14i32);
 pub const PNPISAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(10i32);
 pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PNP_BUS_INFORMATION {
     pub BusTypeGuid: windows_core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
-}
-impl Default for PNP_BUS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PNP_DEVICE_ASSIGNED_TO_GUEST: u32 = 256u32;
 pub const PNP_DEVICE_DISABLED: u32 = 1u32;
@@ -17759,7 +16223,7 @@ impl Default for PNP_LOCATION_INTERFACE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub Size: u32,
     pub Version: u32,
@@ -17774,11 +16238,6 @@ pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub MirrorPlatformMemory: PREPLACE_MIRROR_PLATFORM_MEMORY,
     pub GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION,
     pub EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE,
-}
-impl Default for PNP_REPLACE_DRIVER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PNP_REPLACE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
 pub const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: u32 = 4u32;
@@ -17798,15 +16257,10 @@ impl Default for PNP_REPLACE_MEMORY_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Address: i64,
     pub Length: u64,
-}
-impl Default for PNP_REPLACE_MEMORY_LIST_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PNP_REPLACE_MEMORY_SUPPORTED: u32 = 1u32;
 #[repr(C)]
@@ -17862,7 +16316,7 @@ pub type POB_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registra
 #[cfg(feature = "Wdk_Foundation")]
 pub type POB_PRE_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POOLED_USAGE_AND_LIMITS {
     pub PeakPagedPoolUsage: usize,
     pub PagedPoolUsage: usize,
@@ -17874,21 +16328,11 @@ pub struct POOLED_USAGE_AND_LIMITS {
     pub PagefileUsage: usize,
     pub PagefileLimit: usize,
 }
-impl Default for POOLED_USAGE_AND_LIMITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const POOL_COLD_ALLOCATION: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
-}
-impl Default for POOL_CREATE_EXTENDED_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POOL_CREATE_FLG_SECURE_POOL: u32 = 1u32;
 pub const POOL_CREATE_FLG_USE_GLOBAL_POOL: u32 = 2u32;
@@ -17905,14 +16349,9 @@ impl Default for POOL_EXTENDED_PARAMETER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POOL_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
-}
-impl Default for POOL_EXTENDED_PARAMETER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -17956,15 +16395,10 @@ pub const POOL_ZERO_ALLOCATION: u32 = 1024u32;
 pub const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 512u32;
 pub const POWER_LEVEL: u32 = 30u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: bool,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
-}
-impl Default for POWER_MONITOR_INVOCATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17973,14 +16407,9 @@ pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: bool,
-}
-impl Default for POWER_PLATFORM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -17989,61 +16418,36 @@ pub const POWER_PLATFORM_ROLE_V1: u32 = 1u32;
 pub const POWER_PLATFORM_ROLE_V2: u32 = 2u32;
 pub const POWER_PLATFORM_ROLE_VERSION: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SEQUENCE {
     pub SequenceD1: u32,
     pub SequenceD2: u32,
     pub SequenceD3: u32,
 }
-impl Default for POWER_SEQUENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: bool,
     pub Console: bool,
 }
-impl Default for POWER_SESSION_CONNECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: bool,
     pub LastInputTime: u64,
 }
-impl Default for POWER_SESSION_RIT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
 }
-impl Default for POWER_SESSION_TIMEOUTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: bool,
     pub Locked: bool,
-}
-impl Default for POWER_SESSION_WINLOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type POWER_SETTING_CALLBACK = Option<unsafe extern "system" fn(settingguid: *const windows_core::GUID, value: *const core::ffi::c_void, valuelength: u32, context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
@@ -18068,30 +16472,20 @@ pub const POWER_THROTTLING_PROCESS_DELAYTIMERS: u32 = 2u32;
 pub const POWER_THROTTLING_PROCESS_EXECUTION_SPEED: u32 = 1u32;
 pub const POWER_THROTTLING_PROCESS_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_THROTTLING_PROCESS_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-impl Default for POWER_THROTTLING_PROCESS_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const POWER_THROTTLING_THREAD_CURRENT_VERSION: u32 = 1u32;
 pub const POWER_THROTTLING_THREAD_EXECUTION_SPEED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_THROTTLING_THREAD_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
-}
-impl Default for POWER_THROTTLING_THREAD_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POWER_THROTTLING_THREAD_VALID_FLAGS: u32 = 1u32;
 #[repr(transparent)]
@@ -18103,16 +16497,11 @@ pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: u64 = 1u64;
 pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: u64 = 2u64;
 pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PO_FX_COMPONENT_IDLE_STATE {
     pub TransitionLatency: u64,
     pub ResidencyRequirement: u64,
     pub NominalPower: u32,
-}
-impl Default for PO_FX_COMPONENT_IDLE_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, state: u32)>;
 #[repr(C)]
@@ -18163,15 +16552,10 @@ impl Default for PO_FX_COMPONENT_PERF_SET_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Minimum: u64,
     pub Maximum: u64,
-}
-impl Default for PO_FX_COMPONENT_PERF_SET_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, succeeded: bool, requestcontext: *const core::ffi::c_void)>;
 #[repr(C)]
@@ -18404,15 +16788,10 @@ pub const PROCESSOR_FEATURE_MAX: u32 = 64u32;
 pub const PROCESSOR_GENERIC_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x9876ccad_47b4_4bdb_b65e_16f193c4f3db);
 pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_ACCESS_TOKEN {
     pub Token: super::super::super::Win32::Foundation::HANDLE,
     pub Thread: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for PROCESS_ACCESS_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -18447,14 +16826,9 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for PROCESS_DEVICEMAP_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -18490,25 +16864,15 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_EXCEPTION_PORT {
     pub ExceptionPortHandle: super::super::super::Win32::Foundation::HANDLE,
     pub StateFlags: u32,
-}
-impl Default for PROCESS_EXCEPTION_PORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PROCESS_EXCEPTION_PORT_ALL_STATE_BITS: u32 = 3u32;
 #[repr(C)]
@@ -18540,39 +16904,23 @@ impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub _bitfield: u32,
-}
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PROCESS_HANDLE_EXCEPTIONS_ENABLED: u32 = 1u32;
 pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_DISABLED: u32 = 0u32;
 pub const PROCESS_HANDLE_RAISE_UM_EXCEPTION_ON_INVALID_HANDLE_CLOSE_ENABLED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE {
     pub Flags: u32,
 }
-impl Default for PROCESS_HANDLE_TRACING_ENABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE_EX {
     pub Flags: u32,
     pub TotalSlots: u32,
-}
-impl Default for PROCESS_HANDLE_TRACING_ENABLE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
@@ -18605,57 +16953,32 @@ impl Default for PROCESS_HANDLE_TRACING_QUERY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_KEEPALIVE_COUNT_INFORMATION {
     pub WakeCount: u32,
     pub NoWakeCount: u32,
 }
-impl Default for PROCESS_KEEPALIVE_COUNT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PROCESS_LUID_DOSDEVICES_ONLY: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_MEMBERSHIP_INFORMATION {
     pub ServerSiloId: u32,
 }
-impl Default for PROCESS_MEMBERSHIP_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
     pub TargetDevicePath: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
-impl Default for PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_SESSION_INFORMATION {
     pub SessionId: u32,
 }
-impl Default for PROCESS_SESSION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_SYSCALL_PROVIDER_INFORMATION {
     pub ProviderId: windows_core::GUID,
     pub Level: u8,
-}
-impl Default for PROCESS_SYSCALL_PROVIDER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18750,15 +17073,9 @@ impl Default for PS_CREATE_NOTIFY_INFO_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PS_CREATE_NOTIFY_INFO_0_0 {
     pub _bitfield: u32,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl Default for PS_CREATE_NOTIFY_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: u32 = 1u32;
 pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295u32;
@@ -19396,15 +17713,10 @@ impl Default for RTL_BITMAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RTL_BITMAP_RUN {
     pub StartingIndex: u32,
     pub NumberOfBits: u32,
-}
-impl Default for RTL_BITMAP_RUN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -19440,16 +17752,10 @@ impl Default for RTL_DYNAMIC_HASH_TABLE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RTL_DYNAMIC_HASH_TABLE_ENTRY {
     pub Linkage: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Signature: usize,
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for RTL_DYNAMIC_HASH_TABLE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -19635,16 +17941,11 @@ pub const ResultNegative: INTERLOCKED_RESULT = INTERLOCKED_RESULT(32768i32);
 pub const ResultPositive: INTERLOCKED_RESULT = INTERLOCKED_RESULT(0i32);
 pub const ResultZero: INTERLOCKED_RESULT = INTERLOCKED_RESULT(16384i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCATTER_GATHER_ELEMENT {
     pub Address: i64,
     pub Length: u32,
     pub Reserved: usize,
-}
-impl Default for SCATTER_GATHER_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -19660,15 +17961,10 @@ impl Default for SCATTER_GATHER_LIST {
 }
 pub const SCI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe9d59197_94ee_4a4f_8ad8_9b7d8bd93d2e);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SDEV_IDENTIFIER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub GetIdentifier: PGET_SDEV_IDENTIFIER,
-}
-impl Default for SDEV_IDENTIFIER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SDEV_IDENTIFIER_INTERFACE_VERSION: u32 = 1u32;
 pub const SEA_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x9a78788a_bbe8_11e4_809e_67611e5d46b0);
@@ -19680,18 +17976,12 @@ pub const SECTION_MAP_WRITE: u32 = 2u32;
 pub const SECTION_QUERY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_DRIVER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub ProcessReference: PSECURE_DRIVER_PROCESS_REFERENCE,
     pub ProcessDereference: PSECURE_DRIVER_PROCESS_DEREFERENCE,
     pub Reserved: u32,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for SECURE_DRIVER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECURE_DRIVER_INTERFACE_VERSION: u32 = 1u32;
 #[cfg(feature = "Wdk_Foundation")]
@@ -19784,7 +18074,7 @@ pub const SHARED_GLOBAL_FLAGS_SET_GLOBAL_DATA_FLAG: u32 = 1073741824u32;
 pub const SHARED_GLOBAL_FLAGS_STATE_SEPARATION_ENABLED_V: u32 = 10u32;
 pub const SHARED_GLOBAL_FLAGS_VIRT_ENABLED_V: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SHARE_ACCESS {
     pub OpenCount: u32,
     pub Readers: u32,
@@ -19793,11 +18083,6 @@ pub struct SHARE_ACCESS {
     pub SharedRead: u32,
     pub SharedWrite: u32,
     pub SharedDelete: u32,
-}
-impl Default for SHARE_ACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SHORT_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
 pub const SHORT_MOST_SIGNIFICANT_BIT: u32 = 1u32;
@@ -19981,14 +18266,9 @@ impl Default for SYSTEM_POWER_STATE_CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_POWER_STATE_CONTEXT_0_0 {
     pub _bitfield: u32,
-}
-impl Default for SYSTEM_POWER_STATE_CONTEXT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ScsiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(10i32);
 pub const SeImageTypeDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(1i32);
@@ -20065,7 +18345,7 @@ impl Default for TIMER_SET_COALESCABLE_TIMER_INFO {
 }
 pub const TIMER_TOLERABLE_DELAY_BITS: u32 = 6u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIME_FIELDS {
     pub Year: i16,
     pub Month: i16,
@@ -20075,11 +18355,6 @@ pub struct TIME_FIELDS {
     pub Second: i16,
     pub Milliseconds: i16,
     pub Weekday: i16,
-}
-impl Default for TIME_FIELDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -20164,14 +18439,9 @@ impl Default for VIRTUAL_CHANNEL_CAPABILITIES1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES1_0 {
     pub _bitfield: u32,
-}
-impl Default for VIRTUAL_CHANNEL_CAPABILITIES1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -20185,14 +18455,9 @@ impl Default for VIRTUAL_CHANNEL_CAPABILITIES2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES2_0 {
     pub _bitfield: u32,
-}
-impl Default for VIRTUAL_CHANNEL_CAPABILITIES2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -20206,14 +18471,9 @@ impl Default for VIRTUAL_CHANNEL_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CONTROL_0 {
     pub _bitfield: u16,
-}
-impl Default for VIRTUAL_CHANNEL_CONTROL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -20227,14 +18487,9 @@ impl Default for VIRTUAL_CHANNEL_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_CHANNEL_STATUS_0 {
     pub _bitfield: u16,
-}
-impl Default for VIRTUAL_CHANNEL_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -20261,14 +18516,9 @@ impl Default for VIRTUAL_RESOURCE_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_RESOURCE_CAPABILITY_0 {
     pub _bitfield: u32,
-}
-impl Default for VIRTUAL_RESOURCE_CAPABILITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -20282,14 +18532,9 @@ impl Default for VIRTUAL_RESOURCE_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_RESOURCE_CONTROL_0 {
     pub _bitfield: u32,
-}
-impl Default for VIRTUAL_RESOURCE_CONTROL_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -20303,19 +18548,14 @@ impl Default for VIRTUAL_RESOURCE_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_RESOURCE_STATUS_0 {
     pub _bitfield: u16,
-}
-impl Default for VIRTUAL_RESOURCE_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VMEBus: INTERFACE_TYPE = INTERFACE_TYPE(6i32);
 pub const VMEConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(5i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VM_COUNTERS {
     pub PeakVirtualSize: usize,
     pub VirtualSize: usize,
@@ -20329,13 +18569,8 @@ pub struct VM_COUNTERS {
     pub PagefileUsage: usize,
     pub PeakPagefileUsage: usize,
 }
-impl Default for VM_COUNTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VM_COUNTERS_EX {
     pub PeakVirtualSize: usize,
     pub VirtualSize: usize,
@@ -20350,22 +18585,12 @@ pub struct VM_COUNTERS_EX {
     pub PeakPagefileUsage: usize,
     pub PrivateUsage: usize,
 }
-impl Default for VM_COUNTERS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VM_COUNTERS_EX2 {
     pub CountersEx: VM_COUNTERS_EX,
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
-}
-impl Default for VM_COUNTERS_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VPB_DIRECT_WRITES_ALLOWED: u32 = 32u32;
 pub const VPB_DISMOUNTING: u32 = 128u32;
@@ -20409,31 +18634,20 @@ impl Default for WAIT_CONTEXT_BLOCK_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub DmaWaitEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub NumberOfChannels: u32,
     pub _bitfield: u32,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for WAIT_CONTEXT_BLOCK_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32u32;
 pub const WDM_MAJORVERSION: u32 = 6u32;
 pub const WDM_MINORVERSION: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA128A {
     pub Low: u64,
     pub High: i64,
-}
-impl Default for WHEA128A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -21021,7 +19235,7 @@ impl Default for WHEA_AMD_EXTENDED_REGISTERS {
 }
 pub const WHEA_AMD_EXT_REG_NUM: u32 = 10u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R0: u32,
     pub R1: u32,
@@ -21040,13 +19254,8 @@ pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R14: u32,
     pub R15: u32,
 }
-impl Default for WHEA_ARMV8_AARCH32_GPRS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub ELR_EL3: u64,
     pub ESR_EL3: u64,
@@ -21059,13 +19268,8 @@ pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub TPIDR_EL3: u64,
     pub TTBR0_EL3: u64,
 }
-impl Default for WHEA_ARMV8_AARCH64_EL3_CSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X0: u64,
     pub X1: u64,
@@ -21100,13 +19304,8 @@ pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X30: u64,
     pub SP: u64,
 }
-impl Default for WHEA_ARMV8_AARCH64_GPRS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub DFAR: u32,
     pub DFSR: u32,
@@ -21133,13 +19332,8 @@ pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub TTBR1: u32,
     pub DACR: u32,
 }
-impl Default for WHEA_ARM_AARCH32_EL1_CSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub ELR_hyp: u32,
     pub HAMAIR0: u32,
@@ -21158,24 +19352,14 @@ pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub VTTBR: u32,
     pub DACR32_EL2: u32,
 }
-impl Default for WHEA_ARM_AARCH32_EL2_CSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH32_SECURE_CSR {
     pub SCTLR: u32,
     pub SPSR_mon: u32,
 }
-impl Default for WHEA_ARM_AARCH32_SECURE_CSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub ELR_EL1: u64,
     pub ESR_EL2: u64,
@@ -21195,13 +19379,8 @@ pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub TTBR0_EL1: u64,
     pub TTBR1_EL1: u64,
 }
-impl Default for WHEA_ARM_AARCH64_EL1_CSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub ELR_EL2: u64,
     pub ESR_EL2: u64,
@@ -21218,11 +19397,6 @@ pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub TTBR0_EL2: u64,
     pub VTCR_EL2: u64,
     pub VTTBR_EL2: u64,
-}
-impl Default for WHEA_ARM_AARCH64_EL2_CSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -21252,14 +19426,9 @@ impl Default for WHEA_ARM_BUS_ERROR_VALID_BITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
-}
-impl Default for WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -21286,25 +19455,15 @@ impl Default for WHEA_ARM_CACHE_ERROR_VALID_BITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-impl Default for WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_MISC_CSR {
     pub MRSEncoding: u16,
     pub Value: u64,
-}
-impl Default for WHEA_ARM_MISC_CSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -21344,14 +19503,9 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -21383,14 +19537,9 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
     pub _bitfield: u16,
-}
-impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -21424,14 +19573,9 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -21458,14 +19602,9 @@ impl Default for WHEA_ARM_TLB_ERROR_VALID_BITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
-}
-impl Default for WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -21527,14 +19666,9 @@ impl Default for WHEA_ERROR_INJECTION_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_ERROR_INJECTION_CAPABILITIES_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_ERROR_INJECTION_CAPABILITIES_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_ERROR_LOG_ENTRY_VERSION: u32 = 1u32;
 #[repr(transparent)]
@@ -21552,14 +19686,9 @@ impl Default for WHEA_ERROR_PACKET_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_PACKET_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_ERROR_PACKET_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_ERROR_PACKET_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe71254e9_c1b9_4940_ab76_909703a4320f);
 #[repr(C, packed(1))]
@@ -21713,14 +19842,9 @@ impl Default for WHEA_ERROR_RECORD_HEADER_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -21734,14 +19858,9 @@ impl Default for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_ERROR_RECORD_REVISION: u32 = 528u32;
 #[repr(C, packed(1))]
@@ -21775,14 +19894,9 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
 #[repr(C)]
@@ -21797,14 +19911,9 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
     pub _bitfield: u8,
-}
-impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_ERROR_RECORD_SIGNATURE_END: u32 = 4294967295u32;
 pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: u32 = 4u32;
@@ -21850,18 +19959,12 @@ pub type WHEA_ERROR_SOURCE_CREATE_RECORD = Option<unsafe extern "system" fn() ->
 pub type WHEA_ERROR_SOURCE_INITIALIZE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
     pub Type: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_TYPE,
     pub MaxRawDataLength: u32,
     pub NumRecordsToPreallocate: u32,
     pub MaxSectionsPerRecord: u32,
-}
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl Default for WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type WHEA_ERROR_SOURCE_RECOVER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn()>;
@@ -21877,14 +19980,9 @@ impl Default for WHEA_ERROR_STATUS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_STATUS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_ERROR_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_ERROR_TEXT_LEN: u32 = 32u32;
 #[repr(transparent)]
@@ -21924,14 +20022,9 @@ impl Default for WHEA_EVENT_LOG_ENTRY_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22009,14 +20102,9 @@ impl Default for WHEA_GENERIC_ERROR_BLOCKSTATUS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22068,14 +20156,9 @@ impl Default for WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
     pub _bitfield: u8,
-}
-impl Default for WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_NOTIFYALL: u32 = 64u32;
 pub const WHEA_IN_USE_PAGE_NOTIFY_FLAG_PAGEOFFLINED: u32 = 128u32;
@@ -22109,15 +20192,10 @@ impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
     pub Version: u16,
     pub Count: u16,
-}
-impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -22142,14 +20220,9 @@ impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22192,14 +20265,9 @@ impl Default for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22248,14 +20316,9 @@ impl Default for WHEA_NMI_ERROR_SECTION_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_NMI_ERROR_SECTION_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_NMI_ERROR_SECTION_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22297,15 +20360,10 @@ impl Default for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
     pub BridgeSecondaryStatus: u16,
     pub BridgeControl: u16,
-}
-impl Default for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22319,29 +20377,19 @@ impl Default for WHEA_PCIEXPRESS_COMMAND_STATUS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
     pub Command: u16,
     pub Status: u16,
 }
-impl Default for WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub VendorID: u16,
     pub DeviceID: u16,
     pub _bitfield1: u32,
     pub _bitfield2: u32,
     pub _bitfield3: u32,
-}
-impl Default for WHEA_PCIEXPRESS_DEVICE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -22377,14 +20425,9 @@ impl Default for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22398,29 +20441,19 @@ impl Default for WHEA_PCIEXPRESS_VERSION {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_VERSION_0 {
     pub MinorVersion: u8,
     pub MajorVersion: u8,
     pub Reserved: u16,
 }
-impl Default for WHEA_PCIEXPRESS_VERSION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_ADDRESS {
     pub Segment: u32,
     pub Bus: u32,
     pub Device: u32,
     pub Function: u32,
-}
-impl Default for WHEA_PCIE_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22447,14 +20480,9 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -22469,15 +20497,10 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
 }
 pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: u32 = 32u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
     pub Version: u16,
     pub Count: u16,
-}
-impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22491,14 +20514,9 @@ impl Default for WHEA_PCIXBUS_COMMAND {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXBUS_COMMAND_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_PCIXBUS_COMMAND_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22532,14 +20550,9 @@ impl Default for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22553,15 +20566,10 @@ impl Default for WHEA_PCIXBUS_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_PCIXBUS_ID_0 {
     pub BusNumber: u8,
     pub BusSegment: u8,
-}
-impl Default for WHEA_PCIXBUS_ID_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22590,17 +20598,12 @@ impl Default for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Default for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXDEVICE_ID {
     pub VendorId: u16,
     pub DeviceId: u16,
@@ -22608,33 +20611,18 @@ pub struct WHEA_PCIXDEVICE_ID {
     pub _bitfield2: u32,
     pub Reserved2: u32,
 }
-impl Default for WHEA_PCIXDEVICE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXDEVICE_REGISTER_PAIR {
     pub Register: u64,
     pub Data: u64,
 }
-impl Default for WHEA_PCIXDEVICE_REGISTER_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_PCI_RECOVERY_SECTION {
     pub SignalType: u8,
     pub RecoveryAttempted: bool,
     pub RecoveryStatus: u8,
-}
-impl Default for WHEA_PCI_RECOVERY_SECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -22654,14 +20642,9 @@ impl Default for WHEA_PERSISTENCE_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PERSISTENCE_INFO_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_PERSISTENCE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -22698,26 +20681,16 @@ impl Default for WHEA_PMEM_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-impl Default for WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PMEM_PAGE_RANGE {
     pub StartingPfn: u64,
     pub PageCount: u64,
     pub MarkedBadBitmap: u64,
-}
-impl Default for WHEA_PMEM_PAGE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22731,15 +20704,10 @@ impl Default for WHEA_PROCESSOR_FAMILY_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PROCESSOR_FAMILY_INFO_0 {
     pub _bitfield: u32,
     pub NativeModelId: u32,
-}
-impl Default for WHEA_PROCESSOR_FAMILY_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22777,14 +20745,9 @@ impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -22975,15 +20938,10 @@ impl Default for WHEA_RECOVERY_ACTION {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_RECOVERY_ACTION_0 {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
-}
-impl Default for WHEA_RECOVERY_ACTION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -23010,7 +20968,7 @@ impl Default for WHEA_RECOVERY_CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_RECOVERY_CONTEXT_0_0 {
     pub Address: usize,
     pub Consumed: bool,
@@ -23019,20 +20977,10 @@ pub struct WHEA_RECOVERY_CONTEXT_0_0 {
     pub RestartIpValid: bool,
     pub ClearPoison: bool,
 }
-impl Default for WHEA_RECOVERY_CONTEXT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_RECOVERY_CONTEXT_0_1 {
     pub PmemErrInfo: usize,
-}
-impl Default for WHEA_RECOVERY_CONTEXT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -23065,14 +21013,9 @@ impl Default for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -23086,28 +21029,18 @@ impl Default for WHEA_REVISION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_REVISION_0 {
     pub MinorRevision: u8,
     pub MajorRevision: u8,
 }
-impl Default for WHEA_REVISION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_SEA_SECTION {
     pub Esr: u32,
     pub Far: u64,
     pub Par: u64,
     pub WasKernel: bool,
-}
-impl Default for WHEA_SEA_SECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_SECTION_DESCRIPTOR_FLAGS_CONTAINMENTWRN: u32 = 2u32;
 pub const WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN: u32 = 128u32;
@@ -23119,15 +21052,10 @@ pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: u32 = 16u32;
 pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: u32 = 8u32;
 pub const WHEA_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_SEI_SECTION {
     pub Esr: u32,
     pub Far: u64,
-}
-impl Default for WHEA_SEI_SECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -23337,19 +21265,14 @@ impl Default for WHEA_TIMESTAMP {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_TIMESTAMP_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_TIMESTAMP_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_TLBCHECK_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfc06b535_5e1f_4562_9f25_0a3b9adb63c3);
 pub const WHEA_WRITE_FLAG_DUMMY: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHEA_X64_REGISTER_STATE {
     pub Rax: u64,
     pub Rbx: u64,
@@ -23387,13 +21310,8 @@ pub struct WHEA_X64_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
-impl Default for WHEA_X64_REGISTER_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_X86_REGISTER_STATE {
     pub Eax: u32,
     pub Ebx: u32,
@@ -23421,11 +21339,6 @@ pub struct WHEA_X86_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
-impl Default for WHEA_X86_REGISTER_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_BUS_CHECK {
@@ -23438,14 +21351,9 @@ impl Default for WHEA_XPF_BUS_CHECK {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_BUS_CHECK_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_XPF_BUS_CHECK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -23459,27 +21367,17 @@ impl Default for WHEA_XPF_CACHE_CHECK {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_CACHE_CHECK_0 {
     pub _bitfield: u64,
 }
-impl Default for WHEA_XPF_CACHE_CHECK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_CONTEXT_INFO {
     pub RegisterContextType: u16,
     pub RegisterDataSize: u16,
     pub MSRAddress: u32,
     pub MmRegisterAddress: u64,
-}
-impl Default for WHEA_XPF_CONTEXT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: u32 = 24u32;
 #[repr(C, packed(1))]
@@ -23532,14 +21430,9 @@ impl Default for WHEA_XPF_MS_CHECK {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_MS_CHECK_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_XPF_MS_CHECK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -23566,14 +21459,9 @@ impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -23617,14 +21505,9 @@ impl Default for WHEA_XPF_PROCINFO_VALIDBITS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_PROCINFO_VALIDBITS_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_XPF_PROCINFO_VALIDBITS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -23638,14 +21521,9 @@ impl Default for WHEA_XPF_TLB_CHECK {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_TLB_CHECK_0 {
     pub _bitfield: u64,
-}
-impl Default for WHEA_XPF_TLB_CHECK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WMIREGISTER: u32 = 0u32;
 pub const WMIREG_ACTION_BLOCK_IRPS: u32 = 5u32;
@@ -23930,7 +21808,7 @@ pub const XPF_MS_CHECK_ERRORTYPE_NOERROR: u32 = 0u32;
 pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: u32 = 1u32;
 pub const XPF_PROCESSOR_ERROR_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xdc3ea0b0_a144_4797_b95b_53fa242b6e1d);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XPF_RECOVERY_INFO {
     pub FailureReason: XPF_RECOVERY_INFO_0,
     pub Action: XPF_RECOVERY_INFO_1,
@@ -23942,30 +21820,15 @@ pub struct XPF_RECOVERY_INFO {
     pub Reserved3: u16,
     pub Reserved4: u32,
 }
-impl Default for XPF_RECOVERY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XPF_RECOVERY_INFO_1 {
     pub _bitfield: u32,
 }
-impl Default for XPF_RECOVERY_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XPF_RECOVERY_INFO_0 {
     pub _bitfield: u32,
-}
-impl Default for XPF_RECOVERY_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XPF_TLB_CHECK_OPERATION_DATAREAD: u32 = 3u32;
 pub const XPF_TLB_CHECK_OPERATION_DATAWRITE: u32 = 4u32;
@@ -24067,18 +21930,12 @@ impl Default for XSTATE_SAVE_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ZONE_HEADER {
     pub FreeList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
     pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
     pub BlockSize: u32,
     pub TotalSegmentSize: u32,
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for ZONE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -24094,16 +21951,11 @@ impl Default for ZONE_SEGMENT_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _EXT_SET_PARAMETERS_V0 {
     pub Version: u32,
     pub Reserved: u32,
     pub NoWakeTolerance: i64,
-}
-impl Default for _EXT_SET_PARAMETERS_V0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const _STRSAFE_USE_SECURE_CRT: u32 = 0u32;
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]

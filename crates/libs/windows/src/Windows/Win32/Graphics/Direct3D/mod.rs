@@ -307,16 +307,11 @@ pub const D3DFTL_FULL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-1i32)
 pub const D3DFTL_NO_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(0i32);
 pub const D3DFTL_PARTIAL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DVECTOR {
     pub x: f32,
     pub y: f32,
     pub z: f32,
-}
-impl Default for D3DVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D_CBF_USERPACKED: D3D_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS(1i32);
 #[repr(transparent)]
@@ -597,15 +592,10 @@ pub struct D3D_SHADER_INPUT_FLAGS(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D_SHADER_INPUT_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D_SHADER_MACRO {
     pub Name: windows_core::PCSTR,
     pub Definition: windows_core::PCSTR,
-}
-impl Default for D3D_SHADER_MACRO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -762,6 +752,7 @@ impl ID3DBlob {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3DBlob_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBufferPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
@@ -812,6 +803,7 @@ impl ID3DDestructionNotifier {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3DDestructionNotifier_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, PFN_DESTRUCTION_CALLBACK, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -867,6 +859,7 @@ impl ID3DInclude {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3DInclude_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_INCLUDE_TYPE, windows_core::PCSTR, *const core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,

@@ -16,41 +16,26 @@ impl Default for APPLICATION_EVENT_DATA {
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
 pub const CONTENT_ID_HOME: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONTENT_MISSING_EVENT_DATA {
     pub cbContentMissingEventData: u32,
     pub ApplicationId: windows_core::GUID,
     pub EndpointId: windows_core::GUID,
     pub ContentId: u32,
 }
-impl Default for CONTENT_MISSING_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEVICE_USER_CHANGE_EVENT_DATA {
     pub cbDeviceUserChangeEventData: u32,
     pub wszUser: u16,
 }
-impl Default for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct EVENT_DATA_HEADER {
     pub cbEventDataHeader: u32,
     pub guidEventType: windows_core::GUID,
     pub dwVersion: u32,
     pub cbEventDataSid: u32,
-}
-impl Default for EVENT_DATA_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GUID_DEVINTERFACE_SIDESHOW: windows_core::GUID = windows_core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
 windows_core::imp::define_interface!(ISideShowBulkCapabilities, ISideShowBulkCapabilities_Vtbl, 0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
@@ -70,6 +55,7 @@ impl ISideShowBulkCapabilities {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowBulkCapabilities_Vtbl {
     pub base__: ISideShowCapabilities_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -104,6 +90,7 @@ impl ISideShowCapabilities {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -149,6 +136,7 @@ impl ISideShowCapabilitiesCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowCapabilitiesCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -214,6 +202,7 @@ impl ISideShowContent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -298,6 +287,7 @@ impl ISideShowContentManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowContentManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -394,6 +384,7 @@ impl ISideShowEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ContentMissing: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -472,6 +463,7 @@ impl ISideShowKeyCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowKeyCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
@@ -591,6 +583,7 @@ impl ISideShowNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotificationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -753,6 +746,7 @@ impl ISideShowNotificationManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowNotificationManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -818,6 +812,7 @@ impl ISideShowPropVariantCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowPropVariantCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -905,6 +900,7 @@ impl ISideShowSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISideShowSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterContent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -952,15 +948,10 @@ impl ISideShowSession_Vtbl {
 }
 impl windows_core::RuntimeName for ISideShowSession {}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NEW_EVENT_DATA_AVAILABLE {
     pub cbNewEventDataAvailable: u32,
     pub dwVersion: u32,
-}
-impl Default for NEW_EVENT_DATA_AVAILABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
 pub const SCF_BUTTON_DOWN: SCF_BUTTON_IDS = SCF_BUTTON_IDS(4i32);
@@ -978,7 +969,7 @@ pub const SCF_BUTTON_SELECT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(2i32);
 pub const SCF_BUTTON_STOP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(11i32);
 pub const SCF_BUTTON_UP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCF_CONTEXTMENU_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
@@ -986,22 +977,12 @@ pub struct SCF_CONTEXTMENU_EVENT {
     pub MenuPage: u32,
     pub MenuItemId: u32,
 }
-impl Default for SCF_CONTEXTMENU_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCF_EVENT_HEADER {
     pub PreviousPage: u32,
     pub TargetPage: u32,
-}
-impl Default for SCF_EVENT_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1009,29 +990,19 @@ pub struct SCF_EVENT_IDS(pub i32);
 pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
 pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCF_MENUACTION_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
     pub Button: u32,
     pub ItemId: u32,
 }
-impl Default for SCF_MENUACTION_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCF_NAVIGATION_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
     pub Button: u32,
-}
-impl Default for SCF_NAVIGATION_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SIDESHOW_APPLICATION_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 16 };

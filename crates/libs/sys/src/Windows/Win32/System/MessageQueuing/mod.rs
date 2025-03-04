@@ -106,6 +106,11 @@ pub struct MQCOLUMNSET {
     pub cCol: u32,
     pub aCol: *mut u32,
 }
+impl Default for MQCOLUMNSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MQCONN_BIND_SOCKET_FAILURE: MQConnectionState = -2147483645i32;
 pub const MQCONN_CONNECT_SOCKET_FAILURE: MQConnectionState = -2147483644i32;
 pub const MQCONN_CREATE_SOCKET_FAILURE: MQConnectionState = -2147483646i32;
@@ -137,6 +142,12 @@ pub struct MQMGMTPROPS {
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQMGMTPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MQMSGACKNOWLEDGEMENT = i32;
 pub type MQMSGAUTHENTICATION = i32;
 pub type MQMSGAUTHLEVEL = i32;
@@ -155,6 +166,12 @@ pub struct MQMSGPROPS {
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQMSGPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MQMSGSENDERIDTYPE = i32;
 pub type MQMSGTRACE = i32;
@@ -249,6 +266,12 @@ pub struct MQPRIVATEPROPS {
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQPRIVATEPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MQPRIVLEVEL = i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -258,6 +281,12 @@ pub struct MQPROPERTYRESTRICTION {
     pub prop: u32,
     pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQPROPERTYRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
@@ -266,6 +295,12 @@ pub struct MQQMPROPS {
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQQMPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MQQUEUEACCESSMASK = u32;
 #[repr(C)]
@@ -277,12 +312,24 @@ pub struct MQQUEUEPROPS {
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub aStatus: *mut windows_sys::core::HRESULT,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQQUEUEPROPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct MQRESTRICTION {
     pub cRes: u32,
     pub paPropRes: *mut MQPROPERTYRESTRICTION,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for MQRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: MQQUEUEACCESSMASK = 262144u32;
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: MQQUEUEACCESSMASK = 8u32;
@@ -302,7 +349,7 @@ pub const MQSEC_TAKE_QUEUE_OWNERSHIP: MQQUEUEACCESSMASK = 524288u32;
 pub const MQSEC_WRITE_MESSAGE: MQQUEUEACCESSMASK = 4u32;
 pub type MQSHARE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MQSORTKEY {
     pub propColumn: u32,
     pub dwOrder: u32,
@@ -312,6 +359,11 @@ pub struct MQSORTKEY {
 pub struct MQSORTSET {
     pub cCol: u32,
     pub aCol: *mut MQSORTKEY,
+}
+impl Default for MQSORTSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MQTRANSACTION = i32;
 pub type MQTRANSACTIONAL = i32;
@@ -705,7 +757,7 @@ pub const REL_LT: RELOPS = 3i32;
 pub const REL_NEQ: RELOPS = 2i32;
 pub const REL_NOP: RELOPS = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SEQUENCE_INFO {
     pub SeqID: i64,
     pub SeqNo: u32,

@@ -158,7 +158,7 @@ pub const APTTYPE_STA: APTTYPE = 0i32;
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -183,6 +183,12 @@ pub struct BINDINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub dwReserved: u32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for BINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type BINDINFOF = i32;
 pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = 2i32;
 pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = 1i32;
@@ -194,11 +200,17 @@ pub union BINDPTR {
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for BINDPTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type BIND_FLAGS = i32;
 pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = 2i32;
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
     pub grfFlags: u32,
@@ -214,11 +226,21 @@ pub struct BIND_OPTS2 {
     pub locale: u32,
     pub pServerInfo: *mut COSERVERINFO,
 }
+impl Default for BIND_OPTS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::super::Foundation::HWND,
+}
+impl Default for BIND_OPTS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -226,17 +248,32 @@ pub struct BLOB {
     pub cbSize: u32,
     pub pBlobData: *mut u8,
 }
+impl Default for BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BYTE_BLOB {
     pub clSize: u32,
     pub abData: [u8; 1],
 }
+impl Default for BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u8,
+}
+impl Default for BYTE_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CALLCONV = i32;
 pub type CALLTYPE = i32;
@@ -251,6 +288,11 @@ pub struct CATEGORYINFO {
     pub catid: windows_sys::core::GUID,
     pub lcid: u32,
     pub szDescription: [u16; 128],
+}
+impl Default for CATEGORYINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CC_CDECL: CALLCONV = 1i32;
 pub const CC_FASTCALL: CALLCONV = 0i32;
@@ -306,6 +348,11 @@ pub struct COAUTHIDENTITY {
     pub PasswordLength: u32,
     pub Flags: u32,
 }
+impl Default for COAUTHIDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COAUTHINFO {
@@ -316,6 +363,11 @@ pub struct COAUTHINFO {
     pub dwImpersonationLevel: u32,
     pub pAuthIdentityData: *mut COAUTHIDENTITY,
     pub dwCapabilities: u32,
+}
+impl Default for COAUTHINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type COINIT = i32;
 pub type COINITBASE = i32;
@@ -374,6 +426,11 @@ pub struct CONNECTDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwCookie: u32,
 }
+impl Default for CONNECTDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COSERVERINFO {
@@ -381,6 +438,11 @@ pub struct COSERVERINFO {
     pub pwszName: windows_sys::core::PWSTR,
     pub pAuthInfo: *mut COAUTHINFO,
     pub dwReserved2: u32,
+}
+impl Default for COSERVERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const COWAIT_ALERTABLE: COWAIT_FLAGS = 2i32;
 pub const COWAIT_DEFAULT: COWAIT_FLAGS = 0i32;
@@ -412,7 +474,7 @@ pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTR
 pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = 0i32;
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSPLATFORM {
     pub dwPlatformId: u32,
     pub dwVersionHi: u32,
@@ -426,12 +488,24 @@ pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for CUSTDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct CUSTDATAITEM {
     pub guid: windows_sys::core::GUID,
     pub varValue: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for CUSTDATAITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CWMO_DEFAULT: CWMO_FLAGS = 0i32;
 pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = 1i32;
@@ -444,8 +518,13 @@ pub union CY {
     pub Anonymous: CY_0,
     pub int64: i64,
 }
+impl Default for CY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
@@ -457,12 +536,22 @@ pub struct ComCallData {
     pub dwReserved: u32,
     pub pUserDefined: *mut core::ffi::c_void,
 }
+impl Default for ComCallData {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ContextProperty {
     pub policyId: windows_sys::core::GUID,
     pub flags: u32,
     pub pUnk: *mut core::ffi::c_void,
+}
+impl Default for ContextProperty {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DATADIR = i32;
 pub const DATADIR_GET: DATADIR = 1i32;
@@ -498,6 +587,12 @@ pub struct DISPPARAMS {
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DISPPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DMUS_ERRBASE: u32 = 4096u32;
 pub type DVASPECT = u32;
 pub const DVASPECT_CONTENT: DVASPECT = 1u32;
@@ -516,17 +611,32 @@ pub struct DVTARGETDEVICE {
     pub tdExtDevmodeOffset: u16,
     pub tdData: [u8; 1],
 }
+impl Default for DVTARGETDEVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DWORD_BLOB {
     pub clSize: u32,
     pub alData: [u32; 1],
 }
+impl Default for DWORD_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DWORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u32,
+}
+impl Default for DWORD_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -535,12 +645,24 @@ pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for ELEMDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: super::Ole::PARAMDESC,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for ELEMDESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = 4i32;
 pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = 128i32;
@@ -572,6 +694,11 @@ pub struct EXCEPINFO {
     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
     pub scode: i32,
 }
+impl Default for EXCEPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EXTCONN = i32;
 pub const EXTCONN_CALLABLE: EXTCONN = 4i32;
 pub const EXTCONN_STRONG: EXTCONN = 1i32;
@@ -595,12 +722,22 @@ pub struct FLAGGED_BYTE_BLOB {
     pub clSize: u32,
     pub abData: [u8; 1],
 }
+impl Default for FLAGGED_BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FLAGGED_WORD_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
     pub asData: [u16; 1],
+}
+impl Default for FLAGGED_WORD_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -610,6 +747,12 @@ pub struct FLAG_STGMEDIUM {
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for FLAG_STGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FORMATETC {
@@ -618,6 +761,11 @@ pub struct FORMATETC {
     pub dwAspect: u32,
     pub lindex: i32,
     pub tymed: u32,
+}
+impl Default for FORMATETC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -635,6 +783,12 @@ pub struct FUNCDESC {
     pub cScodes: i16,
     pub elemdescFunc: ELEMDESC,
     pub wFuncFlags: FUNCFLAGS,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for FUNCDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FUNCFLAGS = u16;
 pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = 4u16;
@@ -664,6 +818,12 @@ pub struct GDI_OBJECT {
     pub ObjectType: u32,
     pub u: GDI_OBJECT_0,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for GDI_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[derive(Clone, Copy)]
@@ -671,6 +831,12 @@ pub union GDI_OBJECT_0 {
     pub hBitmap: *mut super::SystemServices::userHBITMAP,
     pub hPalette: *mut super::SystemServices::userHPALETTE,
     pub hGeneric: *mut super::SystemServices::userHGLOBAL,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for GDI_OBJECT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type GLOBALOPT_EH_VALUES = i32;
 pub type GLOBALOPT_PROPERTIES = i32;
@@ -683,8 +849,13 @@ pub struct HYPER_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut i64,
 }
+impl Default for HYPER_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: IDLFLAGS,
@@ -706,6 +877,11 @@ pub struct INTERFACEINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub iid: windows_sys::core::GUID,
     pub wMethod: u16,
+}
+impl Default for INTERFACEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type INVOKEKIND = i32;
 pub const INVOKE_FUNC: INVOKEKIND = 1i32;
@@ -768,6 +944,11 @@ pub struct MULTI_QI {
     pub pItf: *mut core::ffi::c_void,
     pub hr: windows_sys::core::HRESULT,
 }
+impl Default for MULTI_QI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
 pub type PENDINGMSG = i32;
 pub const PENDINGMSG_CANCELCALL: PENDINGMSG = 0i32;
@@ -778,7 +959,7 @@ pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2i32;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1i32;
 pub type PFNCONTEXTCALL = Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,
     pub Platform: CSPLATFORM,
@@ -808,6 +989,11 @@ pub struct RPCOLEMESSAGE {
     pub reserved2: [*mut core::ffi::c_void; 5],
     pub rpcFlags: u32,
 }
+impl Default for RPCOLEMESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RPCOPT_PROPERTIES = i32;
 pub type RPCOPT_SERVER_LOCALITY_VALUES = i32;
 pub type RPC_C_AUTHN_LEVEL = u32;
@@ -834,6 +1020,11 @@ pub struct RemSTGMEDIUM {
     pub cbData: u32,
     pub data: [u8; 1],
 }
+impl Default for RemSTGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SAFEARRAY {
@@ -844,8 +1035,13 @@ pub struct SAFEARRAY {
     pub pvData: *mut core::ffi::c_void,
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
+impl Default for SAFEARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
@@ -859,6 +1055,11 @@ pub struct SChannelHookCallInfo {
     pub dwServerPid: u32,
     pub iMethod: u32,
     pub pObject: *mut core::ffi::c_void,
+}
+impl Default for SChannelHookCallInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SD_ACCESSPERMISSIONS: COMSD = 1i32;
 pub const SD_ACCESSRESTRICTIONS: COMSD = 3i32;
@@ -878,11 +1079,21 @@ pub struct SOLE_AUTHENTICATION_INFO {
     pub dwAuthzSvc: u32,
     pub pAuthInfo: *mut core::ffi::c_void,
 }
+impl Default for SOLE_AUTHENTICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOLE_AUTHENTICATION_LIST {
     pub cAuthInfo: u32,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
+}
+impl Default for SOLE_AUTHENTICATION_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -892,6 +1103,11 @@ pub struct SOLE_AUTHENTICATION_SERVICE {
     pub pPrincipalName: windows_sys::core::PWSTR,
     pub hr: windows_sys::core::HRESULT,
 }
+impl Default for SOLE_AUTHENTICATION_SERVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STATDATA {
@@ -899,6 +1115,11 @@ pub struct STATDATA {
     pub advf: u32,
     pub pAdvSink: *mut core::ffi::c_void,
     pub dwConnection: u32,
+}
+impl Default for STATDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type STATFLAG = i32;
 pub const STATFLAG_DEFAULT: STATFLAG = 0i32;
@@ -919,6 +1140,11 @@ pub struct STATSTG {
     pub grfStateBits: u32,
     pub reserved: u32,
 }
+impl Default for STATSTG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type STGC = i32;
 pub const STGC_CONSOLIDATE: STGC = 8i32;
 pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4i32;
@@ -934,6 +1160,12 @@ pub struct STGMEDIUM {
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for STGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[derive(Clone, Copy)]
@@ -945,6 +1177,12 @@ pub union STGMEDIUM_0 {
     pub lpszFileName: windows_sys::core::PWSTR,
     pub pstm: *mut core::ffi::c_void,
     pub pstg: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Default for STGMEDIUM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STGM_CONVERT: STGM = 131072u32;
 pub const STGM_CREATE: STGM = 4096u32;
@@ -992,6 +1230,11 @@ pub struct StorageLayout {
     pub cOffset: i64,
     pub cBytes: i64,
 }
+impl Default for StorageLayout {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type THDTYPE = i32;
 pub const THDTYPE_BLOCKMESSAGES: THDTYPE = 0i32;
 pub const THDTYPE_PROCESSMESSAGES: THDTYPE = 1i32;
@@ -1005,7 +1248,7 @@ pub const TKIND_MODULE: TYPEKIND = 2i32;
 pub const TKIND_RECORD: TYPEKIND = 1i32;
 pub const TKIND_UNION: TYPEKIND = 7i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TLIBATTR {
     pub guid: windows_sys::core::GUID,
     pub lcid: u32,
@@ -1046,12 +1289,24 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for TYPEATTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
     pub vt: super::Variant::VARENUM,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for TYPEDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1060,6 +1315,12 @@ pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut super::Ole::ARRAYDESC,
     pub hreftype: u32,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for TYPEDESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TYPEKIND = i32;
 pub type TYSPEC = i32;
@@ -1124,12 +1385,24 @@ pub struct VARDESC {
     pub wVarFlags: VARFLAGS,
     pub varkind: VARKIND,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for VARDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for VARDESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VARFLAGS = u16;
 pub const VARFLAG_FBINDABLE: VARFLAGS = 4u16;
@@ -1156,17 +1429,32 @@ pub struct WORD_BLOB {
     pub clSize: u32,
     pub asData: [u16; 1],
 }
+impl Default for WORD_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u16,
 }
+impl Default for WORD_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct uCLSSPEC {
     pub tyspec: u32,
     pub tagged_union: uCLSSPEC_0,
+}
+impl Default for uCLSSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1179,14 +1467,24 @@ pub union uCLSSPEC_0 {
     pub ByName: uCLSSPEC_0_0,
     pub ByObjectId: uCLSSPEC_0_1,
 }
+impl Default for uCLSSPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: windows_sys::core::PWSTR,
     pub PolicyId: windows_sys::core::GUID,
 }
+impl Default for uCLSSPEC_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: windows_sys::core::GUID,
     pub PolicyId: windows_sys::core::GUID,
@@ -1199,6 +1497,12 @@ pub struct userFLAG_STGMEDIUM {
     pub fPassOwnership: i32,
     pub Stgmed: userSTGMEDIUM,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for userFLAG_STGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[derive(Clone, Copy)]
@@ -1206,12 +1510,24 @@ pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for userSTGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[derive(Clone, Copy)]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
     pub u: userSTGMEDIUM_0_0,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for userSTGMEDIUM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
@@ -1224,4 +1540,10 @@ pub union userSTGMEDIUM_0_0 {
     pub lpszFileName: windows_sys::core::PWSTR,
     pub pstm: *mut BYTE_BLOB,
     pub pstg: *mut BYTE_BLOB,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Default for userSTGMEDIUM_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

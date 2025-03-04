@@ -1,5 +1,5 @@
 use crate::imp::Box;
-use crate::{AsImpl, IUnknown, IUnknownImpl, Interface, InterfaceRef};
+use crate::{IUnknown, IUnknownImpl, Interface, InterfaceRef};
 use core::any::Any;
 use core::borrow::Borrow;
 use core::ops::Deref;
@@ -245,10 +245,7 @@ impl<T: ComObjectInner> Clone for ComObject<T> {
     }
 }
 
-impl<T: ComObjectInner> AsRef<T> for ComObject<T>
-where
-    IUnknown: From<T> + AsImpl<T>,
-{
+impl<T: ComObjectInner> AsRef<T> for ComObject<T> {
     #[inline(always)]
     fn as_ref(&self) -> &T {
         self.get()

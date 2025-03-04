@@ -292,6 +292,7 @@ impl windows_core::RuntimeType for ICachedFileUpdaterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICachedFileUpdaterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -304,6 +305,7 @@ impl windows_core::RuntimeType for ICachedFileUpdaterUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICachedFileUpdaterUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -320,6 +322,7 @@ impl windows_core::RuntimeType for ICachedFileUpdaterUI2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICachedFileUpdaterUI2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdateRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -330,6 +333,7 @@ impl windows_core::RuntimeType for IFileUpdateRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileUpdateRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -350,6 +354,7 @@ impl windows_core::RuntimeType for IFileUpdateRequest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileUpdateRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserInputNeededMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -360,6 +365,7 @@ impl windows_core::RuntimeType for IFileUpdateRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileUpdateRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -369,6 +375,7 @@ impl windows_core::RuntimeType for IFileUpdateRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileUpdateRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -378,6 +385,7 @@ impl windows_core::RuntimeType for IStorageProviderFileTypeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderFileTypeInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FileExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -388,6 +396,7 @@ impl windows_core::RuntimeType for IStorageProviderFileTypeInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderFileTypeInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -397,6 +406,7 @@ impl windows_core::RuntimeType for IStorageProviderGetContentInfoForPathResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderGetContentInfoForPathResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorageProviderUriSourceStatus) -> windows_core::HRESULT,
@@ -411,6 +421,7 @@ impl windows_core::RuntimeType for IStorageProviderGetPathForContentUriResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderGetPathForContentUriResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorageProviderUriSourceStatus) -> windows_core::HRESULT,
@@ -423,6 +434,7 @@ impl windows_core::RuntimeType for IStorageProviderItemPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderItemPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -432,6 +444,7 @@ impl windows_core::RuntimeType for IStorageProviderItemProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderItemProperty_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -446,6 +459,7 @@ impl windows_core::RuntimeType for IStorageProviderItemPropertyDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderItemPropertyDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -498,6 +512,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderItemPropertySource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetItemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -507,6 +522,7 @@ impl windows_core::RuntimeType for IStorageProviderKnownFolderEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderKnownFolderEntry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub KnownFolderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -519,6 +535,7 @@ impl windows_core::RuntimeType for IStorageProviderKnownFolderSyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderKnownFolderSyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -608,6 +625,7 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderKnownFolderSyncInfoSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetKnownFolderSyncInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -659,6 +677,7 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetKnownFolderSyncInfoSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -668,6 +687,7 @@ impl windows_core::RuntimeType for IStorageProviderKnownFolderSyncRequestArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderKnownFolderSyncRequestArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub KnownFolders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -681,6 +701,7 @@ impl windows_core::RuntimeType for IStorageProviderMoreInfoUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderMoreInfoUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -732,6 +753,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderPropertyCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPropertySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -741,6 +763,7 @@ impl windows_core::RuntimeType for IStorageProviderQuotaUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderQuotaUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub QuotaTotalInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -856,6 +879,7 @@ impl IStorageProviderShareLinkSource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderShareLinkSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateLinkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -867,6 +891,7 @@ impl windows_core::RuntimeType for IStorageProviderStatusUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderStatusUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StorageProviderState) -> windows_core::HRESULT,
@@ -967,6 +992,7 @@ impl IStorageProviderStatusUISource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderStatusUISource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatusUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1018,6 +1044,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderStatusUISourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatusUISource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1027,6 +1054,7 @@ impl windows_core::RuntimeType for IStorageProviderSyncRootInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1072,6 +1100,7 @@ impl windows_core::RuntimeType for IStorageProviderSyncRootInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -1082,6 +1111,7 @@ impl windows_core::RuntimeType for IStorageProviderSyncRootInfo3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FallbackFileTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1091,6 +1121,7 @@ impl windows_core::RuntimeType for IStorageProviderSyncRootManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderSyncRootManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1104,6 +1135,7 @@ impl windows_core::RuntimeType for IStorageProviderSyncRootManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderSyncRootManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1230,6 +1262,7 @@ impl IStorageProviderUICommand_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderUICommand_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1291,6 +1324,7 @@ impl IStorageProviderUriSource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageProviderUriSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetPathForContentUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1902,6 +1936,7 @@ impl StorageProviderKnownFolderSyncRequestedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct StorageProviderKnownFolderSyncRequestedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -129,6 +129,7 @@ impl windows_core::RuntimeType for IAutomationConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAutomationConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRemoteSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -140,6 +141,7 @@ impl windows_core::RuntimeType for IAutomationConnectionBoundObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAutomationConnectionBoundObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -149,6 +151,7 @@ impl windows_core::RuntimeType for IAutomationElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAutomationElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRemoteSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -160,6 +163,7 @@ impl windows_core::RuntimeType for IAutomationTextRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAutomationTextRange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }

@@ -387,52 +387,32 @@ pub const DOMAIN_LEAVE_GUID: windows_core::GUID = windows_core::GUID::from_u128(
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATE(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUM_SERVICE_STATUSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Default for ENUM_SERVICE_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUM_SERVICE_STATUSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
-impl Default for ENUM_SERVICE_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
-impl Default for ENUM_SERVICE_STATUS_PROCESSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
-}
-impl Default for ENUM_SERVICE_STATUS_PROCESSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -489,7 +469,7 @@ pub type PSC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(dwnotify: 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PSC_NOTIFICATION_REGISTRATION(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGA {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -501,13 +481,8 @@ pub struct QUERY_SERVICE_CONFIGA {
     pub lpServiceStartName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
 }
-impl Default for QUERY_SERVICE_CONFIGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGW {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -519,46 +494,26 @@ pub struct QUERY_SERVICE_CONFIGW {
     pub lpServiceStartName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
 }
-impl Default for QUERY_SERVICE_CONFIGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PSTR,
     pub dwLockDuration: u32,
 }
-impl Default for QUERY_SERVICE_LOCK_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSW {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PWSTR,
     pub dwLockDuration: u32,
 }
-impl Default for QUERY_SERVICE_LOCK_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RPC_INTERFACE_EVENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SC_ACTION {
     pub Type: SC_ACTION_TYPE,
     pub Delay: u32,
-}
-impl Default for SC_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
 pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(4i32);
@@ -671,28 +626,18 @@ pub const SERVICE_CONTROL_SESSIONCHANGE: u32 = 14u32;
 pub const SERVICE_CONTROL_SHUTDOWN: u32 = 5u32;
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     pub dwReason: u32,
     pub pszComment: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     pub dwReason: u32,
     pub pszComment: windows_core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
-}
-impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
 pub const SERVICE_CONTROL_SYSTEMLOWRESOURCES: u32 = 97u32;
@@ -731,35 +676,20 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
     pub fDelayedAutostart: windows_core::BOOL,
 }
-impl Default for SERVICE_DELAYED_AUTO_START_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = SERVICE_START_TYPE(3u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_DESCRIPTIONA {
     pub lpDescription: windows_core::PSTR,
 }
-impl Default for SERVICE_DESCRIPTIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_DESCRIPTIONW {
     pub lpDescription: windows_core::PWSTR,
-}
-impl Default for SERVICE_DESCRIPTIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -804,14 +734,9 @@ impl Default for SERVICE_FAILURE_ACTIONSW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
     pub fFailureActionsOnNonCrashFailures: windows_core::BOOL,
-}
-impl Default for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
 pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(2u32);
@@ -819,14 +744,9 @@ pub const SERVICE_INTERROGATE: u32 = 128u32;
 pub const SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(1u32);
 pub const SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_LAUNCH_PROTECTED_INFO {
     pub dwLaunchProtected: u32,
-}
-impl Default for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
@@ -933,25 +853,15 @@ pub const SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64u32;
 pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(6u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
     pub fDelete: bool,
 }
-impl Default for SERVICE_PREFERRED_NODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_PRESHUTDOWN_INFO {
     pub dwPreshutdownTimeout: u32,
-}
-impl Default for SERVICE_PRESHUTDOWN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
@@ -960,24 +870,14 @@ pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(8u32)
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
     pub pmszRequiredPrivileges: windows_core::PSTR,
 }
-impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
     pub pmszRequiredPrivileges: windows_core::PWSTR,
-}
-impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(4u32);
 pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
@@ -992,28 +892,18 @@ pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_SID_INFO {
     pub dwServiceSidType: u32,
-}
-impl Default for SERVICE_SID_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
 pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1u32;
 pub const SERVICE_START: u32 = 16u32;
 pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(2u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_START_REASON {
     pub dwReason: u32,
-}
-impl Default for SERVICE_START_REASON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
 pub const SERVICE_START_REASON_DELAYEDAUTO: u32 = 16u32;
@@ -1025,7 +915,7 @@ pub const SERVICE_START_REASON_TRIGGER: u32 = 4u32;
 pub struct SERVICE_START_TYPE(pub u32);
 pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(3u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_STATUS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -1034,11 +924,6 @@ pub struct SERVICE_STATUS {
     pub dwServiceSpecificExitCode: u32,
     pub dwCheckPoint: u32,
     pub dwWaitHint: u32,
-}
-impl Default for SERVICE_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1057,7 +942,7 @@ impl Default for SERVICE_STATUS_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_STATUS_PROCESS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -1068,11 +953,6 @@ pub struct SERVICE_STATUS_PROCESS {
     pub dwWaitHint: u32,
     pub dwProcessId: u32,
     pub dwServiceFlags: SERVICE_RUNS_IN_PROCESS,
-}
-impl Default for SERVICE_STATUS_PROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SERVICE_STOP: u32 = 32u32;
 pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(1u32);
@@ -1122,37 +1002,22 @@ pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
 pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = SERVICE_START_TYPE(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: windows_core::PSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
 }
-impl Default for SERVICE_TABLE_ENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
 }
-impl Default for SERVICE_TABLE_ENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERVICE_TIMECHANGE_INFO {
     pub liNewTime: i64,
     pub liOldTime: i64,
-}
-impl Default for SERVICE_TIMECHANGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

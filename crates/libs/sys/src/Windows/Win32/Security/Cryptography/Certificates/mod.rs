@@ -47,7 +47,7 @@ pub const CAIF_REGISTRY: u32 = 4u32;
 pub const CAIF_REGISTRYPARENT: u32 = 16u32;
 pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CAINFO {
     pub cbSize: u32,
     pub CAType: ENUM_CATYPES,
@@ -146,6 +146,11 @@ pub struct CERTTRANSBLOB {
     pub cb: u32,
     pub pb: *mut u8,
 }
+impl Default for CERTTRANSBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CERTVIEWRESTRICTION {
@@ -154,6 +159,11 @@ pub struct CERTVIEWRESTRICTION {
     pub SortOrder: i32,
     pub pbValue: *mut u8,
     pub cbValue: u32,
+}
+impl Default for CERTVIEWRESTRICTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CERT_ALT_NAME = i32;
 pub const CERT_ALT_NAME_DIRECTORY_NAME: CERT_ALT_NAME = 5i32;
@@ -352,6 +362,11 @@ pub const CSCONTROL_SUSPEND: u64 = 2u64;
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: windows_sys::core::PWSTR,
     pub pwszNewDatabaseName: windows_sys::core::PWSTR,
+}
+impl Default for CSEDB_RSTMAPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
 pub const CSRESTORE_TYPE_FULL: u32 = 1u32;

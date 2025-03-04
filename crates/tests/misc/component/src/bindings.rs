@@ -38,6 +38,7 @@ impl Callback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct Callback_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(
@@ -488,6 +489,7 @@ impl IClass_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Property:
@@ -568,6 +570,7 @@ impl IThing_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IThing_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,

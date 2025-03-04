@@ -117,6 +117,11 @@ pub struct APPLETIDLIST {
     pub count: i32,
     pub pIIDList: *mut windows_sys::core::GUID,
 }
+impl Default for APPLETIDLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct APPLYCANDEXPARAM {
@@ -125,6 +130,11 @@ pub struct APPLYCANDEXPARAM {
     pub lpwstrReading: windows_sys::core::PWSTR,
     pub dwReserved: u32,
 }
+impl Default for APPLYCANDEXPARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ATTR_CONVERTED: u32 = 2u32;
 pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
 pub const ATTR_INPUT: u32 = 0u32;
@@ -132,7 +142,7 @@ pub const ATTR_INPUT_ERROR: u32 = 4u32;
 pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
     pub dwStyle: u32,
@@ -148,6 +158,11 @@ pub struct CANDIDATEINFO {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
+impl Default for CANDIDATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CANDIDATELIST {
@@ -158,6 +173,11 @@ pub struct CANDIDATELIST {
     pub dwPageStart: u32,
     pub dwPageSize: u32,
     pub dwOffset: [u32; 1],
+}
+impl Default for CANDIDATELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CATID_MSIME_IImePadApplet: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7566cad1_4ec9_4478_9fe9_8ed766619edf);
 pub const CATID_MSIME_IImePadApplet1000: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe081e1d6_2389_43cb_b66f_609f823d9f9c);
@@ -180,14 +200,14 @@ pub const CLSID_ImePlugInDictDictionaryList_CHS: windows_sys::core::GUID = windo
 pub const CLSID_ImePlugInDictDictionaryList_JPN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4fe2776b_b0f9_4396_b5fc_e9d4cf1ec195);
 pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6a91029e_aa49_471b_aee7_7d332785660d);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
     pub rcArea: super::super::super::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMPOSITIONSTRING {
     pub dwSize: u32,
     pub dwCompReadAttrLen: u32,
@@ -324,7 +344,7 @@ pub const GL_LEVEL_INFORMATION: u32 = 4u32;
 pub const GL_LEVEL_NOGUIDELINE: u32 = 0u32;
 pub const GL_LEVEL_WARNING: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GUIDELINE {
     pub dwSize: u32,
     pub dwLevel: u32,
@@ -499,6 +519,12 @@ pub struct IMEAPPLETCFG {
     pub dummy: u16,
     pub lReserved1: super::super::super::Foundation::LPARAM,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for IMEAPPLETCFG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEAPPLETUI {
@@ -513,14 +539,19 @@ pub struct IMEAPPLETUI {
     pub lReserved1: super::super::super::Foundation::LPARAM,
     pub lReserved2: super::super::super::Foundation::LPARAM,
 }
+impl Default for IMEAPPLETUI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMECHARINFO {
     pub wch: u16,
     pub dwCharInfo: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
     pub dwCharPos: u32,
@@ -529,7 +560,7 @@ pub struct IMECHARPOSITION {
     pub rcDocument: super::super::super::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMECOMPOSITIONSTRINGINFO {
     pub iCompStrLen: i32,
     pub iCaretPos: i32,
@@ -546,12 +577,22 @@ pub struct IMEDLG {
     pub lpwstrWord: windows_sys::core::PWSTR,
     pub nTabId: i32,
 }
+impl Default for IMEDLG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
     pub wrdModifiee: IMEWRD,
     pub relID: IMEREL,
+}
+impl Default for IMEDP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -560,13 +601,18 @@ pub struct IMEFAREASTINFO {
     pub dwType: u32,
     pub dwData: [u32; 1],
 }
+impl Default for IMEFAREASTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
 pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
 pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
 pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
 pub type IMEFMT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -583,11 +629,21 @@ pub struct IMEITEM {
     pub iType: i32,
     pub lpItemData: *mut core::ffi::c_void,
 }
+impl Default for IMEITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEITEMCANDIDATE {
     pub uCount: u32,
     pub imeItem: [IMEITEM; 1],
+}
+impl Default for IMEITEMCANDIDATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
 pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
@@ -602,6 +658,11 @@ pub struct IMEKMS {
     pub cKeyList: u32,
     pub pKeyList: *mut IMEKMSKEY,
 }
+impl Default for IMEKMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
@@ -610,11 +671,21 @@ pub struct IMEKMSFUNCDESC {
     pub dwControl: u32,
     pub pwszDescription: [u16; 128],
 }
+impl Default for IMEKMSFUNCDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
     pub hWnd: super::super::super::Foundation::HWND,
+}
+impl Default for IMEKMSINIT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -622,6 +693,11 @@ pub struct IMEKMSINVK {
     pub cbSize: i32,
     pub hIMC: HIMC,
     pub dwControl: u32,
+}
+impl Default for IMEKMSINVK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -632,17 +708,32 @@ pub struct IMEKMSKEY {
     pub Anonymous1: IMEKMSKEY_0,
     pub Anonymous2: IMEKMSKEY_1,
 }
+impl Default for IMEKMSKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
     pub dwNotUsed: u32,
 }
+impl Default for IMEKMSKEY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
     pub pwszNoUse: [u16; 31],
+}
+impl Default for IMEKMSKEY_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -655,12 +746,22 @@ pub struct IMEKMSKMP {
     pub cKeyList: i32,
     pub pKeyList: *mut IMEKMSKEY,
 }
+impl Default for IMEKMSKMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
     pub hIMC: HIMC,
     pub fSelect: windows_sys::core::BOOL,
+}
+impl Default for IMEKMSNTFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMEKMS_2NDLEVEL: u32 = 4u32;
 pub const IMEKMS_CANDIDATE: u32 = 6u32;
@@ -684,6 +785,12 @@ pub struct IMEMENUITEMINFOA {
     pub szString: [i8; 80],
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IMEMENUITEMINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -697,6 +804,12 @@ pub struct IMEMENUITEMINFOW {
     pub dwItemData: u32,
     pub szString: [u16; 80],
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IMEMENUITEMINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
 pub const IMEMOUSERET_NOTHANDLED: i32 = -1i32;
@@ -785,11 +898,21 @@ pub struct IMESHF {
     pub szDescription: [i8; 256],
     pub szCopyright: [i8; 128],
 }
+impl Default for IMESHF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMESTRINGCANDIDATE {
     pub uCount: u32,
     pub lpwstr: [windows_sys::core::PWSTR; 1],
+}
+impl Default for IMESTRINGCANDIDATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -801,11 +924,21 @@ pub struct IMESTRINGCANDIDATEINFO {
     pub uCount: u32,
     pub lpwstr: [windows_sys::core::PWSTR; 1],
 }
+impl Default for IMESTRINGCANDIDATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMESTRINGINFO {
     pub dwFarEastId: u32,
     pub lpwstr: windows_sys::core::PWSTR,
+}
+impl Default for IMESTRINGINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IMEUCT = i32;
 pub const IMEVER_0310: u32 = 196618u32;
@@ -821,14 +954,24 @@ pub struct IMEWRD {
     pub uct: IMEUCT,
     pub pvComment: *mut core::ffi::c_void,
 }
+impl Default for IMEWRD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
 }
+impl Default for IMEWRD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
@@ -988,12 +1131,24 @@ pub struct INPUTCONTEXT {
     pub fdwInit: u32,
     pub dwReserve: [u32; 3],
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for INPUTCONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for INPUTCONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IPACFG_CATEGORY: i32 = 262144i32;
 pub const IPACFG_HELP: i32 = 2i32;
@@ -1219,11 +1374,21 @@ pub struct MORRSLT {
     pub pPrivate: *mut core::ffi::c_void,
     pub BLKBuff: [u16; 1],
 }
+impl Default for MORRSLT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_sys::core::PWSTR,
     pub pwchComp: windows_sys::core::PWSTR,
+}
+impl Default for MORRSLT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1231,11 +1396,21 @@ pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
 }
+impl Default for MORRSLT_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
+}
+impl Default for MORRSLT_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = 19u32;
 pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = 17u32;
@@ -1256,9 +1431,14 @@ pub struct POSTBL {
     pub nPos: u16,
     pub szName: *mut u8,
 }
+impl Default for POSTBL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const POS_UNDEFINED: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RECONVERTSTRING {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1277,6 +1457,11 @@ pub struct REGISTERWORDA {
     pub lpReading: windows_sys::core::PSTR,
     pub lpWord: windows_sys::core::PSTR,
 }
+impl Default for REGISTERWORDA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCSTR, param1: u32, lpszstring: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
 pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCWSTR, param1: u32, lpszstring: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
 #[repr(C)]
@@ -1284,6 +1469,11 @@ pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: w
 pub struct REGISTERWORDW {
     pub lpReading: windows_sys::core::PWSTR,
     pub lpWord: windows_sys::core::PWSTR,
+}
+impl Default for REGISTERWORDW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RWM_CHGKEYMAP: windows_sys::core::PCWSTR = windows_sys::core::w!("MSIMEChangeKeyMap");
 pub const RWM_DOCUMENTFEED: windows_sys::core::PCWSTR = windows_sys::core::w!("MSIMEDocumentFeed");
@@ -1318,6 +1508,11 @@ pub struct SOFTKBDDATA {
     pub uCount: u32,
     pub wCode: [u16; 256],
 }
+impl Default for SOFTKBDDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
 #[repr(C)]
@@ -1326,15 +1521,25 @@ pub struct STYLEBUFA {
     pub dwStyle: u32,
     pub szDescription: [i8; 32],
 }
+impl Default for STYLEBUFA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STYLEBUFW {
     pub dwStyle: u32,
     pub szDescription: [u16; 32],
 }
+impl Default for STYLEBUFW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSMSG {
     pub message: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
@@ -1345,6 +1550,11 @@ pub struct TRANSMSG {
 pub struct TRANSMSGLIST {
     pub uMsgCount: u32,
     pub TransMsg: [TRANSMSG; 1],
+}
+impl Default for TRANSMSGLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UI_CAP_2700: u32 = 1u32;
 pub const UI_CAP_ROT90: u32 = 2u32;
@@ -1371,17 +1581,32 @@ pub struct WDD {
     pub _bitfield: u16,
     pub pReserved: *mut core::ffi::c_void,
 }
+impl Default for WDD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
     pub wCompPos: u16,
 }
+impl Default for WDD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,
     pub cchComp: u16,
+}
+impl Default for WDD_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const cbCommentMax: u32 = 256u32;
 pub type fpCreateIFECommonInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

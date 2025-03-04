@@ -134,6 +134,11 @@ pub struct GPOBROWSEINFO {
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
 }
+impl Default for GPOBROWSEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = 2i32;
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = 0i32;
 pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = 4i32;
@@ -203,6 +208,11 @@ pub struct GROUP_POLICY_OBJECTA {
     pub lParam2: super::super::Foundation::LPARAM,
     pub lpLink: windows_sys::core::PSTR,
 }
+impl Default for GROUP_POLICY_OBJECTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GROUP_POLICY_OBJECTW {
@@ -220,6 +230,11 @@ pub struct GROUP_POLICY_OBJECTW {
     pub lParam2: super::super::Foundation::LPARAM,
     pub lpLink: windows_sys::core::PWSTR,
 }
+impl Default for GROUP_POLICY_OBJECTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type GROUP_POLICY_OBJECT_TYPE = i32;
 pub const GROUP_POLICY_TRIGGER_EVENT_PROVIDER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd2f4252_5e1e_49fc_9a30_f3978ad89ee2);
 #[repr(C)]
@@ -227,6 +242,11 @@ pub const GROUP_POLICY_TRIGGER_EVENT_PROVIDER_GUID: windows_sys::core::GUID = wi
 pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
     pub Spec: INSTALLSPEC,
+}
+impl Default for INSTALLDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -236,14 +256,24 @@ pub union INSTALLSPEC {
     pub ProgId: windows_sys::core::PWSTR,
     pub COMClass: INSTALLSPEC_1,
 }
+impl Default for INSTALLSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INSTALLSPEC_0 {
     pub Name: windows_sys::core::PWSTR,
     pub GPOId: windows_sys::core::GUID,
 }
+impl Default for INSTALLSPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INSTALLSPEC_1 {
     pub Clsid: windows_sys::core::GUID,
     pub ClsCtx: u32,
@@ -256,6 +286,11 @@ pub struct LOCALMANAGEDAPPLICATION {
     pub pszPolicyName: windows_sys::core::PWSTR,
     pub pszProductId: windows_sys::core::PWSTR,
     pub dwState: u32,
+}
+impl Default for LOCALMANAGEDAPPLICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
@@ -284,6 +319,11 @@ pub struct MANAGEDAPPLICATION {
     pub pszSupportUrl: windows_sys::core::PWSTR,
     pub dwPathType: u32,
     pub bInstalled: windows_sys::core::BOOL,
+}
+impl Default for MANAGEDAPPLICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
@@ -319,6 +359,11 @@ pub struct POLICYSETTINGSTATUSINFO {
     pub status: SETTINGSTATUS,
     pub timeLogged: super::super::Foundation::SYSTEMTIME,
 }
+impl Default for POLICYSETTINGSTATUSINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PROGID: INSTALLSPECTYPE = 3i32;
 pub const PT_MANDATORY: u32 = 4u32;
 pub const PT_ROAMING: u32 = 2u32;
@@ -352,6 +397,12 @@ pub struct RSOP_TARGET {
     pub pRsopToken: *mut core::ffi::c_void,
     pub pGPOList: *mut GROUP_POLICY_OBJECTA,
     pub pWbemServices: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+impl Default for RSOP_TARGET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;

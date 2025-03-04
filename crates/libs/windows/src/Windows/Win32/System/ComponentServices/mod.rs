@@ -73,17 +73,12 @@ impl Default for APPDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APPSTATISTICS {
     pub m_cTotalCalls: u32,
     pub m_cTotalInstances: u32,
     pub m_cTotalClasses: u32,
     pub m_cCallsPerSecond: u32,
-}
-impl Default for APPSTATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
@@ -91,7 +86,7 @@ pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
 pub const AppDomainHelper: windows_core::GUID = windows_core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: windows_core::BOOL,
     pub IsRecycled: windows_core::BOOL,
@@ -108,13 +103,8 @@ pub struct ApplicationProcessRecycleInfo {
     pub CallLimit: u32,
     pub NumCallsLastReported: u32,
 }
-impl Default for ApplicationProcessRecycleInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ApplicationProcessStatistics {
     pub NumCallsOutstanding: u32,
     pub NumTrackedComponents: u32,
@@ -125,13 +115,8 @@ pub struct ApplicationProcessStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl Default for ApplicationProcessStatistics {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: windows_core::GUID,
     pub ApplicationIdPrimaryApplication: windows_core::GUID,
@@ -143,13 +128,8 @@ pub struct ApplicationProcessSummary {
     pub IsPaused: windows_core::BOOL,
     pub IsRecycled: windows_core::BOOL,
 }
-impl Default for ApplicationProcessSummary {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
@@ -159,17 +139,12 @@ pub struct ApplicationSummary {
     pub NumTrackedComponents: u32,
     pub NumComponentInstances: u32,
 }
-impl Default for ApplicationSummary {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutoSvcs_Error_Constants(pub u32);
 pub const ByotServerEx: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLSIDDATA {
     pub m_clsid: windows_core::GUID,
     pub m_cReferences: u32,
@@ -180,13 +155,8 @@ pub struct CLSIDDATA {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-impl Default for CLSIDDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLSIDDATA2 {
     pub m_clsid: windows_core::GUID,
     pub m_appid: windows_core::GUID,
@@ -201,11 +171,6 @@ pub struct CLSIDDATA2 {
     pub m_dwRespTime: u32,
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
-}
-impl Default for CLSIDDATA2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
 pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
@@ -493,7 +458,7 @@ pub const COMEvents: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPLUS_APPTYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
     pub dwPid: u32,
@@ -502,11 +467,6 @@ pub struct COMSVCSEVENTINFO {
     pub perfCount: i64,
     pub guidApp: windows_core::GUID,
     pub sMachineName: windows_core::PWSTR,
-}
-impl Default for COMSVCSEVENTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CRMClerk: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 #[repr(transparent)]
@@ -598,19 +558,14 @@ pub const CoMTSLocator: windows_core::GUID = windows_core::GUID::from_u128(0xeca
 pub const ComServiceEvents: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
 pub const ComSystemAppEventData: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: windows_core::BOOL,
     pub TerminateOnHang: windows_core::BOOL,
     pub AvgCallThresholdInMs: u32,
 }
-impl Default for ComponentHangMonitorInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ComponentStatistics {
     pub NumInstances: u32,
     pub NumBoundReferences: u32,
@@ -626,13 +581,8 @@ pub struct ComponentStatistics {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-impl Default for ComponentStatistics {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
@@ -640,11 +590,6 @@ pub struct ComponentSummary {
     pub Clsid: windows_core::GUID,
     pub ClassName: windows_core::PWSTR,
     pub ApplicationName: windows_core::PWSTR,
-}
-impl Default for ComponentSummary {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ContextInfo, ContextInfo_Vtbl, 0x19a5a02c_0ac8_11d2_b286_00c04f8ef934);
@@ -692,6 +637,7 @@ impl ContextInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ContextInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub IsInTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -820,6 +766,7 @@ impl ContextInfo2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ContextInfo2_Vtbl {
     pub base__: ContextInfo_Vtbl,
     pub GetPartitionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -886,17 +833,11 @@ impl ContextInfo2_Vtbl {
 impl windows_core::RuntimeName for ContextInfo2 {}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,
     pub dwSequenceNumber: u32,
     pub blobUserData: super::Com::BLOB,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for CrmLogRecordRead {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -922,7 +863,7 @@ pub const GUID_STRING_SIZE: u32 = 40u32;
 pub struct GetAppTrackerDataFlags(pub i32);
 pub const GetSecurityCallContextAppObject: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: windows_core::BOOL,
     pub fTerminateOnHang: windows_core::BOOL,
@@ -930,11 +871,6 @@ pub struct HANG_INFO {
     pub dwHangTimeout: u32,
     pub dwDumpCount: u32,
     pub dwInfoMsgCount: u32,
-}
-impl Default for HANG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAppDomainHelper, IAppDomainHelper_Vtbl, 0xc7b67079_8255_42c6_9ec0_6994a3548780);
@@ -964,6 +900,7 @@ impl IAppDomainHelper {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppDomainHelper_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, isize, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1023,6 +960,7 @@ impl IAssemblyLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAssemblyLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetModules: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut super::Com::SAFEARRAY) -> windows_core::HRESULT,
@@ -1062,6 +1000,7 @@ impl IAsyncErrorNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAsyncErrorNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -1196,6 +1135,7 @@ impl ICOMAdminCatalog {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICOMAdminCatalog_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1648,6 +1588,7 @@ impl ICOMAdminCatalog2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICOMAdminCatalog2_Vtbl {
     pub base__: ICOMAdminCatalog_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2083,6 +2024,7 @@ impl ICOMLBArguments {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICOMLBArguments_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2237,6 +2179,7 @@ impl ICatalogCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICatalogCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2537,6 +2480,7 @@ impl ICatalogObject {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICatalogObject_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2680,6 +2624,7 @@ impl ICheckSxsConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICheckSxsConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsSameSxsConfig: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2728,6 +2673,7 @@ impl IComActivityEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComActivityEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnActivityCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -2827,6 +2773,7 @@ impl IComApp2Events {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComApp2Events_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAppActivation2: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, windows_core::GUID, windows_core::GUID) -> windows_core::HRESULT,
@@ -2902,6 +2849,7 @@ impl IComAppEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComAppEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAppActivation: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, windows_core::GUID) -> windows_core::HRESULT,
@@ -2995,6 +2943,7 @@ impl IComCRMEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComCRMEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCRMRecoveryStart: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, windows_core::GUID) -> windows_core::HRESULT,
@@ -3157,6 +3106,7 @@ impl IComExceptionEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComExceptionEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnExceptionUser: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u32, u64, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3192,6 +3142,7 @@ impl IComIdentityEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComIdentityEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnIISRequestInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u64, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3225,6 +3176,7 @@ impl IComInstance2Events {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComInstance2Events_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjectCreate2: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, u64, u64, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3270,6 +3222,7 @@ impl IComInstanceEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComInstanceEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjectCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID, u64, u64) -> windows_core::HRESULT,
@@ -3324,6 +3277,7 @@ impl IComLTxEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComLTxEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLtxTransactionStart: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, windows_core::GUID, windows_core::GUID, windows_core::BOOL, i32) -> windows_core::HRESULT,
@@ -3399,6 +3353,7 @@ impl IComMethod2Events {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComMethod2Events_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnMethodCall2: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const windows_core::GUID, *const windows_core::GUID, u32, u32) -> windows_core::HRESULT,
@@ -3456,6 +3411,7 @@ impl IComMethodEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComMethodEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnMethodCall: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const windows_core::GUID, *const windows_core::GUID, u32) -> windows_core::HRESULT,
@@ -3522,6 +3478,7 @@ impl IComMtaThreadPoolKnobs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComMtaThreadPoolKnobs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MTASetMaxThreadCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3597,6 +3554,7 @@ impl IComObjectConstruction2Events {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComObjectConstruction2Events_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjectConstruct2: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, windows_core::PCWSTR, u64, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3630,6 +3588,7 @@ impl IComObjectConstructionEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComObjectConstructionEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjectConstruct: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, windows_core::PCWSTR, u64) -> windows_core::HRESULT,
@@ -3675,6 +3634,7 @@ impl IComObjectEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComObjectEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjectActivate: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64) -> windows_core::HRESULT,
@@ -3762,6 +3722,7 @@ impl IComObjectPool2Events {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComObjectPool2Events_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjPoolPutObject2: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, i32, u32, u64) -> windows_core::HRESULT,
@@ -3831,6 +3792,7 @@ impl IComObjectPoolEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComObjectPoolEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjPoolPutObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, i32, u32, u64) -> windows_core::HRESULT,
@@ -3903,6 +3865,7 @@ impl IComObjectPoolEvents2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComObjectPoolEvents2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnObjPoolCreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, u32, u64) -> windows_core::HRESULT,
@@ -3990,6 +3953,7 @@ impl IComQCEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComQCEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnQCRecord: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u64, windows_core::PCWSTR, *const windows_core::GUID, *const windows_core::GUID, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -4104,6 +4068,7 @@ impl IComResourceEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComResourceEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnResourceCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u64, windows_core::PCWSTR, u64, windows_core::BOOL) -> windows_core::HRESULT,
@@ -4176,6 +4141,7 @@ impl IComSecurityEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComSecurityEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAuthenticate: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, u64, *const windows_core::GUID, u32, u32, *const u8, u32, *const u8, windows_core::BOOL) -> windows_core::HRESULT,
@@ -4266,6 +4232,7 @@ impl IComStaThreadPoolKnobs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComStaThreadPoolKnobs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMinThreadCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4473,6 +4440,7 @@ impl IComStaThreadPoolKnobs2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComStaThreadPoolKnobs2_Vtbl {
     pub base__: IComStaThreadPoolKnobs_Vtbl,
     pub GetMaxCPULoad: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4647,6 +4615,7 @@ impl IComThreadEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComThreadEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnThreadStart: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u32, u32) -> windows_core::HRESULT,
@@ -4782,6 +4751,7 @@ impl IComTrackingInfoCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComTrackingInfoCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TRACKING_COLL_TYPE) -> windows_core::HRESULT,
@@ -4848,6 +4818,7 @@ impl IComTrackingInfoEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComTrackingInfoEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnNewTrackingInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4885,6 +4856,7 @@ impl IComTrackingInfoObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComTrackingInfoObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4936,6 +4908,7 @@ impl IComTrackingInfoProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComTrackingInfoProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PropCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4999,6 +4972,7 @@ impl IComTransaction2Events {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComTransaction2Events_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTransactionStart2: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, *const windows_core::GUID, windows_core::BOOL, i32) -> windows_core::HRESULT,
@@ -5068,6 +5042,7 @@ impl IComTransactionEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComTransactionEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTransactionStart: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMSVCSEVENTINFO, *const windows_core::GUID, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
@@ -5129,6 +5104,7 @@ impl IComUserEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComUserEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5182,6 +5158,7 @@ impl IContextProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContextProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5269,6 +5246,7 @@ impl IContextSecurityPerimeter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContextSecurityPerimeter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPerimeterFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -5320,6 +5298,7 @@ impl IContextState {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContextState_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDeactivateOnReturn: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -5383,6 +5362,7 @@ impl ICreateWithLocalTransaction {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateWithLocalTransaction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstanceWithSysTx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5417,6 +5397,7 @@ impl ICreateWithTipTransactionEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateWithTipTransactionEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5453,6 +5434,7 @@ impl ICreateWithTransactionEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateWithTransactionEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -5534,6 +5516,7 @@ impl ICrmCompensator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICrmCompensator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLogControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5729,6 +5712,7 @@ impl ICrmCompensatorVariants {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICrmCompensatorVariants_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLogControlVariants: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5903,6 +5887,7 @@ impl ICrmFormatLogRecords {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICrmFormatLogRecords_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetColumnCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -6026,6 +6011,7 @@ impl ICrmLogControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICrmLogControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransactionUOW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6139,6 +6125,7 @@ impl ICrmMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICrmMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -6257,6 +6244,7 @@ impl ICrmMonitorClerks {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICrmMonitorClerks_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6430,6 +6418,7 @@ impl ICrmMonitorLogRecords {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICrmMonitorLogRecords_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -6547,6 +6536,7 @@ impl IDispenserDriver {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDispenserDriver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateResource: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize, *mut i32) -> windows_core::HRESULT,
@@ -6635,6 +6625,7 @@ impl IDispenserManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDispenserManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterDispenser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6695,6 +6686,7 @@ impl IEnumNames {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumNames_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6778,6 +6770,7 @@ impl IEventServerTrace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEventServerTrace_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub StartTraceGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -6856,6 +6849,7 @@ impl IGetAppTrackerData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGetAppTrackerData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetApplicationProcesses: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, u32, *mut u32, *mut *mut ApplicationProcessSummary) -> windows_core::HRESULT,
@@ -6965,6 +6959,7 @@ impl IGetContextProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGetContextProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -7042,6 +7037,7 @@ impl IGetSecurityCallContext {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGetSecurityCallContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetSecurityCallContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7102,6 +7098,7 @@ impl IHolder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHolder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AllocResource: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize) -> windows_core::HRESULT,
@@ -7205,6 +7202,7 @@ impl ILBEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILBEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TargetUp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7280,6 +7278,7 @@ impl IMTSActivity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMTSActivity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SynchronousCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7349,6 +7348,7 @@ impl IMTSCall {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMTSCall_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCall: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7393,6 +7393,7 @@ impl IMTSLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMTSLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetEventDispatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7441,6 +7442,7 @@ impl IManagedActivationEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IManagedActivationEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateManagedStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -7501,6 +7503,7 @@ impl IManagedObjectInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IManagedObjectInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIUnknown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7573,6 +7576,7 @@ impl IManagedPoolAction {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IManagedPoolAction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LastRelease: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7603,6 +7607,7 @@ impl IManagedPooledObj {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IManagedPooledObj_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHeld: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -7674,6 +7679,7 @@ impl IMessageMover {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMessageMover_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SourcePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7827,6 +7833,7 @@ impl IMtsEventInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMtsEventInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Names: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7968,6 +7975,7 @@ impl IMtsEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMtsEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub PackageName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8090,6 +8098,7 @@ impl IMtsGrp {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMtsGrp_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -8177,6 +8186,7 @@ impl IObjPool {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjPool_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reserved1: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -8268,6 +8278,7 @@ impl IObjectConstruct {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectConstruct_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8315,6 +8326,7 @@ impl IObjectConstructString {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectConstructString_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ConstructString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8369,6 +8381,7 @@ impl IObjectContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8465,6 +8478,7 @@ impl IObjectContextActivity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectContextActivity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetActivityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -8510,6 +8524,7 @@ impl IObjectContextInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectContextInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsInTransaction: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -8597,6 +8612,7 @@ impl IObjectContextInfo2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectContextInfo2_Vtbl {
     pub base__: IObjectContextInfo_Vtbl,
     pub GetPartitionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -8648,6 +8664,7 @@ impl IObjectContextTip {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectContextTip_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTipUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8684,6 +8701,7 @@ impl IObjectControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8738,6 +8756,7 @@ impl IPlaybackControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlaybackControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FinalClientRetry: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8791,6 +8810,7 @@ impl IPoolManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPoolManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ShutdownPool: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8830,6 +8850,7 @@ impl IProcessInitializer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProcessInitializer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Startup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8914,6 +8935,7 @@ impl ISecurityCallContext {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityCallContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9063,6 +9085,7 @@ impl ISecurityCallersColl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityCallersColl_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9162,6 +9185,7 @@ impl ISecurityIdentityColl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityIdentityColl_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9254,6 +9278,7 @@ impl ISecurityProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISecurityProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Security")]
@@ -9347,6 +9372,7 @@ impl ISelectCOMLBServer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISelectCOMLBServer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9388,6 +9414,7 @@ impl ISendMethodEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISendMethodEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SendMethodCall: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
@@ -9445,6 +9472,7 @@ impl IServiceActivity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceActivity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SynchronousCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9505,6 +9533,7 @@ impl IServiceCall {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceCall_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCall: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9535,6 +9564,7 @@ impl IServiceComTIIntrinsicsConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceComTIIntrinsicsConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ComTIIntrinsicsConfig: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_COMTIIntrinsicsConfig) -> windows_core::HRESULT,
@@ -9565,6 +9595,7 @@ impl IServiceIISIntrinsicsConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceIISIntrinsicsConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IISIntrinsicsConfig: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_IISIntrinsicsConfig) -> windows_core::HRESULT,
@@ -9595,6 +9626,7 @@ impl IServiceInheritanceConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceInheritanceConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ContainingContextTreatment: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_InheritanceConfig) -> windows_core::HRESULT,
@@ -9628,6 +9660,7 @@ impl IServicePartitionConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServicePartitionConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PartitionConfig: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_PartitionConfig) -> windows_core::HRESULT,
@@ -9679,6 +9712,7 @@ impl IServicePool {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServicePool_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9765,6 +9799,7 @@ impl IServicePoolConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServicePoolConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMaxPoolSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -9906,6 +9941,7 @@ impl IServiceSxsConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceSxsConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SxsConfig: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_SxsConfig) -> windows_core::HRESULT,
@@ -9957,6 +9993,7 @@ impl IServiceSynchronizationConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceSynchronizationConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConfigureSynchronization: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_SynchronizationConfig) -> windows_core::HRESULT,
@@ -9996,6 +10033,7 @@ impl IServiceSysTxnConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceSysTxnConfig_Vtbl {
     pub base__: IServiceTransactionConfig_Vtbl,
     pub ConfigureBYOTSysTxn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10032,6 +10070,7 @@ impl IServiceThreadPoolConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceThreadPoolConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SelectThreadPool: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_ThreadPool) -> windows_core::HRESULT,
@@ -10078,6 +10117,7 @@ impl IServiceTrackerConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceTrackerConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TrackerConfig: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_TrackerConfig, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -10118,6 +10158,7 @@ impl IServiceTransactionConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceTransactionConfig_Vtbl {
     pub base__: IServiceTransactionConfigBase_Vtbl,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -10172,6 +10213,7 @@ impl IServiceTransactionConfigBase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceTransactionConfigBase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConfigureTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, CSC_TransactionConfig) -> windows_core::HRESULT,
@@ -10260,6 +10302,7 @@ impl ISharedProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISharedProperty_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10339,6 +10382,7 @@ impl ISharedPropertyGroup {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISharedPropertyGroup_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub CreatePropertyByPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Foundation::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10437,6 +10481,7 @@ impl ISharedPropertyGroupManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISharedPropertyGroupManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub CreatePropertyGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut i32, *mut super::super::Foundation::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10506,6 +10551,7 @@ impl ISystemAppEventData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemAppEventData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Startup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10575,6 +10621,7 @@ impl IThreadPoolKnobs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IThreadPoolKnobs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMaxThreads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10710,6 +10757,7 @@ impl ITransactionContext {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10783,6 +10831,7 @@ impl ITransactionContextEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionContextEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10888,6 +10937,7 @@ impl ITransactionProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reserved1: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -11109,6 +11159,7 @@ impl ITransactionProxy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionProxy_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -11230,6 +11281,7 @@ impl ITransactionResourcePool {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionResourcePool_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PutResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11281,6 +11333,7 @@ impl ITransactionStatus {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionStatus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTransactionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -11323,6 +11376,7 @@ impl ITxProxyHolder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITxProxyHolder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID),
@@ -11438,6 +11492,7 @@ impl ObjectContext {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ObjectContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11648,6 +11703,7 @@ impl ObjectControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ObjectControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11694,18 +11750,13 @@ impl windows_core::RuntimeName for ObjectControl {}
 pub const PoolMgr: windows_core::GUID = windows_core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 pub const Process: ReleaseModes = ReleaseModes(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: windows_core::GUID,
     pub ProcessStartTime: i64,
     pub dwRecycleLifetimeLimit: u32,
     pub dwRecycleMemoryLimit: u32,
     pub dwRecycleExpirationTimeout: u32,
-}
-impl Default for RECYCLE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11753,6 +11804,7 @@ impl SecurityProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct SecurityProperty_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetDirectCallerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

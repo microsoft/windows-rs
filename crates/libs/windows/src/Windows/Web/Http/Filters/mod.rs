@@ -379,6 +379,7 @@ impl windows_core::RuntimeType for IHttpBaseProtocolFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpBaseProtocolFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowAutoRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -427,6 +428,7 @@ impl windows_core::RuntimeType for IHttpBaseProtocolFilter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpBaseProtocolFilter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HttpVersion) -> windows_core::HRESULT,
@@ -437,6 +439,7 @@ impl windows_core::RuntimeType for IHttpBaseProtocolFilter3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpBaseProtocolFilter3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCookieUsageBehavior) -> windows_core::HRESULT,
@@ -447,6 +450,7 @@ impl windows_core::RuntimeType for IHttpBaseProtocolFilter4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpBaseProtocolFilter4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServerCustomValidationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -458,6 +462,7 @@ impl windows_core::RuntimeType for IHttpBaseProtocolFilter5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpBaseProtocolFilter5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -470,6 +475,7 @@ impl windows_core::RuntimeType for IHttpBaseProtocolFilterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpBaseProtocolFilterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -482,6 +488,7 @@ impl windows_core::RuntimeType for IHttpCacheControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpCacheControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheReadBehavior) -> windows_core::HRESULT,
@@ -539,6 +546,7 @@ impl IHttpFilter_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -548,6 +556,7 @@ impl windows_core::RuntimeType for IHttpServerCustomValidationRequestedEventArgs
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

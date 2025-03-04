@@ -12,6 +12,7 @@ impl IWsbApplicationAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWsbApplicationAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -64,6 +65,7 @@ impl IWsbApplicationBackupSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWsbApplicationBackupSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CheckConsistency: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *const windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -122,6 +124,7 @@ impl IWsbApplicationRestoreSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWsbApplicationRestoreSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PreRestore: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, bool) -> windows_core::HRESULT,
@@ -191,18 +194,13 @@ pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_
 pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
 pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSB_OB_REGISTRATION_INFO {
     pub m_wszResourceDLL: windows_core::PWSTR,
     pub m_guidSnapinId: windows_core::GUID,
     pub m_dwProviderName: u32,
     pub m_dwProviderIcon: u32,
     pub m_bSupportsRemoting: bool,
-}
-impl Default for WSB_OB_REGISTRATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -222,15 +220,10 @@ impl Default for WSB_OB_STATUS_ENTRY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     pub m_wszObStatusEntryPairValue: windows_core::PWSTR,
     pub m_ObStatusEntryPairType: WSB_OB_STATUS_ENTRY_PAIR_TYPE,
-}
-impl Default for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

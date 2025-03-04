@@ -304,18 +304,13 @@ impl core::ops::Not for COMMPROP_STOP_PARITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
     pub ReadTotalTimeoutConstant: u32,
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
-}
-impl Default for COMMTIMEOUTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -354,19 +349,14 @@ impl core::ops::Not for COMM_EVENT_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMSTAT {
     pub _bitfield: u32,
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
-impl Default for COMSTAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -383,11 +373,6 @@ pub struct DCB {
     pub EofChar: i8,
     pub EvtChar: i8,
     pub wReserved1: u16,
-}
-impl Default for DCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

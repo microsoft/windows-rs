@@ -213,7 +213,7 @@ impl Window {
         unsafe { target.SetTransform(&translation) };
 
         let ellipse = D2D1_ELLIPSE {
-            point: D2D_POINT_2F::default(),
+            point: Vector2::zero(),
             radiusX: radius,
             radiusY: radius,
         };
@@ -241,40 +241,31 @@ impl Window {
         }
 
         unsafe {
-            target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.second) * translation));
 
             target.DrawLine(
-                D2D_POINT_2F::default(),
-                D2D_POINT_2F {
-                    x: 0.0,
-                    y: -(radius * 0.75),
-                },
+                Vector2::zero(),
+                Vector2::new(0.0, -(radius * 0.75)),
                 brush,
                 radius / 25.0,
                 &self.style,
             );
 
-            target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.minute) * translation));
 
             target.DrawLine(
-                D2D_POINT_2F::default(),
-                D2D_POINT_2F {
-                    x: 0.0,
-                    y: -(radius * 0.75),
-                },
+                Vector2::zero(),
+                Vector2::new(0.0, -(radius * 0.75)),
                 brush,
                 radius / 15.0,
                 &self.style,
             );
 
-            target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * translation));
+            target.SetTransform(&(Matrix3x2::rotation(angles.hour) * translation));
 
             target.DrawLine(
-                D2D_POINT_2F::default(),
-                D2D_POINT_2F {
-                    x: 0.0,
-                    y: -(radius * 0.5),
-                },
+                Vector2::zero(),
+                Vector2::new(0.0, -(radius * 0.5)),
                 brush,
                 radius / 10.0,
                 &self.style,

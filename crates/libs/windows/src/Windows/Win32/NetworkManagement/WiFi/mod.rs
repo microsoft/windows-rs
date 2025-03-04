@@ -534,7 +534,7 @@ pub type DOT11EXTIHV_VALIDATE_PROFILE = Option<unsafe extern "system" fn(hihvext
 pub type DOT11EXT_ALLOCATE_BUFFER = Option<unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut core::ffi::c_void) -> u32>;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11EXT_APIS {
     pub Dot11ExtAllocateBuffer: DOT11EXT_ALLOCATE_BUFFER,
     pub Dot11ExtFreeBuffer: DOT11EXT_FREE_BUFFER,
@@ -559,37 +559,21 @@ pub struct DOT11EXT_APIS {
     pub Dot11ExtStopOneX: DOT11EXT_ONEX_STOP,
     pub Dot11ExtProcessSecurityPacket: DOT11EXT_PROCESS_ONEX_PACKET,
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl Default for DOT11EXT_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type DOT11EXT_FREE_BUFFER = Option<unsafe extern "system" fn(pvmemory: *const core::ffi::c_void)>;
 pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut core::ffi::c_void) -> u32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11EXT_IHV_CONNECTION_PHASE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     pub pszXmlFragmentIhvConnectivity: windows_core::PWSTR,
 }
-impl Default for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE {
     pub IhvConnectivityProfile: DOT11EXT_IHV_CONNECTIVITY_PROFILE,
     pub IhvSecurityProfile: DOT11EXT_IHV_SECURITY_PROFILE,
-}
-impl Default for DOT11EXT_IHV_DISCOVERY_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -604,7 +588,7 @@ impl Default for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvDeinitService: DOT11EXTIHV_DEINIT_SERVICE,
     pub Dot11ExtIhvInitAdapter: DOT11EXTIHV_INIT_ADAPTER,
@@ -625,12 +609,6 @@ pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvQueryUIRequest: DOT11EXTIHV_QUERY_UI_REQUEST,
     pub Dot11ExtIhvOnexIndicateResult: DOT11EXTIHV_ONEX_INDICATE_RESULT,
     pub Dot11ExtIhvControl: DOT11EXTIHV_CONTROL,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl Default for DOT11EXT_IHV_HANDLERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -665,15 +643,10 @@ impl Default for DOT11EXT_IHV_PROFILE_PARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
     pub pszXmlFragmentIhvSecurity: windows_core::PWSTR,
     pub bUseMSOnex: windows_core::BOOL,
-}
-impl Default for DOT11EXT_IHV_SECURITY_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -727,17 +700,12 @@ pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = Option<unsafe extern "system" f
 pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32>;
 pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *const core::ffi::c_void) -> u32>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11EXT_VIRTUAL_STATION_APIS {
     pub Dot11ExtRequestVirtualStation: DOT11EXT_REQUEST_VIRTUAL_STATION,
     pub Dot11ExtReleaseVirtualStation: DOT11EXT_RELEASE_VIRTUAL_STATION,
     pub Dot11ExtQueryVirtualStationProperties: DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES,
     pub Dot11ExtSetVirtualStationAPProperties: DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES,
-}
-impl Default for DOT11EXT_VIRTUAL_STATION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -755,7 +723,7 @@ impl Default for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub AccessNetworkType: u8,
     pub Internet: u8,
@@ -763,41 +731,25 @@ pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub ESR: u8,
     pub UESA: u8,
 }
-impl Default for DOT11_ACCESSNETWORKOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AC_PARAM(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ADAPTER {
     pub gAdapterId: windows_core::GUID,
     pub pszDescription: windows_core::PWSTR,
     pub Dot11CurrentOpMode: DOT11_CURRENT_OPERATION_MODE,
 }
-impl Default for DOT11_ADAPTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uBeaconIEsOffset: u32,
     pub uBeaconIEsLength: u32,
     pub uResponseIEsOffset: u32,
     pub uResponseIEsLength: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_ADDITIONAL_IE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -829,35 +781,24 @@ pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: DOT11_ADHOC_NETWORK_CONN
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub Status: DOT11_ANQP_QUERY_RESULT,
     pub hContext: super::super::Foundation::HANDLE,
     pub uResponseLength: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ANQP_QUERY_RESULT(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
-}
-impl Default for DOT11_AP_JOIN_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1011,15 +952,10 @@ pub const DOT11_AUTH_ALGO_WPA3_SAE: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(
 pub const DOT11_AUTH_ALGO_WPA_NONE: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(5i32);
 pub const DOT11_AUTH_ALGO_WPA_PSK: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_AUTH_CIPHER_PAIR {
     pub AuthAlgoId: DOT11_AUTH_ALGORITHM,
     pub CipherAlgoId: DOT11_CIPHER_ALGORITHM,
-}
-impl Default for DOT11_AUTH_CIPHER_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1151,16 +1087,11 @@ impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     pub uHopPattern: u32,
     pub uHopSet: u32,
     pub uDwellTime: u32,
-}
-impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1193,16 +1124,10 @@ impl Default for DOT11_BYTE_ARRAY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_CAN_SUSTAIN_AP_REASON_IHV_END: u32 = 4294967295u32;
@@ -1223,15 +1148,10 @@ pub const DOT11_CCA_MODE_ED_ONLY: u32 = 1u32;
 pub const DOT11_CCA_MODE_ED_and_CS: u32 = 4u32;
 pub const DOT11_CCA_MODE_HRCS_AND_ED: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CHANNEL_HINT {
     pub Dot11PhyType: DOT11_PHY_TYPE,
     pub uChannelNumber: u32,
-}
-impl Default for DOT11_CHANNEL_HINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1310,16 +1230,10 @@ pub const DOT11_CONF_ALGO_TKIP: u32 = 2u32;
 pub const DOT11_CONF_ALGO_WEP_RC4: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uStatus: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_CONNECTION_COMPLETION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -1340,7 +1254,7 @@ impl Default for DOT11_CONNECTION_START_PARAMETERS {
 pub const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_CONNECTION_STATUS_SUCCESS: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_COUNTERS_ENTRY {
     pub uTransmittedFragmentCount: u32,
     pub uMulticastTransmittedFrameCount: u32,
@@ -1355,11 +1269,6 @@ pub struct DOT11_COUNTERS_ENTRY {
     pub uMulticastReceivedFrameCount: u32,
     pub uFCSErrorCount: u32,
     pub uTransmittedFrameCount: u32,
-}
-impl Default for DOT11_COUNTERS_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1378,29 +1287,19 @@ impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
 }
 pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
 }
-impl Default for DOT11_CURRENT_OFFLOAD_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CURRENT_OPERATION_MODE {
     pub uReserved: u32,
     pub uCurrentOpMode: u32,
 }
-impl Default for DOT11_CURRENT_OPERATION_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
     pub bDot11CFPollable: bool,
@@ -1408,22 +1307,12 @@ pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub bDot11PCFMPDUTransferToPC: bool,
     pub bStrictlyOrderedServiceClass: bool,
 }
-impl Default for DOT11_CURRENT_OPTIONAL_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
     pub ucDataRateIndex: u8,
     pub ucDataRateFlag: u8,
     pub usDataRateValue: u16,
-}
-impl Default for DOT11_DATA_RATE_MAPPING_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -1518,15 +1407,10 @@ impl Default for DOT11_DISASSOCIATION_PARAMETERS {
 }
 pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
     pub bDiversitySelectionRX: bool,
-}
-impl Default for DOT11_DIVERSITY_SELECTION_RX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1564,29 +1448,19 @@ impl Default for DOT11_EAP_RESULT {
 }
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ENCAP_ENTRY {
     pub usEtherType: u16,
     pub usEncapType: u16,
 }
-impl Default for DOT11_ENCAP_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_ENCAP_RFC_1042: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub bERPPBCCOptionImplemented: bool,
     pub bDSSSOFDMOptionImplemented: bool,
     pub bShortSlotTimeOptionImplemented: bool,
-}
-impl Default for DOT11_ERP_PHY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_EXEMPT_ALWAYS: u32 = 1u32;
 pub const DOT11_EXEMPT_BOTH: u32 = 3u32;
@@ -1676,7 +1550,7 @@ pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: u32 = 1u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: u32 = 12u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_EXTSTA_CAPABILITY {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -1689,12 +1563,6 @@ pub struct DOT11_EXTSTA_CAPABILITY {
     pub uWEPKeyValueMaxLength: u32,
     pub uPMKIDCacheSize: u32,
     pub uMaxNumPerSTADefaultKeyTables: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_EXTSTA_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -1746,15 +1614,10 @@ pub const DOT11_FLAGS_80211G_NON_ERP_PRESENT: u32 = 64u32;
 pub const DOT11_FLAGS_80211G_USE_PROTECTION: u32 = 32u32;
 pub const DOT11_FLAGS_PS_ON: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_FRAGMENT_DESCRIPTOR {
     pub uOffset: u32,
     pub uLength: u32,
-}
-impl Default for DOT11_FRAGMENT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1u32;
 pub const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2u32;
@@ -1815,15 +1678,10 @@ impl Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
 pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_HESSID_LENGTH: u32 = 6u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY {
     pub uHoppingPatternIndex: u32,
     pub uRandomTableFieldNumber: u32,
-}
-impl Default for DOT11_HOPPING_PATTERN_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1841,17 +1699,12 @@ impl Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HOP_ALGO_ADOPTED(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bShortPreambleOptionImplemented: bool,
     pub bPBCCOptionImplemented: bool,
     pub bChannelAgilityPresent: bool,
     pub uHRCCAModeSupported: u32,
-}
-impl Default for DOT11_HRDSSS_PHY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_HR_CCA_MODE_CS_AND_ED: u32 = 4u32;
 pub const DOT11_HR_CCA_MODE_CS_ONLY: u32 = 2u32;
@@ -1866,30 +1719,19 @@ pub const DOT11_HW_WEP_SUPPORTED_RX: u32 = 2u32;
 pub const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bJoinOnly: bool,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_IBSS_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_IHV_VERSION_INFO {
     pub dwVerMin: u32,
     pub dwVerMax: u32,
-}
-impl Default for DOT11_IHV_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2027,28 +1869,18 @@ impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_IV48_COUNTER {
     pub uIV32Counter: u32,
     pub usIV16Counter: u16,
 }
-impl Default for DOT11_IV48_COUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
-}
-impl Default for DOT11_JOIN_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2139,17 +1971,11 @@ impl Default for DOT11_LINK_QUALITY_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uLinkQualityListSize: u32,
     pub uLinkQualityListOffset: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_LINK_QUALITY_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2169,7 +1995,7 @@ impl Default for DOT11_MAC_ADDRESS_LIST {
 }
 pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -2186,11 +2012,6 @@ pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
 }
-impl Default for DOT11_MAC_FRAME_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOT11_MAC_INFO {
@@ -2205,16 +2026,10 @@ impl Default for DOT11_MAC_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uOpmodeMask: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_MAC_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2237,32 +2052,22 @@ pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub ADCPowerLevel: i32,
 }
-impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub bEnabled: bool,
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub PowerLevel: i32,
 }
-impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub bEnable: bool,
     pub bOpenLoop: bool,
@@ -2270,11 +2075,6 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub uChannel: u32,
     pub uSetPowerLevel: u32,
     pub ADCPowerLevel: i32,
-}
-impl Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2388,17 +2188,11 @@ impl Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
 pub const DOT11_MIN_PDU_SIZE: u32 = 256u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
     pub uMPDUMaxLength: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_MPDU_MAX_LENGTH_INDICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1u32;
 pub const DOT11_MSONEX_FAILURE: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(1i32);
@@ -2443,28 +2237,18 @@ impl Default for DOT11_MSSECURITY_SETTINGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     pub uMultiDomainCapabilityIndex: u32,
     pub uFirstChannelNumber: u32,
     pub uNumberOfChannels: u32,
     pub lMaximumTransmitPowerLevel: i32,
 }
-impl Default for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_NETWORK {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
-}
-impl Default for DOT11_NETWORK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2494,17 +2278,12 @@ pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4u32;
 pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: u32 = 2u32;
 pub const DOT11_NLO_FLAG_STOP_NLO_INDICATION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_OFDM_PHY_ATTRIBUTES {
     pub uFrequencyBandsSupported: u32,
 }
-impl Default for DOT11_OFDM_PHY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
@@ -2513,11 +2292,6 @@ pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uMaxWEPKeyMappingLength: u32,
     pub uSupportedAuthAlgorithms: u32,
     pub uMaxAuthKeyMappingLength: u32,
-}
-impl Default for DOT11_OFFLOAD_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2553,16 +2327,10 @@ impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub Status: i32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -2583,7 +2351,7 @@ pub const DOT11_OI_MAX_LENGTH: u32 = 5u32;
 pub const DOT11_OI_MIN_LENGTH: u32 = 3u32;
 pub const DOT11_OPERATION_MODE_AP: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uReserved: u32,
     pub uMajorVersion: u32,
@@ -2591,11 +2359,6 @@ pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uNumOfTXBuffers: u32,
     pub uNumOfRXBuffers: u32,
     pub uOpModeCapability: u32,
-}
-impl Default for DOT11_OPERATION_MODE_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_AP: u32 = 8u32;
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: u32 = 4u32;
@@ -2607,17 +2370,12 @@ pub const DOT11_OPERATION_MODE_WFD_CLIENT: u32 = 64u32;
 pub const DOT11_OPERATION_MODE_WFD_DEVICE: u32 = 16u32;
 pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
     pub bDot11PCF: bool,
     pub bDot11PCFMPDUTransferToPC: bool,
     pub bStrictlyOrderedServiceClass: bool,
-}
-impl Default for DOT11_OPTIONAL_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: u32 = 4096u32;
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: u32 = 16384u32;
@@ -2673,7 +2431,7 @@ impl Default for DOT11_PEER_INFO_LIST {
 }
 pub const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PEER_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
@@ -2682,24 +2440,14 @@ pub struct DOT11_PEER_STATISTICS {
     pub ullRxPacketSuccessCount: u64,
     pub ullRxPacketFailureCount: u64,
 }
-impl Default for DOT11_PEER_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PER_MSDU_COUNTERS {
     pub uTransmittedFragmentCount: u32,
     pub uRetryCount: u32,
     pub uRTSSuccessCount: u32,
     pub uRTSFailureCount: u32,
     pub uACKFailureCount: u32,
-}
-impl Default for DOT11_PER_MSDU_COUNTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2742,7 +2490,7 @@ impl Default for DOT11_PHY_ATTRIBUTES_0 {
 }
 pub const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -2762,11 +2510,6 @@ pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullReceivedFragmentCount: u64,
     pub ullPromiscuousReceivedFragmentCount: u64,
     pub ullFCSErrorCount: u64,
-}
-impl Default for DOT11_PHY_FRAME_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2814,18 +2557,12 @@ impl Default for DOT11_PHY_ID_LIST {
 pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
     pub bHardwarePhyState: bool,
     pub bSoftwarePhyState: bool,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_PHY_STATE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -2866,17 +2603,11 @@ impl Default for DOT11_PHY_TYPE_LIST {
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uCandidateListSize: u32,
     pub uCandidateListOffset: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -2937,20 +2668,14 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bEnabled: bool,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE {
     pub dot11PowerMode: DOT11_POWER_MODE,
     pub uPowerSaveLevel: u32,
@@ -2958,25 +2683,14 @@ pub struct DOT11_POWER_MGMT_MODE {
     pub usAID: u16,
     pub bReceiveDTIMs: bool,
 }
-impl Default for DOT11_POWER_MGMT_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PowerSaveMode: DOT11_POWER_MODE,
     pub uPowerSaveLevel: u32,
     pub Reason: DOT11_POWER_MODE_REASON,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_POWER_MGMT_MODE_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -2994,16 +2708,11 @@ pub const DOT11_POWER_SAVING_NO_POWER_SAVING: u32 = 0u32;
 pub const DOT11_PRIORITY_CONTENTION: u32 = 0u32;
 pub const DOT11_PRIORITY_CONTENTION_FREE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION {
     pub usEtherType: u16,
     pub usExemptionActionType: u16,
     pub usExemptionPacketType: u16,
-}
-impl Default for DOT11_PRIVACY_EXEMPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3062,29 +2771,18 @@ pub const DOT11_PSD_IE_MAX_DATA_SIZE: u32 = 240u32;
 pub const DOT11_PSD_IE_MAX_ENTRY_NUMBER: u32 = 5u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_QOS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ucEnabledQoSProtocolFlags: u8,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_QOS_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_QOS_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_QOS_TX_DURATION {
     pub uNominalMSDUSize: u32,
     pub uMinPHYRate: u32,
     pub uDuration: u32,
-}
-impl Default for DOT11_QOS_TX_DURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3304,16 +3002,11 @@ impl Default for DOT11_RECV_EXTENSION_INFO_V2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_RECV_SENSITIVITY {
     pub ucDataRate: u8,
     pub lRSSIMin: i32,
     pub lRSSIMax: i32,
-}
-impl Default for DOT11_RECV_SENSITIVITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3359,15 +3052,10 @@ pub const DOT11_REG_DOMAIN_MKK: u32 = 64u32;
 pub const DOT11_REG_DOMAIN_OTHER: u32 = 0u32;
 pub const DOT11_REG_DOMAIN_SPAIN: u32 = 49u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_REG_DOMAIN_VALUE {
     pub uRegDomainsSupportIndex: u32,
     pub uRegDomainsSupportValue: u32,
-}
-impl Default for DOT11_REG_DOMAIN_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3386,16 +3074,10 @@ impl Default for DOT11_RESET_REQUEST {
 pub struct DOT11_RESET_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uStatus: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_ROAMING_COMPLETION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -3415,16 +3097,11 @@ impl Default for DOT11_ROAMING_START_PARAMETERS {
 }
 pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_RSSI_RANGE {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uRSSIMin: u32,
     pub uRSSIMax: u32,
-}
-impl Default for DOT11_RSSI_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3680,17 +3357,12 @@ impl Default for DOT11_SSID_LIST {
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_SSID_MAX_LENGTH: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_START_REQUEST {
     pub uStartFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
     pub uChCenterFrequency: u32,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
-}
-impl Default for DOT11_START_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3720,15 +3392,10 @@ pub const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: u32 = 256u32;
 pub const DOT11_STATUS_GENERATE_AUTH_FAILED: u32 = 16384u32;
 pub const DOT11_STATUS_ICV_VERIFIED: u32 = 2048u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_STATUS_INDICATION {
     pub uStatusType: u32,
     pub ndisStatus: i32,
-}
-impl Default for DOT11_STATUS_INDICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_STATUS_JOIN_CONFIRM: u32 = 2u32;
 pub const DOT11_STATUS_MPDU_MAX_LENGTH_CHANGED: u32 = 6u32;
@@ -3749,16 +3416,10 @@ pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: u32 = 1024u32;
 pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: u32 = 64u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_STOP_AP_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_STOP_AP_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_STOP_AP_REASON_AP_ACTIVE: u32 = 3u32;
@@ -3767,15 +3428,10 @@ pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: u32 = 1u32;
 pub const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295u32;
 pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
     pub bSupportedAntenna: bool,
-}
-impl Default for DOT11_SUPPORTED_ANTENNA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3812,14 +3468,9 @@ impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
     pub uChannel: u32,
-}
-impl Default for DOT11_SUPPORTED_DSSS_CHANNEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3834,14 +3485,9 @@ impl Default for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
     pub uCenterFrequency: u32,
-}
-impl Default for DOT11_SUPPORTED_OFDM_FREQUENCY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3913,15 +3559,10 @@ impl Default for DOT11_UPDATE_IE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_UPDATE_IE_OP(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_VENUEINFO {
     pub VenueGroup: u8,
     pub VenueType: u8,
-}
-impl Default for DOT11_VENUEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3940,25 +3581,19 @@ impl Default for DOT11_VWIFI_ATTRIBUTES {
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
     pub uNumAdhoc: u32,
     pub uNumSoftAP: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_VWIFI_COMBINATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1u32;
 pub const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2u32;
 pub const DOT11_VWIFI_COMBINATION_REVISION_3: u32 = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -3966,15 +3601,9 @@ pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub uNumSoftAP: u32,
     pub uNumVirtualStation: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_VWIFI_COMBINATION_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -3982,12 +3611,6 @@ pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub uNumSoftAP: u32,
     pub uNumVirtualStation: u32,
     pub uNumWFDGroup: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_VWIFI_COMBINATION_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4030,7 +3653,7 @@ impl Default for DOT11_WEP_UPLOAD {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uBeaconIEsOffset: u32,
@@ -4039,12 +3662,6 @@ pub struct DOT11_WFD_ADDITIONAL_IE {
     pub uProbeResponseIEsLength: u32,
     pub uDefaultRequestIEsOffset: u32,
     pub uDefaultRequestIEsLength: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_ADDITIONAL_IE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -4124,21 +3741,16 @@ impl Default for DOT11_WFD_CHANNEL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
     pub GOTimeout: u8,
     pub ClientTimeout: u8,
-}
-impl Default for DOT11_WFD_CONFIGURATION_TIMEOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bServiceDiscoveryEnabled: bool,
@@ -4148,12 +3760,6 @@ pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub bDeviceLimitReached: bool,
     pub bInvitationProcedureEnabled: bool,
     pub WPSVersionsEnabled: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: u32 = 2u32;
@@ -4208,16 +3814,10 @@ impl Default for DOT11_WFD_DEVICE_INFO {
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub ChannelNumber: u8,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: u32 = 0u32;
@@ -4236,7 +3836,7 @@ impl Default for DOT11_WFD_DEVICE_TYPE {
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub Status: i32,
@@ -4244,12 +3844,6 @@ pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub uTotalNumOfEntries: u32,
     pub uListOffset: u32,
     pub uListLength: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -4266,7 +3860,7 @@ impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub DiscoverType: DOT11_WFD_DISCOVER_TYPE,
@@ -4278,25 +3872,14 @@ pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub uIEsLength: u32,
     pub bForceScanLegacyNetworks: bool,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_DISCOVER_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
-}
-impl Default for DOT11_WFD_GO_INTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: u32 = 16u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_EAPOL_KEY_IP_ADDRESS_ALLOCATION_SUPPORTED: u32 = 128u32;
@@ -4321,7 +3904,7 @@ impl Default for DOT11_WFD_GROUP_ID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub GOOperatingChannel: DOT11_WFD_CHANNEL,
@@ -4329,16 +3912,10 @@ pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub bInGroupFormation: bool,
     pub bWaitForWPSReady: bool,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_GROUP_JOIN_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bPersistentGroupEnabled: bool,
@@ -4348,17 +3925,11 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub bGroupFormationEnabled: bool,
     pub uMaximumGroupLimit: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub bPersistentGroupEnabled: bool,
@@ -4369,35 +3940,18 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub uMaximumGroupLimit: u32,
     pub bEapolKeyIpAddressAllocationSupported: bool,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub AdvertisedOperatingChannel: DOT11_WFD_CHANNEL,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for DOT11_WFD_GROUP_START_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WFD_INVITATION_FLAGS {
     pub _bitfield: u8,
-}
-impl Default for DOT11_WFD_INVITATION_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: u32 = 1u32;
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: u32 = 4u32;
@@ -4473,18 +4027,13 @@ pub const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: u32 = 8u32;
 pub const DOT11_WFD_STATUS_SUCCESS: u32 = 0u32;
 pub const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: u32 = 12u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS {
     pub ucAccessCategoryIndex: u8,
     pub ucAIFSN: u8,
     pub ucECWmin: u8,
     pub ucECWmax: u8,
     pub usTXOPLimit: u16,
-}
-impl Default for DOT11_WME_AC_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4515,17 +4064,12 @@ impl Default for DOT11_WME_UPDATE_IE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOT11_WPA_TSC {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub hOffload: super::super::Foundation::HANDLE,
     pub dot11IV48Counter: DOT11_IV48_COUNTER,
-}
-impl Default for DOT11_WPA_TSC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4704,6 +4248,7 @@ impl IDot11AdHocInterface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDot11AdHocInterface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeviceSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -4833,6 +4378,7 @@ impl IDot11AdHocInterfaceNotificationSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnConnectionStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT,
@@ -4896,6 +4442,7 @@ impl IDot11AdHocManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDot11AdHocManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5004,6 +4551,7 @@ impl IDot11AdHocManagerNotificationSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDot11AdHocManagerNotificationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnNetworkAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5112,6 +4660,7 @@ impl IDot11AdHocNetwork {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDot11AdHocNetwork_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT,
@@ -5271,6 +4820,7 @@ impl IDot11AdHocNetworkNotificationSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDot11AdHocNetworkNotificationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT,
@@ -5316,6 +4866,7 @@ impl IDot11AdHocSecuritySettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDot11AdHocSecuritySettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDot11AuthAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DOT11_ADHOC_AUTH_ALGORITHM) -> windows_core::HRESULT,
@@ -5370,6 +4921,7 @@ impl IEnumDot11AdHocInterfaces {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDot11AdHocInterfaces_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5378,7 +4930,7 @@ pub struct IEnumDot11AdHocInterfaces_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDot11AdHocInterfaces_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IDot11AdHocInterface>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces>;
@@ -5448,6 +5000,7 @@ impl IEnumDot11AdHocNetworks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDot11AdHocNetworks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5456,7 +5009,7 @@ pub struct IEnumDot11AdHocNetworks_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDot11AdHocNetworks_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IDot11AdHocNetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocNetworks>;
@@ -5526,6 +5079,7 @@ impl IEnumDot11AdHocSecuritySettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDot11AdHocSecuritySettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5534,7 +5088,7 @@ pub struct IEnumDot11AdHocSecuritySettings_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDot11AdHocSecuritySettings_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocSecuritySettings>;
@@ -5770,7 +5324,7 @@ pub const ONEX_AUTHENTICATOR_NO_LONGER_PRESENT: ONEX_REASON_CODE = ONEX_REASON_C
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_AUTH_IDENTITY(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ONEX_AUTH_PARAMS {
     pub fUpdatePending: windows_core::BOOL,
     pub oneXConnProfile: ONEX_VARIABLE_BLOB,
@@ -5784,11 +5338,6 @@ pub struct ONEX_AUTH_PARAMS {
     pub UserName: ONEX_VARIABLE_BLOB,
     pub Domain: ONEX_VARIABLE_BLOB,
 }
-impl Default for ONEX_AUTH_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ONEX_AUTH_RESTART_REASON(pub i32);
@@ -5797,7 +5346,7 @@ pub struct ONEX_AUTH_RESTART_REASON(pub i32);
 pub struct ONEX_AUTH_STATUS(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ONEX_EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
@@ -5808,12 +5357,6 @@ pub struct ONEX_EAP_ERROR {
     pub _bitfield: u32,
     pub RootCauseString: ONEX_VARIABLE_BLOB,
     pub RepairString: ONEX_VARIABLE_BLOB,
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl Default for ONEX_EAP_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ONEX_EAP_FAILURE_RECEIVED: ONEX_REASON_CODE = ONEX_REASON_CODE(327685i32);
 #[repr(transparent)]
@@ -5841,7 +5384,7 @@ pub struct ONEX_REASON_CODE(pub i32);
 pub const ONEX_REASON_CODE_SUCCESS: ONEX_REASON_CODE = ONEX_REASON_CODE(0i32);
 pub const ONEX_REASON_START: ONEX_REASON_CODE = ONEX_REASON_CODE(327680i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ONEX_RESULT_UPDATE_DATA {
     pub oneXStatus: ONEX_STATUS,
     pub BackendSupport: ONEX_EAP_METHOD_BACKEND_SUPPORT,
@@ -5850,22 +5393,12 @@ pub struct ONEX_RESULT_UPDATE_DATA {
     pub authParams: ONEX_VARIABLE_BLOB,
     pub eapError: ONEX_VARIABLE_BLOB,
 }
-impl Default for ONEX_RESULT_UPDATE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ONEX_STATUS {
     pub authStatus: ONEX_AUTH_STATUS,
     pub dwReason: u32,
     pub dwError: u32,
-}
-impl Default for ONEX_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ONEX_UI_CANCELLED: ONEX_REASON_CODE = ONEX_REASON_CODE(327697i32);
 pub const ONEX_UI_DISABLED: ONEX_REASON_CODE = ONEX_REASON_CODE(327683i32);
@@ -5873,28 +5406,18 @@ pub const ONEX_UI_FAILURE: ONEX_REASON_CODE = ONEX_REASON_CODE(327684i32);
 pub const ONEX_UI_NOT_PERMITTED: ONEX_REASON_CODE = ONEX_REASON_CODE(327700i32);
 pub const ONEX_UNABLE_TO_IDENTIFY_USER: ONEX_REASON_CODE = ONEX_REASON_CODE(327681i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ONEX_USER_INFO {
     pub authIdentity: ONEX_AUTH_IDENTITY,
     pub _bitfield: u32,
     pub UserName: ONEX_VARIABLE_BLOB,
     pub DomainName: ONEX_VARIABLE_BLOB,
 }
-impl Default for ONEX_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ONEX_VARIABLE_BLOB {
     pub dwSize: u32,
     pub dwOffset: u32,
-}
-impl Default for ONEX_VARIABLE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OneXAuthFailure: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(4i32);
 pub const OneXAuthIdentityExplicitUser: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(3i32);
@@ -5941,16 +5464,11 @@ impl Default for WDIAG_IHV_WLAN_ID {
 }
 pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bNew: bool,
     pub bClient: bool,
     pub bGO: bool,
-}
-impl Default for WFDSVC_CONNECTION_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2u32;
 pub const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4u32;
@@ -6259,27 +5777,17 @@ impl Default for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_FILTER_LIST_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub hostedNetworkSSID: DOT11_SSID,
     pub dwMaxNumberOfPeers: u32,
 }
-impl Default for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_PEER_STATE,
     pub PeerStateChangeReason: WLAN_HOSTED_NETWORK_REASON,
-}
-impl Default for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6302,44 +5810,29 @@ impl Default for WLAN_HOSTED_NETWORK_PEER_STATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_RADIO_STATE {
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
-}
-impl Default for WLAN_HOSTED_NETWORK_RADIO_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_REASON(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
-}
-impl Default for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_STATE,
     pub StateChangeReason: WLAN_HOSTED_NETWORK_REASON,
-}
-impl Default for WLAN_HOSTED_NETWORK_STATE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6409,7 +5902,7 @@ pub struct WLAN_INTERFACE_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_INTF_OPCODE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -6423,11 +5916,6 @@ pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullWEPICVErrorCount: u64,
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
-}
-impl Default for WLAN_MAC_FRAME_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLAN_MAX_NAME_LENGTH: u32 = 256u32;
 pub const WLAN_MAX_PHY_INDEX: u32 = 64u32;
@@ -6512,7 +6000,7 @@ pub struct WLAN_OPCODE_VALUE_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_OPERATIONAL_STATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -6533,22 +6021,12 @@ pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullPromiscuousReceivedFragmentCount: u64,
     pub ullFCSErrorCount: u64,
 }
-impl Default for WLAN_PHY_FRAME_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_PHY_RADIO_STATE {
     pub dwPhyIndex: u32,
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
-}
-impl Default for WLAN_PHY_RADIO_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6627,15 +6105,10 @@ impl Default for WLAN_RAW_DATA_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_RAW_DATA_LIST_0 {
     pub dwDataOffset: u32,
     pub dwDataSize: u32,
-}
-impl Default for WLAN_RAW_DATA_LIST_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLAN_REASON_CODE_AC_BASE: u32 = 131072u32;
 pub const WLAN_REASON_CODE_AC_CONNECT_BASE: u32 = 163840u32;
@@ -6797,17 +6270,12 @@ pub const WLAN_REASON_CODE_USER_NOT_RESPOND: u32 = 163854u32;
 pub struct WLAN_SECURABLE_OBJECT(pub i32);
 pub const WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(17i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLAN_SECURITY_ATTRIBUTES {
     pub bSecurityEnabled: windows_core::BOOL,
     pub bOneXEnabled: windows_core::BOOL,
     pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
-}
-impl Default for WLAN_SECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = WLAN_SET_EAPHOST_FLAGS(1u32);
 #[repr(transparent)]

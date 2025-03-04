@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IRadio {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRadio_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetStateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, RadioState, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17,6 +18,7 @@ impl windows_core::RuntimeType for IRadioStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRadioStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetRadiosAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

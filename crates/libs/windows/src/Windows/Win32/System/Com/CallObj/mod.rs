@@ -16,7 +16,7 @@ where
     unsafe { CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.param().abi(), typeinfo.param().abi(), iid, ppv as _).ok() }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CALLFRAMEINFO {
     pub iMethod: u32,
     pub fHasInValues: windows_core::BOOL,
@@ -31,23 +31,13 @@ pub struct CALLFRAMEINFO {
     pub cMethod: u32,
     pub cParams: u32,
 }
-impl Default for CALLFRAMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CALLFRAMEPARAMINFO {
     pub fIn: bool,
     pub fOut: bool,
     pub stackOffset: u32,
     pub cbParam: u32,
-}
-impl Default for CALLFRAMEPARAMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -185,6 +175,7 @@ impl ICallFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICallFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CALLFRAMEINFO) -> windows_core::HRESULT,
@@ -422,6 +413,7 @@ impl ICallFrameEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICallFrameEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -452,6 +444,7 @@ impl ICallFrameWalker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICallFrameWalker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnWalkInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const *const core::ffi::c_void, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
@@ -494,6 +487,7 @@ impl ICallIndirect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICallIndirect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CallIndirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, u32, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -575,6 +569,7 @@ impl ICallInterceptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICallInterceptor_Vtbl {
     pub base__: ICallIndirect_Vtbl,
     pub RegisterSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -626,6 +621,7 @@ impl ICallUnmarshal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICallUnmarshal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Unmarshal: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, windows_core::BOOL, u32, *const CALLFRAME_MARSHALCONTEXT, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -674,6 +670,7 @@ impl IInterfaceRelated {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInterfaceRelated_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIID: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,

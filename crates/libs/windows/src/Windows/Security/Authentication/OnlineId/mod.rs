@@ -17,6 +17,7 @@ impl windows_core::RuntimeType for IOnlineIdAuthenticator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdAuthenticator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AuthenticateUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32,6 +33,7 @@ impl windows_core::RuntimeType for IOnlineIdServiceTicket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdServiceTicket_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -43,6 +45,7 @@ impl windows_core::RuntimeType for IOnlineIdServiceTicketRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -53,6 +56,7 @@ impl windows_core::RuntimeType for IOnlineIdServiceTicketRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateOnlineIdServiceTicketRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -63,6 +67,7 @@ impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -78,6 +83,7 @@ impl windows_core::RuntimeType for IOnlineIdSystemAuthenticatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Default: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -91,6 +97,7 @@ impl windows_core::RuntimeType for IOnlineIdSystemIdentity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdSystemIdentity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Ticket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -101,6 +108,7 @@ impl windows_core::RuntimeType for IOnlineIdSystemTicketResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOnlineIdSystemTicketResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Identity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -112,6 +120,7 @@ impl windows_core::RuntimeType for IUserIdentity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserIdentity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Tickets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

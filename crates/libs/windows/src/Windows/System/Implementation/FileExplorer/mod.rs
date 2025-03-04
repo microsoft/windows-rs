@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for ISysStorageProviderEventReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISysStorageProviderEventReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Json: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12,6 +13,7 @@ impl windows_core::RuntimeType for ISysStorageProviderEventReceivedEventArgsFact
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -75,6 +77,7 @@ impl ISysStorageProviderEventSource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISysStorageProviderEventSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EventReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -147,6 +150,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISysStorageProviderHandlerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetHttpRequestProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -204,6 +208,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web_Http")]

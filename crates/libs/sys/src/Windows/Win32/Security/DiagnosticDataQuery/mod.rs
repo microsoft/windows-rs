@@ -43,16 +43,31 @@ pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     pub eventCount: u32,
     pub uploadSizeBytes: u64,
 }
+impl Default for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     pub id: i32,
     pub name: windows_sys::core::PWSTR,
 }
+impl Default for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     pub name: windows_sys::core::PWSTR,
+}
+impl Default for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -61,21 +76,26 @@ pub struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     pub name: windows_sys::core::PWSTR,
     pub description: windows_sys::core::PWSTR,
 }
+impl Default for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     pub privacyTag: i32,
     pub eventCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     pub hoursOfHistoryToKeep: u32,
     pub maxStoreMegabytes: u32,
     pub requestedMaxStoreMegabytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DIAGNOSTIC_DATA_GENERAL_STATS {
     pub optInLevel: u32,
     pub transcriptSizeBytes: u64,
@@ -101,6 +121,11 @@ pub struct DIAGNOSTIC_DATA_RECORD {
     pub extra2: windows_sys::core::PWSTR,
     pub extra3: windows_sys::core::PWSTR,
 }
+impl Default for DIAGNOSTIC_DATA_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
@@ -112,6 +137,11 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub privacyTags: *const i32,
     pub privacyTagCount: u32,
     pub coreDataOnly: windows_sys::core::BOOL,
+}
+impl Default for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -134,17 +164,32 @@ pub struct DIAGNOSTIC_REPORT_DATA {
     pub legacyBucketId: u64,
     pub reportKey: windows_sys::core::PWSTR,
 }
+impl Default for DIAGNOSTIC_REPORT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_REPORT_PARAMETER {
     pub name: [u16; 129],
     pub value: [u16; 260],
 }
+impl Default for DIAGNOSTIC_REPORT_PARAMETER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DIAGNOSTIC_REPORT_SIGNATURE {
     pub eventName: [u16; 65],
     pub parameters: [DIAGNOSTIC_REPORT_PARAMETER; 10],
+}
+impl Default for DIAGNOSTIC_REPORT_SIGNATURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DdqAccessLevel = i32;
 pub type HDIAGNOSTIC_DATA_QUERY_SESSION = *mut core::ffi::c_void;

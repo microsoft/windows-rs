@@ -52,13 +52,13 @@ pub const VK_PAD_START: XINPUT_VIRTUAL_KEY = 22548u16;
 pub const VK_PAD_X: XINPUT_VIRTUAL_KEY = 22530u16;
 pub const VK_PAD_Y: XINPUT_VIRTUAL_KEY = 22531u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: BATTERY_TYPE,
     pub BatteryLevel: BATTERY_LEVEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XINPUT_CAPABILITIES {
     pub Type: XINPUT_DEVTYPE,
     pub SubType: XINPUT_DEVSUBTYPE,
@@ -93,7 +93,7 @@ pub type XINPUT_FLAG = u32;
 pub const XINPUT_FLAG_ALL: XINPUT_FLAG = 0u32;
 pub const XINPUT_FLAG_GAMEPAD: XINPUT_FLAG = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: XINPUT_GAMEPAD_BUTTON_FLAGS,
     pub bLeftTrigger: u8,
@@ -122,7 +122,7 @@ pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: XINPUT_GAMEPAD_BUTTON_FLAGS = 30u16;
 pub const XINPUT_GAMEPAD_X: XINPUT_GAMEPAD_BUTTON_FLAGS = 16384u16;
 pub const XINPUT_GAMEPAD_Y: XINPUT_GAMEPAD_BUTTON_FLAGS = 32768u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: XINPUT_VIRTUAL_KEY,
     pub Unicode: u16,
@@ -135,13 +135,13 @@ pub const XINPUT_KEYSTROKE_KEYDOWN: XINPUT_KEYSTROKE_FLAGS = 1u16;
 pub const XINPUT_KEYSTROKE_KEYUP: XINPUT_KEYSTROKE_FLAGS = 2u16;
 pub const XINPUT_KEYSTROKE_REPEAT: XINPUT_KEYSTROKE_FLAGS = 4u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,

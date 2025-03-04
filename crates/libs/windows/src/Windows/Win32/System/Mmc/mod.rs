@@ -12,6 +12,7 @@ impl core::ops::Deref for AppEvents {
 windows_core::imp::interface_hierarchy!(AppEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct AppEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
@@ -75,7 +76,7 @@ pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(65535i32);
 pub const CHECKED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(2i32);
 pub const COMBOBOXBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONTEXTMENUITEM {
     pub strName: windows_core::PWSTR,
     pub strStatusBarText: windows_core::PWSTR,
@@ -84,13 +85,8 @@ pub struct CONTEXTMENUITEM {
     pub fFlags: i32,
     pub fSpecialFlags: i32,
 }
-impl Default for CONTEXTMENUITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONTEXTMENUITEM2 {
     pub strName: windows_core::PWSTR,
     pub strStatusBarText: windows_core::PWSTR,
@@ -99,11 +95,6 @@ pub struct CONTEXTMENUITEM2 {
     pub fFlags: i32,
     pub fSpecialFlags: i32,
     pub strLanguageIndependentName: windows_core::PWSTR,
-}
-impl Default for CONTEXTMENUITEM2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Column, Column_Vtbl, 0xfd1c5f63_2b16_4d06_9ab3_f45350b940ab);
@@ -163,6 +154,7 @@ impl Column {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Column_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -327,6 +319,7 @@ impl Columns {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Columns_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -427,6 +420,7 @@ impl ContextMenu {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ContextMenu_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -594,6 +588,7 @@ impl Document {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Document_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -884,6 +879,7 @@ impl Extension {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Extension_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1030,6 +1026,7 @@ impl Extensions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Extensions_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1155,6 +1152,7 @@ impl Frame {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Frame_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Maximize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1323,6 +1321,7 @@ impl IColumnData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColumnData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetColumnConfigData: unsafe extern "system" fn(*mut core::ffi::c_void, *const SColumnSetID, *const MMC_COLUMN_SET_DATA) -> windows_core::HRESULT,
@@ -1429,6 +1428,7 @@ impl IComponent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1550,6 +1550,7 @@ impl IComponent2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponent2_Vtbl {
     pub base__: IComponent_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1650,6 +1651,7 @@ impl IComponentData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponentData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1771,6 +1773,7 @@ impl IComponentData2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComponentData2_Vtbl {
     pub base__: IComponentData_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1875,6 +1878,7 @@ impl IConsole {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsole_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2055,6 +2059,7 @@ impl IConsole2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsole2_Vtbl {
     pub base__: IConsole_Vtbl,
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void, isize, windows_core::BOOL) -> windows_core::HRESULT,
@@ -2115,6 +2120,7 @@ impl IConsole3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsole3_Vtbl {
     pub base__: IConsole2_Vtbl,
     pub RenameScopeItem: unsafe extern "system" fn(*mut core::ffi::c_void, isize) -> windows_core::HRESULT,
@@ -2166,6 +2172,7 @@ impl IConsoleNameSpace {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsoleNameSpace_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InsertItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCOPEDATAITEM) -> windows_core::HRESULT,
@@ -2262,6 +2269,7 @@ impl IConsoleNameSpace2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsoleNameSpace2_Vtbl {
     pub base__: IConsoleNameSpace_Vtbl,
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void, isize) -> windows_core::HRESULT,
@@ -2303,6 +2311,7 @@ impl IConsolePower {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsolePower_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetExecutionState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -2348,6 +2357,7 @@ impl IConsolePowerSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsolePowerSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnPowerBroadcast: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT) -> windows_core::HRESULT,
@@ -2399,6 +2409,7 @@ impl IConsoleVerb {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConsoleVerb_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVerbState: unsafe extern "system" fn(*mut core::ffi::c_void, MMC_CONSOLE_VERB, MMC_BUTTON_STATE, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2471,6 +2482,7 @@ impl IContextMenuCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContextMenuCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const CONTEXTMENUITEM) -> windows_core::HRESULT,
@@ -2501,6 +2513,7 @@ impl IContextMenuCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContextMenuCallback2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const CONTEXTMENUITEM2) -> windows_core::HRESULT,
@@ -2558,6 +2571,7 @@ impl IContextMenuProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContextMenuProvider_Vtbl {
     pub base__: IContextMenuCallback_Vtbl,
     pub EmptyMenuList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2651,6 +2665,7 @@ impl IControlbar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IControlbar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, MMC_CONTROL_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2711,6 +2726,7 @@ impl IDisplayHelp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDisplayHelp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShowTopic: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2753,6 +2769,7 @@ impl IEnumTASK {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTASK_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MMC_TASK, *mut u32) -> windows_core::HRESULT,
@@ -2831,6 +2848,7 @@ impl IExtendContextMenu {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendContextMenu_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2888,6 +2906,7 @@ impl IExtendControlbar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendControlbar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetControlbar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2942,6 +2961,7 @@ impl IExtendPropertySheet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendPropertySheet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3003,6 +3023,7 @@ impl IExtendPropertySheet2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendPropertySheet2_Vtbl {
     pub base__: IExtendPropertySheet_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -3090,6 +3111,7 @@ impl IExtendTaskPad {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendTaskPad_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3212,6 +3234,7 @@ impl IExtendView {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtendView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3275,6 +3298,7 @@ impl IHeaderCtrl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHeaderCtrl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InsertColumn: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::PCWSTR, i32, i32) -> windows_core::HRESULT,
@@ -3377,6 +3401,7 @@ impl IHeaderCtrl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHeaderCtrl2_Vtbl {
     pub base__: IHeaderCtrl_Vtbl,
     pub SetChangeTimeOut: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3431,6 +3456,7 @@ impl IImageList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ImageListSetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *const isize, i32) -> windows_core::HRESULT,
@@ -3475,6 +3501,7 @@ impl IMMCVersionInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMMCVersionInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMMCVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -3519,6 +3546,7 @@ impl IMenuButton {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMenuButton_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddButton: unsafe extern "system" fn(*mut core::ffi::c_void, i32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3585,6 +3613,7 @@ impl IMessageView {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMessageView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTitleText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3653,6 +3682,7 @@ impl INodeProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INodeProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3700,6 +3730,7 @@ impl IPropertySheetCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertySheetCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Controls")]
@@ -3772,6 +3803,7 @@ impl IPropertySheetProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertySheetProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3862,6 +3894,7 @@ impl IRequiredExtensions {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRequiredExtensions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableAllExtensions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3976,6 +4009,7 @@ impl IResultData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResultData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InsertItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RESULTDATAITEM) -> windows_core::HRESULT,
@@ -4153,6 +4187,7 @@ impl IResultData2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResultData2_Vtbl {
     pub base__: IResultData_Vtbl,
     pub RenameResultItem: unsafe extern "system" fn(*mut core::ffi::c_void, isize) -> windows_core::HRESULT,
@@ -4183,6 +4218,7 @@ impl IResultDataCompare {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResultDataCompare_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::LPARAM, isize, isize, *mut i32) -> windows_core::HRESULT,
@@ -4216,6 +4252,7 @@ impl IResultDataCompareEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResultDataCompareEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *const RDCOMPARE, *mut i32) -> windows_core::HRESULT,
@@ -4261,6 +4298,7 @@ impl IResultOwnerData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResultOwnerData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const RESULTFINDINFO, *mut i32) -> windows_core::HRESULT,
@@ -4344,6 +4382,7 @@ impl ISnapinAbout {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISnapinAbout_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSnapinDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4449,6 +4488,7 @@ impl ISnapinHelp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISnapinHelp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHelpTopic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4494,6 +4534,7 @@ impl ISnapinHelp2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISnapinHelp2_Vtbl {
     pub base__: ISnapinHelp_Vtbl,
     pub GetLinkedTopics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4544,6 +4585,7 @@ impl ISnapinProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISnapinProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4607,6 +4649,7 @@ impl ISnapinPropertiesCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISnapinPropertiesCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddPropertyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -4674,6 +4717,7 @@ impl IStringTable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStringTable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
@@ -4810,6 +4854,7 @@ impl IToolbar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToolbar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4900,6 +4945,7 @@ impl IViewExtensionCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IViewExtensionCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddView: unsafe extern "system" fn(*mut core::ffi::c_void, *const MMC_EXT_VIEW_DATA) -> windows_core::HRESULT,
@@ -4939,22 +4985,17 @@ pub const ListMode_List: _ListViewMode = _ListViewMode(2i32);
 pub const ListMode_Small_Icons: _ListViewMode = _ListViewMode(0i32);
 pub const MENUBUTTON: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MENUBUTTONDATA {
     pub idCommand: i32,
     pub x: i32,
     pub y: i32,
 }
-impl Default for MENUBUTTONDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
 pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(1i32);
 pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMCBUTTON {
     pub nBitmap: i32,
     pub idCommand: i32,
@@ -4962,11 +5003,6 @@ pub struct MMCBUTTON {
     pub fsType: u8,
     pub lpButtonText: windows_core::PWSTR,
     pub lpTooltipText: windows_core::PWSTR,
-}
-impl Default for MMCBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
 pub const MMCLV_AUTO: i32 = -1i32;
@@ -5027,17 +5063,12 @@ pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_BUTTON_STATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_COLUMN_DATA {
     pub nColIndex: i32,
     pub dwFlags: u32,
     pub nWidth: i32,
     pub ulReserved: usize,
-}
-impl Default for MMC_COLUMN_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5060,19 +5091,14 @@ pub struct MMC_CONTROL_TYPE(pub i32);
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
 pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_EXPANDSYNC_STRUCT {
     pub bHandled: windows_core::BOOL,
     pub bExpanding: windows_core::BOOL,
     pub hItem: isize,
 }
-impl Default for MMC_EXPANDSYNC_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_EXT_VIEW_DATA {
     pub viewID: windows_core::GUID,
     pub pszURL: windows_core::PCWSTR,
@@ -5080,22 +5106,12 @@ pub struct MMC_EXT_VIEW_DATA {
     pub pszTooltipText: windows_core::PCWSTR,
     pub bReplacesDefaultView: windows_core::BOOL,
 }
-impl Default for MMC_EXT_VIEW_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_FILTERDATA {
     pub pszText: windows_core::PWSTR,
     pub cchTextMax: i32,
     pub lValue: i32,
-}
-impl Default for MMC_FILTERDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5110,16 +5126,11 @@ pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
 pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_LISTPAD_INFO {
     pub szTitle: windows_core::PWSTR,
     pub szButtonText: windows_core::PWSTR,
     pub nCommandID: isize,
-}
-impl Default for MMC_LISTPAD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5152,17 +5163,12 @@ pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
 pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
 pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_RESTORE_VIEW {
     pub dwSize: u32,
     pub cookie: isize,
     pub pViewType: windows_core::PWSTR,
     pub lViewOptions: i32,
-}
-impl Default for MMC_RESTORE_VIEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5195,16 +5201,11 @@ impl Default for MMC_SNAPIN_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_SORT_DATA {
     pub nColIndex: i32,
     pub dwSortOptions: u32,
     pub ulReserved: usize,
-}
-impl Default for MMC_SORT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5246,15 +5247,10 @@ impl Default for MMC_TASK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_TASK_DISPLAY_BITMAP {
     pub szMouseOverBitmap: windows_core::PWSTR,
     pub szMouseOffBitmap: windows_core::PWSTR,
-}
-impl Default for MMC_TASK_DISPLAY_BITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5279,16 +5275,11 @@ impl Default for MMC_TASK_DISPLAY_OBJECT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MMC_TASK_DISPLAY_SYMBOL {
     pub szFontFamilyName: windows_core::PWSTR,
     pub szURLtoEOT: windows_core::PWSTR,
     pub szSymbolString: windows_core::PWSTR,
-}
-impl Default for MMC_TASK_DISPLAY_SYMBOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5388,6 +5379,7 @@ impl MenuItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct MenuItem_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5537,6 +5529,7 @@ impl Node {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Node_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5665,6 +5658,7 @@ impl Nodes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Nodes_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5766,6 +5760,7 @@ impl Properties {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Properties_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5872,6 +5867,7 @@ impl Property {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Property_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5953,16 +5949,11 @@ impl Default for RDCOMPARE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RDITEMHDR {
     pub dwFlags: u32,
     pub cookie: isize,
     pub lpReserved: super::super::Foundation::LPARAM,
-}
-impl Default for RDITEMHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RDI_IMAGE: u32 = 4u32;
 pub const RDI_INDENT: u32 = 64u32;
@@ -5971,7 +5962,7 @@ pub const RDI_PARAM: u32 = 16u32;
 pub const RDI_STATE: u32 = 8u32;
 pub const RDI_STR: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESULTDATAITEM {
     pub mask: u32,
     pub bScopeItem: windows_core::BOOL,
@@ -5984,22 +5975,12 @@ pub struct RESULTDATAITEM {
     pub lParam: super::super::Foundation::LPARAM,
     pub iIndent: i32,
 }
-impl Default for RESULTDATAITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESULTFINDINFO {
     pub psz: windows_core::PWSTR,
     pub nStart: i32,
     pub dwOptions: u32,
-}
-impl Default for RESULTFINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 pub struct RESULT_VIEW_TYPE_INFO {
@@ -6035,26 +6016,16 @@ impl Default for RESULT_VIEW_TYPE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_0 {
     pub dwHTMLOptions: u32,
     pub pstrURL: windows_core::PWSTR,
 }
-impl Default for RESULT_VIEW_TYPE_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
     pub pUnkControl: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for RESULT_VIEW_TYPE_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RFI_PARTIAL: u32 = 1u32;
 pub const RFI_WRAP: u32 = 2u32;
@@ -6075,7 +6046,7 @@ pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
 pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
 pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCOPEDATAITEM {
     pub mask: u32,
     pub displayname: windows_core::PWSTR,
@@ -6086,11 +6057,6 @@ pub struct SCOPEDATAITEM {
     pub lParam: super::super::Foundation::LPARAM,
     pub relativeID: isize,
     pub ID: isize,
-}
-impl Default for SCOPEDATAITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6220,6 +6186,7 @@ impl ScopeNamespace {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ScopeNamespace_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6363,6 +6330,7 @@ impl SnapIn {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct SnapIn_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6528,6 +6496,7 @@ impl SnapIns {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct SnapIns_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6841,6 +6810,7 @@ impl View {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct View_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ActiveScopeNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7409,6 +7379,7 @@ impl Views {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Views_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7571,6 +7542,7 @@ impl _AppEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _AppEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub OnQuit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7768,6 +7740,7 @@ impl _Application {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _Application_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Help: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -7962,6 +7935,7 @@ impl _EventConnector {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _EventConnector_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ConnectTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,

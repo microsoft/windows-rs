@@ -13,6 +13,7 @@ impl ILearningModelDeviceFactoryNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILearningModelDeviceFactoryNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -59,6 +60,7 @@ impl ILearningModelOperatorProviderNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILearningModelOperatorProviderNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
@@ -101,6 +103,7 @@ impl ILearningModelSessionOptionsNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILearningModelSessionOptionsNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIntraOpNumThreadsOverride: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -131,6 +134,7 @@ impl ILearningModelSessionOptionsNative1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILearningModelSessionOptionsNative1_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIntraOpThreadSpinning: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
@@ -168,6 +172,7 @@ impl ITensorNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITensorNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -226,6 +231,7 @@ impl ITensorStaticsNative {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITensorStaticsNative_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

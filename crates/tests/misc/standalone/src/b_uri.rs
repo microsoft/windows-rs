@@ -68,6 +68,7 @@ impl IStringable_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(
@@ -85,6 +86,7 @@ impl windows_core::RuntimeType for IUriEscapeStatics {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriEscapeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UnescapeComponent: unsafe extern "system" fn(
@@ -108,6 +110,7 @@ impl windows_core::RuntimeType for IUriRuntimeClass {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AbsoluteUri: unsafe extern "system" fn(
@@ -183,6 +186,7 @@ impl windows_core::RuntimeType for IUriRuntimeClassFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateUri: unsafe extern "system" fn(
@@ -207,6 +211,7 @@ impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(

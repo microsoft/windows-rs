@@ -72,6 +72,7 @@ impl DeferralCompletedHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct DeferralCompletedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -149,6 +150,7 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct EventHandler_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -270,6 +272,7 @@ impl IClosable_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClosable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -279,6 +282,7 @@ impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -288,6 +292,7 @@ impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeferralFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -337,6 +342,7 @@ impl IGetActivationFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGetActivationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetActivationFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -346,6 +352,7 @@ impl windows_core::RuntimeType for IGuidHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGuidHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateNewGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -399,6 +406,7 @@ impl IMemoryBuffer_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMemoryBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -408,6 +416,7 @@ impl windows_core::RuntimeType for IMemoryBufferFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMemoryBufferFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -497,6 +506,7 @@ impl IMemoryBufferReference_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMemoryBufferReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1175,6 +1185,7 @@ impl IPropertyValue_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PropertyType) -> windows_core::HRESULT,
@@ -1222,6 +1233,7 @@ impl windows_core::RuntimeType for IPropertyValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyValueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1541,6 +1553,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReference_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -1827,6 +1840,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReferenceArray_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -1877,6 +1891,7 @@ impl IStringable_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1886,6 +1901,7 @@ impl windows_core::RuntimeType for IUriEscapeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriEscapeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UnescapeComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1896,6 +1912,7 @@ impl windows_core::RuntimeType for IUriRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AbsoluteUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1921,6 +1938,7 @@ impl windows_core::RuntimeType for IUriRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1931,6 +1949,7 @@ impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2003,6 +2022,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2013,6 +2033,7 @@ impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFirstValueByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2022,6 +2043,7 @@ impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2442,6 +2464,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct TypedEventHandler_Vtbl<TSender, TResult>
 where
     TSender: windows_core::RuntimeType + 'static,

@@ -4022,16 +4022,11 @@ pub unsafe fn ZwUnlockFile(filehandle: super::super::super::Win32::Foundation::H
     unsafe { ZwUnlockFile(filehandle, iostatusblock as _, byteoffset, length, key) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACE_HEADER {
     pub AceType: u8,
     pub AceFlags: u8,
     pub AceSize: u16,
-}
-impl Default for ACE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_System_Memory")]
 pub type ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: *mut super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -4133,53 +4128,33 @@ impl Default for BOOT_AREA_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BOOT_AREA_INFO_0 {
     pub Offset: i64,
 }
-impl Default for BOOT_AREA_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CACHE_MANAGER_CALLBACKS {
     pub AcquireForLazyWrite: PACQUIRE_FOR_LAZY_WRITE,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
     pub AcquireForReadAhead: PACQUIRE_FOR_READ_AHEAD,
     pub ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
 }
-impl Default for CACHE_MANAGER_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CACHE_MANAGER_CALLBACKS_EX {
     pub Version: u16,
     pub Size: u16,
     pub Functions: CACHE_MANAGER_CALLBACK_FUNCTIONS,
 }
-impl Default for CACHE_MANAGER_CALLBACKS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CACHE_MANAGER_CALLBACKS_EX_V1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
     pub AcquireForLazyWriteEx: PACQUIRE_FOR_LAZY_WRITE_EX,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
     pub AcquireForReadAhead: PACQUIRE_FOR_READ_AHEAD,
     pub ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
-}
-impl Default for CACHE_MANAGER_CALLBACK_FUNCTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -4222,27 +4197,17 @@ pub const CC_DISABLE_WRITE_BEHIND: u32 = 4u32;
 pub const CC_ENABLE_CPU_CACHE: u32 = 268435456u32;
 pub const CC_ENABLE_DISK_IO_ACCOUNTING: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CC_ERROR_CALLBACK_CONTEXT {
     pub NodeByteSize: i16,
     pub ErrorCode: super::super::super::Win32::Foundation::NTSTATUS,
 }
-impl Default for CC_ERROR_CALLBACK_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CC_FILE_SIZES {
     pub AllocationSize: i64,
     pub FileSize: i64,
     pub ValidDataLength: i64,
-}
-impl Default for CC_FILE_SIZES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: u32 = 2u32;
 pub const CC_FLUSH_AND_PURGE_NO_PURGE: u32 = 1u32;
@@ -4268,14 +4233,9 @@ pub const COMPRESSION_ENGINE_MAX: u32 = 512u32;
 pub const COMPRESSION_FORMAT_MASK: u32 = 255u32;
 pub const COMPRESSION_FORMAT_MAX: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONTAINER_ROOT_INFO_INPUT {
     pub Flags: u32,
-}
-impl Default for CONTAINER_ROOT_INFO_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4289,14 +4249,9 @@ impl Default for CONTAINER_ROOT_INFO_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONTAINER_VOLUME_STATE {
     pub Flags: u32,
-}
-impl Default for CONTAINER_VOLUME_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -4334,18 +4289,12 @@ impl Default for CPTABLEINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CREATE_REDIRECTION_ECP_CONTEXT {
     pub Size: u16,
     pub Flags: u16,
     pub FileId: super::super::super::Win32::Storage::FileSystem::FILE_ID_128,
     pub VolumeGuid: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CREATE_REDIRECTION_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER: u32 = 1u32;
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER: u32 = 4u32;
@@ -4353,32 +4302,22 @@ pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REMOTE_LAYER: u32 = 8u32;
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: u32 = 2u32;
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CREATE_USN_JOURNAL_DATA {
     pub MaximumSize: u64,
     pub AllocationDelta: u64,
-}
-impl Default for CREATE_USN_JOURNAL_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_DOWN_LEVEL_FILE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
     pub Version: u32,
     pub IsResume: bool,
     pub FileType: CSV_DOWN_LEVEL_FILE_TYPE,
     pub SourceNodeId: u32,
     pub DestinationNodeId: u32,
-}
-impl Default for CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4405,16 +4344,11 @@ impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
     pub Size: usize,
     pub PauseTimeoutInSeconds: u32,
     pub Flags: u32,
-}
-impl Default for CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 pub const ChangeDataControlArea: FSRTL_CHANGE_BACKING_TYPE = FSRTL_CHANGE_BACKING_TYPE(0i32);
@@ -4455,30 +4389,20 @@ pub const DO_SYSTEM_SYSTEM_PARTITION: u32 = 2097152u32;
 pub const DO_VERIFY_VOLUME: u32 = 2u32;
 pub const DO_VOLUME_DEVICE_OBJECT: u32 = 1048576u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
     pub ParentOplockKey: windows_core::GUID,
     pub TargetOplockKey: windows_core::GUID,
     pub ParentOplockKeySet: bool,
     pub TargetOplockKeySet: bool,
 }
-impl Default for DUAL_OPLOCK_KEY_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DUPLICATE_CLUSTER_DATA {
     pub SourceLcn: i64,
     pub TargetFileOffset: i64,
     pub DuplicationLimit: u32,
     pub Reserved: u32,
-}
-impl Default for DUPLICATE_CLUSTER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = LINK_TRACKING_INFORMATION_TYPE(1i32);
 pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: windows_core::PCSTR = windows_core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
@@ -4486,16 +4410,11 @@ pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: windows_core::PCWSTR = windows_c
 pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY: windows_core::PCSTR = windows_core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
 pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: windows_core::PCWSTR = windows_core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ECP_OPEN_PARAMETERS {
     pub Size: u16,
     pub Reserved: u16,
     pub Flags: u32,
-}
-impl Default for ECP_OPEN_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR: u32 = 16u32;
 pub const ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY: u32 = 8u32;
@@ -4520,30 +4439,20 @@ impl Default for EOF_WAIT_BLOCK {
 }
 pub const EVENT_INCREMENT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EXTENT_READ_CACHE_INFO_BUFFER {
     pub AllocatedCache: i64,
     pub PopulatedCache: i64,
     pub InErrorCache: i64,
-}
-impl Default for EXTENT_READ_CACHE_INFO_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EqualTo: FSRTL_COMPARISON_RESULT = FSRTL_COMPARISON_RESULT(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAST_IO_POSSIBLE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ACCESS_INFORMATION {
     pub AccessFlags: u32,
-}
-impl Default for FILE_ACCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_ACTION_ADDED_STREAM: u32 = 6u32;
 pub const FILE_ACTION_ID_NOT_TUNNELLED: u32 = 10u32;
@@ -4552,27 +4461,17 @@ pub const FILE_ACTION_REMOVED_BY_DELETE: u32 = 9u32;
 pub const FILE_ACTION_REMOVED_STREAM: u32 = 7u32;
 pub const FILE_ACTION_TUNNELLED_ID_COLLISION: u32 = 11u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ALIGNMENT_INFORMATION {
     pub AlignmentRequirement: u32,
 }
-impl Default for FILE_ALIGNMENT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ALLOCATION_INFORMATION {
     pub AllocationSize: i64,
 }
-impl Default for FILE_ALLOCATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ALL_INFORMATION {
     pub BasicInformation: FILE_BASIC_INFORMATION,
     pub StandardInformation: FILE_STANDARD_INFORMATION,
@@ -4584,24 +4483,14 @@ pub struct FILE_ALL_INFORMATION {
     pub AlignmentInformation: FILE_ALIGNMENT_INFORMATION,
     pub NameInformation: FILE_NAME_INFORMATION,
 }
-impl Default for FILE_ALL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_BASIC_INFORMATION {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
     pub LastWriteTime: i64,
     pub ChangeTime: i64,
     pub FileAttributes: u32,
-}
-impl Default for FILE_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4627,14 +4516,9 @@ impl Default for FILE_BOTH_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_CASE_SENSITIVE_INFORMATION {
     pub Flags: u32,
-}
-impl Default for FILE_CASE_SENSITIVE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_CLEANUP_FILE_DELETED: u32 = 4u32;
 pub const FILE_CLEANUP_FILE_REMAINS: u32 = 2u32;
@@ -4701,24 +4585,14 @@ pub const FILE_DISPOSITION_DO_NOT_DELETE: FILE_DISPOSITION_INFORMATION_EX_FLAGS 
 pub const FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFORMATION_EX_FLAGS = FILE_DISPOSITION_INFORMATION_EX_FLAGS(4u32);
 pub const FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = FILE_DISPOSITION_INFORMATION_EX_FLAGS(16u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_DISPOSITION_INFORMATION {
     pub DeleteFile: bool,
 }
-impl Default for FILE_DISPOSITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_DISPOSITION_INFORMATION_EX {
     pub Flags: FILE_DISPOSITION_INFORMATION_EX_FLAGS,
-}
-impl Default for FILE_DISPOSITION_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4726,14 +4600,9 @@ pub struct FILE_DISPOSITION_INFORMATION_EX_FLAGS(pub u32);
 pub const FILE_DISPOSITION_ON_CLOSE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = FILE_DISPOSITION_INFORMATION_EX_FLAGS(8u32);
 pub const FILE_DISPOSITION_POSIX_SEMANTICS: FILE_DISPOSITION_INFORMATION_EX_FLAGS = FILE_DISPOSITION_INFORMATION_EX_FLAGS(2u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_EA_INFORMATION {
     pub EaSize: u32,
-}
-impl Default for FILE_EA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_EA_TYPE_ASCII: u32 = 65533u32;
 pub const FILE_EA_TYPE_ASN1: u32 = 65501u32;
@@ -4746,17 +4615,12 @@ pub const FILE_EA_TYPE_METAFILE: u32 = 65530u32;
 pub const FILE_EA_TYPE_MVMT: u32 = 65503u32;
 pub const FILE_EA_TYPE_MVST: u32 = 65502u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION_EX {
     pub EndOfFile: i64,
     pub PagingFileSizeInMM: i64,
     pub PagingFileMaxSize: i64,
     pub Flags: u32,
-}
-impl Default for FILE_END_OF_FILE_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4772,7 +4636,7 @@ impl Default for FILE_FS_ATTRIBUTE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_CONTROL_INFORMATION {
     pub FreeSpaceStartFiltering: i64,
     pub FreeSpaceThreshold: i64,
@@ -4781,20 +4645,10 @@ pub struct FILE_FS_CONTROL_INFORMATION {
     pub DefaultQuotaLimit: i64,
     pub FileSystemControlFlags: u32,
 }
-impl Default for FILE_FS_CONTROL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_DATA_COPY_INFORMATION {
     pub NumberOfCopies: u32,
-}
-impl Default for FILE_FS_DATA_COPY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4809,7 +4663,7 @@ impl Default for FILE_FS_DRIVER_PATH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_SECTOR_SIZE_INFORMATION {
     pub LogicalBytesPerSector: u32,
     pub PhysicalBytesPerSectorForAtomicity: u32,
@@ -4819,20 +4673,10 @@ pub struct FILE_FS_SECTOR_SIZE_INFORMATION {
     pub ByteOffsetForSectorAlignment: u32,
     pub ByteOffsetForPartitionAlignment: u32,
 }
-impl Default for FILE_FS_SECTOR_SIZE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_FS_VOLUME_FLAGS_INFORMATION {
     pub Flags: u32,
-}
-impl Default for FILE_FS_VOLUME_FLAGS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4883,17 +4727,11 @@ impl Default for FILE_GET_EA_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_GET_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
     pub Sid: super::super::super::Win32::Security::SID,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for FILE_GET_QUOTA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5021,81 +4859,49 @@ pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: u32 = 2u32;
 pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_ID_INFORMATION {
     pub VolumeSerialNumber: u64,
     pub FileId: super::super::super::Win32::Storage::FileSystem::FILE_ID_128,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for FILE_ID_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_INFORMATION_DEFINITION {
     pub Class: FILE_INFORMATION_CLASS,
     pub NextEntryOffset: u32,
     pub FileNameLengthOffset: u32,
     pub FileNameOffset: u32,
 }
-impl Default for FILE_INFORMATION_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_INTERNAL_INFORMATION {
     pub IndexNumber: i64,
 }
-impl Default for FILE_INTERNAL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_KNOWN_FOLDER_INFORMATION {
     pub Type: FILE_KNOWN_FOLDER_TYPE,
-}
-impl Default for FILE_KNOWN_FOLDER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_KNOWN_FOLDER_TYPE(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_LINKS_FULL_ID_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
     pub Entry: FILE_LINK_ENTRY_FULL_ID_INFORMATION,
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for FILE_LINKS_FULL_ID_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_LINKS_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
     pub Entry: FILE_LINK_ENTRY_INFORMATION,
-}
-impl Default for FILE_LINKS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -5197,18 +5003,13 @@ impl Default for FILE_LOCK_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_MAILSLOT_QUERY_INFORMATION {
     pub MaximumMessageSize: u32,
     pub MailslotQuota: u32,
     pub NextMessageSize: u32,
     pub MessagesAvailable: u32,
     pub ReadTimeout: i64,
-}
-impl Default for FILE_MAILSLOT_QUERY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5221,14 +5022,9 @@ impl Default for FILE_MAILSLOT_SET_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_MODE_INFORMATION {
     pub Mode: u32,
-}
-impl Default for FILE_MODE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5269,7 +5065,7 @@ impl Default for FILE_NAME_INFORMATION {
 }
 pub const FILE_NEED_EA: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_NETWORK_OPEN_INFORMATION {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -5278,11 +5074,6 @@ pub struct FILE_NETWORK_OPEN_INFORMATION {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
     pub FileAttributes: u32,
-}
-impl Default for FILE_NETWORK_OPEN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5355,15 +5146,10 @@ pub const FILE_OVERWRITE: NTCREATEFILE_CREATE_DISPOSITION = NTCREATEFILE_CREATE_
 pub const FILE_OVERWRITE_IF: NTCREATEFILE_CREATE_DISPOSITION = NTCREATEFILE_CREATE_DISPOSITION(5u32);
 pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
     pub EventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub KeyValue: u32,
-}
-impl Default for FILE_PIPE_ASSIGN_EVENT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_BYTE_STREAM_MODE: u32 = 0u32;
 pub const FILE_PIPE_BYTE_STREAM_TYPE: u32 = 0u32;
@@ -5408,7 +5194,7 @@ pub const FILE_PIPE_COMPLETE_OPERATION: u32 = 1u32;
 pub const FILE_PIPE_COMPUTER_NAME_LENGTH: u32 = 15u32;
 pub const FILE_PIPE_CONNECTED_STATE: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
@@ -5416,25 +5202,15 @@ pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub SubstituteNameLength: u16,
     pub Flags: u32,
 }
-impl Default for FILE_PIPE_CREATE_SYMLINK_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_DELETE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
 }
-impl Default for FILE_PIPE_DELETE_SYMLINK_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILE_PIPE_DISCONNECTED_STATE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_EVENT_BUFFER {
     pub NamedPipeState: u32,
     pub EntryType: u32,
@@ -5442,27 +5218,17 @@ pub struct FILE_PIPE_EVENT_BUFFER {
     pub KeyValue: u32,
     pub NumberRequests: u32,
 }
-impl Default for FILE_PIPE_EVENT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILE_PIPE_FULL_DUPLEX: u32 = 2u32;
 pub const FILE_PIPE_INBOUND: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_INFORMATION {
     pub ReadMode: u32,
     pub CompletionMode: u32,
 }
-impl Default for FILE_PIPE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILE_PIPE_LISTENING_STATE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub NamedPipeType: u32,
     pub NamedPipeConfiguration: u32,
@@ -5474,11 +5240,6 @@ pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub WriteQuotaAvailable: u32,
     pub NamedPipeState: u32,
     pub NamedPipeEnd: u32,
-}
-impl Default for FILE_PIPE_LOCAL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_MESSAGE_MODE: u32 = 1u32;
 pub const FILE_PIPE_MESSAGE_TYPE: u32 = 1u32;
@@ -5501,26 +5262,16 @@ pub const FILE_PIPE_QUEUE_OPERATION: u32 = 0u32;
 pub const FILE_PIPE_READ_DATA: u32 = 0u32;
 pub const FILE_PIPE_REJECT_REMOTE_CLIENTS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_REMOTE_INFORMATION {
     pub CollectDataTime: i64,
     pub MaximumCollectionCount: u32,
 }
-impl Default for FILE_PIPE_REMOTE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILE_PIPE_SERVER_END: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
     pub JobHandle: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for FILE_PIPE_SILO_ARRIVAL_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: u32 = 1u32;
 pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: u32 = 2u32;
@@ -5540,18 +5291,13 @@ impl Default for FILE_PIPE_WAIT_FOR_BUFFER {
 }
 pub const FILE_PIPE_WRITE_SPACE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_POSITION_INFORMATION {
     pub CurrentByteOffset: i64,
 }
-impl Default for FILE_POSITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
@@ -5560,12 +5306,6 @@ pub struct FILE_QUOTA_INFORMATION {
     pub QuotaThreshold: i64,
     pub QuotaLimit: i64,
     pub Sid: super::super::super::Win32::Security::SID,
-}
-#[cfg(feature = "Win32_Security")]
-impl Default for FILE_QUOTA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_RANDOM_ACCESS: NTCREATEFILE_CREATE_OPTIONS = NTCREATEFILE_CREATE_OPTIONS(2048u32);
 #[repr(C)]
@@ -5609,25 +5349,15 @@ impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1,
 }
-impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
     pub Capabilities: u32,
-}
-impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5679,21 +5409,16 @@ pub const FILE_RENAME_REPLACE_IF_EXISTS: u32 = 1u32;
 pub const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4u32;
 pub const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_REPARSE_POINT_INFORMATION {
     pub FileReference: i64,
     pub Tag: u32,
-}
-impl Default for FILE_REPARSE_POINT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_RESERVE_OPFILTER: NTCREATEFILE_CREATE_OPTIONS = NTCREATEFILE_CREATE_OPTIONS(1048576u32);
 pub const FILE_SEQUENTIAL_ONLY: NTCREATEFILE_CREATE_OPTIONS = NTCREATEFILE_CREATE_OPTIONS(4u32);
 pub const FILE_SESSION_AWARE: NTCREATEFILE_CREATE_OPTIONS = NTCREATEFILE_CREATE_OPTIONS(262144u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STANDARD_INFORMATION {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -5701,26 +5426,16 @@ pub struct FILE_STANDARD_INFORMATION {
     pub DeletePending: bool,
     pub Directory: bool,
 }
-impl Default for FILE_STANDARD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STANDARD_LINK_INFORMATION {
     pub NumberOfAccessibleLinks: u32,
     pub TotalNumberOfLinks: u32,
     pub DeletePending: bool,
     pub Directory: bool,
 }
-impl Default for FILE_STANDARD_LINK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STAT_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -5734,13 +5449,8 @@ pub struct FILE_STAT_INFORMATION {
     pub NumberOfLinks: u32,
     pub EffectiveAccess: u32,
 }
-impl Default for FILE_STAT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STAT_LX_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -5760,22 +5470,11 @@ pub struct FILE_STAT_LX_INFORMATION {
     pub LxDeviceIdMajor: u32,
     pub LxDeviceIdMinor: u32,
 }
-impl Default for FILE_STAT_LX_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_STORAGE_RESERVE_ID_INFORMATION {
     pub StorageReserveId: super::super::super::Win32::System::Ioctl::STORAGE_RESERVE_ID,
-}
-#[cfg(feature = "Win32_System_Ioctl")]
-impl Default for FILE_STORAGE_RESERVE_ID_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5795,17 +5494,12 @@ pub const FILE_SUPERSEDE: NTCREATEFILE_CREATE_DISPOSITION = NTCREATEFILE_CREATE_
 pub const FILE_SYNCHRONOUS_IO_ALERT: NTCREATEFILE_CREATE_OPTIONS = NTCREATEFILE_CREATE_OPTIONS(16u32);
 pub const FILE_SYNCHRONOUS_IO_NONALERT: NTCREATEFILE_CREATE_OPTIONS = NTCREATEFILE_CREATE_OPTIONS(32u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILE_TIMESTAMPS {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
     pub LastWriteTime: i64,
     pub ChangeTime: i64,
-}
-impl Default for FILE_TIMESTAMPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5893,15 +5587,10 @@ pub const FSCTL_PIPE_SILO_ARRIVAL: u32 = 1146952u32;
 pub const FSCTL_PIPE_TRANSCEIVE: u32 = 1163287u32;
 pub const FSCTL_PIPE_WAIT: u32 = 1114136u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
     pub FileOffset: i64,
     pub ByteCount: i64,
-}
-impl Default for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5916,34 +5605,19 @@ impl Default for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
     pub NumaNode: u32,
 }
-impl Default for FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_INPUT_BUFFER {
     pub BytesToUnmap: i64,
 }
-impl Default for FSCTL_UNMAP_SPACE_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_OUTPUT {
     pub BytesUnmapped: i64,
-}
-impl Default for FSCTL_UNMAP_SPACE_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FSRTL_ADD_TC_CASE_SENSITIVE: u32 = 1u32;
 pub const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: u32 = 2u32;
@@ -6053,25 +5727,15 @@ pub const FSRTL_FLAG_LIMIT_MODIFIED_PAGES: u32 = 4u32;
 pub const FSRTL_FLAG_USER_MAPPED_FILE: u32 = 32u32;
 pub const FSRTL_HPFS_LEGAL: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
     pub ProviderId: u32,
 }
-impl Default for FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
     pub ProviderId: u32,
     pub ProviderName: super::super::super::Win32::Foundation::UNICODE_STRING,
-}
-impl Default for FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FSRTL_NTFS_LEGAL: u32 = 4u32;
 pub const FSRTL_OLE_LEGAL: u32 = 16u32;
@@ -6151,14 +5815,9 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
     pub _bitfield: u32,
-}
-impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6172,14 +5831,9 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
     pub _bitfield: u32,
-}
-impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FSRTL_UNC_REGISTRATION_CURRENT_VERSION: u32 = 513u32;
 pub const FSRTL_UNC_REGISTRATION_VERSION_0200: u32 = 512u32;
@@ -6215,25 +5869,19 @@ impl Default for FS_BPIO_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FS_BPIO_INPUT {
     pub Operation: super::super::super::Win32::System::Ioctl::FS_BPIO_OPERATIONS,
     pub InFlags: super::super::super::Win32::System::Ioctl::FS_BPIO_INFLAGS,
     pub Reserved1: u64,
     pub Reserved2: u64,
 }
-#[cfg(feature = "Win32_System_Ioctl")]
-impl Default for FS_BPIO_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FS_FILTER_ACQUIRE_FOR_CC_FLUSH: u16 = 65531u16;
 pub const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u16 = 65533u16;
 pub const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u16 = 65535u16;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FS_FILTER_CALLBACKS {
     pub SizeOfFsFilterCallbacks: u32,
     pub Reserved: u32,
@@ -6251,12 +5899,6 @@ pub struct FS_FILTER_CALLBACKS {
     pub PostReleaseForModifiedPageWriter: PFS_FILTER_COMPLETION_CALLBACK,
     pub PreQueryOpen: PFS_FILTER_CALLBACK,
     pub PostQueryOpen: PFS_FILTER_COMPLETION_CALLBACK,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FS_FILTER_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -6372,17 +6014,12 @@ pub const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: u32 = 8u32;
 pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: u32 = 1u32;
 pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
     pub StructureSize: u32,
     pub SizeReturned: u32,
     pub Flags: u32,
     pub DesiredReadAlignment: u32,
-}
-impl Default for FS_FILTER_SECTION_SYNC_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FS_FILTER_SECTION_SYNC_SUPPORTS_ASYNC_PARALLEL_IO: u32 = 1u32;
 pub const FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_DATA: u32 = 2u32;
@@ -6636,18 +6273,12 @@ pub const IO_OPEN_PAGING_FILE: u32 = 2u32;
 pub const IO_OPEN_TARGET_DIRECTORY: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_PRIORITY_INFO {
     pub Size: u32,
     pub ThreadPriority: u32,
     pub PagePriority: u32,
     pub IoPriority: super::super::Foundation::IO_PRIORITY_HINT,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for IO_PRIORITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IO_REPARSE_TAG_ACRONIS_HSM_0: i32 = 96i32;
 pub const IO_REPARSE_TAG_ACRONIS_HSM_1: i32 = 97i32;
@@ -6756,25 +6387,15 @@ pub const IO_REPARSE_TAG_WISDATA_HSM: i32 = 35i32;
 pub const IO_REPARSE_TAG_ZLTI_HSM: i32 = 56i32;
 pub const IO_STOP_ON_SYMLINK: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
     pub Out: IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0,
 }
-impl Default for IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
     pub ReparseCount: u32,
     pub RemainingPathLength: u32,
-}
-impl Default for IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -6807,15 +6428,9 @@ impl Default for KAPC_STATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KAPC_STATE_0_0 {
     pub _bitfield: u8,
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for KAPC_STATE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -6832,15 +6447,9 @@ impl Default for KAPC_STATE_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KAPC_STATE_1_0 {
     pub _bitfield: u8,
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for KAPC_STATE_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KnownFolderDesktop: FILE_KNOWN_FOLDER_TYPE = FILE_KNOWN_FOLDER_TYPE(1i32);
 pub const KnownFolderDocuments: FILE_KNOWN_FOLDER_TYPE = FILE_KNOWN_FOLDER_TYPE(2i32);
@@ -6866,30 +6475,20 @@ impl Default for LARGE_MCB {
 }
 pub const LCN_CHECKSUM_VALID: _LCN_WEAK_REFERENCE_STATE = _LCN_WEAK_REFERENCE_STATE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_BUFFER {
     pub Lcn: i64,
     pub LengthInClusters: i64,
     pub ReferenceCount: u32,
     pub State: u16,
 }
-impl Default for LCN_WEAK_REFERENCE_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
     pub Offset: i64,
     pub Length: i64,
     pub Flags: u32,
     pub Reserved: u32,
-}
-impl Default for LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LCN_WEAK_REFERENCE_VALID: _LCN_WEAK_REFERENCE_STATE = _LCN_WEAK_REFERENCE_STATE(1i32);
 #[repr(C)]
@@ -6924,15 +6523,9 @@ pub const MAXIMUM_LEADBYTES: u32 = 12u32;
 pub const MAX_UNICODE_STACK_BUFFER_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MCB {
     pub DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Default for MCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: u32 = 1u32;
 #[repr(transparent)]
@@ -6950,18 +6543,13 @@ impl Default for MEMORY_RANGE_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFT_ENUM_DATA {
     pub StartFileReferenceNumber: u64,
     pub LowUsn: i64,
     pub HighUsn: i64,
     pub MinMajorVersion: u16,
     pub MaxMajorVersion: u16,
-}
-impl Default for MFT_ENUM_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6984,29 +6572,18 @@ impl Default for MM_PREFETCH_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MM_PREFETCH_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl Default for MM_PREFETCH_FLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_AVID(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_ENUMUSERS_REQUEST {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-}
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl Default for MSV1_0_ENUMUSERS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
@@ -7078,20 +6655,14 @@ impl Default for MSV1_0_GETCHALLENRESP_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_REQUEST {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Win32::Foundation::LUID,
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl Default for MSV1_0_GETUSERINFO_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub UserSid: super::super::super::Win32::Security::PSID,
@@ -7100,23 +6671,11 @@ pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub LogonServer: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub LogonType: super::super::super::Win32::Security::Authentication::Identity::SECURITY_LOGON_TYPE,
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl Default for MSV1_0_GETUSERINFO_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_LM20_CHALLENGE_REQUEST {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-}
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl Default for MSV1_0_LM20_CHALLENGE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
@@ -7153,121 +6712,71 @@ pub const MsvAvRestrictions: MSV1_0_AVID = MSV1_0_AVID(8i32);
 pub const MsvAvTargetName: MSV1_0_AVID = MSV1_0_AVID(9i32);
 pub const MsvAvTimestamp: MSV1_0_AVID = MSV1_0_AVID(7i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub AppInstanceID: windows_core::GUID,
 }
-impl Default for NETWORK_APP_INSTANCE_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub VersionHigh: u64,
     pub VersionLow: u64,
 }
-impl Default for NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_0,
 }
-impl Default for NETWORK_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_0_1,
 }
-impl Default for NETWORK_OPEN_ECP_CONTEXT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: u32,
 }
-impl Default for NETWORK_OPEN_ECP_CONTEXT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: u32,
 }
-impl Default for NETWORK_OPEN_ECP_CONTEXT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0 {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_V0_0,
 }
-impl Default for NETWORK_OPEN_ECP_CONTEXT_V0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_V0_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_V0_0_1,
 }
-impl Default for NETWORK_OPEN_ECP_CONTEXT_V0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
 }
-impl Default for NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
-}
-impl Default for NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_COLLAPSING: u32 = 1u32;
 pub const NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_DURABILITY: u32 = 2u32;
@@ -7361,19 +6870,13 @@ pub const NotifyTypeRetired: FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = FS_FILTER_S
 pub const NtfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = LINK_TRACKING_INFORMATION_TYPE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPEN_REPARSE_LIST {
     pub OpenReparseList: super::super::super::Win32::System::Kernel::LIST_ENTRY,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for OPEN_REPARSE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPEN_REPARSE_LIST_ENTRY {
     pub OpenReparseListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub ReparseTag: u32,
@@ -7381,12 +6884,6 @@ pub struct OPEN_REPARSE_LIST_ENTRY {
     pub ReparseGuid: windows_core::GUID,
     pub Size: u16,
     pub RemainingLength: u16,
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for OPEN_REPARSE_LIST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPEN_REPARSE_POINT_OVERRIDE_CREATE_OPTION: u32 = 64u32;
 pub const OPEN_REPARSE_POINT_REPARSE_ALWAYS: u32 = 126u32;
@@ -7414,7 +6911,7 @@ pub const OPLOCK_FLAG_PARENT_OBJECT: u32 = 16u32;
 pub const OPLOCK_FLAG_REMOVING_FILE_OR_LINK: u32 = 64u32;
 pub const OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPLOCK_KEY_CONTEXT {
     pub Version: u16,
     pub Flags: u16,
@@ -7422,21 +6919,11 @@ pub struct OPLOCK_KEY_CONTEXT {
     pub TargetOplockKey: windows_core::GUID,
     pub Reserved: u32,
 }
-impl Default for OPLOCK_KEY_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPLOCK_KEY_ECP_CONTEXT {
     pub OplockKey: windows_core::GUID,
     pub Reserved: u32,
-}
-impl Default for OPLOCK_KEY_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = OPLOCK_NOTIFY_REASON(0i32);
 pub const OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = OPLOCK_NOTIFY_REASON(1i32);
@@ -7509,15 +6996,10 @@ impl Default for PHYSICAL_MEMORY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN {
     pub BasePage: u32,
     pub PageCount: u32,
-}
-impl Default for PHYSICAL_MEMORY_RUN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PIN_CALLER_TRACKS_DIRTY_DATA: u32 = 32u32;
 pub const PIN_EXCLUSIVE: u32 = 2u32;
@@ -7592,17 +7074,12 @@ pub type PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system"
 pub const PSMP_MAXIMUM_SYSAPP_CLAIM_VALUES: u32 = 4u32;
 pub const PSMP_MINIMUM_SYSAPP_CLAIM_VALUES: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PUBLIC_BCB {
     pub NodeTypeCode: i16,
     pub NodeByteSize: i16,
     pub MappedLength: u32,
     pub MappedFileOffset: i64,
-}
-impl Default for PUBLIC_BCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PUNLOCK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, filelockinfo: *const FILE_LOCK_INFO)>;
@@ -7623,17 +7100,12 @@ impl Default for QUERY_BAD_RANGES_INPUT {
 }
 pub const QUERY_DIRECT_ACCESS_DATA_EXTENTS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_DIRECT_ACCESS_EXTENTS {
     pub FileOffset: i64,
     pub Length: i64,
     pub Flags: u32,
     pub Reserved: u32,
-}
-impl Default for QUERY_DIRECT_ACCESS_EXTENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: u32 = 1u32;
 #[repr(C)]
@@ -7648,7 +7120,7 @@ impl Default for QUERY_ON_CREATE_EA_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub RequestedClasses: u32,
     pub ClassesProcessed: u32,
@@ -7658,13 +7130,8 @@ pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub LxInformation: QUERY_ON_CREATE_FILE_LX_INFORMATION,
     pub EaInformation: QUERY_ON_CREATE_EA_INFORMATION,
 }
-impl Default for QUERY_ON_CREATE_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
     pub EffectiveAccess: u32,
     pub LxFlags: u32,
@@ -7674,13 +7141,8 @@ pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
     pub LxDeviceIdMajor: u32,
     pub LxDeviceIdMinor: u32,
 }
-impl Default for QUERY_ON_CREATE_FILE_LX_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -7692,11 +7154,6 @@ pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
     pub NumberOfLinks: u32,
-}
-impl Default for QUERY_ON_CREATE_FILE_STAT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
@@ -7732,31 +7189,21 @@ impl Default for QUERY_PATH_REQUEST_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QUERY_PATH_RESPONSE {
     pub LengthAccepted: u32,
-}
-impl Default for QUERY_PATH_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *const core::ffi::c_void, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const QoCFileEaInformation: u32 = 4u32;
 pub const QoCFileLxInformation: u32 = 2u32;
 pub const QoCFileStatInformation: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct READ_AHEAD_PARAMETERS {
     pub NodeByteSize: i16,
     pub Granularity: u32,
     pub PipelinedRequestSize: u32,
     pub ReadAheadGrowthPercentage: u32,
-}
-impl Default for READ_AHEAD_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -7774,7 +7221,7 @@ impl Default for READ_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct READ_USN_JOURNAL_DATA {
     pub StartUsn: i64,
     pub ReasonMask: u32,
@@ -7784,11 +7231,6 @@ pub struct READ_USN_JOURNAL_DATA {
     pub UsnJournalID: u64,
     pub MinMajorVersion: u16,
     pub MaxMajorVersion: u16,
-}
-impl Default for READ_USN_JOURNAL_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7831,15 +7273,10 @@ impl Default for REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_RANGE {
     pub StartOfRange: u64,
     pub CountOfRange: u64,
-}
-impl Default for REFS_DEALLOCATE_RANGES_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7861,14 +7298,9 @@ impl Default for REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
     pub Enabled: bool,
-}
-impl Default for REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7902,27 +7334,17 @@ impl Default for REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
     pub Enable: bool,
 }
-impl Default for REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REFS_STREAM_EXTENT {
     pub Vcn: i64,
     pub Lcn: i64,
     pub Length: i64,
     pub Properties: u16,
-}
-impl Default for REFS_STREAM_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const REFS_STREAM_EXTENT_PROPERTY_CRC32: _REFS_STREAM_EXTENT_PROPERTIES = _REFS_STREAM_EXTENT_PROPERTIES(128i32);
 pub const REFS_STREAM_EXTENT_PROPERTY_CRC64: _REFS_STREAM_EXTENT_PROPERTIES = _REFS_STREAM_EXTENT_PROPERTIES(256i32);
@@ -7986,16 +7408,11 @@ pub const REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS: REFS_STREAM_SNAPSHOT_OPER
 pub const REFS_STREAM_SNAPSHOT_OPERATION_REVERT: REFS_STREAM_SNAPSHOT_OPERATION = REFS_STREAM_SNAPSHOT_OPERATION(4i32);
 pub const REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE: REFS_STREAM_SNAPSHOT_OPERATION = REFS_STREAM_SNAPSHOT_OPERATION(5i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub Flags: u32,
     pub Reserved: u32,
-}
-impl Default for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8010,14 +7427,9 @@ impl Default for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
     pub ResetCounters: bool,
-}
-impl Default for REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8158,15 +7570,10 @@ impl Default for REPARSE_DATA_BUFFER_EX_0 {
 }
 pub const REPARSE_DATA_EX_FLAG_GIVEN_TAG_OR_NONE: u32 = 1u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REPARSE_INDEX_KEY {
     pub FileReparseTag: u32,
     pub FileId: i64,
-}
-impl Default for REPARSE_INDEX_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8181,31 +7588,21 @@ impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     pub NextVcn: i64,
     pub Lcn: i64,
     pub ReferenceCount: u32,
-}
-impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RETURN_NON_NT_USER_SESSION_KEY: u32 = 8u32;
 pub const RETURN_PRIMARY_LOGON_DOMAINNAME: u32 = 4u32;
 pub const RETURN_PRIMARY_USERNAME: u32 = 2u32;
 pub const RETURN_RESERVED_PARAMETER: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RKF_BYPASS_ECP_CONTEXT {
     pub Reserved: i32,
     pub Version: i32,
-}
-impl Default for RKF_BYPASS_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RPI_SMB2_SERVERCAP_DFS: u32 = 1u32;
 pub const RPI_SMB2_SERVERCAP_DIRECTORY_LEASING: u32 = 32u32;
@@ -8233,28 +7630,18 @@ pub type RTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn(buffer: *con
 pub type RTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
     pub CommitLimitBytes: usize,
     pub CommitLimitFailureCode: usize,
     pub MaxAllocationSizeBytes: usize,
     pub AllocationLimitFailureCode: usize,
 }
-impl Default for RTL_HEAP_MEMORY_LIMIT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_INFO {
     pub Version: u32,
     pub Data: RTL_HEAP_MEMORY_LIMIT_DATA,
-}
-impl Default for RTL_HEAP_MEMORY_LIMIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8338,17 +7725,12 @@ impl Default for RTL_SEGMENT_HEAP_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
     pub CallbackContext: super::super::super::Win32::Foundation::HANDLE,
     pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK,
-}
-impl Default for RTL_SEGMENT_HEAP_VA_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: windows_core::PCWSTR = windows_core::w!("System Volume Information");
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
@@ -8383,24 +7765,14 @@ impl Default for SEC_APPLICATION_PROTOCOLS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_DTLS_MTU {
     pub PathMTU: u16,
 }
-impl Default for SEC_DTLS_MTU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_FLAGS {
     pub Flags: u64,
-}
-impl Default for SEC_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8442,14 +7814,9 @@ pub const SEGMENT_HEAP_PARAMETERS_VERSION: u32 = 3u32;
 pub const SEGMENT_HEAP_PARAMS_VALID_FLAGS: u32 = 1u32;
 pub const SEMAPHORE_INCREMENT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
     pub Enable: bool,
-}
-impl Default for SET_CACHED_RUNS_STATE_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
 #[repr(C)]
@@ -8482,7 +7849,7 @@ pub const SE_BACKUP_PRIVILEGES_CHECKED: u32 = 256u32;
 pub const SE_DACL_UNTRUSTED: u32 = 64u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SE_EXPORTS {
     pub SeCreateTokenPrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeAssignPrimaryTokenPrivilege: super::super::super::Win32::Foundation::LUID,
@@ -8558,12 +7925,6 @@ pub struct SE_EXPORTS {
     pub SeAppSiloVolumeRootMinimalCapabilitySid: super::super::super::Win32::Security::PSID,
     pub SeAppSiloProfilesRootMinimalCapabilitySid: super::super::super::Win32::Security::PSID,
 }
-#[cfg(feature = "Win32_Security")]
-impl Default for SE_EXPORTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: *const super::super::super::Win32::Foundation::LUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(feature = "Wdk_Foundation")]
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::super::super::Win32::Foundation::LUID, pserversilo: super::super::Foundation::PESILO, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -8601,16 +7962,11 @@ pub const SYMLINK_FLAG_RELATIVE: u32 = 1u32;
 pub const SYMLINK_RESERVED_MASK: u32 = 4026531840u32;
 pub const SYSTEM_PAGE_PRIORITY_BITS: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
-}
-impl Default for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8637,15 +7993,10 @@ impl Default for SecBufferDesc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
-}
-impl Default for SecHandle {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(7i32);
 #[repr(transparent)]
@@ -8745,7 +8096,7 @@ pub const UNINITIALIZE_CACHE_MAPS: u32 = 1u32;
 pub const USE_PRIMARY_PASSWORD: u32 = 1u32;
 pub const USN_DELETE_FLAG_DELETE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USN_JOURNAL_DATA {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -8756,11 +8107,6 @@ pub struct USN_JOURNAL_DATA {
     pub AllocationDelta: u64,
     pub MinSupportedMajorVersion: u16,
     pub MaxSupportedMajorVersion: u16,
-}
-impl Default for USN_JOURNAL_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8789,22 +8135,17 @@ pub const VACB_MAPPING_GRANULARITY: u32 = 262144u32;
 pub const VACB_OFFSET_SHIFT: u32 = 18u32;
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VCN_RANGE_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub ClusterCount: i64,
-}
-impl Default for VCN_RANGE_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_MEMORY_INFORMATION_CLASS(pub i32);
 pub const VOLSNAPCONTROLTYPE: u32 = 83u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VOLUME_REFS_INFO_BUFFER {
     pub CacheSizeInBytes: i64,
     pub AllocatedCacheInBytes: i64,
@@ -8885,11 +8226,6 @@ pub struct VOLUME_REFS_INFO_BUFFER {
     pub NumberOfDirtyMetadataPages: i64,
     pub NumberOfDirtyTableListEntries: i32,
     pub NumberOfDeleteQueueEntries: i32,
-}
-impl Default for VOLUME_REFS_INFO_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VmPrefetchInformation: VIRTUAL_MEMORY_INFORMATION_CLASS = VIRTUAL_MEMORY_INFORMATION_CLASS(0i32);
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER: u32 = 1u32;

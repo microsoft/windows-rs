@@ -80,3 +80,9 @@ impl PWSTR {
         unsafe { Decode(move || core::char::decode_utf16(self.as_wide().iter().cloned())) }
     }
 }
+
+impl Default for PWSTR {
+    fn default() -> Self {
+        Self::null()
+    }
+}

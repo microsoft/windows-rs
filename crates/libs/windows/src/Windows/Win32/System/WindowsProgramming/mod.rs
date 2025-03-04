@@ -1549,15 +1549,10 @@ impl Default for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub dwFlags: u32,
-}
-impl Default for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: u32 = 1u32;
 pub const AC_LINE_BACKUP_POWER: u32 = 2u32;
@@ -1686,15 +1681,10 @@ pub const CE_OOP: u32 = 4096u32;
 pub const CE_PTO: u32 = 512u32;
 pub const CE_TXFULL: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLIENT_ID {
     pub UniqueProcess: super::super::Foundation::HANDLE,
     pub UniqueThread: super::super::Foundation::HANDLE,
-}
-impl Default for CLIENT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(769u32);
 pub const CL_NL_IP: u32 = 771u32;
@@ -1732,15 +1722,10 @@ pub const CREATE_FOR_DIR: u32 = 2u32;
 pub const CREATE_FOR_IMPORT: u32 = 1u32;
 pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     pub Size: u32,
     pub TriggerId: windows_core::PCWSTR,
-}
-impl Default for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CameraUIControl: windows_core::GUID = windows_core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 #[repr(transparent)]
@@ -1788,7 +1773,7 @@ impl CameraUIControlViewType {
     pub const ItemList: Self = Self(1i32);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DATETIME {
     pub year: u16,
     pub month: u16,
@@ -1797,24 +1782,14 @@ pub struct DATETIME {
     pub min: u16,
     pub sec: u16,
 }
-impl Default for DATETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCICMD {
     pub dwCommand: u32,
     pub dwParam1: u32,
     pub dwParam2: u32,
     pub dwVersion: u32,
     pub dwReserved: u32,
-}
-impl Default for DCICMD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1853,29 +1828,19 @@ impl Default for DCIENUMINPUT {
 pub const DCIENUMSURFACE: u32 = 4u32;
 pub const DCIESCAPE: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCIOFFSCREEN {
     pub dciInfo: DCISURFACEINFO,
     pub Draw: isize,
     pub SetClipList: isize,
     pub SetDestination: isize,
 }
-impl Default for DCIOFFSCREEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCIOVERLAY {
     pub dciInfo: DCISURFACEINFO,
     pub dwChromakeyValue: u32,
     pub dwChromakeyMask: u32,
-}
-impl Default for DCIOVERLAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2072,7 +2037,7 @@ pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED
 pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(1i32);
 pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FEATURE_ERROR {
     pub hr: windows_core::HRESULT,
     pub lineNumber: u16,
@@ -2088,11 +2053,6 @@ pub struct FEATURE_ERROR {
     pub originCallerReturnAddressOffset: u32,
     pub originCallerModule: windows_core::PCSTR,
     pub originName: windows_core::PCSTR,
-}
-impl Default for FEATURE_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -2271,6 +2231,7 @@ impl ICameraUIControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICameraUIControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CameraUIControlMode, CameraUIControlLinearSelectionMode, CameraUIControlCaptureMode, CameraUIControlPhotoFormat, CameraUIControlVideoFormat, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2409,6 +2370,7 @@ impl ICameraUIControlEventCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICameraUIControlEventCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStartupComplete: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -2478,6 +2440,7 @@ impl IClipServiceNotificationHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClipServiceNotificationHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShowToast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2511,6 +2474,7 @@ impl IContainerActivationHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContainerActivationHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CanActivateClientVM: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -2547,6 +2511,7 @@ impl IDefaultBrowserSyncSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDefaultBrowserSyncSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -2577,6 +2542,7 @@ impl IDeleteBrowsingHistory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeleteBrowsingHistory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DeleteBrowsingHistory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2638,6 +2604,7 @@ impl IEditionUpgradeBroker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEditionUpgradeBroker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -2728,6 +2695,7 @@ impl IEditionUpgradeHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEditionUpgradeHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CanUpgrade: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2815,6 +2783,7 @@ impl IFClipNotificationHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFClipNotificationHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShowSystemDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2870,14 +2839,9 @@ impl Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
-}
-impl Default for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2959,7 +2923,7 @@ impl Default for IMEPROW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMESTRUCT {
     pub fnc: u32,
     pub wParam: super::super::Foundation::WPARAM,
@@ -2969,11 +2933,6 @@ pub struct IMESTRUCT {
     pub lParam1: super::super::Foundation::LPARAM,
     pub lParam2: super::super::Foundation::LPARAM,
     pub lParam3: super::super::Foundation::LPARAM,
-}
-impl Default for IMESTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IME_BANJAtoJUNJA: u32 = 19u32;
 pub const IME_ENABLE_CONVERT: u32 = 2u32;
@@ -3046,6 +3005,7 @@ impl IWindowsLockModeHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsLockModeHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -3096,7 +3056,7 @@ impl Default for JAVA_TRUST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JIT_DEBUG_INFO {
     pub dwSize: u32,
     pub dwProcessorArchitecture: u32,
@@ -3105,11 +3065,6 @@ pub struct JIT_DEBUG_INFO {
     pub lpExceptionAddress: u64,
     pub lpExceptionRecord: u64,
     pub lpContextRecord: u64,
-}
-impl Default for JIT_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KEY_ALL_KEYS: WLDP_KEY = WLDP_KEY(2i32);
 pub const KEY_OVERRIDE: WLDP_KEY = WLDP_KEY(1i32);
@@ -3357,40 +3312,25 @@ pub const STREAM_MODIFIED_WHEN_READ: u32 = 1u32;
 pub const STREAM_NORMAL_ATTRIBUTE: u32 = 0u32;
 pub const STREAM_SPARSE_ATTRIBUTE: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRENTRYA {
     pub pszName: windows_core::PSTR,
     pub pszValue: windows_core::PSTR,
 }
-impl Default for STRENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRENTRYW {
     pub pszName: windows_core::PWSTR,
     pub pszValue: windows_core::PWSTR,
 }
-impl Default for STRENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRINGEXSTRUCT {
     pub dwSize: u32,
     pub uDeterminePos: u32,
     pub uDetermineDelimPos: u32,
     pub uYomiPos: u32,
     pub uYomiDelimPos: u32,
-}
-impl Default for STRINGEXSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3427,15 +3367,10 @@ impl Default for SYSTEM_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_CODEINTEGRITY_INFORMATION {
     pub Length: u32,
     pub CodeIntegrityOptions: u32,
-}
-impl Default for SYSTEM_CODEINTEGRITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3662,28 +3597,18 @@ pub const TC_SIGNAL: u32 = 3u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDIENTITY_ENTITY_TYPE(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TDIEntityID {
     pub tei_entity: TDIENTITY_ENTITY_TYPE,
     pub tei_instance: u32,
 }
-impl Default for TDIEntityID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TDIObjectID {
     pub toi_entity: TDIEntityID,
     pub toi_class: u32,
     pub toi_type: u32,
     pub toi_id: u32,
-}
-impl Default for TDIObjectID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3716,19 +3641,14 @@ impl Default for TDI_TL_IO_CONTROL_ENDPOINT_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct THREAD_NAME_INFORMATION {
     pub ThreadName: super::super::Foundation::UNICODE_STRING,
-}
-impl Default for THREAD_NAME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
 pub const UMS_VERSION: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNDETERMINESTRUCT {
     pub dwSize: u32,
     pub uDefIMESize: u32,
@@ -3744,11 +3664,6 @@ pub struct UNDETERMINESTRUCT {
     pub uYomiTextLen: u32,
     pub uYomiTextPos: u32,
     pub uYomiDelimPos: u32,
-}
-impl Default for UNDETERMINESTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3857,17 +3772,12 @@ pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
 pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = WLDP_HOST_ID(2i32);
 pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = WLDP_HOST_ID(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WLDP_HOST_INFORMATION {
     pub dwRevision: u32,
     pub dwHostId: WLDP_HOST_ID,
     pub szSource: windows_core::PCWSTR,
     pub hSource: super::super::Foundation::HANDLE,
-}
-impl Default for WLDP_HOST_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
 pub const WLDP_HOST_JAVASCRIPT: windows_core::GUID = windows_core::GUID::from_u128(0x5629f0d5_1cca_4fed_a1a3_36a8c18d74c0);

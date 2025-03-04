@@ -825,6 +825,7 @@ impl IBuffer_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -836,6 +837,7 @@ impl windows_core::RuntimeType for IBufferFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBufferFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -845,6 +847,7 @@ impl windows_core::RuntimeType for IBufferStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBufferStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateCopyFromMemoryBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -892,6 +895,7 @@ impl IContentTypeProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentTypeProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1434,6 +1438,7 @@ impl IDataReader_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UnconsumedBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1468,6 +1473,7 @@ impl windows_core::RuntimeType for IDataReaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataReaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDataReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1477,6 +1483,7 @@ impl windows_core::RuntimeType for IDataReaderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataReaderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1919,6 +1926,7 @@ impl IDataWriter_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataWriter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UnstoredBufferLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1954,6 +1962,7 @@ impl windows_core::RuntimeType for IDataWriterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataWriterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDataWriter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1963,6 +1972,7 @@ impl windows_core::RuntimeType for IFileRandomAccessStreamStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileRandomAccessStreamStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::FileAccessMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2036,6 +2046,7 @@ impl IInputStream_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInputStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, InputStreamOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2085,6 +2096,7 @@ impl IInputStreamReference_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInputStreamReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenSequentialReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2164,6 +2176,7 @@ impl IOutputStream_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOutputStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2238,6 +2251,7 @@ impl IPropertySetSerializer_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertySetSerializer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -2478,6 +2492,7 @@ impl IRandomAccessStream_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRandomAccessStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -2535,6 +2550,7 @@ impl IRandomAccessStreamReference_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRandomAccessStreamReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2544,6 +2560,7 @@ impl windows_core::RuntimeType for IRandomAccessStreamReferenceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRandomAccessStreamReferenceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2555,6 +2572,7 @@ impl windows_core::RuntimeType for IRandomAccessStreamStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRandomAccessStreamStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CopyAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2677,6 +2695,7 @@ impl IRandomAccessStreamWithContentType_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRandomAccessStreamWithContentType_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }

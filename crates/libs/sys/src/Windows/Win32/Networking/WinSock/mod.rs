@@ -259,7 +259,7 @@ windows_targets::link!("ws2_32.dll" "system" fn socket(af : i32, r#type : WINSOC
 pub const AAL5_MODE_MESSAGE: u32 = 1u32;
 pub const AAL5_MODE_STREAMING: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AAL5_PARAMETERS {
     pub ForwardMaxCPCSSDUSize: u32,
     pub BackwardMaxCPCSSDUSize: u32,
@@ -273,7 +273,7 @@ pub const AAL5_SSCS_SSCOP_NON_ASSURED: u32 = 2u32;
 pub const AALTYPE_5: AAL_TYPE = 5i32;
 pub const AALTYPE_USER: AAL_TYPE = 16i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AALUSER_PARAMETERS {
     pub UserDefined: u32,
 }
@@ -283,11 +283,21 @@ pub struct AAL_PARAMETERS_IE {
     pub AALType: AAL_TYPE,
     pub AALSpecificParameters: AAL_PARAMETERS_IE_0,
 }
+impl Default for AAL_PARAMETERS_IE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union AAL_PARAMETERS_IE_0 {
     pub AAL5Parameters: AAL5_PARAMETERS,
     pub AALUserParameters: AALUSER_PARAMETERS,
+}
+impl Default for AAL_PARAMETERS_IE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AAL_TYPE = i32;
 pub type ADDRESS_FAMILY = u16;
@@ -302,6 +312,11 @@ pub struct ADDRINFOA {
     pub ai_canonname: windows_sys::core::PSTR,
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut ADDRINFOA,
+}
+impl Default for ADDRINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -320,6 +335,11 @@ pub struct ADDRINFOEX2A {
     pub ai_version: i32,
     pub ai_fqdn: windows_sys::core::PSTR,
 }
+impl Default for ADDRINFOEX2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX2W {
@@ -336,6 +356,11 @@ pub struct ADDRINFOEX2W {
     pub ai_next: *mut ADDRINFOEX2W,
     pub ai_version: i32,
     pub ai_fqdn: windows_sys::core::PWSTR,
+}
+impl Default for ADDRINFOEX2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -354,6 +379,11 @@ pub struct ADDRINFOEX3 {
     pub ai_version: i32,
     pub ai_fqdn: windows_sys::core::PWSTR,
     pub ai_interfaceindex: i32,
+}
+impl Default for ADDRINFOEX3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -374,6 +404,11 @@ pub struct ADDRINFOEX4 {
     pub ai_interfaceindex: i32,
     pub ai_resolutionhandle: super::super::Foundation::HANDLE,
 }
+impl Default for ADDRINFOEX4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEX5 {
@@ -393,6 +428,11 @@ pub struct ADDRINFOEX5 {
     pub ai_interfaceindex: i32,
     pub ai_resolutionhandle: super::super::Foundation::HANDLE,
     pub ai_ttl: u32,
+}
+impl Default for ADDRINFOEX5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -417,6 +457,11 @@ pub struct ADDRINFOEX6 {
     pub ai_servers: *mut ADDRINFO_DNS_SERVER,
     pub ai_responseflags: u64,
 }
+impl Default for ADDRINFOEX6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEXA {
@@ -432,6 +477,11 @@ pub struct ADDRINFOEXA {
     pub ai_provider: *mut windows_sys::core::GUID,
     pub ai_next: *mut ADDRINFOEXA,
 }
+impl Default for ADDRINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOEXW {
@@ -446,6 +496,11 @@ pub struct ADDRINFOEXW {
     pub ai_bloblen: usize,
     pub ai_provider: *mut windows_sys::core::GUID,
     pub ai_next: *mut ADDRINFOEXW,
+}
+impl Default for ADDRINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ADDRINFOEX_VERSION_2: u32 = 2u32;
 pub const ADDRINFOEX_VERSION_3: u32 = 3u32;
@@ -464,6 +519,11 @@ pub struct ADDRINFOW {
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut ADDRINFOW,
 }
+impl Default for ADDRINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADDRINFO_DNS_SERVER {
@@ -473,14 +533,24 @@ pub struct ADDRINFO_DNS_SERVER {
     pub ai_addr: *mut SOCKADDR,
     pub Anonymous: ADDRINFO_DNS_SERVER_0,
 }
+impl Default for ADDRINFO_DNS_SERVER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ADDRINFO_DNS_SERVER_0 {
     pub ai_template: windows_sys::core::PWSTR,
 }
+impl Default for ADDRINFO_DNS_SERVER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ADDR_ANY: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct AFPROTOCOLS {
     pub iAddressFamily: i32,
     pub iProtocol: i32,
@@ -560,6 +630,11 @@ pub struct ARP_HEADER {
     pub Opcode: u16,
     pub SenderHardwareAddress: [u8; 1],
 }
+impl Default for ARP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ARP_HW_802: ARP_HARDWARE_TYPE = 6i32;
 pub const ARP_HW_ENET: ARP_HARDWARE_TYPE = 1i32;
 pub type ARP_OPCODE = i32;
@@ -567,7 +642,7 @@ pub const ARP_REQUEST: ARP_OPCODE = 1i32;
 pub const ARP_RESPONSE: ARP_OPCODE = 2i32;
 pub const ASSOCIATE_NAMERES_CONTEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub Handle: u64,
@@ -584,6 +659,11 @@ pub struct ATM_ADDRESS {
     pub NumofDigits: u32,
     pub Addr: [u8; 20],
 }
+impl Default for ATM_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ATM_ADDR_SIZE: u32 = 20u32;
 pub const ATM_AESA: u32 = 2u32;
 #[repr(C)]
@@ -592,6 +672,11 @@ pub struct ATM_BHLI {
     pub HighLayerInfoType: u32,
     pub HighLayerInfoLength: u32,
     pub HighLayerInfo: [u8; 8],
+}
+impl Default for ATM_BHLI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -602,6 +687,11 @@ pub struct ATM_BLLI {
     pub Layer3UserSpecifiedProtocol: u32,
     pub Layer3IPI: u32,
     pub SnapID: [u8; 5],
+}
+impl Default for ATM_BLLI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -618,8 +708,13 @@ pub struct ATM_BLLI_IE {
     pub Layer3IPI: u32,
     pub SnapID: [u8; 5],
 }
+impl Default for ATM_BLLI_IE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATM_BROADBAND_BEARER_CAPABILITY_IE {
     pub BearerClass: u8,
     pub TrafficType: u8,
@@ -628,7 +723,7 @@ pub struct ATM_BROADBAND_BEARER_CAPABILITY_IE {
     pub UserPlaneConnectionConfig: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATM_CALLING_PARTY_NUMBER_IE {
     pub ATM_Number: ATM_ADDRESS,
     pub Presentation_Indication: u8,
@@ -642,8 +737,13 @@ pub struct ATM_CAUSE_IE {
     pub DiagnosticsLength: u8,
     pub Diagnostics: [u8; 4],
 }
+impl Default for ATM_CAUSE_IE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATM_CONNECTION_ID {
     pub DeviceNumber: u32,
     pub VPI: u32,
@@ -652,19 +752,19 @@ pub struct ATM_CONNECTION_ID {
 pub const ATM_E164: u32 = 1u32;
 pub const ATM_NSAP: u32 = 2u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATM_PVC_PARAMS {
     pub PvcConnectionId: ATM_CONNECTION_ID,
     pub PvcQos: QOS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATM_QOS_CLASS_IE {
     pub QOSClassForward: u8,
     pub QOSClassBackward: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATM_TD {
     pub PeakCellRate_CLP0: u32,
     pub PeakCellRate_CLP01: u32,
@@ -675,7 +775,7 @@ pub struct ATM_TD {
     pub Tagging: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ATM_TRAFFIC_DESCRIPTOR_IE {
     pub Forward: ATM_TD,
     pub Backward: ATM_TD,
@@ -688,6 +788,11 @@ pub struct ATM_TRANSIT_NETWORK_SELECTION_IE {
     pub NetworkIdPlan: u8,
     pub NetworkIdLength: u8,
     pub NetworkId: [u8; 1],
+}
+impl Default for ATM_TRANSIT_NETWORK_SELECTION_IE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BASE_PROTOCOL: u32 = 1u32;
 pub const BCOB_A: u32 = 1u32;
@@ -801,7 +906,7 @@ pub const CF_REJECT: u32 = 1u32;
 pub const CLIP_NOT: u32 = 0u32;
 pub const CLIP_SUS: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CMSGHDR {
     pub cmsg_len: usize,
     pub cmsg_level: i32,
@@ -818,7 +923,7 @@ pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNE
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 4i32;
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = 5i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CSADDR_INFO {
     pub LocalAddr: SOCKET_ADDRESS,
     pub RemoteAddr: SOCKET_ADDRESS,
@@ -832,10 +937,20 @@ pub const DL_ADDRESS_LENGTH_MAXIMUM: u32 = 32u32;
 pub union DL_EI48 {
     pub Byte: [u8; 3],
 }
+impl Default for DL_EI48 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DL_EI64 {
     pub Byte: [u8; 5],
+}
+impl Default for DL_EI64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -843,11 +958,21 @@ pub union DL_EUI48 {
     pub Byte: [u8; 6],
     pub Anonymous: DL_EUI48_0,
 }
+impl Default for DL_EUI48 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DL_EUI48_0 {
     pub Oui: DL_OUI,
     pub Ei48: DL_EI48,
+}
+impl Default for DL_EUI48_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -856,17 +981,32 @@ pub union DL_EUI64 {
     pub Value: u64,
     pub Anonymous: DL_EUI64_0,
 }
+impl Default for DL_EUI64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DL_EUI64_0 {
     pub Oui: DL_OUI,
     pub Anonymous: DL_EUI64_0_0,
 }
+impl Default for DL_EUI64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DL_EUI64_0_0 {
     pub Ei64: DL_EI64,
     pub Anonymous: DL_EUI64_0_0_0,
+}
+impl Default for DL_EUI64_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -875,6 +1015,11 @@ pub struct DL_EUI64_0_0_0 {
     pub Tse: u8,
     pub Ei48: DL_EI48,
 }
+impl Default for DL_EUI64_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DL_HEADER_LENGTH_MAXIMUM: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -882,8 +1027,13 @@ pub union DL_OUI {
     pub Byte: [u8; 3],
     pub Anonymous: DL_OUI_0,
 }
+impl Default for DL_OUI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DL_OUI_0 {
     pub _bitfield: u8,
 }
@@ -893,11 +1043,21 @@ pub struct DL_TEREDO_ADDRESS {
     pub Reserved: [u8; 6],
     pub Anonymous: DL_TEREDO_ADDRESS_0,
 }
+impl Default for DL_TEREDO_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DL_TEREDO_ADDRESS_0 {
     pub Eui64: DL_EUI64,
     pub Anonymous: DL_TEREDO_ADDRESS_0_0,
+}
+impl Default for DL_TEREDO_ADDRESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -906,17 +1066,32 @@ pub struct DL_TEREDO_ADDRESS_0_0 {
     pub MappedPort: u16,
     pub MappedAddress: IN_ADDR,
 }
+impl Default for DL_TEREDO_ADDRESS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DL_TEREDO_ADDRESS_PRV {
     pub Reserved: [u8; 6],
     pub Anonymous: DL_TEREDO_ADDRESS_PRV_0,
 }
+impl Default for DL_TEREDO_ADDRESS_PRV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DL_TEREDO_ADDRESS_PRV_0 {
     pub Eui64: DL_EUI64,
     pub Anonymous: DL_TEREDO_ADDRESS_PRV_0_0,
+}
+impl Default for DL_TEREDO_ADDRESS_PRV_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -929,6 +1104,11 @@ pub struct DL_TEREDO_ADDRESS_PRV_0_0 {
     pub LocalPort: u16,
     pub DlDestination: DL_EUI48,
 }
+impl Default for DL_TEREDO_ADDRESS_PRV_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
@@ -937,6 +1117,12 @@ pub struct DL_TUNNEL_ADDRESS {
     pub ScopeId: SCOPE_ID,
     pub IpAddress: [u8; 1],
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl Default for DL_TUNNEL_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ETHERNET_HEADER {
@@ -944,11 +1130,21 @@ pub struct ETHERNET_HEADER {
     pub Source: DL_EUI48,
     pub Anonymous: ETHERNET_HEADER_0,
 }
+impl Default for ETHERNET_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ETHERNET_HEADER_0 {
     pub Type: u16,
     pub Length: u16,
+}
+impl Default for ETHERNET_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ETHERNET_TYPE_802_1AD: u32 = 34984u32;
 pub const ETHERNET_TYPE_802_1Q: u32 = 33024u32;
@@ -984,6 +1180,11 @@ pub struct FD_SET {
     pub fd_count: u32,
     pub fd_array: [SOCKET; 64],
 }
+impl Default for FD_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FD_SETSIZE: u32 = 64u32;
 pub const FD_WRITE: u32 = 2u32;
 pub const FD_WRITE_BIT: u32 = 1u32;
@@ -991,7 +1192,7 @@ pub const FIOASYNC: i32 = -2147195267i32;
 pub const FIONBIO: i32 = -2147195266i32;
 pub const FIONREAD: i32 = 1074030207i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FLOWSPEC {
     pub TokenRate: u32,
     pub TokenBucketSize: u32,
@@ -1015,14 +1216,19 @@ pub struct GROUP_FILTER {
     pub gf_numsrc: u32,
     pub gf_slist: [SOCKADDR_STORAGE; 1],
 }
+impl Default for GROUP_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GROUP_REQ {
     pub gr_interface: u32,
     pub gr_group: SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GROUP_SOURCE_REQ {
     pub gsr_interface: u32,
     pub gsr_group: SOCKADDR_STORAGE,
@@ -1036,6 +1242,11 @@ pub struct HOSTENT {
     pub h_addrtype: i16,
     pub h_length: i16,
     pub h_addr_list: *mut *mut i8,
+}
+impl Default for HOSTENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IAS_ATTRIB_INT: u32 = 1u32;
 pub const IAS_ATTRIB_NO_ATTRIB: u32 = 0u32;
@@ -1081,6 +1292,11 @@ pub struct ICMPV4_ADDRESS_MASK_MESSAGE {
     pub Header: ICMP_MESSAGE,
     pub AddressMask: u32,
 }
+impl Default for ICMPV4_ADDRESS_MASK_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ICMPV4_INVALID_PREFERENCE_LEVEL: u32 = 2147483648u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1088,15 +1304,30 @@ pub struct ICMPV4_ROUTER_ADVERT_ENTRY {
     pub RouterAdvertAddr: IN_ADDR,
     pub PreferenceLevel: i32,
 }
+impl Default for ICMPV4_ROUTER_ADVERT_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ICMPV4_ROUTER_ADVERT_HEADER {
     pub RaHeader: ICMP_MESSAGE,
 }
+impl Default for ICMPV4_ROUTER_ADVERT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ICMPV4_ROUTER_SOLICIT {
     pub RsHeader: ICMP_MESSAGE,
+}
+impl Default for ICMPV4_ROUTER_SOLICIT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1105,6 +1336,11 @@ pub struct ICMPV4_TIMESTAMP_MESSAGE {
     pub OriginateTimestamp: u32,
     pub ReceiveTimestamp: u32,
     pub TransmitTimestamp: u32,
+}
+impl Default for ICMPV4_TIMESTAMP_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ICMPV6_ECHO_REQUEST_FLAG_REVERSE: u32 = 1u32;
 #[repr(C)]
@@ -1115,8 +1351,13 @@ pub struct ICMP_ERROR_INFO {
     pub r#type: u8,
     pub code: u8,
 }
+impl Default for ICMP_ERROR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ICMP_HEADER {
     pub Type: u8,
     pub Code: u8,
@@ -1128,12 +1369,22 @@ pub struct ICMP_MESSAGE {
     pub Header: ICMP_HEADER,
     pub Data: ICMP_MESSAGE_0,
 }
+impl Default for ICMP_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ICMP_MESSAGE_0 {
     pub Data32: [u32; 1],
     pub Data16: [u16; 2],
     pub Data8: [u8; 4],
+}
+impl Default for ICMP_MESSAGE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IE_AALParameters: Q2931_IE_TYPE = 0i32;
 pub const IE_BHLI: Q2931_IE_TYPE = 3i32;
@@ -1163,14 +1414,24 @@ pub struct IGMPV3_QUERY_HEADER {
     pub Anonymous2: IGMPV3_QUERY_HEADER_1,
     pub SourceCount: u16,
 }
+impl Default for IGMPV3_QUERY_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IGMPV3_QUERY_HEADER_0 {
     pub MaxRespCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_0_0,
 }
+impl Default for IGMPV3_QUERY_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IGMPV3_QUERY_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1180,13 +1441,18 @@ pub union IGMPV3_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_1_0,
 }
+impl Default for IGMPV3_QUERY_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IGMPV3_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IGMPV3_REPORT_HEADER {
     pub Type: u8,
     pub Reserved: u8,
@@ -1202,6 +1468,11 @@ pub struct IGMPV3_REPORT_RECORD_HEADER {
     pub SourceCount: u16,
     pub MulticastAddress: IN_ADDR,
 }
+impl Default for IGMPV3_REPORT_RECORD_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IGMP_HEADER {
@@ -1210,14 +1481,24 @@ pub struct IGMP_HEADER {
     pub Checksum: u16,
     pub MulticastAddress: IN_ADDR,
 }
+impl Default for IGMP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IGMP_HEADER_0 {
     pub Anonymous: IGMP_HEADER_0_0,
     pub VersionType: u8,
 }
+impl Default for IGMP_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IGMP_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1227,6 +1508,11 @@ pub union IGMP_HEADER_1 {
     pub Reserved: u8,
     pub MaxRespTime: u8,
     pub Code: u8,
+}
+impl Default for IGMP_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IGMP_LEAVE_GROUP_TYPE: u32 = 23u32;
 pub type IGMP_MAX_RESP_CODE_TYPE = i32;
@@ -1256,11 +1542,21 @@ pub const IN6ADDR_V4MAPPEDPREFIX_LENGTH: u32 = 96u32;
 pub struct IN6_ADDR {
     pub u: IN6_ADDR_0,
 }
+impl Default for IN6_ADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IN6_ADDR_0 {
     pub Byte: [u8; 16],
     pub Word: [u16; 8],
+}
+impl Default for IN6_ADDR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IN6_EMBEDDEDV4_BITS_IN_BYTE: u32 = 8u32;
 pub const IN6_EMBEDDEDV4_UOCTET_POSITION: u32 = 8u32;
@@ -1270,11 +1566,21 @@ pub struct IN6_PKTINFO {
     pub ipi6_addr: IN6_ADDR,
     pub ipi6_ifindex: u32,
 }
+impl Default for IN6_PKTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IN6_PKTINFO_EX {
     pub pkt_info: IN6_PKTINFO,
     pub scope_id: SCOPE_ID,
+}
+impl Default for IN6_PKTINFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const INADDR_ANY: u32 = 0u32;
 pub const INADDR_BROADCAST: u32 = 4294967295u32;
@@ -1285,24 +1591,24 @@ pub const INCL_WINSOCK_API_TYPEDEFS: u32 = 0u32;
 pub const INET6_ADDRSTRLEN: u32 = 65u32;
 pub const INET_ADDRSTRLEN: u32 = 22u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INET_PORT_RANGE {
     pub StartPort: u16,
     pub NumberOfPorts: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INET_PORT_RESERVATION_INFORMATION {
     pub OwningPid: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INET_PORT_RESERVATION_INSTANCE {
     pub Reservation: INET_PORT_RANGE,
     pub Token: INET_PORT_RESERVATION_TOKEN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INET_PORT_RESERVATION_TOKEN {
     pub Token: u64,
 }
@@ -1314,8 +1620,13 @@ pub struct INTERFACE_INFO {
     pub iiBroadcastAddress: sockaddr_gen,
     pub iiNetmask: sockaddr_gen,
 }
+impl Default for INTERFACE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INTERFACE_INFO_EX {
     pub iiFlags: u32,
     pub iiAddress: SOCKET_ADDRESS,
@@ -1328,6 +1639,11 @@ pub const INVALID_SOCKET: SOCKET = -1i32 as _;
 pub struct IN_ADDR {
     pub S_un: IN_ADDR_0,
 }
+impl Default for IN_ADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IN_ADDR_0 {
@@ -1335,8 +1651,13 @@ pub union IN_ADDR_0 {
     pub S_un_w: IN_ADDR_0_1,
     pub S_addr: u32,
 }
+impl Default for IN_ADDR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IN_ADDR_0_0 {
     pub s_b1: u8,
     pub s_b2: u8,
@@ -1344,7 +1665,7 @@ pub struct IN_ADDR_0_0 {
     pub s_b4: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IN_ADDR_0_1 {
     pub s_w1: u16,
     pub s_w2: u16,
@@ -1369,14 +1690,24 @@ pub struct IN_PKTINFO {
     pub ipi_addr: IN_ADDR,
     pub ipi_ifindex: u32,
 }
+impl Default for IN_PKTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IN_PKTINFO_EX {
     pub pkt_info: IN_PKTINFO,
     pub scope_id: SCOPE_ID,
 }
+impl Default for IN_PKTINFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IN_RECVERR {
     pub protocol: IPPROTO,
     pub info: u32,
@@ -1494,7 +1825,7 @@ pub const IPPROTO_ST: IPPROTO = 5i32;
 pub const IPPROTO_TCP: IPPROTO = 6i32;
 pub const IPPROTO_UDP: IPPROTO = 17i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPTLS_METADATA {
     pub SequenceNumber: u64,
 }
@@ -1512,14 +1843,24 @@ pub struct IPV4_HEADER {
     pub SourceAddress: IN_ADDR,
     pub DestinationAddress: IN_ADDR,
 }
+impl Default for IPV4_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPV4_HEADER_0 {
     pub VersionAndHeaderLength: u8,
     pub Anonymous: IPV4_HEADER_0_0,
 }
+impl Default for IPV4_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV4_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1529,8 +1870,13 @@ pub union IPV4_HEADER_1 {
     pub TypeOfServiceAndEcnField: u8,
     pub Anonymous: IPV4_HEADER_1_0,
 }
+impl Default for IPV4_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV4_HEADER_1_0 {
     pub _bitfield: u8,
 }
@@ -1540,8 +1886,13 @@ pub union IPV4_HEADER_2 {
     pub FlagsAndOffset: u16,
     pub Anonymous: IPV4_HEADER_2_0,
 }
+impl Default for IPV4_HEADER_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV4_HEADER_2_0 {
     pub _bitfield: u16,
 }
@@ -1554,14 +1905,24 @@ pub struct IPV4_OPTION_HEADER {
     pub Anonymous: IPV4_OPTION_HEADER_0,
     pub OptionLength: u8,
 }
+impl Default for IPV4_OPTION_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPV4_OPTION_HEADER_0 {
     pub OptionType: u8,
     pub Anonymous: IPV4_OPTION_HEADER_0_0,
 }
+impl Default for IPV4_OPTION_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV4_OPTION_HEADER_0_0 {
     pub _bitfield: u8,
 }
@@ -1572,6 +1933,11 @@ pub struct IPV4_ROUTING_HEADER {
     pub OptionHeader: IPV4_OPTION_HEADER,
     pub Pointer: u8,
 }
+impl Default for IPV4_ROUTING_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPV4_TIMESTAMP_OPTION {
@@ -1579,14 +1945,24 @@ pub struct IPV4_TIMESTAMP_OPTION {
     pub Pointer: u8,
     pub Anonymous: IPV4_TIMESTAMP_OPTION_0,
 }
+impl Default for IPV4_TIMESTAMP_OPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPV4_TIMESTAMP_OPTION_0 {
     pub FlagsOverflow: u8,
     pub Anonymous: IPV4_TIMESTAMP_OPTION_0_0,
 }
+impl Default for IPV4_TIMESTAMP_OPTION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV4_TIMESTAMP_OPTION_0_0 {
     pub _bitfield: u8,
 }
@@ -1601,7 +1977,7 @@ pub const IPV6_ECN: i32 = 50i32;
 pub const IPV6_ECN_MASK: u32 = 12288u32;
 pub const IPV6_ECN_SHIFT: u32 = 12u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV6_EXTENSION_HEADER {
     pub NextHeader: u8,
     pub Length: u8,
@@ -1615,14 +1991,24 @@ pub struct IPV6_FRAGMENT_HEADER {
     pub Anonymous: IPV6_FRAGMENT_HEADER_0,
     pub Id: u32,
 }
+impl Default for IPV6_FRAGMENT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPV6_FRAGMENT_HEADER_0 {
     pub Anonymous: IPV6_FRAGMENT_HEADER_0_0,
     pub OffsetAndFlags: u16,
 }
+impl Default for IPV6_FRAGMENT_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV6_FRAGMENT_HEADER_0_0 {
     pub _bitfield: u16,
 }
@@ -1639,14 +2025,24 @@ pub struct IPV6_HEADER {
     pub SourceAddress: IN6_ADDR,
     pub DestinationAddress: IN6_ADDR,
 }
+impl Default for IPV6_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IPV6_HEADER_0 {
     pub VersionClassFlow: u32,
     pub Anonymous: IPV6_HEADER_0_0,
 }
+impl Default for IPV6_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV6_HEADER_0_0 {
     pub _bitfield: u32,
 }
@@ -1662,6 +2058,11 @@ pub struct IPV6_MREQ {
     pub ipv6mr_multiaddr: IN6_ADDR,
     pub ipv6mr_interface: u32,
 }
+impl Default for IPV6_MREQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPV6_MTU: i32 = 72i32;
 pub const IPV6_MTU_DISCOVER: i32 = 71i32;
 pub const IPV6_MULTICAST_HOPS: i32 = 10i32;
@@ -1673,15 +2074,25 @@ pub union IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
     pub Anonymous: IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0,
     pub Value: u32,
 }
+impl Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
 }
+impl Default for IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPV6_NRT_INTERFACE: i32 = 74i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV6_OPTION_HEADER {
     pub Type: u8,
     pub DataLength: u8,
@@ -1692,11 +2103,21 @@ pub struct IPV6_OPTION_JUMBOGRAM {
     pub Header: IPV6_OPTION_HEADER,
     pub JumbogramLength: [u8; 4],
 }
+impl Default for IPV6_OPTION_JUMBOGRAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IPV6_OPTION_ROUTER_ALERT {
     pub Header: IPV6_OPTION_HEADER,
     pub Value: [u8; 2],
+}
+impl Default for IPV6_OPTION_ROUTER_ALERT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IPV6_OPTION_TYPE = i32;
 pub const IPV6_PKTINFO: i32 = 19i32;
@@ -1714,8 +2135,13 @@ pub union IPV6_ROUTER_ADVERTISEMENT_FLAGS {
     pub Anonymous: IPV6_ROUTER_ADVERTISEMENT_FLAGS_0,
     pub Value: u8,
 }
+impl Default for IPV6_ROUTER_ADVERTISEMENT_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 {
     pub _bitfield: u8,
 }
@@ -1727,6 +2153,11 @@ pub struct IPV6_ROUTING_HEADER {
     pub RoutingType: u8,
     pub SegmentsLeft: u8,
     pub Reserved: [u8; 4],
+}
+impl Default for IPV6_ROUTING_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IPV6_RTHDR: i32 = 32i32;
 pub const IPV6_TCLASS: i32 = 39i32;
@@ -1750,6 +2181,11 @@ pub struct IPX_ADDRESS_DATA {
     pub maxpkt: i32,
     pub linkspeed: u32,
 }
+impl Default for IPX_ADDRESS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPX_ADDRESS_NOTIFY: i32 = 16396i32;
 pub const IPX_DSTYPE: i32 = 16386i32;
 pub const IPX_EXTENDED_ADDRESS: i32 = 16388i32;
@@ -1767,6 +2203,11 @@ pub struct IPX_NETNUM_DATA {
     pub netdelay: u16,
     pub cardnum: i32,
     pub router: [u8; 6],
+}
+impl Default for IPX_NETNUM_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IPX_PTYPE: i32 = 16384i32;
 pub const IPX_RECEIVE_BROADCAST: i32 = 16399i32;
@@ -1794,6 +2235,11 @@ pub struct IPX_SPXCONNSTATUS_DATA {
     pub RetransmittedPackets: u16,
     pub SuppressedPacket: u16,
 }
+impl Default for IPX_SPXCONNSTATUS_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IPX_SPXGETCONNECTIONSTATUS: i32 = 16395i32;
 pub const IPX_STOPFILTERPTYPE: i32 = 16387i32;
 pub const IP_ADD_IFLIST: i32 = 29i32;
@@ -1818,12 +2264,22 @@ pub struct IP_MREQ {
     pub imr_multiaddr: IN_ADDR,
     pub imr_interface: IN_ADDR,
 }
+impl Default for IP_MREQ {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IP_MREQ_SOURCE {
     pub imr_multiaddr: IN_ADDR,
     pub imr_sourceaddr: IN_ADDR,
     pub imr_interface: IN_ADDR,
+}
+impl Default for IP_MREQ_SOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1833,6 +2289,11 @@ pub struct IP_MSFILTER {
     pub imsf_fmode: MULTICAST_MODE_TYPE,
     pub imsf_numsrc: u32,
     pub imsf_slist: [IN_ADDR; 1],
+}
+impl Default for IP_MSFILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IP_MTU: i32 = 73i32;
 pub const IP_MTU_DISCOVER: i32 = 71i32;
@@ -1938,7 +2399,7 @@ pub const JL_RECEIVER_ONLY: u32 = 2u32;
 pub const JL_SENDER_ONLY: u32 = 1u32;
 pub const LAYERED_PROTOCOL: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINGER {
     pub l_onoff: u16,
     pub l_linger: u16,
@@ -1966,7 +2427,7 @@ pub const LM_HB2_FileServer: i32 = 2i32;
 pub const LM_HB2_Telephony: i32 = 1i32;
 pub const LM_HB_Extension: i32 = 128i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LM_IRPARMS {
     pub nTXDataBytes: u32,
     pub nRXDataBytes: u32,
@@ -2213,14 +2674,24 @@ pub struct MLDV2_QUERY_HEADER {
     pub Anonymous2: MLDV2_QUERY_HEADER_1,
     pub SourceCount: u16,
 }
+impl Default for MLDV2_QUERY_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MLDV2_QUERY_HEADER_0 {
     pub MaxRespCode: u16,
     pub Anonymous: MLDV2_QUERY_HEADER_0_0,
 }
+impl Default for MLDV2_QUERY_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MLDV2_QUERY_HEADER_0_0 {
     pub _bitfield: u16,
 }
@@ -2230,13 +2701,18 @@ pub union MLDV2_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: MLDV2_QUERY_HEADER_1_0,
 }
+impl Default for MLDV2_QUERY_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MLDV2_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MLDV2_REPORT_HEADER {
     pub IcmpHeader: ICMP_HEADER,
     pub Reserved: u16,
@@ -2250,6 +2726,11 @@ pub struct MLDV2_REPORT_RECORD_HEADER {
     pub SourceCount: u16,
     pub MulticastAddress: IN6_ADDR,
 }
+impl Default for MLDV2_REPORT_RECORD_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MLD_HEADER {
@@ -2257,6 +2738,11 @@ pub struct MLD_HEADER {
     pub MaxRespTime: u16,
     pub Reserved: u16,
     pub MulticastAddress: IN6_ADDR,
+}
+impl Default for MLD_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MLD_MAX_RESP_CODE_TYPE = i32;
 pub const MLD_MAX_RESP_CODE_TYPE_FLOAT: MLD_MAX_RESP_CODE_TYPE = 1i32;
@@ -2276,7 +2762,7 @@ pub const MSG_TRUNC: u32 = 256u32;
 pub const MSG_WAITALL: SEND_RECV_FLAGS = 8i32;
 pub type MULTICAST_MODE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NAPI_DOMAIN_DESCRIPTION_BLOB {
     pub AuthLevel: u32,
     pub cchDomainName: u32,
@@ -2284,7 +2770,7 @@ pub struct NAPI_DOMAIN_DESCRIPTION_BLOB {
     pub OffsetThisDomainName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NAPI_PROVIDER_INSTALLATION_BLOB {
     pub dwVersion: u32,
     pub dwProviderType: u32,
@@ -2303,14 +2789,24 @@ pub struct ND_NEIGHBOR_ADVERT_HEADER {
     pub nd_na_hdr: ICMP_MESSAGE,
     pub nd_na_target: IN6_ADDR,
 }
+impl Default for ND_NEIGHBOR_ADVERT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ND_NEIGHBOR_SOLICIT_HEADER {
     pub nd_ns_hdr: ICMP_MESSAGE,
     pub nd_ns_target: IN6_ADDR,
 }
+impl Default for ND_NEIGHBOR_SOLICIT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ND_OPTION_DNSSL {
     pub nd_opt_dnssl_type: u8,
     pub nd_opt_dnssl_len: u8,
@@ -2318,13 +2814,13 @@ pub struct ND_OPTION_DNSSL {
     pub nd_opt_dnssl_lifetime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ND_OPTION_HDR {
     pub nd_opt_type: u8,
     pub nd_opt_len: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ND_OPTION_MTU {
     pub nd_opt_mtu_type: u8,
     pub nd_opt_mtu_len: u8,
@@ -2343,14 +2839,24 @@ pub struct ND_OPTION_PREFIX_INFO {
     pub Anonymous2: ND_OPTION_PREFIX_INFO_1,
     pub nd_opt_pi_prefix: IN6_ADDR,
 }
+impl Default for ND_OPTION_PREFIX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ND_OPTION_PREFIX_INFO_0 {
     pub nd_opt_pi_flags_reserved: u8,
     pub Flags: ND_OPTION_PREFIX_INFO_0_0,
 }
+impl Default for ND_OPTION_PREFIX_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ND_OPTION_PREFIX_INFO_0_0 {
     pub _bitfield: u8,
 }
@@ -2360,14 +2866,24 @@ pub union ND_OPTION_PREFIX_INFO_1 {
     pub nd_opt_pi_reserved2: u32,
     pub Anonymous: ND_OPTION_PREFIX_INFO_1_0,
 }
+impl Default for ND_OPTION_PREFIX_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ND_OPTION_PREFIX_INFO_1_0 {
     pub nd_opt_pi_reserved3: [u8; 3],
     pub nd_opt_pi_site_prefix_len: u8,
 }
+impl Default for ND_OPTION_PREFIX_INFO_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ND_OPTION_RDNSS {
     pub nd_opt_rdnss_type: u8,
     pub nd_opt_rdnss_len: u8,
@@ -2375,7 +2891,7 @@ pub struct ND_OPTION_RDNSS {
     pub nd_opt_rdnss_lifetime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ND_OPTION_RD_HDR {
     pub nd_opt_rh_type: u8,
     pub nd_opt_rh_len: u8,
@@ -2392,14 +2908,24 @@ pub struct ND_OPTION_ROUTE_INFO {
     pub nd_opt_ri_route_lifetime: u32,
     pub nd_opt_ri_prefix: IN6_ADDR,
 }
+impl Default for ND_OPTION_ROUTE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ND_OPTION_ROUTE_INFO_0 {
     pub nd_opt_ri_flags_reserved: u8,
     pub Flags: ND_OPTION_ROUTE_INFO_0_0,
 }
+impl Default for ND_OPTION_ROUTE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ND_OPTION_ROUTE_INFO_0_0 {
     pub _bitfield: u8,
 }
@@ -2436,6 +2962,11 @@ pub struct ND_REDIRECT_HEADER {
     pub nd_rd_target: IN6_ADDR,
     pub nd_rd_dst: IN6_ADDR,
 }
+impl Default for ND_REDIRECT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ND_ROUTER_ADVERT_HEADER {
@@ -2443,10 +2974,20 @@ pub struct ND_ROUTER_ADVERT_HEADER {
     pub nd_ra_reachable: u32,
     pub nd_ra_retransmit: u32,
 }
+impl Default for ND_ROUTER_ADVERT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ND_ROUTER_SOLICIT_HEADER {
     pub nd_rs_hdr: ICMP_MESSAGE,
+}
+impl Default for ND_ROUTER_SOLICIT_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NETBIOS_GROUP_NAME: u32 = 1u32;
 pub const NETBIOS_NAME_LENGTH: u32 = 16u32;
@@ -2468,6 +3009,11 @@ pub struct NETRESOURCE2A {
     pub dwProtocols: u32,
     pub lpiProtocols: *mut i32,
 }
+impl Default for NETRESOURCE2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NETRESOURCE2W {
@@ -2482,6 +3028,11 @@ pub struct NETRESOURCE2W {
     pub ServiceType: windows_sys::core::GUID,
     pub dwProtocols: u32,
     pub lpiProtocols: *mut i32,
+}
+impl Default for NETRESOURCE2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NI_DGRAM: u32 = 16u32;
 pub const NI_MAXHOST: u32 = 1025u32;
@@ -2498,6 +3049,11 @@ pub struct NLA_BLOB {
     pub header: NLA_BLOB_0,
     pub data: NLA_BLOB_1,
 }
+impl Default for NLA_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NLA_BLOB_1 {
@@ -2507,8 +3063,13 @@ pub union NLA_BLOB_1 {
     pub connectivity: NLA_BLOB_1_2,
     pub ICS: NLA_BLOB_1_3,
 }
+impl Default for NLA_BLOB_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NLA_BLOB_1_3 {
     pub remote: NLA_BLOB_1_3_0,
 }
@@ -2521,8 +3082,13 @@ pub struct NLA_BLOB_1_3_0 {
     pub machineName: [u16; 256],
     pub sharedAdapterName: [u16; 256],
 }
+impl Default for NLA_BLOB_1_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NLA_BLOB_1_2 {
     pub r#type: NLA_CONNECTIVITY_TYPE,
     pub internet: NLA_INTERNET,
@@ -2534,13 +3100,23 @@ pub struct NLA_BLOB_1_0 {
     pub dwSpeed: u32,
     pub adapterName: [i8; 1],
 }
+impl Default for NLA_BLOB_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NLA_BLOB_1_1 {
     pub information: [i8; 1],
 }
+impl Default for NLA_BLOB_1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NLA_BLOB_0 {
     pub r#type: NLA_BLOB_DATA_TYPE,
     pub dwSize: u32,
@@ -2566,7 +3142,7 @@ pub const NLA_SERVICE_CLASS_GUID: windows_sys::core::GUID = windows_sys::core::G
 pub type NL_ADDRESS_TYPE = i32;
 pub type NL_BANDWIDTH_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NL_BANDWIDTH_INFORMATION {
     pub Bandwidth: u64,
     pub Instability: u64,
@@ -2575,7 +3151,7 @@ pub struct NL_BANDWIDTH_INFORMATION {
 pub type NL_DAD_STATE = i32;
 pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
     pub _bitfield: u8,
 }
@@ -2584,7 +3160,7 @@ pub type NL_NEIGHBOR_STATE = i32;
 pub type NL_NETWORK_CATEGORY = i32;
 pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
     pub ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
@@ -2594,7 +3170,7 @@ pub struct NL_NETWORK_CONNECTIVITY_HINT {
 }
 pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NL_PATH_BANDWIDTH_ROD {
     pub Bandwidth: u64,
     pub Instability: u64,
@@ -2612,11 +3188,21 @@ pub struct NPI_MODULEID {
     pub Type: NPI_MODULEID_TYPE,
     pub Anonymous: NPI_MODULEID_0,
 }
+impl Default for NPI_MODULEID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NPI_MODULEID_0 {
     pub Guid: windows_sys::core::GUID,
     pub IfLuid: super::super::Foundation::LUID,
+}
+impl Default for NPI_MODULEID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type NPI_MODULEID_TYPE = i32;
 pub const NSPROTO_IPX: u32 = 1000u32;
@@ -2624,7 +3210,7 @@ pub const NSPROTO_SPX: u32 = 1256u32;
 pub const NSPROTO_SPXII: u32 = 1257u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NSPV2_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -2644,7 +3230,7 @@ pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0i32;
 pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NSP_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -2675,12 +3261,22 @@ pub struct NS_INFOA {
     pub dwNameSpaceFlags: u32,
     pub lpNameSpace: windows_sys::core::PSTR,
 }
+impl Default for NS_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NS_INFOW {
     pub dwNameSpace: u32,
     pub dwNameSpaceFlags: u32,
     pub lpNameSpace: windows_sys::core::PWSTR,
+}
+impl Default for NS_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NS_LOCALNAME: u32 = 19u32;
 pub const NS_MS: u32 = 30u32;
@@ -2696,14 +3292,14 @@ pub const NS_PEER_BROWSE: u32 = 3u32;
 pub const NS_SAP: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NS_SERVICE_INFOA {
     pub dwNameSpace: u32,
     pub ServiceInfo: SERVICE_INFOA,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NS_SERVICE_INFOW {
     pub dwNameSpace: u32,
     pub ServiceInfo: SERVICE_INFOW,
@@ -2813,7 +3409,7 @@ pub const POLLRDNORM: WSAPOLL_EVENT_FLAGS = 256i16;
 pub const POLLWRBAND: WSAPOLL_EVENT_FLAGS = 32i16;
 pub const POLLWRNORM: WSAPOLL_EVENT_FLAGS = 16i16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PRIORITY_STATUS {
     pub Sender: SOCKET_PRIORITY_HINT,
     pub Receiver: SOCKET_PRIORITY_HINT,
@@ -2843,6 +3439,11 @@ pub struct PROTOCOL_INFOA {
     pub dwMessageSize: u32,
     pub lpProtocol: windows_sys::core::PSTR,
 }
+impl Default for PROTOCOL_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROTOCOL_INFOW {
@@ -2855,12 +3456,22 @@ pub struct PROTOCOL_INFOW {
     pub dwMessageSize: u32,
     pub lpProtocol: windows_sys::core::PWSTR,
 }
+impl Default for PROTOCOL_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROTOENT {
     pub p_name: windows_sys::core::PSTR,
     pub p_aliases: *mut *mut i8,
     pub p_proto: i16,
+}
+impl Default for PROTOENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PROTO_IP_BBN: NL_ROUTE_PROTOCOL = 12i32;
 pub const PROTO_IP_BGP: NL_ROUTE_PROTOCOL = 14i32;
@@ -2899,9 +3510,14 @@ pub struct Q2931_IE {
     pub IELength: u32,
     pub IE: [u8; 1],
 }
+impl Default for Q2931_IE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type Q2931_IE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct QOS {
     pub SendingFlowspec: FLOWSPEC,
     pub ReceivingFlowspec: FLOWSPEC,
@@ -2913,7 +3529,7 @@ pub const QOS_CLASS2: u32 = 2u32;
 pub const QOS_CLASS3: u32 = 3u32;
 pub const QOS_CLASS4: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RCVALL_IF {
     pub Mode: RCVALL_VALUE,
     pub Interface: u32,
@@ -2926,20 +3542,20 @@ pub type RCVALL_VALUE = i32;
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b59819a_5cae_492d_a901_2a3c2c50164f);
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6843da03_154a_4616_a508_44371295f96b);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_sys::core::GUID,
     pub Unmark: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
     pub ChannelStatus: CONTROL_CHANNEL_TRIGGER_STATUS,
 }
@@ -2961,7 +3577,7 @@ pub const RES_SERVICE: u32 = 4u32;
 pub const RES_SOFT_SEARCH: u32 = 1u32;
 pub const RES_UNUSED_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIORESULT {
     pub Status: i32,
     pub BytesTransferred: u32,
@@ -2969,7 +3585,7 @@ pub struct RIORESULT {
     pub RequestContext: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIO_BUF {
     pub BufferId: RIO_BUFFERID,
     pub Offset: u32,
@@ -2977,7 +3593,7 @@ pub struct RIO_BUF {
 }
 pub type RIO_BUFFERID = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIO_CMSG_BUFFER {
     pub TotalLength: u32,
 }
@@ -2985,7 +3601,7 @@ pub const RIO_CORRUPT_CQ: u32 = 4294967295u32;
 pub type RIO_CQ = isize;
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RIO_EXTENSION_FUNCTION_TABLE {
     pub cbSize: u32,
     pub RIOReceive: LPFN_RIORECEIVE,
@@ -3014,17 +3630,32 @@ pub struct RIO_NOTIFICATION_COMPLETION {
     pub Type: RIO_NOTIFICATION_COMPLETION_TYPE,
     pub Anonymous: RIO_NOTIFICATION_COMPLETION_0,
 }
+impl Default for RIO_NOTIFICATION_COMPLETION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RIO_NOTIFICATION_COMPLETION_0 {
     pub Event: RIO_NOTIFICATION_COMPLETION_0_0,
     pub Iocp: RIO_NOTIFICATION_COMPLETION_0_1,
 }
+impl Default for RIO_NOTIFICATION_COMPLETION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_0 {
     pub EventHandle: super::super::Foundation::HANDLE,
     pub NotifyReset: windows_sys::core::BOOL,
+}
+impl Default for RIO_NOTIFICATION_COMPLETION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3033,12 +3664,17 @@ pub struct RIO_NOTIFICATION_COMPLETION_0_1 {
     pub CompletionKey: *mut core::ffi::c_void,
     pub Overlapped: *mut core::ffi::c_void,
 }
+impl Default for RIO_NOTIFICATION_COMPLETION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type RIO_NOTIFICATION_COMPLETION_TYPE = i32;
 pub type RIO_RQ = isize;
 pub const RM_ADD_RECEIVE_IF: i32 = 1008i32;
 pub const RM_DEL_RECEIVE_IF: i32 = 1009i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RM_FEC_INFO {
     pub FECBlockSize: u16,
     pub FECProActivePackets: u16,
@@ -3052,7 +3688,7 @@ pub const RM_OPTIONSBASE: i32 = 1000i32;
 pub const RM_RATE_WINDOW_SIZE: i32 = 1001i32;
 pub const RM_RECEIVER_STATISTICS: i32 = 1013i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RM_RECEIVER_STATS {
     pub NumODataPacketsReceived: u64,
     pub NumRDataPacketsReceived: u64,
@@ -3075,7 +3711,7 @@ pub struct RM_RECEIVER_STATS {
 }
 pub const RM_SENDER_STATISTICS: i32 = 1005i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RM_SENDER_STATS {
     pub DataBytesSent: u64,
     pub TotalBytesSent: u64,
@@ -3093,7 +3729,7 @@ pub struct RM_SENDER_STATS {
 }
 pub const RM_SENDER_WINDOW_ADVANCE_METHOD: i32 = 1004i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RM_SEND_WINDOW {
     pub RateKbitsPerSec: u32,
     pub WindowSizeInMSecs: u32,
@@ -3108,7 +3744,7 @@ pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = 2i32;
 pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = 1i32;
 pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RSS_SCALABILITY_INFO {
     pub RssEnabled: bool,
 }
@@ -3144,14 +3780,24 @@ pub const SAP_FIELD_ANY_AESA_SEL: u32 = 4294967290u32;
 pub struct SCOPE_ID {
     pub Anonymous: SCOPE_ID_0,
 }
+impl Default for SCOPE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SCOPE_ID_0 {
     pub Anonymous: SCOPE_ID_0_0,
     pub Value: u32,
 }
+impl Default for SCOPE_ID_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SCOPE_ID_0_0 {
     pub _bitfield: u32,
 }
@@ -3174,6 +3820,12 @@ pub struct SERVENT {
     pub s_port: i16,
     pub s_proto: windows_sys::core::PSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for SERVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -3182,6 +3834,12 @@ pub struct SERVENT {
     pub s_aliases: *mut *mut i8,
     pub s_proto: windows_sys::core::PSTR,
     pub s_port: i16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SERVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3193,11 +3851,21 @@ pub struct SERVICE_ADDRESS {
     pub lpAddress: *mut u8,
     pub lpPrincipal: *mut u8,
 }
+impl Default for SERVICE_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVICE_ADDRESSES {
     pub dwAddressCount: u32,
     pub Addresses: [SERVICE_ADDRESS; 1],
+}
+impl Default for SERVICE_ADDRESSES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_ADDRESS_FLAG_RPC_CN: u32 = 1u32;
 pub const SERVICE_ADDRESS_FLAG_RPC_DG: u32 = 2u32;
@@ -3209,6 +3877,11 @@ pub struct SERVICE_ASYNC_INFO {
     pub lpServiceCallbackProc: LPSERVICE_CALLBACK_PROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub hAsyncTaskHandle: super::super::Foundation::HANDLE,
+}
+impl Default for SERVICE_ASYNC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_DELETE_TYPE: SET_SERVICE_OPERATION = 5u32;
 pub const SERVICE_DEREGISTER: SET_SERVICE_OPERATION = 2u32;
@@ -3230,6 +3903,12 @@ pub struct SERVICE_INFOA {
     pub lpServiceAddress: *mut SERVICE_ADDRESSES,
     pub ServiceSpecificInfo: super::super::System::Com::BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SERVICE_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -3245,6 +3924,12 @@ pub struct SERVICE_INFOW {
     pub lpServiceAddress: *mut SERVICE_ADDRESSES,
     pub ServiceSpecificInfo: super::super::System::Com::BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SERVICE_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SERVICE_LOCAL: u32 = 4u32;
 pub const SERVICE_MULTIPLE: u32 = 1u32;
 pub const SERVICE_REGISTER: SET_SERVICE_OPERATION = 1u32;
@@ -3257,12 +3942,22 @@ pub struct SERVICE_TYPE_INFO {
     pub dwValueCount: u32,
     pub Values: [SERVICE_TYPE_VALUE; 1],
 }
+impl Default for SERVICE_TYPE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVICE_TYPE_INFO_ABSA {
     pub lpTypeName: windows_sys::core::PSTR,
     pub dwValueCount: u32,
     pub Values: [SERVICE_TYPE_VALUE_ABSA; 1],
+}
+impl Default for SERVICE_TYPE_INFO_ABSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3271,8 +3966,13 @@ pub struct SERVICE_TYPE_INFO_ABSW {
     pub dwValueCount: u32,
     pub Values: [SERVICE_TYPE_VALUE_ABSW; 1],
 }
+impl Default for SERVICE_TYPE_INFO_ABSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SERVICE_TYPE_VALUE {
     pub dwNameSpace: u32,
     pub dwValueType: u32,
@@ -3289,6 +3989,11 @@ pub struct SERVICE_TYPE_VALUE_ABSA {
     pub lpValueName: windows_sys::core::PSTR,
     pub lpValue: *mut core::ffi::c_void,
 }
+impl Default for SERVICE_TYPE_VALUE_ABSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERVICE_TYPE_VALUE_ABSW {
@@ -3297,6 +4002,11 @@ pub struct SERVICE_TYPE_VALUE_ABSW {
     pub dwValueSize: u32,
     pub lpValueName: windows_sys::core::PWSTR,
     pub lpValue: *mut core::ffi::c_void,
+}
+impl Default for SERVICE_TYPE_VALUE_ABSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_TYPE_VALUE_CONN: windows_sys::core::PCWSTR = windows_sys::core::w!("ConnectionOriented");
 pub const SERVICE_TYPE_VALUE_CONNA: windows_sys::core::PCSTR = windows_sys::core::s!("ConnectionOriented");
@@ -3424,6 +4134,11 @@ pub struct SNAP_HEADER {
     pub Oui: [u8; 3],
     pub Type: u16,
 }
+impl Default for SNAP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SNAP_OUI: u32 = 0u32;
 pub const SNAP_SSAP: u32 = 170u32;
 #[repr(C)]
@@ -3432,8 +4147,13 @@ pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
     pub sa_data: [i8; 14],
 }
+impl Default for SOCKADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_ATM {
     pub satm_family: u16,
     pub satm_number: ATM_ADDRESS,
@@ -3447,6 +4167,11 @@ pub struct SOCKADDR_DL {
     pub sdl_data: [u8; 8],
     pub sdl_zero: [u8; 4],
 }
+impl Default for SOCKADDR_DL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN {
@@ -3454,6 +4179,11 @@ pub struct SOCKADDR_IN {
     pub sin_port: u16,
     pub sin_addr: IN_ADDR,
     pub sin_zero: [i8; 8],
+}
+impl Default for SOCKADDR_IN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3464,17 +4194,32 @@ pub struct SOCKADDR_IN6 {
     pub sin6_addr: IN6_ADDR,
     pub Anonymous: SOCKADDR_IN6_0,
 }
+impl Default for SOCKADDR_IN6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_IN6_0 {
     pub sin6_scope_id: u32,
     pub sin6_scope_struct: SCOPE_ID,
 }
+impl Default for SOCKADDR_IN6_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: *mut SOCKADDR_IN6,
     pub DestinationAddress: *mut SOCKADDR_IN6,
+}
+impl Default for SOCKADDR_IN6_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3485,12 +4230,22 @@ pub struct SOCKADDR_IN6_W2KSP1 {
     pub sin6_addr: IN6_ADDR,
     pub sin6_scope_id: u32,
 }
+impl Default for SOCKADDR_IN6_W2KSP1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SOCKADDR_INET {
     pub Ipv4: SOCKADDR_IN,
     pub Ipv6: SOCKADDR_IN6,
     pub si_family: ADDRESS_FAMILY,
+}
+impl Default for SOCKADDR_INET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3500,6 +4255,11 @@ pub struct SOCKADDR_IPX {
     pub sa_nodenum: [i8; 6],
     pub sa_socket: u16,
 }
+impl Default for SOCKADDR_IPX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_IRDA {
@@ -3507,12 +4267,22 @@ pub struct SOCKADDR_IRDA {
     pub irdaDeviceID: [u8; 4],
     pub irdaServiceName: [i8; 25],
 }
+impl Default for SOCKADDR_IRDA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_NB {
     pub snb_family: i16,
     pub snb_type: u16,
     pub snb_name: [i8; 16],
+}
+impl Default for SOCKADDR_NB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3522,6 +4292,11 @@ pub struct SOCKADDR_STORAGE {
     pub __ss_align: i64,
     pub __ss_pad2: [i8; 112],
 }
+impl Default for SOCKADDR_STORAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_STORAGE_XP {
@@ -3529,6 +4304,11 @@ pub struct SOCKADDR_STORAGE_XP {
     pub __ss_pad1: [i8; 6],
     pub __ss_align: i64,
     pub __ss_pad2: [i8; 112],
+}
+impl Default for SOCKADDR_STORAGE_XP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3539,11 +4319,21 @@ pub struct SOCKADDR_TP {
     pub tp_tsel_len: u16,
     pub tp_addr: [u8; 64],
 }
+impl Default for SOCKADDR_TP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKADDR_UN {
     pub sun_family: ADDRESS_FAMILY,
     pub sun_path: [i8; 108],
+}
+impl Default for SOCKADDR_UN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3555,6 +4345,11 @@ pub struct SOCKADDR_VNS {
     pub hops: u8,
     pub filler: [u8; 5],
 }
+impl Default for SOCKADDR_VNS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SOCKET = usize;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3562,11 +4357,21 @@ pub struct SOCKET_ADDRESS {
     pub lpSockaddr: *mut SOCKADDR,
     pub iSockaddrLength: i32,
 }
+impl Default for SOCKET_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SOCKET_ADDRESS_LIST {
     pub iAddressCount: i32,
     pub Address: [SOCKET_ADDRESS; 1],
+}
+impl Default for SOCKET_ADDRESS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SOCKET_DEFAULT2_QM_POLICY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaec2ef9c_3a4d_4d3e_8842_239942e39a47);
 pub const SOCKET_ERROR: i32 = -1i32;
@@ -3581,10 +4386,15 @@ pub struct SOCKET_PEER_TARGET_NAME {
     pub PeerTargetNameStringLen: u32,
     pub AllStrings: [u16; 1],
 }
+impl Default for SOCKET_PEER_TARGET_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type SOCKET_PRIORITY_HINT = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKET_PROCESSOR_AFFINITY {
     pub Processor: super::super::System::Kernel::PROCESSOR_NUMBER,
     pub NumaNodeId: u16,
@@ -3599,7 +4409,7 @@ pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = 3i32;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = 1i32;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_INFO {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub Flags: u32,
@@ -3607,7 +4417,7 @@ pub struct SOCKET_SECURITY_QUERY_INFO {
     pub PeerMachineAccessTokenHandle: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub Flags: u32,
@@ -3619,14 +4429,14 @@ pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SaLookupContext: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
     pub PeerTokenAccessMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
@@ -3635,7 +4445,7 @@ pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub FieldMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_SETTINGS {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub SecurityFlags: u32,
@@ -3654,6 +4464,11 @@ pub struct SOCKET_SECURITY_SETTINGS_IPSEC {
     pub DomainNameStringLen: u32,
     pub PasswordStringLen: u32,
     pub AllStrings: [u16; 1],
+}
+impl Default for SOCKET_SECURITY_SETTINGS_IPSEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SOCKET_SETTINGS_ALLOW_INSECURE: u32 = 2u32;
 pub const SOCKET_SETTINGS_GUARANTEE_ENCRYPTION: u32 = 1u32;
@@ -3685,6 +4500,11 @@ pub struct SOCK_NOTIFY_REGISTRATION {
     pub operation: u8,
     pub triggerFlags: u8,
     pub registrationResult: u32,
+}
+impl Default for SOCK_NOTIFY_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SOCK_NOTIFY_TRIGGER_EDGE: u32 = 8u32;
 pub const SOCK_NOTIFY_TRIGGER_LEVEL: u32 = 4u32;
@@ -3778,7 +4598,7 @@ pub const TCPSTATE_SYN_RCVD: TCPSTATE = 3i32;
 pub const TCPSTATE_SYN_SENT: TCPSTATE = 2i32;
 pub const TCPSTATE_TIME_WAIT: TCPSTATE = 10i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS {
     pub TcpDelayedAckFrequency: u8,
 }
@@ -3790,7 +4610,7 @@ pub const TCP_EXPEDITED_1122: i32 = 2i32;
 pub const TCP_FAIL_CONNECT_ON_ICMP_ERROR: i32 = 18i32;
 pub const TCP_FASTOPEN: i32 = 15i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_HDR {
     pub th_sport: u16,
     pub th_dport: u16,
@@ -3812,12 +4632,12 @@ pub const TCP_ICW_LEVEL_HIGH: TCP_ICW_LEVEL = 1i32;
 pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = 255i32;
 pub const TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_ICW_PARAMETERS {
     pub Level: TCP_ICW_LEVEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_INFO_v0 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -3840,7 +4660,7 @@ pub struct TCP_INFO_v0 {
     pub SynRetrans: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_INFO_v1 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -3875,7 +4695,7 @@ pub const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0u32;
 pub const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0u32;
 pub const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u16 = 65534u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_INITIAL_RTO_PARAMETERS {
     pub Rtt: u16,
     pub MaxSynRetransmissions: u8,
@@ -3902,8 +4722,13 @@ pub struct TCP_OPT_FASTOPEN {
     pub Length: u8,
     pub Cookie: [u8; 1],
 }
+impl Default for TCP_OPT_FASTOPEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_MSS {
     pub Kind: u8,
     pub Length: u8,
@@ -3916,20 +4741,25 @@ pub struct TCP_OPT_SACK {
     pub Length: u8,
     pub Block: [TCP_OPT_SACK_0; 1],
 }
+impl Default for TCP_OPT_SACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_SACK_0 {
     pub Left: u32,
     pub Right: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_SACK_PERMITTED {
     pub Kind: u8,
     pub Length: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_TS {
     pub Kind: u8,
     pub Length: u8,
@@ -3937,13 +4767,13 @@ pub struct TCP_OPT_TS {
     pub EcR: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_UNKNOWN {
     pub Kind: u8,
     pub Length: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_WS {
     pub Kind: u8,
     pub Length: u8,
@@ -3976,7 +4806,7 @@ pub const TH_SYN: u32 = 2u32;
 pub const TH_TAPI: u32 = 2u32;
 pub const TH_URG: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIMESTAMPING_CONFIG {
     pub Flags: u32,
     pub TxTimestampsBuffered: u16,
@@ -3984,7 +4814,7 @@ pub struct TIMESTAMPING_CONFIG {
 pub const TIMESTAMPING_FLAG_RX: u32 = 1u32;
 pub const TIMESTAMPING_FLAG_TX: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
@@ -4007,6 +4837,11 @@ pub struct TRANSMIT_FILE_BUFFERS {
     pub Tail: *mut core::ffi::c_void,
     pub TailLength: u32,
 }
+impl Default for TRANSMIT_FILE_BUFFERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TRANSMIT_PACKETS_ELEMENT {
@@ -4014,11 +4849,21 @@ pub struct TRANSMIT_PACKETS_ELEMENT {
     pub cLength: u32,
     pub Anonymous: TRANSMIT_PACKETS_ELEMENT_0,
 }
+impl Default for TRANSMIT_PACKETS_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TRANSMIT_PACKETS_ELEMENT_0 {
     pub Anonymous: TRANSMIT_PACKETS_ELEMENT_0_0,
     pub pBuffer: *mut core::ffi::c_void,
+}
+impl Default for TRANSMIT_PACKETS_ELEMENT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4026,8 +4871,13 @@ pub struct TRANSMIT_PACKETS_ELEMENT_0_0 {
     pub nFileOffset: i64,
     pub hFile: super::super::Foundation::HANDLE,
 }
+impl Default for TRANSMIT_PACKETS_ELEMENT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSPORT_SETTING_ID {
     pub Guid: windows_sys::core::GUID,
 }
@@ -4056,14 +4906,24 @@ pub struct VLAN_TAG {
     pub Anonymous: VLAN_TAG_0,
     pub Type: u16,
 }
+impl Default for VLAN_TAG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VLAN_TAG_0 {
     pub Tag: u16,
     pub Anonymous: VLAN_TAG_0_0,
 }
+impl Default for VLAN_TAG_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VLAN_TAG_0_0 {
     pub _bitfield: u16,
 }
@@ -4077,12 +4937,22 @@ pub struct WCE_DEVICELIST {
     pub numDevice: u32,
     pub Device: [WCE_IRDA_DEVICE_INFO; 1],
 }
+impl Default for WCE_DEVICELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WCE_IRDA_DEVICE_INFO {
     pub irdaDeviceID: [u8; 4],
     pub irdaDeviceName: [i8; 22],
     pub Reserved: [u8; 2],
+}
+impl Default for WCE_IRDA_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WCE_PF_IRDA: u32 = 22u32;
 pub const WINDOWS_AF_IRDA: u32 = 26u32;
@@ -4091,6 +4961,11 @@ pub const WINDOWS_AF_IRDA: u32 = 26u32;
 pub struct WINDOWS_DEVICELIST {
     pub numDevice: u32,
     pub Device: [WINDOWS_IRDA_DEVICE_INFO; 1],
+}
+impl Default for WINDOWS_DEVICELIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4101,6 +4976,11 @@ pub struct WINDOWS_IAS_QUERY {
     pub irdaAttribType: u32,
     pub irdaAttribute: WINDOWS_IAS_QUERY_0,
 }
+impl Default for WINDOWS_IAS_QUERY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINDOWS_IAS_QUERY_0 {
@@ -4108,11 +4988,21 @@ pub union WINDOWS_IAS_QUERY_0 {
     pub irdaAttribOctetSeq: WINDOWS_IAS_QUERY_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_QUERY_0_1,
 }
+impl Default for WINDOWS_IAS_QUERY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINDOWS_IAS_QUERY_0_0 {
     pub Len: u32,
     pub OctetSeq: [u8; 1024],
+}
+impl Default for WINDOWS_IAS_QUERY_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4120,6 +5010,11 @@ pub struct WINDOWS_IAS_QUERY_0_1 {
     pub Len: u32,
     pub CharSet: u32,
     pub UsrStr: [u8; 256],
+}
+impl Default for WINDOWS_IAS_QUERY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4129,6 +5024,11 @@ pub struct WINDOWS_IAS_SET {
     pub irdaAttribType: u32,
     pub irdaAttribute: WINDOWS_IAS_SET_0,
 }
+impl Default for WINDOWS_IAS_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINDOWS_IAS_SET_0 {
@@ -4136,11 +5036,21 @@ pub union WINDOWS_IAS_SET_0 {
     pub irdaAttribOctetSeq: WINDOWS_IAS_SET_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_SET_0_1,
 }
+impl Default for WINDOWS_IAS_SET_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINDOWS_IAS_SET_0_0 {
     pub Len: u16,
     pub OctetSeq: [u8; 1024],
+}
+impl Default for WINDOWS_IAS_SET_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4148,6 +5058,11 @@ pub struct WINDOWS_IAS_SET_0_1 {
     pub Len: u8,
     pub CharSet: u8,
     pub UsrStr: [u8; 256],
+}
+impl Default for WINDOWS_IAS_SET_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4157,6 +5072,11 @@ pub struct WINDOWS_IRDA_DEVICE_INFO {
     pub irdaDeviceHints1: u8,
     pub irdaDeviceHints2: u8,
     pub irdaCharSet: u8,
+}
+impl Default for WINDOWS_IRDA_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINDOWS_PF_IRDA: u32 = 26u32;
 pub type WINSOCK_SHUTDOWN_HOW = i32;
@@ -4168,12 +5088,23 @@ pub struct WSABUF {
     pub len: u32,
     pub buf: windows_sys::core::PSTR,
 }
+impl Default for WSABUF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
 pub struct WSACOMPLETION {
     pub Type: WSACOMPLETIONTYPE,
     pub Parameters: WSACOMPLETION_0,
+}
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -4184,6 +5115,12 @@ pub union WSACOMPLETION_0 {
     pub Apc: WSACOMPLETION_0_2,
     pub Port: WSACOMPLETION_0_3,
 }
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
@@ -4191,11 +5128,23 @@ pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
 pub struct WSACOMPLETION_0_1 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
+}
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -4205,6 +5154,12 @@ pub struct WSACOMPLETION_0_3 {
     pub hPort: super::super::Foundation::HANDLE,
     pub Key: usize,
 }
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
@@ -4212,6 +5167,12 @@ pub struct WSACOMPLETION_0_0 {
     pub hWnd: super::super::Foundation::HWND,
     pub uMsg: u32,
     pub context: super::super::Foundation::WPARAM,
+}
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WSACOMPLETIONTYPE = i32;
 #[repr(C)]
@@ -4226,6 +5187,12 @@ pub struct WSADATA {
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: windows_sys::core::PSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for WSADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4237,6 +5204,12 @@ pub struct WSADATA {
     pub lpVendorInfo: windows_sys::core::PSTR,
     pub szDescription: [i8; 257],
     pub szSystemStatus: [i8; 129],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for WSADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
 pub const WSAEACCES: WSA_ERROR = 10013i32;
@@ -4313,6 +5286,11 @@ pub struct WSAMSG {
     pub Control: WSABUF,
     pub dwFlags: u32,
 }
+impl Default for WSAMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSANAMESPACE_INFOA {
@@ -4321,6 +5299,11 @@ pub struct WSANAMESPACE_INFOA {
     pub fActive: windows_sys::core::BOOL,
     pub dwVersion: u32,
     pub lpszIdentifier: windows_sys::core::PSTR,
+}
+impl Default for WSANAMESPACE_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4333,6 +5316,12 @@ pub struct WSANAMESPACE_INFOEXA {
     pub lpszIdentifier: windows_sys::core::PSTR,
     pub ProviderSpecific: super::super::System::Com::BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for WSANAMESPACE_INFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -4344,6 +5333,12 @@ pub struct WSANAMESPACE_INFOEXW {
     pub lpszIdentifier: windows_sys::core::PWSTR,
     pub ProviderSpecific: super::super::System::Com::BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for WSANAMESPACE_INFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSANAMESPACE_INFOW {
@@ -4353,11 +5348,21 @@ pub struct WSANAMESPACE_INFOW {
     pub dwVersion: u32,
     pub lpszIdentifier: windows_sys::core::PWSTR,
 }
+impl Default for WSANAMESPACE_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSANETWORKEVENTS {
     pub lNetworkEvents: i32,
     pub iErrorCode: [i32; 10],
+}
+impl Default for WSANETWORKEVENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSANOTINITIALISED: WSA_ERROR = 10093i32;
 pub const WSANO_DATA: WSA_ERROR = 11004i32;
@@ -4371,6 +5376,11 @@ pub struct WSANSCLASSINFOA {
     pub dwValueSize: u32,
     pub lpValue: *mut core::ffi::c_void,
 }
+impl Default for WSANSCLASSINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSANSCLASSINFOW {
@@ -4380,6 +5390,11 @@ pub struct WSANSCLASSINFOW {
     pub dwValueSize: u32,
     pub lpValue: *mut core::ffi::c_void,
 }
+impl Default for WSANSCLASSINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSAPOLLDATA {
@@ -4388,8 +5403,13 @@ pub struct WSAPOLLDATA {
     pub timeout: i32,
     pub fdArray: [WSAPOLLFD; 1],
 }
+impl Default for WSAPOLLDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSAPOLLFD {
     pub fd: SOCKET,
     pub events: WSAPOLL_EVENT_FLAGS,
@@ -4401,6 +5421,11 @@ pub type WSAPOLL_EVENT_FLAGS = i16;
 pub struct WSAPROTOCOLCHAIN {
     pub ChainLen: i32,
     pub ChainEntries: [u32; 7],
+}
+impl Default for WSAPROTOCOLCHAIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4426,6 +5451,11 @@ pub struct WSAPROTOCOL_INFOA {
     pub dwProviderReserved: u32,
     pub szProtocol: [i8; 256],
 }
+impl Default for WSAPROTOCOL_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSAPROTOCOL_INFOW {
@@ -4450,6 +5480,11 @@ pub struct WSAPROTOCOL_INFOW {
     pub dwProviderReserved: u32,
     pub szProtocol: [u16; 256],
 }
+impl Default for WSAPROTOCOL_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WSAPROTOCOL_LEN: u32 = 255u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4470,6 +5505,12 @@ pub struct WSAQUERYSET2A {
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for WSAQUERYSET2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -4488,6 +5529,12 @@ pub struct WSAQUERYSET2W {
     pub lpcsaBuffer: *mut CSADDR_INFO,
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for WSAQUERYSET2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -4509,6 +5556,12 @@ pub struct WSAQUERYSETA {
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for WSAQUERYSETA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -4529,6 +5582,12 @@ pub struct WSAQUERYSETW {
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for WSAQUERYSETW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
@@ -4539,6 +5598,12 @@ pub struct WSASENDMSG {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSASENDMSG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSASERVICECLASSINFOA {
@@ -4547,6 +5612,11 @@ pub struct WSASERVICECLASSINFOA {
     pub dwCount: u32,
     pub lpClassInfos: *mut WSANSCLASSINFOA,
 }
+impl Default for WSASERVICECLASSINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WSASERVICECLASSINFOW {
@@ -4554,6 +5624,11 @@ pub struct WSASERVICECLASSINFOW {
     pub lpszServiceClassName: windows_sys::core::PWSTR,
     pub dwCount: u32,
     pub lpClassInfos: *mut WSANSCLASSINFOW,
+}
+impl Default for WSASERVICECLASSINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSASERVICE_NOT_FOUND: WSA_ERROR = 10108i32;
 pub const WSASYSCALLFAILURE: WSA_ERROR = 10107i32;
@@ -4565,18 +5640,23 @@ pub struct WSATHREADID {
     pub ThreadHandle: super::super::Foundation::HANDLE,
     pub Reserved: usize,
 }
+impl Default for WSATHREADID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WSATRY_AGAIN: WSA_ERROR = 11002i32;
 pub const WSATYPE_NOT_FOUND: WSA_ERROR = 10109i32;
 pub const WSAVERNOTSUPPORTED: WSA_ERROR = 10092i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSAVERSION {
     pub dwVersion: u32,
     pub ecHow: WSAECOMPARATOR,
 }
 pub type WSA_COMPATIBILITY_BEHAVIOR_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSA_COMPATIBILITY_MODE {
     pub BehaviorId: WSA_COMPATIBILITY_BEHAVIOR_ID,
     pub TargetOsVersion: u32,
@@ -4640,6 +5720,11 @@ pub struct WSC_PROVIDER_AUDIT_INFO {
     pub RecordSize: u32,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl Default for WSC_PROVIDER_AUDIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WSC_PROVIDER_INFO_TYPE = i32;
 pub const WSK_SO_BASE: u32 = 16384u32;
 #[repr(C)]
@@ -4649,10 +5734,15 @@ pub struct WSPDATA {
     pub wHighVersion: u16,
     pub szDescription: [u16; 256],
 }
+impl Default for WSPDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WSPDESCRIPTION_LEN: u32 = 255u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSPPROC_TABLE {
     pub lpWSPAccept: LPWSPACCEPT,
     pub lpWSPAddressToString: LPWSPADDRESSTOSTRING,
@@ -4686,7 +5776,7 @@ pub struct WSPPROC_TABLE {
     pub lpWSPStringToAddress: LPWSPSTRINGTOADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WSPUPCALLTABLE {
     pub lpWPUCloseEvent: LPWPUCLOSEEVENT,
     pub lpWPUCloseSocketHandle: LPWPUCLOSESOCKETHANDLE,
@@ -4755,12 +5845,22 @@ pub struct netent {
     pub n_addrtype: i16,
     pub n_net: u32,
 }
+impl Default for netent {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union sockaddr_gen {
     pub Address: SOCKADDR,
     pub AddressIn: SOCKADDR_IN,
     pub AddressIn6: sockaddr_in6_old,
+}
+impl Default for sockaddr_gen {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4770,15 +5870,20 @@ pub struct sockaddr_in6_old {
     pub sin6_flowinfo: u32,
     pub sin6_addr: IN6_ADDR,
 }
+impl Default for sockaddr_in6_old {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type socklen_t = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct sockproto {
     pub sp_family: u16,
     pub sp_protocol: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct tcp_keepalive {
     pub onoff: u32,
     pub keepalivetime: u32,

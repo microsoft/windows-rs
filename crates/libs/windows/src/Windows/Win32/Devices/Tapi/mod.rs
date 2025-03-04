@@ -1937,7 +1937,7 @@ pub struct DIRECTORY_TYPE(pub i32);
 pub struct DISCONNECT_CODE(pub i32);
 pub const DISPIDMASK: u32 = 65535u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTR {
     pub wYear: u16,
     pub wMonth: u16,
@@ -1946,11 +1946,6 @@ pub struct DTR {
     pub wMinute: u16,
     pub wSecond: u16,
     pub wDayOfWeek: u16,
-}
-impl Default for DTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
 pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
@@ -2136,6 +2131,7 @@ impl IEnumACDGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumACDGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2221,6 +2217,7 @@ impl IEnumAddress {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumAddress_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2233,7 +2230,7 @@ pub struct IEnumAddress_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAddress_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITAddress>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITAddress>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumAddress>;
@@ -2306,6 +2303,7 @@ impl IEnumAgent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumAgent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2391,6 +2389,7 @@ impl IEnumAgentHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumAgentHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2476,6 +2475,7 @@ impl IEnumAgentSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumAgentSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2560,6 +2560,7 @@ impl IEnumBstr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumBstr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2639,6 +2640,7 @@ impl IEnumCall {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCall_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2724,6 +2726,7 @@ impl IEnumCallHub {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCallHub_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2736,7 +2739,7 @@ pub struct IEnumCallHub_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallHub_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITCallHub>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITCallHub>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCallHub>;
@@ -2809,6 +2812,7 @@ impl IEnumCallingCard {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCallingCard_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2893,6 +2897,7 @@ impl IEnumDialableAddrs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDialableAddrs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2972,6 +2977,7 @@ impl IEnumDirectory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDirectory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2984,7 +2990,7 @@ pub struct IEnumDirectory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectory_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITDirectory>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITDirectory>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDirectory>;
@@ -3057,6 +3063,7 @@ impl IEnumDirectoryObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDirectoryObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3069,7 +3076,7 @@ pub struct IEnumDirectoryObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectoryObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, pval: windows_core::OutRef<'_, ITDirectoryObject>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, pval: *mut Option<ITDirectoryObject>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDirectoryObject>;
@@ -3142,6 +3149,7 @@ impl IEnumLocation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumLocation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3227,6 +3235,7 @@ impl IEnumMcastScope {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumMcastScope_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3312,6 +3321,7 @@ impl IEnumPhone {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumPhone_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3324,7 +3334,7 @@ pub struct IEnumPhone_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPhone_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPhone>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITPhone>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPhone>;
@@ -3397,6 +3407,7 @@ impl IEnumPluggableSuperclassInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumPluggableSuperclassInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3409,7 +3420,7 @@ pub struct IEnumPluggableSuperclassInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableSuperclassInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPluggableSuperclassInfo>;
@@ -3482,6 +3493,7 @@ impl IEnumPluggableTerminalClassInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumPluggableTerminalClassInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3494,7 +3506,7 @@ pub struct IEnumPluggableTerminalClassInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableTerminalClassInfo_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: windows_core::OutRef<'_, ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPluggableTerminalClassInfo>;
@@ -3567,6 +3579,7 @@ impl IEnumQueue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3652,6 +3665,7 @@ impl IEnumStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3737,6 +3751,7 @@ impl IEnumSubStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSubStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3822,6 +3837,7 @@ impl IEnumTerminal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTerminal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3906,6 +3922,7 @@ impl IEnumTerminalClass {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTerminalClass_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
@@ -4034,6 +4051,7 @@ impl IMcastAddressAllocation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMcastAddressAllocation_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4229,6 +4247,7 @@ impl IMcastLeaseInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMcastLeaseInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RequestID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4435,6 +4454,7 @@ impl IMcastScope {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMcastScope_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ScopeID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4566,6 +4586,7 @@ impl ITACDGroup {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITACDGroup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4661,6 +4682,7 @@ impl ITACDGroupEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITACDGroupEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4722,6 +4744,7 @@ impl ITAMMediaFormat {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAMMediaFormat_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -4805,6 +4828,7 @@ impl ITASRTerminalEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITASRTerminalEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Terminal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4971,6 +4995,7 @@ impl ITAddress {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAddress_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ADDRESS_STATE) -> windows_core::HRESULT,
@@ -5279,6 +5304,7 @@ impl ITAddress2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAddress2_Vtbl {
     pub base__: ITAddress_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5506,6 +5532,7 @@ impl ITAddressCapabilities {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAddressCapabilities_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub get_AddressCapability: unsafe extern "system" fn(*mut core::ffi::c_void, ADDRESS_CAPABILITY, *mut i32) -> windows_core::HRESULT,
@@ -5700,6 +5727,7 @@ impl ITAddressDeviceSpecificEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAddressDeviceSpecificEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5828,6 +5856,7 @@ impl ITAddressEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAddressEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5943,6 +5972,7 @@ impl ITAddressTranslation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAddressTranslation_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub TranslateAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6098,6 +6128,7 @@ impl ITAddressTranslationInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAddressTranslationInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DialableString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6313,6 +6344,7 @@ impl ITAgent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAgent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub EnumerateAgentSessions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6606,6 +6638,7 @@ impl ITAgentEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAgentEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Agent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6711,6 +6744,7 @@ impl ITAgentHandler {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAgentHandler_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6869,6 +6903,7 @@ impl ITAgentHandlerEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAgentHandlerEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AgentHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7033,6 +7068,7 @@ impl ITAgentSession {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAgentSession_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Agent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7329,6 +7365,7 @@ impl ITAgentSessionEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAgentSessionEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7412,6 +7449,7 @@ impl ITAllocatorProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAllocatorProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DirectShow")]
@@ -7673,6 +7711,7 @@ impl ITAutomatedPhoneControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITAutomatedPhoneControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub StartTone: unsafe extern "system" fn(*mut core::ffi::c_void, PHONE_TONE, i32) -> windows_core::HRESULT,
@@ -8107,6 +8146,7 @@ impl ITBasicAudioTerminal {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITBasicAudioTerminal_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -8256,6 +8296,7 @@ impl ITBasicCallControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITBasicCallControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -8477,6 +8518,7 @@ impl ITBasicCallControl2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITBasicCallControl2_Vtbl {
     pub base__: ITBasicCallControl_Vtbl,
     pub RequestTerminal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, TERMINAL_DIRECTION, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8573,6 +8615,7 @@ impl ITCallHub {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallHub_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8698,6 +8741,7 @@ impl ITCallHubEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallHubEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Event: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CALLHUB_EVENT) -> windows_core::HRESULT,
@@ -8840,6 +8884,7 @@ impl ITCallInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9049,6 +9094,7 @@ impl ITCallInfo2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallInfo2_Vtbl {
     pub base__: ITCallInfo_Vtbl,
     pub get_EventFilter: unsafe extern "system" fn(*mut core::ffi::c_void, TAPI_EVENT, i32, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -9126,6 +9172,7 @@ impl ITCallInfoChangeEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallInfoChangeEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9242,6 +9289,7 @@ impl ITCallMediaEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallMediaEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9385,6 +9433,7 @@ impl ITCallNotificationEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallNotificationEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9489,6 +9538,7 @@ impl ITCallStateEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallStateEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9626,6 +9676,7 @@ impl ITCallingCard {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCallingCard_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub PermanentCardID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9785,6 +9836,7 @@ impl ITCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -9875,6 +9927,7 @@ impl ITCollection2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCollection2_Vtbl {
     pub base__: ITCollection_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9963,6 +10016,7 @@ impl ITCustomTone {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITCustomTone_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Frequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10121,6 +10175,7 @@ impl ITDetectTone {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDetectTone_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AppSpecific: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10258,6 +10313,7 @@ impl ITDigitDetectionEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDigitDetectionEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10392,6 +10448,7 @@ impl ITDigitGenerationEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDigitGenerationEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10517,6 +10574,7 @@ impl ITDigitsGatheredEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDigitsGatheredEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10700,6 +10758,7 @@ impl ITDirectory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDirectory_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DirectoryType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIRECTORY_TYPE) -> windows_core::HRESULT,
@@ -10940,6 +10999,7 @@ impl ITDirectoryObject {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDirectoryObject_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ObjectType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIRECTORY_OBJECT_TYPE) -> windows_core::HRESULT,
@@ -11140,6 +11200,7 @@ impl ITDirectoryObjectConference {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDirectoryObjectConference_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Protocol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11367,6 +11428,7 @@ impl ITDirectoryObjectUser {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDirectoryObjectUser_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub IPPhonePrimary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11435,6 +11497,7 @@ impl ITDispatchMapper {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITDispatchMapper_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub QueryDispatchInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11518,6 +11581,7 @@ impl ITFileTerminalEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITFileTerminalEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Terminal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11678,6 +11742,7 @@ impl ITFileTrack {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITFileTrack_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -11827,6 +11892,7 @@ impl ITForwardInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITForwardInformation_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetNumRingsNoAnswer: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -11961,6 +12027,7 @@ impl ITForwardInformation2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITForwardInformation2_Vtbl {
     pub base__: ITForwardInformation_Vtbl,
     pub SetForwardType2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -12053,6 +12120,7 @@ impl ITILSConfig {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITILSConfig_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Port: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12110,6 +12178,7 @@ impl ITLegacyAddressMediaControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITLegacyAddressMediaControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -12170,6 +12239,7 @@ impl ITLegacyAddressMediaControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITLegacyAddressMediaControl2_Vtbl {
     pub base__: ITLegacyAddressMediaControl_Vtbl,
     pub ConfigDialog: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12235,6 +12305,7 @@ impl ITLegacyCallMediaControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITLegacyCallMediaControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DetectDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -12361,6 +12432,7 @@ impl ITLegacyCallMediaControl2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITLegacyCallMediaControl2_Vtbl {
     pub base__: ITLegacyCallMediaControl_Vtbl,
     pub GenerateDigits2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -12513,6 +12585,7 @@ impl ITLegacyWaveSupport {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITLegacyWaveSupport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub IsFullDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FULLDUPLEX_SUPPORT) -> windows_core::HRESULT,
@@ -12626,6 +12699,7 @@ impl ITLocationInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITLocationInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub PermanentLocationID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12845,6 +12919,7 @@ impl ITMSPAddress {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITMSPAddress_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
@@ -12952,6 +13027,7 @@ impl ITMediaControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITMediaControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13040,6 +13116,7 @@ impl ITMediaPlayback {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITMediaPlayback_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13114,6 +13191,7 @@ impl ITMediaRecord {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITMediaRecord_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13185,6 +13263,7 @@ impl ITMediaSupport {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITMediaSupport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub MediaTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -13287,6 +13366,7 @@ impl ITMultiTrackTerminal {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITMultiTrackTerminal_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13579,6 +13659,7 @@ impl ITPhone {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPhone_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, PHONE_PRIVILEGE) -> windows_core::HRESULT,
@@ -14070,6 +14151,7 @@ impl ITPhoneDeviceSpecificEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPhoneDeviceSpecificEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Phone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14219,6 +14301,7 @@ impl ITPhoneEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPhoneEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Phone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14431,6 +14514,7 @@ impl ITPluggableTerminalClassInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPluggableTerminalClassInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14564,6 +14648,7 @@ impl ITPluggableTerminalEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPluggableTerminalEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -14606,6 +14691,7 @@ impl ITPluggableTerminalEventSinkRegistration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPluggableTerminalEventSinkRegistration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14668,6 +14754,7 @@ impl ITPluggableTerminalSuperclassInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPluggableTerminalSuperclassInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14759,6 +14846,7 @@ impl ITPrivateEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITPrivateEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14887,6 +14975,7 @@ impl ITQOSEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITQOSEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15036,6 +15125,7 @@ impl ITQueue {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITQueue_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetMeasurementPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -15257,6 +15347,7 @@ impl ITQueueEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITQueueEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Queue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15343,6 +15434,7 @@ impl ITRendezvous {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITRendezvous_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -15444,6 +15536,7 @@ impl ITRequest {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITRequest_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub MakeCall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15521,6 +15614,7 @@ impl ITRequestEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITRequestEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub RegistrationInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -15700,6 +15794,7 @@ impl ITScriptableAudioFormat {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITScriptableAudioFormat_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Channels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -15885,6 +15980,7 @@ impl ITStaticAudioTerminal {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITStaticAudioTerminal_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub WaveId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -15984,6 +16080,7 @@ impl ITStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITStream_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub MediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -16167,6 +16264,7 @@ impl ITStreamControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITStreamControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub CreateStream: unsafe extern "system" fn(*mut core::ffi::c_void, i32, TERMINAL_DIRECTION, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16299,6 +16397,7 @@ impl ITSubStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSubStream_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub StartSubStream: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16452,6 +16551,7 @@ impl ITSubStreamControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITSubStreamControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub CreateSubStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16623,6 +16723,7 @@ impl ITTAPI {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTAPI_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16881,6 +16982,7 @@ impl ITTAPI2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTAPI2_Vtbl {
     pub base__: ITTAPI_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -16977,6 +17079,7 @@ impl ITTAPICallCenter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTAPICallCenter_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub EnumerateAgentHandlers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17042,6 +17145,7 @@ impl core::ops::Deref for ITTAPIDispatchEventNotification {
 windows_core::imp::interface_hierarchy!(ITTAPIDispatchEventNotification, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTAPIDispatchEventNotification_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -17070,6 +17174,7 @@ impl ITTAPIEventNotification {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTAPIEventNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -17138,6 +17243,7 @@ impl ITTAPIObjectEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTAPIObjectEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub TAPIObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17239,6 +17345,7 @@ impl ITTAPIObjectEvent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTAPIObjectEvent2_Vtbl {
     pub base__: ITTAPIObjectEvent_Vtbl,
     pub Phone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17304,6 +17411,7 @@ impl ITTTSTerminalEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTTSTerminalEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Terminal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17420,6 +17528,7 @@ impl ITTerminal {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTerminal_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17583,6 +17692,7 @@ impl ITTerminalSupport {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTerminalSupport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -17740,6 +17850,7 @@ impl ITTerminalSupport2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITTerminalSupport2_Vtbl {
     pub base__: ITTerminalSupport_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -17865,6 +17976,7 @@ impl ITToneDetectionEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITToneDetectionEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17978,6 +18090,7 @@ impl ITToneTerminalEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITToneTerminalEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Terminal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18083,6 +18196,7 @@ impl ITnef {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITnef_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_AddressBook")]
@@ -18224,7 +18338,7 @@ pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
 pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
 pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEADDRESSCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18284,11 +18398,6 @@ pub struct LINEADDRESSCAPS {
     pub dwOfferingModes: u32,
     pub dwAvailableMediaModes: u32,
 }
-impl Default for LINEADDRESSCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINEADDRESSMODE_ADDRESSID: u32 = 1u32;
 pub const LINEADDRESSMODE_DIALABLEADDR: u32 = 2u32;
 pub const LINEADDRESSSHARING_BRIDGEDEXCL: u32 = 2u32;
@@ -18306,7 +18415,7 @@ pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
 pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
 pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEADDRESSSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18324,11 +18433,6 @@ pub struct LINEADDRESSSTATUS {
     pub dwTerminalModesOffset: u32,
     pub dwDevSpecificSize: u32,
     pub dwDevSpecificOffset: u32,
-}
-impl Default for LINEADDRESSSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEADDRESSTYPE_DOMAINNAME: u32 = 8u32;
 pub const LINEADDRESSTYPE_EMAILNAME: u32 = 4u32;
@@ -18350,19 +18454,14 @@ pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
 pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
 pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTACTIVITYENTRY {
     pub dwID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-impl Default for LINEAGENTACTIVITYENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTACTIVITYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18371,13 +18470,8 @@ pub struct LINEAGENTACTIVITYLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Default for LINEAGENTACTIVITYLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18395,13 +18489,8 @@ pub struct LINEAGENTCAPS {
     pub dwAgentExtensionIDListOffset: u32,
     pub ProxyGUID: windows_core::GUID,
 }
-impl Default for LINEAGENTCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTENTRY {
     pub hAgent: u32,
     pub dwNameSize: u32,
@@ -18411,11 +18500,6 @@ pub struct LINEAGENTENTRY {
     pub dwPINSize: u32,
     pub dwPINOffset: u32,
 }
-impl Default for LINEAGENTENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINEAGENTFEATURE_AGENTSPECIFIC: u32 = 8u32;
 pub const LINEAGENTFEATURE_GETAGENTACTIVITYLIST: u32 = 16u32;
 pub const LINEAGENTFEATURE_GETAGENTGROUP: u32 = 32u32;
@@ -18423,32 +18507,22 @@ pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
 pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
 pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPENTRY {
     pub GroupID: LINEAGENTGROUPENTRY_0,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-impl Default for LINEAGENTGROUPENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID1: u32,
     pub dwGroupID2: u32,
     pub dwGroupID3: u32,
     pub dwGroupID4: u32,
 }
-impl Default for LINEAGENTGROUPENTRY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18456,11 +18530,6 @@ pub struct LINEAGENTGROUPLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Default for LINEAGENTGROUPLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -18487,7 +18556,7 @@ impl Default for LINEAGENTINFO {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18496,23 +18565,13 @@ pub struct LINEAGENTLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-impl Default for LINEAGENTLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSESSIONENTRY {
     pub hAgentSession: u32,
     pub hAgent: u32,
     pub GroupID: windows_core::GUID,
     pub dwWorkingAddressID: u32,
-}
-impl Default for LINEAGENTSESSIONENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -18543,7 +18602,7 @@ impl Default for LINEAGENTSESSIONINFO {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSESSIONLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18551,11 +18610,6 @@ pub struct LINEAGENTSESSIONLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Default for LINEAGENTSESSIONLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEAGENTSESSIONSTATE_BUSYONCALL: u32 = 4u32;
 pub const LINEAGENTSESSIONSTATE_BUSYWRAPUP: u32 = 8u32;
@@ -18584,7 +18638,7 @@ pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
 pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
 pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18600,11 +18654,6 @@ pub struct LINEAGENTSTATUS {
     pub dwAgentFeatures: u32,
     pub dwValidStates: u32,
     pub dwValidNextStates: u32,
-}
-impl Default for LINEAGENTSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEAGENTSTATUSEX_NEWAGENT: u32 = 1u32;
 pub const LINEAGENTSTATUSEX_STATE: u32 = 2u32;
@@ -18622,7 +18671,7 @@ pub const LINEANSWERMODE_DROP: u32 = 2u32;
 pub const LINEANSWERMODE_HOLD: u32 = 4u32;
 pub const LINEANSWERMODE_NONE: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAPPINFO {
     pub dwMachineNameSize: u32,
     pub dwMachineNameOffset: u32,
@@ -18634,11 +18683,6 @@ pub struct LINEAPPINFO {
     pub dwFriendlyNameOffset: u32,
     pub dwMediaModes: u32,
     pub dwAddressID: u32,
-}
-impl Default for LINEAPPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEBEARERMODE_ALTSPEECHDATA: u32 = 16u32;
 pub const LINEBEARERMODE_DATA: u32 = 8u32;
@@ -18705,7 +18749,7 @@ pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
 pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
 pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18786,11 +18830,6 @@ pub struct LINECALLINFO {
     pub dwReceivingFlowspecSize: u32,
     pub dwReceivingFlowspecOffset: u32,
 }
-impl Default for LINECALLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINECALLINFOSTATE_APPSPECIFIC: u32 = 32u32;
 pub const LINECALLINFOSTATE_BEARERMODE: u32 = 4u32;
 pub const LINECALLINFOSTATE_CALLDATA: u32 = 1073741824u32;
@@ -18823,7 +18862,7 @@ pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
 pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
 pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18831,11 +18870,6 @@ pub struct LINECALLLIST {
     pub dwCallsNumEntries: u32,
     pub dwCallsSize: u32,
     pub dwCallsOffset: u32,
-}
-impl Default for LINECALLLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINECALLORIGIN_CONFERENCE: u32 = 64u32;
 pub const LINECALLORIGIN_EXTERNAL: u32 = 4u32;
@@ -18853,7 +18887,7 @@ pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
 pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
 pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLPARAMS {
     pub dwTotalSize: u32,
     pub dwBearerMode: u32,
@@ -18896,11 +18930,6 @@ pub struct LINECALLPARAMS {
     pub dwNoAnswerTimeout: u32,
     pub dwCallingPartyIDSize: u32,
     pub dwCallingPartyIDOffset: u32,
-}
-impl Default for LINECALLPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINECALLPARTYID_ADDRESS: u32 = 8u32;
 pub const LINECALLPARTYID_BLOCKED: u32 = 1u32;
@@ -18950,7 +18979,7 @@ pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
 pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
 pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18964,29 +18993,19 @@ pub struct LINECALLSTATUS {
     pub dwCallFeatures2: u32,
     pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
 }
-impl Default for LINECALLSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLTREATMENTENTRY {
     pub dwCallTreatmentID: u32,
     pub dwCallTreatmentNameSize: u32,
     pub dwCallTreatmentNameOffset: u32,
-}
-impl Default for LINECALLTREATMENTENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINECALLTREATMENT_BUSY: u32 = 3u32;
 pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
 pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
 pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECARDENTRY {
     pub dwPermanentCardID: u32,
     pub dwCardNameSize: u32,
@@ -19000,11 +19019,6 @@ pub struct LINECARDENTRY {
     pub dwInternationalRuleOffset: u32,
     pub dwOptions: u32,
 }
-impl Default for LINECARDENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINECARDOPTION_HIDDEN: u32 = 2u32;
 pub const LINECARDOPTION_PREDEFINED: u32 = 1u32;
 pub const LINECONNECTEDMODE_ACTIVE: u32 = 1u32;
@@ -19013,7 +19027,7 @@ pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
 pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
 pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECOUNTRYENTRY {
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
@@ -19027,13 +19041,8 @@ pub struct LINECOUNTRYENTRY {
     pub dwInternationalRuleSize: u32,
     pub dwInternationalRuleOffset: u32,
 }
-impl Default for LINECOUNTRYENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINECOUNTRYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19041,11 +19050,6 @@ pub struct LINECOUNTRYLIST {
     pub dwNumCountries: u32,
     pub dwCountryListSize: u32,
     pub dwCountryListOffset: u32,
-}
-impl Default for LINECOUNTRYLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEDEVCAPFLAGS_CALLHUB: u32 = 1024u32;
 pub const LINEDEVCAPFLAGS_CALLHUBTRACKING: u32 = 2048u32;
@@ -19062,7 +19066,7 @@ pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
 pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
 pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEDEVCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19120,11 +19124,6 @@ pub struct LINEDEVCAPS {
     pub dwDeviceClassesOffset: u32,
     pub PermanentLineGuid: windows_core::GUID,
 }
-impl Default for LINEDEVCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINEDEVSTATE_BATTERY: u32 = 32768u32;
 pub const LINEDEVSTATE_CAPSCHANGE: u32 = 1048576u32;
 pub const LINEDEVSTATE_CLOSE: u32 = 1024u32;
@@ -19151,7 +19150,7 @@ pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
 pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
 pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEDEVSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19176,27 +19175,17 @@ pub struct LINEDEVSTATUS {
     pub dwAppInfoSize: u32,
     pub dwAppInfoOffset: u32,
 }
-impl Default for LINEDEVSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINEDEVSTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
 pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
 pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEDIALPARAMS {
     pub dwDialPause: u32,
     pub dwDialSpeed: u32,
     pub dwDigitDuration: u32,
     pub dwWaitForDialtone: u32,
-}
-impl Default for LINEDIALPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEDIALTONEMODE_EXTERNAL: u32 = 8u32;
 pub const LINEDIALTONEMODE_INTERNAL: u32 = 4u32;
@@ -19330,17 +19319,12 @@ pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
 pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
     pub dwExtensionID2: u32,
     pub dwExtensionID3: u32,
-}
-impl Default for LINEEXTENSIONID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEFEATURE_DEVSPECIFIC: u32 = 1u32;
 pub const LINEFEATURE_DEVSPECIFICFEAT: u32 = 2u32;
@@ -19352,7 +19336,7 @@ pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
 pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
 pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEFORWARD {
     pub dwForwardMode: u32,
     pub dwCallerAddressSize: u32,
@@ -19360,11 +19344,6 @@ pub struct LINEFORWARD {
     pub dwDestCountryCode: u32,
     pub dwDestAddressSize: u32,
     pub dwDestAddressOffset: u32,
-}
-impl Default for LINEFORWARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19404,17 +19383,12 @@ pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
 pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
 pub const LINEGENERATETERM_DONE: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEGENERATETONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
     pub dwCadenceOff: u32,
     pub dwVolume: u32,
-}
-impl Default for LINEGENERATETONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEGROUPSTATUS_GROUPREMOVED: u32 = 2u32;
 pub const LINEGROUPSTATUS_NEWGROUP: u32 = 1u32;
@@ -19449,7 +19423,7 @@ impl Default for LINEINITIALIZEEXPARAMS_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINELOCATIONENTRY {
     pub dwPermanentLocationID: u32,
     pub dwLocationNameSize: u32,
@@ -19469,50 +19443,30 @@ pub struct LINELOCATIONENTRY {
     pub dwCancelCallWaitingSize: u32,
     pub dwCancelCallWaitingOffset: u32,
 }
-impl Default for LINELOCATIONENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
 pub const LINEMAPPER: u32 = 4294967295u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLCALLSTATE {
     pub dwCallStates: u32,
     pub dwMediaControl: u32,
 }
-impl Default for LINEMEDIACONTROLCALLSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLDIGIT {
     pub dwDigit: u32,
     pub dwDigitModes: u32,
     pub dwMediaControl: u32,
 }
-impl Default for LINEMEDIACONTROLDIGIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLMEDIA {
     pub dwMediaModes: u32,
     pub dwDuration: u32,
     pub dwMediaControl: u32,
 }
-impl Default for LINEMEDIACONTROLMEDIA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -19520,11 +19474,6 @@ pub struct LINEMEDIACONTROLTONE {
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
     pub dwMediaControl: u32,
-}
-impl Default for LINEMEDIACONTROLTONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEMEDIACONTROL_NONE: u32 = 1u32;
 pub const LINEMEDIACONTROL_PAUSE: u32 = 8u32;
@@ -19553,7 +19502,7 @@ pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
 pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
 pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -19562,24 +19511,14 @@ pub struct LINEMESSAGE {
     pub dwParam2: usize,
     pub dwParam3: usize,
 }
-impl Default for LINEMESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMONITORTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
     pub dwFrequency1: u32,
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
-}
-impl Default for LINEMONITORTONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEOFFERINGMODE_ACTIVE: u32 = 1u32;
 pub const LINEOFFERINGMODE_INACTIVE: u32 = 2u32;
@@ -19588,19 +19527,14 @@ pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
 pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
 pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROVIDERENTRY {
     pub dwPermanentProviderID: u32,
     pub dwProviderFilenameSize: u32,
     pub dwProviderFilenameOffset: u32,
 }
-impl Default for LINEPROVIDERENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROVIDERLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19608,11 +19542,6 @@ pub struct LINEPROVIDERLIST {
     pub dwNumProviders: u32,
     pub dwProviderListSize: u32,
     pub dwProviderListOffset: u32,
-}
-impl Default for LINEPROVIDERLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -19681,7 +19610,7 @@ impl Default for LINEPROXYREQUEST_0_5 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_12 {
     pub hAgentSession: u32,
     pub dwAgentPINSize: u32,
@@ -19690,15 +19619,9 @@ pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: windows_core::GUID,
     pub dwWorkingAddressID: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
     pub dwAgentIDSize: u32,
@@ -19706,50 +19629,26 @@ pub struct LINEPROXYREQUEST_0_8 {
     pub dwAgentPINSize: u32,
     pub dwAgentPINOffset: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_6 {
     pub dwAddressID: u32,
     pub ActivityList: LINEAGENTACTIVITYLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
     pub AgentCaps: LINEAGENTCAPS,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_7 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -19779,164 +19678,92 @@ impl Default for LINEPROXYREQUEST_0_14 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_13 {
     pub hAgent: u32,
     pub SessionList: LINEAGENTSESSIONLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_13 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
     pub AgentStatus: LINEAGENTSTATUS,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_19 {
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_19 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwQueueID: u32,
     pub QueueInfo: LINEQUEUEINFO,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_18 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_16 {
     pub GroupID: windows_core::GUID,
     pub QueueList: LINEQUEUELIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_2 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_10 {
     pub hAgent: u32,
     pub dwMeasurementPeriod: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_15 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_9 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_1 {
     pub dwAddressID: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_17 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_17 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUESTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19944,11 +19771,6 @@ pub struct LINEPROXYREQUESTLIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Default for LINEPROXYREQUESTLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEPROXYREQUEST_AGENTSPECIFIC: u32 = 6u32;
 pub const LINEPROXYREQUEST_CREATEAGENT: u32 = 9u32;
@@ -19978,19 +19800,14 @@ pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
 pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
 pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEQUEUEENTRY {
     pub dwQueueID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-impl Default for LINEQUEUEENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEQUEUEINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20006,13 +19823,8 @@ pub struct LINEQUEUEINFO {
     pub dwAverageWaitTime: u32,
     pub dwFinalDisposition: u32,
 }
-impl Default for LINEQUEUEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINEQUEUELIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20020,11 +19832,6 @@ pub struct LINEQUEUELIST {
     pub dwNumEntries: u32,
     pub dwListSize: u32,
     pub dwListOffset: u32,
-}
-impl Default for LINEQUEUELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINEQUEUESTATUS_NEWQUEUE: u32 = 2u32;
 pub const LINEQUEUESTATUS_QUEUEREMOVED: u32 = 4u32;
@@ -20110,16 +19917,11 @@ pub const LINESPECIALINFO_REORDER: u32 = 4u32;
 pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
 pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINETERMCAPS {
     pub dwTermDev: u32,
     pub dwTermModes: u32,
     pub dwTermSharing: u32,
-}
-impl Default for LINETERMCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINETERMDEV_HEADSET: u32 = 2u32;
 pub const LINETERMDEV_PHONE: u32 = 1u32;
@@ -20145,7 +19947,7 @@ pub const LINETONEMODE_RINGBACK: u32 = 2u32;
 pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
 pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINETRANSLATECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20159,17 +19961,12 @@ pub struct LINETRANSLATECAPS {
     pub dwCardListOffset: u32,
     pub dwCurrentPreferredCardID: u32,
 }
-impl Default for LINETRANSLATECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINETRANSLATEOPTION_CANCELCALLWAITING: u32 = 2u32;
 pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
 pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
 pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LINETRANSLATEOUTPUT {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20181,11 +19978,6 @@ pub struct LINETRANSLATEOUTPUT {
     pub dwCurrentCountry: u32,
     pub dwDestCountry: u32,
     pub dwTranslateResults: u32,
-}
-impl Default for LINETRANSLATEOUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LINETRANSLATERESULT_CANONICAL: u32 = 1u32;
 pub const LINETRANSLATERESULT_DIALBILLING: u32 = 64u32;
@@ -20308,33 +20100,21 @@ impl Default for MSP_EVENT_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -20342,15 +20122,9 @@ pub struct MSP_EVENT_INFO_0_1 {
     pub pTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrError: windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pParentFileTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub pFileTrack: core::mem::ManuallyDrop<Option<ITFileTrack>>,
@@ -20358,37 +20132,19 @@ pub struct MSP_EVENT_INFO_0_4 {
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
     pub lEventCode: i32,
 }
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pToneTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -20405,16 +20161,10 @@ impl Default for MSP_EVENT_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_6 {
     pub pTTSTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const McastAddressAllocation: windows_core::GUID = windows_core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 #[repr(C)]
@@ -20579,7 +20329,7 @@ pub const PHONEBUTTONFUNCTION_UNKNOWN: u32 = 0u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEDOWN: u32 = 20u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEUP: u32 = 19u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PHONEBUTTONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20591,11 +20341,6 @@ pub struct PHONEBUTTONINFO {
     pub dwDevSpecificSize: u32,
     pub dwDevSpecificOffset: u32,
     pub dwButtonState: u32,
-}
-impl Default for PHONEBUTTONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PHONEBUTTONMODE_CALL: u32 = 2u32;
 pub const PHONEBUTTONMODE_DISPLAY: u32 = 32u32;
@@ -20609,7 +20354,7 @@ pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
 pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PHONECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20658,11 +20403,6 @@ pub struct PHONECAPS {
     pub dwMonitoredHeadsetHookSwitchModes: u32,
     pub PermanentPhoneGuid: windows_core::GUID,
 }
-impl Default for PHONECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONECAPS_BUFFER(pub i32);
@@ -20710,17 +20450,12 @@ pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
 pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PHONEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
     pub dwExtensionID2: u32,
     pub dwExtensionID3: u32,
-}
-impl Default for PHONEEXTENSIONID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PHONEFEATURE_GENERICPHONE: u32 = 268435456u32;
 pub const PHONEFEATURE_GETBUTTONINFO: u32 = 1u32;
@@ -20797,7 +20532,7 @@ pub const PHONELAMPMODE_STEADY: u32 = 4u32;
 pub const PHONELAMPMODE_UNKNOWN: u32 = 128u32;
 pub const PHONELAMPMODE_WINK: u32 = 8u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PHONEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -20805,11 +20540,6 @@ pub struct PHONEMESSAGE {
     pub dwParam1: usize,
     pub dwParam2: usize,
     pub dwParam3: usize,
-}
-impl Default for PHONEMESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PHONEPRIVILEGE_MONITOR: u32 = 1u32;
 pub const PHONEPRIVILEGE_OWNER: u32 = 2u32;
@@ -20838,7 +20568,7 @@ pub const PHONESTATE_SPEAKERHOOKSWITCH: u32 = 4096u32;
 pub const PHONESTATE_SPEAKERVOLUME: u32 = 8192u32;
 pub const PHONESTATE_SUSPEND: u32 = 262144u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PHONESTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20866,11 +20596,6 @@ pub struct PHONESTATUS {
     pub dwDevSpecificSize: u32,
     pub dwDevSpecificOffset: u32,
     pub dwPhoneFeatures: u32,
-}
-impl Default for PHONESTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PHONESTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const PHONESTATUSFLAGS_SUSPENDED: u32 = 2u32;
@@ -20969,18 +20694,13 @@ pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
 pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RENDDATA {
     pub atyp: u16,
     pub ulPosition: u32,
     pub dxWidth: u16,
     pub dyHeight: u16,
     pub dwFlags: u32,
-}
-impl Default for RENDDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -20998,17 +20718,12 @@ pub const STRM_RUNNING: u32 = 4u32;
 pub const STRM_STOPPED: u32 = 16u32;
 pub const STRM_TERMINALSELECTED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STnefProblem {
     pub ulComponent: u32,
     pub ulAttribute: u32,
     pub ulPropTag: u32,
     pub scode: i32,
-}
-impl Default for STnefProblem {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -21062,31 +20777,21 @@ pub const TAPIMEDIATYPE_VIDEO: u32 = 32768u32;
 pub struct TAPIOBJECT_EVENT(pub i32);
 pub const TAPI_CURRENT_VERSION: u32 = 131074u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPI_CUSTOMTONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
     pub dwCadenceOff: u32,
     pub dwVolume: u32,
 }
-impl Default for TAPI_CUSTOMTONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TAPI_DETECTTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
     pub dwFrequency1: u32,
     pub dwFrequency2: u32,
     pub dwFrequency3: u32,
-}
-impl Default for TAPI_DETECTTONE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -21258,17 +20963,12 @@ pub const TOT_PHONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(6i32);
 pub const TOT_TAPI: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(1i32);
 pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRP {
     pub trpid: u16,
     pub cbgrtrp: u16,
     pub cch: u16,
     pub cbRgb: u16,
-}
-impl Default for TRP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
@@ -21411,7 +21111,7 @@ pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VARSTRING {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -21419,11 +21119,6 @@ pub struct VARSTRING {
     pub dwStringFormat: u32,
     pub dwStringSize: u32,
     pub dwStringOffset: u32,
-}
-impl Default for VARSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const atypFile: i32 = 1i32;
 pub const atypMax: i32 = 4i32;

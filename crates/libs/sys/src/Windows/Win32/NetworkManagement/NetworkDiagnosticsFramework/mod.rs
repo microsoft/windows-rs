@@ -41,6 +41,11 @@ pub struct DIAG_SOCKADDR {
     pub family: u16,
     pub data: [i8; 126],
 }
+impl Default for DIAG_SOCKADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DS_CONFIRMED: DIAGNOSIS_STATUS = 1i32;
 pub const DS_DEFERRED: DIAGNOSIS_STATUS = 4i32;
 pub const DS_INDETERMINATE: DIAGNOSIS_STATUS = 3i32;
@@ -48,7 +53,7 @@ pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = 0i32;
 pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = 5i32;
 pub const DS_REJECTED: DIAGNOSIS_STATUS = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
@@ -59,6 +64,11 @@ pub struct HELPER_ATTRIBUTE {
     pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
     pub Anonymous: HELPER_ATTRIBUTE_0,
+}
+impl Default for HELPER_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -78,6 +88,11 @@ pub union HELPER_ATTRIBUTE_0 {
     pub Address: DIAG_SOCKADDR,
     pub OctetString: OCTET_STRING,
 }
+impl Default for HELPER_ATTRIBUTE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HYPOTHESIS {
@@ -86,20 +101,30 @@ pub struct HYPOTHESIS {
     pub celt: u32,
     pub rgAttributes: *mut HELPER_ATTRIBUTE,
 }
+impl Default for HYPOTHESIS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HelperAttributeInfo {
     pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
 }
+impl Default for HelperAttributeInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
@@ -122,6 +147,11 @@ pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2u32;
 pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
+}
+impl Default for OCTET_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PROBLEM_TYPE = i32;
 pub const PT_DOWN_STREAM_HEALTH: PROBLEM_TYPE = 4i32;
@@ -175,11 +205,21 @@ pub struct RepairInfo {
     pub UiInfo: UiInfo,
     pub rootCauseIndex: i32,
 }
+impl Default for RepairInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RepairInfoEx {
     pub repair: RepairInfo,
     pub repairRank: u16,
+}
+impl Default for RepairInfoEx {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -191,6 +231,11 @@ pub struct RootCauseInfo {
     pub pRepairs: *mut RepairInfoEx,
     pub repairCount: u16,
 }
+impl Default for RootCauseInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ShellCommandInfo {
@@ -199,6 +244,11 @@ pub struct ShellCommandInfo {
     pub pwszParameters: windows_sys::core::PWSTR,
     pub pwszDirectory: windows_sys::core::PWSTR,
     pub nShowCmd: u32,
+}
+impl Default for ShellCommandInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const UIT_DUI: UI_INFO_TYPE = 4i32;
 pub const UIT_HELP_PANE: UI_INFO_TYPE = 3i32;
@@ -212,6 +262,11 @@ pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
     pub Anonymous: UiInfo_0,
 }
+impl Default for UiInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union UiInfo_0 {
@@ -219,4 +274,9 @@ pub union UiInfo_0 {
     pub ShellInfo: ShellCommandInfo,
     pub pwzHelpUrl: windows_sys::core::PWSTR,
     pub pwzDui: windows_sys::core::PWSTR,
+}
+impl Default for UiInfo_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

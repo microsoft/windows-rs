@@ -803,6 +803,7 @@ impl IWSMan {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSMan_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -910,6 +911,7 @@ impl IWSManConnectionOptions {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManConnectionOptions_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -987,6 +989,7 @@ impl IWSManConnectionOptionsEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManConnectionOptionsEx_Vtbl {
     pub base__: IWSManConnectionOptions_Vtbl,
     pub CertificateThumbprint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1091,6 +1094,7 @@ impl IWSManConnectionOptionsEx2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManConnectionOptionsEx2_Vtbl {
     pub base__: IWSManConnectionOptionsEx_Vtbl,
     pub SetProxy: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1258,6 +1262,7 @@ impl IWSManEnumerator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManEnumerator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ReadItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1458,6 +1463,7 @@ impl IWSManEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManEx_Vtbl {
     pub base__: IWSMan_Vtbl,
     pub CreateResourceLocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1799,6 +1805,7 @@ impl IWSManEx2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManEx2_Vtbl {
     pub base__: IWSManEx_Vtbl,
     pub SessionFlagUseClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1888,6 +1895,7 @@ impl IWSManEx3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManEx3_Vtbl {
     pub base__: IWSManEx2_Vtbl,
     pub SessionFlagUTF16: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2038,6 +2046,7 @@ impl IWSManInternal {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManInternal_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2144,6 +2153,7 @@ impl IWSManResourceLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManResourceLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SetResourceURI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2319,6 +2329,7 @@ impl windows_core::RuntimeName for IWSManResourceLocator {}
 windows_core::imp::define_interface!(IWSManResourceLocatorInternal, IWSManResourceLocatorInternal_Vtbl, 0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb);
 windows_core::imp::interface_hierarchy!(IWSManResourceLocatorInternal, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManResourceLocatorInternal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -2417,6 +2428,7 @@ impl IWSManSession {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWSManSession_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2642,30 +2654,20 @@ impl Default for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_AUTHZ_QUOTA {
     pub maxAllowedConcurrentShells: u32,
     pub maxAllowedConcurrentOperations: u32,
     pub timeslotSize: u32,
     pub maxAllowedOperationsPerTimeslot: u32,
 }
-impl Default for WSMAN_AUTHZ_QUOTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_CERTIFICATE_DETAILS {
     pub subject: windows_core::PCWSTR,
     pub issuerName: windows_core::PCWSTR,
     pub issuerThumbprint: windows_core::PCWSTR,
     pub subjectName: windows_core::PCWSTR,
-}
-impl Default for WSMAN_CERTIFICATE_DETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: windows_core::PCWSTR = windows_core::w!("WINRS_CODEPAGE");
 pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: windows_core::PCWSTR = windows_core::w!("WINRS_CONSOLEMODE_STDIN");
@@ -2740,30 +2742,20 @@ impl Default for WSMAN_DATA_BINARY {
 }
 pub const WSMAN_DATA_NONE: WSManDataType = WSManDataType(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_DATA_TEXT {
     pub bufferLength: u32,
     pub buffer: windows_core::PCWSTR,
-}
-impl Default for WSMAN_DATA_TEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = WSManDataType(2i32);
 pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = WSManDataType(4i32);
 pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = WSManDataType(1i32);
 pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_ENVIRONMENT_VARIABLE {
     pub name: windows_core::PCWSTR,
     pub value: windows_core::PCWSTR,
-}
-impl Default for WSMAN_ENVIRONMENT_VARIABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2777,7 +2769,7 @@ impl Default for WSMAN_ENVIRONMENT_VARIABLE_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_ERROR {
     pub code: u32,
     pub errorDetail: windows_core::PCWSTR,
@@ -2785,21 +2777,11 @@ pub struct WSMAN_ERROR {
     pub machineName: windows_core::PCWSTR,
     pub pluginName: windows_core::PCWSTR,
 }
-impl Default for WSMAN_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_FILTER {
     pub filter: windows_core::PCWSTR,
     pub dialect: windows_core::PCWSTR,
-}
-impl Default for WSMAN_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = WSManAuthenticationFlags(8i32);
 pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = WSManAuthenticationFlags(32i32);
@@ -2831,26 +2813,16 @@ pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1u32;
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = WSManShellFlag(8i32);
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = WSManShellFlag(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_FRAGMENT {
     pub path: windows_core::PCWSTR,
     pub dialect: windows_core::PCWSTR,
 }
-impl Default for WSMAN_FRAGMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_KEY {
     pub key: windows_core::PCWSTR,
     pub value: windows_core::PCWSTR,
-}
-impl Default for WSMAN_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -2871,7 +2843,7 @@ impl Default for WSMAN_OPERATION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_OPERATION_INFOEX {
     pub fragment: WSMAN_FRAGMENT,
     pub filter: WSMAN_FILTER,
@@ -2881,24 +2853,14 @@ pub struct WSMAN_OPERATION_INFOEX {
     pub uiLocale: windows_core::PCWSTR,
     pub dataLocale: windows_core::PCWSTR,
 }
-impl Default for WSMAN_OPERATION_INFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
 pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_OPTION {
     pub name: windows_core::PCWSTR,
     pub value: windows_core::PCWSTR,
     pub mustComply: windows_core::BOOL,
-}
-impl Default for WSMAN_OPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = WSManSessionOption(32i32);
 pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = WSManSessionOption(1i32);
@@ -3077,14 +3039,9 @@ impl Default for WSMAN_SHELL_ASYNC {
 }
 pub type WSMAN_SHELL_COMPLETION_FUNCTION = Option<unsafe extern "system" fn(operationcontext: *const core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_SHELL_DISCONNECT_INFO {
     pub idleTimeoutMs: u32,
-}
-impl Default for WSMAN_SHELL_DISCONNECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -3106,15 +3063,10 @@ impl Default for WSMAN_SHELL_STARTUP_INFO_V10 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
     pub Base: WSMAN_SHELL_STARTUP_INFO_V10,
     pub name: windows_core::PCWSTR,
-}
-impl Default for WSMAN_SHELL_STARTUP_INFO_V11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3131,15 +3083,10 @@ pub const WSMAN_STREAM_ID_STDERR: windows_core::PCWSTR = windows_core::w!("stder
 pub const WSMAN_STREAM_ID_STDIN: windows_core::PCWSTR = windows_core::w!("stdin");
 pub const WSMAN_STREAM_ID_STDOUT: windows_core::PCWSTR = windows_core::w!("stdout");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WSMAN_USERNAME_PASSWORD_CREDS {
     pub username: windows_core::PCWSTR,
     pub password: windows_core::PCWSTR,
-}
-impl Default for WSMAN_USERNAME_PASSWORD_CREDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WSMan: windows_core::GUID = windows_core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
 #[repr(transparent)]

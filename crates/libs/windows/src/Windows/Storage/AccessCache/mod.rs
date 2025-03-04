@@ -130,6 +130,7 @@ impl windows_core::RuntimeType for IItemRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IItemRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovedEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<AccessListEntry>) -> windows_core::HRESULT,
@@ -139,6 +140,7 @@ impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageApplicationPermissionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FutureAccessList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -149,6 +151,7 @@ impl windows_core::RuntimeType for IStorageApplicationPermissionsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageApplicationPermissionsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
@@ -514,6 +517,7 @@ impl IStorageItemAccessList_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemAccessList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddOverloadDefaultMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -550,6 +554,7 @@ impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemMostRecentlyUsedList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ItemRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -560,6 +565,7 @@ impl windows_core::RuntimeType for IStorageItemMostRecentlyUsedList2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddWithMetadataAndVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, RecentStorageItemVisibility, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

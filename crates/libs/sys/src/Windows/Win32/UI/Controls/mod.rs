@@ -382,7 +382,7 @@ pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = 1u32;
 pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = 2u32;
 pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BP_ANIMATIONPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -405,6 +405,12 @@ pub struct BP_PAINTPARAMS {
     pub dwFlags: BP_PAINTPARAMS_FLAGS,
     pub prcExclude: *const super::super::Foundation::RECT,
     pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for BP_PAINTPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type BP_PAINTPARAMS_FLAGS = u32;
 pub const BP_PUSHBUTTON: BUTTONPARTS = 1i32;
@@ -438,7 +444,7 @@ pub const BT_RECT: BORDERTYPE = 0i32;
 pub const BT_ROUNDRECT: BORDERTYPE = 1i32;
 pub type BUTTONPARTS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
     pub margin: super::super::Foundation::RECT,
@@ -451,7 +457,7 @@ pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = 0u32;
 pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = 1u32;
 pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct BUTTON_SPLITINFO {
     pub mask: u32,
     pub himlGlyph: HIMAGELIST,
@@ -597,6 +603,12 @@ pub struct CCINFOA {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CCINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -616,6 +628,12 @@ pub struct CCINFOW {
     pub lpfnSizeToText: LPFNCCSIZETOTEXTW,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CCINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CCM_DPISCALE: u32 = 8204u32;
 pub const CCM_FIRST: u32 = 8192u32;
@@ -639,6 +657,11 @@ pub struct CCSTYLEA {
     pub lgid: u16,
     pub wReserved1: u16,
 }
+impl Default for CCSTYLEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CCSTYLEFLAGA {
@@ -646,12 +669,22 @@ pub struct CCSTYLEFLAGA {
     pub flStyleMask: u32,
     pub pszStyle: windows_sys::core::PSTR,
 }
+impl Default for CCSTYLEFLAGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CCSTYLEFLAGW {
     pub flStyle: u32,
     pub flStyleMask: u32,
     pub pszStyle: windows_sys::core::PWSTR,
+}
+impl Default for CCSTYLEFLAGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -661,6 +694,11 @@ pub struct CCSTYLEW {
     pub szText: [u16; 256],
     pub lgid: u16,
     pub wReserved1: u16,
+}
+impl Default for CCSTYLEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CCS_ADJUSTABLE: i32 = 32i32;
 pub const CCS_BOTTOM: i32 = 3i32;
@@ -738,14 +776,14 @@ pub const CMDLS_NORMAL: COMMANDLINKSTATES = 1i32;
 pub const CMDLS_PRESSED: COMMANDLINKSTATES = 3i32;
 pub type COLLAPSEBUTTONSTATES = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COLORMAP {
     pub from: super::super::Foundation::COLORREF,
     pub to: super::super::Foundation::COLORREF,
 }
 pub const COLORMGMTDLGORD: u32 = 1551u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COLORSCHEME {
     pub dwSize: u32,
     pub clrBtnHighlight: super::super::Foundation::COLORREF,
@@ -764,6 +802,11 @@ pub struct COMBOBOXEXITEMA {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for COMBOBOXEXITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMBOBOXEXITEMW {
@@ -777,6 +820,11 @@ pub struct COMBOBOXEXITEMW {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for COMBOBOXEXITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMBOBOXINFO {
@@ -787,6 +835,11 @@ pub struct COMBOBOXINFO {
     pub hwndCombo: super::super::Foundation::HWND,
     pub hwndItem: super::super::Foundation::HWND,
     pub hwndList: super::super::Foundation::HWND,
+}
+impl Default for COMBOBOXINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type COMBOBOXINFO_BUTTON_STATE = u32;
 pub type COMBOBOXPARTS = i32;
@@ -807,6 +860,11 @@ pub struct COMPAREITEMSTRUCT {
     pub itemID2: u32,
     pub itemData2: usize,
     pub dwLocaleId: u32,
+}
+impl Default for COMPAREITEMSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CONTENTALIGNMENT = i32;
 pub type CONTENTAREASTATES = i32;
@@ -882,6 +940,11 @@ pub struct DATETIMEPICKERINFO {
     pub hwndUD: super::super::Foundation::HWND,
     pub hwndDropDown: super::super::Foundation::HWND,
 }
+impl Default for DATETIMEPICKERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DATETIMEPICK_CLASS: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("SysDateTimePick32");
 pub const DATETIMEPICK_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("SysDateTimePick32");
@@ -925,6 +988,11 @@ pub struct DELETEITEMSTRUCT {
     pub hwndItem: super::super::Foundation::HWND,
     pub itemData: usize,
 }
+impl Default for DELETEITEMSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DLG_BUTTON_CHECK_STATE = u32;
 pub type DLG_DIR_LIST_FILE_TYPE = u32;
 pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = 1157u32;
@@ -959,6 +1027,11 @@ pub struct DPASTREAMINFO {
     pub iPos: i32,
     pub pvItem: *mut core::ffi::c_void,
 }
+impl Default for DPASTREAMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DPAS_INSERTAFTER: u32 = 4u32;
 pub const DPAS_INSERTBEFORE: u32 = 2u32;
 pub const DPAS_SORTED: u32 = 1u32;
@@ -986,6 +1059,11 @@ pub struct DRAGLISTINFO {
     pub hWnd: super::super::Foundation::HWND,
     pub ptCursor: super::super::Foundation::POINT,
 }
+impl Default for DRAGLISTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DRAGLISTINFO_NOTIFICATION_FLAGS = u32;
 pub const DRAGLISTMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("commctrl_DragListMsg");
 #[repr(C)]
@@ -1002,6 +1080,12 @@ pub struct DRAWITEMSTRUCT {
     pub rcItem: super::super::Foundation::RECT,
     pub itemData: usize,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DRAWITEMSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type DRAWITEMSTRUCT_CTL_TYPE = u32;
 pub type DRAW_THEME_PARENT_BACKGROUND_FLAGS = u32;
 pub type DROPDOWNBUTTONLEFTSTATES = i32;
@@ -1010,7 +1094,7 @@ pub type DROPDOWNITEMSTATES = i32;
 pub const DSA_APPEND: u32 = 2147483647u32;
 pub const DSA_ERR: i32 = -1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTBGOPTS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1073,7 +1157,7 @@ pub const DTS_TIMEFORMAT: u32 = 9u32;
 pub const DTS_UPDOWN: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DTTOPTS {
     pub dwSize: u32,
     pub dwFlags: DTTOPTS_FLAGS,
@@ -1173,6 +1257,11 @@ pub struct EDITBALLOONTIP {
     pub pszTitle: windows_sys::core::PCWSTR,
     pub pszText: windows_sys::core::PCWSTR,
     pub ttiIcon: EDITBALLOONTIP_ICON,
+}
+impl Default for EDITBALLOONTIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type EDITBALLOONTIP_ICON = i32;
 pub type EDITBORDER_HSCROLLSTATES = i32;
@@ -1433,7 +1522,7 @@ pub const HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = 1024i32;
 pub const HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = 16777216i32;
 pub const HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = 16384i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HDHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: HEADER_HITTEST_INFO_FLAGS,
@@ -1457,6 +1546,12 @@ pub struct HDITEMA {
     pub pvFilter: *mut core::ffi::c_void,
     pub state: HEADER_CONTROL_FORMAT_STATE,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for HDITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -1473,6 +1568,12 @@ pub struct HDITEMW {
     pub r#type: HEADER_CONTROL_FORMAT_TYPE,
     pub pvFilter: *mut core::ffi::c_void,
     pub state: HEADER_CONTROL_FORMAT_STATE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for HDITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HDI_BITMAP: HDI_MASK = 16u32;
 pub const HDI_DI_SETITEM: HDI_MASK = 64u32;
@@ -1492,6 +1593,12 @@ pub const HDI_WIDTH: HDI_MASK = 1u32;
 pub struct HDLAYOUT {
     pub prc: *mut super::super::Foundation::RECT,
     pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for HDLAYOUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HDM_CLEARFILTER: u32 = 4632u32;
 pub const HDM_CREATEDRAGIMAGE: u32 = 4624u32;
@@ -1586,11 +1693,21 @@ pub struct HD_TEXTFILTERA {
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
 }
+impl Default for HD_TEXTFILTERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HD_TEXTFILTERW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchTextMax: i32,
+}
+impl Default for HD_TEXTFILTERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HEADERAREASTATES = i32;
 pub type HEADERCLOSESTATES = i32;
@@ -1832,6 +1949,12 @@ pub struct IMAGEINFO {
     pub Unused2: i32,
     pub rcImage: super::super::Foundation::RECT,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IMAGEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IMAGELAYOUT = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1855,8 +1978,14 @@ pub struct IMAGELISTDRAWPARAMS {
     pub Frame: u32,
     pub crEffect: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IMAGELISTDRAWPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGELISTSTATS {
     pub cbSize: u32,
     pub cAlloc: i32,
@@ -1871,7 +2000,7 @@ pub type IMAGE_LIST_ITEM_FLAGS = u32;
 pub type IMAGE_LIST_WRITE_STREAM_FLAGS = u32;
 pub const INFOTIPSIZE: u32 = 1024u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INITCOMMONCONTROLSEX {
     pub dwSize: u32,
     pub dwICC: INITCOMMONCONTROLSEX_ICC,
@@ -1882,6 +2011,11 @@ pub type INITCOMMONCONTROLSEX_ICC = u32;
 pub struct INTLIST {
     pub iValueCount: i32,
     pub iValues: [i32; 402],
+}
+impl Default for INTLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const INVALID_LINK_INDEX: i32 = -1i32;
 pub const IPM_CLEARADDRESS: u32 = 1124u32;
@@ -1934,7 +2068,7 @@ pub const LBPSV_FOCUSED: BORDER_VSCROLLSTATES = 2i32;
 pub const LBPSV_HOT: BORDER_VSCROLLSTATES = 3i32;
 pub const LBPSV_NORMAL: BORDER_VSCROLLSTATES = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub item: LITEM,
@@ -1979,6 +2113,11 @@ pub struct LITEM {
     pub stateMask: LIST_ITEM_STATE_FLAGS,
     pub szID: [u16; 48],
     pub szUrl: [u16; 2084],
+}
+impl Default for LITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LM_GETIDEALHEIGHT: u32 = 1793u32;
 pub const LM_GETIDEALSIZE: u32 = 1793u32;
@@ -2028,6 +2167,12 @@ pub struct LVBKIMAGEA {
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for LVBKIMAGEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -2038,6 +2183,12 @@ pub struct LVBKIMAGEW {
     pub cchImageMax: u32,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for LVBKIMAGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LVCB_HOVER: COLLAPSEBUTTONSTATES = 2i32;
 pub const LVCB_NORMAL: COLLAPSEBUTTONSTATES = 1i32;
@@ -2087,6 +2238,11 @@ pub struct LVCOLUMNA {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
+impl Default for LVCOLUMNA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LVCOLUMNW {
@@ -2101,6 +2257,11 @@ pub struct LVCOLUMNW {
     pub cxMin: i32,
     pub cxDefault: i32,
     pub cxIdeal: i32,
+}
+impl Default for LVCOLUMNW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type LVCOLUMNW_FORMAT = i32;
 pub type LVCOLUMNW_MASK = u32;
@@ -2119,6 +2280,11 @@ pub struct LVFINDINFOA {
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
 }
+impl Default for LVFINDINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LVFINDINFOW {
@@ -2127,6 +2293,11 @@ pub struct LVFINDINFOW {
     pub lParam: super::super::Foundation::LPARAM,
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
+}
+impl Default for LVFINDINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type LVFINDINFOW_FLAGS = u32;
 pub const LVFIS_FOCUSED: u32 = 1u32;
@@ -2144,6 +2315,11 @@ pub struct LVFOOTERINFO {
     pub cchTextMax: i32,
     pub cItems: u32,
 }
+impl Default for LVFOOTERINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LVFOOTERITEM {
@@ -2153,6 +2329,11 @@ pub struct LVFOOTERITEM {
     pub cchTextMax: i32,
     pub state: u32,
     pub stateMask: u32,
+}
+impl Default for LVFOOTERITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type LVFOOTERITEM_MASK = u32;
 pub const LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = 16u32;
@@ -2246,8 +2427,13 @@ pub struct LVGROUP {
     pub pszSubsetTitle: windows_sys::core::PWSTR,
     pub cchSubsetTitle: u32,
 }
+impl Default for LVGROUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVGROUPMETRICS {
     pub cbSize: u32,
     pub mask: u32,
@@ -2273,7 +2459,7 @@ pub const LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = 32u32;
 pub const LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = 64u32;
 pub const LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: LVHITTESTINFO_FLAGS,
@@ -2317,8 +2503,13 @@ pub struct LVINSERTGROUPSORTED {
     pub pvData: *mut core::ffi::c_void,
     pub lvGroup: LVGROUP,
 }
+impl Default for LVINSERTGROUPSORTED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVINSERTMARK {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -2356,9 +2547,14 @@ pub struct LVITEMA {
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
+impl Default for LVITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type LVITEMA_GROUP_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVITEMINDEX {
     pub iItem: i32,
     pub iGroup: i32,
@@ -2381,6 +2577,11 @@ pub struct LVITEMW {
     pub puColumns: *mut u32,
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
+}
+impl Default for LVITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LVKF_ALT: u32 = 1u32;
 pub const LVKF_CONTROL: u32 = 2u32;
@@ -2620,6 +2821,11 @@ pub struct LVSETINFOTIP {
     pub iItem: i32,
     pub iSubItem: i32,
 }
+impl Default for LVSETINFOTIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const LVSICF_NOINVALIDATEALL: u32 = 1u32;
 pub const LVSICF_NOSCROLL: u32 = 2u32;
 pub const LVSIL_GROUPHEADER: u32 = 3u32;
@@ -2687,8 +2893,13 @@ pub struct LVTILEINFO {
     pub puColumns: *mut u32,
     pub piColFmt: *mut i32,
 }
+impl Default for LVTILEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LVTILEVIEWINFO {
     pub cbSize: u32,
     pub dwMask: LVTILEVIEWINFO_MASK,
@@ -2721,7 +2932,7 @@ pub const LWS_TRANSPARENT: u32 = 1u32;
 pub const LWS_USECUSTOMTEXT: u32 = 16u32;
 pub const LWS_USEVISUALSTYLE: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MARGINS {
     pub cxLeftWidth: i32,
     pub cxRightWidth: i32,
@@ -2797,10 +3008,15 @@ pub struct MCGRIDINFO {
     pub pszName: windows_sys::core::PWSTR,
     pub cchName: usize,
 }
+impl Default for MCGRIDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MCGRIDINFO_FLAGS = u32;
 pub type MCGRIDINFO_PART = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MCHITTESTINFO {
     pub cbSize: u32,
     pub pt: super::super::Foundation::POINT,
@@ -2949,7 +3165,7 @@ pub const MDS_HOTCHECKED: MENUBANDSTATES = 6i32;
 pub const MDS_NORMAL: MENUBANDSTATES = 1i32;
 pub const MDS_PRESSED: MENUBANDSTATES = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MEASUREITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -3070,13 +3286,13 @@ pub const NFS_LISTCOMBO: u32 = 4u32;
 pub const NFS_STATIC: u32 = 2u32;
 pub const NFS_USEFONTASSOC: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMBCDROPDOWN {
     pub hdr: NMHDR,
     pub rcButton: super::super::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMBCHOTITEM {
     pub hdr: NMHDR,
     pub dwFlags: NMTBHOTITEM_FLAGS,
@@ -3088,12 +3304,22 @@ pub struct NMCBEDRAGBEGINA {
     pub iItemid: i32,
     pub szText: [i8; 260],
 }
+impl Default for NMCBEDRAGBEGINA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMCBEDRAGBEGINW {
     pub hdr: NMHDR,
     pub iItemid: i32,
     pub szText: [u16; 260],
+}
+impl Default for NMCBEDRAGBEGINW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3104,6 +3330,11 @@ pub struct NMCBEENDEDITA {
     pub szText: [i8; 260],
     pub iWhy: i32,
 }
+impl Default for NMCBEENDEDITA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMCBEENDEDITW {
@@ -3113,8 +3344,13 @@ pub struct NMCBEENDEDITW {
     pub szText: [u16; 260],
     pub iWhy: i32,
 }
+impl Default for NMCBEENDEDITW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMCHAR {
     pub hdr: NMHDR,
     pub ch: u32,
@@ -3122,13 +3358,13 @@ pub struct NMCHAR {
     pub dwItemNext: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMCOMBOBOXEXA {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMCOMBOBOXEXW {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMW,
@@ -3145,10 +3381,16 @@ pub struct NMCUSTOMDRAW {
     pub uItemState: NMCUSTOMDRAW_DRAW_STATE_FLAGS,
     pub lItemlParam: super::super::Foundation::LPARAM,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for NMCUSTOMDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type NMCUSTOMDRAW_DRAW_STAGE = u32;
 pub type NMCUSTOMDRAW_DRAW_STATE_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMCUSTOMSPLITRECTINFO {
     pub hdr: NMHDR,
     pub rcClient: super::super::Foundation::RECT,
@@ -3167,8 +3409,14 @@ pub struct NMCUSTOMTEXT {
     pub uFormat: u32,
     pub fLink: windows_sys::core::BOOL,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for NMCUSTOMTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMDATETIMECHANGE {
     pub nmhdr: NMHDR,
     pub dwFlags: NMDATETIMECHANGE_FLAGS,
@@ -3184,6 +3432,11 @@ pub struct NMDATETIMEFORMATA {
     pub pszDisplay: windows_sys::core::PCSTR,
     pub szDisplay: [i8; 64],
 }
+impl Default for NMDATETIMEFORMATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATQUERYA {
@@ -3191,12 +3444,22 @@ pub struct NMDATETIMEFORMATQUERYA {
     pub pszFormat: windows_sys::core::PCSTR,
     pub szMax: super::super::Foundation::SIZE,
 }
+impl Default for NMDATETIMEFORMATQUERYA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_sys::core::PCWSTR,
     pub szMax: super::super::Foundation::SIZE,
+}
+impl Default for NMDATETIMEFORMATQUERYW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3207,6 +3470,11 @@ pub struct NMDATETIMEFORMATW {
     pub pszDisplay: windows_sys::core::PCWSTR,
     pub szDisplay: [u16; 64],
 }
+impl Default for NMDATETIMEFORMATW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMDATETIMESTRINGA {
@@ -3214,6 +3482,11 @@ pub struct NMDATETIMESTRINGA {
     pub pszUserString: windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
+}
+impl Default for NMDATETIMESTRINGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3223,6 +3496,11 @@ pub struct NMDATETIMESTRINGW {
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
+impl Default for NMDATETIMESTRINGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMDATETIMEWMKEYDOWNA {
@@ -3230,6 +3508,11 @@ pub struct NMDATETIMEWMKEYDOWNA {
     pub nVirtKey: i32,
     pub pszFormat: windows_sys::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
+}
+impl Default for NMDATETIMEWMKEYDOWNA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3239,6 +3522,11 @@ pub struct NMDATETIMEWMKEYDOWNW {
     pub pszFormat: windows_sys::core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
+impl Default for NMDATETIMEWMKEYDOWNW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMDAYSTATE {
@@ -3246,6 +3534,11 @@ pub struct NMDAYSTATE {
     pub stStart: super::super::Foundation::SYSTEMTIME,
     pub cDayState: i32,
     pub prgDayState: *mut u32,
+}
+impl Default for NMDAYSTATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3258,6 +3551,11 @@ pub struct NMHDDISPINFOA {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMHDDISPINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMHDDISPINFOW {
@@ -3269,8 +3567,13 @@ pub struct NMHDDISPINFOW {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMHDDISPINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMHDFILTERBTNCLICK {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -3283,6 +3586,11 @@ pub struct NMHDR {
     pub idFrom: usize,
     pub code: u32,
 }
+impl Default for NMHDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -3291,6 +3599,12 @@ pub struct NMHEADERA {
     pub iItem: i32,
     pub iButton: HEADER_CONTROL_NOTIFICATION_BUTTON,
     pub pitem: *mut HDITEMA,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for NMHEADERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3301,15 +3615,21 @@ pub struct NMHEADERW {
     pub iButton: HEADER_CONTROL_NOTIFICATION_BUTTON,
     pub pitem: *mut HDITEMW,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for NMHEADERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMIPADDRESS {
     pub hdr: NMHDR,
     pub iField: i32,
     pub iValue: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMITEMACTIVATE {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -3322,20 +3642,20 @@ pub struct NMITEMACTIVATE {
     pub uKeyFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMKEY {
     pub hdr: NMHDR,
     pub nVKey: u32,
     pub uFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLINK {
     pub hdr: NMHDR,
     pub item: LITEM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLISTVIEW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -3347,7 +3667,7 @@ pub struct NMLISTVIEW {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVCACHEHINT {
     pub hdr: NMHDR,
     pub iFrom: i32,
@@ -3355,7 +3675,7 @@ pub struct NMLVCACHEHINT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::super::Foundation::COLORREF,
@@ -3372,13 +3692,13 @@ pub struct NMLVCUSTOMDRAW {
 }
 pub type NMLVCUSTOMDRAW_ITEM_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVDISPINFOA {
     pub hdr: NMHDR,
     pub item: LVITEMA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVDISPINFOW {
     pub hdr: NMHDR,
     pub item: LVITEMW,
@@ -3390,16 +3710,21 @@ pub struct NMLVEMPTYMARKUP {
     pub dwFlags: NMLVEMPTYMARKUP_FLAGS,
     pub szMarkup: [u16; 2084],
 }
+impl Default for NMLVEMPTYMARKUP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type NMLVEMPTYMARKUP_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVFINDITEMA {
     pub hdr: NMHDR,
     pub iStart: i32,
     pub lvfi: LVFINDINFOA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVFINDITEMW {
     pub hdr: NMHDR,
     pub iStart: i32,
@@ -3416,6 +3741,11 @@ pub struct NMLVGETINFOTIPA {
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMLVGETINFOTIPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMLVGETINFOTIPW {
@@ -3427,16 +3757,21 @@ pub struct NMLVGETINFOTIPW {
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMLVGETINFOTIPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type NMLVGETINFOTIP_FLAGS = u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVKEYDOWN {
     pub hdr: NMHDR,
     pub wVKey: u16,
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVLINK {
     pub hdr: NMHDR,
     pub link: LITEM,
@@ -3444,7 +3779,7 @@ pub struct NMLVLINK {
     pub iSubItem: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVODSTATECHANGE {
     pub hdr: NMHDR,
     pub iFrom: i32,
@@ -3453,14 +3788,14 @@ pub struct NMLVODSTATECHANGE {
     pub uOldState: LIST_VIEW_ITEM_STATE_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMLVSCROLL {
     pub hdr: NMHDR,
     pub dx: i32,
     pub dy: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMMOUSE {
     pub hdr: NMHDR,
     pub dwItemSpec: usize,
@@ -3478,8 +3813,13 @@ pub struct NMOBJECTNOTIFY {
     pub hResult: windows_sys::core::HRESULT,
     pub dwFlags: u32,
 }
+impl Default for NMOBJECTNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMPGCALCSIZE {
     pub hdr: NMHDR,
     pub dwFlag: NMPGCALCSIZE_FLAGS,
@@ -3488,7 +3828,7 @@ pub struct NMPGCALCSIZE {
 }
 pub type NMPGCALCSIZE_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMPGHOTITEM {
     pub hdr: NMHDR,
     pub idOld: i32,
@@ -3496,7 +3836,7 @@ pub struct NMPGHOTITEM {
     pub dwFlags: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMPGSCROLL {
     pub hdr: NMHDR,
     pub fwKeys: NMPGSCROLL_KEYS,
@@ -3509,7 +3849,7 @@ pub struct NMPGSCROLL {
 pub type NMPGSCROLL_DIR = i32;
 pub type NMPGSCROLL_KEYS = u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMRBAUTOSIZE {
     pub hdr: NMHDR,
     pub fChanged: windows_sys::core::BOOL,
@@ -3517,7 +3857,7 @@ pub struct NMRBAUTOSIZE {
     pub rcActual: super::super::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMREBAR {
     pub hdr: NMHDR,
     pub dwMask: NMREBAR_MASK_FLAGS,
@@ -3527,7 +3867,7 @@ pub struct NMREBAR {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMREBARAUTOBREAK {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -3538,7 +3878,7 @@ pub struct NMREBARAUTOBREAK {
     pub fAutoBreak: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMREBARCHEVRON {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -3548,7 +3888,7 @@ pub struct NMREBARCHEVRON {
     pub lParamNM: super::super::Foundation::LPARAM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMREBARCHILDSIZE {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -3557,14 +3897,14 @@ pub struct NMREBARCHILDSIZE {
     pub rcBand: super::super::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMREBARSPLITTER {
     pub hdr: NMHDR,
     pub rcSizing: super::super::Foundation::RECT,
 }
 pub type NMREBAR_MASK_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMSEARCHWEB {
     pub hdr: NMHDR,
     pub entrypoint: EC_SEARCHWEB_ENTRYPOINT,
@@ -3572,7 +3912,7 @@ pub struct NMSEARCHWEB {
     pub invokeSucceeded: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMSELCHANGE {
     pub nmhdr: NMHDR,
     pub stSelStart: super::super::Foundation::SYSTEMTIME,
@@ -3597,6 +3937,12 @@ pub struct NMTBCUSTOMDRAW {
     pub nHLStringBkMode: i32,
     pub iListGap: i32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for NMTBCUSTOMDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTBDISPINFOA {
@@ -3607,6 +3953,11 @@ pub struct NMTBDISPINFOA {
     pub iImage: i32,
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
+}
+impl Default for NMTBDISPINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3619,6 +3970,11 @@ pub struct NMTBDISPINFOW {
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
 }
+impl Default for NMTBDISPINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type NMTBDISPINFOW_MASK = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3629,6 +3985,11 @@ pub struct NMTBGETINFOTIPA {
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMTBGETINFOTIPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTBGETINFOTIPW {
@@ -3638,8 +3999,13 @@ pub struct NMTBGETINFOTIPW {
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMTBGETINFOTIPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTBHOTITEM {
     pub hdr: NMHDR,
     pub idOld: i32,
@@ -3659,6 +4025,11 @@ pub struct NMTBRESTORE {
     pub cbBytesPerRecord: i32,
     pub tbButton: TBBUTTON,
 }
+impl Default for NMTBRESTORE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTBSAVE {
@@ -3670,8 +4041,13 @@ pub struct NMTBSAVE {
     pub cButtons: i32,
     pub tbButton: TBBUTTON,
 }
+impl Default for NMTBSAVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTCKEYDOWN {
     pub hdr: NMHDR,
     pub wVKey: u16,
@@ -3687,6 +4063,11 @@ pub struct NMTOOLBARA {
     pub pszText: windows_sys::core::PSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
+impl Default for NMTOOLBARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTOOLBARW {
@@ -3697,21 +4078,31 @@ pub struct NMTOOLBARW {
     pub pszText: windows_sys::core::PWSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
+impl Default for NMTOOLBARW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: NMHDR,
     pub hwndToolTips: super::super::Foundation::HWND,
 }
+impl Default for NMTOOLTIPSCREATED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTRBTHUMBPOSCHANGING {
     pub hdr: NMHDR,
     pub dwPos: u32,
     pub nReason: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTREEVIEWA {
     pub hdr: NMHDR,
     pub action: NM_TREEVIEW_ACTION,
@@ -3720,7 +4111,7 @@ pub struct NMTREEVIEWA {
     pub ptDrag: super::super::Foundation::POINT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTREEVIEWW {
     pub hdr: NMHDR,
     pub action: NM_TREEVIEW_ACTION,
@@ -3730,7 +4121,7 @@ pub struct NMTREEVIEWW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTTCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub uDrawFlags: u32,
@@ -3745,6 +4136,11 @@ pub struct NMTTDISPINFOA {
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMTTDISPINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTTDISPINFOW {
@@ -3754,6 +4150,11 @@ pub struct NMTTDISPINFOW {
     pub hinst: super::super::Foundation::HINSTANCE,
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for NMTTDISPINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3767,9 +4168,15 @@ pub struct NMTVASYNCDRAW {
     pub dwRetFlags: u32,
     pub iRetImageIndex: i32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for NMTVASYNCDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::super::Foundation::COLORREF,
@@ -3777,25 +4184,25 @@ pub struct NMTVCUSTOMDRAW {
     pub iLevel: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOA {
     pub hdr: NMHDR,
     pub item: TVITEMA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOEXA {
     pub hdr: NMHDR,
     pub item: TVITEMEXA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOEXW {
     pub hdr: NMHDR,
     pub item: TVITEMEXW,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVDISPINFOW {
     pub hdr: NMHDR,
     pub item: TVITEMW,
@@ -3809,6 +4216,11 @@ pub struct NMTVGETINFOTIPA {
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMTVGETINFOTIPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NMTVGETINFOTIPW {
@@ -3818,8 +4230,13 @@ pub struct NMTVGETINFOTIPW {
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for NMTVGETINFOTIPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVITEMCHANGE {
     pub hdr: NMHDR,
     pub uChanged: u32,
@@ -3829,14 +4246,14 @@ pub struct NMTVITEMCHANGE {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVKEYDOWN {
     pub hdr: NMHDR,
     pub wVKey: u16,
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: NMHDR,
     pub hti: HTREEITEM,
@@ -3844,14 +4261,14 @@ pub struct NMTVSTATEIMAGECHANGING {
     pub iNewStateImageIndex: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMUPDOWN {
     pub hdr: NMHDR,
     pub iPos: i32,
     pub iDelta: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NMVIEWCHANGE {
     pub nmhdr: NMHDR,
     pub dwOldView: MONTH_CALDENDAR_MESSAGES_VIEW,
@@ -3963,7 +4380,7 @@ pub const PBM_SETSTATE: u32 = 1040u32;
 pub const PBM_SETSTEP: u32 = 1028u32;
 pub const PBM_STEPIT: u32 = 1029u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PBRANGE {
     pub iLow: i32,
     pub iHigh: i32,
@@ -4040,7 +4457,7 @@ pub const PGS_DRAGNDROP: u32 = 4u32;
 pub const PGS_HORZ: u32 = 1u32;
 pub const PGS_VERT: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTER_DEVICE_CURSOR_INFO {
     pub cursorId: u32,
     pub cursor: POINTER_DEVICE_CURSOR_TYPE,
@@ -4062,8 +4479,14 @@ pub struct POINTER_DEVICE_INFO {
     pub maxActiveContacts: u16,
     pub productString: [u16; 520],
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for POINTER_DEVICE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct POINTER_DEVICE_PROPERTY {
     pub logicalMin: i32,
     pub logicalMax: i32,
@@ -4091,12 +4514,24 @@ pub struct POINTER_TYPE_INFO {
     pub r#type: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
     pub Anonymous: POINTER_TYPE_INFO_0,
 }
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for POINTER_TYPE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union POINTER_TYPE_INFO_0 {
     pub touchInfo: super::Input::Pointer::POINTER_TOUCH_INFO,
     pub penInfo: super::Input::Pointer::POINTER_PEN_INFO,
+}
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for POINTER_TYPE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type POPUPCHECKBACKGROUNDSTATES = i32;
 pub type POPUPCHECKSTATES = i32;
@@ -4145,12 +4580,24 @@ pub struct PROPSHEETHEADERA_V1 {
     pub Anonymous3: PROPSHEETHEADERA_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4159,12 +4606,24 @@ pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
     pub phpage: *mut HPROPSHEETPAGE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4184,12 +4643,24 @@ pub struct PROPSHEETHEADERA_V2 {
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERA_V2_4,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4198,12 +4669,24 @@ pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
     pub phpage: *mut HPROPSHEETPAGE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V2_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4212,12 +4695,24 @@ pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: windows_sys::core::PCSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V2_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERA_V2_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4234,12 +4729,24 @@ pub struct PROPSHEETHEADERW_V1 {
     pub Anonymous3: PROPSHEETHEADERW_V1_2,
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4248,12 +4755,24 @@ pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
     pub phpage: *mut HPROPSHEETPAGE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4273,12 +4792,24 @@ pub struct PROPSHEETHEADERW_V2 {
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERW_V2_4,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4287,12 +4818,24 @@ pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
     pub phpage: *mut HPROPSHEETPAGE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V2_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4301,12 +4844,24 @@ pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V2_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETHEADERW_V2_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4327,12 +4882,24 @@ pub struct PROPSHEETPAGEA {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEA_2,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4341,12 +4908,24 @@ pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4363,6 +4942,12 @@ pub struct PROPSHEETPAGEA_V1 {
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -4370,12 +4955,24 @@ pub union PROPSHEETPAGEA_V1_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4394,6 +4991,12 @@ pub struct PROPSHEETPAGEA_V2 {
     pub pszHeaderTitle: windows_sys::core::PCSTR,
     pub pszHeaderSubTitle: windows_sys::core::PCSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -4401,12 +5004,24 @@ pub union PROPSHEETPAGEA_V2_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4426,6 +5041,12 @@ pub struct PROPSHEETPAGEA_V3 {
     pub pszHeaderSubTitle: windows_sys::core::PCSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -4433,12 +5054,24 @@ pub union PROPSHEETPAGEA_V3_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEA_V3_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4459,12 +5092,24 @@ pub struct PROPSHEETPAGEW {
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEW_2,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4473,12 +5118,24 @@ pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4495,6 +5152,12 @@ pub struct PROPSHEETPAGEW_V1 {
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -4502,12 +5165,24 @@ pub union PROPSHEETPAGEW_V1_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4526,6 +5201,12 @@ pub struct PROPSHEETPAGEW_V2 {
     pub pszHeaderTitle: windows_sys::core::PCWSTR,
     pub pszHeaderSubTitle: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -4533,12 +5214,24 @@ pub union PROPSHEETPAGEW_V2_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -4558,6 +5251,12 @@ pub struct PROPSHEETPAGEW_V3 {
     pub pszHeaderSubTitle: windows_sys::core::PCWSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
@@ -4565,12 +5264,24 @@ pub union PROPSHEETPAGEW_V3_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PROPSHEETPAGEW_V3_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PROP_LG_CXDLG: u32 = 252u32;
 pub const PROP_LG_CYDLG: u32 = 218u32;
@@ -4590,7 +5301,7 @@ pub const PSCB_BUTTONPRESSED: u32 = 3u32;
 pub const PSCB_INITIALIZED: u32 = 1u32;
 pub const PSCB_PRECREATE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PSHNOTIFY {
     pub hdr: NMHDR,
     pub lParam: super::super::Foundation::LPARAM,
@@ -4743,7 +5454,7 @@ pub const RBBS_TOPALIGN: u32 = 2048u32;
 pub const RBBS_USECHEVRON: u32 = 512u32;
 pub const RBBS_VARIABLEHEIGHT: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RBHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: u32,
@@ -4871,6 +5582,12 @@ pub struct REBARBANDINFOA {
     pub rcChevronLocation: super::super::Foundation::RECT,
     pub uChevronState: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for REBARBANDINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -4898,11 +5615,17 @@ pub struct REBARBANDINFOW {
     pub rcChevronLocation: super::super::Foundation::RECT,
     pub uChevronState: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for REBARBANDINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const REBARCLASSNAME: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
 pub const REBARCLASSNAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("ReBarWindow32");
 pub const REBARCLASSNAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("ReBarWindow32");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REBARINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -5177,12 +5900,24 @@ pub struct TASKDIALOGCONFIG {
     pub lpCallbackData: isize,
     pub cxWidth: u32,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for TASKDIALOGCONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union TASKDIALOGCONFIG_0 {
     pub hMainIcon: super::WindowsAndMessaging::HICON,
     pub pszMainIcon: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for TASKDIALOGCONFIG_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -5191,12 +5926,23 @@ pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::WindowsAndMessaging::HICON,
     pub pszFooterIcon: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for TASKDIALOGCONFIG_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type TASKDIALOGPARTS = i32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
     pub pszButtonText: windows_sys::core::PCWSTR,
+}
+impl Default for TASKDIALOG_BUTTON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TASKDIALOG_COMMON_BUTTON_FLAGS = i32;
 pub type TASKDIALOG_ELEMENTS = i32;
@@ -5214,7 +5960,7 @@ pub const TATT_OPACITY: TA_TRANSFORM_TYPE = 2i32;
 pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = 1i32;
 pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TA_CUBIC_BEZIER {
     pub header: TA_TIMINGFUNCTION,
     pub rX0: f32,
@@ -5225,13 +5971,13 @@ pub struct TA_CUBIC_BEZIER {
 pub type TA_PROPERTY = i32;
 pub type TA_PROPERTY_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
 }
 pub type TA_TIMINGFUNCTION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TA_TRANSFORM {
     pub eTransformType: TA_TRANSFORM_TYPE,
     pub dwTimingFunctionId: u32,
@@ -5240,7 +5986,7 @@ pub struct TA_TRANSFORM {
     pub eFlags: TA_TRANSFORM_FLAG,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TA_TRANSFORM_2D {
     pub header: TA_TRANSFORM,
     pub rX: f32,
@@ -5251,7 +5997,7 @@ pub struct TA_TRANSFORM_2D {
     pub rOriginY: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TA_TRANSFORM_CLIP {
     pub header: TA_TRANSFORM,
     pub rLeft: f32,
@@ -5265,7 +6011,7 @@ pub struct TA_TRANSFORM_CLIP {
 }
 pub type TA_TRANSFORM_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TA_TRANSFORM_OPACITY {
     pub header: TA_TRANSFORM,
     pub rOpacity: f32,
@@ -5277,6 +6023,11 @@ pub type TA_TRANSFORM_TYPE = i32;
 pub struct TBADDBITMAP {
     pub hInst: super::super::Foundation::HINSTANCE,
     pub nID: usize,
+}
+impl Default for TBADDBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TBBF_LARGE: u32 = 1u32;
 #[repr(C)]
@@ -5291,6 +6042,12 @@ pub struct TBBUTTON {
     pub dwData: usize,
     pub iString: isize,
 }
+#[cfg(target_arch = "x86")]
+impl Default for TBBUTTON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -5302,6 +6059,12 @@ pub struct TBBUTTON {
     pub bReserved: [u8; 6],
     pub dwData: usize,
     pub iString: isize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for TBBUTTON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5317,6 +6080,11 @@ pub struct TBBUTTONINFOA {
     pub pszText: windows_sys::core::PSTR,
     pub cchText: i32,
 }
+impl Default for TBBUTTONINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TBBUTTONINFOW {
@@ -5330,6 +6098,11 @@ pub struct TBBUTTONINFOW {
     pub lParam: usize,
     pub pszText: windows_sys::core::PWSTR,
     pub cchText: i32,
+}
+impl Default for TBBUTTONINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TBBUTTONINFOW_MASK = u32;
 pub const TBCDRF_BLENDICON: u32 = 2097152u32;
@@ -5358,14 +6131,14 @@ pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = 1u32;
 pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = 2u32;
 pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBINSERTMARK {
     pub iButton: i32,
     pub dwFlags: TBINSERTMARK_FLAGS,
 }
 pub type TBINSERTMARK_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TBMETRICS {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -5469,6 +6242,11 @@ pub struct TBREPLACEBITMAP {
     pub nIDNew: usize,
     pub nButtons: i32,
 }
+impl Default for TBREPLACEBITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
 #[derive(Clone, Copy)]
@@ -5477,6 +6255,12 @@ pub struct TBSAVEPARAMSA {
     pub pszSubKey: windows_sys::core::PCSTR,
     pub pszValueName: windows_sys::core::PCSTR,
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for TBSAVEPARAMSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
 #[derive(Clone, Copy)]
@@ -5484,6 +6268,12 @@ pub struct TBSAVEPARAMSW {
     pub hkr: super::super::System::Registry::HKEY,
     pub pszSubKey: windows_sys::core::PCWSTR,
     pub pszValueName: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for TBSAVEPARAMSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TBSTATE_CHECKED: u32 = 1u32;
 pub const TBSTATE_ELLIPSES: u32 = 64u32;
@@ -5656,7 +6446,7 @@ pub const TB_THUMBPOSITION: u32 = 4u32;
 pub const TB_THUMBTRACK: u32 = 5u32;
 pub const TB_TOP: u32 = 6u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TCHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TCHITTESTINFO_FLAGS,
@@ -5684,6 +6474,11 @@ pub struct TCITEMA {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for TCITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCITEMHEADERA {
@@ -5693,6 +6488,11 @@ pub struct TCITEMHEADERA {
     pub pszText: windows_sys::core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
+}
+impl Default for TCITEMHEADERA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TCITEMHEADERA_MASK = u32;
 #[repr(C)]
@@ -5705,6 +6505,11 @@ pub struct TCITEMHEADERW {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
+impl Default for TCITEMHEADERW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCITEMW {
@@ -5715,6 +6520,11 @@ pub struct TCITEMW {
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for TCITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TCM_ADJUSTRECT: u32 = 4904u32;
 pub const TCM_DELETEALLITEMS: u32 = 4873u32;
@@ -6209,7 +7019,7 @@ pub type TOPTABITEMLEFTEDGESTATES = i32;
 pub type TOPTABITEMRIGHTEDGESTATES = i32;
 pub type TOPTABITEMSTATES = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TOUCH_HIT_TESTING_INPUT {
     pub pointerId: u32,
     pub point: super::super::Foundation::POINT,
@@ -6218,7 +7028,7 @@ pub struct TOUCH_HIT_TESTING_INPUT {
     pub orientation: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     pub score: u16,
     pub adjustedPoint: super::super::Foundation::POINT,
@@ -6320,6 +7130,11 @@ pub struct TTGETTITLE {
     pub cch: u32,
     pub pszTitle: windows_sys::core::PWSTR,
 }
+impl Default for TTGETTITLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TTHITTESTINFOA {
@@ -6327,12 +7142,22 @@ pub struct TTHITTESTINFOA {
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOA,
 }
+impl Default for TTHITTESTINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::super::Foundation::HWND,
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOW,
+}
+impl Default for TTHITTESTINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TTIBES_DISABLED: TOPTABITEMBOTHEDGESTATES = 4i32;
 pub const TTIBES_FOCUSED: TOPTABITEMBOTHEDGESTATES = 5i32;
@@ -6457,6 +7282,11 @@ pub struct TTTOOLINFOA {
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
 }
+impl Default for TTTOOLINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TTTOOLINFOW {
@@ -6469,6 +7299,11 @@ pub struct TTTOOLINFOW {
     pub lpszText: windows_sys::core::PWSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
+}
+impl Default for TTTOOLINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TTWS_HOT: WRENCHSTATES = 2i32;
 pub const TTWS_NORMAL: WRENCHSTATES = 1i32;
@@ -6519,6 +7354,11 @@ pub struct TVGETITEMPARTRECTINFO {
     pub prc: *mut super::super::Foundation::RECT,
     pub partID: TVITEMPART,
 }
+impl Default for TVGETITEMPARTRECTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const TVGIPR_BUTTON: TVITEMPART = 1i32;
 pub const TVGN_CARET: u32 = 9u32;
 pub const TVGN_CHILD: u32 = 4u32;
@@ -6533,7 +7373,7 @@ pub const TVGN_PREVIOUS: u32 = 2u32;
 pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
 pub const TVGN_ROOT: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TVHITTESTINFO_FLAGS,
@@ -6570,11 +7410,21 @@ pub struct TVINSERTSTRUCTA {
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTA_0,
 }
+impl Default for TVINSERTSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TVINSERTSTRUCTA_0 {
     pub itemex: TVITEMEXA,
     pub item: TVITEMA,
+}
+impl Default for TVINSERTSTRUCTA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6583,11 +7433,21 @@ pub struct TVINSERTSTRUCTW {
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTW_0,
 }
+impl Default for TVINSERTSTRUCTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TVINSERTSTRUCTW_0 {
     pub itemex: TVITEMEXW,
     pub item: TVITEMW,
+}
+impl Default for TVINSERTSTRUCTW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TVIS_BOLD: TREE_VIEW_ITEM_STATE_FLAGS = 16u32;
 pub const TVIS_CUT: TREE_VIEW_ITEM_STATE_FLAGS = 4u32;
@@ -6616,6 +7476,11 @@ pub struct TVITEMA {
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
+impl Default for TVITEMA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TVITEMEXA {
@@ -6634,6 +7499,11 @@ pub struct TVITEMEXA {
     pub hwnd: super::super::Foundation::HWND,
     pub iExpandedImage: i32,
     pub iReserved: i32,
+}
+impl Default for TVITEMEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6654,6 +7524,11 @@ pub struct TVITEMEXW {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
+impl Default for TVITEMEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type TVITEMEXW_CHILDREN = i32;
 pub type TVITEMPART = i32;
 #[repr(C)]
@@ -6669,6 +7544,11 @@ pub struct TVITEMW {
     pub iSelectedImage: i32,
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
+}
+impl Default for TVITEMW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TVITEM_MASK = u32;
 pub const TVI_FIRST: HTREEITEM = -65535i32 as _;
@@ -6796,7 +7676,7 @@ pub const TVSIL_NORMAL: u32 = 0u32;
 pub const TVSIL_STATE: u32 = 2u32;
 pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
     pub lpfnCompare: PFNTVCOMPARE,
@@ -6831,7 +7711,7 @@ pub const TVS_SINGLEEXPAND: u32 = 1024u32;
 pub const TVS_TRACKSELECT: u32 = 512u32;
 pub const TV_FIRST: u32 = 4352u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct UDACCEL {
     pub nSec: u32,
     pub nInc: u32,
@@ -6880,7 +7760,7 @@ pub const UPS_HOT: UPSTATES = 2i32;
 pub const UPS_NORMAL: UPSTATES = 1i32;
 pub const UPS_PRESSED: UPSTATES = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USAGE_PROPERTIES {
     pub level: u16,
     pub page: u16,
@@ -7115,7 +7995,7 @@ pub const WSB_PROP_VSTYLE: WSB_PROP = 256i32;
 pub const WSB_PROP_WINSTYLE: WSB_PROP = 1024i32;
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,

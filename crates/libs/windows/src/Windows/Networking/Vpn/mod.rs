@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IVpnAppId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnAppId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VpnAppIdType) -> windows_core::HRESULT,
@@ -15,6 +16,7 @@ impl windows_core::RuntimeType for IVpnAppIdFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnAppIdFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, VpnAppIdType, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24,6 +26,7 @@ impl windows_core::RuntimeType for IVpnChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AssociateTransport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51,6 +54,7 @@ impl windows_core::RuntimeType for IVpnChannel2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannel2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartWithMainTransport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, bool, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -74,6 +78,7 @@ impl windows_core::RuntimeType for IVpnChannel4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannel4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddAndAssociateTransport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -91,6 +96,7 @@ impl windows_core::RuntimeType for IVpnChannel5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannel5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppendVpnReceivePacketBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -103,6 +109,7 @@ impl windows_core::RuntimeType for IVpnChannel6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannel6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -115,6 +122,7 @@ impl windows_core::RuntimeType for IVpnChannelActivityEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannelActivityEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VpnChannelActivityEventType) -> windows_core::HRESULT,
@@ -124,6 +132,7 @@ impl windows_core::RuntimeType for IVpnChannelActivityStateChangedArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannelActivityStateChangedArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ActivityState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VpnChannelActivityEventType) -> windows_core::HRESULT,
@@ -133,6 +142,7 @@ impl windows_core::RuntimeType for IVpnChannelConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannelConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServerServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -144,6 +154,7 @@ impl windows_core::RuntimeType for IVpnChannelConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannelConfiguration2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServerUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -184,6 +195,7 @@ impl IVpnChannelStatics_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnChannelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProcessEventAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -305,6 +317,7 @@ impl IVpnCredential_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCredential_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -326,6 +339,7 @@ impl windows_core::RuntimeType for IVpnCustomCheckBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomCheckBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetInitialCheckState: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -337,6 +351,7 @@ impl windows_core::RuntimeType for IVpnCustomComboBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomComboBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetOptionsText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -348,6 +363,7 @@ impl windows_core::RuntimeType for IVpnCustomEditBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomEditBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDefaultText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -361,6 +377,7 @@ impl windows_core::RuntimeType for IVpnCustomErrorBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomErrorBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -487,6 +504,7 @@ impl IVpnCustomPrompt_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomPrompt_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -501,6 +519,7 @@ impl windows_core::RuntimeType for IVpnCustomPromptBooleanInput {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomPromptBooleanInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetInitialValue: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -630,6 +649,7 @@ impl IVpnCustomPromptElement_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomPromptElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -644,6 +664,7 @@ impl windows_core::RuntimeType for IVpnCustomPromptOptionSelector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomPromptOptionSelector_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -654,6 +675,7 @@ impl windows_core::RuntimeType for IVpnCustomPromptText {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomPromptText_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -664,6 +686,7 @@ impl windows_core::RuntimeType for IVpnCustomPromptTextInput {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomPromptTextInput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPlaceholderText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -677,6 +700,7 @@ impl windows_core::RuntimeType for IVpnCustomTextBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnCustomTextBox_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -687,6 +711,7 @@ impl windows_core::RuntimeType for IVpnDomainNameAssignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnDomainNameAssignment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DomainNameList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -698,6 +723,7 @@ impl windows_core::RuntimeType for IVpnDomainNameInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnDomainNameInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDomainName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -712,6 +738,7 @@ impl windows_core::RuntimeType for IVpnDomainNameInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnDomainNameInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WebProxyUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -765,6 +792,7 @@ impl IVpnDomainNameInfoFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnDomainNameInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnDomainNameInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, VpnDomainNameType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -774,6 +802,7 @@ impl windows_core::RuntimeType for IVpnForegroundActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnForegroundActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProfileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -788,6 +817,7 @@ impl windows_core::RuntimeType for IVpnForegroundActivationOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnForegroundActivationOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -800,6 +830,7 @@ impl windows_core::RuntimeType for IVpnInterfaceId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnInterfaceId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetAddressInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -849,6 +880,7 @@ impl IVpnInterfaceIdFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnInterfaceIdFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnInterfaceId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -858,6 +890,7 @@ impl windows_core::RuntimeType for IVpnManagementAgent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnManagementAgent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddProfileFromXmlAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -878,6 +911,7 @@ impl windows_core::RuntimeType for IVpnNamespaceAssignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnNamespaceAssignment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetNamespaceList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -890,6 +924,7 @@ impl windows_core::RuntimeType for IVpnNamespaceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnNamespaceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -948,6 +983,7 @@ impl IVpnNamespaceInfoFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnNamespaceInfoFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnNamespaceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -957,6 +993,7 @@ impl windows_core::RuntimeType for IVpnNativeProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnNativeProfile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Servers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -976,6 +1013,7 @@ impl windows_core::RuntimeType for IVpnNativeProfile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnNativeProfile2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequireVpnClientAppUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -987,6 +1025,7 @@ impl windows_core::RuntimeType for IVpnPacketBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPacketBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1003,6 +1042,7 @@ impl windows_core::RuntimeType for IVpnPacketBuffer2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPacketBuffer2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1012,6 +1052,7 @@ impl windows_core::RuntimeType for IVpnPacketBuffer3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPacketBuffer3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTransportContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1065,6 +1106,7 @@ impl IVpnPacketBufferFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPacketBufferFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnPacketBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1074,6 +1116,7 @@ impl windows_core::RuntimeType for IVpnPacketBufferList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPacketBufferList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1090,6 +1133,7 @@ impl windows_core::RuntimeType for IVpnPacketBufferList2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPacketBufferList2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddLeadingPacket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1102,6 +1146,7 @@ impl windows_core::RuntimeType for IVpnPickedCredential {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPickedCredential_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -1217,6 +1262,7 @@ impl IVpnPlugIn_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPlugIn_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1230,6 +1276,7 @@ impl windows_core::RuntimeType for IVpnPlugInProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPlugInProfile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServerUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1243,6 +1290,7 @@ impl windows_core::RuntimeType for IVpnPlugInProfile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPlugInProfile2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequireVpnClientAppUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1288,6 +1336,7 @@ impl IVpnPlugInReconnectTransport_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnPlugInReconnectTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReconnectTransport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1503,6 +1552,7 @@ impl IVpnProfile_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnProfile_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProfileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1521,6 +1571,7 @@ impl windows_core::RuntimeType for IVpnRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnRoute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1533,6 +1584,7 @@ impl windows_core::RuntimeType for IVpnRouteAssignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnRouteAssignment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetIpv4InclusionRoutes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1591,6 +1643,7 @@ impl IVpnRouteFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnRouteFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnRoute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1600,6 +1653,7 @@ impl windows_core::RuntimeType for IVpnSystemHealth {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnSystemHealth_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1612,6 +1666,7 @@ impl windows_core::RuntimeType for IVpnTrafficFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnTrafficFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1631,6 +1686,7 @@ impl windows_core::RuntimeType for IVpnTrafficFilterAssignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnTrafficFilterAssignment_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TrafficFilterList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1644,6 +1700,7 @@ impl windows_core::RuntimeType for IVpnTrafficFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVpnTrafficFilterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

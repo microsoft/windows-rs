@@ -78,12 +78,23 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub CallbackContext: *mut core::ffi::c_void,
     pub Callback: HCS_EVENT_CALLBACK,
 }
+#[cfg(feature = "Win32_Security")]
+impl Default for HCS_CREATE_OPTIONS_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HCS_EVENT {
     pub Type: HCS_EVENT_TYPE,
     pub EventData: windows_sys::core::PCWSTR,
     pub Operation: HCS_OPERATION,
+}
+impl Default for HCS_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
 pub type HCS_EVENT_OPTIONS = i32;
@@ -104,6 +115,11 @@ pub struct HCS_PROCESS_INFORMATION {
     pub StdInput: super::super::Foundation::HANDLE,
     pub StdOutput: super::super::Foundation::HANDLE,
     pub StdError: super::super::Foundation::HANDLE,
+}
+impl Default for HCS_PROCESS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HCS_RESOURCE_TYPE = i32;
 pub type HCS_SYSTEM = *mut core::ffi::c_void;

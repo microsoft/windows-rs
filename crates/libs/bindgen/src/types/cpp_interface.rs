@@ -115,9 +115,16 @@ impl CppInterface {
                 }
             });
 
+            let hide_vtbl = if writer.config.sys {
+                quote! {}
+            } else {
+                quote! { #[doc(hidden)] }
+            };
+
             quote! {
                 #cfg
                 #[repr(C)]
+                #hide_vtbl
                 pub struct #vtbl_name {
                     #base
                     #(#methods)*

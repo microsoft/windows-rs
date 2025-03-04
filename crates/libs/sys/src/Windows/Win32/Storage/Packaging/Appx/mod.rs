@@ -108,6 +108,11 @@ pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *const windows_sys::core::PCWSTR,
 }
+impl Default for APPX_ENCRYPTED_EXEMPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = i32;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = 1i32;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0i32;
@@ -121,6 +126,12 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub useDiffusion: windows_sys::core::BOOL,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -129,6 +140,12 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub encryptionAlgorithm: windows_sys::core::PCWSTR,
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
     pub options: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type APPX_FOOTPRINT_FILE_TYPE = i32;
 pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = 1i32;
@@ -143,6 +160,11 @@ pub struct APPX_KEY_INFO {
     pub keyIdLength: u32,
     pub key: *mut u8,
     pub keyId: *mut u8,
+}
+impl Default for APPX_KEY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type APPX_PACKAGE_ARCHITECTURE = i32;
 pub type APPX_PACKAGE_ARCHITECTURE2 = i32;
@@ -171,6 +193,12 @@ pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: windows_sys::core::BOOL,
     pub hashMethod: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_System_Com")]
+impl Default for APPX_PACKAGE_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
@@ -179,6 +207,12 @@ pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub fileName: windows_sys::core::PCWSTR,
     pub contentType: windows_sys::core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type APPX_PACKAGING_CONTEXT_CHANGE_TYPE = i32;
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 1i32;
@@ -266,6 +300,12 @@ pub struct PACKAGE_ID {
     pub resourceId: windows_sys::core::PWSTR,
     pub publisherId: windows_sys::core::PWSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for PACKAGE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -278,6 +318,12 @@ pub struct PACKAGE_ID {
     pub resourceId: windows_sys::core::PWSTR,
     pub publisherId: windows_sys::core::PWSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for PACKAGE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -289,6 +335,12 @@ pub struct PACKAGE_INFO {
     pub packageFamilyName: windows_sys::core::PWSTR,
     pub packageId: PACKAGE_ID,
 }
+#[cfg(target_arch = "x86")]
+impl Default for PACKAGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -299,6 +351,12 @@ pub struct PACKAGE_INFO {
     pub packageFullName: windows_sys::core::PWSTR,
     pub packageFamilyName: windows_sys::core::PWSTR,
     pub packageId: PACKAGE_ID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for PACKAGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
 pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
@@ -328,14 +386,24 @@ pub const PACKAGE_RESOURCEID_MIN_LENGTH: u32 = 0u32;
 pub struct PACKAGE_VERSION {
     pub Anonymous: PACKAGE_VERSION_0,
 }
+impl Default for PACKAGE_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,
     pub Anonymous: PACKAGE_VERSION_0_0,
 }
+impl Default for PACKAGE_VERSION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
@@ -378,4 +446,9 @@ pub const PackagePathType_UserExternal: PackagePathType = 4i32;
 #[derive(Clone, Copy)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
+}
+impl Default for _PACKAGE_INFO_REFERENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

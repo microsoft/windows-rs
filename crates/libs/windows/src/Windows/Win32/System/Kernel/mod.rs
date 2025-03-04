@@ -43,16 +43,11 @@ pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPARTMENT_ID(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PCSTR,
-}
-impl Default for CSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
 pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
@@ -138,26 +133,16 @@ impl Default for LIST_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LIST_ENTRY32 {
     pub Flink: u32,
     pub Blink: u32,
 }
-impl Default for LIST_ENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
-}
-impl Default for LIST_ENTRY64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MAXUCHAR: u32 = 255u32;
 pub const MAXULONG: u32 = 4294967295u32;
@@ -205,28 +190,18 @@ pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
 pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
 pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OBJECTID {
     pub Lineage: windows_core::GUID,
     pub Uniquifier: u32,
 }
-impl Default for OBJECTID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const OBJ_HANDLE_TAGBITS: i32 = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSOR_NUMBER {
     pub Group: u16,
     pub Number: u8,
     pub Reserved: u8,
-}
-impl Default for PROCESSOR_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
 pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
@@ -307,14 +282,9 @@ impl Default for SINGLE_LIST_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SINGLE_LIST_ENTRY32 {
     pub Next: u32,
-}
-impl Default for SINGLE_LIST_ENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -341,17 +311,11 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Next: SINGLE_LIST_ENTRY,
     pub Depth: u16,
     pub CpuId: u16,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SLIST_HEADER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -368,29 +332,17 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SLIST_HEADER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for SLIST_HEADER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -407,65 +359,38 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(target_arch = "aarch64")]
-impl Default for SLIST_HEADER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
-#[cfg(target_arch = "aarch64")]
-impl Default for SLIST_HEADER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PSTR,
 }
-impl Default for STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRING32 {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: u32,
 }
-impl Default for STRING32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STRING64 {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: u64,
-}
-impl Default for STRING64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

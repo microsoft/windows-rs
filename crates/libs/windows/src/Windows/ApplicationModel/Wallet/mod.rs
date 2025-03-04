@@ -8,6 +8,7 @@ impl windows_core::RuntimeType for IWalletBarcode {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletBarcode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Symbology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WalletBarcodeSymbology) -> windows_core::HRESULT,
@@ -25,6 +26,7 @@ impl windows_core::RuntimeType for IWalletBarcodeFactory {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletBarcodeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWalletBarcode: unsafe extern "system" fn(*mut core::ffi::c_void, WalletBarcodeSymbology, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41,6 +43,7 @@ impl windows_core::RuntimeType for IWalletItem {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -170,6 +173,7 @@ impl windows_core::RuntimeType for IWalletItemCustomProperty {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItemCustomProperty_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -191,6 +195,7 @@ impl windows_core::RuntimeType for IWalletItemCustomPropertyFactory {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItemCustomPropertyFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWalletItemCustomProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -203,6 +208,7 @@ impl windows_core::RuntimeType for IWalletItemFactory {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWalletItem: unsafe extern "system" fn(*mut core::ffi::c_void, WalletItemKind, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -215,6 +221,7 @@ impl windows_core::RuntimeType for IWalletItemStore {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItemStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -239,6 +246,7 @@ impl windows_core::RuntimeType for IWalletItemStore2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletItemStore2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ItemsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -252,6 +260,7 @@ impl windows_core::RuntimeType for IWalletManagerStatics {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -264,6 +273,7 @@ impl windows_core::RuntimeType for IWalletRelevantLocation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletRelevantLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -285,6 +295,7 @@ impl windows_core::RuntimeType for IWalletTransaction {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletTransaction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -308,6 +319,7 @@ impl windows_core::RuntimeType for IWalletVerb {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletVerb_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -321,6 +333,7 @@ impl windows_core::RuntimeType for IWalletVerbFactory {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWalletVerbFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWalletVerb: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

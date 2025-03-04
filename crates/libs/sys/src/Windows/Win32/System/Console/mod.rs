@@ -107,11 +107,21 @@ pub struct CHAR_INFO {
     pub Char: CHAR_INFO_0,
     pub Attributes: u16,
 }
+impl Default for CHAR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
+}
+impl Default for CHAR_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024u16;
 pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048u16;
@@ -130,11 +140,21 @@ pub struct CONSOLEENDTASK {
     pub ConsoleEventCode: u32,
     pub ConsoleFlags: u32,
 }
+impl Default for CONSOLEENDTASK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLESETFOREGROUND {
     pub hProcess: super::super::Foundation::HANDLE,
     pub bForeground: windows_sys::core::BOOL,
+}
+impl Default for CONSOLESETFOREGROUND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -143,21 +163,31 @@ pub struct CONSOLEWINDOWOWNER {
     pub ProcessId: u32,
     pub ThreadId: u32,
 }
+impl Default for CONSOLEWINDOWOWNER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLE_CARET_INFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
 }
+impl Default for CONSOLE_CARET_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONSOLE_FONT_INFO {
     pub nFont: u32,
     pub dwFontSize: COORD,
@@ -172,11 +202,16 @@ pub struct CONSOLE_FONT_INFOEX {
     pub FontWeight: u32,
     pub FaceName: [u16; 32],
 }
+impl Default for CONSOLE_FONT_INFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CONSOLE_FULLSCREEN: u32 = 1u32;
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONSOLE_HISTORY_INFO {
     pub cbSize: u32,
     pub HistoryBufferSize: u32,
@@ -188,13 +223,13 @@ pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
     pub nLength: u32,
     pub nInitialChars: u32,
@@ -202,7 +237,7 @@ pub struct CONSOLE_READCONSOLE_CONTROL {
     pub dwControlKeyState: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
@@ -223,8 +258,13 @@ pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub bFullscreenSupported: windows_sys::core::BOOL,
     pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
+impl Default for CONSOLE_SCREEN_BUFFER_INFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONSOLE_SELECTION_INFO {
     pub dwFlags: u32,
     pub dwSelectionAnchor: COORD,
@@ -235,7 +275,7 @@ pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
 pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
 pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
@@ -269,7 +309,7 @@ pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = 2u32;
 pub const ENHANCED_KEY: u32 = 256u32;
 pub const FOCUS_EVENT: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: windows_sys::core::BOOL,
 }
@@ -289,6 +329,11 @@ pub struct INPUT_RECORD {
     pub EventType: u16,
     pub Event: INPUT_RECORD_0,
 }
+impl Default for INPUT_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INPUT_RECORD_0 {
@@ -297,6 +342,11 @@ pub union INPUT_RECORD_0 {
     pub WindowBufferSizeEvent: WINDOW_BUFFER_SIZE_RECORD,
     pub MenuEvent: MENU_EVENT_RECORD,
     pub FocusEvent: FOCUS_EVENT_RECORD,
+}
+impl Default for INPUT_RECORD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KEY_EVENT: u32 = 1u32;
 #[repr(C)]
@@ -309,23 +359,33 @@ pub struct KEY_EVENT_RECORD {
     pub uChar: KEY_EVENT_RECORD_0,
     pub dwControlKeyState: u32,
 }
+impl Default for KEY_EVENT_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
 }
+impl Default for KEY_EVENT_RECORD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
 pub const LEFT_CTRL_PRESSED: u32 = 8u32;
 pub const MENU_EVENT: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
 }
 pub const MOUSE_EVENT: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOUSE_EVENT_RECORD {
     pub dwMousePosition: COORD,
     pub dwButtonState: u32,
@@ -354,7 +414,7 @@ pub const Reserved3: CONSOLECONTROL = 4i32;
 pub const SCROLLLOCK_ON: u32 = 64u32;
 pub const SHIFT_PRESSED: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
@@ -367,7 +427,7 @@ pub const STD_INPUT_HANDLE: STD_HANDLE = 4294967286u32;
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u32;
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {
     pub dwSize: COORD,
 }

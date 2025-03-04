@@ -17,6 +17,7 @@ impl IWPCGamesSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWPCGamesSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
     pub IsBlocked: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut u32) -> windows_core::HRESULT,
@@ -62,6 +63,7 @@ impl IWPCProviderConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWPCProviderConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserSummary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -122,6 +124,7 @@ impl IWPCProviderState {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWPCProviderState_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -163,6 +166,7 @@ impl IWPCProviderSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWPCProviderSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -214,6 +218,7 @@ impl IWPCSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWPCSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsLoggingRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -301,6 +306,7 @@ impl IWPCWebSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWPCWebSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
     pub GetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_WEB_SETTING) -> windows_core::HRESULT,
@@ -367,6 +373,7 @@ impl IWindowsParentalControls {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsParentalControls_Vtbl {
     pub base__: IWindowsParentalControlsCore_Vtbl,
     pub GetGamesSettings: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -427,6 +434,7 @@ impl IWindowsParentalControlsCore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsParentalControlsCore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVisibility: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_VISIBILITY) -> windows_core::HRESULT,

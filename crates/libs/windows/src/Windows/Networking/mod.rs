@@ -269,6 +269,7 @@ impl windows_core::RuntimeType for IEndpointPair {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEndpointPair_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalHostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -285,6 +286,7 @@ impl windows_core::RuntimeType for IEndpointPairFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEndpointPairFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateEndpointPair: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -294,6 +296,7 @@ impl windows_core::RuntimeType for IHostName {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHostName_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Connectivity")]
@@ -311,6 +314,7 @@ impl windows_core::RuntimeType for IHostNameFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHostNameFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateHostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -320,6 +324,7 @@ impl windows_core::RuntimeType for IHostNameStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHostNameStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,

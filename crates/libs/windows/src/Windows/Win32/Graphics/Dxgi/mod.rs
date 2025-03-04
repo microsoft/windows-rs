@@ -298,14 +298,9 @@ impl core::ops::Not for DXGI_DEBUG_RLO_FLAGS {
 pub const DXGI_DEBUG_RLO_IGNORE_INTERNAL: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(4i32);
 pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
     pub Flags: u32,
-}
-impl Default for DXGI_DECODE_SWAP_CHAIN_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -403,7 +398,7 @@ pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE: DXGI_FRAME_PRESENTAT
 pub const DXGI_FRAME_PRESENTATION_MODE_NONE: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(2i32);
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -411,13 +406,8 @@ pub struct DXGI_FRAME_STATISTICS {
     pub SyncQPCTime: i64,
     pub SyncGPUTime: i64,
 }
-impl Default for DXGI_FRAME_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -426,11 +416,6 @@ pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub SyncGPUTime: i64,
     pub CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
     pub ApprovedPresentDuration: u32,
-}
-impl Default for DXGI_FRAME_STATISTICS_MEDIA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -520,15 +505,10 @@ pub const DXGI_HDR_METADATA_TYPE_HDR10PLUS: DXGI_HDR_METADATA_TYPE = DXGI_HDR_ME
 pub const DXGI_HDR_METADATA_TYPE_NONE: DXGI_HDR_METADATA_TYPE = DXGI_HDR_METADATA_TYPE(0i32);
 pub const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER {
     pub AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
     pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
-}
-impl Default for DXGI_INFO_QUEUE_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -634,7 +614,7 @@ impl core::ops::Not for DXGI_MAP_FLAGS {
 pub const DXGI_MAP_READ: DXGI_MAP_FLAGS = DXGI_MAP_FLAGS(1u32);
 pub const DXGI_MAP_WRITE: DXGI_MAP_FLAGS = DXGI_MAP_FLAGS(2u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_MATRIX_3X2_F {
     pub _11: f32,
     pub _12: f32,
@@ -642,11 +622,6 @@ pub struct DXGI_MATRIX_3X2_F {
     pub _22: f32,
     pub _31: f32,
     pub _32: f32,
-}
-impl Default for DXGI_MATRIX_3X2_F {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
 #[repr(transparent)]
@@ -656,7 +631,7 @@ pub const DXGI_MEMORY_SEGMENT_GROUP_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = DXGI_MEMO
 pub const DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = DXGI_MEMORY_SEGMENT_GROUP(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_MODE_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -665,12 +640,6 @@ pub struct DXGI_MODE_DESC1 {
     pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
     pub Scaling: Common::DXGI_MODE_SCALING,
     pub Stereo: windows_core::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for DXGI_MODE_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXGI_MSG_DXGIGetDebugInterface1_InvalidFlags: DXGI_Message_Id = DXGI_Message_Id(231i32);
 pub const DXGI_MSG_DXGIGetDebugInterface1_NULL_ppDebug: DXGI_Message_Id = DXGI_Message_Id(230i32);
@@ -1131,17 +1100,11 @@ pub const DXGI_OFFER_RESOURCE_PRIORITY_NORMAL: DXGI_OFFER_RESOURCE_PRIORITY = DX
 pub const DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY: DXGI_OUTDUPL_FLAG = DXGI_OUTDUPL_FLAG(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_OUTDUPL_DESC {
     pub ModeDesc: Common::DXGI_MODE_DESC,
     pub Rotation: Common::DXGI_MODE_ROTATION,
     pub DesktopImageInSystemMemory: windows_core::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for DXGI_OUTDUPL_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1180,7 +1143,7 @@ impl core::ops::Not for DXGI_OUTDUPL_FLAG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -1191,46 +1154,26 @@ pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
 }
-impl Default for DXGI_OUTDUPL_FRAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
     pub DestinationRect: super::super::Foundation::RECT,
 }
-impl Default for DXGI_OUTDUPL_MOVE_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::super::Foundation::POINT,
     pub Visible: windows_core::BOOL,
 }
-impl Default for DXGI_OUTDUPL_POINTER_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: u32,
     pub Width: u32,
     pub Height: u32,
     pub Pitch: u32,
     pub HotSpot: super::super::Foundation::POINT,
-}
-impl Default for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1413,17 +1356,12 @@ pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: DXGI_PRESENT = DXGI_PRESENT(32u32)
 pub const DXGI_PRESENT_TEST: DXGI_PRESENT = DXGI_PRESENT(1u32);
 pub const DXGI_PRESENT_USE_DURATION: DXGI_PRESENT = DXGI_PRESENT(256u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
     pub Budget: u64,
     pub CurrentUsage: u64,
     pub AvailableForReservation: u64,
     pub CurrentReservation: u64,
-}
-impl Default for DXGI_QUERY_VIDEO_MEMORY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1446,17 +1384,12 @@ pub const DXGI_RESOURCE_PRIORITY_MAXIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE
 pub const DXGI_RESOURCE_PRIORITY_MINIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(671088640u32);
 pub const DXGI_RESOURCE_PRIORITY_NORMAL: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(2013265920u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_RGBA {
     pub r: f32,
     pub g: f32,
     pub b: f32,
     pub a: f32,
-}
-impl Default for DXGI_RGBA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1465,14 +1398,9 @@ pub const DXGI_SCALING_ASPECT_RATIO_STRETCH: DXGI_SCALING = DXGI_SCALING(2i32);
 pub const DXGI_SCALING_NONE: DXGI_SCALING = DXGI_SCALING(1i32);
 pub const DXGI_SCALING_STRETCH: DXGI_SCALING = DXGI_SCALING(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_SHARED_RESOURCE {
     pub Handle: super::super::Foundation::HANDLE,
-}
-impl Default for DXGI_SHARED_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXGI_SHARED_RESOURCE_READ: DXGI_SHARED_RESOURCE_RW = DXGI_SHARED_RESOURCE_RW(2147483648u32);
 #[repr(transparent)]
@@ -1514,18 +1442,12 @@ impl core::ops::Not for DXGI_SHARED_RESOURCE_RW {
 pub const DXGI_SHARED_RESOURCE_WRITE: DXGI_SHARED_RESOURCE_RW = DXGI_SHARED_RESOURCE_RW(1u32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_SURFACE_DESC {
     pub Width: u32,
     pub Height: u32,
     pub Format: Common::DXGI_FORMAT,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for DXGI_SURFACE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1567,7 +1489,7 @@ pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CH
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: Common::DXGI_MODE_DESC,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
@@ -1578,15 +1500,9 @@ pub struct DXGI_SWAP_CHAIN_DESC {
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for DXGI_SWAP_CHAIN_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -1599,12 +1515,6 @@ pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub AlphaMode: Common::DXGI_ALPHA_MODE,
     pub Flags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for DXGI_SWAP_CHAIN_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1657,18 +1567,12 @@ pub const DXGI_SWAP_CHAIN_FLAG_RESTRICT_SHARED_RESOURCE_DRIVER: DXGI_SWAP_CHAIN_
 pub const DXGI_SWAP_CHAIN_FLAG_YUV_VIDEO: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN_FLAG(512i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: Common::DXGI_RATIONAL,
     pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
     pub Scaling: Common::DXGI_MODE_SCALING,
     pub Windowed: windows_core::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1749,6 +1653,7 @@ impl IDXGIAdapter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIAdapter_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub EnumOutputs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1829,6 +1734,7 @@ impl IDXGIAdapter1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIAdapter1_Vtbl {
     pub base__: IDXGIAdapter_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC1) -> windows_core::HRESULT,
@@ -1876,6 +1782,7 @@ impl IDXGIAdapter2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIAdapter2_Vtbl {
     pub base__: IDXGIAdapter1_Vtbl,
     pub GetDesc2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC2) -> windows_core::HRESULT,
@@ -1941,6 +1848,7 @@ impl IDXGIAdapter3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIAdapter3_Vtbl {
     pub base__: IDXGIAdapter2_Vtbl,
     pub RegisterHardwareContentProtectionTeardownStatusEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
@@ -2042,6 +1950,7 @@ impl IDXGIAdapter4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIAdapter4_Vtbl {
     pub base__: IDXGIAdapter3_Vtbl,
     pub GetDesc3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC3) -> windows_core::HRESULT,
@@ -2080,6 +1989,7 @@ impl IDXGIDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDebug_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportLiveObjects: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT,
@@ -2124,6 +2034,7 @@ impl IDXGIDebug1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDebug1_Vtbl {
     pub base__: IDXGIDebug_Vtbl,
     pub EnableLeakTrackingForThread: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -2207,6 +2118,7 @@ impl IDXGIDecodeSwapChain {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDecodeSwapChain_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PresentBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, DXGI_PRESENT) -> windows_core::HRESULT,
@@ -2351,6 +2263,7 @@ impl IDXGIDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDevice_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2367,7 +2280,7 @@ unsafe impl Sync for IDXGIDevice {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIDevice_Impl: IDXGIObject_Impl {
     fn GetAdapter(&self) -> windows_core::Result<IDXGIAdapter>;
-    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: windows_core::OutRef<'_, IDXGISurface>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut Option<IDXGISurface>) -> windows_core::Result<()>;
     fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> windows_core::Result<()>;
     fn SetGPUThreadPriority(&self, priority: i32) -> windows_core::Result<()>;
     fn GetGPUThreadPriority(&self) -> windows_core::Result<i32>;
@@ -2452,6 +2365,7 @@ impl IDXGIDevice1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDevice1_Vtbl {
     pub base__: IDXGIDevice_Vtbl,
     pub SetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2517,6 +2431,7 @@ impl IDXGIDevice2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDevice2_Vtbl {
     pub base__: IDXGIDevice1_Vtbl,
     pub OfferResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT,
@@ -2579,6 +2494,7 @@ impl IDXGIDevice3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDevice3_Vtbl {
     pub base__: IDXGIDevice2_Vtbl,
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -2623,6 +2539,7 @@ impl IDXGIDevice4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDevice4_Vtbl {
     pub base__: IDXGIDevice3_Vtbl,
     pub OfferResources1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY, u32) -> windows_core::HRESULT,
@@ -2680,6 +2597,7 @@ impl IDXGIDeviceSubObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDeviceSubObject_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2715,6 +2633,7 @@ impl IDXGIDisplayControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIDisplayControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -2790,6 +2709,7 @@ impl IDXGIFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub EnumAdapters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2897,6 +2817,7 @@ impl IDXGIFactory1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory1_Vtbl {
     pub base__: IDXGIFactory_Vtbl,
     pub EnumAdapters1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3022,6 +2943,7 @@ impl IDXGIFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory2_Vtbl {
     pub base__: IDXGIFactory1_Vtbl,
     pub IsWindowedStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -3213,6 +3135,7 @@ impl IDXGIFactory3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory3_Vtbl {
     pub base__: IDXGIFactory2_Vtbl,
     pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXGI_CREATE_FACTORY_FLAGS,
@@ -3265,6 +3188,7 @@ impl IDXGIFactory4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory4_Vtbl {
     pub base__: IDXGIFactory3_Vtbl,
     pub EnumAdapterByLuid: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::LUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3318,6 +3242,7 @@ impl IDXGIFactory5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory5_Vtbl {
     pub base__: IDXGIFactory4_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FEATURE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3363,6 +3288,7 @@ impl IDXGIFactory6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory6_Vtbl {
     pub base__: IDXGIFactory5_Vtbl,
     pub EnumAdapterByGpuPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_GPU_PREFERENCE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3410,6 +3336,7 @@ impl IDXGIFactory7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactory7_Vtbl {
     pub base__: IDXGIFactory6_Vtbl,
     pub RegisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> windows_core::HRESULT,
@@ -3482,6 +3409,7 @@ impl IDXGIFactoryMedia {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIFactoryMedia_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3658,6 +3586,7 @@ impl IDXGIInfoQueue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIInfoQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u64) -> windows_core::HRESULT,
@@ -4026,6 +3955,7 @@ impl IDXGIKeyedMutex {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIKeyedMutex_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub AcquireSync: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32) -> windows_core::HRESULT,
@@ -4086,6 +4016,7 @@ impl IDXGIObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -4208,6 +4139,7 @@ impl IDXGIOutput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutput_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -4398,6 +4330,7 @@ impl IDXGIOutput1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutput1_Vtbl {
     pub base__: IDXGIOutput_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4481,6 +4414,7 @@ impl IDXGIOutput2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutput2_Vtbl {
     pub base__: IDXGIOutput1_Vtbl,
     pub SupportsOverlays: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -4529,6 +4463,7 @@ impl IDXGIOutput3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutput3_Vtbl {
     pub base__: IDXGIOutput2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4586,6 +4521,7 @@ impl IDXGIOutput4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutput4_Vtbl {
     pub base__: IDXGIOutput3_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4643,6 +4579,7 @@ impl IDXGIOutput5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutput5_Vtbl {
     pub base__: IDXGIOutput4_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4703,6 +4640,7 @@ impl IDXGIOutput6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutput6_Vtbl {
     pub base__: IDXGIOutput5_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -4800,6 +4738,7 @@ impl IDXGIOutputDuplication {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIOutputDuplication_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4934,6 +4873,7 @@ impl IDXGIResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIResource_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub GetSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -5033,6 +4973,7 @@ impl IDXGIResource1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGIResource1_Vtbl {
     pub base__: IDXGIResource_Vtbl,
     pub CreateSubresourceSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5111,6 +5052,7 @@ impl IDXGISurface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISurface_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5189,6 +5131,7 @@ impl IDXGISurface1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISurface1_Vtbl {
     pub base__: IDXGISurface_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5251,6 +5194,7 @@ impl IDXGISurface2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISurface2_Vtbl {
     pub base__: IDXGISurface1_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5338,6 +5282,7 @@ impl IDXGISwapChain {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISwapChain_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_PRESENT) -> windows_core::HRESULT,
@@ -5546,6 +5491,7 @@ impl IDXGISwapChain1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISwapChain1_Vtbl {
     pub base__: IDXGISwapChain_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5749,6 +5695,7 @@ impl IDXGISwapChain2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISwapChain2_Vtbl {
     pub base__: IDXGISwapChain1_Vtbl,
     pub SetSourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -5868,6 +5815,7 @@ impl IDXGISwapChain3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISwapChain3_Vtbl {
     pub base__: IDXGISwapChain2_Vtbl,
     pub GetCurrentBackBufferIndex: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -5954,6 +5902,7 @@ impl IDXGISwapChain4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISwapChain4_Vtbl {
     pub base__: IDXGISwapChain3_Vtbl,
     pub SetHDRMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_HDR_METADATA_TYPE, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -5995,6 +5944,7 @@ impl IDXGISwapChainMedia {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGISwapChainMedia_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrameStatisticsMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_FRAME_STATISTICS_MEDIA) -> windows_core::HRESULT,
@@ -6051,6 +6001,7 @@ impl IDXGraphicsAnalysis {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXGraphicsAnalysis_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginCapture: unsafe extern "system" fn(*mut core::ffi::c_void),

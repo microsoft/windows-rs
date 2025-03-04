@@ -643,18 +643,13 @@ impl Default for WER_REPORT_INFORMATION_V5 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: windows_core::GUID,
     pub ReportId: windows_core::GUID,
     pub CreationTime: super::super::Foundation::FILETIME,
     pub SizeInBytes: u64,
-}
-impl Default for WER_REPORT_METADATA_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

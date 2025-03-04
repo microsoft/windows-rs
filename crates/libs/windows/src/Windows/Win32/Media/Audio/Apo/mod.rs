@@ -13,15 +13,10 @@ pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: windows_core::HRESULT = windows_c
 pub const APOERR_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x887D0002_u32 as _);
 pub const APOERR_NUM_CONNECTIONS_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x887D0007_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APOInitBaseStruct {
     pub cbSize: u32,
     pub clsid: windows_core::GUID,
-}
-impl Default for APOInitBaseStruct {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -61,7 +56,7 @@ impl Default for APOInitSystemEffects2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -71,12 +66,6 @@ pub struct APOInitSystemEffects3 {
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: windows_core::GUID,
     pub InitializeForDiscoveryOnly: windows_core::BOOL,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl Default for APOInitSystemEffects3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -88,7 +77,7 @@ pub const APO_CONNECTION_BUFFER_TYPE_ALLOCATED: APO_CONNECTION_BUFFER_TYPE = APO
 pub const APO_CONNECTION_BUFFER_TYPE_DEPENDANT: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(2i32);
 pub const APO_CONNECTION_BUFFER_TYPE_EXTERNAL: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
@@ -96,34 +85,19 @@ pub struct APO_CONNECTION_DESCRIPTOR {
     pub pFormat: core::mem::ManuallyDrop<Option<IAudioMediaType>>,
     pub u32Signature: u32,
 }
-impl Default for APO_CONNECTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY {
     pub pBuffer: usize,
     pub u32ValidFrameCount: u32,
     pub u32BufferFlags: APO_BUFFER_FLAGS,
     pub u32Signature: u32,
 }
-impl Default for APO_CONNECTION_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY_V2 {
     pub property: APO_CONNECTION_PROPERTY,
     pub u64QPCTime: u64,
-}
-impl Default for APO_CONNECTION_PROPERTY_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -252,38 +226,22 @@ pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
-impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub propertyKey: super::super::super::Foundation::PROPERTYKEY,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
-}
-impl Default for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Debug, PartialEq)]
@@ -315,17 +273,12 @@ pub struct AUDIO_FLOW_TYPE(pub i32);
 pub const AUDIO_MAX_CHANNELS: u32 = 4096u32;
 pub const AUDIO_MAX_FRAMERATE: f64 = 384000f64;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
-impl Default for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub eventContext: windows_core::GUID,
@@ -337,51 +290,30 @@ pub struct AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     pub muteSupported: windows_core::BOOL,
     pub mute: windows_core::BOOL,
 }
-impl Default for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECT {
     pub id: windows_core::GUID,
     pub canSetState: windows_core::BOOL,
     pub state: AUDIO_SYSTEMEFFECT_STATE,
 }
-impl Default for AUDIO_SYSTEMEFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
 }
-impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
     pub propertyStoreType: super::AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE,
     pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub propertyKey: super::super::super::Foundation::PROPERTYKEY,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -407,17 +339,11 @@ impl Default for AUDIO_VOLUME_NOTIFICATION_DATA2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: windows_core::PWSTR,
     pub pFxProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for AudioFXExtensionParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BUFFER_INVALID: APO_BUFFER_FLAGS = APO_BUFFER_FLAGS(0i32);
 pub const BUFFER_SILENT: APO_BUFFER_FLAGS = APO_BUFFER_FLAGS(2i32);
@@ -436,6 +362,7 @@ pub type FNAPONOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(ppropertie
 windows_core::imp::define_interface!(IApoAcousticEchoCancellation, IApoAcousticEchoCancellation_Vtbl, 0x25385759_3236_4101_a943_25693dfb5d2d);
 windows_core::imp::interface_hierarchy!(IApoAcousticEchoCancellation, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApoAcousticEchoCancellation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -469,6 +396,7 @@ impl IApoAuxiliaryInputConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApoAuxiliaryInputConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAuxiliaryInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, *const APO_CONNECTION_DESCRIPTOR) -> windows_core::HRESULT,
@@ -526,6 +454,7 @@ impl IApoAuxiliaryInputRT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApoAuxiliaryInputRT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AcceptInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const APO_CONNECTION_PROPERTY),
@@ -559,6 +488,7 @@ impl IAudioDeviceModulesClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioDeviceModulesClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioDeviceModulesManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -607,6 +537,7 @@ impl IAudioMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioMediaType_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsCompressedFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -720,6 +651,7 @@ impl IAudioProcessingObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -840,6 +772,7 @@ impl IAudioProcessingObjectConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const APO_CONNECTION_DESCRIPTOR, u32, *const *const APO_CONNECTION_DESCRIPTOR) -> windows_core::HRESULT,
@@ -885,6 +818,7 @@ impl IAudioProcessingObjectLoggingService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectLoggingService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ApoLog: unsafe extern "system" fn(*mut core::ffi::c_void, APO_LOG_LEVEL, windows_core::PCWSTR),
@@ -919,6 +853,7 @@ impl IAudioProcessingObjectNotifications {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectNotifications_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetApoNotificationRegistrationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut APO_NOTIFICATION_DESCRIPTOR, *mut u32) -> windows_core::HRESULT,
@@ -973,6 +908,7 @@ impl IAudioProcessingObjectNotifications2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectNotifications2_Vtbl {
     pub base__: IAudioProcessingObjectNotifications_Vtbl,
     pub GetApoNotificationRegistrationInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, APO_NOTIFICATION_TYPE, *mut *mut APO_NOTIFICATION_DESCRIPTOR, *mut u32) -> windows_core::HRESULT,
@@ -1015,6 +951,7 @@ impl IAudioProcessingObjectRT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectRT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub APOProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const APO_CONNECTION_PROPERTY, u32, *mut *mut APO_CONNECTION_PROPERTY),
@@ -1069,6 +1006,7 @@ impl IAudioProcessingObjectRTQueueService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectRTQueueService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRealTimeWorkQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1114,6 +1052,7 @@ impl IAudioProcessingObjectVBR {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioProcessingObjectVBR_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CalcMaxInputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1163,6 +1102,7 @@ impl windows_core::RuntimeName for IAudioProcessingObjectVBR {}
 windows_core::imp::define_interface!(IAudioSystemEffects, IAudioSystemEffects_Vtbl, 0x5fa00f27_add6_499a_8a9d_6b98521fa75b);
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffects_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -1190,6 +1130,7 @@ impl IAudioSystemEffects2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffects2_Vtbl {
     pub base__: IAudioSystemEffects_Vtbl,
     pub GetEffectsList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -1229,6 +1170,7 @@ impl IAudioSystemEffects3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffects3_Vtbl {
     pub base__: IAudioSystemEffects2_Vtbl,
     pub GetControllableSystemEffectsList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut AUDIO_SYSTEMEFFECT, *mut u32, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -1286,6 +1228,7 @@ impl IAudioSystemEffectsCustomFormats {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSystemEffectsCustomFormats_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFormatCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1394,7 +1337,7 @@ pub const PKEY_SFX_ProcessingModes_Supported_For_Streaming: super::super::super:
 pub const SID_AudioProcessingObjectLoggingService: windows_core::GUID = windows_core::GUID::from_u128(0x8b8008af_09f9_456e_a173_bdb58499bce7);
 pub const SID_AudioProcessingObjectRTQueue: windows_core::GUID = windows_core::GUID::from_u128(0x458c1a1f_6899_4c12_99ac_e2e6ac253104);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNCOMPRESSEDAUDIOFORMAT {
     pub guidFormatType: windows_core::GUID,
     pub dwSamplesPerFrame: u32,
@@ -1402,11 +1345,6 @@ pub struct UNCOMPRESSEDAUDIOFORMAT {
     pub dwValidBitsPerSample: u32,
     pub fFramesPerSecond: f32,
     pub dwChannelMask: u32,
-}
-impl Default for UNCOMPRESSEDAUDIOFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const eAudioConstriction14_14: EAudioConstriction = EAudioConstriction(3i32);
 pub const eAudioConstriction44_16: EAudioConstriction = EAudioConstriction(2i32);

@@ -293,7 +293,7 @@ pub const D3D12_BARRIER_LAYOUT_VIDEO_PROCESS_READ: D3D12_BARRIER_LAYOUT = D3D12_
 pub const D3D12_BARRIER_LAYOUT_VIDEO_PROCESS_WRITE: D3D12_BARRIER_LAYOUT = D3D12_BARRIER_LAYOUT(15i32);
 pub const D3D12_BARRIER_LAYOUT_VIDEO_QUEUE_COMMON: D3D12_BARRIER_LAYOUT = D3D12_BARRIER_LAYOUT(30i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_BARRIER_SUBRESOURCE_RANGE {
     pub IndexOrFirstMipLevel: u32,
     pub NumMipLevels: u32,
@@ -301,11 +301,6 @@ pub struct D3D12_BARRIER_SUBRESOURCE_RANGE {
     pub NumArraySlices: u32,
     pub FirstPlane: u32,
     pub NumPlanes: u32,
-}
-impl Default for D3D12_BARRIER_SUBRESOURCE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -416,7 +411,7 @@ pub const D3D12_BLEND_SRC_ALPHA_SAT: D3D12_BLEND = D3D12_BLEND(11i32);
 pub const D3D12_BLEND_SRC_COLOR: D3D12_BLEND = D3D12_BLEND(3i32);
 pub const D3D12_BLEND_ZERO: D3D12_BLEND = D3D12_BLEND(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_BOX {
     pub left: u32,
     pub top: u32,
@@ -424,11 +419,6 @@ pub struct D3D12_BOX {
     pub right: u32,
     pub bottom: u32,
     pub back: u32,
-}
-impl Default for D3D12_BOX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -448,7 +438,7 @@ impl Default for D3D12_BROADCASTING_LAUNCH_OVERRIDES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_BUFFER_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
@@ -458,34 +448,19 @@ pub struct D3D12_BUFFER_BARRIER {
     pub Offset: u64,
     pub Size: u64,
 }
-impl Default for D3D12_BUFFER_BARRIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_BUFFER_RTV {
     pub FirstElement: u64,
     pub NumElements: u32,
 }
-impl Default for D3D12_BUFFER_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_BUFFER_SRV {
     pub FirstElement: u64,
     pub NumElements: u32,
     pub StructureByteStride: u32,
     pub Flags: D3D12_BUFFER_SRV_FLAGS,
-}
-impl Default for D3D12_BUFFER_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -526,18 +501,13 @@ impl core::ops::Not for D3D12_BUFFER_SRV_FLAGS {
 pub const D3D12_BUFFER_SRV_FLAG_NONE: D3D12_BUFFER_SRV_FLAGS = D3D12_BUFFER_SRV_FLAGS(0i32);
 pub const D3D12_BUFFER_SRV_FLAG_RAW: D3D12_BUFFER_SRV_FLAGS = D3D12_BUFFER_SRV_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_BUFFER_UAV {
     pub FirstElement: u64,
     pub NumElements: u32,
     pub StructureByteStride: u32,
     pub CounterOffsetInBytes: u64,
     pub Flags: D3D12_BUFFER_UAV_FLAGS,
-}
-impl Default for D3D12_BUFFER_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -623,15 +593,10 @@ impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER {
     pub Type: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE,
     pub NumDescs: u32,
-}
-impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -864,17 +829,12 @@ impl core::ops::Not for D3D12_COMMAND_POOL_FLAGS {
 }
 pub const D3D12_COMMAND_POOL_FLAG_NONE: D3D12_COMMAND_POOL_FLAGS = D3D12_COMMAND_POOL_FLAGS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_COMMAND_QUEUE_DESC {
     pub Type: D3D12_COMMAND_LIST_TYPE,
     pub Priority: i32,
     pub Flags: D3D12_COMMAND_QUEUE_FLAGS,
     pub NodeMask: u32,
-}
-impl Default for D3D12_COMMAND_QUEUE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1033,18 +993,13 @@ pub const D3D12_COMPARISON_FUNC_NEVER: D3D12_COMPARISON_FUNC = D3D12_COMPARISON_
 pub const D3D12_COMPARISON_FUNC_NONE: D3D12_COMPARISON_FUNC = D3D12_COMPARISON_FUNC(0i32);
 pub const D3D12_COMPARISON_FUNC_NOT_EQUAL: D3D12_COMPARISON_FUNC = D3D12_COMPARISON_FUNC(6i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
     pub pRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
     pub CS: D3D12_SHADER_BYTECODE,
     pub NodeMask: u32,
     pub CachedPSO: D3D12_CACHED_PIPELINE_STATE,
     pub Flags: D3D12_PIPELINE_STATE_FLAGS,
-}
-impl Default for D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1060,25 +1015,15 @@ pub const D3D12_CONSERVATIVE_RASTERIZATION_TIER_3: D3D12_CONSERVATIVE_RASTERIZAT
 pub const D3D12_CONSERVATIVE_RASTERIZATION_TIER_NOT_SUPPORTED: D3D12_CONSERVATIVE_RASTERIZATION_TIER = D3D12_CONSERVATIVE_RASTERIZATION_TIER(0i32);
 pub const D3D12_CONSTANT_BUFFER_DATA_PLACEMENT_ALIGNMENT: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_CONSTANT_BUFFER_VIEW_DESC {
     pub BufferLocation: u64,
     pub SizeInBytes: u32,
 }
-impl Default for D3D12_CONSTANT_BUFFER_VIEW_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_CPU_DESCRIPTOR_HANDLE {
     pub ptr: usize,
-}
-impl Default for D3D12_CPU_DESCRIPTOR_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1161,40 +1106,25 @@ pub const D3D12_CULL_MODE_BACK: D3D12_CULL_MODE = D3D12_CULL_MODE(3i32);
 pub const D3D12_CULL_MODE_FRONT: D3D12_CULL_MODE = D3D12_CULL_MODE(2i32);
 pub const D3D12_CULL_MODE_NONE: D3D12_CULL_MODE = D3D12_CULL_MODE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
     pub ShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
-}
-impl Default for D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_DEBUG_COMMAND_LIST_PARAMETER_GPU_BASED_VALIDATION_SETTINGS: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE = D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE(0i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
     pub MaxMessagesPerCommandList: u32,
     pub DefaultShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
     pub PipelineStateCreateFlags: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS,
 }
-impl Default for D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
     pub SlowdownFactor: f32,
-}
-impl Default for D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_DEBUG_DEVICE_PARAMETER_FEATURE_FLAGS: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = D3D12_DEBUG_DEVICE_PARAMETER_TYPE(0i32);
 pub const D3D12_DEBUG_DEVICE_PARAMETER_GPU_BASED_VALIDATION_SETTINGS: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = D3D12_DEBUG_DEVICE_PARAMETER_TYPE(1i32);
@@ -1273,20 +1203,15 @@ pub const D3D12_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0u32;
 pub const D3D12_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0u32;
 pub const D3D12_DEFAULT_VIEWPORT_WIDTH: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D12_STENCIL_OP,
     pub StencilDepthFailOp: D3D12_STENCIL_OP,
     pub StencilPassOp: D3D12_STENCIL_OP,
     pub StencilFunc: D3D12_COMPARISON_FUNC,
 }
-impl Default for D3D12_DEPTH_STENCILOP_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCILOP_DESC1 {
     pub StencilFailOp: D3D12_STENCIL_OP,
     pub StencilDepthFailOp: D3D12_STENCIL_OP,
@@ -1295,13 +1220,8 @@ pub struct D3D12_DEPTH_STENCILOP_DESC1 {
     pub StencilReadMask: u8,
     pub StencilWriteMask: u8,
 }
-impl Default for D3D12_DEPTH_STENCILOP_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
@@ -1312,13 +1232,8 @@ pub struct D3D12_DEPTH_STENCIL_DESC {
     pub FrontFace: D3D12_DEPTH_STENCILOP_DESC,
     pub BackFace: D3D12_DEPTH_STENCILOP_DESC,
 }
-impl Default for D3D12_DEPTH_STENCIL_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC1 {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
@@ -1330,13 +1245,8 @@ pub struct D3D12_DEPTH_STENCIL_DESC1 {
     pub BackFace: D3D12_DEPTH_STENCILOP_DESC,
     pub DepthBoundsTestEnable: windows_core::BOOL,
 }
-impl Default for D3D12_DEPTH_STENCIL_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC2 {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
@@ -1346,33 +1256,17 @@ pub struct D3D12_DEPTH_STENCIL_DESC2 {
     pub BackFace: D3D12_DEPTH_STENCILOP_DESC1,
     pub DepthBoundsTestEnable: windows_core::BOOL,
 }
-impl Default for D3D12_DEPTH_STENCIL_DESC2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_FORMAT {
     pub DepthStencilFormat: super::Dxgi::Common::DXGI_FORMAT,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_DEPTH_STENCIL_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_VALUE {
     pub Depth: f32,
     pub Stencil: u8,
-}
-impl Default for D3D12_DEPTH_STENCIL_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1412,17 +1306,12 @@ pub struct D3D12_DEPTH_WRITE_MASK(pub i32);
 pub const D3D12_DEPTH_WRITE_MASK_ALL: D3D12_DEPTH_WRITE_MASK = D3D12_DEPTH_WRITE_MASK(1i32);
 pub const D3D12_DEPTH_WRITE_MASK_ZERO: D3D12_DEPTH_WRITE_MASK = D3D12_DEPTH_WRITE_MASK(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DESCRIPTOR_HEAP_DESC {
     pub Type: D3D12_DESCRIPTOR_HEAP_TYPE,
     pub NumDescriptors: u32,
     pub Flags: D3D12_DESCRIPTOR_HEAP_FLAGS,
     pub NodeMask: u32,
-}
-impl Default for D3D12_DESCRIPTOR_HEAP_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1471,7 +1360,7 @@ pub const D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES: D3D12_DESCRIPTOR_HEAP_TYPE = D3D
 pub const D3D12_DESCRIPTOR_HEAP_TYPE_RTV: D3D12_DESCRIPTOR_HEAP_TYPE = D3D12_DESCRIPTOR_HEAP_TYPE(2i32);
 pub const D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER: D3D12_DESCRIPTOR_HEAP_TYPE = D3D12_DESCRIPTOR_HEAP_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DESCRIPTOR_RANGE {
     pub RangeType: D3D12_DESCRIPTOR_RANGE_TYPE,
     pub NumDescriptors: u32,
@@ -1479,13 +1368,8 @@ pub struct D3D12_DESCRIPTOR_RANGE {
     pub RegisterSpace: u32,
     pub OffsetInDescriptorsFromTableStart: u32,
 }
-impl Default for D3D12_DESCRIPTOR_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DESCRIPTOR_RANGE1 {
     pub RangeType: D3D12_DESCRIPTOR_RANGE_TYPE,
     pub NumDescriptors: u32,
@@ -1493,11 +1377,6 @@ pub struct D3D12_DESCRIPTOR_RANGE1 {
     pub RegisterSpace: u32,
     pub Flags: D3D12_DESCRIPTOR_RANGE_FLAGS,
     pub OffsetInDescriptorsFromTableStart: u32,
-}
-impl Default for D3D12_DESCRIPTOR_RANGE1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1550,17 +1429,12 @@ pub const D3D12_DESCRIPTOR_RANGE_TYPE_SAMPLER: D3D12_DESCRIPTOR_RANGE_TYPE = D3D
 pub const D3D12_DESCRIPTOR_RANGE_TYPE_SRV: D3D12_DESCRIPTOR_RANGE_TYPE = D3D12_DESCRIPTOR_RANGE_TYPE(0i32);
 pub const D3D12_DESCRIPTOR_RANGE_TYPE_UAV: D3D12_DESCRIPTOR_RANGE_TYPE = D3D12_DESCRIPTOR_RANGE_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEVICE_CONFIGURATION_DESC {
     pub Flags: D3D12_DEVICE_FLAGS,
     pub GpuBasedValidationFlags: u32,
     pub SDKVersion: u32,
     pub NumEnabledExperimentalFeatures: u32,
-}
-impl Default for D3D12_DEVICE_CONFIGURATION_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1662,41 +1536,26 @@ impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
     pub DeviceRemovedReason: windows_core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT,
 }
-impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
     pub DeviceRemovedReason: windows_core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT1,
 }
-impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
     pub DeviceRemovedReason: windows_core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT2,
     pub DeviceState: D3D12_DRED_DEVICE_STATE,
-}
-impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1712,16 +1571,11 @@ impl Default for D3D12_DISCARD_REGION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DISPATCH_ARGUMENTS {
     pub ThreadGroupCountX: u32,
     pub ThreadGroupCountY: u32,
     pub ThreadGroupCountZ: u32,
-}
-impl Default for D3D12_DISPATCH_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1748,16 +1602,11 @@ impl Default for D3D12_DISPATCH_GRAPH_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DISPATCH_MESH_ARGUMENTS {
     pub ThreadGroupCountX: u32,
     pub ThreadGroupCountY: u32,
     pub ThreadGroupCountZ: u32,
-}
-impl Default for D3D12_DISPATCH_MESH_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1767,7 +1616,7 @@ pub const D3D12_DISPATCH_MODE_MULTI_NODE_GPU_INPUT: D3D12_DISPATCH_MODE = D3D12_
 pub const D3D12_DISPATCH_MODE_NODE_CPU_INPUT: D3D12_DISPATCH_MODE = D3D12_DISPATCH_MODE(0i32);
 pub const D3D12_DISPATCH_MODE_NODE_GPU_INPUT: D3D12_DISPATCH_MODE = D3D12_DISPATCH_MODE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DISPATCH_RAYS_DESC {
     pub RayGenerationShaderRecord: D3D12_GPU_VIRTUAL_ADDRESS_RANGE,
     pub MissShaderTable: D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE,
@@ -1777,37 +1626,22 @@ pub struct D3D12_DISPATCH_RAYS_DESC {
     pub Height: u32,
     pub Depth: u32,
 }
-impl Default for D3D12_DISPATCH_RAYS_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DRAW_ARGUMENTS {
     pub VertexCountPerInstance: u32,
     pub InstanceCount: u32,
     pub StartVertexLocation: u32,
     pub StartInstanceLocation: u32,
 }
-impl Default for D3D12_DRAW_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DRAW_INDEXED_ARGUMENTS {
     pub IndexCountPerInstance: u32,
     pub InstanceCount: u32,
     pub StartIndexLocation: u32,
     pub BaseVertexLocation: i32,
     pub StartInstanceLocation: u32,
-}
-impl Default for D3D12_DRAW_INDEXED_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1889,15 +1723,10 @@ impl Default for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DRED_BREADCRUMB_CONTEXT {
     pub BreadcrumbIndex: u32,
     pub pContextString: windows_core::PCWSTR,
-}
-impl Default for D3D12_DRED_BREADCRUMB_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2162,16 +1991,11 @@ impl Default for D3D12_EXISTING_COLLECTION_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_EXPORT_DESC {
     pub Name: windows_core::PCWSTR,
     pub ExportToRename: windows_core::PCWSTR,
     pub Flags: D3D12_EXPORT_FLAGS,
-}
-impl Default for D3D12_EXPORT_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2240,20 +2064,15 @@ pub const D3D12_FEATURE_D3D12_OPTIONS7: D3D12_FEATURE = D3D12_FEATURE(32i32);
 pub const D3D12_FEATURE_D3D12_OPTIONS8: D3D12_FEATURE = D3D12_FEATURE(36i32);
 pub const D3D12_FEATURE_D3D12_OPTIONS9: D3D12_FEATURE = D3D12_FEATURE(37i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE {
     pub NodeIndex: u32,
     pub TileBasedRenderer: windows_core::BOOL,
     pub UMA: windows_core::BOOL,
     pub CacheCoherentUMA: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_ARCHITECTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE1 {
     pub NodeIndex: u32,
     pub TileBasedRenderer: windows_core::BOOL,
@@ -2261,36 +2080,21 @@ pub struct D3D12_FEATURE_DATA_ARCHITECTURE1 {
     pub CacheCoherentUMA: windows_core::BOOL,
     pub IsolatedMMU: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_ARCHITECTURE1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
     pub CommandListType: D3D12_COMMAND_LIST_TYPE,
     pub Priority: u32,
     pub PriorityForTypeIsSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_CROSS_NODE {
     pub SharingTier: D3D12_CROSS_NODE_SHARING_TIER,
     pub AtomicShaderInstructions: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_CROSS_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS {
     pub DoublePrecisionFloatShaderOps: windows_core::BOOL,
     pub OutputMergerLogicOp: windows_core::BOOL,
@@ -2308,13 +2112,8 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS {
     pub VPAndRTArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGSEmulation: windows_core::BOOL,
     pub ResourceHeapTier: D3D12_RESOURCE_HEAP_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
     pub WaveOps: windows_core::BOOL,
     pub WaveLaneCountMin: u32,
@@ -2323,46 +2122,26 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
     pub ExpandedComputeResourceStates: windows_core::BOOL,
     pub Int64ShaderOps: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
     pub VariableRateShadingSumCombinerSupported: windows_core::BOOL,
     pub MeshShaderPerPrimitiveShadingRateSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
     pub AtomicInt64OnDescriptorHeapResourceSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
     pub MSPrimitivesPipelineStatisticIncludesCulledPrimitives: D3D12_TRI_STATE,
     pub EnhancedBarriersSupported: windows_core::BOOL,
     pub RelaxedFormatCastingSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
     pub UnrestrictedBufferTextureCopyPitchSupported: windows_core::BOOL,
     pub UnrestrictedVertexElementAlignmentSupported: windows_core::BOOL,
@@ -2371,68 +2150,38 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
     pub TextureCopyBetweenDimensionsSupported: windows_core::BOOL,
     pub AlphaBlendFactorSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
     pub AdvancedTextureOpsSupported: windows_core::BOOL,
     pub WriteableMSAATexturesSupported: windows_core::BOOL,
     pub IndependentFrontAndBackStencilRefMaskSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
     pub TriangleFanSupported: windows_core::BOOL,
     pub DynamicIndexBufferStripCutSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
     pub DynamicDepthBiasSupported: windows_core::BOOL,
     pub GPUUploadHeapSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
     pub NonNormalizedCoordinateSamplersSupported: windows_core::BOOL,
     pub ManualWriteTrackingResourceSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
     pub RenderPassesValid: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
     pub MismatchingOutputDimensionsSupported: windows_core::BOOL,
     pub SupportedSampleCountsWithNoOutputs: u32,
@@ -2445,48 +2194,28 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
     pub MaxViewDescriptorHeapSize: u32,
     pub ComputeOnlyCustomHeapSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
     pub DepthBoundsTestSupported: windows_core::BOOL,
     pub ProgrammableSamplePositionsTier: D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
     pub ComputeOnlyWriteWatchSupported: windows_core::BOOL,
     pub RecreateAtTier: D3D12_RECREATE_AT_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
     pub WorkGraphsTier: D3D12_WORK_GRAPHS_TIER,
     pub ExecuteIndirectTier: D3D12_EXECUTE_INDIRECT_TIER,
     pub SampleCmpGradientAndBiasSupported: windows_core::BOOL,
     pub ExtendedCommandInfoSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
     pub CopyQueueTimestampQueriesSupported: windows_core::BOOL,
     pub CastingFullyTypedFormatSupported: windows_core::BOOL,
@@ -2494,37 +2223,22 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
     pub ViewInstancingTier: D3D12_VIEW_INSTANCING_TIER,
     pub BarycentricsSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
     pub MSAA64KBAlignedTextureSupported: windows_core::BOOL,
     pub SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
     pub Native16BitShaderOpsSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
     pub SRVOnlyTiledResourceTier3: windows_core::BOOL,
     pub RenderPassesTier: D3D12_RENDER_PASS_TIER,
     pub RaytracingTier: D3D12_RAYTRACING_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
     pub AdditionalShadingRatesSupported: windows_core::BOOL,
     pub PerPrimitiveShadingRateSupportedWithViewportIndexing: windows_core::BOOL,
@@ -2532,34 +2246,19 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
     pub ShadingRateImageTileSize: u32,
     pub BackgroundProcessingSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
     pub MeshShaderTier: D3D12_MESH_SHADER_TIER,
     pub SamplerFeedbackTier: D3D12_SAMPLER_FEEDBACK_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
     pub UnalignedBlockTexturesSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
     pub MeshShaderPipelineStatsSupported: windows_core::BOOL,
     pub MeshShaderSupportsFullRangeRenderTargetArrayIndex: windows_core::BOOL,
@@ -2568,31 +2267,16 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
     pub DerivativesInMeshAndAmplificationShadersSupported: windows_core::BOOL,
     pub WaveMMATier: D3D12_WAVE_MMA_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_DISPLAYABLE {
     pub DisplayableTexture: windows_core::BOOL,
     pub SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_DISPLAYABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_EXISTING_HEAPS {
     pub Supported: windows_core::BOOL,
-}
-impl Default for D3D12_FEATURE_DATA_EXISTING_HEAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -2610,102 +2294,58 @@ impl Default for D3D12_FEATURE_DATA_FEATURE_LEVELS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_FORMAT_INFO {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub PlaneCount: u8,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_FORMAT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_FORMAT_SUPPORT {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Support1: D3D12_FORMAT_SUPPORT1,
     pub Support2: D3D12_FORMAT_SUPPORT2,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     pub MaxGPUVirtualAddressBitsPerResource: u32,
     pub MaxGPUVirtualAddressBitsPerProcess: u32,
 }
-impl Default for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_HARDWARE_COPY {
     pub Supported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_HARDWARE_COPY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub SampleCount: u32,
     pub Flags: D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS,
     pub NumQualityLevels: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub DestHeapProperties: D3D12_HEAP_PROPERTIES,
     pub Supported: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PREDICATION {
     pub Supported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_PREDICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {
     pub NodeIndex: u32,
     pub Support: D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS,
-}
-impl Default for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2720,15 +2360,10 @@ impl Default for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {
     pub NodeIndex: u32,
     pub Count: u32,
-}
-impl Default for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2746,45 +2381,25 @@ impl Default for D3D12_FEATURE_DATA_QUERY_META_COMMAND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ROOT_SIGNATURE {
     pub HighestVersion: D3D_ROOT_SIGNATURE_VERSION,
 }
-impl Default for D3D12_FEATURE_DATA_ROOT_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SERIALIZATION {
     pub NodeIndex: u32,
     pub HeapSerializationTier: D3D12_HEAP_SERIALIZATION_TIER,
 }
-impl Default for D3D12_FEATURE_DATA_SERIALIZATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SHADER_CACHE {
     pub SupportFlags: D3D12_SHADER_CACHE_SUPPORT_FLAGS,
 }
-impl Default for D3D12_FEATURE_DATA_SHADER_CACHE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SHADER_MODEL {
     pub HighestShaderModel: D3D_SHADER_MODEL,
-}
-impl Default for D3D12_FEATURE_DATA_SHADER_MODEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_FEATURE_DISPLAYABLE: D3D12_FEATURE = D3D12_FEATURE(28i32);
 pub const D3D12_FEATURE_EXISTING_HEAPS: D3D12_FEATURE = D3D12_FEATURE(22i32);
@@ -3037,7 +2652,7 @@ pub const D3D12_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300f32;
 pub const D3D12_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0f32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FUNCTION_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -3073,12 +2688,6 @@ pub struct D3D12_FUNCTION_DESC {
     pub Has10Level9VertexShader: windows_core::BOOL,
     pub Has10Level9PixelShader: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for D3D12_FUNCTION_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_GENERIC_PROGRAM_DESC {
@@ -3094,27 +2703,17 @@ impl Default for D3D12_GENERIC_PROGRAM_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_GLOBAL_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
     pub AccessBefore: D3D12_BARRIER_ACCESS,
     pub AccessAfter: D3D12_BARRIER_ACCESS,
 }
-impl Default for D3D12_GLOBAL_BARRIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
     pub pGlobalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
-}
-impl Default for D3D12_GLOBAL_ROOT_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3203,48 +2802,28 @@ pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_NONE: D3D12_GPU_BASED_VAL
 pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_STATE_TRACKING_ONLY: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE(1i32);
 pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_UNGUARDED_VALIDATION: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_GPU_DESCRIPTOR_HANDLE {
     pub ptr: u64,
 }
-impl Default for D3D12_GPU_DESCRIPTOR_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
     pub StartAddress: u64,
     pub StrideInBytes: u64,
 }
-impl Default for D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE {
     pub StartAddress: u64,
     pub SizeInBytes: u64,
 }
-impl Default for D3D12_GPU_VIRTUAL_ADDRESS_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
     pub StartAddress: u64,
     pub SizeInBytes: u64,
     pub StrideInBytes: u64,
-}
-impl Default for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3355,17 +2934,12 @@ pub const D3D12_GS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
 pub const D3D12_GS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D12_GS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_HEAP_DESC {
     pub SizeInBytes: u64,
     pub Properties: D3D12_HEAP_PROPERTIES,
     pub Alignment: u64,
     pub Flags: D3D12_HEAP_FLAGS,
-}
-impl Default for D3D12_HEAP_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3421,18 +2995,13 @@ pub const D3D12_HEAP_FLAG_SHARED: D3D12_HEAP_FLAGS = D3D12_HEAP_FLAGS(1i32);
 pub const D3D12_HEAP_FLAG_SHARED_CROSS_ADAPTER: D3D12_HEAP_FLAGS = D3D12_HEAP_FLAGS(32i32);
 pub const D3D12_HEAP_FLAG_TOOLS_USE_MANUAL_WRITE_TRACKING: D3D12_HEAP_FLAGS = D3D12_HEAP_FLAGS(8192i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_HEAP_PROPERTIES {
     pub Type: D3D12_HEAP_TYPE,
     pub CPUPageProperty: D3D12_CPU_PAGE_PROPERTY,
     pub MemoryPoolPreference: D3D12_MEMORY_POOL,
     pub CreationNodeMask: u32,
     pub VisibleNodeMask: u32,
-}
-impl Default for D3D12_HEAP_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3448,18 +3017,13 @@ pub const D3D12_HEAP_TYPE_GPU_UPLOAD: D3D12_HEAP_TYPE = D3D12_HEAP_TYPE(5i32);
 pub const D3D12_HEAP_TYPE_READBACK: D3D12_HEAP_TYPE = D3D12_HEAP_TYPE(3i32);
 pub const D3D12_HEAP_TYPE_UPLOAD: D3D12_HEAP_TYPE = D3D12_HEAP_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_HIT_GROUP_DESC {
     pub HitGroupExport: windows_core::PCWSTR,
     pub Type: D3D12_HIT_GROUP_TYPE,
     pub AnyHitShaderImport: windows_core::PCWSTR,
     pub ClosestHitShaderImport: windows_core::PCWSTR,
     pub IntersectionShaderImport: windows_core::PCWSTR,
-}
-impl Default for D3D12_HIT_GROUP_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3521,14 +3085,9 @@ pub const D3D12_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 32u32;
 pub const D3D12_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128u32;
 pub const D3D12_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_IB_STRIP_CUT_VALUE {
     pub IndexBufferStripCutValue: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE,
-}
-impl Default for D3D12_IB_STRIP_CUT_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3538,17 +3097,11 @@ pub const D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_0xFFFFFFFF: D3D12_INDEX_BUFFER_STRI
 pub const D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDEX_BUFFER_VIEW {
     pub BufferLocation: u64,
     pub SizeInBytes: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_INDEX_BUFFER_VIEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3577,67 +3130,37 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     pub RootParameterIndex: u32,
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
     pub RootParameterIndex: u32,
     pub DestOffsetIn32BitValues: u32,
     pub Num32BitValuesToSet: u32,
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
     pub RootParameterIndex: u32,
     pub DestOffsetIn32BitValues: u32,
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
     pub RootParameterIndex: u32,
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
     pub RootParameterIndex: u32,
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
     pub Slot: u32,
-}
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3656,15 +3179,10 @@ pub const D3D12_INDIRECT_ARGUMENT_TYPE_UNORDERED_ACCESS_VIEW: D3D12_INDIRECT_ARG
 pub const D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW: D3D12_INDIRECT_ARGUMENT_TYPE = D3D12_INDIRECT_ARGUMENT_TYPE(3i32);
 pub const D3D12_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INFO_QUEUE_FILTER {
     pub AllowList: D3D12_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D12_INFO_QUEUE_FILTER_DESC,
-}
-impl Default for D3D12_INFO_QUEUE_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3688,7 +3206,7 @@ pub const D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA: D3D12_INPUT_CLASSIFICATI
 pub const D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA: D3D12_INPUT_CLASSIFICATION = D3D12_INPUT_CLASSIFICATION(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -3697,12 +3215,6 @@ pub struct D3D12_INPUT_ELEMENT_DESC {
     pub AlignedByteOffset: u32,
     pub InputSlotClass: D3D12_INPUT_CLASSIFICATION,
     pub InstanceDataStepRate: u32,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_INPUT_ELEMENT_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3722,16 +3234,11 @@ pub const D3D12_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
 pub const D3D12_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295u32;
 pub const D3D12_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_LIBRARY_DESC {
     pub Creator: windows_core::PCSTR,
     pub Flags: u32,
     pub FunctionCount: u32,
-}
-impl Default for D3D12_LIBRARY_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3747,14 +3254,9 @@ pub const D3D12_LINE_RASTERIZATION_MODE_ALPHA_ANTIALIASED: D3D12_LINE_RASTERIZAT
 pub const D3D12_LINE_RASTERIZATION_MODE_QUADRILATERAL_NARROW: D3D12_LINE_RASTERIZATION_MODE = D3D12_LINE_RASTERIZATION_MODE(3i32);
 pub const D3D12_LINE_RASTERIZATION_MODE_QUADRILATERAL_WIDE: D3D12_LINE_RASTERIZATION_MODE = D3D12_LINE_RASTERIZATION_MODE(2i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE {
     pub pLocalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
-}
-impl Default for D3D12_LOCAL_ROOT_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4883,31 +4385,21 @@ pub const D3D12_MESSAGE_SEVERITY_INFO: D3D12_MESSAGE_SEVERITY = D3D12_MESSAGE_SE
 pub const D3D12_MESSAGE_SEVERITY_MESSAGE: D3D12_MESSAGE_SEVERITY = D3D12_MESSAGE_SEVERITY(4i32);
 pub const D3D12_MESSAGE_SEVERITY_WARNING: D3D12_MESSAGE_SEVERITY = D3D12_MESSAGE_SEVERITY(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_META_COMMAND_DESC {
     pub Id: windows_core::GUID,
     pub Name: windows_core::PCWSTR,
     pub InitializationDirtyState: D3D12_GRAPHICS_STATES,
     pub ExecutionDirtyState: D3D12_GRAPHICS_STATES,
 }
-impl Default for D3D12_META_COMMAND_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_META_COMMAND_PARAMETER_DESC {
     pub Name: windows_core::PCWSTR,
     pub Type: D3D12_META_COMMAND_PARAMETER_TYPE,
     pub Flags: D3D12_META_COMMAND_PARAMETER_FLAGS,
     pub RequiredResourceState: D3D12_RESOURCE_STATES,
     pub StructureOffset: u32,
-}
-impl Default for D3D12_META_COMMAND_PARAMETER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4972,16 +4464,11 @@ pub const D3D12_MIP_LOD_BIAS_MIN: f32 = -16f32;
 pub const D3D12_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub const D3D12_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_MIP_REGION {
     pub Width: u32,
     pub Height: u32,
     pub Depth: u32,
-}
-impl Default for D3D12_MIP_REGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5074,15 +4561,10 @@ impl Default for D3D12_MULTI_NODE_CPU_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_MULTI_NODE_GPU_INPUT {
     pub NumNodeInputs: u32,
     pub NodeInputs: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
-}
-impl Default for D3D12_MULTI_NODE_GPU_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5119,37 +4601,22 @@ impl Default for D3D12_NODE_CPU_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_NODE_GPU_INPUT {
     pub EntrypointIndex: u32,
     pub NumRecords: u32,
     pub Records: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
 }
-impl Default for D3D12_NODE_GPU_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_NODE_ID {
     pub Name: windows_core::PCWSTR,
     pub ArrayIndex: u32,
 }
-impl Default for D3D12_NODE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_NODE_MASK {
     pub NodeMask: u32,
-}
-impl Default for D3D12_NODE_MASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5181,22 +4648,17 @@ pub const D3D12_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 pub const D3D12_OS_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295u32;
 pub const D3D12_OS_RESERVED_REGISTER_SPACE_VALUES_START: u32 = 4294967288u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_PACKED_MIP_INFO {
     pub NumStandardMips: u8,
     pub NumPackedMips: u8,
     pub NumTilesForPackedMips: u32,
     pub StartTileIndexInOverallResource: u32,
 }
-impl Default for D3D12_PACKED_MIP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_PACKED_TILE: u32 = 4294967295u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_PARAMETER_DESC {
     pub Name: windows_core::PCSTR,
     pub SemanticName: windows_core::PCSTR,
@@ -5210,12 +4672,6 @@ pub struct D3D12_PARAMETER_DESC {
     pub FirstInComponent: u32,
     pub FirstOutRegister: u32,
     pub FirstOutComponent: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for D3D12_PARAMETER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5303,16 +4759,10 @@ pub const D3D12_PIPELINE_STATE_SUBOBJECT_TYPE_VS: D3D12_PIPELINE_STATE_SUBOBJECT
 pub const D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     pub Offset: u64,
     pub Footprint: D3D12_SUBRESOURCE_FOOTPRINT,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5322,14 +4772,9 @@ pub const D3D12_PREDICATION_OP_NOT_EQUAL_ZERO: D3D12_PREDICATION_OP = D3D12_PRED
 pub const D3D12_PREVIEW_SDK_VERSION: u32 = 714u32;
 pub const D3D12_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_PRIMITIVE_TOPOLOGY_DESC {
     pub PrimitiveTopology: D3D12_PRIMITIVE_TOPOLOGY_TYPE,
-}
-impl Default for D3D12_PRIMITIVE_TOPOLOGY_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5363,27 +4808,17 @@ pub const D3D12_PROGRAM_TYPE_RAYTRACING_PIPELINE: D3D12_PROGRAM_TYPE = D3D12_PRO
 pub const D3D12_PROGRAM_TYPE_WORK_GRAPH: D3D12_PROGRAM_TYPE = D3D12_PROGRAM_TYPE(5i32);
 pub const D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED: windows_core::GUID = windows_core::GUID::from_u128(0x62b0084e_c70e_4daa_a109_30ff8d5a0482);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC {
     pub NodeMask: u32,
     pub Flags: D3D12_PROTECTED_RESOURCE_SESSION_FLAGS,
 }
-impl Default for D3D12_PROTECTED_RESOURCE_SESSION_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
     pub NodeMask: u32,
     pub Flags: D3D12_PROTECTED_RESOURCE_SESSION_FLAGS,
     pub ProtectionType: windows_core::GUID,
-}
-impl Default for D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5489,7 +4924,7 @@ pub const D3D12_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 pub const D3D12_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
 pub const D3D12_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -5503,13 +4938,8 @@ pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS {
     pub DSInvocations: u64,
     pub CSInvocations: u64,
 }
-impl Default for D3D12_QUERY_DATA_PIPELINE_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -5526,33 +4956,18 @@ pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
     pub MSInvocations: u64,
     pub MSPrimitives: u64,
 }
-impl Default for D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
 }
-impl Default for D3D12_QUERY_DATA_SO_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_QUERY_HEAP_DESC {
     pub Type: D3D12_QUERY_HEAP_TYPE,
     pub Count: u32,
     pub NodeMask: u32,
-}
-impl Default for D3D12_QUERY_HEAP_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5578,29 +4993,19 @@ pub const D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3: D3D12_QUERY_TYPE = D3D12_QUERY
 pub const D3D12_QUERY_TYPE_TIMESTAMP: D3D12_QUERY_TYPE = D3D12_QUERY_TYPE(2i32);
 pub const D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS: D3D12_QUERY_TYPE = D3D12_QUERY_TYPE(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RANGE {
     pub Begin: usize,
     pub End: usize,
 }
-impl Default for D3D12_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RANGE_UINT64 {
     pub Begin: u64,
     pub End: u64,
 }
-impl Default for D3D12_RANGE_UINT64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RASTERIZER_DESC {
     pub FillMode: D3D12_FILL_MODE,
     pub CullMode: D3D12_CULL_MODE,
@@ -5614,13 +5019,8 @@ pub struct D3D12_RASTERIZER_DESC {
     pub ForcedSampleCount: u32,
     pub ConservativeRaster: D3D12_CONSERVATIVE_RASTERIZATION_MODE,
 }
-impl Default for D3D12_RASTERIZER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RASTERIZER_DESC1 {
     pub FillMode: D3D12_FILL_MODE,
     pub CullMode: D3D12_CULL_MODE,
@@ -5634,13 +5034,8 @@ pub struct D3D12_RASTERIZER_DESC1 {
     pub ForcedSampleCount: u32,
     pub ConservativeRaster: D3D12_CONSERVATIVE_RASTERIZATION_MODE,
 }
-impl Default for D3D12_RASTERIZER_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RASTERIZER_DESC2 {
     pub FillMode: D3D12_FILL_MODE,
     pub CullMode: D3D12_CULL_MODE,
@@ -5653,14 +5048,9 @@ pub struct D3D12_RASTERIZER_DESC2 {
     pub ForcedSampleCount: u32,
     pub ConservativeRaster: D3D12_CONSERVATIVE_RASTERIZATION_MODE,
 }
-impl Default for D3D12_RASTERIZER_DESC2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_AABB {
     pub MinX: f32,
     pub MinY: f32,
@@ -5668,11 +5058,6 @@ pub struct D3D12_RAYTRACING_AABB {
     pub MaxX: f32,
     pub MaxY: f32,
     pub MaxZ: f32,
-}
-impl Default for D3D12_RAYTRACING_AABB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_RAYTRACING_AABB_BYTE_ALIGNMENT: u32 = 8u32;
 #[repr(transparent)]
@@ -5729,84 +5114,49 @@ pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_SERIALIZE: D3D12_RAY
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_VISUALIZATION_DECODE_FOR_TOOLS: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE(2i32);
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC {
     pub CompactedSizeInBytes: u64,
 }
-impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE_DESC {
     pub CurrentSizeInBytes: u64,
 }
-impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {
     pub DestBuffer: u64,
     pub InfoType: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE,
 }
-impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC {
     pub SerializedSizeInBytes: u64,
     pub NumBottomLevelAccelerationStructurePointers: u64,
 }
-impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC {
     pub DecodedSizeInBytes: u64,
-}
-impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO {
     pub ResultDataMaxSizeInBytes: u64,
     pub ScratchDataSizeInBytes: u64,
     pub UpdateScratchDataSizeInBytes: u64,
 }
-impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
     pub Location: u64,
-}
-impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5814,15 +5164,10 @@ pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE(pub i32);
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE(1i32);
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
     pub AABBCount: u64,
     pub AABBs: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
-}
-impl Default for D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5892,7 +5237,7 @@ pub const D3D12_RAYTRACING_GEOMETRY_FLAG_NO_DUPLICATE_ANYHIT_INVOCATION: D3D12_R
 pub const D3D12_RAYTRACING_GEOMETRY_FLAG_OPAQUE: D3D12_RAYTRACING_GEOMETRY_FLAGS = D3D12_RAYTRACING_GEOMETRY_FLAGS(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     pub Transform3x4: u64,
     pub IndexFormat: super::Dxgi::Common::DXGI_FORMAT,
@@ -5901,12 +5246,6 @@ pub struct D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     pub VertexCount: u32,
     pub IndexBuffer: u64,
     pub VertexBuffer: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5976,25 +5315,15 @@ pub const D3D12_RAYTRACING_MAX_PRIMITIVES_PER_BOTTOM_LEVEL_ACCELERATION_STRUCTUR
 pub const D3D12_RAYTRACING_MAX_RAY_GENERATION_SHADER_THREADS: u32 = 1073741824u32;
 pub const D3D12_RAYTRACING_MAX_SHADER_RECORD_STRIDE: u32 = 4096u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_PIPELINE_CONFIG {
     pub MaxTraceRecursionDepth: u32,
 }
-impl Default for D3D12_RAYTRACING_PIPELINE_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_PIPELINE_CONFIG1 {
     pub MaxTraceRecursionDepth: u32,
     pub Flags: D3D12_RAYTRACING_PIPELINE_FLAGS,
-}
-impl Default for D3D12_RAYTRACING_PIPELINE_CONFIG1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6036,15 +5365,10 @@ pub const D3D12_RAYTRACING_PIPELINE_FLAG_NONE: D3D12_RAYTRACING_PIPELINE_FLAGS =
 pub const D3D12_RAYTRACING_PIPELINE_FLAG_SKIP_PROCEDURAL_PRIMITIVES: D3D12_RAYTRACING_PIPELINE_FLAGS = D3D12_RAYTRACING_PIPELINE_FLAGS(512i32);
 pub const D3D12_RAYTRACING_PIPELINE_FLAG_SKIP_TRIANGLES: D3D12_RAYTRACING_PIPELINE_FLAGS = D3D12_RAYTRACING_PIPELINE_FLAGS(256i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_SHADER_CONFIG {
     pub MaxPayloadSizeInBytes: u32,
     pub MaxAttributeSizeInBytes: u32,
-}
-impl Default for D3D12_RAYTRACING_SHADER_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_RAYTRACING_SHADER_RECORD_BYTE_ALIGNMENT: u32 = 32u32;
 pub const D3D12_RAYTRACING_SHADER_TABLE_BYTE_ALIGNMENT: u32 = 64u32;
@@ -6146,15 +5470,10 @@ impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
     pub AdditionalWidth: u32,
     pub AdditionalHeight: u32,
-}
-impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6224,15 +5543,10 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
     pub AdditionalWidth: u32,
     pub AdditionalHeight: u32,
-}
-impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6253,18 +5567,13 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS {
     pub SrcSubresource: u32,
     pub DstSubresource: u32,
     pub DstX: u32,
     pub DstY: u32,
     pub SrcRect: super::super::Foundation::RECT,
-}
-impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6344,7 +5653,7 @@ pub const D3D12_RENDER_PASS_TIER_0: D3D12_RENDER_PASS_TIER = D3D12_RENDER_PASS_T
 pub const D3D12_RENDER_PASS_TIER_1: D3D12_RENDER_PASS_TIER = D3D12_RENDER_PASS_TIER(1i32);
 pub const D3D12_RENDER_PASS_TIER_2: D3D12_RENDER_PASS_TIER = D3D12_RENDER_PASS_TIER(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RENDER_TARGET_BLEND_DESC {
     pub BlendEnable: windows_core::BOOL,
     pub LogicOpEnable: windows_core::BOOL,
@@ -6356,11 +5665,6 @@ pub struct D3D12_RENDER_TARGET_BLEND_DESC {
     pub BlendOpAlpha: D3D12_BLEND_OP,
     pub LogicOp: D3D12_LOGIC_OP,
     pub RenderTargetWriteMask: u8,
-}
-impl Default for D3D12_RENDER_TARGET_BLEND_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6478,38 +5782,23 @@ pub const D3D12_RESOLVE_MODE_ENCODE_SAMPLER_FEEDBACK: D3D12_RESOLVE_MODE = D3D12
 pub const D3D12_RESOLVE_MODE_MAX: D3D12_RESOLVE_MODE = D3D12_RESOLVE_MODE(2i32);
 pub const D3D12_RESOLVE_MODE_MIN: D3D12_RESOLVE_MODE = D3D12_RESOLVE_MODE(1i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
     pub pResourceBefore: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub pResourceAfter: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
-impl Default for D3D12_RESOURCE_ALIASING_BARRIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_ALLOCATION_INFO {
     pub SizeInBytes: u64,
     pub Alignment: u64,
 }
-impl Default for D3D12_RESOURCE_ALLOCATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_ALLOCATION_INFO1 {
     pub Offset: u64,
     pub Alignment: u64,
     pub SizeInBytes: u64,
-}
-impl Default for D3D12_RESOURCE_ALLOCATION_INFO1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 pub struct D3D12_RESOURCE_BARRIER {
@@ -6597,7 +5886,7 @@ pub const D3D12_RESOURCE_BINDING_TIER_2: D3D12_RESOURCE_BINDING_TIER = D3D12_RES
 pub const D3D12_RESOURCE_BINDING_TIER_3: D3D12_RESOURCE_BINDING_TIER = D3D12_RESOURCE_BINDING_TIER(3i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_DESC {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub Alignment: u64,
@@ -6610,15 +5899,9 @@ pub struct D3D12_RESOURCE_DESC {
     pub Layout: D3D12_TEXTURE_LAYOUT,
     pub Flags: D3D12_RESOURCE_FLAGS,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_RESOURCE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_DESC1 {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub Alignment: u64,
@@ -6631,12 +5914,6 @@ pub struct D3D12_RESOURCE_DESC1 {
     pub Layout: D3D12_TEXTURE_LAYOUT,
     pub Flags: D3D12_RESOURCE_FLAGS,
     pub SamplerFeedbackMipRegion: D3D12_MIP_REGION,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_RESOURCE_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6766,27 +6043,17 @@ pub const D3D12_RESOURCE_STATE_VIDEO_ENCODE_WRITE: D3D12_RESOURCE_STATES = D3D12
 pub const D3D12_RESOURCE_STATE_VIDEO_PROCESS_READ: D3D12_RESOURCE_STATES = D3D12_RESOURCE_STATES(262144i32);
 pub const D3D12_RESOURCE_STATE_VIDEO_PROCESS_WRITE: D3D12_RESOURCE_STATES = D3D12_RESOURCE_STATES(524288i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresource: u32,
     pub StateBefore: D3D12_RESOURCE_STATES,
     pub StateAfter: D3D12_RESOURCE_STATES,
 }
-impl Default for D3D12_RESOURCE_TRANSITION_BARRIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
-}
-impl Default for D3D12_RESOURCE_UAV_BARRIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_RLDO_DETAIL: D3D12_RLDO_FLAGS = D3D12_RLDO_FLAGS(2i32);
 #[repr(transparent)]
@@ -6829,39 +6096,24 @@ pub const D3D12_RLDO_IGNORE_INTERNAL: D3D12_RLDO_FLAGS = D3D12_RLDO_FLAGS(4i32);
 pub const D3D12_RLDO_NONE: D3D12_RLDO_FLAGS = D3D12_RLDO_FLAGS(0i32);
 pub const D3D12_RLDO_SUMMARY: D3D12_RLDO_FLAGS = D3D12_RLDO_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_ROOT_CONSTANTS {
     pub ShaderRegister: u32,
     pub RegisterSpace: u32,
     pub Num32BitValues: u32,
 }
-impl Default for D3D12_ROOT_CONSTANTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR {
     pub ShaderRegister: u32,
     pub RegisterSpace: u32,
 }
-impl Default for D3D12_ROOT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR1 {
     pub ShaderRegister: u32,
     pub RegisterSpace: u32,
     pub Flags: D3D12_ROOT_DESCRIPTOR_FLAGS,
-}
-impl Default for D3D12_ROOT_DESCRIPTOR1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7194,25 +6446,15 @@ pub const D3D12_SAMPLER_FLAG_NONE: D3D12_SAMPLER_FLAGS = D3D12_SAMPLER_FLAGS(0i3
 pub const D3D12_SAMPLER_FLAG_NON_NORMALIZED_COORDINATES: D3D12_SAMPLER_FLAGS = D3D12_SAMPLER_FLAGS(2i32);
 pub const D3D12_SAMPLER_FLAG_UINT_BORDER_COLOR: D3D12_SAMPLER_FLAGS = D3D12_SAMPLER_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SAMPLE_MASK {
     pub SampleMask: u32,
 }
-impl Default for D3D12_SAMPLE_MASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SAMPLE_POSITION {
     pub X: i8,
     pub Y: i8,
-}
-impl Default for D3D12_SAMPLE_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_SDK_VERSION: u32 = 614u32;
 #[repr(C)]
@@ -7231,27 +6473,17 @@ pub const D3D12_SERIALIZED_DATA_RAYTRACING_ACCELERATION_STRUCTURE: D3D12_SERIALI
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SERIALIZED_DATA_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER {
     pub DriverMatchingIdentifier: D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER,
     pub SerializedSizeInBytesIncludingHeader: u64,
     pub DeserializedSizeInBytes: u64,
     pub NumBottomLevelAccelerationStructurePointersAfterHeader: u64,
 }
-impl Default for D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SET_GENERIC_PIPELINE_DESC {
     pub ProgramIdentifier: D3D12_PROGRAM_IDENTIFIER,
-}
-impl Default for D3D12_SET_GENERIC_PIPELINE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7277,27 +6509,17 @@ impl Default for D3D12_SET_PROGRAM_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SET_RAYTRACING_PIPELINE_DESC {
     pub ProgramIdentifier: D3D12_PROGRAM_IDENTIFIER,
 }
-impl Default for D3D12_SET_RAYTRACING_PIPELINE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SET_WORK_GRAPH_DESC {
     pub ProgramIdentifier: D3D12_PROGRAM_IDENTIFIER,
     pub Flags: D3D12_SET_WORK_GRAPH_FLAGS,
     pub BackingMemory: D3D12_GPU_VIRTUAL_ADDRESS_RANGE,
     pub NodeLocalRootArgumentsTable: D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE,
-}
-impl Default for D3D12_SET_WORK_GRAPH_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7339,19 +6561,13 @@ pub const D3D12_SET_WORK_GRAPH_FLAG_INITIALIZE: D3D12_SET_WORK_GRAPH_FLAGS = D3D
 pub const D3D12_SET_WORK_GRAPH_FLAG_NONE: D3D12_SET_WORK_GRAPH_FLAGS = D3D12_SET_WORK_GRAPH_FLAGS(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SHADER_BUFFER_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::Direct3D::D3D_CBUFFER_TYPE,
     pub Variables: u32,
     pub Size: u32,
     pub uFlags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for D3D12_SHADER_BUFFER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7488,7 +6704,7 @@ pub struct D3D12_SHADER_CACHE_MODE(pub i32);
 pub const D3D12_SHADER_CACHE_MODE_DISK: D3D12_SHADER_CACHE_MODE = D3D12_SHADER_CACHE_MODE(1i32);
 pub const D3D12_SHADER_CACHE_MODE_MEMORY: D3D12_SHADER_CACHE_MODE = D3D12_SHADER_CACHE_MODE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SHADER_CACHE_SESSION_DESC {
     pub Identifier: windows_core::GUID,
     pub Mode: D3D12_SHADER_CACHE_MODE,
@@ -7497,11 +6713,6 @@ pub struct D3D12_SHADER_CACHE_SESSION_DESC {
     pub MaximumInMemoryCacheEntries: u32,
     pub MaximumValueFileSizeBytes: u32,
     pub Version: u64,
-}
-impl Default for D3D12_SHADER_CACHE_SESSION_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_DISK_CACHE: D3D12_SHADER_CACHE_SUPPORT_FLAGS = D3D12_SHADER_CACHE_SUPPORT_FLAGS(8i32);
 pub const D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_INPROC_CACHE: D3D12_SHADER_CACHE_SUPPORT_FLAGS = D3D12_SHADER_CACHE_SUPPORT_FLAGS(4i32);
@@ -7561,7 +6772,7 @@ pub const D3D12_SHADER_COMPONENT_MAPPING_MASK: u32 = 7u32;
 pub const D3D12_SHADER_COMPONENT_MAPPING_SHIFT: u32 = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SHADER_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -7602,16 +6813,10 @@ pub struct D3D12_SHADER_DESC {
     pub cInterlockedInstructions: u32,
     pub cTextureStoreInstructions: u32,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for D3D12_SHADER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SHADER_INPUT_BIND_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::Direct3D::D3D_SHADER_INPUT_TYPE,
@@ -7623,12 +6828,6 @@ pub struct D3D12_SHADER_INPUT_BIND_DESC {
     pub NumSamples: u32,
     pub Space: u32,
     pub uID: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for D3D12_SHADER_INPUT_BIND_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_SHADER_MAJOR_VERSION: u32 = 5u32;
 pub const D3D12_SHADER_MAX_INSTANCES: u32 = 65535u32;
@@ -7739,7 +6938,7 @@ impl Default for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SHADER_TYPE_DESC {
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
@@ -7749,12 +6948,6 @@ pub struct D3D12_SHADER_TYPE_DESC {
     pub Members: u32,
     pub Offset: u32,
     pub Name: windows_core::PCSTR,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for D3D12_SHADER_TYPE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7835,7 +7028,7 @@ pub const D3D12_SHVER_RESERVED0: D3D12_SHADER_VERSION_TYPE = D3D12_SHADER_VERSIO
 pub const D3D12_SHVER_VERTEX_SHADER: D3D12_SHADER_VERSION_TYPE = D3D12_SHADER_VERSION_TYPE(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -7847,12 +7040,6 @@ pub struct D3D12_SIGNATURE_PARAMETER_DESC {
     pub Stream: u32,
     pub MinPrecision: super::Direct3D::D3D_MIN_PRECISION,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl Default for D3D12_SIGNATURE_PARAMETER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
 pub const D3D12_SMALL_MSAA_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 65536u32;
 pub const D3D12_SMALL_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 4096u32;
@@ -7861,7 +7048,7 @@ pub const D3D12_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 512u32;
 pub const D3D12_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 pub const D3D12_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SO_DECLARATION_ENTRY {
     pub Stream: u32,
     pub SemanticName: windows_core::PCSTR,
@@ -7869,11 +7056,6 @@ pub struct D3D12_SO_DECLARATION_ENTRY {
     pub StartComponent: u8,
     pub ComponentCount: u8,
     pub OutputSlot: u8,
-}
-impl Default for D3D12_SO_DECLARATION_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_SO_NO_RASTERIZED_STREAM: u32 = 4294967295u32;
 pub const D3D12_SO_OUTPUT_COMPONENT_COUNT: u32 = 128u32;
@@ -7917,14 +7099,9 @@ pub const D3D12_STANDARD_VECTOR_SIZE: u32 = 4u32;
 pub const D3D12_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D12_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_STATE_OBJECT_CONFIG {
     pub Flags: D3D12_STATE_OBJECT_FLAGS,
-}
-impl Default for D3D12_STATE_OBJECT_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8037,7 +7214,7 @@ pub const D3D12_STATIC_BORDER_COLOR_OPAQUE_WHITE: D3D12_STATIC_BORDER_COLOR = D3
 pub const D3D12_STATIC_BORDER_COLOR_OPAQUE_WHITE_UINT: D3D12_STATIC_BORDER_COLOR = D3D12_STATIC_BORDER_COLOR(4i32);
 pub const D3D12_STATIC_BORDER_COLOR_TRANSPARENT_BLACK: D3D12_STATIC_BORDER_COLOR = D3D12_STATIC_BORDER_COLOR(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_STATIC_SAMPLER_DESC {
     pub Filter: D3D12_FILTER,
     pub AddressU: D3D12_TEXTURE_ADDRESS_MODE,
@@ -8053,13 +7230,8 @@ pub struct D3D12_STATIC_SAMPLER_DESC {
     pub RegisterSpace: u32,
     pub ShaderVisibility: D3D12_SHADER_VISIBILITY,
 }
-impl Default for D3D12_STATIC_SAMPLER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_STATIC_SAMPLER_DESC1 {
     pub Filter: D3D12_FILTER,
     pub AddressU: D3D12_TEXTURE_ADDRESS_MODE,
@@ -8076,11 +7248,6 @@ pub struct D3D12_STATIC_SAMPLER_DESC1 {
     pub ShaderVisibility: D3D12_SHADER_VISIBILITY,
     pub Flags: D3D12_SAMPLER_FLAGS,
 }
-impl Default for D3D12_STATIC_SAMPLER_DESC1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STENCIL_OP(pub i32);
@@ -8093,16 +7260,11 @@ pub const D3D12_STENCIL_OP_KEEP: D3D12_STENCIL_OP = D3D12_STENCIL_OP(1i32);
 pub const D3D12_STENCIL_OP_REPLACE: D3D12_STENCIL_OP = D3D12_STENCIL_OP(3i32);
 pub const D3D12_STENCIL_OP_ZERO: D3D12_STENCIL_OP = D3D12_STENCIL_OP(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_STREAM_OUTPUT_BUFFER_VIEW {
     pub BufferLocation: u64,
     pub SizeInBytes: u64,
     pub BufferFilledSizeLocation: u64,
-}
-impl Default for D3D12_STREAM_OUTPUT_BUFFER_VIEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8145,7 +7307,7 @@ impl Default for D3D12_SUBRESOURCE_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SUBRESOURCE_FOOTPRINT {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Width: u32,
@@ -8153,47 +7315,26 @@ pub struct D3D12_SUBRESOURCE_FOOTPRINT {
     pub Depth: u32,
     pub RowPitch: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_SUBRESOURCE_FOOTPRINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SUBRESOURCE_INFO {
     pub Offset: u64,
     pub RowPitch: u32,
     pub DepthPitch: u32,
 }
-impl Default for D3D12_SUBRESOURCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SUBRESOURCE_RANGE_UINT64 {
     pub Subresource: u32,
     pub Range: D3D12_RANGE_UINT64,
 }
-impl Default for D3D12_SUBRESOURCE_RANGE_UINT64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SUBRESOURCE_TILING {
     pub WidthInTiles: u32,
     pub HeightInTiles: u16,
     pub DepthInTiles: u16,
     pub StartTileIndexInOverallResource: u32,
-}
-impl Default for D3D12_SUBRESOURCE_TILING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 pub const D3D12_SYSTEM_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295u32;
@@ -8206,31 +7347,21 @@ pub const D3D12_TESSELLATOR_MIN_EVEN_TESSELLATION_FACTOR: u32 = 2u32;
 pub const D3D12_TESSELLATOR_MIN_ISOLINE_DENSITY_TESSELLATION_FACTOR: u32 = 1u32;
 pub const D3D12_TESSELLATOR_MIN_ODD_TESSELLATION_FACTOR: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX1D_ARRAY_DSV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX1D_ARRAY_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -8238,176 +7369,96 @@ pub struct D3D12_TEX1D_ARRAY_SRV {
     pub ArraySize: u32,
     pub ResourceMinLODClamp: f32,
 }
-impl Default for D3D12_TEX1D_ARRAY_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX1D_ARRAY_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_DSV {
     pub MipSlice: u32,
 }
-impl Default for D3D12_TEX1D_DSV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_RTV {
     pub MipSlice: u32,
 }
-impl Default for D3D12_TEX1D_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub ResourceMinLODClamp: f32,
 }
-impl Default for D3D12_TEX1D_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_UAV {
     pub MipSlice: u32,
 }
-impl Default for D3D12_TEX1D_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX2DMS_ARRAY_DSV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX2DMS_ARRAY_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX2DMS_ARRAY_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_UAV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX2DMS_ARRAY_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
 }
-impl Default for D3D12_TEX2DMS_DSV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
 }
-impl Default for D3D12_TEX2DMS_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
 }
-impl Default for D3D12_TEX2DMS_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2DMS_UAV {
     pub UnusedField_NothingToDefine: u32,
 }
-impl Default for D3D12_TEX2DMS_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
-impl Default for D3D12_TEX2D_ARRAY_DSV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
     pub PlaneSlice: u32,
 }
-impl Default for D3D12_TEX2D_ARRAY_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -8416,107 +7467,62 @@ pub struct D3D12_TEX2D_ARRAY_SRV {
     pub PlaneSlice: u32,
     pub ResourceMinLODClamp: f32,
 }
-impl Default for D3D12_TEX2D_ARRAY_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
     pub PlaneSlice: u32,
 }
-impl Default for D3D12_TEX2D_ARRAY_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_DSV {
     pub MipSlice: u32,
 }
-impl Default for D3D12_TEX2D_DSV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_RTV {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
 }
-impl Default for D3D12_TEX2D_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub PlaneSlice: u32,
     pub ResourceMinLODClamp: f32,
 }
-impl Default for D3D12_TEX2D_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX2D_UAV {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
 }
-impl Default for D3D12_TEX2D_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
-impl Default for D3D12_TEX3D_RTV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX3D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub ResourceMinLODClamp: f32,
 }
-impl Default for D3D12_TEX3D_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX3D_UAV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
-impl Default for D3D12_TEX3D_UAV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEXCUBE_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -8524,22 +7530,12 @@ pub struct D3D12_TEXCUBE_ARRAY_SRV {
     pub NumCubes: u32,
     pub ResourceMinLODClamp: f32,
 }
-impl Default for D3D12_TEXCUBE_ARRAY_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEXCUBE_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub ResourceMinLODClamp: f32,
-}
-impl Default for D3D12_TEXCUBE_SRV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
 #[repr(transparent)]
@@ -8551,7 +7547,7 @@ pub const D3D12_TEXTURE_ADDRESS_MODE_MIRROR: D3D12_TEXTURE_ADDRESS_MODE = D3D12_
 pub const D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE: D3D12_TEXTURE_ADDRESS_MODE = D3D12_TEXTURE_ADDRESS_MODE(5i32);
 pub const D3D12_TEXTURE_ADDRESS_MODE_WRAP: D3D12_TEXTURE_ADDRESS_MODE = D3D12_TEXTURE_ADDRESS_MODE(1i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_TEXTURE_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
@@ -8562,11 +7558,6 @@ pub struct D3D12_TEXTURE_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresources: D3D12_BARRIER_SUBRESOURCE_RANGE,
     pub Flags: D3D12_TEXTURE_BARRIER_FLAGS,
-}
-impl Default for D3D12_TEXTURE_BARRIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8676,17 +7667,12 @@ pub const D3D12_TILED_RESOURCES_TIER_3: D3D12_TILED_RESOURCES_TIER = D3D12_TILED
 pub const D3D12_TILED_RESOURCES_TIER_4: D3D12_TILED_RESOURCES_TIER = D3D12_TILED_RESOURCES_TIER(4i32);
 pub const D3D12_TILED_RESOURCES_TIER_NOT_SUPPORTED: D3D12_TILED_RESOURCES_TIER = D3D12_TILED_RESOURCES_TIER(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TILED_RESOURCE_COORDINATE {
     pub X: u32,
     pub Y: u32,
     pub Z: u32,
     pub Subresource: u32,
-}
-impl Default for D3D12_TILED_RESOURCE_COORDINATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_TILED_RESOURCE_TILE_SIZE_IN_BYTES: u32 = 65536u32;
 #[repr(transparent)]
@@ -8775,7 +7761,7 @@ pub const D3D12_TILE_RANGE_FLAG_NULL: D3D12_TILE_RANGE_FLAGS = D3D12_TILE_RANGE_
 pub const D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE: D3D12_TILE_RANGE_FLAGS = D3D12_TILE_RANGE_FLAGS(4i32);
 pub const D3D12_TILE_RANGE_FLAG_SKIP: D3D12_TILE_RANGE_FLAGS = D3D12_TILE_RANGE_FLAGS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TILE_REGION_SIZE {
     pub NumTiles: u32,
     pub UseBox: windows_core::BOOL,
@@ -8783,22 +7769,12 @@ pub struct D3D12_TILE_REGION_SIZE {
     pub Height: u16,
     pub Depth: u16,
 }
-impl Default for D3D12_TILE_REGION_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TILE_SHAPE {
     pub WidthInTexels: u32,
     pub HeightInTexels: u32,
     pub DepthInTexels: u32,
-}
-impl Default for D3D12_TILE_SHAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_TRACKED_WORKLOAD_MAX_INSTANCES: u32 = 32u32;
 #[repr(transparent)]
@@ -8909,16 +7885,11 @@ impl Default for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VERTEX_BUFFER_VIEW {
     pub BufferLocation: u64,
     pub SizeInBytes: u32,
     pub StrideInBytes: u32,
-}
-impl Default for D3D12_VERTEX_BUFFER_VIEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D12_VIDEO_DECODE_MAX_ARGUMENTS: u32 = 10u32;
 pub const D3D12_VIDEO_DECODE_MAX_HISTOGRAM_COMPONENTS: u32 = 4u32;
@@ -8933,7 +7904,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_SUPERRES_NUM: u32 = 8u32;
 pub const D3D12_VIDEO_PROCESS_MAX_FILTERS: u32 = 32u32;
 pub const D3D12_VIDEO_PROCESS_STEREO_VIEWS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIEWPORT {
     pub TopLeftX: f32,
     pub TopLeftY: f32,
@@ -8942,25 +7913,15 @@ pub struct D3D12_VIEWPORT {
     pub MinDepth: f32,
     pub MaxDepth: f32,
 }
-impl Default for D3D12_VIEWPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 pub const D3D12_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;
 pub const D3D12_VIEWPORT_BOUNDS_MAX: u32 = 32767u32;
 pub const D3D12_VIEWPORT_BOUNDS_MIN: i32 = -32768i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIEW_INSTANCE_LOCATION {
     pub ViewportArrayIndex: u32,
     pub RenderTargetArrayIndex: u32,
-}
-impl Default for D3D12_VIEW_INSTANCE_LOCATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9096,16 +8057,11 @@ impl core::ops::Not for D3D12_WORK_GRAPH_FLAGS {
 pub const D3D12_WORK_GRAPH_FLAG_INCLUDE_ALL_AVAILABLE_NODES: D3D12_WORK_GRAPH_FLAGS = D3D12_WORK_GRAPH_FLAGS(1i32);
 pub const D3D12_WORK_GRAPH_FLAG_NONE: D3D12_WORK_GRAPH_FLAGS = D3D12_WORK_GRAPH_FLAGS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_WORK_GRAPH_MEMORY_REQUIREMENTS {
     pub MinSizeInBytes: u64,
     pub MaxSizeInBytes: u64,
     pub SizeGranularityInBytes: u32,
-}
-impl Default for D3D12_WORK_GRAPH_MEMORY_REQUIREMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9114,15 +8070,10 @@ pub const D3D12_WRITEBUFFERIMMEDIATE_MODE_DEFAULT: D3D12_WRITEBUFFERIMMEDIATE_MO
 pub const D3D12_WRITEBUFFERIMMEDIATE_MODE_MARKER_IN: D3D12_WRITEBUFFERIMMEDIATE_MODE = D3D12_WRITEBUFFERIMMEDIATE_MODE(1i32);
 pub const D3D12_WRITEBUFFERIMMEDIATE_MODE_MARKER_OUT: D3D12_WRITEBUFFERIMMEDIATE_MODE = D3D12_WRITEBUFFERIMMEDIATE_MODE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
     pub Dest: u64,
     pub Value: u32,
-}
-impl Default for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3D_HIGHEST_SHADER_MODEL: D3D_SHADER_MODEL = D3D_SHADER_MODEL(105i32);
 #[repr(transparent)]
@@ -9185,6 +8136,7 @@ impl ID3D12CommandAllocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12CommandAllocator_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9223,6 +8175,7 @@ impl ID3D12CommandList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12CommandList_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_COMMAND_LIST_TYPE,
@@ -9312,6 +8265,7 @@ impl ID3D12CommandQueue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12CommandQueue_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub UpdateTileMappings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const D3D12_TILED_RESOURCE_COORDINATE, *const D3D12_TILE_REGION_SIZE, *mut core::ffi::c_void, u32, *const D3D12_TILE_RANGE_FLAGS, *const u32, *const u32, D3D12_TILE_MAPPING_FLAGS),
@@ -9444,6 +8398,7 @@ impl core::ops::Deref for ID3D12CommandSignature {
 }
 windows_core::imp::interface_hierarchy!(ID3D12CommandSignature, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12CommandSignature_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
 }
@@ -9467,6 +8422,7 @@ impl ID3D12Debug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Debug_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -9505,6 +8461,7 @@ impl ID3D12Debug1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Debug1_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -9558,6 +8515,7 @@ impl ID3D12Debug2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Debug2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGPUBasedValidationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_BASED_VALIDATION_FLAGS),
@@ -9602,6 +8560,7 @@ impl ID3D12Debug3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Debug3_Vtbl {
     pub base__: ID3D12Debug_Vtbl,
     pub SetEnableGPUBasedValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
@@ -9661,6 +8620,7 @@ impl ID3D12Debug4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Debug4_Vtbl {
     pub base__: ID3D12Debug3_Vtbl,
     pub DisableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -9699,6 +8659,7 @@ impl ID3D12Debug5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Debug5_Vtbl {
     pub base__: ID3D12Debug4_Vtbl,
     pub SetEnableAutoName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
@@ -9737,6 +8698,7 @@ impl ID3D12Debug6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Debug6_Vtbl {
     pub base__: ID3D12Debug5_Vtbl,
     pub SetForceLegacyBarrierValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
@@ -9778,6 +8740,7 @@ impl ID3D12DebugCommandList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugCommandList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
@@ -9840,6 +8803,7 @@ impl ID3D12DebugCommandList1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugCommandList1_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
@@ -9902,6 +8866,7 @@ impl ID3D12DebugCommandList2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugCommandList2_Vtbl {
     pub base__: ID3D12DebugCommandList_Vtbl,
     pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -9961,6 +8926,7 @@ impl ID3D12DebugCommandList3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugCommandList3_Vtbl {
     pub base__: ID3D12DebugCommandList2_Vtbl,
     pub AssertResourceAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_ACCESS),
@@ -10008,6 +8974,7 @@ impl ID3D12DebugCommandQueue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugCommandQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
@@ -10055,6 +9022,7 @@ impl ID3D12DebugCommandQueue1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugCommandQueue1_Vtbl {
     pub base__: ID3D12DebugCommandQueue_Vtbl,
     pub AssertResourceAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_ACCESS),
@@ -10105,6 +9073,7 @@ impl ID3D12DebugDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_FEATURE) -> windows_core::HRESULT,
@@ -10164,6 +9133,7 @@ impl ID3D12DebugDevice1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugDevice1_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_DEVICE_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -10226,6 +9196,7 @@ impl ID3D12DebugDevice2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DebugDevice2_Vtbl {
     pub base__: ID3D12DebugDevice_Vtbl,
     pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_DEVICE_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -10294,6 +9265,7 @@ impl ID3D12DescriptorHeap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DescriptorHeap_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_DESCRIPTOR_HEAP_DESC),
@@ -10570,6 +9542,7 @@ impl ID3D12Device {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device_Vtbl {
     pub base__: ID3D12Object_Vtbl,
     pub GetNodeCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -10993,6 +9966,7 @@ impl ID3D12Device1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device1_Vtbl {
     pub base__: ID3D12Device_Vtbl,
     pub CreatePipelineLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11076,6 +10050,7 @@ impl ID3D12Device10 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device10_Vtbl {
     pub base__: ID3D12Device9_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11147,6 +10122,7 @@ impl ID3D12Device11 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device11_Vtbl {
     pub base__: ID3D12Device10_Vtbl,
     pub CreateSampler2: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_SAMPLER_DESC2, D3D12_CPU_DESCRIPTOR_HANDLE),
@@ -11193,6 +10169,7 @@ impl ID3D12Device12 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device12_Vtbl {
     pub base__: ID3D12Device11_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11254,6 +10231,7 @@ impl ID3D12Device13 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device13_Vtbl {
     pub base__: ID3D12Device12_Vtbl,
     pub OpenExistingHeapFromAddress1: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11314,6 +10292,7 @@ impl ID3D12Device14 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device14_Vtbl {
     pub base__: ID3D12Device13_Vtbl,
     pub CreateRootSignatureFromSubobjectInLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, usize, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11377,6 +10356,7 @@ impl ID3D12Device2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device2_Vtbl {
     pub base__: ID3D12Device1_Vtbl,
     pub CreatePipelineState: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_PIPELINE_STATE_STREAM_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11435,6 +10415,7 @@ impl ID3D12Device3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device3_Vtbl {
     pub base__: ID3D12Device2_Vtbl,
     pub OpenExistingHeapFromAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11539,6 +10520,7 @@ impl ID3D12Device4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device4_Vtbl {
     pub base__: ID3D12Device3_Vtbl,
     pub CreateCommandList1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_COMMAND_LIST_TYPE, D3D12_COMMAND_LIST_FLAGS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11672,6 +10654,7 @@ impl ID3D12Device5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device5_Vtbl {
     pub base__: ID3D12Device4_Vtbl,
     pub CreateLifetimeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11782,6 +10765,7 @@ impl ID3D12Device6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device6_Vtbl {
     pub base__: ID3D12Device5_Vtbl,
     pub SetBackgroundProcessingMode: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_BACKGROUND_PROCESSING_MODE, D3D12_MEASUREMENTS_ACTION, super::super::Foundation::HANDLE, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -11835,6 +10819,7 @@ impl ID3D12Device7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device7_Vtbl {
     pub base__: ID3D12Device6_Vtbl,
     pub AddToStateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_STATE_OBJECT_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11920,6 +10905,7 @@ impl ID3D12Device8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device8_Vtbl {
     pub base__: ID3D12Device7_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12025,6 +11011,7 @@ impl ID3D12Device9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Device9_Vtbl {
     pub base__: ID3D12Device8_Vtbl,
     pub CreateShaderCacheSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_SHADER_CACHE_SESSION_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12090,6 +11077,7 @@ impl ID3D12DeviceChild {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceChild_Vtbl {
     pub base__: ID3D12Object_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12140,6 +11128,7 @@ impl ID3D12DeviceConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_DEVICE_CONFIGURATION_DESC),
@@ -12219,6 +11208,7 @@ impl ID3D12DeviceConfiguration1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceConfiguration1_Vtbl {
     pub base__: ID3D12DeviceConfiguration_Vtbl,
     pub CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, usize, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12284,6 +11274,7 @@ impl ID3D12DeviceFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeFromGlobalState: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12388,6 +11379,7 @@ impl ID3D12DeviceRemovedExtendedData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceRemovedExtendedData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAutoBreadcrumbsOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT) -> windows_core::HRESULT,
@@ -12459,6 +11451,7 @@ impl ID3D12DeviceRemovedExtendedData1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceRemovedExtendedData1_Vtbl {
     pub base__: ID3D12DeviceRemovedExtendedData_Vtbl,
     pub GetAutoBreadcrumbsOutput1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1) -> windows_core::HRESULT,
@@ -12524,6 +11517,7 @@ impl ID3D12DeviceRemovedExtendedData2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceRemovedExtendedData2_Vtbl {
     pub base__: ID3D12DeviceRemovedExtendedData1_Vtbl,
     pub GetPageFaultAllocationOutput2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> windows_core::HRESULT,
@@ -12574,6 +11568,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAutoBreadcrumbsEnablement: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DRED_ENABLEMENT),
@@ -12633,6 +11628,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
     pub base__: ID3D12DeviceRemovedExtendedDataSettings_Vtbl,
     pub SetBreadcrumbContextEnablement: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DRED_ENABLEMENT),
@@ -12674,6 +11670,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
     pub base__: ID3D12DeviceRemovedExtendedDataSettings1_Vtbl,
     pub UseMarkersOnlyAutoBreadcrumbs: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
@@ -12721,6 +11718,7 @@ impl ID3D12Fence {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Fence_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub GetCompletedValue: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -12780,6 +11778,7 @@ impl ID3D12Fence1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Fence1_Vtbl {
     pub base__: ID3D12Fence_Vtbl,
     pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_FENCE_FLAGS,
@@ -12812,6 +11811,7 @@ impl ID3D12FunctionParameterReflection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12FunctionParameterReflection_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PARAMETER_DESC) -> windows_core::HRESULT,
@@ -12888,6 +11888,7 @@ impl ID3D12FunctionReflection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12FunctionReflection_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_FUNCTION_DESC) -> windows_core::HRESULT,
@@ -13037,6 +12038,7 @@ impl ID3D12GBVDiagnostics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GBVDiagnostics_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGBVEntireSubresourceStatesData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, u32) -> windows_core::HRESULT,
@@ -13357,6 +12359,7 @@ impl ID3D12GraphicsCommandList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList_Vtbl {
     pub base__: ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13891,6 +12894,7 @@ impl ID3D12GraphicsCommandList1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList1_Vtbl {
     pub base__: ID3D12GraphicsCommandList_Vtbl,
     pub AtomicCopyBufferUINT: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *mut core::ffi::c_void, u64, u32, *const *mut core::ffi::c_void, *const D3D12_SUBRESOURCE_RANGE_UINT64),
@@ -13986,6 +12990,7 @@ impl ID3D12GraphicsCommandList10 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList10_Vtbl {
     pub base__: ID3D12GraphicsCommandList9_Vtbl,
     pub SetProgram: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_SET_PROGRAM_DESC),
@@ -14052,6 +13057,7 @@ impl ID3D12GraphicsCommandList2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList2_Vtbl {
     pub base__: ID3D12GraphicsCommandList1_Vtbl,
     pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
@@ -14096,6 +13102,7 @@ impl ID3D12GraphicsCommandList3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList3_Vtbl {
     pub base__: ID3D12GraphicsCommandList2_Vtbl,
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -14172,6 +13179,7 @@ impl ID3D12GraphicsCommandList4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList4_Vtbl {
     pub base__: ID3D12GraphicsCommandList3_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -14300,6 +13308,7 @@ impl ID3D12GraphicsCommandList5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList5_Vtbl {
     pub base__: ID3D12GraphicsCommandList4_Vtbl,
     pub RSSetShadingRate: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_SHADING_RATE, *const D3D12_SHADING_RATE_COMBINER),
@@ -14353,6 +13362,7 @@ impl ID3D12GraphicsCommandList6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList6_Vtbl {
     pub base__: ID3D12GraphicsCommandList5_Vtbl,
     pub DispatchMesh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32),
@@ -14394,6 +13404,7 @@ impl ID3D12GraphicsCommandList7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList7_Vtbl {
     pub base__: ID3D12GraphicsCommandList6_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_BARRIER_GROUP),
@@ -14435,6 +13446,7 @@ impl ID3D12GraphicsCommandList8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList8_Vtbl {
     pub base__: ID3D12GraphicsCommandList7_Vtbl,
     pub OMSetFrontAndBackStencilRef: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32),
@@ -14490,6 +13502,7 @@ impl ID3D12GraphicsCommandList9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12GraphicsCommandList9_Vtbl {
     pub base__: ID3D12GraphicsCommandList8_Vtbl,
     pub RSSetDepthBias: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32),
@@ -14559,6 +13572,7 @@ impl ID3D12Heap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Heap_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_HEAP_DESC),
@@ -14600,6 +13614,7 @@ impl ID3D12Heap1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Heap1_Vtbl {
     pub base__: ID3D12Heap_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14740,6 +13755,7 @@ impl ID3D12InfoQueue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12InfoQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
@@ -15090,6 +14106,7 @@ impl ID3D12InfoQueue1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12InfoQueue1_Vtbl {
     pub base__: ID3D12InfoQueue_Vtbl,
     pub RegisterMessageCallback: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12MessageFunc, D3D12_MESSAGE_CALLBACK_FLAGS, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15140,6 +14157,7 @@ impl ID3D12LibraryReflection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12LibraryReflection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_LIBRARY_DESC) -> windows_core::HRESULT,
@@ -15190,6 +14208,7 @@ impl ID3D12LifetimeOwner {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12LifetimeOwner_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LifetimeStateUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_LIFETIME_STATE),
@@ -15231,6 +14250,7 @@ impl ID3D12LifetimeTracker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12LifetimeTracker_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub DestroyOwnedObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15263,6 +14283,7 @@ impl ID3D12ManualWriteTrackingResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ManualWriteTrackingResource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TrackWrite: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RANGE),
@@ -15301,6 +14322,7 @@ impl ID3D12MetaCommand {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12MetaCommand_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub GetRequiredParameterResourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_META_COMMAND_PARAMETER_STAGE, u32) -> u64,
@@ -15348,6 +14370,7 @@ impl ID3D12Object {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Object_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15411,6 +14434,7 @@ impl core::ops::Deref for ID3D12Pageable {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Pageable, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Pageable_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
 }
@@ -15467,6 +14491,7 @@ impl ID3D12PipelineLibrary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12PipelineLibrary_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub StorePipeline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15555,6 +14580,7 @@ impl ID3D12PipelineLibrary1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12PipelineLibrary1_Vtbl {
     pub base__: ID3D12PipelineLibrary_Vtbl,
     pub LoadPipeline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const D3D12_PIPELINE_STATE_STREAM_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15600,6 +14626,7 @@ impl ID3D12PipelineState {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12PipelineState_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -15654,6 +14681,7 @@ impl ID3D12ProtectedResourceSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ProtectedResourceSession_Vtbl {
     pub base__: ID3D12ProtectedSession_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC),
@@ -15696,6 +14724,7 @@ impl ID3D12ProtectedResourceSession1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ProtectedResourceSession1_Vtbl {
     pub base__: ID3D12ProtectedResourceSession_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC1),
@@ -15740,6 +14769,7 @@ impl ID3D12ProtectedSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ProtectedSession_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub GetStatusFence: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15785,6 +14815,7 @@ impl core::ops::Deref for ID3D12QueryHeap {
 }
 windows_core::imp::interface_hierarchy!(ID3D12QueryHeap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12QueryHeap_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
 }
@@ -15837,6 +14868,7 @@ impl ID3D12Resource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Resource_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RANGE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15941,6 +14973,7 @@ impl ID3D12Resource1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Resource1_Vtbl {
     pub base__: ID3D12Resource_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15987,6 +15020,7 @@ impl ID3D12Resource2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Resource2_Vtbl {
     pub base__: ID3D12Resource1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -16026,6 +15060,7 @@ impl core::ops::Deref for ID3D12RootSignature {
 }
 windows_core::imp::interface_hierarchy!(ID3D12RootSignature, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12RootSignature_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
 }
@@ -16049,6 +15084,7 @@ impl ID3D12RootSignatureDeserializer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12RootSignatureDeserializer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRootSignatureDesc: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut D3D12_ROOT_SIGNATURE_DESC,
@@ -16084,6 +15120,7 @@ impl ID3D12SDKConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12SDKConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSDKVersion: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -16130,6 +15167,7 @@ impl ID3D12SDKConfiguration1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12SDKConfiguration1_Vtbl {
     pub base__: ID3D12SDKConfiguration_Vtbl,
     pub CreateDeviceFactory: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16193,6 +15231,7 @@ impl ID3D12ShaderCacheSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ShaderCacheSession_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub FindValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -16329,6 +15368,7 @@ impl ID3D12ShaderReflection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ShaderReflection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -16568,6 +15608,7 @@ impl ID3D12ShaderReflectionConstantBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ShaderReflectionConstantBuffer_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_BUFFER_DESC) -> windows_core::HRESULT,
@@ -16675,6 +15716,7 @@ impl ID3D12ShaderReflectionType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ShaderReflectionType_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_TYPE_DESC) -> windows_core::HRESULT,
@@ -16832,6 +15874,7 @@ impl ID3D12ShaderReflectionVariable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12ShaderReflectionVariable_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionType>,
@@ -16913,6 +15956,7 @@ impl ID3D12SharingContract {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12SharingContract_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::Foundation::HWND),
@@ -16976,6 +16020,7 @@ impl core::ops::Deref for ID3D12StateObject {
 }
 windows_core::imp::interface_hierarchy!(ID3D12StateObject, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12StateObject_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
 }
@@ -17014,6 +16059,7 @@ impl ID3D12StateObjectProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12StateObjectProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetShaderIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> *mut core::ffi::c_void,
@@ -17089,6 +16135,7 @@ impl ID3D12StateObjectProperties1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12StateObjectProperties1_Vtbl {
     pub base__: ID3D12StateObjectProperties_Vtbl,
     pub GetProgramIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PROGRAM_IDENTIFIER, windows_core::PCWSTR),
@@ -17142,6 +16189,7 @@ impl ID3D12SwapChainAssistant {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12SwapChainAssistant_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLUID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::LUID),
@@ -17207,6 +16255,7 @@ impl ID3D12Tools {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12Tools_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableShaderInstrumentation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
@@ -17257,6 +16306,7 @@ impl ID3D12VersionedRootSignatureDeserializer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRootSignatureDescAtVersion: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_ROOT_SIGNATURE_VERSION, *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> windows_core::HRESULT,
@@ -17322,6 +16372,7 @@ impl ID3D12VirtualizationGuestDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VirtualizationGuestDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShareWithHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -17425,6 +16476,7 @@ impl ID3D12WorkGraphProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12WorkGraphProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumWorkGraphs: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,

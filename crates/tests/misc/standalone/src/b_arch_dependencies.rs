@@ -16,8 +16,13 @@ pub union ARM64_NT_NEON128 {
     pub H: [u16; 8],
     pub B: [u8; 16],
 }
+impl Default for ARM64_NT_NEON128 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
@@ -51,6 +56,12 @@ pub struct CONTEXT {
     pub Esp: u32,
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
+}
+#[cfg(target_arch = "x86")]
+impl Default for CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -103,12 +114,24 @@ pub struct CONTEXT {
     pub LastExceptionToRip: u64,
     pub LastExceptionFromRip: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -133,6 +156,12 @@ pub struct CONTEXT_0_0 {
     pub Xmm14: M128A,
     pub Xmm15: M128A,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for CONTEXT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -150,6 +179,12 @@ pub struct CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
+#[cfg(target_arch = "aarch64")]
+impl Default for CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -157,9 +192,15 @@ pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(target_arch = "aarch64")]
+impl Default for CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -208,6 +249,12 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Spare0: u32,
 }
+#[cfg(target_arch = "x86")]
+impl Default for FLOATING_SAVE_AREA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(
     target_arch = "aarch64",
@@ -226,8 +273,18 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+impl Default for FLOATING_SAVE_AREA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
@@ -253,6 +310,12 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [M128A; 8],
     pub Reserved4: [u8; 224],
 }
+#[cfg(target_arch = "x86")]
+impl Default for XSAVE_FORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(
     target_arch = "aarch64",
@@ -277,4 +340,14 @@ pub struct XSAVE_FORMAT {
     pub FloatRegisters: [M128A; 8],
     pub XmmRegisters: [M128A; 16],
     pub Reserved4: [u8; 96],
+}
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+impl Default for XSAVE_FORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

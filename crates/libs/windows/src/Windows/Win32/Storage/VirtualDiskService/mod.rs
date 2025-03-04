@@ -23,24 +23,14 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     pub attributes: u64,
 }
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     pub bootIndicator: bool,
-}
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -65,24 +55,14 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
 }
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     pub partitionType: u8,
-}
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CLSID_VdsLoader: windows_core::GUID = windows_core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
 pub const CLSID_VdsService: windows_core::GUID = windows_core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
@@ -122,15 +102,10 @@ impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: u8,
     pub bootIndicator: bool,
-}
-impl Default for CREATE_PARTITION_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 windows_core::imp::define_interface!(IEnumVdsObject, IEnumVdsObject_Vtbl, 0x118610b7_8d94_4030_b5b8_500889788e4e);
@@ -153,6 +128,7 @@ impl IEnumVdsObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumVdsObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -161,7 +137,7 @@ pub struct IEnumVdsObject_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumVdsObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppobjectarray: windows_core::OutRef<'_, windows_core::IUnknown>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumVdsObject>;
@@ -227,6 +203,7 @@ impl IVdsAdmin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsAdmin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterProvider: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, windows_core::PCWSTR, VDS_PROVIDER_TYPE, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::GUID) -> windows_core::HRESULT,
@@ -308,6 +285,7 @@ impl IVdsAdvancedDisk {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsAdvancedDisk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPartitionProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut VDS_PARTITION_PROP) -> windows_core::HRESULT,
@@ -440,6 +418,7 @@ impl IVdsAdvancedDisk2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsAdvancedDisk2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ChangePartitionType: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::BOOL, *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT,
@@ -476,6 +455,7 @@ impl IVdsAdvancedDisk3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsAdvancedDisk3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_ADVANCEDDISK_PROP) -> windows_core::HRESULT,
@@ -524,6 +504,7 @@ impl IVdsAdviseSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsAdviseSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const VDS_NOTIFICATION) -> windows_core::HRESULT,
@@ -560,6 +541,7 @@ impl IVdsAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -638,6 +620,7 @@ impl IVdsController {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsController_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_CONTROLLER_PROP) -> windows_core::HRESULT,
@@ -749,6 +732,7 @@ impl IVdsControllerControllerPort {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsControllerControllerPort_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryControllerPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -803,6 +787,7 @@ impl IVdsControllerPort {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsControllerPort_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_PORT_PROP) -> windows_core::HRESULT,
@@ -887,6 +872,7 @@ impl IVdsCreatePartitionEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsCreatePartitionEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreatePartitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *const CREATE_PARTITION_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -944,6 +930,7 @@ impl IVdsDisk {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDisk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_DISK_PROP) -> windows_core::HRESULT,
@@ -1037,6 +1024,7 @@ impl IVdsDisk2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDisk2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSANMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -1070,6 +1058,7 @@ impl IVdsDisk3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDisk3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_DISK_PROP2) -> windows_core::HRESULT,
@@ -1115,6 +1104,7 @@ impl IVdsDiskOnline {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDiskOnline_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Online: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1172,6 +1162,7 @@ impl IVdsDiskPartitionMF {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDiskPartitionMF_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPartitionFileSystemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT,
@@ -1251,6 +1242,7 @@ impl IVdsDiskPartitionMF2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDiskPartitionMF2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FormatPartitionEx2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1305,6 +1297,7 @@ impl IVdsDrive {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDrive_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_DRIVE_PROP) -> windows_core::HRESULT,
@@ -1389,6 +1382,7 @@ impl IVdsDrive2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsDrive2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_DRIVE_PROP2) -> windows_core::HRESULT,
@@ -1422,6 +1416,7 @@ impl IVdsHbaPort {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsHbaPort_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HBAPORT_PROP) -> windows_core::HRESULT,
@@ -1473,6 +1468,7 @@ impl IVdsHwProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsHwProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QuerySubSystems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1536,6 +1532,7 @@ impl IVdsHwProviderPrivate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsHwProviderPrivate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryIfCreatedLun: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const VDS_LUN_INFORMATION, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -1572,6 +1569,7 @@ impl IVdsHwProviderPrivateMpio {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsHwProviderPrivateMpio_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAllPathStatusesFromHbaPort: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_HBAPORT_PROP, VDS_PATH_STATUS) -> windows_core::HRESULT,
@@ -1620,6 +1618,7 @@ impl IVdsHwProviderStoragePools {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsHwProviderStoragePools_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryStoragePools: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const VDS_POOL_ATTRIBUTES, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1692,6 +1691,7 @@ impl IVdsHwProviderType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsHwProviderType_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
@@ -1731,6 +1731,7 @@ impl IVdsHwProviderType2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsHwProviderType2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProviderType2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
@@ -1785,6 +1786,7 @@ impl IVdsIscsiInitiatorAdapter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsIscsiInitiatorAdapter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::HRESULT,
@@ -1881,6 +1883,7 @@ impl IVdsIscsiInitiatorPortal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsIscsiInitiatorPortal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::HRESULT,
@@ -1989,6 +1992,7 @@ impl IVdsIscsiPortal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsIscsiPortal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::HRESULT,
@@ -2124,6 +2128,7 @@ impl IVdsIscsiPortalGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsIscsiPortalGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::HRESULT,
@@ -2232,6 +2237,7 @@ impl IVdsIscsiPortalLocal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsIscsiPortalLocal_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIpsecSecurityLocal: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
@@ -2313,6 +2319,7 @@ impl IVdsIscsiTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsIscsiTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_ISCSI_TARGET_PROP) -> windows_core::HRESULT,
@@ -2535,6 +2542,7 @@ impl IVdsLun {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLun_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_LUN_PROP) -> windows_core::HRESULT,
@@ -2769,6 +2777,7 @@ impl IVdsLun2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLun2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryHints2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HINTS2) -> windows_core::HRESULT,
@@ -2817,6 +2826,7 @@ impl IVdsLunControllerPorts {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLunControllerPorts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssociateControllerPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, i32, *const windows_core::GUID, i32) -> windows_core::HRESULT,
@@ -2871,6 +2881,7 @@ impl IVdsLunIscsi {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLunIscsi_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AssociateTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, i32) -> windows_core::HRESULT,
@@ -2931,6 +2942,7 @@ impl IVdsLunMpio {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLunMpio_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPathInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut VDS_PATH_INFO, *mut i32) -> windows_core::HRESULT,
@@ -3000,6 +3012,7 @@ impl IVdsLunNaming {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLunNaming_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3033,6 +3046,7 @@ impl IVdsLunNumber {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLunNumber_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLunNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3084,6 +3098,7 @@ impl IVdsLunPlex {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsLunPlex_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_LUN_PLEX_PROP) -> windows_core::HRESULT,
@@ -3165,6 +3180,7 @@ impl IVdsMaintenance {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsMaintenance_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartMaintenance: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_MAINTENANCE_OPERATION) -> windows_core::HRESULT,
@@ -3252,6 +3268,7 @@ impl IVdsOpenVDisk {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsOpenVDisk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Vhd")]
@@ -3420,6 +3437,7 @@ impl IVdsPack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsPack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_PACK_PROP) -> windows_core::HRESULT,
@@ -3573,6 +3591,7 @@ impl IVdsPack2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsPack2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateVolume2: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_VOLUME_TYPE, *const VDS_INPUT_DISK, i32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3609,6 +3628,7 @@ impl IVdsProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_PROVIDER_PROP) -> windows_core::HRESULT,
@@ -3652,6 +3672,7 @@ impl IVdsProviderPrivate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsProviderPrivate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VDS_OBJECT_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3712,6 +3733,7 @@ impl IVdsProviderSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsProviderSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVersionSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3751,6 +3773,7 @@ impl IVdsRemovable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsRemovable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryMedia: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3858,6 +3881,7 @@ impl IVdsService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsServiceReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4074,6 +4098,7 @@ impl IVdsServiceHba {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsServiceHba_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryHbaPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4113,6 +4138,7 @@ impl IVdsServiceInitialization {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsServiceInitialization_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -4167,6 +4193,7 @@ impl IVdsServiceIscsi {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsServiceIscsi_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInitiatorName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4272,6 +4299,7 @@ impl IVdsServiceLoader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsServiceLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4314,6 +4342,7 @@ impl IVdsServiceSAN {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsServiceSAN_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSANPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_SAN_POLICY) -> windows_core::HRESULT,
@@ -4368,6 +4397,7 @@ impl IVdsServiceSw {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsServiceSw_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDiskObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4410,6 +4440,7 @@ impl IVdsServiceUninstallDisk {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsServiceUninstallDisk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDiskIdFromLunInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_LUN_INFORMATION, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -4482,6 +4513,7 @@ impl IVdsStoragePool {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsStoragePool_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4635,6 +4667,7 @@ impl IVdsSubSystem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsSubSystem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_SUB_SYSTEM_PROP) -> windows_core::HRESULT,
@@ -4830,6 +4863,7 @@ impl IVdsSubSystem2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsSubSystem2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_SUB_SYSTEM_PROP2) -> windows_core::HRESULT,
@@ -4917,6 +4951,7 @@ impl IVdsSubSystemImportTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsSubSystemImportTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetImportTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -4968,6 +5003,7 @@ impl IVdsSubSystemInterconnect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsSubSystemInterconnect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSupportedInterconnects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -5026,6 +5062,7 @@ impl IVdsSubSystemIscsi {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsSubSystemIscsi_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5107,6 +5144,7 @@ impl IVdsSubSystemNaming {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsSubSystemNaming_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -5146,6 +5184,7 @@ impl IVdsSwProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsSwProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryPacks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5220,6 +5259,7 @@ impl IVdsVDisk {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVDisk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Vhd")]
@@ -5343,6 +5383,7 @@ impl IVdsVdProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVdProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryVDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5490,6 +5531,7 @@ impl IVdsVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_VOLUME_PROP) -> windows_core::HRESULT,
@@ -5655,6 +5697,7 @@ impl IVdsVolume2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolume2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_VOLUME_PROP2) -> windows_core::HRESULT,
@@ -5724,6 +5767,7 @@ impl IVdsVolumeMF {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolumeMF_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFileSystemProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_FILE_SYSTEM_PROP) -> windows_core::HRESULT,
@@ -5860,6 +5904,7 @@ impl IVdsVolumeMF2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolumeMF2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFileSystemTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5936,6 +5981,7 @@ impl IVdsVolumeMF3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolumeMF3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryVolumeGuidPathnames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -5993,6 +6039,7 @@ impl IVdsVolumeOnline {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolumeOnline_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Online: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6038,6 +6085,7 @@ impl IVdsVolumePlex {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolumePlex_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_VOLUME_PLEX_PROP) -> windows_core::HRESULT,
@@ -6119,6 +6167,7 @@ impl IVdsVolumeShrink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVdsVolumeShrink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryMaxReclaimableBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -6327,103 +6376,58 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_2 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for VDS_ASYNC_OUTPUT_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
     pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for VDS_ASYNC_OUTPUT_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
     pub ullOffset: u64,
     pub volumeId: windows_core::GUID,
 }
-impl Default for VDS_ASYNC_OUTPUT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
     pub pPortalGroupUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for VDS_ASYNC_OUTPUT_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
     pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for VDS_ASYNC_OUTPUT_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for VDS_ASYNC_OUTPUT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_7 {
     pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for VDS_ASYNC_OUTPUT_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
     pub ullReclaimedBytes: u64,
-}
-impl Default for VDS_ASYNC_OUTPUT_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_TYPE(pub i32);
 pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_CONTROLLER_NOTIFICATION {
     pub ulEvent: VDS_NF_CONTROLLER,
     pub controllerId: windows_core::GUID,
 }
-impl Default for VDS_CONTROLLER_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_CONTROLLER_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -6432,16 +6436,11 @@ pub struct VDS_CONTROLLER_PROP {
     pub health: VDS_HEALTH,
     pub sNumberOfPorts: i16,
 }
-impl Default for VDS_CONTROLLER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_CONTROLLER_STATUS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -6449,11 +6448,6 @@ pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub SectorSizeInBytes: u32,
     pub pParentPath: windows_core::PWSTR,
     pub pSourcePath: windows_core::PWSTR,
-}
-impl Default for VDS_CREATE_VDISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDS_CS_FAILED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(5i32);
 pub const VDS_CS_NOT_READY: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(2i32);
@@ -6488,7 +6482,7 @@ pub const VDS_DF_RESERVE_CAPABLE: VDS_DISK_FLAG = VDS_DISK_FLAG(4i32);
 pub const VDS_DF_STYLE_CONVERTIBLE: VDS_DISK_FLAG = VDS_DISK_FLAG(16i32);
 pub const VDS_DF_SYSTEM_DISK: VDS_DISK_FLAG = VDS_DISK_FLAG(128i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DISK_EXTENT {
     pub diskId: windows_core::GUID,
     pub r#type: VDS_DISK_EXTENT_TYPE,
@@ -6498,11 +6492,6 @@ pub struct VDS_DISK_EXTENT {
     pub plexId: windows_core::GUID,
     pub memberIdx: u32,
 }
-impl Default for VDS_DISK_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_EXTENT_TYPE(pub i32);
@@ -6510,27 +6499,17 @@ pub struct VDS_DISK_EXTENT_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DISK_FREE_EXTENT {
     pub diskId: windows_core::GUID,
     pub ullOffset: u64,
     pub ullSize: u64,
 }
-impl Default for VDS_DISK_FREE_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DISK_NOTIFICATION {
     pub ulEvent: VDS_NF_DISK,
     pub diskId: windows_core::GUID,
-}
-impl Default for VDS_DISK_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6625,17 +6604,12 @@ pub const VDS_DRF_HOTSPARE_IN_USE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(8i32);
 pub const VDS_DRF_HOTSPARE_STANDBY: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(16i32);
 pub const VDS_DRF_UNASSIGNED: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub LunId: windows_core::GUID,
     pub ullSize: u64,
     pub bUsed: windows_core::BOOL,
-}
-impl Default for VDS_DRIVE_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6644,43 +6618,28 @@ pub struct VDS_DRIVE_FLAG(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_LETTER_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DRIVE_LETTER_NOTIFICATION {
     pub ulEvent: u32,
     pub wcLetter: u16,
     pub volumeId: windows_core::GUID,
 }
-impl Default for VDS_DRIVE_LETTER_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DRIVE_LETTER_PROP {
     pub wcLetter: u16,
     pub volumeId: windows_core::GUID,
     pub ulFlags: u32,
     pub bUsed: windows_core::BOOL,
 }
-impl Default for VDS_DRIVE_LETTER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DRIVE_NOTIFICATION {
     pub ulEvent: VDS_NF_DRIVE,
     pub driveId: windows_core::GUID,
 }
-impl Default for VDS_DRIVE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DRIVE_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -6692,13 +6651,8 @@ pub struct VDS_DRIVE_PROP {
     pub sInternalBusNumber: i16,
     pub sSlotNumber: i16,
 }
-impl Default for VDS_DRIVE_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_DRIVE_PROP2 {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -6712,11 +6666,6 @@ pub struct VDS_DRIVE_PROP2 {
     pub ulEnclosureNumber: u32,
     pub busType: VDS_STORAGE_BUS_TYPE,
     pub ulSpindleSpeed: u32,
-}
-impl Default for VDS_DRIVE_PROP2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7104,19 +7053,14 @@ impl Default for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_FILE_SYSTEM_NOTIFICATION {
     pub ulEvent: VDS_NF_FILE_SYSTEM,
     pub volumeId: windows_core::GUID,
     pub dwPercentCompleted: u32,
 }
-impl Default for VDS_FILE_SYSTEM_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_FILE_SYSTEM_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub volumeId: windows_core::GUID,
@@ -7125,11 +7069,6 @@ pub struct VDS_FILE_SYSTEM_PROP {
     pub ullAvailableAllocationUnits: u64,
     pub ulAllocationUnitSize: u32,
     pub pwszLabel: windows_core::PWSTR,
-}
-impl Default for VDS_FILE_SYSTEM_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7192,7 +7131,7 @@ pub const VDS_FST_REFS: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(9i32);
 pub const VDS_FST_UDF: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(6i32);
 pub const VDS_FST_UNKNOWN: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_HBAPORT_PROP {
     pub id: windows_core::GUID,
     pub wwnNode: VDS_WWN,
@@ -7201,11 +7140,6 @@ pub struct VDS_HBAPORT_PROP {
     pub status: VDS_HBAPORT_STATUS,
     pub ulPortSpeed: u32,
     pub ulSupportedPortSpeed: u32,
-}
-impl Default for VDS_HBAPORT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7220,7 +7154,7 @@ pub struct VDS_HBAPORT_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HEALTH(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_HINTS {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -7241,13 +7175,8 @@ pub struct VDS_HINTS {
     pub bIsYankable: windows_core::BOOL,
     pub sRebuildPriority: i16,
 }
-impl Default for VDS_HINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_HINTS2 {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -7280,11 +7209,6 @@ pub struct VDS_HINTS2 {
     pub bReserved2: windows_core::BOOL,
     pub bReserved3: windows_core::BOOL,
     pub sRebuildPriority: i16,
-}
-impl Default for VDS_HINTS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDS_HINT_ALLOCATEHOTSPARE: i32 = 512i32;
 pub const VDS_HINT_BUSTYPE: i32 = 1024i32;
@@ -7370,17 +7294,12 @@ pub const VDS_ILT_BOOT: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(2i32);
 pub const VDS_ILT_MANUAL: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(0i32);
 pub const VDS_ILT_PERSISTENT: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_INPUT_DISK {
     pub diskId: windows_core::GUID,
     pub ullSize: u64,
     pub plexId: windows_core::GUID,
     pub memberIdx: u32,
-}
-impl Default for VDS_INPUT_DISK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7434,27 +7353,17 @@ pub const VDS_IPT_TEXT: VDS_IPADDRESS_TYPE = VDS_IPADDRESS_TYPE(0i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_AUTH_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
 }
-impl Default for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
     pub id: windows_core::GUID,
     pub address: VDS_IPADDRESS,
     pub ulPortIndex: u32,
-}
-impl Default for VDS_ISCSI_INITIATOR_PORTAL_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7477,27 +7386,17 @@ pub struct VDS_ISCSI_LOGIN_FLAG(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_LOGIN_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ISCSI_PORTALGROUP_PROP {
     pub id: windows_core::GUID,
     pub tag: u16,
 }
-impl Default for VDS_ISCSI_PORTALGROUP_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ISCSI_PORTAL_PROP {
     pub id: windows_core::GUID,
     pub address: VDS_IPADDRESS,
     pub status: VDS_ISCSI_PORTAL_STATUS,
-}
-impl Default for VDS_ISCSI_PORTAL_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7514,17 +7413,12 @@ impl Default for VDS_ISCSI_SHARED_SECRET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ISCSI_TARGET_PROP {
     pub id: windows_core::GUID,
     pub pwszIscsiName: windows_core::PWSTR,
     pub pwszFriendlyName: windows_core::PWSTR,
     pub bChapEnabled: windows_core::BOOL,
-}
-impl Default for VDS_ISCSI_TARGET_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDS_ITF_FIBRE_CHANNEL: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(2i32);
 pub const VDS_ITF_ISCSI: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(4i32);
@@ -7642,21 +7536,16 @@ impl Default for VDS_LUN_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_LUN_NOTIFICATION {
     pub ulEvent: VDS_NF_LUN,
     pub LunId: windows_core::GUID,
-}
-impl Default for VDS_LUN_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_LUN_PLEX_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -7668,11 +7557,6 @@ pub struct VDS_LUN_PLEX_PROP {
     pub ulStripeSize: u32,
     pub sRebuildPriority: i16,
 }
-impl Default for VDS_LUN_PLEX_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_STATUS(pub i32);
@@ -7680,7 +7564,7 @@ pub struct VDS_LUN_PLEX_STATUS(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_LUN_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -7693,11 +7577,6 @@ pub struct VDS_LUN_PROP {
     pub health: VDS_HEALTH,
     pub TransitionState: VDS_TRANSITION_STATE,
     pub sRebuildPriority: i16,
-}
-impl Default for VDS_LUN_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7712,15 +7591,10 @@ pub struct VDS_LUN_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_MAINTENANCE_OPERATION(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_MOUNT_POINT_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: windows_core::GUID,
-}
-impl Default for VDS_MOUNT_POINT_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDS_MPS_FAILED: VDS_PATH_STATUS = VDS_PATH_STATUS(5i32);
 pub const VDS_MPS_ONLINE: VDS_PATH_STATUS = VDS_PATH_STATUS(1i32);
@@ -7880,28 +7754,18 @@ pub const VDS_OT_VOLUME_PLEX: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(12i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PACK_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PACK_NOTIFICATION {
     pub ulEvent: VDS_NF_PACK,
     pub packId: windows_core::GUID,
 }
-impl Default for VDS_PACK_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PACK_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
     pub status: VDS_PACK_STATUS,
     pub ulFlags: u32,
-}
-impl Default for VDS_PACK_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7949,29 +7813,19 @@ impl Default for VDS_PARTITION_INFO_GPT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PARTITION_INFO_MBR {
     pub partitionType: u8,
     pub bootIndicator: bool,
     pub recognizedPartition: bool,
     pub hiddenSectors: u32,
 }
-impl Default for VDS_PARTITION_INFO_MBR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PARTITION_NOTIFICATION {
     pub ulEvent: u32,
     pub diskId: windows_core::GUID,
     pub ullOffset: u64,
-}
-impl Default for VDS_PARTITION_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8006,15 +7860,10 @@ pub const VDS_PARTITION_STYLE_GPT: __VDS_PARTITION_STYLE = __VDS_PARTITION_STYLE
 pub const VDS_PARTITION_STYLE_MBR: __VDS_PARTITION_STYLE = __VDS_PARTITION_STYLE(0i32);
 pub const VDS_PARTITION_STYLE_RAW: __VDS_PARTITION_STYLE = __VDS_PARTITION_STYLE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PATH_ID {
     pub ullSourceId: u64,
     pub ullPathId: u64,
-}
-impl Default for VDS_PATH_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8065,16 +7914,11 @@ impl Default for VDS_PATH_INFO_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PATH_POLICY {
     pub pathId: VDS_PATH_ID,
     pub bPrimaryPath: windows_core::BOOL,
     pub ulWeight: u32,
-}
-impl Default for VDS_PATH_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8170,61 +8014,36 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MAX: i32 = 4096i32;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: i32 = 8192i32;
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: i32 = 8i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
 }
-impl Default for VDS_POOL_CUSTOM_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PORTAL_GROUP_NOTIFICATION {
     pub ulEvent: u32,
     pub portalGroupId: windows_core::GUID,
 }
-impl Default for VDS_PORTAL_GROUP_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PORTAL_NOTIFICATION {
     pub ulEvent: u32,
     pub portalId: windows_core::GUID,
 }
-impl Default for VDS_PORTAL_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PORT_NOTIFICATION {
     pub ulEvent: VDS_NF_PORT,
     pub portId: windows_core::GUID,
 }
-impl Default for VDS_PORT_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PORT_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
     pub pwszIdentification: windows_core::PWSTR,
     pub status: VDS_PORT_STATUS,
-}
-impl Default for VDS_PORT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8236,7 +8055,7 @@ pub struct VDS_PROVIDER_FLAG(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PROVIDER_LBSUPPORT_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_PROVIDER_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
@@ -8246,11 +8065,6 @@ pub struct VDS_PROVIDER_PROP {
     pub ulFlags: u32,
     pub ulStripeSizeFlags: u32,
     pub sRebuildPriority: i16,
-}
-impl Default for VDS_PROVIDER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8291,15 +8105,10 @@ pub const VDS_REBUILD_PRIORITY_MIN: u32 = 0u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_RECOVER_ACTION(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_REPARSE_POINT_PROP {
     pub SourceVolumeId: windows_core::GUID,
     pub pwszPath: windows_core::PWSTR,
-}
-impl Default for VDS_REPARSE_POINT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDS_RT_RAID0: VDS_RAID_TYPE = VDS_RAID_TYPE(10i32);
 pub const VDS_RT_RAID01: VDS_RAID_TYPE = VDS_RAID_TYPE(17i32);
@@ -8327,26 +8136,16 @@ pub struct VDS_SAN_POLICY(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SERVICE_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_SERVICE_NOTIFICATION {
     pub ulEvent: u32,
     pub action: VDS_RECOVER_ACTION,
 }
-impl Default for VDS_SERVICE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_SERVICE_PROP {
     pub pwszVersion: windows_core::PWSTR,
     pub ulFlags: u32,
-}
-impl Default for VDS_SERVICE_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VDS_SF_CONSISTENCY_CHECK_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(16777216i32);
 pub const VDS_SF_DRIVE_EXTENT_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(8i32);
@@ -8442,19 +8241,14 @@ pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub ullSize: u64,
     pub bUsed: windows_core::BOOL,
 }
-impl Default for VDS_STORAGE_POOL_DRIVE_EXTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_STORAGE_POOL_PROP {
     pub id: windows_core::GUID,
     pub status: VDS_STORAGE_POOL_STATUS,
@@ -8466,11 +8260,6 @@ pub struct VDS_STORAGE_POOL_PROP {
     pub ullTotalManagedSpace: u64,
     pub ullRemainingFreeSpace: u64,
 }
-impl Default for VDS_STORAGE_POOL_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_POOL_STATUS(pub i32);
@@ -8481,18 +8270,13 @@ pub struct VDS_STORAGE_POOL_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_SUB_SYSTEM_NOTIFICATION {
     pub ulEvent: u32,
     pub subSystemId: windows_core::GUID,
 }
-impl Default for VDS_SUB_SYSTEM_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -8506,13 +8290,8 @@ pub struct VDS_SUB_SYSTEM_PROP {
     pub sMaxNumberOfControllers: i16,
     pub sRebuildPriority: i16,
 }
-impl Default for VDS_SUB_SYSTEM_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP2 {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -8527,11 +8306,6 @@ pub struct VDS_SUB_SYSTEM_PROP2 {
     pub sMaxNumberOfControllers: i16,
     pub sRebuildPriority: i16,
     pub ulNumberOfEnclosures: u32,
-}
-impl Default for VDS_SUB_SYSTEM_PROP2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8585,15 +8359,10 @@ pub const VDS_S_VSS_FLUSH_AND_HOLD_WRITES: windows_core::HRESULT = windows_core:
 pub const VDS_S_VSS_RELEASE_WRITES: windows_core::HRESULT = windows_core::HRESULT(0x42582_u32 as _);
 pub const VDS_S_WINPE_BOOTENTRY: windows_core::HRESULT = windows_core::HRESULT(0x4258E_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_TARGET_NOTIFICATION {
     pub ulEvent: u32,
     pub targetId: windows_core::GUID,
-}
-impl Default for VDS_TARGET_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8606,7 +8375,7 @@ pub const VDS_TS_STABLE: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(1i32);
 pub const VDS_TS_UNKNOWN: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: windows_core::GUID,
     pub State: VDS_VDISK_STATE,
@@ -8618,12 +8387,6 @@ pub struct VDS_VDISK_PROPERTIES {
     pub DiskFlag: super::Vhd::DEPENDENT_DISK_FLAG,
     pub bIsChild: windows_core::BOOL,
     pub pParentPath: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Storage_Vhd")]
-impl Default for VDS_VDISK_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8661,20 +8424,15 @@ pub const VDS_VF_SYSTEM_VOLUME: VDS_VOLUME_FLAG = VDS_VOLUME_FLAG(1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_FLAG(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_VOLUME_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: windows_core::GUID,
     pub plexId: windows_core::GUID,
     pub ulPercentCompleted: u32,
 }
-impl Default for VDS_VOLUME_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_VOLUME_PLEX_PROP {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_PLEX_TYPE,
@@ -8685,11 +8443,6 @@ pub struct VDS_VOLUME_PLEX_PROP {
     pub ulStripeSize: u32,
     pub ulNumberOfMembers: u32,
 }
-impl Default for VDS_VOLUME_PLEX_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_PLEX_STATUS(pub i32);
@@ -8697,7 +8450,7 @@ pub struct VDS_VOLUME_PLEX_STATUS(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_PLEX_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_VOLUME_PROP {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -8708,11 +8461,6 @@ pub struct VDS_VOLUME_PROP {
     pub ulFlags: u32,
     pub RecommendedFileSystemType: VDS_FILE_SYSTEM_TYPE,
     pub pwszName: windows_core::PWSTR,
-}
-impl Default for VDS_VOLUME_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

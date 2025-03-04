@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IOemSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOemSupportInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SupportLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14,6 +15,7 @@ impl windows_core::RuntimeType for ISmbiosInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmbiosInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23,6 +25,7 @@ impl windows_core::RuntimeType for ISystemSupportDeviceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemSupportDeviceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OperatingSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38,6 +41,7 @@ impl windows_core::RuntimeType for ISystemSupportInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemSupportInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalSystemEdition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -48,6 +52,7 @@ impl windows_core::RuntimeType for ISystemSupportInfoStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemSupportInfoStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LocalDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

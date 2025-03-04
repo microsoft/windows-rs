@@ -156,15 +156,10 @@ pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(0i32);
 pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(5i32);
 pub const DS_REJECTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
-}
-impl Default for DiagnosticsInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -215,26 +210,16 @@ impl Default for HYPOTHESIS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HelperAttributeInfo {
     pub pwszName: windows_core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
 }
-impl Default for HelperAttributeInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
-}
-impl Default for HypothesisResult {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(INetDiagExtensibleHelper, INetDiagExtensibleHelper_Vtbl, 0xc0b35748_ebf5_11d8_bbe9_505054503030);
 windows_core::imp::interface_hierarchy!(INetDiagExtensibleHelper, windows_core::IUnknown);
@@ -244,6 +229,7 @@ impl INetDiagExtensibleHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagExtensibleHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResolveAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HELPER_ATTRIBUTE, *mut u32, *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT,
@@ -340,6 +326,7 @@ impl INetDiagHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HELPER_ATTRIBUTE) -> windows_core::HRESULT,
@@ -553,6 +540,7 @@ impl INetDiagHelperEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelperEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReconfirmLowHealth: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HypothesisResult, *mut windows_core::PWSTR, *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT,
@@ -604,6 +592,7 @@ impl INetDiagHelperInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelperInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut HelperAttributeInfo) -> windows_core::HRESULT,
@@ -638,6 +627,7 @@ impl INetDiagHelperUtilFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetDiagHelperUtilFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateUtilityInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -661,15 +651,10 @@ impl INetDiagHelperUtilFactory_Vtbl {
 }
 impl windows_core::RuntimeName for INetDiagHelperUtilFactory {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
-}
-impl Default for LIFE_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NDF_ADD_CAPTURE_TRACE: u32 = 1u32;
 pub const NDF_APPLY_INCLUSION_LIST_FILTER: u32 = 2u32;
@@ -787,18 +772,13 @@ impl Default for RootCauseInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ShellCommandInfo {
     pub pwszOperation: windows_core::PWSTR,
     pub pwszFile: windows_core::PWSTR,
     pub pwszParameters: windows_core::PWSTR,
     pub pwszDirectory: windows_core::PWSTR,
     pub nShowCmd: u32,
-}
-impl Default for ShellCommandInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UIT_DUI: UI_INFO_TYPE = UI_INFO_TYPE(4i32);
 pub const UIT_HELP_PANE: UI_INFO_TYPE = UI_INFO_TYPE(3i32);

@@ -92,6 +92,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapChangedEventArgs_Vtbl<K>
 where
     K: windows_core::RuntimeType + 'static,
@@ -259,6 +260,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObservableMap_Vtbl<K, V>
 where
     K: windows_core::RuntimeType + 'static,
@@ -444,6 +446,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObservableVector_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,
@@ -555,6 +558,7 @@ impl IPropertySet_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertySet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -623,6 +627,7 @@ impl IVectorChangedEventArgs_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVectorChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CollectionChange) -> windows_core::HRESULT,
@@ -656,6 +661,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct MapChangedEventHandler_Vtbl<K, V>
 where
     K: windows_core::RuntimeType + 'static,
@@ -1066,6 +1072,7 @@ impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct VectorChangedEventHandler_Vtbl<T>
 where
     T: windows_core::RuntimeType + 'static,

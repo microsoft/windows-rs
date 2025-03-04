@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPowerManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPowerManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PowerSavingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PowerSavingMode) -> windows_core::HRESULT,
@@ -14,6 +15,7 @@ impl windows_core::RuntimeType for IPowerManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPowerManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PowerSavingModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

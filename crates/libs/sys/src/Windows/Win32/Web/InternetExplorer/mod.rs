@@ -345,7 +345,7 @@ pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = 4i32;
 pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = 8i32;
 pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
@@ -386,7 +386,7 @@ pub const MediaCasting: MEDIA_ACTIVITY_NOTIFY_TYPE = 2i32;
 pub const MediaPlayback: MEDIA_ACTIVITY_NOTIFY_TYPE = 0i32;
 pub const MediaRecording: MEDIA_ACTIVITY_NOTIFY_TYPE = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
     pub ulURL: u32,
@@ -573,6 +573,11 @@ pub struct STATURL {
     pub ftLastUpdated: super::super::Foundation::FILETIME,
     pub ftExpires: super::super::Foundation::FILETIME,
     pub dwFlags: u32,
+}
+impl Default for STATURL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;

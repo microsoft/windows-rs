@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IVariablePhotoCapturedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -18,6 +19,7 @@ impl windows_core::RuntimeType for IVariablePhotoSequenceCapture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33,6 +35,7 @@ impl windows_core::RuntimeType for IVariablePhotoSequenceCapture2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdateSettingsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -1162,6 +1162,7 @@ impl windows_core::RuntimeType for IBackgroundDownloader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundDownloader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1182,6 +1183,7 @@ impl windows_core::RuntimeType for IBackgroundDownloader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundDownloader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1224,6 +1226,7 @@ impl windows_core::RuntimeType for IBackgroundDownloader3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundDownloader3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1233,6 +1236,7 @@ impl windows_core::RuntimeType for IBackgroundDownloaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundDownloaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithCompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1242,6 +1246,7 @@ impl windows_core::RuntimeType for IBackgroundDownloaderStaticMethods {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundDownloaderStaticMethods_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentDownloadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1255,6 +1260,7 @@ impl windows_core::RuntimeType for IBackgroundDownloaderStaticMethods2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundDownloaderStaticMethods2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentDownloadsForTransferGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1267,6 +1273,7 @@ impl windows_core::RuntimeType for IBackgroundDownloaderUserConsent {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundDownloaderUserConsent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestUnconstrainedDownloadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1490,6 +1497,7 @@ impl IBackgroundTransferBase_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1527,6 +1535,7 @@ impl windows_core::RuntimeType for IBackgroundTransferCompletionGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Background")]
@@ -1541,6 +1550,7 @@ impl windows_core::RuntimeType for IBackgroundTransferCompletionGroupTriggerDeta
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroupTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Downloads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1551,6 +1561,7 @@ impl windows_core::RuntimeType for IBackgroundTransferContentPart {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferContentPart_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1627,6 +1638,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferContentPartFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1637,6 +1649,7 @@ impl windows_core::RuntimeType for IBackgroundTransferErrorStaticMethods {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferErrorStaticMethods_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web")]
@@ -1649,6 +1662,7 @@ impl windows_core::RuntimeType for IBackgroundTransferGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1660,6 +1674,7 @@ impl windows_core::RuntimeType for IBackgroundTransferGroupStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferGroupStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1856,6 +1871,7 @@ impl IBackgroundTransferOperation_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Guid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -1929,6 +1945,7 @@ impl IBackgroundTransferOperationPriority_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferOperationPriority_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Priority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferPriority) -> windows_core::HRESULT,
@@ -1939,6 +1956,7 @@ impl windows_core::RuntimeType for IBackgroundTransferRangesDownloadedEventArgs 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundTransferRangesDownloadedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WasDownloadRestarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1950,6 +1968,7 @@ impl windows_core::RuntimeType for IBackgroundUploader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundUploader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1969,6 +1988,7 @@ impl windows_core::RuntimeType for IBackgroundUploader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundUploader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2011,6 +2031,7 @@ impl windows_core::RuntimeType for IBackgroundUploader3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundUploader3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2020,6 +2041,7 @@ impl windows_core::RuntimeType for IBackgroundUploaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundUploaderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWithCompletionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2029,6 +2051,7 @@ impl windows_core::RuntimeType for IBackgroundUploaderStaticMethods {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundUploaderStaticMethods_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentUploadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2042,6 +2065,7 @@ impl windows_core::RuntimeType for IBackgroundUploaderStaticMethods2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundUploaderStaticMethods2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrentUploadsForTransferGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2054,6 +2078,7 @@ impl windows_core::RuntimeType for IBackgroundUploaderUserConsent {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackgroundUploaderUserConsent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestUnconstrainedUploadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2063,6 +2088,7 @@ impl windows_core::RuntimeType for IContentPrefetcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentPrefetcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2074,6 +2100,7 @@ impl windows_core::RuntimeType for IContentPrefetcherTime {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IContentPrefetcherTime_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LastSuccessfulPrefetchTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2083,6 +2110,7 @@ impl windows_core::RuntimeType for IDownloadOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDownloadOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -2100,6 +2128,7 @@ impl windows_core::RuntimeType for IDownloadOperation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDownloadOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2109,6 +2138,7 @@ impl windows_core::RuntimeType for IDownloadOperation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDownloadOperation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRandomAccessRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2135,6 +2165,7 @@ impl windows_core::RuntimeType for IDownloadOperation4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDownloadOperation4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MakeCurrentInTransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2144,6 +2175,7 @@ impl windows_core::RuntimeType for IDownloadOperation5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDownloadOperation5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2154,6 +2186,7 @@ impl windows_core::RuntimeType for IResponseInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResponseInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsResumable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2169,6 +2202,7 @@ impl windows_core::RuntimeType for IUnconstrainedTransferRequestResult {
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUnconstrainedTransferRequestResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsUnconstrained: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2178,6 +2212,7 @@ impl windows_core::RuntimeType for IUploadOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUploadOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -2193,6 +2228,7 @@ impl windows_core::RuntimeType for IUploadOperation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUploadOperation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2202,6 +2238,7 @@ impl windows_core::RuntimeType for IUploadOperation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUploadOperation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MakeCurrentInTransferGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2211,6 +2248,7 @@ impl windows_core::RuntimeType for IUploadOperation4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUploadOperation4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,

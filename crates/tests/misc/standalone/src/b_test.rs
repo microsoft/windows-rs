@@ -56,6 +56,11 @@ pub struct SECURITY_ATTRIBUTES {
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
 }
+impl Default for SECURITY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const STGTY_REPEAT: i32 = 256i32;
 pub const UIAnimationManager: GUID = GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
 pub type WAIT_EVENT = u32;

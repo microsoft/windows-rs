@@ -130,6 +130,7 @@ impl IDirect3DDevice_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -180,6 +181,7 @@ impl IDirect3DSurface_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DSurface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Direct3DSurfaceDescription) -> windows_core::HRESULT,

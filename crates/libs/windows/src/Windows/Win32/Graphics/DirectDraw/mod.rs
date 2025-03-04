@@ -144,17 +144,12 @@ impl Default for DD32BITDRIVERDATA {
 pub const DDABLT_SRCOVERDEST: i32 = 1i32;
 pub const DDAL_IMPLICIT: i32 = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDARGB {
     pub blue: u8,
     pub green: u8,
     pub red: u8,
     pub alpha: u8,
-}
-impl Default for DDARGB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDBD_1: i32 = 16384i32;
 pub const DDBD_16: i32 = 1024i32;
@@ -735,7 +730,7 @@ pub const DDCKEY_DESTOVERLAY: i32 = 4i32;
 pub const DDCKEY_SRCBLT: i32 = 8i32;
 pub const DDCKEY_SRCOVERLAY: i32 = 16i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDCOLORCONTROL {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -748,21 +743,11 @@ pub struct DDCOLORCONTROL {
     pub lColorEnable: i32,
     pub dwReserved1: u32,
 }
-impl Default for DDCOLORCONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDCOLORKEY {
     pub dwColorSpaceLowValue: u32,
     pub dwColorSpaceHighValue: u32,
-}
-impl Default for DDCOLORKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDCOLOR_BRIGHTNESS: i32 = 1i32;
 pub const DDCOLOR_COLORENABLE: i32 = 64i32;
@@ -1017,25 +1002,15 @@ impl Default for DDGETCURRENTAUTOFLIPININFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDGETCURRENTAUTOFLIPOUTINFO {
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
 }
-impl Default for DDGETCURRENTAUTOFLIPOUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDGETIRQINFO {
     pub dwFlags: u32,
-}
-impl Default for DDGETIRQINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1048,14 +1023,9 @@ impl Default for DDGETPOLARITYININFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDGETPOLARITYOUTINFO {
     pub bPolarity: u32,
-}
-impl Default for DDGETPOLARITYOUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1068,42 +1038,26 @@ impl Default for DDGETPREVIOUSAUTOFLIPININFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDGETPREVIOUSAUTOFLIPOUTINFO {
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
 }
-impl Default for DDGETPREVIOUSAUTOFLIPOUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDGETTRANSFERSTATUSOUTINFO {
     pub dwTransferID: usize,
-}
-impl Default for DDGETTRANSFERSTATUSOUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDGFS_CANFLIP: i32 = 1i32;
 pub const DDGFS_ISFLIPDONE: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHALDDRAWFNS {
     pub dwSize: u32,
     pub lpSetInfo: LPDDHAL_SETINFO,
     pub lpVidMemAlloc: LPDDHAL_VIDMEMALLOC,
     pub lpVidMemFree: LPDDHAL_VIDMEMFREE,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHALDDRAWFNS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1139,7 +1093,7 @@ pub const DDHALINFO_GETDRIVERINFOSET: i32 = 4i32;
 pub const DDHALINFO_ISPRIMARYDISPLAY: i32 = 1i32;
 pub const DDHALINFO_MODEXILLEGAL: i32 = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHALMODEINFO {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -1151,11 +1105,6 @@ pub struct DDHALMODEINFO {
     pub dwGBitMask: u32,
     pub dwBBitMask: u32,
     pub dwAlphaBitMask: u32,
-}
-impl Default for DDHALMODEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1227,7 +1176,7 @@ impl Default for DDHAL_BLTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_CALLBACKS {
     pub cbDDCallbacks: DDHAL_DDCALLBACKS,
     pub cbDDSurfaceCallbacks: DDHAL_DDSURFACECALLBACKS,
@@ -1251,12 +1200,6 @@ pub struct DDHAL_CALLBACKS {
     pub HALDDKernel: DDHAL_DDKERNELCALLBACKS,
     pub cbDDMotionCompCallbacks: DDHAL_DDMOTIONCOMPCALLBACKS,
     pub HALDDMotionComp: DDHAL_DDMOTIONCOMPCALLBACKS,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1412,7 +1355,7 @@ pub const DDHAL_D3DBUFCB32_LOCKD3DBUF: i32 = 8i32;
 pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_DDCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1427,29 +1370,17 @@ pub struct DDHAL_DDCALLBACKS {
     pub SetExclusiveMode: LPDDHAL_SETEXCLUSIVEMODE,
     pub FlipToGDISurface: LPDDHAL_FLIPTOGDISURFACE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_DDCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_DDCOLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub ColorControl: LPDDHALCOLORCB_COLORCONTROL,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_DDCOLORCONTROLCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_DDEXEBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1459,26 +1390,14 @@ pub struct DDHAL_DDEXEBUFCALLBACKS {
     pub LockExecuteBuffer: LPDDHALEXEBUFCB_LOCKEXEBUF,
     pub UnlockExecuteBuffer: LPDDHALEXEBUFCB_UNLOCKEXEBUF,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_DDEXEBUFCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_DDKERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub SyncSurfaceData: LPDDHALKERNELCB_SYNCSURFACE,
     pub SyncVideoPortData: LPDDHALKERNELCB_SYNCVIDEOPORT,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_DDKERNELCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1499,7 +1418,7 @@ impl Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1508,15 +1427,9 @@ pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     pub GetHeapAlignment: LPDDHAL_GETHEAPALIGNMENT,
     pub GetSysmemBltStatus: LPDDHALSURFCB_GETBLTSTATUS,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1531,26 +1444,14 @@ pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     pub QueryMoCompStatus: LPDDHALMOCOMPCB_QUERYSTATUS,
     pub DestroyMoComp: LPDDHALMOCOMPCB_DESTROY,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_DDMOTIONCOMPCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDHAL_DDPALETTECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub DestroyPalette: LPDDHALPALCB_DESTROYPALETTE,
     pub SetEntries: LPDDHALPALCB_SETENTRIES,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DDHAL_DDPALETTECALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2558,16 +2459,11 @@ pub const DDIRQ_VPORT8_VSYNC: i32 = 262144i32;
 pub const DDIRQ_VPORT9_LINE: i32 = 131072i32;
 pub const DDIRQ_VPORT9_VSYNC: i32 = 65536i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDKERNELCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
     pub dwIRQCaps: u32,
-}
-impl Default for DDKERNELCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDKERNELCAPS_AUTOFLIP: i32 = 2i32;
 pub const DDKERNELCAPS_CAPTURE_INVERTED: i32 = 512i32;
@@ -2590,14 +2486,9 @@ impl Default for DDLOCKININFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDLOCKOUTINFO {
     pub dwSurfacePtr: usize,
-}
-impl Default for DDLOCKOUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDLOCK_DISCARDCONTENTS: i32 = 8192i32;
 pub const DDLOCK_DONOTWAIT: i32 = 16384i32;
@@ -2682,7 +2573,7 @@ pub const DDMODEINFO_STANDARDVGA: u32 = 8u32;
 pub const DDMODEINFO_STEREO: u32 = 32u32;
 pub const DDMODEINFO_UNSUPPORTED: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDMONITORINFO {
     pub Manufacturer: u16,
     pub Product: u16,
@@ -2696,11 +2587,6 @@ pub struct DDMONITORINFO {
     pub ModeReserved1: i32,
     pub ModeReserved2: i32,
     pub ModeReserved3: i32,
-}
-impl Default for DDMONITORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2817,14 +2703,9 @@ impl Default for DDOPTSURFACEDESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDOSCAPS {
     pub dwCaps: u32,
-}
-impl Default for DDOSCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDOSDCAPS_MONOLITHICMIPMAP: i32 = 4i32;
 pub const DDOSDCAPS_OPTCOMPRESSED: i32 = 1i32;
@@ -3022,15 +2903,10 @@ impl Default for DDPIXELFORMAT_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDPIXELFORMAT_2_0 {
     pub wFlipMSTypes: u16,
     pub wBltMSTypes: u16,
-}
-impl Default for DDPIXELFORMAT_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3779,27 +3655,17 @@ pub const DDRAWI_VPORTUPDATE: u32 = 3u32;
 pub const DDRAWI_xxxxxxxxx1: i32 = 1i32;
 pub const DDRAWI_xxxxxxxxx2: i32 = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDRGBA {
     pub red: u8,
     pub green: u8,
     pub blue: u8,
     pub alpha: u8,
 }
-impl Default for DDRGBA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDSCAPS {
     pub dwCaps: u32,
-}
-impl Default for DDSCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3972,16 +3838,11 @@ impl Default for DDSETSTATEININFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDSETSTATEOUTINFO {
     pub bSoftwareAutoflip: windows_core::BOOL,
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
-}
-impl Default for DDSETSTATEOUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDSETSURFACEDESC_PRESERVEDC: i32 = 1i32;
 pub const DDSETSURFACEDESC_RECREATEDC: i32 = 0i32;
@@ -4003,7 +3864,7 @@ pub const DDSMT_ISTESTREQUIRED: i32 = 1i32;
 pub const DDSPD_IUNKNOWNPOINTER: i32 = 1i32;
 pub const DDSPD_VOLATILE: i32 = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDSTEREOMODE {
     pub dwSize: u32,
     pub dwHeight: u32,
@@ -4012,13 +3873,8 @@ pub struct DDSTEREOMODE {
     pub dwRefreshRate: u32,
     pub bSupported: windows_core::BOOL,
 }
-impl Default for DDSTEREOMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDSURFACEDATA {
     pub ddsCaps: u32,
     pub dwSurfaceOffset: u32,
@@ -4043,11 +3899,6 @@ pub struct DDSURFACEDATA {
     pub dwDriverReserved2: u32,
     pub dwDriverReserved3: u32,
     pub dwDriverReserved4: u32,
-}
-impl Default for DDSURFACEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4200,14 +4051,9 @@ impl Default for DDTRANSFERININFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDTRANSFEROUTINFO {
     pub dwBufferPolarity: u32,
-}
-impl Default for DDTRANSFEROUTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDTRANSFER_CANCEL: u32 = 128u32;
 pub const DDTRANSFER_HALFLINES: u32 = 256u32;
@@ -4216,20 +4062,15 @@ pub const DDTRANSFER_NONLOCALVIDMEM: u32 = 2u32;
 pub const DDTRANSFER_SYSTEMMEMORY: u32 = 1u32;
 pub const DDUNSUPPORTEDMODE: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVERSIONDATA {
     pub dwHALVersion: u32,
     pub dwReserved1: usize,
     pub dwReserved2: usize,
 }
-impl Default for DDVERSIONDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DDVERSIONINFO: u32 = 13u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVIDEOPORTBANDWIDTH {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -4240,13 +4081,8 @@ pub struct DDVIDEOPORTBANDWIDTH {
     pub dwReserved1: usize,
     pub dwReserved2: usize,
 }
-impl Default for DDVIDEOPORTBANDWIDTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVIDEOPORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4268,13 +4104,8 @@ pub struct DDVIDEOPORTCAPS {
     pub wNumFilterTapsX: u16,
     pub wNumFilterTapsY: u16,
 }
-impl Default for DDVIDEOPORTCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVIDEOPORTCONNECT {
     pub dwSize: u32,
     pub dwPortWidth: u32,
@@ -4282,13 +4113,8 @@ pub struct DDVIDEOPORTCONNECT {
     pub dwFlags: u32,
     pub dwReserved1: usize,
 }
-impl Default for DDVIDEOPORTCONNECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVIDEOPORTDATA {
     pub dwVideoPortId: u32,
     pub dwVPFlags: u32,
@@ -4299,13 +4125,8 @@ pub struct DDVIDEOPORTDATA {
     pub dwDriverReserved2: u32,
     pub dwDriverReserved3: u32,
 }
-impl Default for DDVIDEOPORTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVIDEOPORTDESC {
     pub dwSize: u32,
     pub dwFieldWidth: u32,
@@ -4318,11 +4139,6 @@ pub struct DDVIDEOPORTDESC {
     pub VideoPortType: DDVIDEOPORTCONNECT,
     pub dwReserved2: usize,
     pub dwReserved3: usize,
-}
-impl Default for DDVIDEOPORTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4347,20 +4163,15 @@ impl Default for DDVIDEOPORTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVIDEOPORTNOTIFY {
     pub ApproximateTimeStamp: i64,
     pub lField: i32,
     pub dwSurfaceIndex: u32,
     pub lDone: i32,
 }
-impl Default for DDVIDEOPORTNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DDVIDEOPORTSTATUS {
     pub dwSize: u32,
     pub bInUse: windows_core::BOOL,
@@ -4369,11 +4180,6 @@ pub struct DDVIDEOPORTSTATUS {
     pub VideoPortType: DDVIDEOPORTCONNECT,
     pub dwReserved2: usize,
     pub dwReserved3: usize,
-}
-impl Default for DDVIDEOPORTSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DDVPBCAPS_DESTINATION: i32 = 2i32;
 pub const DDVPBCAPS_SOURCE: i32 = 1i32;
@@ -4548,7 +4354,7 @@ impl Default for DD_BLTDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4561,12 +4367,6 @@ pub struct DD_CALLBACKS {
     pub CreatePalette: PDD_CREATEPALETTE,
     pub GetScanLine: PDD_GETSCANLINE,
     pub MapMemory: PDD_MAPMEMORY,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DD_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4596,36 +4396,21 @@ impl Default for DD_CANCREATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_CLIPPER_GLOBAL {
     pub dwReserved1: usize,
 }
-impl Default for DD_CLIPPER_GLOBAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_CLIPPER_LOCAL {
     pub dwReserved1: usize,
 }
-impl Default for DD_CLIPPER_LOCAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_COLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub ColorControl: PDD_COLORCB_COLORCONTROL,
-}
-impl Default for DD_COLORCONTROLCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4720,7 +4505,7 @@ impl Default for DD_CREATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_D3DBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4729,11 +4514,6 @@ pub struct DD_D3DBUFCALLBACKS {
     pub DestroyD3DBuffer: PDD_SURFCB_DESTROYSURFACE,
     pub LockD3DBuffer: PDD_SURFCB_LOCK,
     pub UnlockD3DBuffer: PDD_SURFCB_UNLOCK,
-}
-impl Default for DD_D3DBUFCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5234,17 +5014,12 @@ impl Default for DD_HALINFO_V4 {
 }
 pub const DD_HAL_VERSION: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_KERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub SyncSurfaceData: PDD_KERNELCB_SYNCSURFACE,
     pub SyncVideoPortData: PDD_KERNELCB_SYNCVIDEOPORT,
-}
-impl Default for DD_KERNELCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5279,7 +5054,7 @@ impl Default for DD_MAPMEMORYDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5288,25 +5063,15 @@ pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub GetDriverState: PDD_GETDRIVERSTATE,
     pub DestroyDDLocal: PDD_DESTROYDDLOCAL,
 }
-impl Default for DD_MISCELLANEOUS2CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_MISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub GetAvailDriverMemory: PDD_GETAVAILDRIVERMEMORY,
 }
-impl Default for DD_MISCELLANEOUSCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_MORECAPS {
     pub dwSize: u32,
     pub dwAlphaCaps: u32,
@@ -5317,11 +5082,6 @@ pub struct DD_MORECAPS {
     pub dwSVBFilterCaps: u32,
     pub dwVSBFilterCaps: u32,
     pub dwSSBFilterCaps: u32,
-}
-impl Default for DD_MORECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5347,7 +5107,7 @@ impl Default for DD_MORESURFACECAPS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_MOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5361,11 +5121,6 @@ pub struct DD_MOTIONCOMPCALLBACKS {
     pub RenderMoComp: PDD_MOCOMPCB_RENDER,
     pub QueryMoCompStatus: PDD_MOCOMPCB_QUERYSTATUS,
     pub DestroyMoComp: PDD_MOCOMPCB_DESTROY,
-}
-impl Default for DD_MOTIONCOMPCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5403,7 +5158,7 @@ impl Default for DD_NONLOCALVIDMEMCAPS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_NTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5411,57 +5166,31 @@ pub struct DD_NTCALLBACKS {
     pub SetExclusiveMode: PDD_SETEXCLUSIVEMODE,
     pub FlipToGDISurface: PDD_FLIPTOGDISURFACE,
 }
-impl Default for DD_NTCALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_NTPRIVATEDRIVERCAPS {
     pub dwSize: u32,
     pub dwPrivateCaps: u32,
 }
-impl Default for DD_NTPRIVATEDRIVERCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_PALETTECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub DestroyPalette: PDD_PALCB_DESTROYPALETTE,
     pub SetEntries: PDD_PALCB_SETENTRIES,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DD_PALETTECALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_PALETTE_GLOBAL {
     pub dwReserved1: usize,
 }
-impl Default for DD_PALETTE_GLOBAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_PALETTE_LOCAL {
     pub dwReserved0: u32,
     pub dwReserved1: usize,
-}
-impl Default for DD_PALETTE_LOCAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5589,7 +5318,7 @@ impl Default for DD_SETPALETTEDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DD_STEREOMODE {
     pub dwSize: u32,
     pub dwHeight: u32,
@@ -5597,11 +5326,6 @@ pub struct DD_STEREOMODE {
     pub dwBpp: u32,
     pub dwRefreshRate: u32,
     pub bSupported: windows_core::BOOL,
-}
-impl Default for DD_STEREOMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5985,14 +5709,9 @@ pub const DXERR_GENERIC: u32 = 2147500037u32;
 pub const DXERR_OUTOFCAPS: u32 = 2289434984u32;
 pub const DXERR_UNSUPPORTED: u32 = 2147500033u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DX_IRQDATA {
     pub dwIrqFlags: u32,
-}
-impl Default for DX_IRQDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DX_OK: u32 = 0u32;
 pub const GUID_ColorControlCallbacks: windows_core::GUID = windows_core::GUID::from_u128(0xefd60cc2_49e7_11d0_889d_00aa00bbb76a);
@@ -6090,6 +5809,7 @@ impl IDDVideoPortContainer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDDVideoPortContainer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateVideoPort: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDVIDEOPORTDESC, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6226,6 +5946,7 @@ impl IDirectDraw {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDraw_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6527,6 +6248,7 @@ impl IDirectDraw2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDraw2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6853,6 +6575,7 @@ impl IDirectDraw4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDraw4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7230,6 +6953,7 @@ impl IDirectDraw7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDraw7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7544,6 +7268,7 @@ impl IDirectDrawClipper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawClipper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7634,6 +7359,7 @@ impl IDirectDrawColorControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawColorControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetColorControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCOLORCONTROL) -> windows_core::HRESULT,
@@ -7679,6 +7405,7 @@ impl IDirectDrawGammaControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawGammaControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDGAMMARAMP) -> windows_core::HRESULT,
@@ -7727,6 +7454,7 @@ impl IDirectDrawKernel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawKernel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDKERNELCAPS) -> windows_core::HRESULT,
@@ -7793,6 +7521,7 @@ impl IDirectDrawPalette {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawPalette_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7999,6 +7728,7 @@ impl IDirectDrawSurface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawSurface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8484,6 +8214,7 @@ impl IDirectDrawSurface2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawSurface2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8999,6 +8730,7 @@ impl IDirectDrawSurface3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawSurface3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9538,6 +9270,7 @@ impl IDirectDrawSurface4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawSurface4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10134,6 +9867,7 @@ impl IDirectDrawSurface7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawSurface7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10596,6 +10330,7 @@ impl IDirectDrawSurfaceKernel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawSurfaceKernel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKernelHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
@@ -10683,6 +10418,7 @@ impl IDirectDrawVideoPort {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawVideoPort_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Flip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -10836,6 +10572,7 @@ impl IDirectDrawVideoPortNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectDrawVideoPortNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AcquireNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE, *mut DDVIDEOPORTNOTIFY) -> windows_core::HRESULT,
@@ -11191,30 +10928,20 @@ impl Default for SURFACEALIGNMENT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SURFACEALIGNMENT_0_0 {
     pub dwStartAlignment: u32,
     pub dwPitchAlignment: u32,
     pub dwFlags: u32,
     pub dwReserved2: u32,
 }
-impl Default for SURFACEALIGNMENT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SURFACEALIGNMENT_0_1 {
     pub dwXAlignment: u32,
     pub dwYAlignment: u32,
     pub dwFlags: u32,
     pub dwReserved2: u32,
-}
-impl Default for SURFACEALIGNMENT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SURFACEALIGN_DISCARDABLE: i32 = 1i32;
 #[repr(C)]

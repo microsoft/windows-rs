@@ -726,16 +726,11 @@ pub unsafe fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, millisecon
     unsafe { WindowPattern_WaitForInputIdle(hobj, milliseconds, presult as _).ok() }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACCESSTIMEOUT {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub iTimeOutMSec: u32,
-}
-impl Default for ACCESSTIMEOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1035,18 +1030,13 @@ pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = ExpandCol
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x275a4c48_85a7_4f69_aba0_af157610002b);
 pub const ExpandCollapse_Pattern_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xae05efa2_f9d1_428a_834c_53a5c52f9b8b);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ExtendedProperty {
     pub PropertyName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub PropertyValue: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
-impl Default for ExtendedProperty {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILTERKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1054,11 +1044,6 @@ pub struct FILTERKEYS {
     pub iDelayMSec: u32,
     pub iRepeatMSec: u32,
     pub iBounceMSec: u32,
-}
-impl Default for FILTERKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FillColor_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
 #[repr(transparent)]
@@ -1100,28 +1085,18 @@ pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(16u32);
 pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(32u32);
 pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4096u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HIGHCONTRASTA {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_core::PSTR,
 }
-impl Default for HIGHCONTRASTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HIGHCONTRASTW {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_core::PWSTR,
-}
-impl Default for HIGHCONTRASTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1311,6 +1286,7 @@ impl IAccIdentity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccIdentity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIdentityString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -1342,6 +1318,7 @@ impl IAccPropServer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccPropServer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1443,6 +1420,7 @@ impl IAccPropServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccPropServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1767,6 +1745,7 @@ impl IAccessible {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccessible_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub accParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2159,6 +2138,7 @@ impl IAccessibleEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccessibleEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObjectForChild: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2250,6 +2230,7 @@ impl IAccessibleHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccessibleHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2305,6 +2286,7 @@ impl IAccessibleHostingElementProviders {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccessibleHostingElementProviders_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2394,6 +2376,7 @@ impl IAccessibleWindowlessSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccessibleWindowlessSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AcquireObjectIdRange: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2508,6 +2491,7 @@ impl IAnnotationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnnotationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AnnotationTypeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_ANNOTATIONTYPE) -> windows_core::HRESULT,
@@ -2610,6 +2594,7 @@ impl ICustomNavigationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICustomNavigationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, NavigateDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2652,6 +2637,7 @@ impl IDockProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDockProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDockPosition: unsafe extern "system" fn(*mut core::ffi::c_void, DockPosition) -> windows_core::HRESULT,
@@ -2723,6 +2709,7 @@ impl IDragProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDragProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2826,6 +2813,7 @@ impl IDropTargetProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDropTargetProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DropTargetEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2895,6 +2883,7 @@ impl IExpandCollapseProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExpandCollapseProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2979,6 +2968,7 @@ impl IGridItemProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGridItemProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Row: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3093,6 +3083,7 @@ impl IGridProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGridProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3164,6 +3155,7 @@ impl IInvokeProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInvokeProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3201,6 +3193,7 @@ impl IItemContainerProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IItemContainerProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3320,6 +3313,7 @@ impl ILegacyIAccessibleProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILegacyIAccessibleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -3564,6 +3558,7 @@ impl IMultipleViewProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMultipleViewProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetViewName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3651,6 +3646,7 @@ impl IObjectModelProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectModelProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3690,6 +3686,7 @@ impl IProxyProviderWinEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProxyProviderWinEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RespondToWinEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3737,6 +3734,7 @@ impl IProxyProviderWinEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProxyProviderWinEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3833,6 +3831,7 @@ impl IRangeValueProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRangeValueProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -3961,6 +3960,7 @@ impl IRawElementProviderAdviseEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderAdviseEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4044,6 +4044,7 @@ impl IRawElementProviderFragment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderFragment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, NavigateDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4170,6 +4171,7 @@ impl IRawElementProviderFragmentRoot {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderFragmentRoot_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ElementProviderFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4228,6 +4230,7 @@ impl IRawElementProviderHostingAccessibles {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderHostingAccessibles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4273,6 +4276,7 @@ impl IRawElementProviderHwndOverride {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderHwndOverride_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOverrideProviderForHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4331,6 +4335,7 @@ impl IRawElementProviderSimple {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderSimple_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProviderOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderOptions) -> windows_core::HRESULT,
@@ -4427,6 +4432,7 @@ impl IRawElementProviderSimple2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderSimple2_Vtbl {
     pub base__: IRawElementProviderSimple_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4470,6 +4476,7 @@ impl IRawElementProviderSimple3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderSimple3_Vtbl {
     pub base__: IRawElementProviderSimple2_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4522,6 +4529,7 @@ impl IRawElementProviderWindowlessSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawElementProviderWindowlessSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAdjacentFragment: unsafe extern "system" fn(*mut core::ffi::c_void, NavigateDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4585,6 +4593,7 @@ impl IRichEditUiaInformation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRichEditUiaInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBoundaryRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UiaRect) -> windows_core::HRESULT,
@@ -4633,6 +4642,7 @@ impl IRicheditWindowlessAccessibility {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRicheditWindowlessAccessibility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4669,6 +4679,7 @@ impl IScrollItemProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScrollItemProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4738,6 +4749,7 @@ impl IScrollProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScrollProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Scroll: unsafe extern "system" fn(*mut core::ffi::c_void, ScrollAmount, ScrollAmount) -> windows_core::HRESULT,
@@ -4888,6 +4900,7 @@ impl ISelectionItemProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISelectionItemProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4985,6 +4998,7 @@ impl ISelectionProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISelectionProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5087,6 +5101,7 @@ impl ISelectionProvider2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISelectionProvider2_Vtbl {
     pub base__: ISelectionProvider_Vtbl,
     pub FirstSelectedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5191,6 +5206,7 @@ impl ISpreadsheetItemProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpreadsheetItemProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Formula: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5275,6 +5291,7 @@ impl ISpreadsheetProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpreadsheetProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5350,6 +5367,7 @@ impl IStylesProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStylesProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StyleId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_STYLE_ID) -> windows_core::HRESULT,
@@ -5482,6 +5500,7 @@ impl ISynchronizedInputProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISynchronizedInputProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartListening: unsafe extern "system" fn(*mut core::ffi::c_void, SynchronizedInputType) -> windows_core::HRESULT,
@@ -5535,6 +5554,7 @@ impl ITableItemProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITableItemProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5615,6 +5635,7 @@ impl ITableProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITableProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5702,6 +5723,7 @@ impl ITextChildProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextChildProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TextContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5771,6 +5793,7 @@ impl ITextEditProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextEditProvider_Vtbl {
     pub base__: ITextProvider_Vtbl,
     pub GetActiveComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5866,6 +5889,7 @@ impl ITextProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -6007,6 +6031,7 @@ impl ITextProvider2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextProvider2_Vtbl {
     pub base__: ITextProvider_Vtbl,
     pub RangeFromAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6164,6 +6189,7 @@ impl ITextRangeProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextRangeProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6443,6 +6469,7 @@ impl ITextRangeProvider2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextRangeProvider2_Vtbl {
     pub base__: ITextRangeProvider_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6482,6 +6509,7 @@ impl IToggleProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToggleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Toggle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6550,6 +6578,7 @@ impl ITransformProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransformProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -6679,6 +6708,7 @@ impl ITransformProvider2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransformProvider2_Vtbl {
     pub base__: ITransformProvider_Vtbl,
     pub Zoom: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -7173,6 +7203,7 @@ impl IUIAutomation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CompareElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -8031,6 +8062,7 @@ impl IUIAutomation2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomation2_Vtbl {
     pub base__: IUIAutomation_Vtbl,
     pub AutoSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -8148,6 +8180,7 @@ impl IUIAutomation3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomation3_Vtbl {
     pub base__: IUIAutomation2_Vtbl,
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, TextEditChangeType, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8211,6 +8244,7 @@ impl IUIAutomation4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomation4_Vtbl {
     pub base__: IUIAutomation3_Vtbl,
     pub AddChangesEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *const i32, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8274,6 +8308,7 @@ impl IUIAutomation5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomation5_Vtbl {
     pub base__: IUIAutomation4_Vtbl,
     pub AddNotificationEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8375,6 +8410,7 @@ impl IUIAutomation6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomation6_Vtbl {
     pub base__: IUIAutomation5_Vtbl,
     pub CreateEventHandlerGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8505,6 +8541,7 @@ impl IUIAutomationActiveTextPositionChangedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandleActiveTextPositionChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8557,6 +8594,7 @@ impl IUIAutomationAndCondition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationAndCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub ChildCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -8683,6 +8721,7 @@ impl IUIAutomationAnnotationPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationAnnotationPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentAnnotationTypeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_ANNOTATIONTYPE) -> windows_core::HRESULT,
@@ -8866,6 +8905,7 @@ impl IUIAutomationBoolCondition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationBoolCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub BooleanValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -8941,6 +8981,7 @@ impl IUIAutomationCacheRequest {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationCacheRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddProperty: unsafe extern "system" fn(*mut core::ffi::c_void, UIA_PROPERTY_ID) -> windows_core::HRESULT,
@@ -9074,6 +9115,7 @@ impl IUIAutomationChangesEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationChangesEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9105,6 +9147,7 @@ impl windows_core::RuntimeName for IUIAutomationChangesEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationCondition, IUIAutomationCondition_Vtbl, 0x352ffba8_0973_437c_a61f_f64cafd81df9);
 windows_core::imp::interface_hierarchy!(IUIAutomationCondition, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationCondition_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -9129,6 +9172,7 @@ impl IUIAutomationCustomNavigationPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationCustomNavigationPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, NavigateDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9177,6 +9221,7 @@ impl IUIAutomationDockPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationDockPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDockPosition: unsafe extern "system" fn(*mut core::ffi::c_void, DockPosition) -> windows_core::HRESULT,
@@ -9287,6 +9332,7 @@ impl IUIAutomationDragPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationDragPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentIsGrabbed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -9463,6 +9509,7 @@ impl IUIAutomationDropTargetPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationDropTargetPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentDropTargetEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10066,6 +10113,7 @@ impl IUIAutomationElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFocus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11359,6 +11407,7 @@ impl IUIAutomationElement2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement2_Vtbl {
     pub base__: IUIAutomationElement_Vtbl,
     pub CurrentOptimizeForVisualContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -11494,6 +11543,7 @@ impl IUIAutomationElement3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement3_Vtbl {
     pub base__: IUIAutomationElement2_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11625,6 +11675,7 @@ impl IUIAutomationElement4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement4_Vtbl {
     pub base__: IUIAutomationElement3_Vtbl,
     pub CurrentPositionInSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11835,6 +11886,7 @@ impl IUIAutomationElement5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement5_Vtbl {
     pub base__: IUIAutomationElement4_Vtbl,
     pub CurrentLandmarkType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_LANDMARKTYPE_ID) -> windows_core::HRESULT,
@@ -11937,6 +11989,7 @@ impl IUIAutomationElement6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement6_Vtbl {
     pub base__: IUIAutomationElement5_Vtbl,
     pub CurrentFullDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12046,6 +12099,7 @@ impl IUIAutomationElement7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement7_Vtbl {
     pub base__: IUIAutomationElement6_Vtbl,
     pub FindFirstWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, TreeTraversalOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12166,6 +12220,7 @@ impl IUIAutomationElement8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement8_Vtbl {
     pub base__: IUIAutomationElement7_Vtbl,
     pub CurrentHeadingLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_HEADINGLEVEL_ID) -> windows_core::HRESULT,
@@ -12238,6 +12293,7 @@ impl IUIAutomationElement9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElement9_Vtbl {
     pub base__: IUIAutomationElement8_Vtbl,
     pub CurrentIsDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -12304,6 +12360,7 @@ impl IUIAutomationElementArray {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationElementArray_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12357,6 +12414,7 @@ impl IUIAutomationEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandleAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UIA_EVENT_ID) -> windows_core::HRESULT,
@@ -12433,6 +12491,7 @@ impl IUIAutomationEventHandlerGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationEventHandlerGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddActiveTextPositionChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12535,6 +12594,7 @@ impl IUIAutomationExpandCollapsePattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationExpandCollapsePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12610,6 +12670,7 @@ impl IUIAutomationFocusChangedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationFocusChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandleFocusChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12697,6 +12758,7 @@ impl IUIAutomationGridItemPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationGridItemPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentContainingGrid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12898,6 +12960,7 @@ impl IUIAutomationGridPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationGridPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12997,6 +13060,7 @@ impl IUIAutomationInvokePattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationInvokePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13034,6 +13098,7 @@ impl IUIAutomationItemContainerPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationItemContainerPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13212,6 +13277,7 @@ impl IUIAutomationLegacyIAccessiblePattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationLegacyIAccessiblePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -13616,6 +13682,7 @@ impl IUIAutomationMultipleViewPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationMultipleViewPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetViewName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13742,6 +13809,7 @@ impl IUIAutomationNotCondition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationNotCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub GetChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13781,6 +13849,7 @@ impl IUIAutomationNotificationEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationNotificationEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandleNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, NotificationKind, NotificationProcessing, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13814,6 +13883,7 @@ impl IUIAutomationObjectModelPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationObjectModelPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13869,6 +13939,7 @@ impl IUIAutomationOrCondition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationOrCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub ChildCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -13950,6 +14021,7 @@ impl IUIAutomationPatternHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationPatternHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateClientWrapper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14001,6 +14073,7 @@ impl IUIAutomationPatternInstance {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationPatternInstance_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL, UIAutomationType, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14047,6 +14120,7 @@ impl IUIAutomationPropertyChangedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -14105,6 +14179,7 @@ impl IUIAutomationPropertyCondition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationPropertyCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub PropertyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_PROPERTY_ID) -> windows_core::HRESULT,
@@ -14189,6 +14264,7 @@ impl IUIAutomationProxyFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationProxyFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14308,6 +14384,7 @@ impl IUIAutomationProxyFactoryEntry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationProxyFactoryEntry_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProxyFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -14539,6 +14616,7 @@ impl IUIAutomationProxyFactoryMapping {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationProxyFactoryMapping_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -14746,6 +14824,7 @@ impl IUIAutomationRangeValuePattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationRangeValuePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -14971,6 +15050,7 @@ impl IUIAutomationRegistrar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationRegistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const UIAutomationPropertyInfo, *mut i32) -> windows_core::HRESULT,
@@ -15034,6 +15114,7 @@ impl IUIAutomationScrollItemPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationScrollItemPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15139,6 +15220,7 @@ impl IUIAutomationScrollPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationScrollPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Scroll: unsafe extern "system" fn(*mut core::ffi::c_void, ScrollAmount, ScrollAmount) -> windows_core::HRESULT,
@@ -15391,6 +15473,7 @@ impl IUIAutomationSelectionItemPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationSelectionItemPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15535,6 +15618,7 @@ impl IUIAutomationSelectionPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationSelectionPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15700,6 +15784,7 @@ impl IUIAutomationSelectionPattern2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationSelectionPattern2_Vtbl {
     pub base__: IUIAutomationSelectionPattern_Vtbl,
     pub CurrentFirstSelectedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15879,6 +15964,7 @@ impl IUIAutomationSpreadsheetItemPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationSpreadsheetItemPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentFormula: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16005,6 +16091,7 @@ impl IUIAutomationSpreadsheetPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationSpreadsheetPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16045,6 +16132,7 @@ impl IUIAutomationStructureChangedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -16168,6 +16256,7 @@ impl IUIAutomationStylesPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationStylesPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CurrentStyleId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIA_STYLE_ID) -> windows_core::HRESULT,
@@ -16423,6 +16512,7 @@ impl IUIAutomationSynchronizedInputPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationSynchronizedInputPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartListening: unsafe extern "system" fn(*mut core::ffi::c_void, SynchronizedInputType) -> windows_core::HRESULT,
@@ -16486,6 +16576,7 @@ impl IUIAutomationTableItemPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTableItemPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentRowHeaderItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16603,6 +16694,7 @@ impl IUIAutomationTablePattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTablePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentRowHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16726,6 +16818,7 @@ impl IUIAutomationTextChildPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextChildPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TextContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16795,6 +16888,7 @@ impl IUIAutomationTextEditPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextEditPattern_Vtbl {
     pub base__: IUIAutomationTextPattern_Vtbl,
     pub GetActiveComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16853,6 +16947,7 @@ impl IUIAutomationTextEditTextChangedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -16928,6 +17023,7 @@ impl IUIAutomationTextPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RangeFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::POINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17060,6 +17156,7 @@ impl IUIAutomationTextPattern2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextPattern2_Vtbl {
     pub base__: IUIAutomationTextPattern_Vtbl,
     pub RangeFromAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17213,6 +17310,7 @@ impl IUIAutomationTextRange {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17489,6 +17587,7 @@ impl IUIAutomationTextRange2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextRange2_Vtbl {
     pub base__: IUIAutomationTextRange_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17550,6 +17649,7 @@ impl IUIAutomationTextRange3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextRange3_Vtbl {
     pub base__: IUIAutomationTextRange2_Vtbl,
     pub GetEnclosingElementBuildCache: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17634,6 +17734,7 @@ impl IUIAutomationTextRangeArray {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTextRangeArray_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -17696,6 +17797,7 @@ impl IUIAutomationTogglePattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTogglePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Toggle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17801,6 +17903,7 @@ impl IUIAutomationTransformPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTransformPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -17999,6 +18102,7 @@ impl IUIAutomationTransformPattern2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTransformPattern2_Vtbl {
     pub base__: IUIAutomationTransformPattern_Vtbl,
     pub Zoom: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -18278,6 +18382,7 @@ impl IUIAutomationTreeWalker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationTreeWalker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetParentElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18521,6 +18626,7 @@ impl IUIAutomationValuePattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationValuePattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18614,6 +18720,7 @@ impl IUIAutomationVirtualizedItemPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationVirtualizedItemPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Realize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18725,6 +18832,7 @@ impl IUIAutomationWindowPattern {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIAutomationWindowPattern_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18977,6 +19085,7 @@ impl IValueProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IValueProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -19040,6 +19149,7 @@ impl IVirtualizedItemProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVirtualizedItemProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Realize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19115,6 +19225,7 @@ impl IWindowProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetVisualState: unsafe extern "system" fn(*mut core::ffi::c_void, WindowVisualState) -> windows_core::HRESULT,
@@ -19343,7 +19454,7 @@ pub const LiveSetting_Property_GUID: windows_core::GUID = windows_core::GUID::fr
 pub const LocalizedControlType_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x8763404f_a1bd_452a_89c4_3f01d3833806);
 pub const LocalizedLandmarkType_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x7ac81980_eafb_4fb2_bf91_f485bef5e8e1);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOUSEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -19353,22 +19464,12 @@ pub struct MOUSEKEYS {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-impl Default for MOUSEKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
     pub pszWText: windows_core::PWSTR,
-}
-impl Default for MSAAMENUINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
@@ -19620,7 +19721,7 @@ pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 pub const SELFLAG_VALID: u32 = 31u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIALKEYSA {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -19630,13 +19731,8 @@ pub struct SERIALKEYSA {
     pub iPortState: u32,
     pub iActive: u32,
 }
-impl Default for SERIALKEYSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIALKEYSW {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -19645,11 +19741,6 @@ pub struct SERIALKEYSW {
     pub iBaudRate: u32,
     pub iPortState: u32,
     pub iActive: u32,
-}
-impl Default for SERIALKEYSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19718,7 +19809,7 @@ pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1u32);
 pub const SKF_TRISTATE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(128u32);
 pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(256u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOUNDSENTRYA {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -19733,13 +19824,8 @@ pub struct SOUNDSENTRYA {
     pub lpszWindowsEffectDLL: windows_core::PSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-impl Default for SOUNDSENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOUNDSENTRYW {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -19753,11 +19839,6 @@ pub struct SOUNDSENTRYW {
     pub iWindowsEffectMSec: u32,
     pub lpszWindowsEffectDLL: windows_core::PWSTR,
     pub iWindowsEffectOrdinal: u32,
-}
-impl Default for SOUNDSENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -19821,15 +19902,10 @@ pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(2
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STICKYKEYS {
     pub cbSize: u32,
     pub dwFlags: STICKYKEYS_FLAGS,
-}
-impl Default for STICKYKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -20050,15 +20126,10 @@ pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = Synchroniz
 pub const SynchronizedInput_Pattern_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x05c288a6_c47b_488b_b653_33977a551b8b);
 pub const SystemAlert_Event_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xd271545d_7a3a_47a7_8474_81d29a2451c9);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TOGGLEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
-}
-impl Default for TOGGLEKEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TabItem_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x2c6a634f_921b_4e6e_b26e_08fcb0798f4c);
 pub const Tab_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x38cd1f2d_337a_4bd2_a5e3_adb469e30bd3);
@@ -20596,15 +20667,10 @@ pub const UIA_WindowWindowVisualStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_
 pub const UIA_Window_WindowClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20017i32);
 pub const UIA_Window_WindowOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20016i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UIAutomationEventInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
-}
-impl Default for UIAutomationEventInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -20653,16 +20719,11 @@ impl Default for UIAutomationPatternInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UIAutomationPropertyInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
     pub r#type: UIAutomationType,
-}
-impl Default for UIAutomationPropertyInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -20744,17 +20805,12 @@ impl Default for UiaAndOrCondition {
 }
 pub const UiaAppendRuntimeId: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaAsyncContentLoadedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub AsyncContentLoadedState: AsyncContentLoadedState,
     pub PercentComplete: f64,
-}
-impl Default for UiaAsyncContentLoadedEventArgs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -20807,25 +20863,15 @@ impl Default for UiaChangesEventArgs {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaCondition {
     pub ConditionType: ConditionType,
 }
-impl Default for UiaCondition {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
-}
-impl Default for UiaEventArgs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_core::Ref<'_, windows_core::BSTR>)>;
@@ -20854,15 +20900,10 @@ impl Default for UiaNotCondition {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaPoint {
     pub x: f64,
     pub y: f64,
-}
-impl Default for UiaPoint {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20908,17 +20949,12 @@ impl Default for UiaPropertyCondition {
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaProviderCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UiaRect {
     pub left: f64,
     pub top: f64,
     pub width: f64,
     pub height: f64,
-}
-impl Default for UiaRect {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UiaRootObjectId: i32 = -25i32;
 #[repr(C)]

@@ -51,6 +51,7 @@ impl IEnumWbemClassObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumWbemClassObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -61,7 +62,7 @@ pub struct IEnumWbemClassObject_Vtbl {
 }
 pub trait IEnumWbemClassObject_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Next(&self, ltimeout: i32, ucount: u32, apobjects: windows_core::OutRef<'_, IWbemClassObject>, pureturned: *mut u32) -> windows_core::HRESULT;
+    fn Next(&self, ltimeout: i32, ucount: u32, apobjects: *mut Option<IWbemClassObject>, pureturned: *mut u32) -> windows_core::HRESULT;
     fn NextAsync(&self, ucount: u32, psink: windows_core::Ref<'_, IWbemObjectSink>) -> windows_core::HRESULT;
     fn Clone(&self) -> windows_core::Result<IEnumWbemClassObject>;
     fn Skip(&self, ltimeout: i32, ncount: u32) -> windows_core::HRESULT;
@@ -150,6 +151,7 @@ impl IMofCompiler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMofCompiler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CompileFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, i32, i32, i32, *mut WBEM_COMPILE_STATUS_INFO) -> windows_core::HRESULT,
@@ -389,6 +391,7 @@ impl ISWbemDateTime {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemDateTime_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -916,6 +919,7 @@ impl ISWbemEventSource {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemEventSource_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub NextEvent: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -978,6 +982,7 @@ impl core::ops::Deref for ISWbemLastError {
 windows_core::imp::interface_hierarchy!(ISWbemLastError, windows_core::IUnknown, super::Com::IDispatch, ISWbemObject);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemLastError_Vtbl {
     pub base__: ISWbemObject_Vtbl,
 }
@@ -1025,6 +1030,7 @@ impl ISWbemLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1120,6 +1126,7 @@ impl ISWbemMethod {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemMethod_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1248,6 +1255,7 @@ impl ISWbemMethodSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemMethodSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1345,6 +1353,7 @@ impl ISWbemNamedValue {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemNamedValue_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1462,6 +1471,7 @@ impl ISWbemNamedValueSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemNamedValueSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1781,6 +1791,7 @@ impl ISWbemObject {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObject_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Put_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2188,6 +2199,7 @@ impl ISWbemObjectEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObjectEx_Vtbl {
     pub base__: ISWbemObject_Vtbl,
     pub Refresh_: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2379,6 +2391,7 @@ impl ISWbemObjectPath {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObjectPath_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2729,6 +2742,7 @@ impl ISWbemObjectSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemObjectSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2866,6 +2880,7 @@ impl ISWbemPrivilege {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemPrivilege_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -3006,6 +3021,7 @@ impl ISWbemPrivilegeSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemPrivilegeSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3181,6 +3197,7 @@ impl ISWbemProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemProperty_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3363,6 +3380,7 @@ impl ISWbemPropertySet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemPropertySet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3523,6 +3541,7 @@ impl ISWbemQualifier {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemQualifier_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3733,6 +3752,7 @@ impl ISWbemQualifierSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemQualifierSet_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3873,6 +3893,7 @@ impl ISWbemRefreshableItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemRefreshableItem_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4048,6 +4069,7 @@ impl ISWbemRefresher {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemRefresher_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4233,6 +4255,7 @@ impl ISWbemSecurity {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemSecurity_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ImpersonationLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WbemImpersonationLevelEnum) -> windows_core::HRESULT,
@@ -4489,6 +4512,7 @@ impl ISWbemServices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemServices_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4784,6 +4808,7 @@ impl ISWbemServicesEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemServicesEx_Vtbl {
     pub base__: ISWbemServices_Vtbl,
     pub Put: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4842,6 +4867,7 @@ impl ISWbemSink {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemSink_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4880,6 +4906,7 @@ impl core::ops::Deref for ISWbemSinkEvents {
 windows_core::imp::interface_hierarchy!(ISWbemSinkEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISWbemSinkEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
@@ -4910,6 +4937,7 @@ impl IUnsecuredApartment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUnsecuredApartment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateObjectStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4972,6 +5000,7 @@ impl IWMIExtension {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMIExtension_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub WMIObjectPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5047,6 +5076,7 @@ impl IWbemAddressResolution {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemAddressResolution_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PWSTR, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -5086,6 +5116,7 @@ impl IWbemBackupRestore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemBackupRestore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Backup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
@@ -5133,6 +5164,7 @@ impl IWbemBackupRestoreEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemBackupRestoreEx_Vtbl {
     pub base__: IWbemBackupRestore_Vtbl,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5192,6 +5224,7 @@ impl IWbemCallResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemCallResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetResultObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5420,6 +5453,7 @@ impl IWbemClassObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemClassObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetQualifierSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5753,6 +5787,7 @@ impl IWbemClientConnectionTransport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemClientConnectionTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5810,6 +5845,7 @@ impl IWbemClientTransport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemClientTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5876,6 +5912,7 @@ impl IWbemConfigureRefresher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemConfigureRefresher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddObjectByPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5952,6 +5989,7 @@ impl IWbemConnectorLogin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemConnectorLogin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectorLogin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6001,6 +6039,7 @@ impl IWbemConstructClassObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemConstructClassObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetInheritanceChain: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -6107,6 +6146,7 @@ impl IWbemContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6266,6 +6306,7 @@ impl IWbemDecoupledBasicEventProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemDecoupledBasicEventProvider_Vtbl {
     pub base__: IWbemDecoupledRegistrar_Vtbl,
     pub GetSink: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6331,6 +6372,7 @@ impl IWbemDecoupledRegistrar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemDecoupledRegistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6379,6 +6421,7 @@ impl IWbemEventConsumerProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventConsumerProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6418,6 +6461,7 @@ impl IWbemEventProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProvideEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -6451,6 +6495,7 @@ impl IWbemEventProviderQuerySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventProviderQuerySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NewQuery: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16, *const u16) -> windows_core::HRESULT,
@@ -6493,6 +6538,7 @@ impl IWbemEventProviderSecurity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventProviderSecurity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AccessCheck: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16, i32, *const u8) -> windows_core::HRESULT,
@@ -6544,6 +6590,7 @@ impl IWbemEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemEventSink_Vtbl {
     pub base__: IWbemObjectSink_Vtbl,
     pub SetSinkSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const u8) -> windows_core::HRESULT,
@@ -6619,6 +6666,7 @@ impl IWbemHiPerfEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemHiPerfEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddObjects: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *const i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6629,7 +6677,7 @@ pub struct IWbemHiPerfEnum_Vtbl {
 pub trait IWbemHiPerfEnum_Impl: windows_core::IUnknownImpl {
     fn AddObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const Option<IWbemObjectAccess>) -> windows_core::Result<()>;
     fn RemoveObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32) -> windows_core::Result<()>;
-    fn GetObjects(&self, lflags: i32, unumobjects: u32, apobj: windows_core::OutRef<'_, IWbemObjectAccess>, pureturned: *mut u32) -> windows_core::Result<()>;
+    fn GetObjects(&self, lflags: i32, unumobjects: u32, apobj: *mut Option<IWbemObjectAccess>, pureturned: *mut u32) -> windows_core::Result<()>;
     fn RemoveAll(&self, lflags: i32) -> windows_core::Result<()>;
 }
 impl IWbemHiPerfEnum_Vtbl {
@@ -6729,6 +6777,7 @@ impl IWbemHiPerfProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemHiPerfProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6744,7 +6793,7 @@ pub trait IWbemHiPerfProvider_Impl: windows_core::IUnknownImpl {
     fn CreateRefreshableObject(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, ptemplate: windows_core::Ref<'_, IWbemObjectAccess>, prefresher: windows_core::Ref<'_, IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, pprefreshable: windows_core::OutRef<'_, IWbemObjectAccess>, plid: *mut i32) -> windows_core::Result<()>;
     fn StopRefreshing(&self, prefresher: windows_core::Ref<'_, IWbemRefresher>, lid: i32, lflags: i32) -> windows_core::Result<()>;
     fn CreateRefreshableEnum(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, wszclass: &windows_core::PCWSTR, prefresher: windows_core::Ref<'_, IWbemRefresher>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>, phiperfenum: windows_core::Ref<'_, IWbemHiPerfEnum>) -> windows_core::Result<i32>;
-    fn GetObjects(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, lnumobjects: i32, apobj: windows_core::OutRef<'_, IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<()>;
+    fn GetObjects(&self, pnamespace: windows_core::Ref<'_, IWbemServices>, lnumobjects: i32, apobj: *mut Option<IWbemObjectAccess>, lflags: i32, pcontext: windows_core::Ref<'_, IWbemContext>) -> windows_core::Result<()>;
 }
 impl IWbemHiPerfProvider_Vtbl {
     pub const fn new<Identity: IWbemHiPerfProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6856,6 +6905,7 @@ impl IWbemLevel1Login {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemLevel1Login_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EstablishPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -6946,6 +6996,7 @@ impl IWbemLocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemLocator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7024,6 +7075,7 @@ impl IWbemObjectAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectAccess_Vtbl {
     pub base__: IWbemClassObject_Vtbl,
     pub GetPropertyHandle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -7159,6 +7211,7 @@ impl IWbemObjectSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Indicate: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7225,6 +7278,7 @@ impl IWbemObjectSinkEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectSinkEx_Vtbl {
     pub base__: IWbemObjectSink_Vtbl,
     pub WriteMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7328,6 +7382,7 @@ impl IWbemObjectTextSrc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemObjectTextSrc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7504,6 +7559,7 @@ impl IWbemPath {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemPath_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -7830,6 +7886,7 @@ impl IWbemPathKeyList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemPathKeyList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7973,6 +8030,7 @@ impl IWbemPropertyProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemPropertyProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8033,6 +8091,7 @@ impl IWbemProviderIdentity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemProviderIdentity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRegistrationObject: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8071,6 +8130,7 @@ impl IWbemProviderInit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemProviderInit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8101,6 +8161,7 @@ impl IWbemProviderInitSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemProviderInitSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -8165,6 +8226,7 @@ impl IWbemQualifierSet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemQualifierSet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8295,6 +8357,7 @@ impl IWbemQuery {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemQuery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Empty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8382,6 +8445,7 @@ impl IWbemRefresher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemRefresher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -8575,6 +8639,7 @@ impl IWbemServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OpenNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WBEM_GENERIC_FLAG_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8839,6 +8904,7 @@ impl IWbemShutdown {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemShutdown_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8878,6 +8944,7 @@ impl IWbemStatusCodeText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemStatusCodeText_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetErrorCodeText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8932,6 +8999,7 @@ impl IWbemTransport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemTransport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8965,6 +9033,7 @@ impl IWbemUnboundObjectSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemUnboundObjectSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IndicateToConsumer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9008,6 +9077,7 @@ impl IWbemUnsecuredApartment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWbemUnsecuredApartment_Vtbl {
     pub base__: IUnsecuredApartment_Vtbl,
     pub CreateSinkStub: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9050,7 +9120,7 @@ impl Default for MI_Application {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ApplicationFT {
     pub Close: isize,
     pub NewSession: isize,
@@ -9064,11 +9134,6 @@ pub struct MI_ApplicationFT {
     pub NewInstanceFromClass: isize,
     pub NewClass: isize,
 }
-impl Default for MI_ApplicationFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Array {
@@ -9081,16 +9146,11 @@ impl Default for MI_Array {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ArrayField {
     pub value: MI_Array,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ArrayField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MI_BOOLEAN: MI_Type = MI_Type(0i32);
 pub const MI_BOOLEANA: MI_Type = MI_Type(16i32);
@@ -9106,28 +9166,18 @@ impl Default for MI_BooleanA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_BooleanAField {
     pub value: MI_BooleanA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_BooleanAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_BooleanField {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_BooleanField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
 pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
@@ -9155,28 +9205,18 @@ impl Default for MI_Char16A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Char16AField {
     pub value: MI_Char16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Char16AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Char16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Char16Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9217,7 +9257,7 @@ impl Default for MI_ClassDecl {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ClassFT {
     pub GetClassNameA: isize,
     pub GetNameSpace: isize,
@@ -9233,11 +9273,6 @@ pub struct MI_ClassFT {
     pub GetParentClass: isize,
     pub Delete: isize,
     pub Clone: isize,
-}
-impl Default for MI_ClassFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9270,28 +9305,18 @@ impl Default for MI_ConstBooleanA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstBooleanAField {
     pub value: MI_ConstBooleanA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstBooleanAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstBooleanField {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstBooleanField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9305,28 +9330,18 @@ impl Default for MI_ConstChar16A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstChar16AField {
     pub value: MI_ConstChar16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstChar16AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstChar16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstChar16Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9340,16 +9355,11 @@ impl Default for MI_ConstDatetimeA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstDatetimeAField {
     pub value: MI_ConstDatetimeA,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstDatetimeAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9375,16 +9385,11 @@ impl Default for MI_ConstInstanceA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstInstanceAField {
     pub value: MI_ConstInstanceA,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstInstanceAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9410,28 +9415,18 @@ impl Default for MI_ConstReal32A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstReal32AField {
     pub value: MI_ConstReal32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstReal32AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstReal32Field {
     pub value: f32,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstReal32Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9445,28 +9440,18 @@ impl Default for MI_ConstReal64A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstReal64AField {
     pub value: MI_ConstReal64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstReal64AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstReal64Field {
     pub value: f64,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstReal64Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9480,16 +9465,11 @@ impl Default for MI_ConstReferenceA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstReferenceAField {
     pub value: MI_ConstReferenceA,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstReferenceAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9515,28 +9495,18 @@ impl Default for MI_ConstSint16A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint16AField {
     pub value: MI_ConstSint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstSint16AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint16Field {
     pub value: i16,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstSint16Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9550,28 +9520,18 @@ impl Default for MI_ConstSint32A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint32AField {
     pub value: MI_ConstSint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstSint32AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint32Field {
     pub value: i32,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstSint32Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9585,28 +9545,18 @@ impl Default for MI_ConstSint64A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint64AField {
     pub value: MI_ConstSint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstSint64AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint64Field {
     pub value: i64,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstSint64Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9620,28 +9570,18 @@ impl Default for MI_ConstSint8A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint8AField {
     pub value: MI_ConstSint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstSint8AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstSint8Field {
     pub value: i8,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstSint8Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9655,16 +9595,11 @@ impl Default for MI_ConstStringA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstStringAField {
     pub value: MI_ConstStringA,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstStringAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9690,28 +9625,18 @@ impl Default for MI_ConstUint16A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint16AField {
     pub value: MI_ConstUint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstUint16AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstUint16Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9725,28 +9650,18 @@ impl Default for MI_ConstUint32A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint32AField {
     pub value: MI_ConstUint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstUint32AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint32Field {
     pub value: u32,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstUint32Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9760,28 +9675,18 @@ impl Default for MI_ConstUint64A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint64AField {
     pub value: MI_ConstUint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstUint64AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint64Field {
     pub value: u64,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstUint64Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9795,28 +9700,18 @@ impl Default for MI_ConstUint8A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint8AField {
     pub value: MI_ConstUint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_ConstUint8AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ConstUint8Field {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ConstUint8Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9830,7 +9725,7 @@ impl Default for MI_Context {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ContextFT {
     pub PostResult: isize,
     pub PostInstance: isize,
@@ -9862,11 +9757,6 @@ pub struct MI_ContextFT {
     pub PostError: isize,
     pub PostCimError: isize,
     pub WriteError: isize,
-}
-impl Default for MI_ContextFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MI_DATETIME: MI_Type = MI_Type(12i32);
 pub const MI_DATETIMEA: MI_Type = MI_Type(28i32);
@@ -9904,16 +9794,11 @@ impl Default for MI_DatetimeA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_DatetimeAField {
     pub value: MI_DatetimeA,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_DatetimeAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9928,18 +9813,13 @@ impl Default for MI_DatetimeField {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Deserializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
-impl Default for MI_Deserializer {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_DeserializerFT {
     pub Close: isize,
     pub DeserializeClass: isize,
@@ -9947,11 +9827,6 @@ pub struct MI_DeserializerFT {
     pub Class_GetParentClassName: isize,
     pub DeserializeInstance: isize,
     pub Instance_GetClassName: isize,
-}
-impl Default for MI_DeserializerFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MI_Deserializer_ClassObjectNeeded = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result>;
 #[repr(C)]
@@ -9967,7 +9842,7 @@ impl Default for MI_DestinationOptions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_DestinationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -9984,11 +9859,6 @@ pub struct MI_DestinationOptionsFT {
     pub Clone: isize,
     pub SetInterval: isize,
     pub GetInterval: isize,
-}
-impl Default for MI_DestinationOptionsFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10088,15 +9958,10 @@ impl Default for MI_Filter {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_FilterFT {
     pub Evaluate: isize,
     pub GetExpression: isize,
-}
-impl Default for MI_FilterFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10111,15 +9976,10 @@ impl Default for MI_HostedProvider {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_HostedProviderFT {
     pub Close: isize,
     pub GetApplication: isize,
-}
-impl Default for MI_HostedProviderFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MI_INSTANCE: MI_Type = MI_Type(15i32);
 pub const MI_INSTANCEA: MI_Type = MI_Type(31i32);
@@ -10149,30 +10009,20 @@ impl Default for MI_InstanceA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_InstanceAField {
     pub value: MI_InstanceA,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_InstanceAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_InstanceExFT {
     pub parent: MI_InstanceFT,
     pub Normalize: isize,
 }
-impl Default for MI_InstanceExFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_InstanceFT {
     pub Clone: isize,
     pub Destruct: isize,
@@ -10193,11 +10043,6 @@ pub struct MI_InstanceFT {
     pub SetServerName: isize,
     pub GetClass: isize,
 }
-impl Default for MI_InstanceFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceField {
@@ -10211,7 +10056,7 @@ impl Default for MI_InstanceField {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Interval {
     pub days: u32,
     pub hours: u32,
@@ -10221,11 +10066,6 @@ pub struct MI_Interval {
     pub __padding1: u32,
     pub __padding2: u32,
     pub __padding3: u32,
-}
-impl Default for MI_Interval {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = MI_LocaleType(3i32);
 pub const MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = MI_LocaleType(2i32);
@@ -10363,7 +10203,7 @@ impl Default for MI_OperationCallbacks {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_OperationFT {
     pub Close: isize,
     pub Cancel: isize,
@@ -10371,11 +10211,6 @@ pub struct MI_OperationFT {
     pub GetInstance: isize,
     pub GetIndication: isize,
     pub GetClass: isize,
-}
-impl Default for MI_OperationFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10390,7 +10225,7 @@ impl Default for MI_OperationOptions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_OperationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -10405,11 +10240,6 @@ pub struct MI_OperationOptionsFT {
     pub Clone: isize,
     pub SetInterval: isize,
     pub GetInterval: isize,
-}
-impl Default for MI_OperationOptionsFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MI_PROMPTTYPE_CRITICAL: MI_PromptType = MI_PromptType(1i32);
 pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
@@ -10446,17 +10276,12 @@ impl Default for MI_ParameterSet {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ParameterSetFT {
     pub GetMethodReturnType: isize,
     pub GetParameterCount: isize,
     pub GetParameterAt: isize,
     pub GetParameter: isize,
-}
-impl Default for MI_ParameterSetFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10494,7 +10319,7 @@ impl Default for MI_PropertySet {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_PropertySetFT {
     pub GetElementCount: isize,
     pub ContainsElement: isize,
@@ -10505,16 +10330,11 @@ pub struct MI_PropertySetFT {
     pub Delete: isize,
     pub Clone: isize,
 }
-impl Default for MI_PropertySetFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_ProviderArchitecture(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ProviderFT {
     pub Load: MI_ProviderFT_Load,
     pub Unload: MI_ProviderFT_Unload,
@@ -10530,11 +10350,6 @@ pub struct MI_ProviderFT {
     pub Subscribe: MI_ProviderFT_Subscribe,
     pub Unsubscribe: MI_ProviderFT_Unsubscribe,
     pub Invoke: MI_ProviderFT_Invoke,
-}
-impl Default for MI_ProviderFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MI_ProviderFT_AssociatorInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
 pub type MI_ProviderFT_CreateInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance)>;
@@ -10591,16 +10406,11 @@ impl Default for MI_QualifierSet {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_QualifierSetFT {
     pub GetQualifierCount: isize,
     pub GetQualifierAt: isize,
     pub GetQualifier: isize,
-}
-impl Default for MI_QualifierSetFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MI_REAL32: MI_Type = MI_Type(9i32);
 pub const MI_REAL32A: MI_Type = MI_Type(25i32);
@@ -10651,28 +10461,18 @@ impl Default for MI_Real32A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Real32AField {
     pub value: MI_Real32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Real32AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Real32Field {
     pub value: f32,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Real32Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10686,28 +10486,18 @@ impl Default for MI_Real64A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Real64AField {
     pub value: MI_Real64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Real64AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Real64Field {
     pub value: f64,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Real64Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10721,16 +10511,11 @@ impl Default for MI_ReferenceA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ReferenceAField {
     pub value: MI_ReferenceA,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_ReferenceAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10775,27 +10560,17 @@ impl Default for MI_SchemaDecl {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Serializer {
     pub reserved1: u64,
     pub reserved2: isize,
 }
-impl Default for MI_Serializer {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_SerializerFT {
     pub Close: isize,
     pub SerializeClass: isize,
     pub SerializeInstance: isize,
-}
-impl Default for MI_SerializerFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10812,15 +10587,10 @@ impl Default for MI_Server {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_ServerFT {
     pub GetVersion: isize,
     pub GetSystemName: isize,
-}
-impl Default for MI_ServerFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10847,7 +10617,7 @@ impl Default for MI_SessionCallbacks {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_SessionFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -10865,11 +10635,6 @@ pub struct MI_SessionFT {
     pub EnumerateClasses: isize,
     pub TestConnection: isize,
 }
-impl Default for MI_SessionFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint16A {
@@ -10882,28 +10647,18 @@ impl Default for MI_Sint16A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint16AField {
     pub value: MI_Sint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Sint16AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint16Field {
     pub value: i16,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Sint16Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10917,28 +10672,18 @@ impl Default for MI_Sint32A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint32AField {
     pub value: MI_Sint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Sint32AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint32Field {
     pub value: i32,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Sint32Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10952,28 +10697,18 @@ impl Default for MI_Sint64A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint64AField {
     pub value: MI_Sint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Sint64AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint64Field {
     pub value: i64,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Sint64Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10987,28 +10722,18 @@ impl Default for MI_Sint8A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint8AField {
     pub value: MI_Sint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Sint8AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Sint8Field {
     pub value: i8,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Sint8Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11022,16 +10747,11 @@ impl Default for MI_StringA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_StringAField {
     pub value: MI_StringA,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_StringAField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11058,7 +10778,7 @@ impl Default for MI_SubscriptionDeliveryOptions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_SubscriptionDeliveryOptionsFT {
     pub SetString: isize,
     pub SetNumber: isize,
@@ -11078,18 +10798,13 @@ pub struct MI_SubscriptionDeliveryOptionsFT {
     pub GetCredentialsPasswordAt: isize,
     pub Clone: isize,
 }
-impl Default for MI_SubscriptionDeliveryOptionsFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_SubscriptionDeliveryType(pub i32);
 pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(1i32);
 pub const MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Timestamp {
     pub year: u32,
     pub month: u32,
@@ -11099,11 +10814,6 @@ pub struct MI_Timestamp {
     pub second: u32,
     pub microseconds: u32,
     pub utc: i32,
-}
-impl Default for MI_Timestamp {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11128,28 +10838,18 @@ impl Default for MI_Uint16A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint16AField {
     pub value: MI_Uint16A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Uint16AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint16Field {
     pub value: u16,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Uint16Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11163,28 +10863,18 @@ impl Default for MI_Uint32A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint32AField {
     pub value: MI_Uint32A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Uint32AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint32Field {
     pub value: u32,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Uint32Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11198,28 +10888,18 @@ impl Default for MI_Uint64A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint64AField {
     pub value: MI_Uint64A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Uint64AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint64Field {
     pub value: u64,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Uint64Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11233,28 +10913,18 @@ impl Default for MI_Uint8A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint8AField {
     pub value: MI_Uint8A,
     pub exists: u8,
     pub flags: u8,
 }
-impl Default for MI_Uint8AField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_Uint8Field {
     pub value: u8,
     pub exists: u8,
     pub flags: u8,
-}
-impl Default for MI_Uint8Field {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11291,15 +10961,10 @@ impl Default for MI_UsernamePasswordCreds {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MI_UtilitiesFT {
     pub MapErrorToMiErrorCategory: isize,
     pub CimErrorFromErrorCode: isize,
-}
-impl Default for MI_UtilitiesFT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11377,7 +11042,7 @@ impl Default for SWbemAnalysisMatrixList {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
@@ -11391,11 +11056,6 @@ pub struct SWbemAssocQueryInf {
     pub m_pszResultRole: windows_core::PWSTR,
     pub m_pszRequiredQualifier: windows_core::PWSTR,
     pub m_pszRequiredAssocQualifier: windows_core::PWSTR,
-}
-impl Default for SWbemAssocQueryInf {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SWbemDateTime: windows_core::GUID = windows_core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
 pub const SWbemEventSource: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
@@ -11498,16 +11158,11 @@ impl Default for SWbemRpnQueryToken {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SWbemRpnTokenList {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
     pub m_uNumTokens: u32,
-}
-impl Default for SWbemRpnTokenList {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SWbemSecurity: windows_core::GUID = windows_core::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
 pub const SWbemServices: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
@@ -11628,7 +11283,7 @@ pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FL
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_COMPILER_OPTIONS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
     pub hRes: windows_core::HRESULT,
@@ -11636,11 +11291,6 @@ pub struct WBEM_COMPILE_STATUS_INFO {
     pub FirstLine: i32,
     pub LastLine: i32,
     pub dwOutFlags: u32,
-}
-impl Default for WBEM_COMPILE_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

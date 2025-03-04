@@ -51,6 +51,7 @@ impl AsyncIDebugApplicationNodeEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIDebugApplicationNodeEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_onAddChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -203,7 +204,7 @@ pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i
 pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
 pub const DebugHelper: windows_core::GUID = windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DebugStackFrameDescriptor {
     pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u32,
@@ -211,24 +212,14 @@ pub struct DebugStackFrameDescriptor {
     pub fFinal: windows_core::BOOL,
     pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Default for DebugStackFrameDescriptor {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DebugStackFrameDescriptor64 {
     pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u64,
     pub dwLim: u64,
     pub fFinal: windows_core::BOOL,
     pub punkFinal: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for DebugStackFrameDescriptor64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DefaultDebugSessionProvider: windows_core::GUID = windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 #[repr(transparent)]
@@ -331,6 +322,7 @@ impl IActiveScript {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScript_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetScriptSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -610,6 +602,7 @@ impl IActiveScriptAuthor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptAuthor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -808,6 +801,7 @@ impl IActiveScriptAuthorProcedure {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptAuthorProcedure_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -861,6 +855,7 @@ impl IActiveScriptDebug32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptDebug32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetScriptTextAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, *mut u16) -> windows_core::HRESULT,
@@ -935,6 +930,7 @@ impl IActiveScriptDebug64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptDebug64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetScriptTextAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, *mut u16) -> windows_core::HRESULT,
@@ -1004,6 +1000,7 @@ impl IActiveScriptEncode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptEncode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EncodeSection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -1065,6 +1062,7 @@ impl IActiveScriptError {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1134,6 +1132,7 @@ impl IActiveScriptError64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptError64_Vtbl {
     pub base__: IActiveScriptError_Vtbl,
     pub GetSourcePosition64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u32, *mut i32) -> windows_core::HRESULT,
@@ -1182,6 +1181,7 @@ impl IActiveScriptErrorDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptErrorDebug_Vtbl {
     pub base__: IActiveScriptError_Vtbl,
     pub GetDocumentContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1242,6 +1242,7 @@ impl IActiveScriptErrorDebug110 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptErrorDebug110_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetExceptionThrownKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND) -> windows_core::HRESULT,
@@ -1278,6 +1279,7 @@ impl IActiveScriptGarbageCollector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptGarbageCollector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CollectGarbage: unsafe extern "system" fn(*mut core::ffi::c_void, SCRIPTGCTYPE) -> windows_core::HRESULT,
@@ -1308,6 +1310,7 @@ impl IActiveScriptHostEncode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptHostEncode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EncodeScriptHostFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1360,6 +1363,7 @@ impl IActiveScriptParse32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParse32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1442,6 +1446,7 @@ impl IActiveScriptParse64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParse64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1503,6 +1508,7 @@ impl core::ops::Deref for IActiveScriptParseProcedure2_32 {
 }
 windows_core::imp::interface_hierarchy!(IActiveScriptParseProcedure2_32, windows_core::IUnknown, IActiveScriptParseProcedure32);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParseProcedure2_32_Vtbl {
     pub base__: IActiveScriptParseProcedure32_Vtbl,
 }
@@ -1528,6 +1534,7 @@ impl core::ops::Deref for IActiveScriptParseProcedure2_64 {
 }
 windows_core::imp::interface_hierarchy!(IActiveScriptParseProcedure2_64, windows_core::IUnknown, IActiveScriptParseProcedure64);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParseProcedure2_64_Vtbl {
     pub base__: IActiveScriptParseProcedure64_Vtbl,
 }
@@ -1564,6 +1571,7 @@ impl IActiveScriptParseProcedure32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParseProcedure32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1618,6 +1626,7 @@ impl IActiveScriptParseProcedure64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParseProcedure64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1671,6 +1680,7 @@ impl IActiveScriptParseProcedureOld32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParseProcedureOld32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1724,6 +1734,7 @@ impl IActiveScriptParseProcedureOld64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptParseProcedureOld64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1789,6 +1800,7 @@ impl IActiveScriptProfilerCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1882,6 +1894,7 @@ impl IActiveScriptProfilerCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerCallback2_Vtbl {
     pub base__: IActiveScriptProfilerCallback_Vtbl,
     pub OnFunctionEnterByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PROFILER_SCRIPT_TYPE) -> windows_core::HRESULT,
@@ -1930,6 +1943,7 @@ impl IActiveScriptProfilerCallback3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerCallback3_Vtbl {
     pub base__: IActiveScriptProfilerCallback2_Vtbl,
     pub SetWebWorkerId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1966,6 +1980,7 @@ impl IActiveScriptProfilerControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartProfiling: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32) -> windows_core::HRESULT,
@@ -2026,6 +2041,7 @@ impl IActiveScriptProfilerControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerControl2_Vtbl {
     pub base__: IActiveScriptProfilerControl_Vtbl,
     pub CompleteProfilerStart: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2077,6 +2093,7 @@ impl IActiveScriptProfilerControl3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerControl3_Vtbl {
     pub base__: IActiveScriptProfilerControl2_Vtbl,
     pub EnumHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2119,6 +2136,7 @@ impl IActiveScriptProfilerControl4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerControl4_Vtbl {
     pub base__: IActiveScriptProfilerControl3_Vtbl,
     pub SummarizeHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROFILER_HEAP_SUMMARY) -> windows_core::HRESULT,
@@ -2158,6 +2176,7 @@ impl IActiveScriptProfilerControl5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerControl5_Vtbl {
     pub base__: IActiveScriptProfilerControl4_Vtbl,
     pub EnumHeap2: unsafe extern "system" fn(*mut core::ffi::c_void, PROFILER_HEAP_ENUM_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2203,6 +2222,7 @@ impl IActiveScriptProfilerHeapEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProfilerHeapEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut PROFILER_HEAP_OBJECT, *mut u32) -> windows_core::HRESULT,
@@ -2271,6 +2291,7 @@ impl IActiveScriptProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2331,6 +2352,7 @@ impl IActiveScriptSIPInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSIPInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSIPOID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2402,6 +2424,7 @@ impl IActiveScriptSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLCID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2540,6 +2563,7 @@ impl IActiveScriptSiteDebug32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSiteDebug32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocumentContextFromPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2639,6 +2663,7 @@ impl IActiveScriptSiteDebug64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSiteDebug64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocumentContextFromPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2723,6 +2748,7 @@ impl IActiveScriptSiteDebugEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSiteDebugEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCanNotJITScriptErrorDebug: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2759,6 +2785,7 @@ impl IActiveScriptSiteInterruptPoll {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSiteInterruptPoll_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2789,6 +2816,7 @@ impl IActiveScriptSiteTraceInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSiteTraceInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SendScriptTraceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, SCRIPTTRACEINFO, windows_core::GUID, u32, i32, i32, u64) -> windows_core::HRESULT,
@@ -2822,6 +2850,7 @@ impl IActiveScriptSiteUIControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSiteUIControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUIBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, SCRIPTUICITEM, *mut SCRIPTUICHANDLING) -> windows_core::HRESULT,
@@ -2864,6 +2893,7 @@ impl IActiveScriptSiteWindow {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptSiteWindow_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -2918,6 +2948,7 @@ impl IActiveScriptStats {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptStats_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -2972,6 +3003,7 @@ impl IActiveScriptStringCompare {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptStringCompare_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StrComp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3014,6 +3046,7 @@ impl IActiveScriptTraceInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptTraceInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartScriptTracing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -3077,6 +3110,7 @@ impl IActiveScriptWinRTErrorDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveScriptWinRTErrorDebug_Vtbl {
     pub base__: IActiveScriptError_Vtbl,
     pub GetRestrictedErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3180,6 +3214,7 @@ impl IApplicationDebugger {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApplicationDebugger_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryAlive: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3273,6 +3308,7 @@ impl IApplicationDebuggerUI {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IApplicationDebuggerUI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BringDocumentToTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3320,6 +3356,7 @@ impl IBindEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBindEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3377,6 +3414,7 @@ impl IDebugApplication11032 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplication11032_Vtbl {
     pub base__: IRemoteDebugApplication110_Vtbl,
     pub SynchronousCallInMainThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
@@ -3455,6 +3493,7 @@ impl IDebugApplication11064 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplication11064_Vtbl {
     pub base__: IRemoteDebugApplication110_Vtbl,
     pub SynchronousCallInMainThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
@@ -3618,6 +3657,7 @@ impl IDebugApplication32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplication32_Vtbl {
     pub base__: IRemoteDebugApplication_Vtbl,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3964,6 +4004,7 @@ impl IDebugApplication64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplication64_Vtbl {
     pub base__: IRemoteDebugApplication_Vtbl,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -4237,6 +4278,7 @@ impl IDebugApplicationNode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationNode_Vtbl {
     pub base__: IDebugDocumentProvider_Vtbl,
     pub EnumChildren: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4339,6 +4381,7 @@ impl IDebugApplicationNode100 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationNode100_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFilterForEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, APPLICATION_NODE_EVENT_FILTER) -> windows_core::HRESULT,
@@ -4414,6 +4457,7 @@ impl IDebugApplicationNodeEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationNodeEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub onAddChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4501,6 +4545,7 @@ impl IDebugApplicationThread {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationThread_Vtbl {
     pub base__: IRemoteDebugApplicationThread_Vtbl,
     pub SynchronousCallIntoThread32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
@@ -4591,6 +4636,7 @@ impl IDebugApplicationThread11032 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationThread11032_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetActiveThreadRequestCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4690,6 +4736,7 @@ impl IDebugApplicationThread11064 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationThread11064_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetActiveThreadRequestCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4777,6 +4824,7 @@ impl IDebugApplicationThread64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationThread64_Vtbl {
     pub base__: IDebugApplicationThread_Vtbl,
     pub SynchronousCallIntoThread64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
@@ -4816,6 +4864,7 @@ impl IDebugApplicationThreadEvents110 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugApplicationThreadEvents110_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSuspendForBreakPoint: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4894,6 +4943,7 @@ impl IDebugAsyncOperation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAsyncOperation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSyncDebugOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4969,6 +5019,7 @@ impl IDebugAsyncOperationCallBack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAsyncOperationCallBack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub onComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5005,6 +5056,7 @@ impl IDebugCodeContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugCodeContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocumentContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5053,6 +5105,7 @@ impl IDebugCookie {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugCookie_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDebugCookie: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5084,6 +5137,7 @@ impl core::ops::Deref for IDebugDocument {
 }
 windows_core::imp::interface_hierarchy!(IDebugDocument, windows_core::IUnknown, IDebugDocumentInfo);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocument_Vtbl {
     pub base__: IDebugDocumentInfo_Vtbl,
 }
@@ -5114,6 +5168,7 @@ impl IDebugDocumentContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5257,6 +5312,7 @@ impl IDebugDocumentHelper32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentHelper32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -5550,6 +5606,7 @@ impl IDebugDocumentHelper64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentHelper64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -5779,6 +5836,7 @@ impl IDebugDocumentHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeferredText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u16, *mut u32, u32) -> windows_core::HRESULT,
@@ -5878,6 +5936,7 @@ impl IDebugDocumentInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, DOCUMENTNAMETYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5941,6 +6000,7 @@ impl IDebugDocumentProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentProvider_Vtbl {
     pub base__: IDebugDocumentInfo_Vtbl,
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6013,6 +6073,7 @@ impl IDebugDocumentText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentText_Vtbl {
     pub base__: IDebugDocument_Vtbl,
     pub GetDocumentAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6130,6 +6191,7 @@ impl IDebugDocumentTextAuthor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentTextAuthor_Vtbl {
     pub base__: IDebugDocumentText_Vtbl,
     pub InsertText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -6196,6 +6258,7 @@ impl IDebugDocumentTextEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentTextEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub onDestroy: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6283,6 +6346,7 @@ impl IDebugDocumentTextExternalAuthor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDocumentTextExternalAuthor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPathName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6355,6 +6419,7 @@ impl IDebugExpression {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugExpression_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6424,6 +6489,7 @@ impl IDebugExpressionCallBack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugExpressionCallBack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub onComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6464,6 +6530,7 @@ impl IDebugExpressionContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugExpressionContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ParseLanguageText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6533,6 +6600,7 @@ impl IDebugFormatter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFormatter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6644,6 +6712,7 @@ impl IDebugHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6728,6 +6797,7 @@ impl IDebugSessionProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSessionProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartDebugSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6785,6 +6855,7 @@ impl IDebugStackFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugStackFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCodeContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6899,6 +6970,7 @@ impl IDebugStackFrame110 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugStackFrame110_Vtbl {
     pub base__: IDebugStackFrame_Vtbl,
     pub GetStackFrameType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_STACKFRAME_TYPE) -> windows_core::HRESULT,
@@ -6956,6 +7028,7 @@ impl IDebugStackFrameSniffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugStackFrameSniffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumStackFrames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7001,6 +7074,7 @@ impl IDebugStackFrameSnifferEx32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugStackFrameSnifferEx32_Vtbl {
     pub base__: IDebugStackFrameSniffer_Vtbl,
     pub EnumStackFramesEx32: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7046,6 +7120,7 @@ impl IDebugStackFrameSnifferEx64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugStackFrameSnifferEx64_Vtbl {
     pub base__: IDebugStackFrameSniffer_Vtbl,
     pub EnumStackFramesEx64: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7094,6 +7169,7 @@ impl IDebugSyncOperation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSyncOperation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTargetThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7157,6 +7233,7 @@ impl IDebugThreadCall32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugThreadCall32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ThreadCallHandler: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
@@ -7187,6 +7264,7 @@ impl IDebugThreadCall64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugThreadCall64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ThreadCallHandler: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
@@ -7229,6 +7307,7 @@ impl IEnumDebugApplicationNodes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDebugApplicationNodes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7307,6 +7386,7 @@ impl IEnumDebugCodeContexts {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDebugCodeContexts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7385,6 +7465,7 @@ impl IEnumDebugExpressionContexts {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDebugExpressionContexts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7463,6 +7544,7 @@ impl IEnumDebugStackFrames {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDebugStackFrames_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DebugStackFrameDescriptor, *mut u32) -> windows_core::HRESULT,
@@ -7535,6 +7617,7 @@ impl IEnumDebugStackFrames64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDebugStackFrames64_Vtbl {
     pub base__: IEnumDebugStackFrames_Vtbl,
     pub Next64: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DebugStackFrameDescriptor64, *mut u32) -> windows_core::HRESULT,
@@ -7568,6 +7651,7 @@ impl IEnumJsStackFrames {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumJsStackFrames_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut JS_NATIVE_FRAME, *mut u32) -> windows_core::HRESULT,
@@ -7618,6 +7702,7 @@ impl IEnumRemoteDebugApplicationThreads {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumRemoteDebugApplicationThreads_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7696,6 +7781,7 @@ impl IEnumRemoteDebugApplications {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumRemoteDebugApplications_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7768,6 +7854,7 @@ impl IJsDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsDebug_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OpenVirtualProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7819,6 +7906,7 @@ impl IJsDebugBreakPoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsDebugBreakPoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -7933,6 +8021,7 @@ impl IJsDebugDataTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsDebugDataTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadMemory: unsafe extern "system" fn(*mut core::ffi::c_void, u64, JsDebugReadMemoryFlags, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
@@ -8098,6 +8187,7 @@ impl IJsDebugFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsDebugFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStackRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64) -> windows_core::HRESULT,
@@ -8221,6 +8311,7 @@ impl IJsDebugProcess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsDebugProcess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateStackWalker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8305,6 +8396,7 @@ impl IJsDebugProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsDebugProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut JsDebugPropertyInfo) -> windows_core::HRESULT,
@@ -8356,6 +8448,7 @@ impl IJsDebugStackWalker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsDebugStackWalker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8398,13 +8491,14 @@ impl IJsEnumDebugProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IJsEnumDebugProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IJsEnumDebugProperty_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, count: u32, ppdebugproperty: windows_core::OutRef<'_, IJsDebugProperty>, pactualcount: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, count: u32, ppdebugproperty: *mut Option<IJsDebugProperty>, pactualcount: *mut u32) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<u32>;
 }
 impl IJsEnumDebugProperty_Vtbl {
@@ -8457,6 +8551,7 @@ impl IMachineDebugManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMachineDebugManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -8535,6 +8630,7 @@ impl IMachineDebugManagerCookie {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMachineDebugManagerCookie_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -8607,6 +8703,7 @@ impl IMachineDebugManagerEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMachineDebugManagerEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub onAddApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -8679,6 +8776,7 @@ impl IProcessDebugManager32 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProcessDebugManager32_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8802,6 +8900,7 @@ impl IProcessDebugManager64 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProcessDebugManager64_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8898,6 +8997,7 @@ impl IProvideExpressionContexts {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProvideExpressionContexts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumExpressionContexts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8991,6 +9091,7 @@ impl IRemoteDebugApplication {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDebugApplication_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResumeFromBreakPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, BREAKRESUMEACTION, ERRORRESUMEACTION) -> windows_core::HRESULT,
@@ -9162,6 +9263,7 @@ impl IRemoteDebugApplication110 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDebugApplication110_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDebuggerOptions: unsafe extern "system" fn(*mut core::ffi::c_void, SCRIPT_DEBUGGER_OPTIONS, SCRIPT_DEBUGGER_OPTIONS) -> windows_core::HRESULT,
@@ -9276,6 +9378,7 @@ impl IRemoteDebugApplicationEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDebugApplicationEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnConnectDebugger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9439,6 +9542,7 @@ impl IRemoteDebugApplicationThread {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDebugApplicationThread_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSystemThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -9586,6 +9690,7 @@ impl IRemoteDebugCriticalErrorEvent110 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDebugCriticalErrorEvent110_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9616,6 +9721,7 @@ impl IRemoteDebugInfoEvent110 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRemoteDebugInfoEvent110_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_EVENT_INFO_TYPE, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9711,6 +9817,7 @@ impl IScriptEntry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScriptEntry_Vtbl {
     pub base__: IScriptNode_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9882,6 +9989,7 @@ impl IScriptInvocationContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScriptInvocationContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContextType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCRIPT_INVOCATION_CONTEXT_TYPE) -> windows_core::HRESULT,
@@ -10012,6 +10120,7 @@ impl IScriptNode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScriptNode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Alive: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10219,6 +10328,7 @@ impl IScriptScriptlet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScriptScriptlet_Vtbl {
     pub base__: IScriptEntry_Vtbl,
     pub GetSubItemName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10337,6 +10447,7 @@ impl ISimpleConnectionPoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISimpleConnectionPoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -10419,6 +10530,7 @@ impl ITridentEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITridentEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10458,6 +10570,7 @@ impl IWebAppDiagnosticsObjectInitialization {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAppDiagnosticsObjectInitialization_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::HANDLE_PTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10494,6 +10607,7 @@ impl IWebAppDiagnosticsSetup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebAppDiagnosticsSetup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DiagnosticsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -10535,17 +10649,12 @@ impl IWebAppDiagnosticsSetup_Vtbl {
 }
 impl windows_core::RuntimeName for IWebAppDiagnosticsSetup {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JS_NATIVE_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
     pub FrameOffset: u64,
     pub StackOffset: u64,
-}
-impl Default for JS_NATIVE_FRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10565,18 +10674,13 @@ pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(4i
 pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(16i32);
 pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(8i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct JsDebugPropertyInfo {
     pub name: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub r#type: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub value: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub fullName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub attr: JS_PROPERTY_ATTRIBUTES,
-}
-impl Default for JsDebugPropertyInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10900,15 +11004,10 @@ impl Default for PROFILER_HEAP_OBJECT_SCOPE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROFILER_HEAP_SUMMARY {
     pub version: PROFILER_HEAP_SUMMARY_VERSION,
     pub totalHeapSize: u32,
-}
-impl Default for PROFILER_HEAP_SUMMARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10921,15 +11020,10 @@ pub const PROFILER_PROPERTY_TYPE_NUMBER: PROFILER_RELATIONSHIP_INFO = PROFILER_R
 pub const PROFILER_PROPERTY_TYPE_STRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(2i32);
 pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(6i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     pub length: u32,
     pub value: windows_core::PCWSTR,
-}
-impl Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

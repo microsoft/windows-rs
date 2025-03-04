@@ -186,32 +186,21 @@ pub unsafe fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidp
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ADDRESS_LIST_DESCRIPTOR {
     pub MediaType: u32,
     pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for ADDRESS_LIST_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ADM_CTRL_FAILED: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ADSPEC {
     pub adspec_header: RsvpObjHdr,
     pub adspec_body: IS_ADSPEC_BODY,
 }
-impl Default for ADSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AD_GENERAL_PARAMS {
     pub IntServAwareHopCount: u32,
     pub PathBandwidthEstimate: u32,
@@ -219,23 +208,13 @@ pub struct AD_GENERAL_PARAMS {
     pub PathMTU: u32,
     pub Flags: u32,
 }
-impl Default for AD_GENERAL_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AD_GUARANTEED {
     pub CTotal: u32,
     pub DTotal: u32,
     pub CSum: u32,
     pub DSum: u32,
-}
-impl Default for AD_GUARANTEED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
@@ -274,16 +253,11 @@ pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CtrlLoadFlowspec {
     pub CL_spec_serv_hdr: IntServServiceHdr,
     pub CL_spec_parm_hdr: IntServParmHdr,
     pub CL_spec_parms: GenTspecParms,
-}
-impl Default for CtrlLoadFlowspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DD_TCP_DEVICE_NAME: windows_core::PCWSTR = windows_core::w!("\\Device\\Tcp");
 pub const DUP_RESULTS: u32 = 4u32;
@@ -540,7 +514,7 @@ pub const GUID_QOS_REMAINING_BANDWIDTH: windows_core::GUID = windows_core::GUID:
 pub const GUID_QOS_STATISTICS_BUFFER: windows_core::GUID = windows_core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
 pub const GUID_QOS_TIMER_RESOLUTION: windows_core::GUID = windows_core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Gads_parms_t {
     pub Gads_serv_hdr: IntServServiceHdr,
     pub Gads_Ctot_hdr: IntServParmHdr,
@@ -552,13 +526,8 @@ pub struct Gads_parms_t {
     pub Gads_Dsum_hdr: IntServParmHdr,
     pub Gads_Dsum: u32,
 }
-impl Default for Gads_parms_t {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GenAdspecParams {
     pub gen_parm_hdr: IntServServiceHdr,
     pub gen_parm_hopcnt_hdr: IntServParmHdr,
@@ -570,25 +539,15 @@ pub struct GenAdspecParams {
     pub gen_parm_compmtu_hdr: IntServParmHdr,
     pub gen_parm_composed_MTU: u32,
 }
-impl Default for GenAdspecParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GenTspec {
     pub gen_Tspec_serv_hdr: IntServServiceHdr,
     pub gen_Tspec_parm_hdr: IntServParmHdr,
     pub gen_Tspec_parms: GenTspecParms,
 }
-impl Default for GenTspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GenTspecParms {
     pub TB_Tspec_r: f32,
     pub TB_Tspec_b: f32,
@@ -596,13 +555,8 @@ pub struct GenTspecParms {
     pub TB_Tspec_m: u32,
     pub TB_Tspec_M: u32,
 }
-impl Default for GenTspecParms {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GuarFlowSpec {
     pub Guar_serv_hdr: IntServServiceHdr,
     pub Guar_Tspec_hdr: IntServParmHdr,
@@ -610,21 +564,11 @@ pub struct GuarFlowSpec {
     pub Guar_Rspec_hdr: IntServParmHdr,
     pub Guar_Rspec: GuarRspec,
 }
-impl Default for GuarFlowSpec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GuarRspec {
     pub Guar_R: f32,
     pub Guar_S: u32,
-}
-impl Default for GuarRspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
 #[repr(C, packed(1))]
@@ -699,15 +643,10 @@ impl Default for IN_ADDR_IPV6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPX_PATTERN {
     pub Src: IPX_PATTERN_0,
     pub Dest: IPX_PATTERN_0,
-}
-impl Default for IPX_PATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -753,40 +692,25 @@ impl Default for IP_PATTERN_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IP_PATTERN_0_1 {
     pub s_type: u8,
     pub s_code: u8,
     pub filler: u16,
 }
-impl Default for IP_PATTERN_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IP_PATTERN_0_0 {
     pub s_srcport: u16,
     pub s_dstport: u16,
 }
-impl Default for IP_PATTERN_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IS_ADSPEC_BODY {
     pub adspec_mh: IntServMainHdr,
     pub adspec_genparms: GenAdspecParams,
-}
-impl Default for IS_ADSPEC_BODY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -830,40 +754,25 @@ impl Default for IntServFlowSpec_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IntServMainHdr {
     pub ismh_version: u8,
     pub ismh_unused: u8,
     pub ismh_len32b: u16,
 }
-impl Default for IntServMainHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IntServParmHdr {
     pub isph_parm_num: u8,
     pub isph_flags: u8,
     pub isph_len32b: u16,
 }
-impl Default for IntServParmHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IntServServiceHdr {
     pub issh_service: u8,
     pub issh_flags: u8,
     pub issh_len32b: u16,
-}
-impl Default for IntServServiceHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -920,7 +829,7 @@ impl Default for LPM_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
@@ -929,11 +838,6 @@ pub struct LPM_INIT_INFO {
     pub FreeMemory: PFREEMEM,
     pub PcmAdmitResultCallback: CBADMITRESULT,
     pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
-}
-impl Default for LPM_INIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LPM_OK: u32 = 0u32;
 pub const LPM_PE_ALL_TYPES: u32 = 0u32;
@@ -990,28 +894,18 @@ pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
 pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DATA {
     pub PolicyObjHdr: RsvpObjHdr,
     pub usPeOffset: u16,
     pub usReserved: u16,
 }
-impl Default for POLICY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DECISION {
     pub lpvResult: u32,
     pub wPolicyErrCode: u16,
     pub wPolicyErrValue: u16,
-}
-impl Default for POLICY_DECISION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1146,7 +1040,7 @@ impl Default for QOS_DIFFSERV {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_DIFFSERV_RULE {
     pub InboundDSField: u8,
     pub ConformingOutboundDSField: u8,
@@ -1154,39 +1048,24 @@ pub struct QOS_DIFFSERV_RULE {
     pub ConformingUserPriority: u8,
     pub NonConformingUserPriority: u8,
 }
-impl Default for QOS_DIFFSERV_RULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_DS_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub DSField: u32,
 }
-impl Default for QOS_DS_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_FLOWRATE_OUTGOING {
     pub Bandwidth: u64,
     pub ShapingBehavior: QOS_SHAPING,
     pub Reason: QOS_FLOWRATE_REASON,
 }
-impl Default for QOS_FLOWRATE_OUTGOING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_FLOW_FUNDAMENTALS {
     pub BottleneckBandwidthSet: windows_core::BOOL,
     pub BottleneckBandwidth: u64,
@@ -1194,11 +1073,6 @@ pub struct QOS_FLOW_FUNDAMENTALS {
     pub AvailableBandwidth: u64,
     pub RTTSet: windows_core::BOOL,
     pub RTT: u32,
-}
-impl Default for QOS_FLOW_FUNDAMENTALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1219,44 +1093,29 @@ pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
 pub struct QOS_NOTIFY_FLOW(pub i32);
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_OBJECT_HDR {
     pub ObjectType: u32,
     pub ObjectLength: u32,
 }
-impl Default for QOS_OBJECT_HDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_PACKET_PRIORITY {
     pub ConformantDSCPValue: u32,
     pub NonConformantDSCPValue: u32,
     pub ConformantL2Value: u32,
     pub NonConformantL2Value: u32,
 }
-impl Default for QOS_PACKET_PRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_QUERY_FLOW(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapeDiscardMode: u32,
-}
-impl Default for QOS_SD_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1265,101 +1124,61 @@ pub struct QOS_SET_FLOW(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_SHAPING(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapingRate: u32,
 }
-impl Default for QOS_SHAPING_RATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_TCP_TRAFFIC {
     pub ObjectHdr: QOS_OBJECT_HDR,
 }
-impl Default for QOS_TCP_TRAFFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_TRAFFIC_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub TrafficClass: u32,
-}
-impl Default for QOS_TRAFFIC_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QOS_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl Default for QOS_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const QUALITATIVE_SERV: u32 = 6u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QualAppFlowSpec {
     pub Q_spec_serv_hdr: IntServServiceHdr,
     pub Q_spec_parm_hdr: IntServParmHdr,
     pub Q_spec_parms: QualTspecParms,
 }
-impl Default for QualAppFlowSpec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QualTspec {
     pub qual_Tspec_serv_hdr: IntServServiceHdr,
     pub qual_Tspec_parm_hdr: IntServParmHdr,
     pub qual_Tspec_parms: QualTspecParms,
 }
-impl Default for QualTspec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct QualTspecParms {
     pub TB_Tspec_M: u32,
-}
-impl Default for QualTspecParms {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RCVD_PATH_TEAR: u32 = 1u32;
 pub const RCVD_RESV_TEAR: u32 = 2u32;
 pub const RESOURCES_ALLOCATED: u32 = 1u32;
 pub const RESOURCES_MODIFIED: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESV_STYLE {
     pub style_header: RsvpObjHdr,
     pub style_word: u32,
-}
-impl Default for RESV_STYLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1469,16 +1288,11 @@ impl Default for RSVP_FILTERSPEC_V4_GPI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RSVP_FILTERSPEC_V6 {
     pub Address: IN_ADDR_IPV6,
     pub UnUsed: u16,
     pub Port: u16,
-}
-impl Default for RSVP_FILTERSPEC_V6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1493,15 +1307,10 @@ impl Default for RSVP_FILTERSPEC_V6_FLOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RSVP_FILTERSPEC_V6_GPI {
     pub Address: IN_ADDR_IPV6,
     pub GeneralPortId: u32,
-}
-impl Default for RSVP_FILTERSPEC_V6_GPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
 #[repr(C)]
@@ -1652,30 +1461,20 @@ impl Default for RSVP_SESSION_0 {
 }
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RSVP_STATUS_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub StatusCode: u32,
     pub ExtendedStatus1: u32,
     pub ExtendedStatus2: u32,
 }
-impl Default for RSVP_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RsvpObjHdr {
     pub obj_length: u16,
     pub obj_class: u8,
     pub obj_ctype: u8,
-}
-impl Default for RsvpObjHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2028,17 +1827,12 @@ impl Default for TCG_PCClientTaggedEventStruct {
 }
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCI_CLIENT_FUNC_LIST {
     pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
     pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
     pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
     pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
-}
-impl Default for TCI_CLIENT_FUNC_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
 pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
@@ -2073,18 +1867,12 @@ impl Default for TC_GEN_FLOW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TC_IFC_DESCRIPTOR {
     pub Length: u32,
     pub pInterfaceName: windows_core::PWSTR,
     pub pInterfaceID: windows_core::PWSTR,
     pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl Default for TC_IFC_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TC_NONCONF_BORROW: u32 = 0u32;
 pub const TC_NONCONF_BORROW_PLUS: u32 = 3u32;
@@ -2148,17 +1936,12 @@ impl Default for WBCL_Iterator {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WBCL_LogHdr {
     pub signature: u32,
     pub version: u32,
     pub entries: u32,
     pub length: u32,
-}
-impl Default for WBCL_LogHdr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WBCL_MAX_HSP_UPGRADE_HASH_LEN: u32 = 64u32;
 pub const class_ADSPEC: u32 = 13u32;

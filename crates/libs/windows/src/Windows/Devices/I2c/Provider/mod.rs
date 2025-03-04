@@ -46,6 +46,7 @@ impl II2cControllerProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct II2cControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -199,6 +200,7 @@ impl II2cDeviceProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct II2cDeviceProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -251,6 +253,7 @@ impl II2cProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct II2cProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetControllersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -260,6 +263,7 @@ impl windows_core::RuntimeType for IProviderI2cConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IProviderI2cConnectionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SlaveAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,

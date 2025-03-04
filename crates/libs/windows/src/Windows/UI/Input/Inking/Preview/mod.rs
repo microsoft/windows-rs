@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPalmRejectionDelayZonePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -11,6 +12,7 @@ impl windows_core::RuntimeType for IPalmRejectionDelayZonePreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Composition")]

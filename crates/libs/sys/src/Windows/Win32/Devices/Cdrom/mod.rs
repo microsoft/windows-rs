@@ -25,7 +25,7 @@ pub const CDROM_CD_TEXT_PACK_TOC_INFO2: u32 = 137u32;
 pub const CDROM_CD_TEXT_PACK_UPC_EAN: u32 = 142u32;
 pub const CDROM_DISK_AUDIO_TRACK: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_DISK_DATA {
     pub DiskData: u32,
 }
@@ -36,8 +36,13 @@ pub struct CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
     pub Lba: [u8; 4],
     pub Time: [u8; 2],
 }
+impl Default for CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_EXCLUSIVE_ACCESS {
     pub RequestType: EXCLUSIVE_ACCESS_REQUEST_TYPE,
     pub Flags: u32,
@@ -49,11 +54,21 @@ pub struct CDROM_EXCLUSIVE_LOCK {
     pub Access: CDROM_EXCLUSIVE_ACCESS,
     pub CallerName: [u8; 64],
 }
+impl Default for CDROM_EXCLUSIVE_LOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CDROM_EXCLUSIVE_LOCK_STATE {
     pub LockState: bool,
     pub CallerName: [u8; 64],
+}
+impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CDROM_IN_EXCLUSIVE_MODE: u32 = 1u32;
 pub const CDROM_LOCK_IGNORE_VOLUME: u32 = 1u32;
@@ -64,6 +79,11 @@ pub struct CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
     pub StartPerformance: [u8; 4],
     pub EndLba: [u8; 4],
     pub EndPerformance: [u8; 4],
+}
+impl Default for CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CDROM_NOT_IN_EXCLUSIVE_MODE: u32 = 0u32;
 pub const CDROM_NO_MEDIA_NOTIFICATIONS: u32 = 2u32;
@@ -77,8 +97,13 @@ pub struct CDROM_PERFORMANCE_HEADER {
     pub Reserved2: [u8; 3],
     pub Data: [u8; 1],
 }
+impl Default for CDROM_PERFORMANCE_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_PERFORMANCE_REQUEST {
     pub RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
     pub PerformanceType: CDROM_PERFORMANCE_TYPE,
@@ -90,7 +115,7 @@ pub type CDROM_PERFORMANCE_REQUEST_TYPE = i32;
 pub type CDROM_PERFORMANCE_TOLERANCE_TYPE = i32;
 pub type CDROM_PERFORMANCE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_PLAY_AUDIO_MSF {
     pub StartingM: u8,
     pub StartingS: u8,
@@ -100,7 +125,7 @@ pub struct CDROM_PLAY_AUDIO_MSF {
     pub EndingF: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_READ_TOC_EX {
     pub _bitfield: u8,
     pub SessionTrack: u8,
@@ -114,14 +139,14 @@ pub const CDROM_READ_TOC_EX_FORMAT_PMA: u32 = 3u32;
 pub const CDROM_READ_TOC_EX_FORMAT_SESSION: u32 = 1u32;
 pub const CDROM_READ_TOC_EX_FORMAT_TOC: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_SEEK_AUDIO_MSF {
     pub M: u8,
     pub S: u8,
     pub F: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_SET_SPEED {
     pub RequestType: CDROM_SPEED_REQUEST,
     pub ReadSpeed: u16,
@@ -129,7 +154,7 @@ pub struct CDROM_SET_SPEED {
     pub RotationControl: WRITE_ROTATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_SET_STREAMING {
     pub RequestType: CDROM_SPEED_REQUEST,
     pub ReadSize: u32,
@@ -145,7 +170,7 @@ pub struct CDROM_SET_STREAMING {
     pub Persistent: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_SIMPLE_OPC_INFO {
     pub RequestType: CDROM_OPC_INFO_TYPE,
     pub Exclude0: bool,
@@ -153,12 +178,12 @@ pub struct CDROM_SIMPLE_OPC_INFO {
 }
 pub type CDROM_SPEED_REQUEST = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_STREAMING_CONTROL {
     pub RequestType: STREAMING_CONTROL_REQUEST_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_SUB_Q_DATA_FORMAT {
     pub Format: u8,
     pub Track: u8,
@@ -171,6 +196,11 @@ pub struct CDROM_TOC {
     pub LastTrack: u8,
     pub TrackData: [TRACK_DATA; 100],
 }
+impl Default for CDROM_TOC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CDROM_TOC_ATIP_DATA {
@@ -178,6 +208,11 @@ pub struct CDROM_TOC_ATIP_DATA {
     pub Reserved1: u8,
     pub Reserved2: u8,
     pub Descriptors: [CDROM_TOC_ATIP_DATA_BLOCK; 1],
+}
+impl Default for CDROM_TOC_ATIP_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -197,6 +232,11 @@ pub struct CDROM_TOC_ATIP_DATA_BLOCK {
     pub A3Values: [u8; 3],
     pub Reserved12: u8,
 }
+impl Default for CDROM_TOC_ATIP_DATA_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CDROM_TOC_CD_TEXT_DATA {
@@ -204,6 +244,11 @@ pub struct CDROM_TOC_CD_TEXT_DATA {
     pub Reserved1: u8,
     pub Reserved2: u8,
     pub Descriptors: [CDROM_TOC_CD_TEXT_DATA_BLOCK; 1],
+}
+impl Default for CDROM_TOC_CD_TEXT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -215,11 +260,21 @@ pub struct CDROM_TOC_CD_TEXT_DATA_BLOCK {
     pub Anonymous: CDROM_TOC_CD_TEXT_DATA_BLOCK_0,
     pub CRC: [u8; 2],
 }
+impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
     pub Text: [u8; 12],
     pub WText: [u16; 6],
+}
+impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -228,6 +283,11 @@ pub struct CDROM_TOC_FULL_TOC_DATA {
     pub FirstCompleteSession: u8,
     pub LastCompleteSession: u8,
     pub Descriptors: [CDROM_TOC_FULL_TOC_DATA_BLOCK; 1],
+}
+impl Default for CDROM_TOC_FULL_TOC_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -240,6 +300,11 @@ pub struct CDROM_TOC_FULL_TOC_DATA_BLOCK {
     pub Zero: u8,
     pub Msf: [u8; 3],
 }
+impl Default for CDROM_TOC_FULL_TOC_DATA_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CDROM_TOC_PMA_DATA {
@@ -248,6 +313,11 @@ pub struct CDROM_TOC_PMA_DATA {
     pub Reserved2: u8,
     pub Descriptors: [CDROM_TOC_FULL_TOC_DATA_BLOCK; 1],
 }
+impl Default for CDROM_TOC_PMA_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CDROM_TOC_SESSION_DATA {
@@ -255,6 +325,11 @@ pub struct CDROM_TOC_SESSION_DATA {
     pub FirstCompleteSession: u8,
     pub LastCompleteSession: u8,
     pub TrackData: [TRACK_DATA; 1],
+}
+impl Default for CDROM_TOC_SESSION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -265,8 +340,13 @@ pub struct CDROM_WRITE_SPEED_DESCRIPTOR {
     pub ReadSpeed: [u8; 4],
     pub WriteSpeed: [u8; 4],
 }
+impl Default for CDROM_WRITE_SPEED_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CDROM_WRITE_SPEED_REQUEST {
     pub RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
 }
@@ -347,7 +427,7 @@ pub const MediaBlankTypeUncloseLastSession: MEDIA_BLANK_TYPE = 5i32;
 pub const MediaBlankTypeUnreserveLastTrack: MEDIA_BLANK_TYPE = 3i32;
 pub const OBSOLETE_IOCTL_CDROM_GET_CONTROL: u32 = 147508u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RAW_READ_INFO {
     pub DiskOffset: i64,
     pub SectorCount: u32,
@@ -364,6 +444,11 @@ pub union SUB_Q_CHANNEL_DATA {
     pub MediaCatalog: SUB_Q_MEDIA_CATALOG_NUMBER,
     pub TrackIsrc: SUB_Q_TRACK_ISRC,
 }
+impl Default for SUB_Q_CHANNEL_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SUB_Q_CURRENT_POSITION {
@@ -375,12 +460,22 @@ pub struct SUB_Q_CURRENT_POSITION {
     pub AbsoluteAddress: [u8; 4],
     pub TrackRelativeAddress: [u8; 4],
 }
+impl Default for SUB_Q_CURRENT_POSITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SUB_Q_HEADER {
     pub Reserved: u8,
     pub AudioStatus: u8,
     pub DataLength: [u8; 2],
+}
+impl Default for SUB_Q_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -390,6 +485,11 @@ pub struct SUB_Q_MEDIA_CATALOG_NUMBER {
     pub Reserved: [u8; 3],
     pub _bitfield: u8,
     pub MediaCatalog: [u8; 15],
+}
+impl Default for SUB_Q_MEDIA_CATALOG_NUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -402,6 +502,11 @@ pub struct SUB_Q_TRACK_ISRC {
     pub _bitfield: u8,
     pub TrackIsrc: [u8; 15],
 }
+impl Default for SUB_Q_TRACK_ISRC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SimpleOpcInfo: CDROM_OPC_INFO_TYPE = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -412,12 +517,22 @@ pub struct TRACK_DATA {
     pub Reserved1: u8,
     pub Address: [u8; 4],
 }
+impl Default for TRACK_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type TRACK_MODE_TYPE = i32;
 pub const TWO_FOUR_CHANNEL_AUDIO: u32 = 8u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VOLUME_CONTROL {
     pub PortVolume: [u8; 4],
+}
+impl Default for VOLUME_CONTROL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WRITE_ROTATION = i32;
 pub const XAForm2: TRACK_MODE_TYPE = 1i32;

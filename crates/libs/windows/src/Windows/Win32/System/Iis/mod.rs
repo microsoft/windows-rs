@@ -46,6 +46,7 @@ impl AsyncIFtpAuthenticationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpAuthenticationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -100,6 +101,7 @@ impl AsyncIFtpAuthorizationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpAuthorizationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_GetUserAccessPermission: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -159,6 +161,7 @@ impl AsyncIFtpHomeDirectoryProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpHomeDirectoryProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_GetUserHomeDirectoryData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -210,6 +213,7 @@ impl AsyncIFtpLogProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpLogProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_Log: unsafe extern "system" fn(*mut core::ffi::c_void, *const LOGGING_PARAMETERS) -> windows_core::HRESULT,
@@ -258,6 +262,7 @@ impl AsyncIFtpPostprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpPostprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const POST_PROCESS_PARAMETERS) -> windows_core::HRESULT,
@@ -312,6 +317,7 @@ impl AsyncIFtpPreprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpPreprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const PRE_PROCESS_PARAMETERS) -> windows_core::HRESULT,
@@ -372,6 +378,7 @@ impl AsyncIFtpRoleProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIFtpRoleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -429,6 +436,7 @@ impl AsyncIMSAdminBaseSinkW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct AsyncIMSAdminBaseSinkW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin_SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
@@ -484,17 +492,11 @@ impl windows_core::RuntimeName for AsyncIMSAdminBaseSinkW {}
 pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
     pub cbAllocated: u32,
     pub dwCertificateFlags: u32,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for CERT_CONTEXT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CLSID_IImgCtx: windows_core::GUID = windows_core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
 pub const CLSID_IisServiceControl: windows_core::GUID = windows_core::GUID::from_u128(0xe8fb8621_588f_11d2_9d61_00c04f79c5fe);
@@ -506,15 +508,10 @@ pub const CLSID_Server: windows_core::GUID = windows_core::GUID::from_u128(0xa50
 pub const CLSID_Session: windows_core::GUID = windows_core::GUID::from_u128(0x509f8f20_25de_11d0_a55f_00a0c90c2091);
 pub const CLSID_WamAdmin: windows_core::GUID = windows_core::GUID::from_u128(0x61738644_f196_11d0_9953_00c04fd919c1);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct CONFIGURATION_ENTRY {
     pub bstrKey: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub bstrValue: core::mem::ManuallyDrop<windows_core::BSTR>,
-}
-impl Default for CONFIGURATION_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
 pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
@@ -610,16 +607,11 @@ pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
 pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: windows_core::PSTR,
     pub uHttpSubError: u16,
     pub fAsync: windows_core::BOOL,
-}
-impl Default for HSE_CUSTOM_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -637,16 +629,11 @@ impl Default for HSE_EXEC_UNICODE_URL_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: windows_core::PWSTR,
     pub pszCustomAuthType: windows_core::PSTR,
-}
-impl Default for HSE_EXEC_UNICODE_URL_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
 #[repr(C)]
@@ -681,28 +668,18 @@ impl Default for HSE_EXEC_URL_INFO {
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_EXEC_URL_STATUS {
     pub uHttpStatusCode: u16,
     pub uHttpSubStatus: u16,
     pub dwWin32Error: u32,
 }
-impl Default for HSE_EXEC_URL_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: windows_core::PSTR,
     pub pszCustomAuthType: windows_core::PSTR,
-}
-impl Default for HSE_EXEC_URL_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HSE_IO_ASYNC: u32 = 2u32;
 pub const HSE_IO_CACHE_RESPONSE: u32 = 32u32;
@@ -771,18 +748,13 @@ impl Default for HSE_RESPONSE_VECTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: windows_core::PCSTR,
     pub pszHeader: windows_core::PCSTR,
     pub cchStatus: u32,
     pub cchHeader: u32,
     pub fKeepConn: windows_core::BOOL,
-}
-impl Default for HSE_SEND_HEADER_EX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HSE_STATUS_ERROR: u32 = 4u32;
 pub const HSE_STATUS_PENDING: u32 = 3u32;
@@ -891,32 +863,22 @@ impl Default for HSE_VERSION_INFO {
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
 pub const HSE_VERSION_MINOR: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PCSTR,
     pub dwReason: u32,
 }
-impl Default for HTTP_FILTER_ACCESS_DENIED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: windows_core::PSTR,
     pub cbUserBuff: u32,
     pub pszPassword: windows_core::PSTR,
     pub cbPasswordBuff: u32,
 }
-impl Default for HTTP_FILTER_AUTHENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -925,11 +887,6 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub HttpStatus: u32,
     pub fResetAuth: windows_core::BOOL,
     pub dwReserved: u32,
-}
-impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -952,7 +909,7 @@ impl Default for HTTP_FILTER_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: windows_core::PCSTR,
     pub pszClientUserName: windows_core::PCSTR,
@@ -966,24 +923,14 @@ pub struct HTTP_FILTER_LOG {
     pub dwBytesRecvd: u32,
     pub msTimeForProcessing: u32,
 }
-impl Default for HTTP_FILTER_LOG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: isize,
     pub SetHeader: isize,
     pub AddHeader: isize,
     pub HttpStatus: u32,
     pub dwReserved: u32,
-}
-impl Default for HTTP_FILTER_PREPROC_HEADERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -999,19 +946,14 @@ impl Default for HTTP_FILTER_RAW_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PSTR,
     pub cbPathBuff: u32,
 }
-impl Default for HTTP_FILTER_URL_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PSTR,
@@ -1020,11 +962,6 @@ pub struct HTTP_FILTER_URL_MAP_EX {
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
     pub pszScriptMapEntry: windows_core::PCSTR,
-}
-impl Default for HTTP_FILTER_URL_MAP_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1120,6 +1057,7 @@ impl IADMEXT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IADMEXT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1177,6 +1115,7 @@ impl IFtpAuthenticationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpAuthenticationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AuthenticateUser: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1216,6 +1155,7 @@ impl IFtpAuthorizationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpAuthorizationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserAccessPermission: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut FTP_ACCESS) -> windows_core::HRESULT,
@@ -1260,6 +1200,7 @@ impl IFtpHomeDirectoryProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpHomeDirectoryProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserHomeDirectoryData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1296,6 +1237,7 @@ impl IFtpLogProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpLogProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, *const LOGGING_PARAMETERS) -> windows_core::HRESULT,
@@ -1329,6 +1271,7 @@ impl IFtpPostprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpPostprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const POST_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
@@ -1368,6 +1311,7 @@ impl IFtpPreprocessProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpPreprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const PRE_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
@@ -1405,6 +1349,7 @@ impl IFtpProviderConstruct {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpProviderConstruct_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1450,6 +1395,7 @@ impl IFtpRoleProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFtpRoleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsUserInRole: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1622,6 +1568,7 @@ impl IMSAdminBase2W {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBase2W_Vtbl {
     pub base__: IMSAdminBaseW_Vtbl,
     pub BackupWithPasswd: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -1709,6 +1656,7 @@ impl IMSAdminBase3W {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBase3W_Vtbl {
     pub base__: IMSAdminBase2W_Vtbl,
     pub GetChildPaths: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -1742,6 +1690,7 @@ impl IMSAdminBaseSinkW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBaseSinkW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
@@ -1955,6 +1904,7 @@ impl IMSAdminBaseW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSAdminBaseW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2292,6 +2242,7 @@ impl IMSImpExpHelpW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMSImpExpHelpW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumeratePathsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -2319,7 +2270,7 @@ pub const LIBID_ASPTypeLibrary: windows_core::GUID = windows_core::GUID::from_u1
 pub const LIBID_IISRSTALib: windows_core::GUID = windows_core::GUID::from_u128(0xe8fb8614_588f_11d2_9d61_00c04f79c5fe);
 pub const LIBID_WAMREGLib: windows_core::GUID = windows_core::GUID::from_u128(0x29822aa8_f302_11d0_9953_00c04fd919c1);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LOGGING_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -2339,11 +2290,6 @@ pub struct LOGGING_PARAMETERS {
     pub FtpSubStatus: u32,
     pub hrStatus: windows_core::HRESULT,
     pub pszInformation: windows_core::PCWSTR,
-}
-impl Default for LOGGING_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
 pub const MD_ACCESS_EXECUTE: u32 = 4u32;
@@ -3028,7 +2974,7 @@ impl Default for METADATA_GETALL_INTERNAL_RECORD_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct METADATA_GETALL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -3038,21 +2984,11 @@ pub struct METADATA_GETALL_RECORD {
     pub dwMDDataOffset: u32,
     pub dwMDDataTag: u32,
 }
-impl Default for METADATA_GETALL_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct METADATA_HANDLE_INFO {
     pub dwMDPermissions: u32,
     pub dwMDSystemChangeNumber: u32,
-}
-impl Default for METADATA_HANDLE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const METADATA_INHERIT: u32 = 1u32;
 pub const METADATA_INSERT_PATH: u32 = 64u32;
@@ -3105,7 +3041,7 @@ pub type PFN_WEB_CORE_SHUTDOWN = Option<unsafe extern "system" fn(fimmediate: u3
 pub const POP3_MD_ID_BEGIN_RESERVED: u32 = 40960u32;
 pub const POP3_MD_ID_END_RESERVED: u32 = 45055u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POST_PROCESS_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -3128,13 +3064,8 @@ pub struct POST_PROCESS_PARAMETERS {
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
 }
-impl Default for POST_PROCESS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PRE_PROCESS_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -3149,11 +3080,6 @@ pub struct PRE_PROCESS_PARAMETERS {
     pub SessionStartTime: super::super::Foundation::FILETIME,
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
-}
-impl Default for PRE_PROCESS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SF_DENIED_APPLICATION: u32 = 8u32;
 pub const SF_DENIED_BY_CONFIG: u32 = 65536u32;

@@ -59,7 +59,7 @@ pub const CAPLOKALTGR: u32 = 4u32;
 pub const CEDILLA: u32 = 807u32;
 pub const CIRCUMFLEX: u32 = 770u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DEADKEY {
     pub dwBoth: u32,
     pub wchComposed: u16,
@@ -85,7 +85,7 @@ pub const GRAVE: u32 = 768u32;
 pub const GRPSELTAP: u32 = 128u32;
 pub const HACEK: u32 = 780u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HARDWAREINPUT {
     pub uMsg: u32,
     pub wParamL: u16,
@@ -100,12 +100,22 @@ pub struct INPUT {
     pub r#type: INPUT_TYPE,
     pub Anonymous: INPUT_0,
 }
+impl Default for INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INPUT_0 {
     pub mi: MOUSEINPUT,
     pub ki: KEYBDINPUT,
     pub hi: HARDWAREINPUT,
+}
+impl Default for INPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const INPUT_HARDWARE: INPUT_TYPE = 2u32;
 pub const INPUT_KEYBOARD: INPUT_TYPE = 1u32;
@@ -127,6 +137,11 @@ pub struct KBDNLSTABLES {
     pub pVkToF: *mut VK_F,
     pub NumOfMouseVKey: i32,
     pub pusMouseVKey: *mut u16,
+}
+impl Default for KBDNLSTABLES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KBDNLS_ALPHANUM: u32 = 5u32;
 pub const KBDNLS_CODEINPUT: u32 = 10u32;
@@ -171,6 +186,11 @@ pub struct KBDTABLES {
     pub dwType: u32,
     pub dwSubType: u32,
 }
+impl Default for KBDTABLES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBDTABLE_DESC {
@@ -178,16 +198,26 @@ pub struct KBDTABLE_DESC {
     pub dwType: u32,
     pub dwSubType: u32,
 }
+impl Default for KBDTABLE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KBDTABLE_MULTI {
     pub nTables: u32,
     pub aKbdTables: [KBDTABLE_DESC; 8],
 }
+impl Default for KBDTABLE_MULTI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
 pub const KBD_TYPE: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KBD_TYPE_INFO {
     pub dwVersion: u32,
     pub dwType: u32,
@@ -195,7 +225,7 @@ pub struct KBD_TYPE_INFO {
 }
 pub const KBD_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct KEYBDINPUT {
     pub wVk: VIRTUAL_KEY,
     pub wScan: u16,
@@ -225,7 +255,7 @@ pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
 pub const KLLF_LRM_RLM: u32 = 4u32;
 pub const KLLF_SHIFTLOCK: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct LASTINPUTINFO {
     pub cbSize: u32,
     pub dwTime: u32,
@@ -237,12 +267,22 @@ pub struct LIGATURE1 {
     pub ModificationNumber: u16,
     pub wch: [u16; 1],
 }
+impl Default for LIGATURE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LIGATURE2 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 2],
+}
+impl Default for LIGATURE2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -251,6 +291,11 @@ pub struct LIGATURE3 {
     pub ModificationNumber: u16,
     pub wch: [u16; 3],
 }
+impl Default for LIGATURE3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LIGATURE4 {
@@ -258,12 +303,22 @@ pub struct LIGATURE4 {
     pub ModificationNumber: u16,
     pub wch: [u16; 4],
 }
+impl Default for LIGATURE4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LIGATURE5 {
     pub VirtualKey: u8,
     pub ModificationNumber: u16,
     pub wch: [u16; 5],
+}
+impl Default for LIGATURE5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MACRON: u32 = 772u32;
 pub const MAPVK_VK_TO_CHAR: MAP_VIRTUAL_KEY_TYPE = 2u32;
@@ -289,6 +344,11 @@ pub struct MODIFIERS {
     pub wMaxModBits: u16,
     pub ModNumber: [u8; 1],
 }
+impl Default for MODIFIERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MOD_ALT: HOT_KEY_MODIFIERS = 1u32;
 pub const MOD_CONTROL: HOT_KEY_MODIFIERS = 2u32;
 pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = 16384u32;
@@ -309,7 +369,7 @@ pub const MOUSEEVENTF_WHEEL: MOUSE_EVENT_FLAGS = 2048u32;
 pub const MOUSEEVENTF_XDOWN: MOUSE_EVENT_FLAGS = 128u32;
 pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOUSEINPUT {
     pub dx: i32,
     pub dy: i32,
@@ -319,7 +379,7 @@ pub struct MOUSEINPUT {
     pub dwExtraInfo: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MOUSEMOVEPOINT {
     pub x: i32,
     pub y: i32,
@@ -375,6 +435,11 @@ pub struct TRACKMOUSEEVENT {
     pub dwFlags: TRACKMOUSEEVENT_FLAGS,
     pub hwndTrack: super::super::super::Foundation::HWND,
     pub dwHoverTime: u32,
+}
+impl Default for TRACKMOUSEEVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type TRACKMOUSEEVENT_FLAGS = u32;
 pub const UMLAUT: u32 = 776u32;
@@ -447,6 +512,11 @@ pub struct VK_F {
     pub NLSFEProc: [VK_FPARAM; 8],
     pub NLSFEProcAlt: [VK_FPARAM; 8],
 }
+impl Default for VK_F {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const VK_F: VIRTUAL_KEY = 70u16;
 pub const VK_F1: VIRTUAL_KEY = 112u16;
 pub const VK_F10: VIRTUAL_KEY = 121u16;
@@ -474,7 +544,7 @@ pub const VK_F8: VIRTUAL_KEY = 119u16;
 pub const VK_F9: VIRTUAL_KEY = 120u16;
 pub const VK_FINAL: VIRTUAL_KEY = 24u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,
@@ -629,7 +699,7 @@ pub const VK_SUBTRACT: VIRTUAL_KEY = 109u16;
 pub const VK_T: VIRTUAL_KEY = 84u16;
 pub const VK_TAB: VIRTUAL_KEY = 9u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VK_TO_BIT {
     pub Vk: u8,
     pub ModBits: u8,
@@ -641,12 +711,22 @@ pub struct VK_TO_WCHARS1 {
     pub Attributes: u8,
     pub wch: [u16; 1],
 }
+impl Default for VK_TO_WCHARS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS10 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 10],
+}
+impl Default for VK_TO_WCHARS10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -655,12 +735,22 @@ pub struct VK_TO_WCHARS2 {
     pub Attributes: u8,
     pub wch: [u16; 2],
 }
+impl Default for VK_TO_WCHARS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS3 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 3],
+}
+impl Default for VK_TO_WCHARS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -669,12 +759,22 @@ pub struct VK_TO_WCHARS4 {
     pub Attributes: u8,
     pub wch: [u16; 4],
 }
+impl Default for VK_TO_WCHARS4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS5 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 5],
+}
+impl Default for VK_TO_WCHARS5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -683,12 +783,22 @@ pub struct VK_TO_WCHARS6 {
     pub Attributes: u8,
     pub wch: [u16; 6],
 }
+impl Default for VK_TO_WCHARS6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS7 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 7],
+}
+impl Default for VK_TO_WCHARS7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -697,12 +807,22 @@ pub struct VK_TO_WCHARS8 {
     pub Attributes: u8,
     pub wch: [u16; 8],
 }
+impl Default for VK_TO_WCHARS8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VK_TO_WCHARS9 {
     pub VirtualKey: u8,
     pub Attributes: u8,
     pub wch: [u16; 9],
+}
+impl Default for VK_TO_WCHARS9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -711,6 +831,11 @@ pub struct VK_TO_WCHAR_TABLE {
     pub nModifications: u8,
     pub cbSize: u8,
 }
+impl Default for VK_TO_WCHAR_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const VK_U: VIRTUAL_KEY = 85u16;
 pub const VK_UP: VIRTUAL_KEY = 38u16;
 pub const VK_V: VIRTUAL_KEY = 86u16;
@@ -718,7 +843,7 @@ pub const VK_VOLUME_DOWN: VIRTUAL_KEY = 174u16;
 pub const VK_VOLUME_MUTE: VIRTUAL_KEY = 173u16;
 pub const VK_VOLUME_UP: VIRTUAL_KEY = 175u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VK_VSC {
     pub Vk: u8,
     pub Vsc: u8,
@@ -737,8 +862,13 @@ pub struct VSC_LPWSTR {
     pub vsc: u8,
     pub pwsz: windows_sys::core::PWSTR,
 }
+impl Default for VSC_LPWSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VSC_VK {
     pub Vsc: u8,
     pub Vk: u16,

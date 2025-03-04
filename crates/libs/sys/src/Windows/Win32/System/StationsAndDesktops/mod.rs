@@ -57,6 +57,11 @@ pub struct BSMINFO {
     pub hwnd: super::super::Foundation::HWND,
     pub luid: super::super::Foundation::LUID,
 }
+impl Default for BSMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = 0u32;
 pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = 16u32;
 pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = 8u32;
@@ -88,7 +93,7 @@ pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = 2i32;
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = 3i32;
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = 4i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: windows_sys::core::BOOL,
     pub fReserved: windows_sys::core::BOOL,

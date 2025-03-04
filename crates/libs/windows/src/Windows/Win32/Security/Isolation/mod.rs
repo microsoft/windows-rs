@@ -110,6 +110,7 @@ impl IIsolatedAppLauncher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedAppLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT,
@@ -167,6 +168,7 @@ impl IIsolatedProcessLauncher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedProcessLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchProcess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -259,6 +261,7 @@ impl IIsolatedProcessLauncher2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIsolatedProcessLauncher2_Vtbl {
     pub base__: IIsolatedProcessLauncher_Vtbl,
     pub LaunchProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -283,14 +286,9 @@ impl IIsolatedProcessLauncher2_Vtbl {
 impl windows_core::RuntimeName for IIsolatedProcessLauncher2 {}
 pub const IsolatedAppLauncher: windows_core::GUID = windows_core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IsolatedAppLauncherTelemetryParameters {
     pub EnableForLaunch: windows_core::BOOL,
     pub CorrelationGUID: windows_core::GUID,
-}
-impl Default for IsolatedAppLauncherTelemetryParameters {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WDAG_CLIPBOARD_TAG: windows_core::PCWSTR = windows_core::w!("CrossIsolatedEnvironmentContent");

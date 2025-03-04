@@ -36,6 +36,7 @@ impl IEnumNetworkConnections {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumNetworkConnections_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -50,7 +51,7 @@ pub struct IEnumNetworkConnections_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworkConnections_Impl: super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetworkConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetworkConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetworkConnections>;
@@ -153,6 +154,7 @@ impl IEnumNetworks {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumNetworks_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -167,7 +169,7 @@ pub struct IEnumNetworks_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworks_Impl: super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, INetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetworks>;
@@ -314,6 +316,7 @@ impl INetwork {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetwork_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -526,6 +529,7 @@ impl INetwork2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetwork2_Vtbl {
     pub base__: INetwork_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -615,6 +619,7 @@ impl INetworkConnection {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkConnection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -761,6 +766,7 @@ impl INetworkConnection2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkConnection2_Vtbl {
     pub base__: INetworkConnection_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -806,6 +812,7 @@ impl INetworkConnectionCost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkConnectionCost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -857,6 +864,7 @@ impl INetworkConnectionCostEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkConnectionCostEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectionCostChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32) -> windows_core::HRESULT,
@@ -902,6 +910,7 @@ impl INetworkConnectionEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkConnectionEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NetworkConnectionConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTIVITY) -> windows_core::HRESULT,
@@ -950,6 +959,7 @@ impl INetworkCostManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkCostManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *const NLM_SOCKADDR) -> windows_core::HRESULT,
@@ -1004,6 +1014,7 @@ impl INetworkCostManagerEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkCostManagerEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CostChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const NLM_SOCKADDR) -> windows_core::HRESULT,
@@ -1055,6 +1066,7 @@ impl INetworkEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NetworkAdded: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -1171,6 +1183,7 @@ impl INetworkListManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkListManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetNetworks: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_ENUM_NETWORK, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1321,6 +1334,7 @@ impl INetworkListManagerEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INetworkListManagerEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_CONNECTIVITY) -> windows_core::HRESULT,
@@ -1384,7 +1398,7 @@ pub const NLM_CONNECTIVITY_IPV6_LOCALNETWORK: NLM_CONNECTIVITY = NLM_CONNECTIVIT
 pub const NLM_CONNECTIVITY_IPV6_NOTRAFFIC: NLM_CONNECTIVITY = NLM_CONNECTIVITY(2i32);
 pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(256i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: windows_core::GUID,
     pub UsageData: NLM_USAGE_DATA,
@@ -1394,11 +1408,6 @@ pub struct NLM_DATAPLAN_STATUS {
     pub NextBillingCycle: super::super::Foundation::FILETIME,
     pub MaxTransferSizeInMegabytes: u32,
     pub Reserved: u32,
-}
-impl Default for NLM_DATAPLAN_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1470,14 +1479,9 @@ impl Default for NLM_SOCKADDR {
 }
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,
-}
-impl Default for NLM_USAGE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NetworkListManager: windows_core::GUID = windows_core::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);

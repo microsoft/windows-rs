@@ -224,15 +224,10 @@ pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S: GAMING_DEVICE_DEVICE_ID = GAMIN
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(796540415i32);
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(-561359263i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,
-}
-impl Default for GAMING_DEVICE_MODEL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -267,6 +262,7 @@ impl IGameExplorer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameExplorer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddGame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, GAME_INSTALL_SCOPE, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -352,6 +348,7 @@ impl IGameExplorer2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameExplorer2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InstallGame: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, GAME_INSTALL_SCOPE) -> windows_core::HRESULT,
@@ -470,6 +467,7 @@ impl IGameStatistics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameStatistics_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMaxCategoryLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -653,6 +651,7 @@ impl IGameStatisticsMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGameStatisticsMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, GAMESTATS_OPEN_TYPE, *mut GAMESTATS_OPEN_RESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -736,6 +735,7 @@ impl IXblIdpAuthManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXblIdpAuthManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGamerAccount: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -843,6 +843,7 @@ impl IXblIdpAuthManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXblIdpAuthManager2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -999,6 +1000,7 @@ impl IXblIdpAuthTokenResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXblIdpAuthTokenResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XBL_IDP_AUTH_TOKEN_STATUS) -> windows_core::HRESULT,
@@ -1338,6 +1340,7 @@ impl IXblIdpAuthTokenResult2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXblIdpAuthTokenResult2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetModernGamertag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,

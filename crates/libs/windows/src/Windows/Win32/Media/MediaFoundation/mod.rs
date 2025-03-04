@@ -2179,27 +2179,17 @@ impl Default for AM_MEDIA_TYPE {
 }
 pub const AM_MEDIA_TYPE_REPRESENTATION: windows_core::GUID = windows_core::GUID::from_u128(0xe2e42ad2_132c_491e_a268_3c7c2dca181f);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ASF_FLAT_PICTURE {
     pub bPictureType: u8,
     pub dwDataLen: u32,
 }
-impl Default for ASF_FLAT_PICTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ASF_FLAT_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
     pub dwLyricsLen: u32,
-}
-impl Default for ASF_FLAT_SYNCHRONISED_LYRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2215,26 +2205,16 @@ impl Default for ASF_INDEX_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ASF_INDEX_IDENTIFIER {
     pub guidIndexType: windows_core::GUID,
     pub wStreamNumber: u16,
 }
-impl Default for ASF_INDEX_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ASF_MUX_STATISTICS {
     pub cFramesWritten: u32,
     pub cFramesDropped: u32,
-}
-impl Default for ASF_MUX_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2254,7 +2234,7 @@ pub const AVEncAudioInputContent_Music: eAVEncAudioInputContent = eAVEncAudioInp
 pub const AVEncAudioInputContent_Unknown: eAVEncAudioInputContent = eAVEncAudioInputContent(0i32);
 pub const AVEncAudioInputContent_Voice: eAVEncAudioInputContent = eAVEncAudioInputContent(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AecQualityMetrics_Struct {
     pub i64Timestamp: i64,
     pub ConvergenceFlag: u8,
@@ -2275,11 +2255,6 @@ pub struct AecQualityMetrics_Struct {
     pub fERLE: f32,
     pub fAvgERLE: f32,
     pub dwReserved: u32,
-}
-impl Default for AecQualityMetrics_Struct {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CAC3DecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0x03d7c802_ecfa_47d9_b268_5fb3e310dee4);
 pub const CAPTION_FORMAT_ATSC: windows_core::GUID = windows_core::GUID::from_u128(0x3ed9cb31_fd10_4ade_bccc_fb9105d2f3ef);
@@ -2913,47 +2888,30 @@ impl Default for CodecAPIEventData {
 pub struct D3D12_BITSTREAM_ENCRYPTION_TYPE(pub i32);
 pub const D3D12_BITSTREAM_ENCRYPTION_TYPE_NONE: D3D12_BITSTREAM_ENCRYPTION_TYPE = D3D12_BITSTREAM_ENCRYPTION_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     pub IOCoherent: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub Protected: windows_core::BOOL,
     pub MemoryPoolL0Size: u64,
     pub MemoryPoolL1Size: u64,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -2963,12 +2921,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub BitRate: u32,
     pub SupportFlags: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS,
     pub ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2986,20 +2938,15 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
     pub FormatCount: u32,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub NodeIndex: u32,
     pub DecodeProfile: windows_core::GUID,
@@ -3009,12 +2956,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub Components: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS,
     pub BinCount: u32,
     pub CounterBitDepth: u32,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3029,31 +2970,21 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -3066,23 +2997,12 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub ConfigurationFlags: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS,
     pub DecodeTier: D3D12_VIDEO_DECODE_TIER,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub IsSupported: windows_core::BOOL,
-}
-impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3207,16 +3127,11 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub ResolutionRatiosCount: u32,
-}
-impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3234,30 +3149,20 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
     pub RateControlMode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
     pub IsSupported: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     pub MaxSubregionsNumber: u32,
     pub MaxIntraRefreshFrameDuration: u32,
     pub SubregionBlockPixelsSize: u32,
     pub QPMapRegionPixelsSize: u32,
-}
-impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3350,15 +3255,10 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     pub NodeIndex: u32,
     pub CommandCount: u32,
-}
-impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3374,17 +3274,12 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     pub CommandId: windows_core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
     pub ParameterCount: u32,
     pub ParameterPacking: u32,
-}
-impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3417,21 +3312,16 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     pub NodeIndex: u32,
     pub VideoDecodeSupport: windows_core::BOOL,
     pub VideoProcessSupport: windows_core::BOOL,
     pub VideoEncodeSupport: windows_core::BOOL,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub NodeIndex: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -3439,26 +3329,15 @@ pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub PrecisionFlags: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS,
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub NodeIndex: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -3470,12 +3349,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub MotionVectorHeapMemoryPoolL1Size: u64,
     pub MotionEstimatorMemoryPoolL0Size: u64,
     pub MotionEstimatorMemoryPoolL1Size: u64,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3513,30 +3386,20 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     pub NodeIndex: u32,
     pub MaxInputStreams: u32,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
-impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub NodeIndex: u32,
     pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
@@ -3547,12 +3410,6 @@ pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub EnableAutoProcessing: windows_core::BOOL,
     pub PastFrames: u32,
     pub FutureFrames: u32,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3627,73 +3484,45 @@ pub const D3D12_FEATURE_VIDEO_PROCESS_REFERENCE_INFO: D3D12_FEATURE_VIDEO = D3D1
 pub const D3D12_FEATURE_VIDEO_PROCESS_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(5i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub Status: u64,
     pub NumMacroblocksAffected: u64,
     pub FrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
     pub BitRate: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
     pub PixelWidth: u32,
     pub PixelHeight: u32,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     pub pMotionVectorTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_COORDINATE {
     pub X: u64,
     pub Y: u32,
     pub Z: u32,
     pub SubresourceIndex: u32,
 }
-impl Default for D3D12_RESOURCE_COORDINATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
 }
-impl Default for D3D12_VIDEO_DECODER_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -3704,12 +3533,6 @@ pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub BitRate: u32,
     pub MaxDecodePictureBufferCount: u32,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_VIDEO_DECODER_HEAP_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_ARGUMENT_TYPE(pub i32);
@@ -3719,29 +3542,18 @@ pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_PICTURE_PARAMETERS: D3D12_VIDEO_DECOD
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_SLICE_CONTROL: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = D3D12_VIDEO_DECODE_ARGUMENT_TYPE(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
     pub Size: u64,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION {
     pub DecodeProfile: windows_core::GUID,
     pub BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
     pub InterlaceType: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE,
-}
-impl Default for D3D12_VIDEO_DECODE_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3786,7 +3598,7 @@ pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_POST_PROCESSING_SUPPORTED: D3D12
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(4i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub Enable: windows_core::BOOL,
     pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -3794,15 +3606,9 @@ pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub OutputColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
     pub DecodeColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub Enable: windows_core::BOOL,
     pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -3811,12 +3617,6 @@ pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub DecodeColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
     pub OutputWidth: u32,
     pub OutputHeight: u32,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3940,30 +3740,18 @@ impl Default for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     pub Offset: u64,
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     pub pOutputTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub OutputSubresource: u32,
     pub ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4101,15 +3889,10 @@ impl Default for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
     pub FeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
     pub OrderHintBitsMinus1: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4199,7 +3982,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SKIP_MODE_PRESENT: D3D12_VIDEO_EN
 pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SUPER_RESOLUTION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS(512i32);
 pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_WARPED_MOTION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS(32i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub Use128SuperBlocks: windows_core::BOOL,
     pub TilesConfiguration: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
@@ -4213,11 +3996,6 @@ pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub MinTileArea: u32,
     pub MaxTileArea: u32,
     pub TileSizeBytesMinus1: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4390,15 +4168,10 @@ pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = D
 pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = D3D12_VIDEO_ENCODER_AV1_LEVELS(22i32);
 pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = D3D12_VIDEO_ENCODER_AV1_LEVELS(23i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
     pub Level: D3D12_VIDEO_ENCODER_AV1_LEVELS,
     pub Tier: D3D12_VIDEO_ENCODER_AV1_TIER,
-}
-impl Default for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4570,7 +4343,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_HIGH: D3D12_VIDEO_ENCODER_AV1_PROFILE 
 pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_MAIN: D3D12_VIDEO_ENCODER_AV1_PROFILE = D3D12_VIDEO_ENCODER_AV1_PROFILE(0i32);
 pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_PROFESSIONAL: D3D12_VIDEO_ENCODER_AV1_PROFILE = D3D12_VIDEO_ENCODER_AV1_PROFILE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     pub ReconstructedPictureResourceIndex: u32,
     pub TemporalLayerIndexPlus1: u32,
@@ -4579,11 +4352,6 @@ pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     pub WarpedMotionInfo: D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO,
     pub OrderHint: u32,
     pub PictureIndex: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4815,15 +4583,10 @@ impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
     pub IntraDistance: u32,
     pub InterFramePeriod: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4899,32 +4662,22 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
     pub DeltaLFPresent: u64,
     pub DeltaLFMulti: u64,
     pub DeltaLFRes: u64,
 }
-impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
     pub PredictionMode: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
     pub MaxUniqueReferencesPerFrame: u32,
     pub SupportedFrameTypes: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS,
     pub SupportedReferenceWarpedMotionFlags: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS,
 }
-impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     pub BaseQIndex: u64,
     pub YDCDeltaQ: i64,
@@ -4937,21 +4690,11 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     pub QMU: u64,
     pub QMV: u64,
 }
-impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
     pub DeltaQPresent: u64,
     pub DeltaQRes: u64,
-}
-impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4977,16 +4720,11 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
     pub DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
     pub DisableDeblockingFilterConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES,
-}
-impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5090,7 +4828,7 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FL
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(64i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -5099,11 +4837,6 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     pub MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
     pub max_transform_hierarchy_depth_inter: u8,
     pub max_transform_hierarchy_depth_intra: u8,
-}
-impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5198,15 +4931,10 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
     pub DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
-}
-impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5254,7 +4982,7 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_INTRA_SLICE_
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(0i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(128i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -5263,11 +4991,6 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
     pub max_transform_hierarchy_depth_inter: u8,
     pub max_transform_hierarchy_depth_intra: u8,
-}
-impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5427,7 +5150,7 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -5435,13 +5158,8 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxLongTermReferences: u32,
     pub MaxDPBCapacity: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -5449,23 +5167,12 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxLongTermReferences: u32,
     pub MaxDPBCapacity: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub FrameStartOffset: u64,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5508,17 +5215,11 @@ impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
     pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
     pub EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5564,16 +5265,10 @@ pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_RECONFIGURATION_REQUEST_NOT_SUPP
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_SUBREGION_LAYOUT_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5644,16 +5339,11 @@ pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_GRID_PARTITION
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_ROWS_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(3i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_SUBREGIONS_PER_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     pub bSize: u64,
     pub bStartOffset: u64,
     pub bHeaderSize: u64,
-}
-impl Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5723,15 +5413,10 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
 }
 pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     pub Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
     pub IntraRefreshDuration: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5801,15 +5486,10 @@ impl Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     pub Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
     pub Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
-}
-impl Default for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5820,20 +5500,15 @@ pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_HALF_PIXEL: D3D12
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(0i32);
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     pub EncodeErrorFlags: u64,
     pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
     pub EncodedBitstreamWrittenBytesCount: u64,
     pub WrittenSubregionsCount: u64,
 }
-impl Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     pub AverageQP: u64,
     pub IntraCodingUnitsCount: u64,
@@ -5841,11 +5516,6 @@ pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     pub SkipCodingUnitsCount: u64,
     pub AverageMotionEstimationXDirection: u64,
     pub AverageMotionEstimationYDirection: u64,
-}
-impl Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5942,30 +5612,20 @@ pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE: D3D12_V
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(1i32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     pub modification_of_pic_nums_idc: u8,
     pub abs_diff_pic_num_minus1: u32,
     pub long_term_pic_num: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     pub memory_management_control_operation: u8,
     pub difference_of_pic_nums_minus1: u32,
     pub long_term_pic_num: u32,
     pub long_term_frame_idx: u32,
     pub max_long_term_frame_idx_plus1: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6167,26 +5827,16 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLIC
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     pub Width: u32,
     pub Height: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     pub WidthRatio: u32,
     pub HeightRatio: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6245,17 +5895,12 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
     pub QualityVsSpeed: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -6265,13 +5910,8 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub VBVCapacity: u64,
     pub InitialVBVFullness: u64,
 }
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -6281,11 +5921,6 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     pub VBVCapacity: u64,
     pub InitialVBVFullness: u64,
     pub QualityVsSpeed: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6317,29 +5952,19 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
     pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
     pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
     pub QualityVsSpeed: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6395,7 +6020,7 @@ pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CQP: D3D12_VIDEO_ENCODER_RATE_CO
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_QVBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(4i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_VBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -6405,13 +6030,8 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub PeakBitRate: u64,
     pub ConstantQualityTarget: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -6424,13 +6044,8 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     pub InitialVBVFullness: u64,
     pub QualityVsSpeed: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -6441,13 +6056,8 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub VBVCapacity: u64,
     pub InitialVBVFullness: u64,
 }
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -6459,26 +6069,15 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     pub InitialVBVFullness: u64,
     pub QualityVsSpeed: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     pub pReconstructedPicture: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub ReconstructedPictureSubresource: u32,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsLongTermReference: windows_core::BOOL,
@@ -6487,24 +6086,14 @@ pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub FrameDecodingOrderNumber: u32,
     pub TemporalLayerIndex: u32,
 }
-impl Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsRefUsedByCurrentPic: windows_core::BOOL,
     pub IsLongTermReference: windows_core::BOOL,
     pub PictureOrderCountNumber: u32,
     pub TemporalLayerIndex: u32,
-}
-impl Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6529,15 +6118,9 @@ impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6623,7 +6206,7 @@ impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
@@ -6631,22 +6214,12 @@ pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub log2_max_frame_num_minus4: u8,
     pub log2_max_pic_order_cnt_lsb_minus4: u8,
 }
-impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
     pub log2_max_pic_order_cnt_lsb_minus4: u8,
-}
-impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6768,29 +6341,18 @@ impl Default for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     pub NodeMask: u32,
     pub CommandId: windows_core::GUID,
 }
-impl Default for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     pub CommandId: windows_core::GUID,
     pub Name: windows_core::PCWSTR,
     pub CommandListSupportFlags: super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_SUPPORT_FLAGS,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6832,16 +6394,11 @@ pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE: D3D12_VIDEO_EXTENSI
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_READ: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(1i32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_WRITE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     pub Name: windows_core::PCWSTR,
     pub Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
     pub Flags: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS,
-}
-impl Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6875,16 +6432,10 @@ pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_TOP_FIELD_FIRST: D3D12_VIDEO_FIELD_T
 pub const D3D12_VIDEO_FIELD_TYPE_NONE: D3D12_VIDEO_FIELD_TYPE = D3D12_VIDEO_FIELD_TYPE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_FORMAT {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_VIDEO_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6901,7 +6452,7 @@ pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_SEPARATE: D3D12_VIDEO_FRAME_STEREO_FOR
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_VERTICAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = D3D12_VIDEO_FRAME_STEREO_FORMAT(3i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -6909,15 +6460,9 @@ pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub pInputTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub InputSubresourceIndex: u32,
@@ -6925,23 +6470,11 @@ pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub ReferenceSubresourceIndex: u32,
     pub pHintMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7031,7 +6564,7 @@ pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_QUARTER_PEL: D3D12_
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -7039,22 +6572,11 @@ pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     pub Enable: windows_core::BOOL,
     pub Alpha: f32,
-}
-impl Default for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7247,33 +6769,22 @@ pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS
 pub const D3D12_VIDEO_PROCESS_FILTER_HUE: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(2i32);
 pub const D3D12_VIDEO_PROCESS_FILTER_NOISE_REDUCTION: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
     pub Minimum: i32,
     pub Maximum: i32,
     pub Default: i32,
     pub Multiplier: f32,
 }
-impl Default for D3D12_VIDEO_PROCESS_FILTER_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const D3D12_VIDEO_PROCESS_FILTER_SATURATION: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(3i32);
 pub const D3D12_VIDEO_PROCESS_FILTER_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(7i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
     pub pTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Subresource: u32,
     pub ReferenceSet: D3D12_VIDEO_PROCESS_REFERENCE_SET,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7312,7 +6823,7 @@ impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -7331,12 +6842,6 @@ pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     pub NumPastFrames: u32,
     pub NumFutureFrames: u32,
     pub EnableAutoProcessing: windows_core::BOOL,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7378,27 +6883,17 @@ pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_DISCONTINUITY: D3D12_VIDEO
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_REPEAT: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(2i32);
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     pub OutputIndex: u32,
     pub InputFrameOrField: u32,
 }
-impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_LUMA_KEY {
     pub Enable: windows_core::BOOL,
     pub Lower: f32,
     pub Upper: f32,
-}
-impl Default for D3D12_VIDEO_PROCESS_LUMA_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7413,16 +6908,10 @@ pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_O
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_VERTICAL: D3D12_VIDEO_PROCESS_ORIENTATION = D3D12_VIDEO_PROCESS_ORIENTATION(5i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     pub pTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Subresource: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7511,16 +7000,11 @@ impl core::ops::Not for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(0i32);
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
     pub SourceRectangle: super::super::Foundation::RECT,
     pub DestinationRectangle: super::super::Foundation::RECT,
     pub Orientation: D3D12_VIDEO_PROCESS_ORIENTATION,
-}
-impl Default for D3D12_VIDEO_PROCESS_TRANSFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7562,28 +7046,17 @@ pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROTECTE
 pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_SAMPLE {
     pub Width: u32,
     pub Height: u32,
     pub Format: D3D12_VIDEO_FORMAT,
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for D3D12_VIDEO_SAMPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT {
     pub OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
     pub Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
-}
-impl Default for D3D12_VIDEO_SCALE_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7625,21 +7098,16 @@ pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(0i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_SIZE_RANGE {
     pub MaxWidth: u32,
     pub MaxHeight: u32,
     pub MinWidth: u32,
     pub MinHeight: u32,
 }
-impl Default for D3D12_VIDEO_SIZE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
@@ -7647,15 +7115,9 @@ pub struct D3DCONTENTPROTECTIONCAPS {
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
-#[cfg(target_arch = "x86")]
-impl Default for D3DCONTENTPROTECTIONCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
@@ -7663,37 +7125,21 @@ pub struct D3DCONTENTPROTECTIONCAPS {
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for D3DCONTENTPROTECTIONCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DOVERLAYCAPS {
     pub Caps: u32,
     pub MaxOverlayDisplayWidth: u32,
     pub MaxOverlayDisplayHeight: u32,
 }
-impl Default for D3DOVERLAYCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DEVICE_INFO {
     pub pFriendlyDeviceName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub pUniqueDeviceName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub pManufacturerName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub pModelName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub pIconURL: core::mem::ManuallyDrop<windows_core::BSTR>,
-}
-impl Default for DEVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3 };
 pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 4 };
@@ -7720,48 +7166,33 @@ pub const DSATTRIB_SAMPLE_LIVE_STREAM_TIME: windows_core::GUID = windows_core::G
 pub const DSATTRIB_TRANSPORT_PROPERTIES: windows_core::GUID = windows_core::GUID::from_u128(0xb622f612_47ad_4671_ad6c_05a98e65de3a);
 pub const DSATTRIB_UDCRTag: windows_core::GUID = windows_core::GUID::from_u128(0xeb7836ca_14ff_4919_bce7_3af12319e50c);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_AES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
 }
-impl Default for DXVA2_AES_CTR_IV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_AYUVSample16 {
     pub Cr: u16,
     pub Cb: u16,
     pub Y: u16,
     pub Alpha: u16,
 }
-impl Default for DXVA2_AYUVSample16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_AYUVSample8 {
     pub Cr: u8,
     pub Cb: u8,
     pub Y: u8,
     pub Alpha: u8,
 }
-impl Default for DXVA2_AYUVSample8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVA2_BitStreamDateBufferType: DXVA2_BufferfType = DXVA2_BufferfType(6i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_BufferfType(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_ConfigPictureDecode {
     pub guidConfigBitstreamEncryption: windows_core::GUID,
     pub guidConfigMBcontrolEncryption: windows_core::GUID,
@@ -7780,11 +7211,6 @@ pub struct DXVA2_ConfigPictureDecode {
     pub Config4GroupedCoefs: u32,
     pub ConfigMinRenderTargetBuffCount: u16,
     pub ConfigDecoderSpecific: u16,
-}
-impl Default for DXVA2_ConfigPictureDecode {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829u32;
 pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: u32 = 1828u32;
@@ -7896,14 +7322,9 @@ impl Default for DXVA2_ExtendedFormat_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_ExtendedFormat_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DXVA2_ExtendedFormat_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVA2_FilmGrainBuffer: DXVA2_BufferfType = DXVA2_BufferfType(8i32);
 #[repr(transparent)]
@@ -7943,26 +7364,16 @@ impl Default for DXVA2_Fixed32_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_Fixed32_0_0 {
     pub Fraction: u16,
     pub Value: i16,
 }
-impl Default for DXVA2_Fixed32_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
-}
-impl Default for DXVA2_Frequency {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVA2_InverseQuantizationMatrixBufferType: DXVA2_BufferfType = DXVA2_BufferfType(4i32);
 pub const DXVA2_MacroBlockControlBufferType: DXVA2_BufferfType = DXVA2_BufferfType(1i32);
@@ -8199,7 +7610,7 @@ pub const DXVA2_VideoProcess_YUV2RGB: DXVA2_VideoProcess = DXVA2_VideoProcess(1i
 pub const DXVA2_VideoProcess_YUV2RGBExtended: DXVA2_VideoProcess = DXVA2_VideoProcess(128i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
     pub InputPool: super::super::Graphics::Direct3D9::D3DPOOL,
@@ -8211,12 +7622,6 @@ pub struct DXVA2_VideoProcessorCaps {
     pub VideoProcessorOperations: u32,
     pub NoiseFilterTechnology: u32,
     pub DetailFilterTechnology: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVA2_VideoProcessorCaps {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVA2_VideoProcessorRenderTarget: DXVA2_VideoRenderTargetType = DXVA2_VideoRenderTargetType(1i32);
 #[repr(transparent)]
@@ -8283,7 +7688,7 @@ impl Default for DXVABufferInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVACompBufferInfo {
     pub NumCompBuffers: u32,
     pub WidthToCreate: u32,
@@ -8293,12 +7698,6 @@ pub struct DXVACompBufferInfo {
     pub Pool: super::super::Graphics::Direct3D9::D3DPOOL,
     pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVACompBufferInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVAHDControlGuid: windows_core::GUID = windows_core::GUID::from_u128(0xa0386e75_f70c_464c_a9ce_33c44e091623);
 pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x681e3d1e_5674_4fb3_a503_2f2055e91f60);
 pub const DXVAHDETWGUID_DESTROYVIDEOPROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0xf943f0a0_3f16_43e0_8093_105a986aa5f1);
@@ -8307,30 +7706,20 @@ pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD_STREAM: windows_core::GUID = windows_c
 pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: windows_core::GUID = windows_core::GUID::from_u128(0x76c94b5a_193f_4692_9484_a4d999da81a8);
 pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: windows_core::GUID = windows_core::GUID::from_u128(0x262c0b02_209d_47ed_94d8_82ae02b84aa7);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHDETW_CREATEVIDEOPROCESSOR {
     pub pObject: u64,
     pub pD3D9Ex: u64,
     pub VPGuid: windows_core::GUID,
 }
-impl Default for DXVAHDETW_CREATEVIDEOPROCESSOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR {
     pub pObject: u64,
 }
-impl Default for DXVAHDETW_DESTROYVIDEOPROCESSOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
     pub pObject: u64,
     pub pOutputSurface: u64,
@@ -8341,15 +7730,9 @@ pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
     pub StreamCount: u32,
     pub Enter: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVAHDETW_VIDEOPROCESSBLTHD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     pub pObject: u64,
     pub pInputSurface: u64,
@@ -8364,27 +7747,16 @@ pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     pub PastFrames: u32,
     pub FutureFrames: u32,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE {
     pub pObject: u64,
     pub State: DXVAHD_BLT_STATE,
     pub DataSize: u32,
     pub SetState: windows_core::BOOL,
 }
-impl Default for DXVAHDETW_VIDEOPROCESSBLTSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     pub pObject: u64,
     pub StreamNumber: u32,
@@ -8392,14 +7764,9 @@ pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     pub DataSize: u32,
     pub SetState: windows_core::BOOL,
 }
-impl Default for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHDSW_CALLBACKS {
     pub CreateDevice: PDXVAHDSW_CreateDevice,
     pub ProposeVideoPrivateFormat: PDXVAHDSW_ProposeVideoPrivateFormat,
@@ -8418,12 +7785,6 @@ pub struct DXVAHDSW_CALLBACKS {
     pub VideoProcessBltHD: PDXVAHDSW_VideoProcessBltHD,
     pub DestroyVideoProcessor: PDXVAHDSW_DestroyVideoProcessor,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVAHDSW_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_ALPHA_FILL_MODE(pub i32);
@@ -8436,15 +7797,10 @@ pub const DXVAHD_ALPHA_FILL_MODE_SOURCE_STREAM: DXVAHD_ALPHA_FILL_MODE = DXVAHD_
 pub struct DXVAHD_BLT_STATE(pub i32);
 pub const DXVAHD_BLT_STATE_ALPHA_FILL: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     pub Mode: DXVAHD_ALPHA_FILL_MODE,
     pub StreamNumber: u32,
-}
-impl Default for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_BLT_STATE_BACKGROUND_COLOR: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(1i32);
 #[repr(C)]
@@ -8460,15 +7816,10 @@ impl Default for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
 }
 pub const DXVAHD_BLT_STATE_CONSTRICTION: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     pub Enable: windows_core::BOOL,
     pub Size: super::super::Foundation::SIZE,
-}
-impl Default for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(2i32);
 #[repr(C)]
@@ -8493,14 +7844,9 @@ impl Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_BLT_STATE_PRIVATE: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(1000i32);
 #[repr(C)]
@@ -8517,15 +7863,10 @@ impl Default for DXVAHD_BLT_STATE_PRIVATE_DATA {
 }
 pub const DXVAHD_BLT_STATE_TARGET_RECT: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     pub Enable: windows_core::BOOL,
     pub TargetRect: super::super::Foundation::RECT,
-}
-impl Default for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8539,33 +7880,23 @@ impl Default for DXVAHD_COLOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_COLOR_RGBA {
     pub R: f32,
     pub G: f32,
     pub B: f32,
     pub A: f32,
 }
-impl Default for DXVAHD_COLOR_RGBA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_COLOR_YCbCrA {
     pub Y: f32,
     pub Cb: f32,
     pub Cr: f32,
     pub A: f32,
 }
-impl Default for DXVAHD_COLOR_YCbCrA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_CONTENT_DESC {
     pub InputFrameFormat: DXVAHD_FRAME_FORMAT,
     pub InputFrameRate: DXVAHD_RATIONAL,
@@ -8575,23 +7906,13 @@ pub struct DXVAHD_CONTENT_DESC {
     pub OutputWidth: u32,
     pub OutputHeight: u32,
 }
-impl Default for DXVAHD_CONTENT_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_CUSTOM_RATE_DATA {
     pub CustomRate: DXVAHD_RATIONAL,
     pub OutputFrames: u32,
     pub InputInterlaced: windows_core::BOOL,
     pub InputFramesOrFields: u32,
-}
-impl Default for DXVAHD_CUSTOM_RATE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8640,17 +7961,12 @@ pub const DXVAHD_FILTER_EDGE_ENHANCEMENT: DXVAHD_FILTER = DXVAHD_FILTER(5i32);
 pub const DXVAHD_FILTER_HUE: DXVAHD_FILTER = DXVAHD_FILTER(2i32);
 pub const DXVAHD_FILTER_NOISE_REDUCTION: DXVAHD_FILTER = DXVAHD_FILTER(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_FILTER_RANGE_DATA {
     pub Minimum: i32,
     pub Maximum: i32,
     pub Default: i32,
     pub Multiplier: f32,
-}
-impl Default for DXVAHD_FILTER_RANGE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_FILTER_SATURATION: DXVAHD_FILTER = DXVAHD_FILTER(3i32);
 #[repr(transparent)]
@@ -8695,15 +8011,10 @@ pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_MOTION_COMPENSATION: DXVAHD_PROCESSO
 pub const DXVAHD_PROCESSOR_CAPS_FRAME_RATE_CONVERSION: DXVAHD_PROCESSOR_CAPS = DXVAHD_PROCESSOR_CAPS(32i32);
 pub const DXVAHD_PROCESSOR_CAPS_INVERSE_TELECINE: DXVAHD_PROCESSOR_CAPS = DXVAHD_PROCESSOR_CAPS(16i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
-}
-impl Default for DXVAHD_RATIONAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -8729,67 +8040,41 @@ impl Default for DXVAHD_STREAM_DATA {
 pub struct DXVAHD_STREAM_STATE(pub i32);
 pub const DXVAHD_STREAM_STATE_ALPHA: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(6i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_ALPHA_DATA {
     pub Enable: windows_core::BOOL,
     pub Alpha: f32,
 }
-impl Default for DXVAHD_STREAM_STATE_ALPHA_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVAHD_STREAM_STATE_ASPECT_RATIO: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(9i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     pub Enable: windows_core::BOOL,
     pub SourceAspectRatio: DXVAHD_RATIONAL,
     pub DestinationAspectRatio: DXVAHD_RATIONAL,
 }
-impl Default for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVAHD_STREAM_STATE_D3DFORMAT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVAHD_STREAM_STATE_DESTINATION_RECT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(5i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     pub Enable: windows_core::BOOL,
     pub DestinationRect: super::super::Foundation::RECT,
-}
-impl Default for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_STREAM_STATE_FILTER_ANAMORPHIC_SCALING: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(106i32);
 pub const DXVAHD_STREAM_STATE_FILTER_BRIGHTNESS: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(100i32);
 pub const DXVAHD_STREAM_STATE_FILTER_CONTRAST: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(101i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_FILTER_DATA {
     pub Enable: windows_core::BOOL,
     pub Level: i32,
-}
-impl Default for DXVAHD_STREAM_STATE_FILTER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_STREAM_STATE_FILTER_EDGE_ENHANCEMENT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(105i32);
 pub const DXVAHD_STREAM_STATE_FILTER_HUE: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(102i32);
@@ -8797,14 +8082,9 @@ pub const DXVAHD_STREAM_STATE_FILTER_NOISE_REDUCTION: DXVAHD_STREAM_STATE = DXVA
 pub const DXVAHD_STREAM_STATE_FILTER_SATURATION: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(103i32);
 pub const DXVAHD_STREAM_STATE_FRAME_FORMAT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     pub FrameFormat: DXVAHD_FRAME_FORMAT,
-}
-impl Default for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(2i32);
 #[repr(C)]
@@ -8829,40 +8109,25 @@ impl Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
 }
-impl Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVAHD_STREAM_STATE_LUMA_KEY: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     pub Enable: windows_core::BOOL,
     pub Lower: f32,
     pub Upper: f32,
 }
-impl Default for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVAHD_STREAM_STATE_OUTPUT_RATE: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     pub RepeatFrame: windows_core::BOOL,
     pub OutputRate: DXVAHD_OUTPUT_RATE,
     pub CustomRate: DXVAHD_RATIONAL,
-}
-impl Default for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVAHD_STREAM_STATE_PALETTE: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(7i32);
 #[repr(C)]
@@ -8891,29 +8156,19 @@ impl Default for DXVAHD_STREAM_STATE_PRIVATE_DATA {
 }
 pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: windows_core::GUID = windows_core::GUID::from_u128(0x9c601e3c_0f33_414c_a739_99540ee42da5);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     pub Enable: windows_core::BOOL,
     pub ITelecineFlags: u32,
     pub Frames: u32,
     pub InputField: u32,
 }
-impl Default for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DXVAHD_STREAM_STATE_SOURCE_RECT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     pub Enable: windows_core::BOOL,
     pub SourceRect: super::super::Foundation::RECT,
-}
-impl Default for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8922,7 +8177,7 @@ pub const DXVAHD_SURFACE_TYPE_VIDEO_INPUT: DXVAHD_SURFACE_TYPE = DXVAHD_SURFACE_
 pub const DXVAHD_SURFACE_TYPE_VIDEO_INPUT_PRIVATE: DXVAHD_SURFACE_TYPE = DXVAHD_SURFACE_TYPE(1i32);
 pub const DXVAHD_SURFACE_TYPE_VIDEO_OUTPUT: DXVAHD_SURFACE_TYPE = DXVAHD_SURFACE_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_VPCAPS {
     pub VPGuid: windows_core::GUID,
     pub PastFrames: u32,
@@ -8931,14 +8186,9 @@ pub struct DXVAHD_VPCAPS {
     pub ITelecineCaps: u32,
     pub CustomRateCount: u32,
 }
-impl Default for DXVAHD_VPCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAHD_VPDEVCAPS {
     pub DeviceType: DXVAHD_DEVICE_TYPE,
     pub DeviceCaps: u32,
@@ -8952,41 +8202,24 @@ pub struct DXVAHD_VPDEVCAPS {
     pub MaxInputStreams: u32,
     pub MaxStreamStates: u32,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVAHD_VPDEVCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVAUncompDataInfo {
     pub UncompWidth: u32,
     pub UncompHeight: u32,
     pub UncompFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVAUncompDataInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_AYUVsample2 {
     pub bCrValue: u8,
     pub bCbValue: u8,
     pub bY_Value: u8,
     pub bSampleAlpha8: u8,
 }
-impl Default for DXVA_AYUVsample2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DXVA_BufferDescription {
     pub dwTypeIndex: u32,
     pub dwBufferIndex: u32,
@@ -8998,11 +8231,6 @@ pub struct DXVA_BufferDescription {
     pub dwHeight: u32,
     pub dwStride: u32,
     pub dwReservedBits: u32,
-}
-impl Default for DXVA_BufferDescription {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9137,7 +8365,7 @@ impl Default for DXVA_DeinterlaceBltEx32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_DeinterlaceCaps {
     pub Size: u32,
     pub NumPreviousOutputFrames: u32,
@@ -9147,12 +8375,6 @@ pub struct DXVA_DeinterlaceCaps {
     pub d3dOutputFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
     pub VideoProcessingCaps: DXVA_VideoProcessCaps,
     pub DeinterlaceTechnology: DXVA_DeinterlaceTech,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVA_DeinterlaceCaps {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9168,17 +8390,11 @@ impl Default for DXVA_DeinterlaceQueryAvailableModes {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_DeinterlaceQueryModeCaps {
     pub Size: u32,
     pub Guid: windows_core::GUID,
     pub VideoDesc: DXVA_VideoDesc,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVA_DeinterlaceQueryModeCaps {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9201,25 +8417,15 @@ pub const DXVA_DestinationFlag_TargetRect_Changed: DXVA_DestinationFlags = DXVA_
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_DestinationFlags(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_ExtendedFormat {
     pub _bitfield: u32,
 }
-impl Default for DXVA_ExtendedFormat {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
-}
-impl Default for DXVA_Frequency {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9233,7 +8439,7 @@ pub const DXVA_NominalRange_Normal: DXVA_NominalRange = DXVA_NominalRange(1i32);
 pub const DXVA_NominalRange_Unknown: DXVA_NominalRange = DXVA_NominalRange(0i32);
 pub const DXVA_NominalRange_Wide: DXVA_NominalRange = DXVA_NominalRange(2i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DXVA_PictureParameters {
     pub wDecodedPictureIndex: u16,
     pub wDeblockedPictureIndex: u16,
@@ -9272,13 +8478,8 @@ pub struct DXVA_PictureParameters {
     pub bBitstreamConcealmentNeed: u8,
     pub bBitstreamConcealmentMethod: u8,
 }
-impl Default for DXVA_PictureParameters {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_ProcAmpControlBlt {
     pub Size: u32,
     pub DstRect: super::super::Foundation::RECT,
@@ -9289,14 +8490,9 @@ pub struct DXVA_ProcAmpControlBlt {
     pub Hue: f32,
     pub Saturation: f32,
 }
-impl Default for DXVA_ProcAmpControlBlt {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_ProcAmpControlCaps {
     pub Size: u32,
     pub InputPool: u32,
@@ -9304,28 +8500,16 @@ pub struct DXVA_ProcAmpControlCaps {
     pub ProcAmpControlProps: u32,
     pub VideoProcessingCaps: u32,
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVA_ProcAmpControlCaps {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_ProcAmpControlProp(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_ProcAmpControlQueryRange {
     pub Size: u32,
     pub ProcAmpControlProp: DXVA_ProcAmpControlProp,
     pub VideoDesc: DXVA_VideoDesc,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVA_ProcAmpControlQueryRange {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DXVA_ProcAmp_Brightness: DXVA_ProcAmpControlProp = DXVA_ProcAmpControlProp(1i32);
 pub const DXVA_ProcAmp_Contrast: DXVA_ProcAmpControlProp = DXVA_ProcAmpControlProp(2i32);
@@ -9368,7 +8552,7 @@ pub const DXVA_VideoChromaSubsampling_Vertically_AlignedChromaPlanes: DXVA_Video
 pub const DXVA_VideoChromaSubsampling_Vertically_Cosited: DXVA_VideoChromaSubsampling = DXVA_VideoChromaSubsampling(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_VideoDesc {
     pub Size: u32,
     pub SampleWidth: u32,
@@ -9377,12 +8561,6 @@ pub struct DXVA_VideoDesc {
     pub d3dFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
     pub InputSampleFreq: DXVA_Frequency,
     pub OutputFrameFreq: DXVA_Frequency,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for DXVA_VideoDesc {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9422,17 +8600,12 @@ pub const DXVA_VideoProcess_SubStreamsExtended: DXVA_VideoProcessCaps = DXVA_Vid
 pub const DXVA_VideoProcess_YUV2RGB: DXVA_VideoProcessCaps = DXVA_VideoProcessCaps(1i32);
 pub const DXVA_VideoProcess_YUV2RGBExtended: DXVA_VideoProcessCaps = DXVA_VideoProcessCaps(128i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXVA_VideoPropertyRange {
     pub MinValue: f32,
     pub MaxValue: f32,
     pub DefaultValue: f32,
     pub StepSize: f32,
-}
-impl Default for DXVA_VideoPropertyRange {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -9542,16 +8715,11 @@ pub const DeviceStreamState_Pause: DeviceStreamState = DeviceStreamState(1i32);
 pub const DeviceStreamState_Run: DeviceStreamState = DeviceStreamState(2i32);
 pub const DeviceStreamState_Stop: DeviceStreamState = DeviceStreamState(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DigitalWindowSetting {
     pub OriginX: f64,
     pub OriginY: f64,
     pub WindowSize: f64,
-}
-impl Default for DigitalWindowSetting {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DistanceToFocalPlane: MFDepthMeasurement = MFDepthMeasurement(0i32);
 pub const DistanceToOpticalCenter: MFDepthMeasurement = MFDepthMeasurement(1i32);
@@ -9608,6 +8776,7 @@ impl IAdvancedMediaCapture {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvancedMediaCapture_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAdvancedMediaCaptureSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9650,6 +8819,7 @@ impl IAdvancedMediaCaptureInitializationSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvancedMediaCaptureInitializationSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDirectxDeviceManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9683,6 +8853,7 @@ impl IAdvancedMediaCaptureSettings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAdvancedMediaCaptureSettings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDirectxDeviceManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9719,6 +8890,7 @@ impl IAudioSourceProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSourceProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProvideInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut f32) -> windows_core::HRESULT,
@@ -9758,6 +8930,7 @@ impl IClusterDetector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClusterDetector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
@@ -9868,6 +9041,7 @@ impl ICodecAPI {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodecAPI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -10142,6 +9316,7 @@ impl ID3D12VideoDecodeCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10317,6 +9492,7 @@ impl ID3D12VideoDecodeCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList1_Vtbl {
     pub base__: ID3D12VideoDecodeCommandList_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10383,6 +9559,7 @@ impl ID3D12VideoDecodeCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList2_Vtbl {
     pub base__: ID3D12VideoDecodeCommandList1_Vtbl,
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -10452,6 +9629,7 @@ impl ID3D12VideoDecodeCommandList3 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecodeCommandList3_Vtbl {
     pub base__: ID3D12VideoDecodeCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
@@ -10504,6 +9682,7 @@ impl ID3D12VideoDecoder {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoder_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_DECODER_DESC),
@@ -10555,6 +9734,7 @@ impl ID3D12VideoDecoder1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoder1_Vtbl {
     pub base__: ID3D12VideoDecoder_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10608,6 +9788,7 @@ impl ID3D12VideoDecoderHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoderHeap_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10662,6 +9843,7 @@ impl ID3D12VideoDecoderHeap1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDecoderHeap1_Vtbl {
     pub base__: ID3D12VideoDecoderHeap_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10722,6 +9904,7 @@ impl ID3D12VideoDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_FEATURE_VIDEO, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -10814,6 +9997,7 @@ impl ID3D12VideoDevice1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice1_Vtbl {
     pub base__: ID3D12VideoDevice_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -10913,6 +10097,7 @@ impl ID3D12VideoDevice2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice2_Vtbl {
     pub base__: ID3D12VideoDevice1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11020,6 +10205,7 @@ impl ID3D12VideoDevice3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoDevice3_Vtbl {
     pub base__: ID3D12VideoDevice2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11151,6 +10337,7 @@ impl ID3D12VideoEncodeCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11346,6 +10533,7 @@ impl ID3D12VideoEncodeCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList1_Vtbl {
     pub base__: ID3D12VideoEncodeCommandList_Vtbl,
     pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
@@ -11415,6 +10603,7 @@ impl ID3D12VideoEncodeCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList2_Vtbl {
     pub base__: ID3D12VideoEncodeCommandList1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11481,6 +10670,7 @@ impl ID3D12VideoEncodeCommandList3 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncodeCommandList3_Vtbl {
     pub base__: ID3D12VideoEncodeCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
@@ -11548,6 +10738,7 @@ impl ID3D12VideoEncoder {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncoder_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -11674,6 +10865,7 @@ impl ID3D12VideoEncoderHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoEncoderHeap_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -11789,6 +10981,7 @@ impl ID3D12VideoExtensionCommand {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoExtensionCommand_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
@@ -11860,6 +11053,7 @@ impl ID3D12VideoMotionEstimator {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoMotionEstimator_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11934,6 +11128,7 @@ impl ID3D12VideoMotionVectorHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoMotionVectorHeap_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12058,6 +11253,7 @@ impl ID3D12VideoProcessCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12229,6 +11425,7 @@ impl ID3D12VideoProcessCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList1_Vtbl {
     pub base__: ID3D12VideoProcessCommandList_Vtbl,
     pub ProcessFrames1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, u32, *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1),
@@ -12292,6 +11489,7 @@ impl ID3D12VideoProcessCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList2_Vtbl {
     pub base__: ID3D12VideoProcessCommandList1_Vtbl,
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -12361,6 +11559,7 @@ impl ID3D12VideoProcessCommandList3 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessCommandList3_Vtbl {
     pub base__: ID3D12VideoProcessCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
@@ -12424,6 +11623,7 @@ impl ID3D12VideoProcessor {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessor_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -12511,6 +11711,7 @@ impl ID3D12VideoProcessor1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D12VideoProcessor1_Vtbl {
     pub base__: ID3D12VideoProcessor_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12579,6 +11780,7 @@ impl IDXVAHD_Device {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXVAHD_Device_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -12604,7 +11806,7 @@ pub struct IDXVAHD_Device_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDXVAHD_Device_Impl: windows_core::IUnknownImpl {
-    fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: windows_core::OutRef<'_, super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: *mut Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetVideoProcessorDeviceCaps(&self, pcaps: *mut DXVAHD_VPDEVCAPS) -> windows_core::Result<()>;
     fn GetVideoProcessorOutputFormats(&self, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> windows_core::Result<()>;
     fn GetVideoProcessorInputFormats(&self, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> windows_core::Result<()>;
@@ -12718,6 +11920,7 @@ impl IDXVAHD_VideoProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDXVAHD_VideoProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetVideoProcessBltState: unsafe extern "system" fn(*mut core::ffi::c_void, DXVAHD_BLT_STATE, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -12794,6 +11997,7 @@ impl IDirect3D9ExOverlayExtension {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3D9ExOverlayExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -12843,6 +12047,7 @@ impl IDirect3DAuthenticatedChannel9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DAuthenticatedChannel9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCertificateSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -12956,6 +12161,7 @@ impl IDirect3DCryptoSession9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DCryptoSession9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCertificateSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -13080,6 +12286,7 @@ impl IDirect3DDevice9Video {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DDevice9Video_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContentProtectionCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT,
@@ -13163,6 +12370,7 @@ impl IDirect3DDeviceManager9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirect3DDeviceManager9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -13266,6 +12474,7 @@ impl IDirectXVideoAccelerationService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoAccelerationService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -13328,6 +12537,7 @@ impl IDirectXVideoDecoder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoDecoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVideoDecoderService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13451,6 +12661,7 @@ impl IDirectXVideoDecoderService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoDecoderService_Vtbl {
     pub base__: IDirectXVideoAccelerationService_Vtbl,
     pub GetDecoderDeviceGuids: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -13535,6 +12746,7 @@ impl IDirectXVideoMemoryConfiguration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoMemoryConfiguration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableSurfaceTypeByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DXVA2_SurfaceType) -> windows_core::HRESULT,
@@ -13613,6 +12825,7 @@ impl IDirectXVideoProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVideoProcessorService: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13764,6 +12977,7 @@ impl IDirectXVideoProcessorService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectXVideoProcessorService_Vtbl {
     pub base__: IDirectXVideoAccelerationService_Vtbl,
     pub RegisterVideoProcessorSoftwareDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
@@ -13908,6 +13122,7 @@ impl IEVRFilterConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRFilterConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetNumberOfStreams: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -13968,6 +13183,7 @@ impl IEVRFilterConfigEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRFilterConfigEx_Vtbl {
     pub base__: IEVRFilterConfig_Vtbl,
     pub SetConfigPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -14031,6 +13247,7 @@ impl IEVRTrustedVideoPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRTrustedVideoPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsInTrustedVideoMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -14109,6 +13326,7 @@ impl IEVRVideoStreamControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEVRVideoStreamControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStreamActiveState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -14169,6 +13387,7 @@ impl IFileClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObjectDiskSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -14250,6 +13469,7 @@ impl IFileIo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFileIo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, FILE_ACCESSMODE, FILE_OPENMODE, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -14388,6 +13608,7 @@ impl IMF2DBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMF2DBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Lock2D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut i32) -> windows_core::HRESULT,
@@ -14499,6 +13720,7 @@ impl IMF2DBuffer2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMF2DBuffer2_Vtbl {
     pub base__: IMF2DBuffer_Vtbl,
     pub Lock2DSize: unsafe extern "system" fn(*mut core::ffi::c_void, MF2DBuffer_LockFlags, *mut *mut u8, *mut i32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -14583,6 +13805,7 @@ impl IMFASFContentInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFContentInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHeaderSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -14770,6 +13993,7 @@ impl IMFASFIndexer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFIndexer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -14980,6 +14204,7 @@ impl IMFASFMultiplexer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFMultiplexer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15133,6 +14358,7 @@ impl IMFASFMutualExclusion {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFMutualExclusion_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -15352,6 +14578,7 @@ impl IMFASFProfile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFProfile_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15613,6 +14840,7 @@ impl IMFASFSplitter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFSplitter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15778,6 +15006,7 @@ impl IMFASFStreamConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFStreamConfig_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -15937,6 +15166,7 @@ impl IMFASFStreamPrioritization {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFStreamPrioritization_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -16087,6 +15317,7 @@ impl IMFASFStreamSelector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFASFStreamSelector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -16313,6 +15544,7 @@ impl IMFActivate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFActivate_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub ActivateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16373,6 +15605,7 @@ impl IMFAsyncCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAsyncCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -16424,6 +15657,7 @@ impl IMFAsyncCallbackLogging {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAsyncCallbackLogging_Vtbl {
     pub base__: IMFAsyncCallback_Vtbl,
     pub GetObjectPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
@@ -16484,6 +15718,7 @@ impl IMFAsyncResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAsyncResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -16702,6 +15937,7 @@ impl IMFAttributes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAttributes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -17078,6 +16314,7 @@ impl IMFAudioMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAudioMediaType_Vtbl {
     pub base__: IMFMediaType_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
@@ -17144,6 +16381,7 @@ impl IMFAudioPolicy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAudioPolicy_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGroupingParam: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -17258,6 +16496,7 @@ impl IMFAudioStreamVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFAudioStreamVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -17342,6 +16581,7 @@ impl IMFBufferListNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFBufferListNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAddSourceBuffer: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -17464,6 +16704,7 @@ impl IMFByteStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -17677,6 +16918,7 @@ impl IMFByteStreamBuffering {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamBuffering_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBufferingParams: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFBYTESTREAM_BUFFERING_PARAMS) -> windows_core::HRESULT,
@@ -17728,6 +16970,7 @@ impl IMFByteStreamCacheControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamCacheControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StopBackgroundTransfer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17773,6 +17016,7 @@ impl IMFByteStreamCacheControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamCacheControl2_Vtbl {
     pub base__: IMFByteStreamCacheControl_Vtbl,
     pub GetByteRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> windows_core::HRESULT,
@@ -17856,6 +17100,7 @@ impl IMFByteStreamHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -17934,6 +17179,7 @@ impl IMFByteStreamProxyClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamProxyClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateByteStreamProxy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17973,6 +17219,7 @@ impl IMFByteStreamTimeSeek {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFByteStreamTimeSeek_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTimeSeekSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -18045,6 +17292,7 @@ impl IMFCameraConfigurationManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraConfigurationManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadDefaults: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18114,6 +17362,7 @@ impl IMFCameraControlDefaults {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlDefaults_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE,
@@ -18210,6 +17459,7 @@ impl IMFCameraControlDefaultsCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlDefaultsCollection_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetControlCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -18321,6 +17571,7 @@ impl IMFCameraControlMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18393,6 +17644,7 @@ impl IMFCameraControlNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraControlNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32),
@@ -18437,6 +17689,7 @@ impl IMFCameraOcclusionStateMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraOcclusionStateMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18491,6 +17744,7 @@ impl IMFCameraOcclusionStateReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraOcclusionStateReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOcclusionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -18530,6 +17784,7 @@ impl IMFCameraOcclusionStateReportCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraOcclusionStateReportCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnOcclusionStateReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18563,6 +17818,7 @@ impl IMFCameraSyncObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCameraSyncObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub WaitOnSignal: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -18638,6 +17894,7 @@ impl IMFCaptureEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18750,6 +18007,7 @@ impl IMFCaptureEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18783,6 +18041,7 @@ impl IMFCaptureEngineOnEventCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineOnEventCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18816,6 +18075,7 @@ impl IMFCaptureEngineOnSampleCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineOnSampleCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18855,6 +18115,7 @@ impl IMFCaptureEngineOnSampleCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub base__: IMFCaptureEngineOnSampleCallback_Vtbl,
     pub OnSynchronizedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18897,6 +18158,7 @@ impl IMFCapturePhotoConfirmation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCapturePhotoConfirmation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPhotoConfirmationCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18975,6 +18237,7 @@ impl IMFCapturePhotoSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCapturePhotoSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetOutputFileName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -19071,6 +18334,7 @@ impl IMFCapturePreviewSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCapturePreviewSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetRenderHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -19224,6 +18488,7 @@ impl IMFCaptureRecordSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureRecordSink_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetOutputByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -19324,6 +18589,7 @@ impl IMFCaptureSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19403,6 +18669,7 @@ impl IMFCaptureSink2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureSink2_Vtbl {
     pub base__: IMFCaptureSink_Vtbl,
     pub SetOutputMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19496,6 +18763,7 @@ impl IMFCaptureSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCaptureSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCaptureDeviceSource: unsafe extern "system" fn(*mut core::ffi::c_void, MF_CAPTURE_ENGINE_DEVICE_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19679,6 +18947,7 @@ impl IMFCdmSuspendNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCdmSuspendNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19738,6 +19007,7 @@ impl IMFClock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFClock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClockCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -19834,6 +19104,7 @@ impl IMFClockConsumer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFClockConsumer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPresentationClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -19894,6 +19165,7 @@ impl IMFClockStateSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFClockStateSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnClockStart: unsafe extern "system" fn(*mut core::ffi::c_void, i64, i64) -> windows_core::HRESULT,
@@ -19993,6 +19265,7 @@ impl IMFCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetElementCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -20126,6 +19399,7 @@ impl IMFContentDecryptionModule {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModule_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetContentEnabler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20251,6 +19525,7 @@ impl IMFContentDecryptionModuleAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -20343,6 +19618,7 @@ impl IMFContentDecryptionModuleFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::BOOL,
@@ -20433,6 +19709,7 @@ impl IMFContentDecryptionModuleSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -20553,6 +19830,7 @@ impl IMFContentDecryptionModuleSessionCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptionModuleSessionCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KeyMessage: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIAKEYSESSION_MESSAGETYPE, *const u8, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -20598,6 +19876,7 @@ impl IMFContentDecryptorContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentDecryptorContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeHardwareKey: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -20658,6 +19937,7 @@ impl IMFContentEnabler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentEnabler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEnableType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -20760,6 +20040,7 @@ impl IMFContentProtectionDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentProtectionDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InvokeFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, *mut u32, *mut u8) -> windows_core::HRESULT,
@@ -20814,6 +20095,7 @@ impl IMFContentProtectionManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFContentProtectionManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginEnableContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20859,6 +20141,7 @@ impl IMFD3D12SynchronizationObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFD3D12SynchronizationObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SignalEventOnFinalResourceRelease: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -20922,6 +20205,7 @@ impl IMFD3D12SynchronizationObjectCommands {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFD3D12SynchronizationObjectCommands_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -20997,6 +20281,7 @@ impl IMFDLNASinkInit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDLNASinkInit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -21030,6 +20315,7 @@ impl IMFDRMNetHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDRMNetHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ProcessLicenseRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21087,6 +20373,7 @@ impl IMFDXGIBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDXGIBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21177,6 +20464,7 @@ impl IMFDXGIDeviceManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDXGIDeviceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CloseDeviceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -21273,6 +20561,7 @@ impl IMFDXGIDeviceManagerSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDXGIDeviceManagerSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21315,6 +20604,7 @@ impl IMFDesiredSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDesiredSample_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDesiredSampleTimeAndDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64, *mut i64) -> windows_core::HRESULT,
@@ -21462,6 +20752,7 @@ impl IMFDeviceTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDeviceTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21717,6 +21008,7 @@ impl IMFDeviceTransformCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFDeviceTransformCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnBufferSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -21762,6 +21054,7 @@ impl IMFExtendedCameraControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -21843,6 +21136,7 @@ impl IMFExtendedCameraController {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraController_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetExtendedCameraControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -21888,6 +21182,7 @@ impl IMFExtendedCameraIntrinsicModel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsicModel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFExtendedCameraIntrinsic_IntrinsicModel) -> windows_core::HRESULT,
@@ -21972,6 +21267,7 @@ impl IMFExtendedCameraIntrinsics {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsics_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeFromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -22071,6 +21367,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDistortionModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFCameraIntrinsic_DistortionModel6KT) -> windows_core::HRESULT,
@@ -22116,6 +21413,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDistortionModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFCameraIntrinsic_DistortionModelArcTan) -> windows_core::HRESULT,
@@ -22161,6 +21459,7 @@ impl IMFExtendedDRMTypeSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFExtendedDRMTypeSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTypeSupportedEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut MF_MEDIA_ENGINE_CANPLAY) -> windows_core::HRESULT,
@@ -22200,6 +21499,7 @@ impl IMFFieldOfUseMFTUnlock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFFieldOfUseMFTUnlock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22246,6 +21546,7 @@ impl IMFFinalizableMediaSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFFinalizableMediaSink_Vtbl {
     pub base__: IMFMediaSink_Vtbl,
     pub BeginFinalize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22292,6 +21593,7 @@ impl IMFGetService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFGetService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetService: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22325,6 +21627,7 @@ impl IMFHDCPStatus {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHDCPStatus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Query: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_HDCP_STATUS, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -22456,6 +21759,7 @@ impl IMFHttpDownloadRequest {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHttpDownloadRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddHeader: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -22683,6 +21987,7 @@ impl IMFHttpDownloadSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHttpDownloadSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -22746,6 +22051,7 @@ impl IMFHttpDownloadSessionProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFHttpDownloadSessionProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateHttpDownloadSession: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22791,6 +22097,7 @@ impl IMFImageSharingEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFImageSharingEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22845,6 +22152,7 @@ impl IMFImageSharingEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFImageSharingEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstanceFromUDN: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22902,6 +22210,7 @@ impl IMFInputTrustAuthority {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFInputTrustAuthority_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDecrypter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22992,6 +22301,7 @@ impl IMFLocalMFTRegistration {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFLocalMFTRegistration_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterMFTs: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFT_REGISTRATION_INFO, u32) -> windows_core::HRESULT,
@@ -23040,6 +22350,7 @@ impl IMFMediaBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -23271,6 +22582,7 @@ impl IMFMediaEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngine_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23724,6 +23036,7 @@ impl IMFMediaEngineAudioEndpointId {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineAudioEndpointId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioEndpointId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -23790,6 +23103,7 @@ impl IMFMediaEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23862,6 +23176,7 @@ impl IMFMediaEngineClassFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateMediaKeys2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -23902,6 +23217,7 @@ impl IMFMediaEngineClassFactory3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -23947,6 +23263,7 @@ impl IMFMediaEngineClassFactory4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactory4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateContentDecryptionModuleFactory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24004,6 +23321,7 @@ impl IMFMediaEngineClassFactoryEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineClassFactoryEx_Vtbl {
     pub base__: IMFMediaEngineClassFactory_Vtbl,
     pub CreateMediaSourceExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24082,6 +23400,7 @@ impl IMFMediaEngineEME {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineEME_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Keys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24129,6 +23448,7 @@ impl IMFMediaEngineEMENotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineEMENotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Encrypted: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void),
@@ -24339,6 +23659,7 @@ impl IMFMediaEngineEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineEx_Vtbl {
     pub base__: IMFMediaEngine_Vtbl,
     pub SetSourceFromByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24818,6 +24139,7 @@ impl IMFMediaEngineExtension {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CanPlayType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void, *mut MF_MEDIA_ENGINE_CANPLAY) -> windows_core::HRESULT,
@@ -24890,6 +24212,7 @@ impl IMFMediaEngineNeedKeyNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineNeedKeyNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NeedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32),
@@ -24920,6 +24243,7 @@ impl IMFMediaEngineNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EventNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, u32) -> windows_core::HRESULT,
@@ -24950,6 +24274,7 @@ impl IMFMediaEngineOPMInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineOPMInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOPMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_MEDIA_ENGINE_OPM_STATUS, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -25010,6 +24335,7 @@ impl IMFMediaEngineProtectedContent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineProtectedContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShareResources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25124,6 +24450,7 @@ impl IMFMediaEngineSrcElements {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineSrcElements_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -25232,6 +24559,7 @@ impl IMFMediaEngineSrcElementsEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineSrcElementsEx_Vtbl {
     pub base__: IMFMediaEngineSrcElements_Vtbl,
     pub AddElementEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25294,6 +24622,7 @@ impl IMFMediaEngineSupportsSourceTransfer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineSupportsSourceTransfer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShouldTransferSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -25354,6 +24683,7 @@ impl IMFMediaEngineTransferSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineTransferSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransferSourceToMediaEngine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25393,6 +24723,7 @@ impl IMFMediaEngineWebSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEngineWebSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ShouldDelayTheLoadEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -25459,6 +24790,7 @@ impl IMFMediaError {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> u16,
@@ -25547,6 +24879,7 @@ impl IMFMediaEvent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEvent_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -25660,6 +24993,7 @@ impl IMFMediaEventGenerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEventGenerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25776,6 +25110,7 @@ impl IMFMediaEventQueue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaEventQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -25899,6 +25234,7 @@ impl IMFMediaKeySession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, *mut u32) -> windows_core::HRESULT,
@@ -26007,6 +25343,7 @@ impl IMFMediaKeySession2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySession2_Vtbl {
     pub base__: IMFMediaKeySession_Vtbl,
     pub get_KeyStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut MFMediaKeyStatus, *mut u32) -> windows_core::HRESULT,
@@ -26103,6 +25440,7 @@ impl IMFMediaKeySessionNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySessionNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KeyMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32),
@@ -26163,6 +25501,7 @@ impl IMFMediaKeySessionNotify2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySessionNotify2_Vtbl {
     pub base__: IMFMediaKeySessionNotify_Vtbl,
     pub KeyMessage2: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIAKEYSESSION_MESSAGETYPE, *mut core::ffi::c_void, *const u8, u32),
@@ -26225,6 +25564,7 @@ impl IMFMediaKeySystemAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeySystemAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -26324,6 +25664,7 @@ impl IMFMediaKeys {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeys_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26423,6 +25764,7 @@ impl IMFMediaKeys2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaKeys2_Vtbl {
     pub base__: IMFMediaKeys_Vtbl,
     pub CreateSession2: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIAKEYSESSION_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26532,6 +25874,7 @@ impl IMFMediaSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSession_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub SetTopology: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26676,6 +26019,7 @@ impl IMFMediaSharingEngine {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSharingEngine_Vtbl {
     pub base__: IMFMediaEngine_Vtbl,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEVICE_INFO) -> windows_core::HRESULT,
@@ -26712,6 +26056,7 @@ impl IMFMediaSharingEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSharingEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26796,6 +26141,7 @@ impl IMFMediaSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -26937,6 +26283,7 @@ impl IMFMediaSinkPreroll {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSinkPreroll_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyPreroll: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -26998,6 +26345,7 @@ impl IMFMediaSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSource_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -27103,6 +26451,7 @@ impl IMFMediaSource2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSource2_Vtbl {
     pub base__: IMFMediaSourceEx_Vtbl,
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27157,6 +26506,7 @@ impl IMFMediaSourceEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceEx_Vtbl {
     pub base__: IMFMediaSource_Vtbl,
     pub GetSourceAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27259,6 +26609,7 @@ impl IMFMediaSourceExtension {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceExtension_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSourceBuffers: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<IMFSourceBufferList>,
@@ -27382,6 +26733,7 @@ impl IMFMediaSourceExtensionLiveSeekableRange {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLiveSeekableRange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
@@ -27430,6 +26782,7 @@ impl IMFMediaSourceExtensionNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceExtensionNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSourceOpen: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -27484,6 +26837,7 @@ impl IMFMediaSourcePresentationProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourcePresentationProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ForceEndOfPresentation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27520,6 +26874,7 @@ impl IMFMediaSourceTopologyProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaSourceTopologyProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMediaSourceTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27577,6 +26932,7 @@ impl IMFMediaStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaStream_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub GetMediaSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27655,6 +27011,7 @@ impl IMFMediaStream2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaStream2_Vtbl {
     pub base__: IMFMediaStream_Vtbl,
     pub SetStreamState: unsafe extern "system" fn(*mut core::ffi::c_void, MF_STREAM_STATE) -> windows_core::HRESULT,
@@ -27709,6 +27066,7 @@ impl IMFMediaStreamSourceSampleRequest {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaStreamSourceSampleRequest_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27760,6 +27118,7 @@ impl IMFMediaTimeRange {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaTimeRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -27880,6 +27239,7 @@ impl IMFMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaType_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetMajorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -28003,6 +27363,7 @@ impl IMFMediaTypeHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMediaTypeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsMediaTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28151,6 +27512,7 @@ impl IMFMetadata {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMetadata_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -28283,6 +27645,7 @@ impl IMFMetadataProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMetadataProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMFMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28328,6 +27691,7 @@ impl IMFMuxStreamAttributesManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMuxStreamAttributesManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -28409,6 +27773,7 @@ impl IMFMuxStreamMediaTypeManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMuxStreamMediaTypeManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -28523,6 +27888,7 @@ impl IMFMuxStreamSampleManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFMuxStreamSampleManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -28601,6 +27967,7 @@ impl IMFNetCredential {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCredential_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetUser: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, windows_core::BOOL) -> windows_core::HRESULT,
@@ -28692,6 +28059,7 @@ impl IMFNetCredentialCache {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCredentialCache_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCredential: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -28762,6 +28130,7 @@ impl IMFNetCredentialManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCredentialManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginGetCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFNetCredentialManagerGetParam, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -28837,6 +28206,7 @@ impl IMFNetCrossOriginSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetCrossOriginSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCrossOriginPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_CROSS_ORIGIN_POLICY) -> windows_core::HRESULT,
@@ -28925,6 +28295,7 @@ impl IMFNetProxyLocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetProxyLocator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFirstProxy: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::BOOL) -> windows_core::HRESULT,
@@ -29006,6 +28377,7 @@ impl IMFNetProxyLocatorFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetProxyLocatorFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateProxyLocator: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29054,6 +28426,7 @@ impl IMFNetResourceFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetResourceFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnRedirect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -29114,6 +28487,7 @@ impl IMFNetSchemeHandlerConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFNetSchemeHandlerConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfSupportedProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -29183,6 +28557,7 @@ impl IMFObjectReferenceStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFObjectReferenceStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SaveReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29246,6 +28621,7 @@ impl IMFOutputPolicy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFOutputPolicy_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GenerateRequiredSchemas: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::GUID, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29339,6 +28715,7 @@ impl IMFOutputSchema {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFOutputSchema_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetSchemaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -29417,6 +28794,7 @@ impl IMFOutputTrustAuthority {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFOutputTrustAuthority_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MFPOLICYMANAGER_ACTION) -> windows_core::HRESULT,
@@ -29468,6 +28846,7 @@ impl IMFPMPClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29501,6 +28880,7 @@ impl IMFPMPClientApp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPClientApp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPMPHost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29543,6 +28923,7 @@ impl IMFPMPHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29613,6 +28994,7 @@ impl IMFPMPHostApp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPHostApp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29680,6 +29062,7 @@ impl IMFPMPServer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMPServer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LockProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -29830,6 +29213,7 @@ impl IMFPMediaItem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMediaItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMediaPlayer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30277,6 +29661,7 @@ impl IMFPMediaPlayer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMediaPlayer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Play: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30710,6 +30095,7 @@ impl IMFPMediaPlayerCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPMediaPlayerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -30773,6 +30159,7 @@ impl IMFPluginControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPluginControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPreferredClsid: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -30869,6 +30256,7 @@ impl IMFPluginControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPluginControl2_Vtbl {
     pub base__: IMFPluginControl_Vtbl,
     pub SetPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, MF_PLUGIN_CONTROL_POLICY) -> windows_core::HRESULT,
@@ -30941,6 +30329,7 @@ impl IMFPresentationClock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPresentationClock_Vtbl {
     pub base__: IMFClock_Vtbl,
     pub SetTimeSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31073,6 +30462,7 @@ impl IMFPresentationDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPresentationDescriptor_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamDescriptorCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -31166,6 +30556,7 @@ impl IMFPresentationTimeSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFPresentationTimeSource_Vtbl {
     pub base__: IMFClock_Vtbl,
     pub GetUnderlyingClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31205,6 +30596,7 @@ impl IMFProtectedEnvironmentAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFProtectedEnvironmentAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
@@ -31261,6 +30653,7 @@ impl IMFQualityAdvise {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityAdvise_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDropMode: unsafe extern "system" fn(*mut core::ffi::c_void, MF_QUALITY_DROP_MODE) -> windows_core::HRESULT,
@@ -31354,6 +30747,7 @@ impl IMFQualityAdvise2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityAdvise2_Vtbl {
     pub base__: IMFQualityAdvise_Vtbl,
     pub NotifyQualityEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -31399,6 +30793,7 @@ impl IMFQualityAdviseLimits {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityAdviseLimits_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMaximumDropMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_QUALITY_DROP_MODE) -> windows_core::HRESULT,
@@ -31486,6 +30881,7 @@ impl IMFQualityManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFQualityManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31567,6 +30963,7 @@ impl IMFRateControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRateControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, f32) -> windows_core::HRESULT,
@@ -31617,6 +31014,7 @@ impl IMFRateSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRateSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSlowestRate: unsafe extern "system" fn(*mut core::ffi::c_void, MFRATE_DIRECTION, windows_core::BOOL, *mut f32) -> windows_core::HRESULT,
@@ -31695,6 +31093,7 @@ impl IMFReadWriteClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFReadWriteClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstanceFromURL: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31746,6 +31145,7 @@ impl IMFRealTimeClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRealTimeClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterThreads: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -31806,6 +31206,7 @@ impl IMFRealTimeClientEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRealTimeClientEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterThreadsEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
@@ -31860,6 +31261,7 @@ impl IMFRelativePanelReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRelativePanelReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRelativePanel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -31921,6 +31323,7 @@ impl IMFRelativePanelWatcher {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRelativePanelWatcher_Vtbl {
     pub base__: IMFShutdown_Vtbl,
     pub BeginGetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -31987,6 +31390,7 @@ impl IMFRemoteAsyncCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRemoteAsyncCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32020,6 +31424,7 @@ impl IMFRemoteDesktopPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRemoteDesktopPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UpdateTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32053,6 +31458,7 @@ impl IMFRemoteProxy {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFRemoteProxy_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRemoteObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32117,6 +31523,7 @@ impl IMFSAMIStyle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSAMIStyle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStyleCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -32233,6 +31640,7 @@ impl IMFSSLCertificateManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSSLCertificateManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -32380,6 +31788,7 @@ impl IMFSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSample_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetSampleFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -32581,6 +31990,7 @@ impl IMFSampleAllocatorControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleAllocatorControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDefaultAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32638,6 +32048,7 @@ impl IMFSampleGrabberSinkCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleGrabberSinkCallback_Vtbl {
     pub base__: IMFClockStateSink_Vtbl,
     pub OnSetPresentationClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32698,6 +32109,7 @@ impl IMFSampleGrabberSinkCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleGrabberSinkCallback2_Vtbl {
     pub base__: IMFSampleGrabberSinkCallback_Vtbl,
     pub OnProcessSampleEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, i64, i64, *const u8, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32742,6 +32154,7 @@ impl IMFSampleOutputStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleOutputStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginWriteSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32811,6 +32224,7 @@ impl IMFSampleProtection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSampleProtection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputProtectionVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -32912,6 +32326,7 @@ impl IMFSaveJob {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSaveJob_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginSave: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32997,6 +32412,7 @@ impl IMFSchemeHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSchemeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -33057,6 +32473,7 @@ impl IMFSecureBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSecureBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -33096,6 +32513,7 @@ impl IMFSecureChannel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSecureChannel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -33139,6 +32557,7 @@ impl IMFSeekInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSeekInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -33193,6 +32612,7 @@ impl IMFSensorActivitiesReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivitiesReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -33265,6 +32685,7 @@ impl IMFSensorActivitiesReportCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivitiesReportCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnActivitiesReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33298,6 +32719,7 @@ impl IMFSensorActivityMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivityMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33351,6 +32773,7 @@ impl IMFSensorActivityReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorActivityReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -33468,6 +32891,7 @@ impl IMFSensorDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -33654,6 +33078,7 @@ impl IMFSensorGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolicLink: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32, *mut i32) -> windows_core::HRESULT,
@@ -33807,6 +33232,7 @@ impl IMFSensorProcessActivity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorProcessActivity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -33912,6 +33338,7 @@ impl IMFSensorProfile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorProfile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProfileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SENSORPROFILEID) -> windows_core::HRESULT,
@@ -34002,6 +33429,7 @@ impl IMFSensorProfileCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorProfileCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProfileCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -34113,6 +33541,7 @@ impl IMFSensorStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorStream_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetMediaTypeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34213,6 +33642,7 @@ impl IMFSensorTransformFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSensorTransformFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFactoryAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34324,6 +33754,7 @@ impl IMFSequencerSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSequencerSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AppendTopology: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -34405,6 +33836,7 @@ impl IMFSharingEngineClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSharingEngineClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34447,6 +33879,7 @@ impl IMFShutdown {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFShutdown_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34498,6 +33931,7 @@ impl IMFSignedLibrary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSignedLibrary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetProcedureAddress: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34543,6 +33977,7 @@ impl IMFSimpleAudioVolume {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSimpleAudioVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMasterVolume: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
@@ -34658,6 +34093,7 @@ impl IMFSinkWriter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34790,6 +34226,7 @@ impl IMFSinkWriterCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnFinalize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -34841,6 +34278,7 @@ impl IMFSinkWriterCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterCallback2_Vtbl {
     pub base__: IMFSinkWriterCallback_Vtbl,
     pub OnTransformChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34893,6 +34331,7 @@ impl IMFSinkWriterEncoderConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterEncoderConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTargetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34941,6 +34380,7 @@ impl IMFSinkWriterEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSinkWriterEx_Vtbl {
     pub base__: IMFSinkWriter_Vtbl,
     pub GetTransformForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35010,6 +34450,7 @@ impl IMFSourceBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUpdating: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
@@ -35151,6 +34592,7 @@ impl IMFSourceBufferAppendMode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBufferAppendMode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAppendMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> MF_MSE_APPEND_MODE,
@@ -35196,6 +34638,7 @@ impl IMFSourceBufferList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBufferList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -35250,6 +34693,7 @@ impl IMFSourceBufferNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceBufferNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUpdateStart: unsafe extern "system" fn(*mut core::ffi::c_void),
@@ -35322,6 +34766,7 @@ impl IMFSourceOpenMonitor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceOpenMonitor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSourceEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35396,6 +34841,7 @@ impl IMFSourceReader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -35555,6 +35001,7 @@ impl IMFSourceReaderCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReaderCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnReadSample: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, u32, i64, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35615,6 +35062,7 @@ impl IMFSourceReaderCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReaderCallback2_Vtbl {
     pub base__: IMFSourceReaderCallback_Vtbl,
     pub OnTransformChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35681,6 +35129,7 @@ impl IMFSourceReaderEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceReaderEx_Vtbl {
     pub base__: IMFSourceReader_Vtbl,
     pub SetNativeMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -35803,6 +35252,7 @@ impl IMFSourceResolver {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSourceResolver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -35935,6 +35385,7 @@ impl IMFSpatialAudioObjectBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSpatialAudioObjectBuffer_Vtbl {
     pub base__: IMFMediaBuffer_Vtbl,
     pub SetID: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -36055,6 +35506,7 @@ impl IMFSpatialAudioSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSpatialAudioSample_Vtbl {
     pub base__: IMFSample_Vtbl,
     pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -36136,6 +35588,7 @@ impl IMFStreamDescriptor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFStreamDescriptor_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetStreamIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -36227,6 +35680,7 @@ impl IMFStreamSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFStreamSink_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub GetMediaSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36329,6 +35783,7 @@ impl IMFStreamingSinkConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFStreamingSinkConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartStreaming: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u64) -> windows_core::HRESULT,
@@ -36362,6 +35817,7 @@ impl IMFSystemId {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFSystemId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
@@ -36431,6 +35887,7 @@ impl IMFTimecodeTranslate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimecodeTranslate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -36595,6 +36052,7 @@ impl IMFTimedText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedText_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36793,6 +36251,7 @@ impl IMFTimedTextBinary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextBinary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -36838,6 +36297,7 @@ impl IMFTimedTextBouten {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextBouten_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBoutenType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MF_TIMED_TEXT_BOUTEN_TYPE) -> windows_core::HRESULT,
@@ -36952,6 +36412,7 @@ impl IMFTimedTextCue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextCue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -37141,6 +36602,7 @@ impl IMFTimedTextCueList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextCueList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -37255,6 +36717,7 @@ impl IMFTimedTextFormattedText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextFormattedText_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -37333,6 +36796,7 @@ impl IMFTimedTextNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TrackAdded: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
@@ -37477,6 +36941,7 @@ impl IMFTimedTextRegion {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextRegion_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -37678,6 +37143,7 @@ impl IMFTimedTextRuby {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextRuby_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRubyText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -37828,6 +37294,7 @@ impl IMFTimedTextStyle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextStyle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -38050,6 +37517,7 @@ impl IMFTimedTextStyle2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextStyle2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRuby: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38188,6 +37656,7 @@ impl IMFTimedTextTrack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextTrack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -38371,6 +37840,7 @@ impl IMFTimedTextTrackList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimedTextTrackList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -38447,6 +37917,7 @@ impl IMFTimer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTimer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i64, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38499,6 +37970,7 @@ impl IMFTopoLoader {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopoLoader_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38589,6 +38061,7 @@ impl IMFTopology {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopology_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub GetTopologyID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -38829,6 +38302,7 @@ impl IMFTopologyNode {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyNode_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub SetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39042,6 +38516,7 @@ impl IMFTopologyNodeAttributeEditor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyNodeAttributeEditor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UpdateNodeAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const MFTOPONODE_ATTRIBUTE_UPDATE) -> windows_core::HRESULT,
@@ -39072,6 +38547,7 @@ impl IMFTopologyServiceLookup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyServiceLookup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LookupService: unsafe extern "system" fn(*mut core::ffi::c_void, MF_SERVICE_LOOKUP_TYPE, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39108,6 +38584,7 @@ impl IMFTopologyServiceLookupClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTopologyServiceLookupClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitServicePointers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39154,6 +38631,7 @@ impl IMFTrackedSample {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTrackedSample_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39217,6 +38695,7 @@ impl IMFTranscodeProfile {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTranscodeProfile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAudioAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39334,6 +38813,7 @@ impl IMFTranscodeSinkInfoProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTranscodeSinkInfoProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetOutputFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -39508,6 +38988,7 @@ impl IMFTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTransform_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamLimits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -39802,6 +39283,7 @@ impl IMFTrustedInput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTrustedInput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputTrustAuthority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39853,6 +39335,7 @@ impl IMFTrustedOutput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFTrustedOutput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOutputTrustAuthorityCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39932,6 +39415,7 @@ impl IMFVideoCaptureSampleAllocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoCaptureSampleAllocator_Vtbl {
     pub base__: IMFVideoSampleAllocator_Vtbl,
     pub InitializeCaptureSampleAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -39968,6 +39452,7 @@ impl IMFVideoDeviceID {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoDeviceID_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeviceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -40065,6 +39550,7 @@ impl IMFVideoDisplayControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoDisplayControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNativeVideoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
@@ -40278,6 +39764,7 @@ impl IMFVideoMediaType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMediaType_Vtbl {
     pub base__: IMFMediaType_Vtbl,
     pub GetVideoFormat: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut MFVIDEOFORMAT,
@@ -40333,6 +39820,7 @@ impl IMFVideoMixerBitmap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMixerBitmap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
@@ -40414,6 +39902,7 @@ impl IMFVideoMixerControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMixerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetStreamZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -40498,6 +39987,7 @@ impl IMFVideoMixerControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoMixerControl2_Vtbl {
     pub base__: IMFVideoMixerControl_Vtbl,
     pub SetMixingPrefs: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -40546,6 +40036,7 @@ impl IMFVideoPositionMapper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoPositionMapper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MapOutputCoordinateToInputStream: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, u32, u32, *mut f32, *mut f32) -> windows_core::HRESULT,
@@ -40591,6 +40082,7 @@ impl IMFVideoPresenter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoPresenter_Vtbl {
     pub base__: IMFClockStateSink_Vtbl,
     pub ProcessMessage: unsafe extern "system" fn(*mut core::ffi::c_void, MFVP_MESSAGE_TYPE, usize) -> windows_core::HRESULT,
@@ -40691,6 +40183,7 @@ impl IMFVideoProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableVideoProcessorModes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -40880,6 +40373,7 @@ impl IMFVideoProcessorControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessorControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFARGB) -> windows_core::HRESULT,
@@ -40973,6 +40467,7 @@ impl IMFVideoProcessorControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessorControl2_Vtbl {
     pub base__: IMFVideoProcessorControl_Vtbl,
     pub SetRotationOverride: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -41051,6 +40546,7 @@ impl IMFVideoProcessorControl3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoProcessorControl3_Vtbl {
     pub base__: IMFVideoProcessorControl2_Vtbl,
     pub GetNaturalOutputType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41121,6 +40617,7 @@ impl IMFVideoRenderer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41154,6 +40651,7 @@ impl IMFVideoRendererEffectControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoRendererEffectControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnAppServiceConnectionEstablished: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41205,6 +40703,7 @@ impl IMFVideoSampleAllocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDirectXManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41280,6 +40779,7 @@ impl IMFVideoSampleAllocatorCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41338,6 +40838,7 @@ impl IMFVideoSampleAllocatorEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorEx_Vtbl {
     pub base__: IMFVideoSampleAllocator_Vtbl,
     pub InitializeSampleAllocatorEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41368,6 +40869,7 @@ impl IMFVideoSampleAllocatorNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyRelease: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41407,6 +40909,7 @@ impl IMFVideoSampleAllocatorNotifyEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVideoSampleAllocatorNotifyEx_Vtbl {
     pub base__: IMFVideoSampleAllocatorNotify_Vtbl,
     pub NotifyPrune: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41493,6 +40996,7 @@ impl IMFVirtualCamera {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFVirtualCamera_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub AddDeviceSourceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -41711,6 +41215,7 @@ impl IMFWorkQueueServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFWorkQueueServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginRegisterTopologyWorkQueuesWithMMCSS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -41884,6 +41389,7 @@ impl IMFWorkQueueServicesEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMFWorkQueueServicesEx_Vtbl {
     pub base__: IMFWorkQueueServices_Vtbl,
     pub GetTopologyWorkQueueMMCSSPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
@@ -41959,6 +41465,7 @@ impl IOPMVideoOutput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOPMVideoOutput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartInitialization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPM_RANDOM_NUMBER, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -42034,6 +41541,7 @@ impl IPlayToControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -42081,6 +41589,7 @@ impl IPlayToControlWithCapabilities {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToControlWithCapabilities_Vtbl {
     pub base__: IPlayToControl_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PLAYTO_SOURCE_CREATEFLAGS) -> windows_core::HRESULT,
@@ -42123,6 +41632,7 @@ impl IPlayToSourceClassFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlayToSourceClassFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -42201,6 +41711,7 @@ impl IToc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IToc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TOC_DESCRIPTOR) -> windows_core::HRESULT,
@@ -42351,6 +41862,7 @@ impl ITocCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -42450,6 +41962,7 @@ impl ITocEntry {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocEntry_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -42567,6 +42080,7 @@ impl ITocEntryList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocEntryList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -42675,6 +42189,7 @@ impl ITocParser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITocParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -42783,6 +42298,7 @@ impl IValidateBinding {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IValidateBinding_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -42822,6 +42338,7 @@ impl IWMCodecLeakyBucket {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecLeakyBucket_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetBufferSizeBits: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -42882,6 +42399,7 @@ impl IWMCodecOutputTimestamp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -42916,6 +42434,7 @@ impl IWMCodecPrivateData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecPrivateData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
@@ -42974,6 +42493,7 @@ impl IWMCodecProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
@@ -43027,6 +42547,7 @@ impl IWMCodecStrings {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMCodecStrings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
@@ -43081,6 +42602,7 @@ impl IWMColorConvProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMColorConvProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -43123,6 +42645,7 @@ impl IWMColorLegalizerProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMColorLegalizerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetColorLegalizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -43162,6 +42685,7 @@ impl IWMFrameInterpProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMFrameInterpProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFrameRateIn: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -43228,6 +42752,7 @@ impl IWMInterlaceProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMInterlaceProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetProcessType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -43282,6 +42807,7 @@ impl IWMResamplerProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMResamplerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHalfFilterLength: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -43336,6 +42862,7 @@ impl IWMResizerProps {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMResizerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetResizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -43405,6 +42932,7 @@ impl IWMSampleExtensionSupport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMSampleExtensionSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetUseSampleExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -43435,6 +42963,7 @@ impl IWMValidate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMValidate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -43468,6 +42997,7 @@ impl IWMVideoDecoderHurryup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMVideoDecoderHurryup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHurryup: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -43524,6 +43054,7 @@ impl IWMVideoDecoderReconBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMVideoDecoderReconBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetReconstructedVideoFrameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -43584,6 +43115,7 @@ impl IWMVideoForceKeyFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWMVideoForceKeyFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -43618,17 +43150,12 @@ pub const LOCAL_D3DFMT_DEFINES: u32 = 1u32;
 pub const LOOK_DOWNSTREAM_ONLY: windows_core::GUID = windows_core::GUID::from_u128(0xac798be1_98e3_11d1_b3f1_00aa003761c5);
 pub const LOOK_UPSTREAM_ONLY: windows_core::GUID = windows_core::GUID::from_u128(0xac798be0_98e3_11d1_b3f1_00aa003761c5);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MACROBLOCK_DATA {
     pub flags: u32,
     pub motionVectorX: i16,
     pub motionVectorY: i16,
     pub QPDelta: i32,
-}
-impl Default for MACROBLOCK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MACROBLOCK_FLAG_DIRTY: u32 = 2u32;
 pub const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: u32 = 16u32;
@@ -43980,17 +43507,12 @@ pub const MF3DVideoOutputType_Stereo: MF3DVideoOutputType = MF3DVideoOutputType(
 pub const MFAMRNBByteStreamHandler: windows_core::GUID = windows_core::GUID::from_u128(0xefe6208a_0a2c_49fa_8a01_3768b559b6da);
 pub const MFAMRNBSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0xb0271158_70d2_4c5b_9f94_76f549d90fdf);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFARGB {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
     pub rgbRed: u8,
     pub rgbAlpha: u8,
-}
-impl Default for MFARGB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN: u64 = 18446744073709551615u64;
 pub const MFASFINDEXER_NO_FIXED_INTERVAL: u32 = 4294967295u32;
@@ -44044,6 +43566,7 @@ impl core::ops::Deref for MFASYNCRESULT {
 }
 windows_core::imp::interface_hierarchy!(MFASYNCRESULT, windows_core::IUnknown, IMFAsyncResult);
 #[repr(C)]
+#[doc(hidden)]
 pub struct MFASYNCRESULT_Vtbl {
     pub base__: IMFAsyncResult_Vtbl,
 }
@@ -44075,31 +43598,21 @@ pub const MFASYNC_SIGNAL_CALLBACK: u32 = 2u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFASYNC_WORKQUEUE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFAYUVSample {
     pub bCrValue: u8,
     pub bCbValue: u8,
     pub bYValue: u8,
     pub bSampleAlpha8: u8,
 }
-impl Default for MFAYUVSample {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFAudioConstriction(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFAudioDecoderDegradationInfo {
     pub eDegradationReason: MFT_AUDIO_DECODER_DEGRADATION_REASON,
     pub eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
-}
-impl Default for MFAudioDecoderDegradationInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFAudioFormat_AAC: windows_core::GUID = windows_core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_AAC_HDCP: windows_core::GUID = windows_core::GUID::from_u128(0x419bce76_8b72_400f_adeb_84b57d63484d);
@@ -44187,7 +43700,7 @@ pub const MFCLOCK_JITTER_DPC: u32 = 4000u32;
 pub const MFCLOCK_JITTER_ISR: u32 = 1000u32;
 pub const MFCLOCK_JITTER_PASSIVE: u32 = 10000u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFCLOCK_PROPERTIES {
     pub qwCorrelationRate: u64,
     pub guidClockId: windows_core::GUID,
@@ -44195,11 +43708,6 @@ pub struct MFCLOCK_PROPERTIES {
     pub qwClockFrequency: u64,
     pub dwClockTolerance: u32,
     pub dwClockJitter: u32,
-}
-impl Default for MFCLOCK_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -44280,16 +43788,11 @@ impl Default for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
 }
 pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFCameraExtrinsic_CalibratedTransform {
     pub CalibrationId: windows_core::GUID,
     pub Position: MF_FLOAT3,
     pub Orientation: MF_QUATERNION,
-}
-impl Default for MFCameraExtrinsic_CalibratedTransform {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -44303,20 +43806,15 @@ impl Default for MFCameraExtrinsics {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFCameraIntrinsic_CameraModel {
     pub FocalLength_x: f32,
     pub FocalLength_y: f32,
     pub PrincipalPoint_x: f32,
     pub PrincipalPoint_y: f32,
 }
-impl Default for MFCameraIntrinsic_CameraModel {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModel {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -44324,13 +43822,8 @@ pub struct MFCameraIntrinsic_DistortionModel {
     pub Tangential_p1: f32,
     pub Tangential_p2: f32,
 }
-impl Default for MFCameraIntrinsic_DistortionModel {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModel6KT {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -44341,13 +43834,8 @@ pub struct MFCameraIntrinsic_DistortionModel6KT {
     pub Tangential_p1: f32,
     pub Tangential_p2: f32,
 }
-impl Default for MFCameraIntrinsic_DistortionModel6KT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModelArcTan {
     pub Radial_k0: f32,
     pub DistortionCenter_x: f32,
@@ -44355,26 +43843,16 @@ pub struct MFCameraIntrinsic_DistortionModelArcTan {
     pub Tangential_x: f32,
     pub Tangential_y: f32,
 }
-impl Default for MFCameraIntrinsic_DistortionModelArcTan {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModelType(pub i32);
 pub const MFCameraIntrinsic_DistortionModelType_6KT: MFCameraIntrinsic_DistortionModelType = MFCameraIntrinsic_DistortionModelType(0i32);
 pub const MFCameraIntrinsic_DistortionModelType_ArcTan: MFCameraIntrinsic_DistortionModelType = MFCameraIntrinsic_DistortionModelType(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFCameraIntrinsic_PinholeCameraModel {
     pub FocalLength: MF_FLOAT2,
     pub PrincipalPoint: MF_FLOAT2,
-}
-impl Default for MFCameraIntrinsic_PinholeCameraModel {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -44426,17 +43904,12 @@ pub const MFENABLETYPE_WMDRMV7_Individualization: windows_core::GUID = windows_c
 pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: windows_core::GUID = windows_core::GUID::from_u128(0x003306df_4a06_4884_a097_ef6d22ec84a3);
 pub const MFEVRDLL: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
     pub SplitFrameId: u32,
     pub CameraModel: MFCameraIntrinsic_CameraModel,
-}
-impl Default for MFExtendedCameraIntrinsic_IntrinsicModel {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFFLACBytestreamHandler: windows_core::GUID = windows_core::GUID::from_u128(0x0e41cfb8_0506_40f4_a516_77cc23642d91);
 pub const MFFLACSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5);
@@ -44505,7 +43978,7 @@ pub const MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS: MFMEDIASOURCE_CHARACTERISTIC
 pub const MFMEDIASOURCE_HAS_SLOW_SEEK: MFMEDIASOURCE_CHARACTERISTICS = MFMEDIASOURCE_CHARACTERISTICS(8i32);
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = MFMEDIASOURCE_CHARACTERISTICS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFMPEG2DLNASINKSTATS {
     pub cBytesWritten: u64,
     pub fPAL: windows_core::BOOL,
@@ -44521,11 +43994,6 @@ pub struct MFMPEG2DLNASINKSTATS {
     pub cAudioChannels: u32,
     pub cAudioBytesReceived: u64,
     pub cAudioFramesEncoded: u64,
-}
-impl Default for MFMPEG2DLNASINKSTATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFMPEG4Format_Base: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_767a_494d_b478_f29d25dc9037);
 #[repr(C)]
@@ -44677,7 +44145,7 @@ pub const MFNET_SAVEJOB_SERVICE: windows_core::GUID = windows_core::GUID::from_u
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNetAuthenticationFlags(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFNetCredentialManagerGetParam {
     pub hrOp: windows_core::HRESULT,
     pub fAllowLoggedOnUser: windows_core::BOOL,
@@ -44687,11 +44155,6 @@ pub struct MFNetCredentialManagerGetParam {
     pub pszRealm: windows_core::PCWSTR,
     pub pszPackage: windows_core::PCWSTR,
     pub nRetries: i32,
-}
-impl Default for MFNetCredentialManagerGetParam {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -44712,15 +44175,10 @@ pub const MFNominalRange_Normal: MFNominalRange = MFNominalRange(1i32);
 pub const MFNominalRange_Unknown: MFNominalRange = MFNominalRange(0i32);
 pub const MFNominalRange_Wide: MFNominalRange = MFNominalRange(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFOffset {
     pub fract: u16,
     pub value: i16,
-}
-impl Default for MFOffset {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type MFPERIODICCALLBACK = Option<unsafe extern "system" fn(pcontext: windows_core::Ref<'_, windows_core::IUnknown>)>;
 #[repr(transparent)]
@@ -44753,7 +44211,7 @@ pub const MFPROTECTION_VIDEO_FRAMES: windows_core::GUID = windows_core::GUID::fr
 pub const MFPROTECTION_WMDRMOTA: windows_core::GUID = windows_core::GUID::from_u128(0xa267a6a1_362e_47d0_8805_4628598a23e4);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub dwUserData: usize,
@@ -44767,12 +44225,6 @@ pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub flags: u32,
     pub pCredential: core::mem::ManuallyDrop<Option<IMFNetCredential>>,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFP_CREATION_OPTIONS(pub i32);
@@ -44784,31 +44236,19 @@ pub const MFP_CREDENTIAL_PROXY: _MFP_CREDENTIAL_FLAGS = _MFP_CREDENTIAL_FLAGS(16
 pub const MFP_CREDENTIAL_SAVE: _MFP_CREDENTIAL_FLAGS = _MFP_CREDENTIAL_FLAGS(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_ERROR_EVENT {
     pub header: MFP_EVENT_HEADER,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_ERROR_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
     pub hrEvent: windows_core::HRESULT,
     pub pMediaPlayer: core::mem::ManuallyDrop<Option<IMFPMediaPlayer>>,
     pub eState: MFP_MEDIAPLAYER_STATE,
     pub pPropertyStore: core::mem::ManuallyDrop<Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_EVENT_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -44828,60 +44268,36 @@ pub const MFP_EVENT_TYPE_RATE_SET: MFP_EVENT_TYPE = MFP_EVENT_TYPE(4i32);
 pub const MFP_EVENT_TYPE_STOP: MFP_EVENT_TYPE = MFP_EVENT_TYPE(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_FRAME_STEP_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFP_MEDIAITEM_CAN_PAUSE: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(4i32);
 pub const MFP_MEDIAITEM_CAN_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_MEDIAITEM_CLEARED_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
     pub dwUserData: usize,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_MEDIAITEM_CREATED_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(8i32);
 pub const MFP_MEDIAITEM_IS_LIVE: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_MEDIAITEM_SET_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -44893,18 +44309,12 @@ pub const MFP_MEDIAPLAYER_STATE_SHUTDOWN: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYE
 pub const MFP_MEDIAPLAYER_STATE_STOPPED: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYER_STATE(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub MFEventType: u32,
     pub pMFMediaEvent: core::mem::ManuallyDrop<Option<IMFMediaEvent>>,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_MF_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFP_OPTION_FREE_THREADED_CALLBACK: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(1i32);
 pub const MFP_OPTION_NONE: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(0i32);
@@ -44912,83 +44322,47 @@ pub const MFP_OPTION_NO_MMCSS: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(2i32)
 pub const MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(4i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_PAUSE_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_PLAYBACK_ENDED_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_PLAY_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const MFP_POSITIONTYPE_100NS: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_POSITION_SET_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_RATE_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
     pub flRate: f32,
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_RATE_SET_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl Default for MFP_STOP_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -45002,17 +44376,12 @@ impl Default for MFPaletteEntry {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFPinholeCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
     pub CameraModel: MFCameraIntrinsic_PinholeCameraModel,
     pub DistortionModel: MFCameraIntrinsic_DistortionModel,
-}
-impl Default for MFPinholeCameraIntrinsic_IntrinsicModel {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45057,15 +44426,10 @@ impl Default for MFRR_COMPONENT_HASH_INFO {
 }
 pub const MFRR_INFO_VERSION: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFRatio {
     pub Numerator: u32,
     pub Denominator: u32,
-}
-impl Default for MFRatio {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFSEQUENCER_INVALID_ELEMENT_ID: u32 = 4294967295u32;
 pub const MFSESSIONCAP_DOES_NOT_USE_NETWORK: u32 = 64u32;
@@ -45387,18 +44751,13 @@ pub const MFT_INPUT_STREAM_DOES_NOT_ADDREF: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_
 pub const MFT_INPUT_STREAM_FIXED_SAMPLE_SIZE: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(4i32);
 pub const MFT_INPUT_STREAM_HOLDS_BUFFERS: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFT_INPUT_STREAM_INFO {
     pub hnsMaxLatency: i64,
     pub dwFlags: u32,
     pub cbSize: u32,
     pub cbMaxLookahead: u32,
     pub cbAlignment: u32,
-}
-impl Default for MFT_INPUT_STREAM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFT_INPUT_STREAM_OPTIONAL: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(1024i32);
 pub const MFT_INPUT_STREAM_PROCESSES_IN_PLACE: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(2048i32);
@@ -45426,17 +44785,12 @@ pub const MFT_MESSAGE_SET_D3D_MANAGER: MFT_MESSAGE_TYPE = MFT_MESSAGE_TYPE(2i32)
 pub struct MFT_MESSAGE_TYPE(pub i32);
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: u64 = 9223372036854775807u64;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
     pub pSample: core::mem::ManuallyDrop<Option<IMFSample>>,
     pub dwStatus: u32,
     pub pEvents: core::mem::ManuallyDrop<Option<IMFCollection>>,
-}
-impl Default for MFT_OUTPUT_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFT_OUTPUT_DATA_BUFFER_FORMAT_CHANGE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = _MFT_OUTPUT_DATA_BUFFER_FLAGS(256i32);
 pub const MFT_OUTPUT_DATA_BUFFER_INCOMPLETE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = _MFT_OUTPUT_DATA_BUFFER_FLAGS(16777216i32);
@@ -45447,16 +44801,11 @@ pub const MFT_OUTPUT_STREAM_CAN_PROVIDE_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS =
 pub const MFT_OUTPUT_STREAM_DISCARDABLE: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(8i32);
 pub const MFT_OUTPUT_STREAM_FIXED_SAMPLE_SIZE: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFT_OUTPUT_STREAM_INFO {
     pub dwFlags: u32,
     pub cbSize: u32,
     pub cbAlignment: u32,
-}
-impl Default for MFT_OUTPUT_STREAM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFT_OUTPUT_STREAM_LAZY_READ: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(1024i32);
 pub const MFT_OUTPUT_STREAM_OPTIONAL: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(16i32);
@@ -45473,15 +44822,10 @@ pub const MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _MFT_PROCESS_OUTPUT_FLAGS =
 pub const MFT_PROCESS_OUTPUT_REGENERATE_LAST_OUTPUT: _MFT_PROCESS_OUTPUT_FLAGS = _MFT_PROCESS_OUTPUT_FLAGS(2i32);
 pub const MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS: _MFT_PROCESS_OUTPUT_STATUS = _MFT_PROCESS_OUTPUT_STATUS(256i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFT_REGISTER_TYPE_INFO {
     pub guidMajorType: windows_core::GUID,
     pub guidSubtype: windows_core::GUID,
-}
-impl Default for MFT_REGISTER_TYPE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -45504,15 +44848,10 @@ pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: windows_core::GUID = windows_
 pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = _MFT_SET_TYPE_FLAGS(1i32);
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
     pub State: MF_STREAM_STATE,
-}
-impl Default for MFT_STREAM_STATE_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFT_SUPPORT_3DVIDEO: windows_core::GUID = windows_core::GUID::from_u128(0x093f81b1_4f2e_4631_8168_7934032a01d3);
 pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x53476a11_3f13_49fb_ac42_ee2733c96741);
@@ -45611,7 +44950,7 @@ impl Default for MFVideoAlphaBitmap_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoAlphaBitmapFlags(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFVideoAlphaBitmapParams {
     pub dwFlags: u32,
     pub clrSrcKey: super::super::Foundation::COLORREF,
@@ -45619,11 +44958,6 @@ pub struct MFVideoAlphaBitmapParams {
     pub nrcDest: MFVideoNormalizedRect,
     pub fAlpha: f32,
     pub dwFilterMode: u32,
-}
-impl Default for MFVideoAlphaBitmapParams {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFVideoAlphaBitmap_Alpha: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(32i32);
 pub const MFVideoAlphaBitmap_BitMask: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(63i32);
@@ -45633,16 +44967,11 @@ pub const MFVideoAlphaBitmap_FilterMode: MFVideoAlphaBitmapFlags = MFVideoAlphaB
 pub const MFVideoAlphaBitmap_SrcColorKey: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(2i32);
 pub const MFVideoAlphaBitmap_SrcRect: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
     pub OffsetY: MFOffset,
     pub Area: super::super::Foundation::SIZE,
-}
-impl Default for MFVideoArea {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -45662,16 +44991,11 @@ pub const MFVideoChromaSubsampling_Unknown: MFVideoChromaSubsampling = MFVideoCh
 pub const MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes: MFVideoChromaSubsampling = MFVideoChromaSubsampling(1i32);
 pub const MFVideoChromaSubsampling_Vertically_Cosited: MFVideoChromaSubsampling = MFVideoChromaSubsampling(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFVideoCompressedInfo {
     pub AvgBitrate: i64,
     pub AvgBitErrorRate: i64,
     pub MaxKeyFrameSpacing: u32,
-}
-impl Default for MFVideoCompressedInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFVideoDRMFlag_AnalogProtected: MFVideoDRMFlags = MFVideoDRMFlags(1i32);
 pub const MFVideoDRMFlag_DigitallyProtected: MFVideoDRMFlags = MFVideoDRMFlags(2i32);
@@ -45781,7 +45105,7 @@ pub const MFVideoFormat_v210: windows_core::GUID = windows_core::GUID::from_u128
 pub const MFVideoFormat_v216: windows_core::GUID = windows_core::GUID::from_u128(0x36313276_0000_0010_8000_00aa00389b71);
 pub const MFVideoFormat_v410: windows_core::GUID = windows_core::GUID::from_u128(0x30313476_0000_0010_8000_00aa00389b71);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFVideoInfo {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -45798,11 +45122,6 @@ pub struct MFVideoInfo {
     pub MinimumDisplayAperture: MFVideoArea,
     pub PanScanAperture: MFVideoArea,
     pub VideoFlags: u64,
-}
-impl Default for MFVideoInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -45836,17 +45155,12 @@ pub const MFVideoMixPrefs_ForceBob: MFVideoMixPrefs = MFVideoMixPrefs(8i32);
 pub const MFVideoMixPrefs_ForceHalfInterlace: MFVideoMixPrefs = MFVideoMixPrefs(1i32);
 pub const MFVideoMixPrefs_Mask: MFVideoMixPrefs = MFVideoMixPrefs(31i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MFVideoNormalizedRect {
     pub left: f32,
     pub top: f32,
     pub right: f32,
     pub bottom: f32,
-}
-impl Default for MFVideoNormalizedRect {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MFVideoPadFlag_PAD_TO_16x9: MFVideoPadFlags = MFVideoPadFlags(2i32);
 pub const MFVideoPadFlag_PAD_TO_4x3: MFVideoPadFlags = MFVideoPadFlags(1i32);
@@ -46060,15 +45374,10 @@ pub const MF_BYTESTREAM_ORIGIN_NAME: windows_core::GUID = windows_core::GUID::fr
 pub const MF_BYTESTREAM_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0xab025e2b_16d9_4180_a127_ba6c70156161);
 pub const MF_BYTESTREAM_TRANSCODED: windows_core::GUID = windows_core::GUID::from_u128(0xb6c5c282_4dc9_4db9_ab48_cf3b6d8bc5e0);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_BYTE_STREAM_CACHE_RANGE {
     pub qwStartOffset: u64,
     pub qwEndOffset: u64,
-}
-impl Default for MF_BYTE_STREAM_CACHE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -46076,17 +45385,12 @@ pub struct MF_CAMERA_CONTROL_CONFIGURATION_TYPE(pub i32);
 pub const MF_CAMERA_CONTROL_CONFIGURATION_TYPE_POSTSTART: MF_CAMERA_CONTROL_CONFIGURATION_TYPE = MF_CAMERA_CONTROL_CONFIGURATION_TYPE(1i32);
 pub const MF_CAMERA_CONTROL_CONFIGURATION_TYPE_PRESTART: MF_CAMERA_CONTROL_CONFIGURATION_TYPE = MF_CAMERA_CONTROL_CONFIGURATION_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_CAMERA_CONTROL_RANGE_INFO {
     pub minValue: i32,
     pub maxValue: i32,
     pub stepValue: i32,
     pub defaultValue: i32,
-}
-impl Default for MF_CAMERA_CONTROL_RANGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: windows_core::GUID = windows_core::GUID::from_u128(0xfded7521_8ed8_431a_a96b_f3e2565e981c);
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: windows_core::GUID = windows_core::GUID::from_u128(0x10f1be5e_7e11_410b_973d_f4b6109000fe);
@@ -46660,27 +45964,17 @@ pub struct MF_FILE_FLAGS(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_FILE_OPENMODE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_FLOAT2 {
     pub x: f32,
     pub y: f32,
 }
-impl Default for MF_FLOAT2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_FLOAT3 {
     pub x: f32,
     pub y: f32,
     pub z: f32,
-}
-impl Default for MF_FLOAT3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: windows_core::GUID = windows_core::GUID::from_u128(0x6e59489c_47d3_4467_83ef_12d34e871665);
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN: windows_core::GUID = windows_core::GUID::from_u128(0x45a81b31_43f8_4e5d_8ce2_22dce026996d);
@@ -46711,15 +46005,10 @@ pub const MF_INVALID_STATE_ERR: u32 = 2154823691u32;
 pub const MF_I_MANUAL_PROXY: windows_core::HRESULT = windows_core::HRESULT(0x400D4272_u32 as _);
 pub const MF_KERNEL_MODE_COMPONENT_LOAD: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
-}
-impl Default for MF_LEAKY_BUCKET_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MF_LICENSE_URL_TAMPERED: MF_URL_TRUST_STATUS = MF_URL_TRUST_STATUS(2i32);
 pub const MF_LICENSE_URL_TRUSTED: MF_URL_TRUST_STATUS = MF_URL_TRUST_STATUS(1i32);
@@ -47263,17 +46552,12 @@ pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: windows_core::GUID = windows_cor
 pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: windows_core::GUID = windows_core::GUID::from_u128(0x30d15206_ed2a_4760_be17_eb4a9f12295c);
 pub const MF_QUALITY_SERVICES: windows_core::GUID = windows_core::GUID::from_u128(0xb7e2be11_2f96_4640_b52c_282365bdf16c);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_QUATERNION {
     pub x: f32,
     pub y: f32,
     pub z: f32,
     pub w: f32,
-}
-impl Default for MF_QUATERNION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MF_QUOTA_EXCEEDED_ERR: u32 = 2154823702u32;
 pub const MF_RATE_CONTROL_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0x866fa297_b802_4bf8_9dc9_5e3b6a9f53c9);
@@ -47420,7 +46704,7 @@ pub const MF_SINK_WRITER_ENCODER_CONFIG: windows_core::GUID = windows_core::GUID
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: MF_SINK_WRITER_CONSTANTS = MF_SINK_WRITER_CONSTANTS(4294967295u32);
 pub const MF_SINK_WRITER_MEDIASINK: MF_SINK_WRITER_CONSTANTS = MF_SINK_WRITER_CONSTANTS(4294967295u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_SINK_WRITER_STATISTICS {
     pub cb: u32,
     pub llLastTimestampReceived: i64,
@@ -47438,11 +46722,6 @@ pub struct MF_SINK_WRITER_STATISTICS {
     pub dwAverageSampleRateReceived: u32,
     pub dwAverageSampleRateEncoded: u32,
     pub dwAverageSampleRateProcessed: u32,
-}
-impl Default for MF_SINK_WRITER_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0xe002aadc_f4af_4ee5_9847_053edf840426);
 pub const MF_SOURCE_READERF_ALLEFFECTSREMOVED: MF_SOURCE_READER_FLAG = MF_SOURCE_READER_FLAG(512i32);
@@ -47781,17 +47060,12 @@ pub const MF_TRANSCODE_DONOT_INSERT_ENCODER: windows_core::GUID = windows_core::
 pub const MF_TRANSCODE_ENCODINGPROFILE: windows_core::GUID = windows_core::GUID::from_u128(0x6947787c_f508_4ea9_b1e9_a1fe3a49fbc9);
 pub const MF_TRANSCODE_QUALITYVSSPEED: windows_core::GUID = windows_core::GUID::from_u128(0x98332df8_03cd_476b_89fa_3f9e442dec9f);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
     pub pVideoMediaType: core::mem::ManuallyDrop<Option<IMFMediaType>>,
     pub dwAudioStreamID: u32,
     pub pAudioMediaType: core::mem::ManuallyDrop<Option<IMFMediaType>>,
-}
-impl Default for MF_TRANSCODE_SINK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: windows_core::GUID = windows_core::GUID::from_u128(0x4e4469ef_b571_4959_8f83_3dcfba33a393);
 pub const MF_TRANSCODE_TOPOLOGYMODE: windows_core::GUID = windows_core::GUID::from_u128(0x3e3df610_394a_40b2_9dea_3bab650bebf2);
@@ -47829,16 +47103,11 @@ pub struct MF_VIDEO_PROCESSOR_MIRROR(pub i32);
 pub struct MF_VIDEO_PROCESSOR_ROTATION(pub i32);
 pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: windows_core::GUID = windows_core::GUID::from_u128(0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     pub iHeading: i32,
     pub iPitch: i32,
     pub iRoll: i32,
-}
-impl Default for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MF_VIRTUALCAMERA_ASSOCIATED_CAMERA_SOURCES: windows_core::GUID = windows_core::GUID::from_u128(0x1bb79e7c_5d83_438c_94d8_e5f0df6d3279);
 pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: windows_core::GUID = windows_core::GUID::from_u128(0x658abe51_8044_462e_97ea_e676fd72055f);
@@ -47882,15 +47151,10 @@ impl Default for MOVEREGION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
     pub DestRect: super::super::Foundation::RECT,
-}
-impl Default for MOVE_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MP3ACMCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x11103421_354c_4cca_a7a3_1aff9a5b6701);
 #[repr(C)]
@@ -47973,7 +47237,7 @@ pub const MR_VIDEO_RENDER_SERVICE: windows_core::GUID = windows_core::GUID::from
 pub const MSAMRNBDecoder: windows_core::GUID = windows_core::GUID::from_u128(0x265011ae_5481_4f77_a295_abb6ffe8d63e);
 pub const MSAMRNBEncoder: windows_core::GUID = windows_core::GUID::from_u128(0x2fae8afe_04a3_423a_a814_85db454712b0);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MT_ARBITRARY_HEADER {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -47982,13 +47246,8 @@ pub struct MT_ARBITRARY_HEADER {
     pub lSampleSize: u32,
     pub formattype: windows_core::GUID,
 }
-impl Default for MT_ARBITRARY_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MT_CUSTOM_VIDEO_PRIMARIES {
     pub fRx: f32,
     pub fRy: f32,
@@ -47998,11 +47257,6 @@ pub struct MT_CUSTOM_VIDEO_PRIMARIES {
     pub fBy: f32,
     pub fWx: f32,
     pub fWy: f32,
-}
-impl Default for MT_CUSTOM_VIDEO_PRIMARIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MULawCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x92b66080_5e2d_449e_90c4_c41f268e5514);
 pub const OPENMODE_APPEND_IF_EXIST: FILE_OPENMODE = FILE_OPENMODE(3i32);
@@ -48042,7 +47296,7 @@ pub const OPM_ACP_OFF: OPM_ACP_PROTECTION_LEVEL = OPM_ACP_PROTECTION_LEVEL(0i32)
 pub struct OPM_ACP_PROTECTION_LEVEL(pub i32);
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -48052,12 +47306,6 @@ pub struct OPM_ACTUAL_OUTPUT_FORMAT {
     pub d3dFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
     pub ulFrequencyNumerator: u32,
     pub ulFrequencyDenominator: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Default for OPM_ACTUAL_OUTPUT_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER: OPM_IMAGE_ASPECT_RATIO_EN300294 = OPM_IMAGE_ASPECT_RATIO_EN300294(1i32);
 pub const OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP: OPM_IMAGE_ASPECT_RATIO_EN300294 = OPM_IMAGE_ASPECT_RATIO_EN300294(2i32);
@@ -48187,15 +47435,10 @@ pub const OPM_GET_ACTUAL_PROTECTION_LEVEL: windows_core::GUID = windows_core::GU
 pub const OPM_GET_ADAPTER_BUS_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
 pub const OPM_GET_CODEC_INFO: windows_core::GUID = windows_core::GUID::from_u128(0x4f374491_8f5f_4445_9dba_95588f6b58b4);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPM_GET_CODEC_INFO_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub Merit: u32,
-}
-impl Default for OPM_GET_CODEC_INFO_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -48316,16 +47559,11 @@ pub struct OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
 pub const OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: OPM_OUTPUT_HARDWARE_PROTECTION = OPM_OUTPUT_HARDWARE_PROTECTION(0i32);
 pub const OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: OPM_OUTPUT_HARDWARE_PROTECTION = OPM_OUTPUT_HARDWARE_PROTECTION(1i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPM_OUTPUT_ID_DATA {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
     pub OutputId: u64,
-}
-impl Default for OPM_OUTPUT_ID_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: OPM_PROTECTION_STANDARD_TYPE = OPM_PROTECTION_STANDARD_TYPE(16384u32);
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_525I: OPM_PROTECTION_STANDARD_TYPE = OPM_PROTECTION_STANDARD_TYPE(2048u32);
@@ -48404,43 +47642,28 @@ impl Default for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
 }
 pub const OPM_SET_HDCP_SRM: windows_core::GUID = windows_core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
-}
-impl Default for OPM_SET_HDCP_SRM_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OPM_SET_PROTECTION_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
 pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: windows_core::GUID = windows_core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub ulProtectionType: u32,
     pub ulProtectionLevel: u32,
     pub Reserved: u32,
     pub Reserved2: u32,
 }
-impl Default for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
     pub ulInformation: u32,
     pub ulReserved: u32,
     pub ulReserved2: u32,
-}
-impl Default for OPM_STANDARD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -48558,15 +47781,10 @@ pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
 pub const REQUIRE_PROMPT: MFNetCredentialRequirements = MFNetCredentialRequirements(1i32);
 pub const REQUIRE_SAVE_SELECTED: MFNetCredentialRequirements = MFNetCredentialRequirements(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ROI_AREA {
     pub rect: super::super::Foundation::RECT,
     pub QPDelta: i32,
-}
-impl Default for ROI_AREA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ROTATION_NONE: MF_VIDEO_PROCESSOR_ROTATION = MF_VIDEO_PROCESSOR_ROTATION(0i32);
 pub const ROTATION_NORMAL: MF_VIDEO_PROCESSOR_ROTATION = MF_VIDEO_PROCESSOR_ROTATION(1i32);
@@ -48582,30 +47800,20 @@ pub const SAMPLE_PROTECTION_VERSION_SCATTER: SAMPLE_PROTECTION_VERSION = SAMPLE_
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEEK_ORIGIN(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SENSORPROFILEID {
     pub Type: windows_core::GUID,
     pub Index: u32,
     pub Unused: u32,
 }
-impl Default for SENSORPROFILEID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SHA_HASH_LEN: u32 = 20u32;
 pub const SINGLE_CHANNEL_AEC: AEC_SYSTEM_MODE = AEC_SYSTEM_MODE(0i32);
 pub const SINGLE_CHANNEL_NSAGC: AEC_SYSTEM_MODE = AEC_SYSTEM_MODE(5i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STREAM_MEDIUM {
     pub gidMedium: windows_core::GUID,
     pub unMediumInstance: u32,
-}
-impl Default for STREAM_MEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SYSFXUI_DONOTSHOW_BASSBOOST: u32 = 8u32;
 pub const SYSFXUI_DONOTSHOW_BASSMANAGEMENT: u32 = 4u32;
@@ -48623,31 +47831,21 @@ pub const TIME_FORMAT_MEDIA_TIME: windows_core::GUID = windows_core::GUID::from_
 pub const TIME_FORMAT_NONE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub const TIME_FORMAT_SAMPLE: windows_core::GUID = windows_core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TOC_DESCRIPTOR {
     pub guidID: windows_core::GUID,
     pub wStreamNumber: u16,
     pub guidType: windows_core::GUID,
     pub wLanguageIndex: u16,
 }
-impl Default for TOC_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TOC_ENTRY_DESCRIPTOR {
     pub qwStartTime: u64,
     pub qwEndTime: u64,
     pub qwStartPacketOffset: u64,
     pub qwEndPacketOffset: u64,
     pub qwRepresentativeFrameTime: u64,
-}
-impl Default for TOC_ENTRY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535u32;
 pub const TOC_MAX_DESCRIPTION_SIZE: u32 = 65535u32;
@@ -48660,7 +47858,7 @@ pub const UUID_UdriTagTables: windows_core::GUID = windows_core::GUID::from_u128
 pub const UUID_WMDRMTagTables: windows_core::GUID = windows_core::GUID::from_u128(0x5dcd1101_9263_45bb_a4d5_c415ab8c589c);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -48668,12 +47866,6 @@ pub struct VIDEOINFOHEADER {
     pub dwBitErrorRate: u32,
     pub AvgTimePerFrame: i64,
     pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for VIDEOINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]

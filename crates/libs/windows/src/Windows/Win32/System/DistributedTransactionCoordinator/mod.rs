@@ -139,6 +139,7 @@ impl IDtcLuConfigure {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuConfigure_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -172,6 +173,7 @@ impl windows_core::RuntimeName for IDtcLuConfigure {}
 windows_core::imp::define_interface!(IDtcLuRecovery, IDtcLuRecovery_Vtbl, 0xac2b8ad2_d6f0_11d0_b386_00a0c9083365);
 windows_core::imp::interface_hierarchy!(IDtcLuRecovery, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRecovery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -196,6 +198,7 @@ impl IDtcLuRecoveryFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRecoveryFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -232,6 +235,7 @@ impl IDtcLuRecoveryInitiatedByDtc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DTCINITIATEDRECOVERYWORK, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -262,6 +266,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandleCheckLuStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -328,6 +333,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLogNameSizes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -472,6 +478,7 @@ impl IDtcLuRecoveryInitiatedByLu {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByLu_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObjectToHandleWorkFromLu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -529,6 +536,7 @@ impl IDtcLuRecoveryInitiatedByLuWork {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByLuWork_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandleTheirXln: unsafe extern "system" fn(*mut core::ffi::c_void, i32, DTCLUXLN, *mut u8, u32, *mut u8, u32, u32, *mut DTCLUXLNRESPONSE) -> windows_core::HRESULT,
@@ -640,6 +648,7 @@ impl IDtcLuRmEnlistment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRmEnlistment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Unplug: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -722,6 +731,7 @@ impl IDtcLuRmEnlistmentFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRmEnlistmentFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -776,6 +786,7 @@ impl IDtcLuRmEnlistmentSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuRmEnlistmentSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AckUnplug: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -899,6 +910,7 @@ impl IDtcLuSubordinateDtc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuSubordinateDtc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Unplug: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -991,6 +1003,7 @@ impl IDtcLuSubordinateDtcFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuSubordinateDtcFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1042,6 +1055,7 @@ impl IDtcLuSubordinateDtcSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcLuSubordinateDtcSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AckUnplug: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1192,6 +1206,7 @@ impl IDtcNetworkAccessConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcNetworkAccessConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAnyNetworkAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1399,6 +1414,7 @@ impl IDtcNetworkAccessConfig2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcNetworkAccessConfig2_Vtbl {
     pub base__: IDtcNetworkAccessConfig_Vtbl,
     pub GetNetworkInboundAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1507,6 +1523,7 @@ impl IDtcNetworkAccessConfig3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcNetworkAccessConfig3_Vtbl {
     pub base__: IDtcNetworkAccessConfig2_Vtbl,
     pub GetLUAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1561,6 +1578,7 @@ impl IDtcToXaHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcToXaHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -1607,6 +1625,7 @@ impl IDtcToXaHelperFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcToXaHelperFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::PCSTR, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1657,6 +1676,7 @@ impl IDtcToXaHelperSinglePipe {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcToXaHelperSinglePipe_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub XARMCreate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
@@ -1736,6 +1756,7 @@ impl IDtcToXaMapper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDtcToXaMapper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RequestNewResourceManager: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
@@ -1796,6 +1817,7 @@ impl IGetDispenser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGetDispenser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDispenser: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1829,6 +1851,7 @@ impl IKernelTransaction {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKernelTransaction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -1868,6 +1891,7 @@ impl ILastResourceManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILastResourceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransactionCommitted: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -1914,6 +1938,7 @@ impl IPrepareInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrepareInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPrepareInfoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1962,6 +1987,7 @@ impl IPrepareInfo2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrepareInfo2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPrepareInfoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2017,6 +2043,7 @@ impl IRMHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRMHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RMCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2071,6 +2098,7 @@ impl IResourceManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Enlist: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut BOID, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2153,6 +2181,7 @@ impl IResourceManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceManager2_Vtbl {
     pub base__: IResourceManager_Vtbl,
     pub Enlist2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut BOID, *mut i32, *mut XID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2204,6 +2233,7 @@ impl IResourceManagerFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceManagerFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2250,6 +2280,7 @@ impl IResourceManagerFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceManagerFactory2_Vtbl {
     pub base__: IResourceManagerFactory_Vtbl,
     pub CreateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2289,6 +2320,7 @@ impl IResourceManagerRejoinable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceManagerRejoinable_Vtbl {
     pub base__: IResourceManager2_Vtbl,
     pub Rejoin: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32, *mut XACTSTAT) -> windows_core::HRESULT,
@@ -2325,6 +2357,7 @@ impl IResourceManagerSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceManagerSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TMDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2399,6 +2432,7 @@ impl ITipHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITipHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Pull: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2468,6 +2502,7 @@ impl ITipPullSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITipPullSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PullComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -2507,6 +2542,7 @@ impl ITipTransaction {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITipTransaction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Push: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut windows_core::PSTR) -> windows_core::HRESULT,
@@ -2567,6 +2603,7 @@ impl ITmNodeName {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITmNodeName_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNodeNameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2621,6 +2658,7 @@ impl ITransaction {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransaction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, u32) -> windows_core::HRESULT,
@@ -2678,6 +2716,7 @@ impl ITransaction2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransaction2_Vtbl {
     pub base__: ITransactionCloner_Vtbl,
     pub GetTransactionInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTTRANSINFO) -> windows_core::HRESULT,
@@ -2717,6 +2756,7 @@ impl ITransactionCloner {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionCloner_Vtbl {
     pub base__: ITransaction_Vtbl,
     pub CloneWithCommitDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2766,6 +2806,7 @@ impl ITransactionDispenser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionDispenser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOptionsObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2830,6 +2871,7 @@ impl ITransactionEnlistmentAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionEnlistmentAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -2899,6 +2941,7 @@ impl ITransactionExport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionExport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Export: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2956,6 +2999,7 @@ impl ITransactionExportFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionExportFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRemoteClassId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3014,6 +3058,7 @@ impl ITransactionImport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Import: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3050,6 +3095,7 @@ impl ITransactionImportWhereabouts {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionImportWhereabouts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWhereaboutsSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3098,6 +3144,7 @@ impl ITransactionLastEnlistmentAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionLastEnlistmentAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransactionOutcome: unsafe extern "system" fn(*mut core::ffi::c_void, XACTSTAT, *const BOID) -> windows_core::HRESULT,
@@ -3131,6 +3178,7 @@ impl ITransactionLastResourceAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionLastResourceAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DelegateCommit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3176,6 +3224,7 @@ impl ITransactionOptions {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionOptions_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const XACTOPT) -> windows_core::HRESULT,
@@ -3227,6 +3276,7 @@ impl ITransactionOutcomeEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionOutcomeEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Committed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *const BOID, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -3302,6 +3352,7 @@ impl ITransactionPhase0EnlistmentAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionPhase0EnlistmentAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3383,6 +3434,7 @@ impl ITransactionPhase0Factory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionPhase0Factory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3422,6 +3474,7 @@ impl ITransactionPhase0NotifyAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionPhase0NotifyAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Phase0Request: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -3479,6 +3532,7 @@ impl ITransactionReceiver {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionReceiver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UnmarshalPropagationToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3554,6 +3608,7 @@ impl ITransactionReceiverFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionReceiverFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3599,6 +3654,7 @@ impl ITransactionResource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionResource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PrepareRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
@@ -3668,6 +3724,7 @@ impl ITransactionResourceAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionResourceAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PrepareRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, u32, windows_core::BOOL, windows_core::BOOL) -> windows_core::HRESULT,
@@ -3746,6 +3803,7 @@ impl ITransactionTransmitter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionTransmitter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Set: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3824,6 +3882,7 @@ impl ITransactionTransmitterFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionTransmitterFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3860,6 +3919,7 @@ impl ITransactionVoterBallotAsync2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionVoterBallotAsync2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub VoteRequestDone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *const BOID) -> windows_core::HRESULT,
@@ -3897,6 +3957,7 @@ impl ITransactionVoterFactory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionVoterFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3939,6 +4000,7 @@ impl ITransactionVoterNotifyAsync2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITransactionVoterNotifyAsync2_Vtbl {
     pub base__: ITransactionOutcomeEvents_Vtbl,
     pub VoteRequest: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3972,6 +4034,7 @@ impl IXAConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXAConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -4017,6 +4080,7 @@ impl IXAObtainRMInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXAObtainRMInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ObtainRMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4050,6 +4114,7 @@ impl IXATransLookup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXATransLookup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4089,6 +4154,7 @@ impl IXATransLookup2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXATransLookup2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, *const XID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4125,28 +4191,18 @@ pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = TX_MISC_CONSTANTS(40i32);
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(2i32);
 pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
 }
-impl Default for OLE_TM_CONFIG_PARAMS_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
     pub applicationType: APPLICATIONTYPE,
     pub clusterResourceId: windows_core::GUID,
-}
-impl Default for OLE_TM_CONFIG_PARAMS_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
 pub const OLE_TM_CONFIG_VERSION_2: u32 = 2u32;
@@ -4156,14 +4212,9 @@ pub const OLE_TM_FLAG_NODEMANDSTART: u32 = 1u32;
 pub const OLE_TM_FLAG_NONE: u32 = 0u32;
 pub const OLE_TM_FLAG_QUERY_SERVICE_LOCKSTATUS: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
-}
-impl Default for PROXY_CONFIG_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RMNAMESZ: u32 = 32u32;
 pub const TMASYNC: i32 = -2147483648i32;
@@ -4222,7 +4273,7 @@ pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = XACTRM(1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTSTAT(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -4232,11 +4283,6 @@ pub struct XACTSTATS {
     pub cInDoubt: u32,
     pub cHeuristicDecision: u32,
     pub timeTransactionsUp: super::super::Foundation::FILETIME,
-}
-impl Default for XACTSTATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XACTSTAT_ABORTED: XACTSTAT = XACTSTAT(512i32);
 pub const XACTSTAT_ABORTING: XACTSTAT = XACTSTAT(256i32);
@@ -4271,7 +4317,7 @@ pub const XACTTC_SYNC: XACTTC = XACTTC(2i32);
 pub const XACTTC_SYNC_PHASEONE: XACTTC = XACTTC(1i32);
 pub const XACTTC_SYNC_PHASETWO: XACTTC = XACTTC(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -4280,11 +4326,6 @@ pub struct XACTTRANSINFO {
     pub grfRMSupported: u32,
     pub grfTCSupportedRetaining: u32,
     pub grfRMSupportedRetaining: u32,
-}
-impl Default for XACTTRANSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

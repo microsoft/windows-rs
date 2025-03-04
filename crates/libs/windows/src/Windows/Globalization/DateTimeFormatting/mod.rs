@@ -278,6 +278,7 @@ impl windows_core::RuntimeType for IDateTimeFormatter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDateTimeFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -304,6 +305,7 @@ impl windows_core::RuntimeType for IDateTimeFormatter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDateTimeFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormatUsingTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -313,6 +315,7 @@ impl windows_core::RuntimeType for IDateTimeFormatterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDateTimeFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDateTimeFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -328,6 +331,7 @@ impl windows_core::RuntimeType for IDateTimeFormatterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDateTimeFormatterStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LongDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

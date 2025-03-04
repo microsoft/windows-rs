@@ -98,16 +98,11 @@ pub const IEEE1394_REQUEST_FLAG_PERSISTENT: u32 = 2u32;
 pub const IEEE1394_REQUEST_FLAG_UNICODE: u32 = 1u32;
 pub const IEEE1394_REQUEST_FLAG_USE_LOCAL_HOST_EUI: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IEEE1394_VDEV_PNP_REQUEST {
     pub fulFlags: u32,
     pub Reserved: u32,
     pub InstanceId: u64,
     pub DeviceId: u8,
-}
-impl Default for IEEE1394_VDEV_PNP_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IOCTL_IEEE1394_API_REQUEST: u32 = 2229248u32;

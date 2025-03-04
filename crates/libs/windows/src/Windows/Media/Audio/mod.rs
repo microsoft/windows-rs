@@ -2859,6 +2859,7 @@ impl windows_core::RuntimeType for IAudioDeviceInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioDeviceInputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
@@ -2871,6 +2872,7 @@ impl windows_core::RuntimeType for IAudioDeviceOutputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioDeviceOutputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
@@ -2883,6 +2885,7 @@ impl windows_core::RuntimeType for IAudioEffectsPackConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEffectsPackConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2896,6 +2899,7 @@ impl windows_core::RuntimeType for IAudioEffectsPackConfigurationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioEffectsPackConfigurationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2906,6 +2910,7 @@ impl windows_core::RuntimeType for IAudioFileInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFileInputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -2931,6 +2936,7 @@ impl windows_core::RuntimeType for IAudioFileOutputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFileOutputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -2951,6 +2957,7 @@ impl windows_core::RuntimeType for IAudioFrameCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFrameCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2960,6 +2967,7 @@ impl windows_core::RuntimeType for IAudioFrameInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFrameInputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -2977,6 +2985,7 @@ impl windows_core::RuntimeType for IAudioFrameOutputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioFrameOutputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2986,6 +2995,7 @@ impl windows_core::RuntimeType for IAudioGraph {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraph_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFrameInputNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3055,6 +3065,7 @@ impl windows_core::RuntimeType for IAudioGraph2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraph2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -3080,6 +3091,7 @@ impl windows_core::RuntimeType for IAudioGraph3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraph3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Core", feature = "Media_Playback"))]
@@ -3096,6 +3108,7 @@ impl windows_core::RuntimeType for IAudioGraphConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraphConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Destination: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3107,6 +3120,7 @@ impl windows_core::RuntimeType for IAudioGraphSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraphSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -3145,6 +3159,7 @@ impl windows_core::RuntimeType for IAudioGraphSettings2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraphSettings2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetMaxPlaybackSpeedFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -3155,6 +3170,7 @@ impl windows_core::RuntimeType for IAudioGraphSettingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraphSettingsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Render")]
@@ -3167,6 +3183,7 @@ impl windows_core::RuntimeType for IAudioGraphStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraphStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3176,6 +3193,7 @@ impl windows_core::RuntimeType for IAudioGraphUnrecoverableErrorOccurredEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioGraphUnrecoverableError) -> windows_core::HRESULT,
@@ -3344,6 +3362,7 @@ impl IAudioInputNode_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioInputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OutgoingConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3495,6 +3514,7 @@ impl IAudioInputNode2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioInputNode2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Emitter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3710,6 +3730,7 @@ impl IAudioNode_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Effects")]
@@ -3741,6 +3762,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -3764,6 +3786,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SpatialAudioModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialAudioModel) -> windows_core::HRESULT,
@@ -3774,6 +3797,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitterConeProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitterConeProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InnerAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -3785,6 +3809,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitterDecayModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitterDecayModel_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioNodeEmitterDecayKind) -> windows_core::HRESULT,
@@ -3797,6 +3822,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitterDecayModelStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitterDecayModelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateNatural: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3807,6 +3833,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAudioNodeEmitter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, AudioNodeEmitterSettings, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3816,6 +3843,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitterNaturalDecayModelProperties 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitterNaturalDecayModelProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UnityGainDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -3826,6 +3854,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitterShape {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitterShape_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioNodeEmitterShapeKind) -> windows_core::HRESULT,
@@ -3836,6 +3865,7 @@ impl windows_core::RuntimeType for IAudioNodeEmitterShapeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeEmitterShapeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateCone: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3846,6 +3876,7 @@ impl windows_core::RuntimeType for IAudioNodeListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
@@ -3997,6 +4028,7 @@ impl IAudioNodeWithListener_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioNodeWithListener_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetListener: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4007,6 +4039,7 @@ impl windows_core::RuntimeType for IAudioPlaybackConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioPlaybackConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4023,6 +4056,7 @@ impl windows_core::RuntimeType for IAudioPlaybackConnectionOpenResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioPlaybackConnectionOpenResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioPlaybackConnectionOpenResultStatus) -> windows_core::HRESULT,
@@ -4033,6 +4067,7 @@ impl windows_core::RuntimeType for IAudioPlaybackConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioPlaybackConnectionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4043,6 +4078,7 @@ impl windows_core::RuntimeType for IAudioStateMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStateMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SoundLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -4054,6 +4090,7 @@ impl windows_core::RuntimeType for IAudioStateMonitorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStateMonitorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateForRenderMonitoring: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4088,6 +4125,7 @@ impl windows_core::RuntimeType for ICreateAudioDeviceInputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioDeviceInputNodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioDeviceNodeCreationStatus) -> windows_core::HRESULT,
@@ -4098,6 +4136,7 @@ impl windows_core::RuntimeType for ICreateAudioDeviceInputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioDeviceInputNodeResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -4107,6 +4146,7 @@ impl windows_core::RuntimeType for ICreateAudioDeviceOutputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioDeviceOutputNodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioDeviceNodeCreationStatus) -> windows_core::HRESULT,
@@ -4117,6 +4157,7 @@ impl windows_core::RuntimeType for ICreateAudioDeviceOutputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioDeviceOutputNodeResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -4126,6 +4167,7 @@ impl windows_core::RuntimeType for ICreateAudioFileInputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioFileInputNodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioFileNodeCreationStatus) -> windows_core::HRESULT,
@@ -4136,6 +4178,7 @@ impl windows_core::RuntimeType for ICreateAudioFileInputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioFileInputNodeResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -4145,6 +4188,7 @@ impl windows_core::RuntimeType for ICreateAudioFileOutputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioFileOutputNodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioFileNodeCreationStatus) -> windows_core::HRESULT,
@@ -4155,6 +4199,7 @@ impl windows_core::RuntimeType for ICreateAudioFileOutputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioFileOutputNodeResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -4164,6 +4209,7 @@ impl windows_core::RuntimeType for ICreateAudioGraphResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioGraphResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioGraphCreationStatus) -> windows_core::HRESULT,
@@ -4174,6 +4220,7 @@ impl windows_core::RuntimeType for ICreateAudioGraphResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateAudioGraphResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -4183,6 +4230,7 @@ impl windows_core::RuntimeType for ICreateMediaSourceAudioInputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateMediaSourceAudioInputNodeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaSourceAudioInputNodeCreationStatus) -> windows_core::HRESULT,
@@ -4193,6 +4241,7 @@ impl windows_core::RuntimeType for ICreateMediaSourceAudioInputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICreateMediaSourceAudioInputNodeResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -4205,6 +4254,7 @@ impl windows_core::RuntimeType for IEchoEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEchoEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetWetDryMix: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -4219,6 +4269,7 @@ impl windows_core::RuntimeType for IEchoEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEchoEffectDefinitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Effects")]
@@ -4231,6 +4282,7 @@ impl windows_core::RuntimeType for IEqualizerBand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEqualizerBand_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Bandwidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -4248,6 +4300,7 @@ impl windows_core::RuntimeType for IEqualizerEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEqualizerEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Bands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4257,6 +4310,7 @@ impl windows_core::RuntimeType for IEqualizerEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEqualizerEffectDefinitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Effects")]
@@ -4269,6 +4323,7 @@ impl windows_core::RuntimeType for IFrameInputNodeQuantumStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameInputNodeQuantumStartedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequiredSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4281,6 +4336,7 @@ impl windows_core::RuntimeType for ILimiterEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILimiterEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetRelease: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4293,6 +4349,7 @@ impl windows_core::RuntimeType for ILimiterEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILimiterEffectDefinitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Effects")]
@@ -4305,6 +4362,7 @@ impl windows_core::RuntimeType for IMediaSourceAudioInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceAudioInputNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -4333,6 +4391,7 @@ impl windows_core::RuntimeType for IReverbEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReverbEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetWetDryMix: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
@@ -4387,6 +4446,7 @@ impl windows_core::RuntimeType for IReverbEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReverbEffectDefinitionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Effects")]
@@ -4399,6 +4459,7 @@ impl windows_core::RuntimeType for ISetDefaultSpatialAudioFormatResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISetDefaultSpatialAudioFormatResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SetDefaultSpatialAudioFormatStatus) -> windows_core::HRESULT,
@@ -4408,6 +4469,7 @@ impl windows_core::RuntimeType for ISpatialAudioDeviceConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioDeviceConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4424,6 +4486,7 @@ impl windows_core::RuntimeType for ISpatialAudioDeviceConfigurationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioDeviceConfigurationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4433,6 +4496,7 @@ impl windows_core::RuntimeType for ISpatialAudioFormatConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioFormatConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportLicenseChangedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4445,6 +4509,7 @@ impl windows_core::RuntimeType for ISpatialAudioFormatConfigurationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioFormatConfigurationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4454,6 +4519,7 @@ impl windows_core::RuntimeType for ISpatialAudioFormatSubtypeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioFormatSubtypeStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WindowsSonic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4468,6 +4534,7 @@ impl windows_core::RuntimeType for ISpatialAudioFormatSubtypeStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpatialAudioFormatSubtypeStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DTSXForHomeTheater: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -148,6 +148,7 @@ impl windows_core::RuntimeType for IAppCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppCapability_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CapabilityName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -165,6 +166,7 @@ impl windows_core::RuntimeType for IAppCapability2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppCapability2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisplayMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -175,6 +177,7 @@ impl windows_core::RuntimeType for IAppCapabilityAccessChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -183,6 +186,7 @@ impl windows_core::RuntimeType for IAppCapabilityStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppCapabilityStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessForCapabilitiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for ISyndicationAttribute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationAttribute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -17,6 +18,7 @@ impl windows_core::RuntimeType for ISyndicationAttributeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationAttributeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -26,6 +28,7 @@ impl windows_core::RuntimeType for ISyndicationCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationCategory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -40,6 +43,7 @@ impl windows_core::RuntimeType for ISyndicationCategoryFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationCategoryFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -285,6 +289,7 @@ impl ISyndicationClient_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationClient_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -317,6 +322,7 @@ impl windows_core::RuntimeType for ISyndicationClientFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationClientFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
@@ -329,6 +335,7 @@ impl windows_core::RuntimeType for ISyndicationContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -339,6 +346,7 @@ impl windows_core::RuntimeType for ISyndicationContentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationContentFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SyndicationTextType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -349,6 +357,7 @@ impl windows_core::RuntimeType for ISyndicationErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationErrorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut SyndicationErrorStatus) -> windows_core::HRESULT,
@@ -358,6 +367,7 @@ impl windows_core::RuntimeType for ISyndicationFeed {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationFeed_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Authors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -397,6 +407,7 @@ impl windows_core::RuntimeType for ISyndicationFeedFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationFeedFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationFeed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -406,6 +417,7 @@ impl windows_core::RuntimeType for ISyndicationGenerator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationGenerator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -420,6 +432,7 @@ impl windows_core::RuntimeType for ISyndicationGeneratorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationGeneratorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationGenerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -429,6 +442,7 @@ impl windows_core::RuntimeType for ISyndicationItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Authors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -468,6 +482,7 @@ impl windows_core::RuntimeType for ISyndicationItemFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationItemFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -477,6 +492,7 @@ impl windows_core::RuntimeType for ISyndicationLink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationLink_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -497,6 +513,7 @@ impl windows_core::RuntimeType for ISyndicationLinkFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationLinkFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -768,6 +785,7 @@ impl ISyndicationNode_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -792,6 +810,7 @@ impl windows_core::RuntimeType for ISyndicationNodeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationNodeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -801,6 +820,7 @@ impl windows_core::RuntimeType for ISyndicationPerson {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationPerson_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Email: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -815,6 +835,7 @@ impl windows_core::RuntimeType for ISyndicationPersonFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationPersonFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationPerson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1034,6 +1055,7 @@ impl ISyndicationText_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationText_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1054,6 +1076,7 @@ impl windows_core::RuntimeType for ISyndicationTextFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISyndicationTextFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateSyndicationText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

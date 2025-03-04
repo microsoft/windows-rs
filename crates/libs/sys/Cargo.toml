@@ -9,7 +9,6 @@ description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
-exclude = ["features.json"]
 
 [lib]
 # This crate does not contain tests. All tests are in separate crates.

@@ -1,4 +1,4 @@
-//! Regenerates bindings sources for `crates/tests/bindgen`
+//! Regenerates bindings sources for `crates/tests/libs/bindgen`
 
 use std::path::Path;
 use windows_bindgen::bindgen;
@@ -16,14 +16,14 @@ fn test_raw(args: &str) {
 fn main() {
     let time = std::time::Instant::now();
 
-    if !Path::new("crates/tests/bindgen/Cargo.toml").exists() {
+    if !Path::new("crates/tests/libs/bindgen/Cargo.toml").exists() {
         println!("This tool must be run from the root of the repo.");
         std::process::exit(1);
     }
 
-    std::fs::remove_dir_all("crates/tests/bindgen/src").unwrap();
-    std::fs::create_dir_all("crates/tests/bindgen/src").unwrap();
-    std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
+    std::fs::remove_dir_all("crates/tests/libs/bindgen/src").unwrap();
+    std::fs::create_dir_all("crates/tests/libs/bindgen/src").unwrap();
+    std::env::set_current_dir("crates/tests/libs/bindgen/src").unwrap();
     std::fs::write("lib.rs", "").unwrap();
 
     // Test interactions with core types and namespaces
@@ -65,6 +65,10 @@ fn main() {
     test("--out struct_with_generic.rs --filter HttpProgress");
     test("--out struct_with_cpp_interface.rs --filter D3D12_RESOURCE_UAV_BARRIER");
     test("--out struct_with_cpp_interface_sys.rs --filter D3D12_RESOURCE_UAV_BARRIER --sys");
+    test("--out struct_arch_a.rs --filter SP_POWERMESSAGEWAKE_PARAMS_A");
+    test("--out struct_arch_w.rs --filter SP_POWERMESSAGEWAKE_PARAMS_W");
+    test("--out struct_arch_a_sys.rs --sys --filter SP_POWERMESSAGEWAKE_PARAMS_A");
+    test("--out struct_arch_w_sys.rs --sys --filter SP_POWERMESSAGEWAKE_PARAMS_W");
 
     // Tests for interfaces
     test("--out interface.rs --filter IStringable");

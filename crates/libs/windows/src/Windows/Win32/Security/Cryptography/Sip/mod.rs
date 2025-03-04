@@ -129,17 +129,12 @@ impl Default for SIP_ADD_NEWPROVIDER {
 pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
 pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
     pub isMultiSign: windows_core::BOOL,
     pub dwReserved: u32,
-}
-impl Default for SIP_CAP_SET_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -169,7 +164,7 @@ pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
@@ -179,23 +174,12 @@ pub struct SIP_DISPATCH_INFO {
     pub pfVerify: pCryptSIPVerifyIndirectData,
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-impl Default for SIP_DISPATCH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::CRYPT_INTEGER_BLOB,
-}
-impl Default for SIP_INDIRECT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
 #[repr(C)]

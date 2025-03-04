@@ -29,15 +29,10 @@ pub const CLSID_IITWordWheelUpdate: windows_core::GUID = windows_core::GUID::fro
 pub const CLSID_ITEngStemmer: windows_core::GUID = windows_core::GUID::from_u128(0x8fa0d5a8_dedf_11d0_9a61_00c04fb68bf7);
 pub const CLSID_ITStdBreaker: windows_core::GUID = windows_core::GUID::from_u128(0x4662daaf_d393_11d0_9a56_00c04fb68bf7);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
     pub cPropsLoaded: i32,
-}
-impl Default for COLUMNSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -171,16 +166,10 @@ pub const HHN_LAST: u32 = 4294966417u32;
 pub const HHN_NAVCOMPLETE: u32 = 4294966436u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: windows_core::PCSTR,
-}
-#[cfg(feature = "Win32_UI_Controls")]
-impl Default for HHN_NOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HHN_TRACK: u32 = 4294966435u32;
 pub const HHN_WINDOW_CREATE: u32 = 4294966434u32;
@@ -283,33 +272,23 @@ pub const HH_DISPLAY_TEXT_POPUP: HTML_HELP_COMMAND = HTML_HELP_COMMAND(14i32);
 pub const HH_DISPLAY_TOC: HTML_HELP_COMMAND = HTML_HELP_COMMAND(1i32);
 pub const HH_DISPLAY_TOPIC: HTML_HELP_COMMAND = HTML_HELP_COMMAND(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HH_ENUM_CAT {
     pub cbStruct: i32,
     pub pszCatName: windows_core::PCSTR,
     pub pszCatDescription: windows_core::PCSTR,
 }
-impl Default for HH_ENUM_CAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const HH_ENUM_CATEGORY: HTML_HELP_COMMAND = HTML_HELP_COMMAND(21i32);
 pub const HH_ENUM_CATEGORY_IT: HTML_HELP_COMMAND = HTML_HELP_COMMAND(22i32);
 pub const HH_ENUM_INFO_TYPE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(7i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HH_ENUM_IT {
     pub cbStruct: i32,
     pub iType: i32,
     pub pszCatName: windows_core::PCSTR,
     pub pszITName: windows_core::PCSTR,
     pub pszITDescription: windows_core::PCSTR,
-}
-impl Default for HH_ENUM_IT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HH_FTS_DEFAULT_PROXIMITY: HTML_HELP_COMMAND = HTML_HELP_COMMAND(-1i32);
 #[repr(C)]
@@ -392,16 +371,11 @@ pub const HH_SET_EXCLUSIVE_FILTER: HTML_HELP_COMMAND = HTML_HELP_COMMAND(25i32);
 pub const HH_SET_GLOBAL_PROPERTY: HTML_HELP_COMMAND = HTML_HELP_COMMAND(252i32);
 pub const HH_SET_INCLUSIVE_FILTER: HTML_HELP_COMMAND = HTML_HELP_COMMAND(24i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
     pub pszCatName: windows_core::PCSTR,
     pub pszInfoTypeName: windows_core::PCSTR,
-}
-impl Default for HH_SET_INFOTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const HH_SET_INFO_TYPE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(8i32);
 pub const HH_SET_QUERYSERVICE: HTML_HELP_COMMAND = HTML_HELP_COMMAND(30i32);
@@ -517,6 +491,7 @@ impl IITDatabase {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IITDatabase_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -654,6 +629,7 @@ impl IITPropList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IITPropList_Vtbl {
     pub base__: super::super::System::Com::IPersistStreamInit_Vtbl,
     pub Set: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -942,6 +918,7 @@ impl IITResultSet {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IITResultSet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetColumnPriority: unsafe extern "system" fn(*mut core::ffi::c_void, i32, PRIORITY) -> windows_core::HRESULT,
@@ -1247,6 +1224,7 @@ impl IStemSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStemSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PutAltWord: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -1301,6 +1279,7 @@ impl IStemmerConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStemmerConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -1417,6 +1396,7 @@ impl IWordBreakerConfig {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWordBreakerConfig_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -1544,17 +1524,12 @@ pub const PROP_ADD: u32 = 0u32;
 pub const PROP_DELETE: u32 = 1u32;
 pub const PROP_UPDATE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ROWSTATUS {
     pub lRowFirst: i32,
     pub cRows: i32,
     pub cProperties: i32,
     pub cRowsTotal: i32,
-}
-impl Default for ROWSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
 pub const STDPROP_INDEX_BREAK: u32 = 204u32;

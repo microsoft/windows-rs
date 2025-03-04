@@ -31,6 +31,12 @@ pub struct WSADATA {
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: PSTR,
 }
+#[cfg(target_arch = "x86")]
+impl Default for WSADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(
     target_arch = "aarch64",
@@ -46,4 +52,14 @@ pub struct WSADATA {
     pub lpVendorInfo: PSTR,
     pub szDescription: [i8; 257],
     pub szSystemStatus: [i8; 129],
+}
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+impl Default for WSADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

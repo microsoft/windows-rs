@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IWiFiDirectService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -32,6 +33,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -85,6 +87,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceAdvertiserFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceAdvertiserFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWiFiDirectServiceAdvertiser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -94,6 +97,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceAutoAcceptSessionConnectedE
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -107,6 +111,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceProvisioningInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceProvisioningInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedConfigurationMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiDirectServiceConfigurationMethod) -> windows_core::HRESULT,
@@ -117,6 +122,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceRemotePortAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking")]
@@ -130,6 +136,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -161,6 +168,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceSessionDeferredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceSessionDeferredEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -173,6 +181,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceSessionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceSessionRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
@@ -190,6 +199,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceSessionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceSessionRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetSessionRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -199,6 +209,7 @@ impl windows_core::RuntimeType for IWiFiDirectServiceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWiFiDirectServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

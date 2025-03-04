@@ -61,7 +61,7 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -78,11 +78,6 @@ pub struct CI_STATE {
     pub cUniqueKeys: u32,
     pub cSecQDocuments: u32,
     pub dwPropCacheSize: u32,
-}
-impl Default for CI_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CI_STATE_ANNEALING_MERGE: u32 = 8u32;
 pub const CI_STATE_BATTERY_POLICY: u32 = 262144u32;
@@ -232,16 +227,11 @@ pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 pub const DBSETFUNC_NONE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
     pub cwcExtent: u32,
-}
-impl Default for FILTERREGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILTER_E_ACCESS: windows_core::HRESULT = windows_core::HRESULT(0x80041703_u32 as _);
 pub const FILTER_E_EMBEDDING_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80041707_u32 as _);
@@ -315,6 +305,7 @@ impl IFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -406,6 +397,7 @@ impl IPhraseSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPhraseSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PutSmallPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,

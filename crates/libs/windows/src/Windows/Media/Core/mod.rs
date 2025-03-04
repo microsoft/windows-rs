@@ -1235,6 +1235,7 @@ impl windows_core::RuntimeType for IAudioStreamDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStreamDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -1247,6 +1248,7 @@ impl windows_core::RuntimeType for IAudioStreamDescriptor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStreamDescriptor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetLeadingEncoderPadding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1259,6 +1261,7 @@ impl windows_core::RuntimeType for IAudioStreamDescriptor3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStreamDescriptor3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1268,6 +1271,7 @@ impl windows_core::RuntimeType for IAudioStreamDescriptorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioStreamDescriptorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -1280,6 +1284,7 @@ impl windows_core::RuntimeType for IAudioTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioTrack_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenFailed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1300,6 +1305,7 @@ impl windows_core::RuntimeType for IAudioTrackOpenFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioTrackOpenFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -1309,6 +1315,7 @@ impl windows_core::RuntimeType for IAudioTrackSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioTrackSupportInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DecoderStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaDecoderStatus) -> windows_core::HRESULT,
@@ -1321,6 +1328,7 @@ impl windows_core::RuntimeType for IChapterCue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IChapterCue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1331,6 +1339,7 @@ impl windows_core::RuntimeType for ICodecInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodecInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CodecKind) -> windows_core::HRESULT,
@@ -1344,6 +1353,7 @@ impl windows_core::RuntimeType for ICodecQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodecQuery_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CodecKind, CodecCategory, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1353,6 +1363,7 @@ impl windows_core::RuntimeType for ICodecSubtypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodecSubtypesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VideoFormatDV25: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1412,6 +1423,7 @@ impl windows_core::RuntimeType for IDataCue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataCue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -1428,6 +1440,7 @@ impl windows_core::RuntimeType for IDataCue2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataCue2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
@@ -1440,6 +1453,7 @@ impl windows_core::RuntimeType for IFaceDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFaceDetectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResultFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1449,6 +1463,7 @@ impl windows_core::RuntimeType for IFaceDetectionEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFaceDetectionEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -1466,6 +1481,7 @@ impl windows_core::RuntimeType for IFaceDetectionEffectDefinition {
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFaceDetectionEffectDefinition_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDetectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, FaceDetectionMode) -> windows_core::HRESULT,
@@ -1478,6 +1494,7 @@ impl windows_core::RuntimeType for IFaceDetectionEffectFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFaceDetectionEffectFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_FaceAnalysis")]
@@ -1490,6 +1507,7 @@ impl windows_core::RuntimeType for IHighDynamicRangeControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHighDynamicRangeControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -1500,6 +1518,7 @@ impl windows_core::RuntimeType for IHighDynamicRangeOutput {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHighDynamicRangeOutput_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Certainty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -1513,6 +1532,7 @@ impl windows_core::RuntimeType for IImageCue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageCue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedTextPoint) -> windows_core::HRESULT,
@@ -1533,6 +1553,7 @@ impl windows_core::RuntimeType for IInitializeMediaStreamSourceRequestedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInitializeMediaStreamSourceRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1547,6 +1568,7 @@ impl windows_core::RuntimeType for ILowLightFusionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILowLightFusionResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -1559,6 +1581,7 @@ impl windows_core::RuntimeType for ILowLightFusionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILowLightFusionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
@@ -1576,6 +1599,7 @@ impl windows_core::RuntimeType for IMediaBinder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaBinder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Binding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1592,6 +1616,7 @@ impl windows_core::RuntimeType for IMediaBindingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaBindingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Canceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1613,6 +1638,7 @@ impl windows_core::RuntimeType for IMediaBindingEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaBindingEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Streaming_Adaptive")]
@@ -1629,6 +1655,7 @@ impl windows_core::RuntimeType for IMediaBindingEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaBindingEventArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_BackgroundTransfer")]
@@ -1759,6 +1786,7 @@ impl IMediaCue_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaCue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -1773,6 +1801,7 @@ impl windows_core::RuntimeType for IMediaCueEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaCueEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Cue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1795,6 +1824,7 @@ impl IMediaSource_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -1806,6 +1836,7 @@ impl windows_core::RuntimeType for IMediaSource2 {
 }
 #[cfg(feature = "Media_Playback")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenOperationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1833,6 +1864,7 @@ impl windows_core::RuntimeType for IMediaSource3 {
 }
 #[cfg(feature = "Media_Playback")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSource3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1848,6 +1880,7 @@ impl windows_core::RuntimeType for IMediaSource4 {
 }
 #[cfg(feature = "Media_Playback")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSource4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Streaming_Adaptive")]
@@ -1864,6 +1897,7 @@ impl windows_core::RuntimeType for IMediaSource5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSource5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_BackgroundTransfer")]
@@ -1876,6 +1910,7 @@ impl windows_core::RuntimeType for IMediaSourceAppServiceConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceAppServiceConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InitializeMediaStreamSourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -1887,6 +1922,7 @@ impl windows_core::RuntimeType for IMediaSourceAppServiceConnectionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceAppServiceConnectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
@@ -1899,6 +1935,7 @@ impl windows_core::RuntimeType for IMediaSourceError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceError_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -1908,6 +1945,7 @@ impl windows_core::RuntimeType for IMediaSourceOpenOperationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceOpenOperationCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1917,6 +1955,7 @@ impl windows_core::RuntimeType for IMediaSourceStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OldState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaSourceState) -> windows_core::HRESULT,
@@ -1927,6 +1966,7 @@ impl windows_core::RuntimeType for IMediaSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Playback", feature = "Media_Streaming_Adaptive"))]
@@ -1967,6 +2007,7 @@ impl windows_core::RuntimeType for IMediaSourceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Playback")]
@@ -1979,6 +2020,7 @@ impl windows_core::RuntimeType for IMediaSourceStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Capture_Frames", feature = "Media_Playback"))]
@@ -1991,6 +2033,7 @@ impl windows_core::RuntimeType for IMediaSourceStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaSourceStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Playback", feature = "Networking_BackgroundTransfer"))]
@@ -2110,6 +2153,7 @@ impl IMediaStreamDescriptor_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSelected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2205,6 +2249,7 @@ impl IMediaStreamDescriptor2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamDescriptor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetLabel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2215,6 +2260,7 @@ impl windows_core::RuntimeType for IMediaStreamSample {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSample_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Processed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2240,6 +2286,7 @@ impl windows_core::RuntimeType for IMediaStreamSample2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSample2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -2252,6 +2299,7 @@ impl windows_core::RuntimeType for IMediaStreamSampleProtectionProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSampleProtectionProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetKeyIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
@@ -2266,6 +2314,7 @@ impl windows_core::RuntimeType for IMediaStreamSampleStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSampleStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -2282,6 +2331,7 @@ impl windows_core::RuntimeType for IMediaStreamSampleStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSampleStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -2294,6 +2344,7 @@ impl windows_core::RuntimeType for IMediaStreamSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2346,6 +2397,7 @@ impl windows_core::RuntimeType for IMediaStreamSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SampleRendered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2356,6 +2408,7 @@ impl windows_core::RuntimeType for IMediaStreamSource3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSource3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetMaxSupportedPlaybackRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2366,6 +2419,7 @@ impl windows_core::RuntimeType for IMediaStreamSource4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSource4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetIsLive: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -2376,6 +2430,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2385,6 +2440,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceClosedRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceClosedRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaStreamSourceClosedReason) -> windows_core::HRESULT,
@@ -2394,6 +2450,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2404,6 +2461,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceSampleRenderedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceSampleRenderedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SampleLag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -2413,6 +2471,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceSampleRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StreamDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2426,6 +2485,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceSampleRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2435,6 +2495,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceSampleRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2444,6 +2505,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceStartingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2453,6 +2515,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceStartingRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceStartingRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2464,6 +2527,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceStartingRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceStartingRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2473,6 +2537,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceSwitchStreamsRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OldStreamDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2484,6 +2549,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceSwitchStreamsRequestDeferra
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2493,6 +2559,7 @@ impl windows_core::RuntimeType for IMediaStreamSourceSwitchStreamsRequestedEvent
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2619,6 +2686,7 @@ impl IMediaTrack_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaTrack_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2632,6 +2700,7 @@ impl windows_core::RuntimeType for IMseSourceBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMseSourceBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdateStarting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2674,6 +2743,7 @@ impl windows_core::RuntimeType for IMseSourceBufferList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMseSourceBufferList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SourceBufferAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2687,6 +2757,7 @@ impl windows_core::RuntimeType for IMseStreamSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMseStreamSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Opened: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2709,6 +2780,7 @@ impl windows_core::RuntimeType for IMseStreamSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMseStreamSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LiveSeekableRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2719,6 +2791,7 @@ impl windows_core::RuntimeType for IMseStreamSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMseStreamSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsContentTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -2728,6 +2801,7 @@ impl windows_core::RuntimeType for ISceneAnalysisEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceneAnalysisEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HighDynamicRangeAnalyzer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2741,6 +2815,7 @@ impl windows_core::RuntimeType for ISceneAnalysisEffectFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceneAnalysisEffectFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Capture")]
@@ -2754,6 +2829,7 @@ impl windows_core::RuntimeType for ISceneAnalysisEffectFrame2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceneAnalysisEffectFrame2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AnalysisRecommendation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SceneAnalysisRecommendation) -> windows_core::HRESULT,
@@ -2763,6 +2839,7 @@ impl windows_core::RuntimeType for ISceneAnalyzedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISceneAnalyzedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResultFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2859,6 +2936,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISingleSelectMediaTrackList_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedIndexChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2871,6 +2949,7 @@ impl windows_core::RuntimeType for ISpeechCue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechCue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2885,6 +2964,7 @@ impl windows_core::RuntimeType for ITimedMetadataStreamDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataStreamDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -2898,6 +2978,7 @@ impl windows_core::RuntimeType for ITimedMetadataStreamDescriptorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataStreamDescriptorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -2910,6 +2991,7 @@ impl windows_core::RuntimeType for ITimedMetadataTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataTrack_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CueEntered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -2930,6 +3012,7 @@ impl windows_core::RuntimeType for ITimedMetadataTrack2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataTrack2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Playback")]
@@ -2943,6 +3026,7 @@ impl windows_core::RuntimeType for ITimedMetadataTrackError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataTrackError_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedMetadataTrackErrorCode) -> windows_core::HRESULT,
@@ -2953,6 +3037,7 @@ impl windows_core::RuntimeType for ITimedMetadataTrackFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataTrackFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, TimedMetadataKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2962,6 +3047,7 @@ impl windows_core::RuntimeType for ITimedMetadataTrackFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataTrackFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3011,6 +3097,7 @@ impl ITimedMetadataTrackProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedMetadataTrackProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TimedMetadataTracks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3020,6 +3107,7 @@ impl windows_core::RuntimeType for ITimedTextBouten {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextBouten_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedTextBoutenType) -> windows_core::HRESULT,
@@ -3040,6 +3128,7 @@ impl windows_core::RuntimeType for ITimedTextCue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextCue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CueRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3053,6 +3142,7 @@ impl windows_core::RuntimeType for ITimedTextLine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextLine_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3064,6 +3154,7 @@ impl windows_core::RuntimeType for ITimedTextRegion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextRegion_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3102,6 +3193,7 @@ impl windows_core::RuntimeType for ITimedTextRuby {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextRuby_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3118,6 +3210,7 @@ impl windows_core::RuntimeType for ITimedTextSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Resolved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -3128,6 +3221,7 @@ impl windows_core::RuntimeType for ITimedTextSourceResolveResultEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextSourceResolveResultEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3138,6 +3232,7 @@ impl windows_core::RuntimeType for ITimedTextSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -3156,6 +3251,7 @@ impl windows_core::RuntimeType for ITimedTextSourceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextSourceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -3174,6 +3270,7 @@ impl windows_core::RuntimeType for ITimedTextStyle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextStyle_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3224,6 +3321,7 @@ impl windows_core::RuntimeType for ITimedTextStyle2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextStyle2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FontStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedTextFontStyle) -> windows_core::HRESULT,
@@ -3240,6 +3338,7 @@ impl windows_core::RuntimeType for ITimedTextStyle3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextStyle3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Ruby: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3254,6 +3353,7 @@ impl windows_core::RuntimeType for ITimedTextSubformat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimedTextSubformat_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3268,6 +3368,7 @@ impl windows_core::RuntimeType for IVideoStabilizationEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoStabilizationEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -3284,6 +3385,7 @@ impl windows_core::RuntimeType for IVideoStabilizationEffectEnabledChangedEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoStabilizationEffectEnabledChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VideoStabilizationEffectEnabledChangedReason) -> windows_core::HRESULT,
@@ -3293,6 +3395,7 @@ impl windows_core::RuntimeType for IVideoStreamDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoStreamDescriptor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -3305,6 +3408,7 @@ impl windows_core::RuntimeType for IVideoStreamDescriptor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoStreamDescriptor2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3314,6 +3418,7 @@ impl windows_core::RuntimeType for IVideoStreamDescriptorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoStreamDescriptorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
@@ -3326,6 +3431,7 @@ impl windows_core::RuntimeType for IVideoTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoTrack_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenFailed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -3346,6 +3452,7 @@ impl windows_core::RuntimeType for IVideoTrackOpenFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoTrackOpenFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -3355,6 +3462,7 @@ impl windows_core::RuntimeType for IVideoTrackSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVideoTrackSupportInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DecoderStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaDecoderStatus) -> windows_core::HRESULT,

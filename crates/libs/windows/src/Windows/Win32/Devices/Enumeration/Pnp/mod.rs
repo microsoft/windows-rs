@@ -115,6 +115,7 @@ impl IUPnPAddressFamilyControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPAddressFamilyControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetAddressFamily: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -163,6 +164,7 @@ impl IUPnPAsyncResult {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPAsyncResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AsyncOperationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
@@ -237,6 +239,7 @@ impl IUPnPDescriptionDocument {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDescriptionDocument_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub ReadyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -351,6 +354,7 @@ impl IUPnPDescriptionDocumentCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDescriptionDocumentCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LoadComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -503,6 +507,7 @@ impl IUPnPDevice {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDevice_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub IsRootDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -822,6 +827,7 @@ impl IUPnPDeviceControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -879,6 +885,7 @@ impl IUPnPDeviceControlHttpHeaders {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceControlHttpHeaders_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAdditionalResponseHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -918,6 +925,7 @@ impl IUPnPDeviceDocumentAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceDocumentAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocumentURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -957,6 +965,7 @@ impl IUPnPDeviceDocumentAccessEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceDocumentAccessEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1028,6 +1037,7 @@ impl IUPnPDeviceFinder {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceFinder_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub FindByType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1122,6 +1132,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1168,6 +1179,7 @@ impl IUPnPDeviceFinderCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceFinderCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1228,6 +1240,7 @@ impl IUPnPDeviceProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDeviceProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1292,6 +1305,7 @@ impl IUPnPDevices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPDevices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -1368,6 +1382,7 @@ impl IUPnPEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const i32) -> windows_core::HRESULT,
@@ -1425,6 +1440,7 @@ impl IUPnPEventSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPEventSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Advise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1463,6 +1479,7 @@ impl IUPnPHttpHeaderControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPHttpHeaderControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddRequestHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1520,6 +1537,7 @@ impl IUPnPRegistrar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPRegistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1631,6 +1649,7 @@ impl IUPnPRemoteEndpointInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPRemoteEndpointInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDwordValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1706,6 +1725,7 @@ impl IUPnPReregistrar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPReregistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReregisterDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -1794,6 +1814,7 @@ impl IUPnPService {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPService_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1966,6 +1987,7 @@ impl IUPnPServiceAsync {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPServiceAsync_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2125,6 +2147,7 @@ impl IUPnPServiceCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPServiceCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2185,6 +2208,7 @@ impl IUPnPServiceDocumentAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPServiceDocumentAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDocumentURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2239,6 +2263,7 @@ impl IUPnPServiceEnumProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPServiceEnumProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetServiceEnumProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2295,6 +2320,7 @@ impl IUPnPServices {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUPnPServices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,

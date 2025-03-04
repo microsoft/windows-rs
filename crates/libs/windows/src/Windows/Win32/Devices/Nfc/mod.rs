@@ -97,25 +97,15 @@ pub const MAX_SNEP_SERVER_NAME_SIZE: u32 = 256u32;
 pub const MAX_UID_SIZE: u32 = 16u32;
 pub const NFCRMDDI_IOCTL_BASE: u32 = 80u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFCRM_RADIO_STATE {
     pub MediaRadioOn: bool,
 }
-impl Default for NFCRM_RADIO_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFCRM_SET_RADIO_STATE {
     pub SystemStateUpdate: bool,
     pub MediaRadioOn: bool,
-}
-impl Default for NFCRM_SET_RADIO_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -132,18 +122,13 @@ impl Default for NFC_DATA_BUFFER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_DEVICE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_CONFIG {
     pub uMIU: u16,
     pub uWKS: u16,
     pub bLTO: u8,
     pub bOptions: u8,
     pub fAutoActivate: bool,
-}
-impl Default for NFC_LLCP_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -183,27 +168,17 @@ impl Default for NFC_LLCP_SERVICE_NAME_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ACCEPT_INFO {
     pub hSocket: isize,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
 }
-impl Default for NFC_LLCP_SOCKET_ACCEPT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_CL_PAYLOAD {
     pub hSocket: isize,
     pub bSAP: u8,
     pub sPayload: NFC_DATA_BUFFER,
-}
-impl Default for NFC_LLCP_SOCKET_CL_PAYLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -236,77 +211,47 @@ pub struct NFC_LLCP_SOCKET_CONNECT_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ERROR(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_ERROR_INFO {
     pub hSocket: isize,
     pub eSocketError: NFC_LLCP_SOCKET_ERROR,
 }
-impl Default for NFC_LLCP_SOCKET_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_INFO {
     pub eSocketType: NFC_LLCP_SOCKET_TYPE,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
 }
-impl Default for NFC_LLCP_SOCKET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_OPTION {
     pub uMIUX: u16,
     pub bRW: u8,
 }
-impl Default for NFC_LLCP_SOCKET_OPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_PAYLOAD {
     pub hSocket: isize,
     pub bSAP: u8,
     pub sPayload: NFC_DATA_BUFFER,
 }
-impl Default for NFC_LLCP_SOCKET_PAYLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_LLCP_SOCKET_SERVICE_INFO {
     pub hSocket: isize,
     pub bSAP: u8,
     pub sServiceName: NFC_LLCP_SERVICE_NAME_ENTRY,
 }
-impl Default for NFC_LLCP_SOCKET_SERVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_LLCP_SOCKET_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_NDEF_INFO {
     pub fIsNdefFormatted: bool,
     pub fIsReadOnly: bool,
     pub dwActualMessageLength: u32,
     pub dwMaxMessageLength: u32,
-}
-impl Default for NFC_NDEF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -327,15 +272,10 @@ impl Default for NFC_P2P_PARAM_CONFIG {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_RELEASE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_REMOTE_DEVICE_DISCONNET {
     pub hRemoteDev: isize,
     pub eReleaseType: NFC_RELEASE_TYPE,
-}
-impl Default for NFC_REMOTE_DEVICE_DISCONNET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -353,27 +293,17 @@ impl Default for NFC_REMOTE_DEV_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_REMOTE_DEV_RECV_INFO {
     pub hRemoteDev: isize,
     pub sRecvBuffer: NFC_DATA_BUFFER,
 }
-impl Default for NFC_REMOTE_DEV_RECV_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_REMOTE_DEV_SEND_INFO {
     pub hRemoteDev: isize,
     pub usTimeOut: u16,
     pub sSendBuffer: NFC_DATA_BUFFER,
-}
-impl Default for NFC_REMOTE_DEV_SEND_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -416,15 +346,10 @@ impl Default for NFC_SE_AID_ROUTING_INFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_SE_EMULATION_MODE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_EMULATION_MODE_INFO {
     pub hSecureElement: isize,
     pub eMode: NFC_SE_EMULATION_MODE,
-}
-impl Default for NFC_SE_EMULATION_MODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -440,15 +365,10 @@ impl Default for NFC_SE_EVENT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_INFO {
     pub hSecureElement: isize,
     pub eSecureElementType: SECURE_ELEMENT_TYPE,
-}
-impl Default for NFC_SE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -462,16 +382,11 @@ impl Default for NFC_SE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_PROTO_ROUTING_INFO {
     pub hSecureElement: isize,
     pub bPowerState: u8,
     pub eRfProtocolType: u8,
-}
-impl Default for NFC_SE_PROTO_ROUTING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -508,69 +423,44 @@ impl Default for NFC_SE_ROUTING_TABLE_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SE_TECH_ROUTING_INFO {
     pub hSecureElement: isize,
     pub bPowerState: u8,
     pub eRfTechType: u8,
 }
-impl Default for NFC_SE_TECH_ROUTING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_CLIENT_GET_INFO {
     pub hSnepClient: isize,
     pub sGetPayload: NFC_DATA_BUFFER,
 }
-impl Default for NFC_SNEP_CLIENT_GET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_CLIENT_INFO {
     pub hRemoteDev: isize,
     pub eServerType: NFC_SNEP_SERVER_TYPE,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
     pub sService: NFC_LLCP_SERVICE_NAME_ENTRY,
 }
-impl Default for NFC_SNEP_CLIENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_CLIENT_PUT_INFO {
     pub hSnepClient: isize,
     pub sPutPayload: NFC_DATA_BUFFER,
-}
-impl Default for NFC_SNEP_CLIENT_PUT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_SNEP_REQUEST_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_ACCEPT_INFO {
     pub hSnepServer: isize,
     pub hConnection: isize,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
 }
-impl Default for NFC_SNEP_SERVER_ACCEPT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_INFO {
     pub eServerType: NFC_SNEP_SERVER_TYPE,
     pub sSocketOption: NFC_LLCP_SOCKET_OPTION,
@@ -578,36 +468,21 @@ pub struct NFC_SNEP_SERVER_INFO {
     pub bSAP: u8,
     pub sService: NFC_LLCP_SERVICE_NAME_ENTRY,
 }
-impl Default for NFC_SNEP_SERVER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_REQUEST {
     pub hSnepServer: isize,
     pub hConnection: isize,
     pub eRequestType: NFC_SNEP_REQUEST_TYPE,
     pub sRequestPayload: NFC_DATA_BUFFER,
 }
-impl Default for NFC_SNEP_SERVER_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NFC_SNEP_SERVER_RESPONSE_INFO {
     pub hSnepServer: isize,
     pub hConnection: isize,
     pub dwResponseStatus: u32,
     pub sResponsePayload: NFC_DATA_BUFFER,
-}
-impl Default for NFC_SNEP_SERVER_RESPONSE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -650,15 +525,10 @@ impl Default for SECURE_ELEMENT_AID_ROUTING_INFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_CARD_EMULATION_MODE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_ENDPOINT_INFO {
     pub guidSecureElementId: windows_core::GUID,
     pub eSecureElementType: SECURE_ELEMENT_TYPE,
-}
-impl Default for SECURE_ELEMENT_ENDPOINT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -685,30 +555,20 @@ impl Default for SECURE_ELEMENT_EVENT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
     pub guidSecureElementId: windows_core::GUID,
     pub eEventType: SECURE_ELEMENT_EVENT_TYPE,
-}
-impl Default for SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_EVENT_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD {
     pub bConnectionId: u16,
     pub eRfTechType: u8,
     pub eRfProtocolType: u8,
-}
-impl Default for SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -723,31 +583,21 @@ impl Default for SECURE_ELEMENT_HCE_DATA_PACKET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_NFCC_CAPABILITIES {
     pub cbMaxRoutingTableSize: u16,
     pub IsAidRoutingSupported: bool,
     pub IsProtocolRoutingSupported: bool,
     pub IsTechRoutingSupported: bool,
 }
-impl Default for SECURE_ELEMENT_NFCC_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_POWER_MODE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_PROTO_ROUTING_INFO {
     pub guidSecureElementId: windows_core::GUID,
     pub eRfProtocolType: u8,
-}
-impl Default for SECURE_ELEMENT_PROTO_ROUTING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -787,37 +637,22 @@ impl Default for SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_ROUTING_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO {
     pub guidSecureElementId: windows_core::GUID,
     pub eMode: SECURE_ELEMENT_CARD_EMULATION_MODE,
 }
-impl Default for SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_SET_POWER_MODE_INFO {
     pub guidSecureElementId: windows_core::GUID,
     pub powerMode: SECURE_ELEMENT_POWER_MODE,
 }
-impl Default for SECURE_ELEMENT_SET_POWER_MODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURE_ELEMENT_TECH_ROUTING_INFO {
     pub guidSecureElementId: windows_core::GUID,
     pub eRfTechType: u8,
-}
-impl Default for SECURE_ELEMENT_TECH_ROUTING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

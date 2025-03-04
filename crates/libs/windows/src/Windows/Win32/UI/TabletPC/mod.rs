@@ -178,15 +178,10 @@ pub const CFL_INTERMEDIATE: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(1i32);
 pub const CFL_POOR: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(2i32);
 pub const CFL_STRONG: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHARACTER_RANGE {
     pub wcLow: u16,
     pub cChars: u16,
-}
-impl Default for CHARACTER_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -754,15 +749,10 @@ pub const DISPID_Text: DISPID_InkEdit = DISPID_InkEdit(0i32);
 pub const DISPID_TextRTF: DISPID_InkEdit = DISPID_InkEdit(1i32);
 pub const DISPID_UseMouseForInput: DISPID_InkEdit = DISPID_InkEdit(23i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
     pub dynamicRenderer: core::mem::ManuallyDrop<Option<IDynamicRenderer>>,
-}
-impl Default for DYNAMIC_RENDERER_CACHED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DockedBottom: VisualState = VisualState(3i32);
 pub const DockedTop: VisualState = VisualState(2i32);
@@ -873,24 +863,14 @@ pub const FLICKMODE_MIN: FLICKMODE = FLICKMODE(0i32);
 pub const FLICKMODE_OFF: FLICKMODE = FLICKMODE(0i32);
 pub const FLICKMODE_ON: FLICKMODE = FLICKMODE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLICK_DATA {
     pub _bitfield: i32,
 }
-impl Default for FLICK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLICK_POINT {
     pub _bitfield: i32,
-}
-impl Default for FLICK_POINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
 pub const Floating: VisualState = VisualState(1i32);
@@ -924,16 +904,11 @@ pub const GESTURE_CLOSEUP: u32 = 61455u32;
 pub const GESTURE_CROSS: u32 = 61447u32;
 pub const GESTURE_CURLICUE: u32 = 61456u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GESTURE_DATA {
     pub gestureId: i32,
     pub recoConfidence: i32,
     pub strokeCount: i32,
-}
-impl Default for GESTURE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
 pub const GESTURE_DIAGONAL_LEFTUP: u32 = 61532u32;
@@ -1333,6 +1308,7 @@ impl IDynamicRenderer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDynamicRenderer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1555,30 +1531,18 @@ impl Default for IEC_GESTUREINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub RecognitionResult: core::mem::ManuallyDrop<Option<IInkRecognitionResult>>,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl Default for IEC_RECOGNITIONRESULTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: core::mem::ManuallyDrop<Option<IInkCursor>>,
     pub Stroke: core::mem::ManuallyDrop<Option<IInkStrokeDisp>>,
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-impl Default for IEC_STROKEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IEC__BASE: u32 = 1536u32;
 pub const IEF_CopyFromOriginal: InkExtractFlags = InkExtractFlags(0i32);
@@ -1621,6 +1585,7 @@ impl IGestureRecognizer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGestureRecognizer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1719,6 +1684,7 @@ impl IHandwrittenTextInsertion {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHandwrittenTextInsertion_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1775,6 +1741,7 @@ impl core::ops::Deref for IInk {
 windows_core::imp::interface_hierarchy!(IInk, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInk_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -2010,6 +1977,7 @@ impl IInkCollector {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkCollector_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize) -> windows_core::HRESULT,
@@ -2576,6 +2544,7 @@ impl IInkCursor {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkCursor_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2728,6 +2697,7 @@ impl IInkCursorButton {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkCursorButton_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2827,6 +2797,7 @@ impl IInkCursorButtons {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkCursorButtons_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2928,6 +2899,7 @@ impl IInkCursors {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkCursors_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3040,6 +3012,7 @@ impl IInkCustomStrokes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkCustomStrokes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3318,6 +3291,7 @@ impl IInkDisp {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkDisp_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3734,6 +3708,7 @@ impl IInkDivider {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkDivider_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3868,6 +3843,7 @@ impl IInkDivisionResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkDivisionResult_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3957,6 +3933,7 @@ impl IInkDivisionUnit {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkDivisionUnit_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4070,6 +4047,7 @@ impl IInkDivisionUnits {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkDivisionUnits_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4243,6 +4221,7 @@ impl IInkDrawingAttributes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkDrawingAttributes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -4908,6 +4887,7 @@ impl IInkEdit {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkEdit_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkEditStatus) -> windows_core::HRESULT,
@@ -5975,6 +5955,7 @@ impl IInkExtendedProperties {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkExtendedProperties_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -6129,6 +6110,7 @@ impl IInkExtendedProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkExtendedProperty_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Guid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6224,6 +6206,7 @@ impl IInkGesture {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkGesture_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionConfidence) -> windows_core::HRESULT,
@@ -6311,6 +6294,7 @@ impl IInkLineInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkLineInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const INKMETRIC) -> windows_core::HRESULT,
@@ -6669,6 +6653,7 @@ impl IInkOverlay {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkOverlay_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize) -> windows_core::HRESULT,
@@ -7663,6 +7648,7 @@ impl IInkPicture {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkPicture_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize) -> windows_core::HRESULT,
@@ -8522,6 +8508,7 @@ impl IInkRecognitionAlternate {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognitionAlternate_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub String: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8809,6 +8796,7 @@ impl IInkRecognitionAlternates {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognitionAlternates_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -8943,6 +8931,7 @@ impl IInkRecognitionResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognitionResult_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub TopString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9116,6 +9105,7 @@ impl IInkRecognizer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognizer_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9278,6 +9268,7 @@ impl IInkRecognizer2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognizer2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9462,6 +9453,7 @@ impl IInkRecognizerContext {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognizerContext_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9796,6 +9788,7 @@ impl IInkRecognizerContext2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognizerContext2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9918,6 +9911,7 @@ impl IInkRecognizerGuide {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognizerGuide_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub WritingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10115,6 +10109,7 @@ impl IInkRecognizers {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRecognizers_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10261,6 +10256,7 @@ impl IInkRectangle {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRectangle_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -10513,6 +10509,7 @@ impl IInkRenderer {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkRenderer_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetViewTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10900,6 +10897,7 @@ impl IInkStrokeDisp {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkStrokeDisp_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11514,6 +11512,7 @@ impl IInkStrokes {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkStrokes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -11804,6 +11803,7 @@ impl IInkTablet {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkTablet_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11929,6 +11929,7 @@ impl IInkTablet2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkTablet2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DeviceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TabletDeviceKind) -> windows_core::HRESULT,
@@ -11988,6 +11989,7 @@ impl IInkTablet3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkTablet3_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub IsMultiTouch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -12083,6 +12085,7 @@ impl IInkTablets {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkTablets_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12279,6 +12282,7 @@ impl IInkTransform {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkTransform_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12566,6 +12570,7 @@ impl IInkWordList {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkWordList_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AddWord: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12631,6 +12636,7 @@ impl IInkWordList2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInkWordList2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AddWords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12679,6 +12685,7 @@ impl IInputPanelWindowHandle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInputPanelWindowHandle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachedEditWindow32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -12848,6 +12855,7 @@ impl IMathInputControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMathInputControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13044,18 +13052,13 @@ impl windows_core::RuntimeName for IMathInputControl {}
 pub const INKEDIT_CLASS: windows_core::PCWSTR = windows_core::w!("INKEDIT");
 pub const INKEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("INKEDIT");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
     pub iFontDescent: i32,
     pub dwFlags: u32,
     pub color: super::super::Foundation::COLORREF,
-}
-impl Default for INKMETRIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INKRECOGNITIONPROPERTY_BOXNUMBER: windows_core::PCWSTR = windows_core::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
 pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: windows_core::PCWSTR = windows_core::w!("{7DFE11A7-FB5D-4958-8765-154ADF0D833F}");
@@ -13222,6 +13225,7 @@ impl IPenInputPanel {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPenInputPanel_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Busy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -13769,6 +13773,7 @@ impl IRealTimeStylus {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRealTimeStylus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -14177,6 +14182,7 @@ impl IRealTimeStylus2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRealTimeStylus2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FlicksEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -14231,6 +14237,7 @@ impl IRealTimeStylus3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRealTimeStylus3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MultiTouchEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -14282,6 +14289,7 @@ impl IRealTimeStylusSynchronization {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRealTimeStylusSynchronization_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AcquireLock: unsafe extern "system" fn(*mut core::ffi::c_void, RealTimeStylusLockType) -> windows_core::HRESULT,
@@ -14341,6 +14349,7 @@ impl core::ops::Deref for ISketchInk {
 windows_core::imp::interface_hierarchy!(ISketchInk, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISketchInk_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -14391,6 +14400,7 @@ impl IStrokeBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStrokeBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -14494,6 +14504,7 @@ impl core::ops::Deref for IStylusAsyncPlugin {
 }
 windows_core::imp::interface_hierarchy!(IStylusAsyncPlugin, windows_core::IUnknown, IStylusPlugin);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStylusAsyncPlugin_Vtbl {
     pub base__: IStylusPlugin_Vtbl,
 }
@@ -14620,6 +14631,7 @@ impl IStylusPlugin {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStylusPlugin_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RealTimeStylusEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u32) -> windows_core::HRESULT,
@@ -14810,6 +14822,7 @@ impl core::ops::Deref for IStylusSyncPlugin {
 }
 windows_core::imp::interface_hierarchy!(IStylusSyncPlugin, windows_core::IUnknown, IStylusPlugin);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStylusSyncPlugin_Vtbl {
     pub base__: IStylusPlugin_Vtbl,
 }
@@ -14951,6 +14964,7 @@ impl ITextInputPanel {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextInputPanel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachedEditWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -15313,6 +15327,7 @@ impl ITextInputPanelEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextInputPanelEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InPlaceStateChanging: unsafe extern "system" fn(*mut core::ffi::c_void, InPlaceState, InPlaceState) -> windows_core::HRESULT,
@@ -15457,6 +15472,7 @@ impl ITextInputPanelRunInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextInputPanelRunInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTipRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -15514,6 +15530,7 @@ impl ITipAutoCompleteClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITipAutoCompleteClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseProvider: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15592,6 +15609,7 @@ impl ITipAutoCompleteProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITipAutoCompleteProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UpdatePendingText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -15721,18 +15739,13 @@ pub struct InkPictureSizeMode(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRasterOperation(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::super::Foundation::RECT,
     pub rectDrawnBox: super::super::Foundation::RECT,
     pub cRows: i32,
     pub cColumns: i32,
     pub midline: i32,
-}
-impl Default for InkRecoGuide {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15787,30 +15800,20 @@ pub const KEYMODIFIER_MENU: KEYMODIFIER = KEYMODIFIER(2i32);
 pub const KEYMODIFIER_SHIFT: KEYMODIFIER = KEYMODIFIER(4i32);
 pub const KEYMODIFIER_WIN: KEYMODIFIER = KEYMODIFIER(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LATTICE_METRICS {
     pub lsBaseline: LINE_SEGMENT,
     pub iMidlineOffset: i16,
-}
-impl Default for LATTICE_METRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LEFT_BUTTON: MouseButton = MouseButton(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINE_METRICS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LINE_SEGMENT {
     pub PtA: super::super::Foundation::POINT,
     pub PtB: super::super::Foundation::POINT,
-}
-impl Default for LINE_SEGMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LM_ASCENDER: LINE_METRICS = LINE_METRICS(2i32);
 pub const LM_BASELINE: LINE_METRICS = LINE_METRICS(0i32);
@@ -15868,28 +15871,18 @@ impl Default for PACKET_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PACKET_PROPERTY {
     pub guid: windows_core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
-impl Default for PACKET_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
     pub Units: PROPERTY_UNITS,
     pub fResolution: f32,
-}
-impl Default for PROPERTY_METRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -15953,7 +15946,7 @@ impl Default for RECO_ATTRS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECO_GUIDE {
     pub xOrigin: i32,
     pub yOrigin: i32,
@@ -15964,11 +15957,6 @@ pub struct RECO_GUIDE {
     pub cHorzBox: i32,
     pub cVertBox: i32,
     pub cyMid: i32,
-}
-impl Default for RECO_GUIDE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16040,15 +16028,10 @@ impl Default for RECO_LATTICE_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECO_RANGE {
     pub iwcBegin: u32,
     pub cCount: u32,
-}
-impl Default for RECO_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16123,15 +16106,10 @@ pub const SHR_SW: SelectionHitResult = SelectionHitResult(4i32);
 pub const SHR_Selection: SelectionHitResult = SelectionHitResult(9i32);
 pub const SHR_W: SelectionHitResult = SelectionHitResult(6i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
-}
-impl Default for STROKE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STR_GUID_ALTITUDEORIENTATION: windows_core::PCWSTR = windows_core::w!("{82DEC5C7-F6BA-4906-894F-66D68DFC456C}");
 pub const STR_GUID_AZIMUTHORIENTATION: windows_core::PCWSTR = windows_core::w!("{029123B4-8828-410B-B250-A0536595E5DC}");
@@ -16155,7 +16133,7 @@ pub const STR_GUID_YAWROTATION: windows_core::PCWSTR = windows_core::w!("{6A8499
 pub const STR_GUID_YTILTORIENTATION: windows_core::PCWSTR = windows_core::w!("{0E932389-1D77-43AF-AC00-5B950D6D4B2D}");
 pub const STR_GUID_Z: windows_core::PCWSTR = windows_core::w!("{735ADB30-0EBB-4788-A0E4-0F316490055D}");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_EVENT_DATA {
     pub bModifier: u8,
     pub wKey: u16,
@@ -16163,11 +16141,6 @@ pub struct SYSTEM_EVENT_DATA {
     pub yPos: i32,
     pub bCursorMode: u8,
     pub dwButtonState: u32,
-}
-impl Default for SYSTEM_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16181,16 +16154,11 @@ pub struct SelectionHitResult(pub i32);
 pub const SketchInk: windows_core::GUID = windows_core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: windows_core::GUID = windows_core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct StylusInfo {
     pub tcid: u32,
     pub cid: u32,
     pub bIsInvertedCursor: windows_core::BOOL,
-}
-impl Default for StylusInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -16258,6 +16226,7 @@ impl core::ops::Deref for _IInkCollectorEvents {
 windows_core::imp::interface_hierarchy!(_IInkCollectorEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IInkCollectorEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16287,6 +16256,7 @@ impl core::ops::Deref for _IInkEditEvents {
 windows_core::imp::interface_hierarchy!(_IInkEditEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IInkEditEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16316,6 +16286,7 @@ impl core::ops::Deref for _IInkEvents {
 windows_core::imp::interface_hierarchy!(_IInkEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IInkEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16345,6 +16316,7 @@ impl core::ops::Deref for _IInkOverlayEvents {
 windows_core::imp::interface_hierarchy!(_IInkOverlayEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IInkOverlayEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16374,6 +16346,7 @@ impl core::ops::Deref for _IInkPictureEvents {
 windows_core::imp::interface_hierarchy!(_IInkPictureEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IInkPictureEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16403,6 +16376,7 @@ impl core::ops::Deref for _IInkRecognitionEvents {
 windows_core::imp::interface_hierarchy!(_IInkRecognitionEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IInkRecognitionEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16432,6 +16406,7 @@ impl core::ops::Deref for _IInkStrokesEvents {
 windows_core::imp::interface_hierarchy!(_IInkStrokesEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IInkStrokesEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16461,6 +16436,7 @@ impl core::ops::Deref for _IMathInputControlEvents {
 windows_core::imp::interface_hierarchy!(_IMathInputControlEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IMathInputControlEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -16490,6 +16466,7 @@ impl core::ops::Deref for _IPenInputPanelEvents {
 windows_core::imp::interface_hierarchy!(_IPenInputPanelEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _IPenInputPanelEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }

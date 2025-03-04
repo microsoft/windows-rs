@@ -46,16 +46,11 @@ where
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 pub const Ambiguous: SignatureComparison = SignatureComparison(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ArrayDimension {
     pub LowerBound: i64,
     pub Length: u64,
     pub Stride: u64,
-}
-impl Default for ArrayDimension {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -157,34 +152,22 @@ pub const CallingConventionThisCall: CallingConventionKind = CallingConventionKi
 pub const CallingConventionUnknown: CallingConventionKind = CallingConventionKind(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub List: super::super::super::Kernel::LIST_ENTRY32,
     pub OwnerTag: u32,
     pub Size: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for DBGKD_DEBUG_DATA_HEADER32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub List: super::super::super::Kernel::LIST_ENTRY64,
     pub OwnerTag: u32,
     pub Size: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for DBGKD_DEBUG_DATA_HEADER64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBGKD_GET_VERSION32 {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -200,11 +183,6 @@ pub struct DBGKD_GET_VERSION32 {
     pub KeUserCallbackDispatcher: u32,
     pub BreakpointWithStatus: u32,
     pub DebuggerDataList: u32,
-}
-impl Default for DBGKD_GET_VERSION32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -361,7 +339,7 @@ pub const DEBUG_BREAKPOINT_GO_ONLY: u32 = 1u32;
 pub const DEBUG_BREAKPOINT_INLINE: u32 = 3u32;
 pub const DEBUG_BREAKPOINT_ONE_SHOT: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub Offset: u64,
     pub Id: u32,
@@ -376,29 +354,19 @@ pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub CommandSize: u32,
     pub OffsetExpressionSize: u32,
 }
-impl Default for DEBUG_BREAKPOINT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DEBUG_BREAKPOINT_TIME: u32 = 2u32;
 pub const DEBUG_BREAK_EXECUTE: u32 = 4u32;
 pub const DEBUG_BREAK_IO: u32 = 8u32;
 pub const DEBUG_BREAK_READ: u32 = 1u32;
 pub const DEBUG_BREAK_WRITE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub ModBase: u64,
     pub Arg1: u64,
     pub Arg2: u64,
     pub Id: u32,
     pub Arg3: u32,
-}
-impl Default for DEBUG_CACHED_SYMBOL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_CDS_ALL: u32 = 4294967295u32;
 pub const DEBUG_CDS_DATA: u32 = 2u32;
@@ -443,15 +411,10 @@ pub const DEBUG_CLASS_UNINITIALIZED: u32 = 0u32;
 pub const DEBUG_CLASS_USER_WINDOWS: u32 = 2u32;
 pub const DEBUG_CLIENT_CDB: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_CLIENT_CONTEXT {
     pub cbSize: u32,
     pub eClient: u32,
-}
-impl Default for DEBUG_CLIENT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_CLIENT_KD: u32 = 5u32;
 pub const DEBUG_CLIENT_NTKD: u32 = 3u32;
@@ -468,7 +431,7 @@ pub const DEBUG_CONNECT_SESSION_DEFAULT: u32 = 0u32;
 pub const DEBUG_CONNECT_SESSION_NO_ANNOUNCE: u32 = 2u32;
 pub const DEBUG_CONNECT_SESSION_NO_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_CPU_MICROCODE_VERSION {
     pub SizeOfStruct: u32,
     pub CachedSignature: i64,
@@ -477,11 +440,6 @@ pub struct DEBUG_CPU_MICROCODE_VERSION {
     pub ProcessorFamily: u32,
     pub ProcessorStepping: u32,
     pub ProcessorArchRev: u32,
-}
-impl Default for DEBUG_CPU_MICROCODE_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -497,17 +455,12 @@ impl Default for DEBUG_CPU_SPEED_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub CreateFlags: u32,
     pub EngCreateFlags: u32,
     pub VerifierFlags: u32,
     pub Reserved: u32,
-}
-impl Default for DEBUG_CREATE_PROCESS_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_CSS_ALL: u32 = 4294967295u32;
 pub const DEBUG_CSS_COLLAPSE_CHILDREN: u32 = 64u32;
@@ -667,7 +620,7 @@ impl Default for DEBUG_DECODE_ERROR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DevObjAddress: u64,
@@ -678,17 +631,12 @@ pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub DevExtension: u64,
     pub DevObjExtension: u64,
 }
-impl Default for DEBUG_DEVICE_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DEBUG_DISASM_EFFECTIVE_ADDRESS: u32 = 1u32;
 pub const DEBUG_DISASM_MATCHING_SYMBOLS: u32 = 2u32;
 pub const DEBUG_DISASM_SOURCE_FILE_NAME: u32 = 8u32;
 pub const DEBUG_DISASM_SOURCE_LINE_NUMBER: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_DRIVER_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DriverSize: u32,
@@ -698,22 +646,12 @@ pub struct DEBUG_DRIVER_OBJECT_INFO {
     pub DeviceObject: u64,
     pub DriverName: DEBUG_DRIVER_OBJECT_INFO_0,
 }
-impl Default for DEBUG_DRIVER_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: u64,
-}
-impl Default for DEBUG_DRIVER_OBJECT_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_DUMP_ACTIVE: u32 = 1030u32;
 pub const DEBUG_DUMP_DEFAULT: u32 = 1025u32;
@@ -769,17 +707,12 @@ pub const DEBUG_EVENT_CHANGE_DEBUGGEE_STATE: u32 = 1024u32;
 pub const DEBUG_EVENT_CHANGE_ENGINE_STATE: u32 = 2048u32;
 pub const DEBUG_EVENT_CHANGE_SYMBOL_STATE: u32 = 4096u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_EVENT_CONTEXT {
     pub Size: u32,
     pub ProcessEngineId: u32,
     pub ThreadEngineId: u32,
     pub FrameEngineId: u32,
-}
-impl Default for DEBUG_EVENT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_EVENT_CREATE_PROCESS: u32 = 16u32;
 pub const DEBUG_EVENT_CREATE_THREAD: u32 = 4u32;
@@ -792,7 +725,7 @@ pub const DEBUG_EVENT_SESSION_STATUS: u32 = 512u32;
 pub const DEBUG_EVENT_SYSTEM_ERROR: u32 = 256u32;
 pub const DEBUG_EVENT_UNLOAD_MODULE: u32 = 128u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -800,11 +733,6 @@ pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub CommandSize: u32,
     pub SecondCommandSize: u32,
     pub ExceptionCode: u32,
-}
-impl Default for DEBUG_EXCEPTION_FILTER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_EXECUTE_DEFAULT: u32 = 0u32;
 pub const DEBUG_EXECUTE_ECHO: u32 = 1u32;
@@ -1748,7 +1676,7 @@ pub const DEBUG_GSEL_INLINE_CALLSITE: u32 = 16u32;
 pub const DEBUG_GSEL_NEAREST_ONLY: u32 = 8u32;
 pub const DEBUG_GSEL_NO_SYMBOL_LOADS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_HANDLE_DATA_BASIC {
     pub TypeNameSize: u32,
     pub ObjectNameSize: u32,
@@ -1756,11 +1684,6 @@ pub struct DEBUG_HANDLE_DATA_BASIC {
     pub GrantedAccess: u32,
     pub HandleCount: u32,
     pub PointerCount: u32,
-}
-impl Default for DEBUG_HANDLE_DATA_BASIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_HANDLE_DATA_TYPE_ALL_HANDLE_OPERATIONS: u32 = 10u32;
 pub const DEBUG_HANDLE_DATA_TYPE_BASIC: u32 = 0u32;
@@ -1806,7 +1729,7 @@ impl Default for DEBUG_IRP_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_IRP_STACK_INFO {
     pub Major: u8,
     pub Minor: u8,
@@ -1814,11 +1737,6 @@ pub struct DEBUG_IRP_STACK_INFO {
     pub FileObject: u64,
     pub CompletionRoutine: u64,
     pub StackAddress: u64,
-}
-impl Default for DEBUG_IRP_STACK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_KERNEL_ACTIVE_DUMP: u32 = 1030u32;
 pub const DEBUG_KERNEL_CONNECTION: u32 = 0u32;
@@ -1835,88 +1753,48 @@ pub const DEBUG_KNOWN_STRUCT_GET_NAMES: u32 = 1u32;
 pub const DEBUG_KNOWN_STRUCT_GET_SINGLE_LINE_OUTPUT: u32 = 2u32;
 pub const DEBUG_KNOWN_STRUCT_SUPPRESS_TYPE_NAME: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
-impl Default for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::EXCEPTION_RECORD64,
     pub FirstChance: u32,
 }
-impl Default for DEBUG_LAST_EVENT_INFO_EXCEPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     pub ExitCode: u32,
 }
-impl Default for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     pub ExitCode: u32,
 }
-impl Default for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     pub Base: u64,
 }
-impl Default for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     pub Kind: u32,
     pub DataSize: u32,
     pub Address: u64,
 }
-impl Default for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     pub Error: u32,
     pub Level: u32,
 }
-impl Default for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     pub Base: u64,
-}
-impl Default for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_LEVEL_ASSEMBLY: u32 = 1u32;
 pub const DEBUG_LEVEL_SOURCE: u32 = 0u32;
@@ -1939,15 +1817,10 @@ pub const DEBUG_MODNAME_MAPPED_IMAGE: u32 = 4u32;
 pub const DEBUG_MODNAME_MODULE: u32 = 1u32;
 pub const DEBUG_MODNAME_SYMBOL_FILE: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_MODULE_AND_ID {
     pub ModuleBase: u64,
     pub Id: u64,
-}
-impl Default for DEBUG_MODULE_AND_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_MODULE_EXE_MODULE: u32 = 4u32;
 pub const DEBUG_MODULE_EXPLICIT: u32 = 8u32;
@@ -1983,15 +1856,10 @@ pub const DEBUG_NOTIFY_SESSION_ACTIVE: u32 = 0u32;
 pub const DEBUG_NOTIFY_SESSION_INACCESSIBLE: u32 = 3u32;
 pub const DEBUG_NOTIFY_SESSION_INACTIVE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_OFFSET_REGION {
     pub Base: u64,
     pub Size: u64,
-}
-impl Default for DEBUG_OFFSET_REGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_OFFSINFO_VIRTUAL_SOURCE: u32 = 1u32;
 pub const DEBUG_OUTCBF_COMBINED_EXPLICIT_FLUSH: u32 = 1u32;
@@ -2064,7 +1932,7 @@ pub const DEBUG_PHYSICAL_DEFAULT: u32 = 0u32;
 pub const DEBUG_PHYSICAL_UNCACHED: u32 = 2u32;
 pub const DEBUG_PHYSICAL_WRITE_COMBINED: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_PNP_TRIAGE_INFO {
     pub SizeOfStruct: u32,
     pub Lock_Address: u64,
@@ -2076,11 +1944,6 @@ pub struct DEBUG_PNP_TRIAGE_INFO {
     pub TriagedThread: u64,
     pub ThreadCount: i32,
     pub TriagedThread_WaitTime: u64,
-}
-impl Default for DEBUG_PNP_TRIAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2127,14 +1990,9 @@ impl Default for DEBUG_POOL_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_POOL_DATA_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DEBUG_POOL_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2155,15 +2013,10 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     pub Type: u32,
     pub Revision: u32,
-}
-impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2261,7 +2114,7 @@ pub const DEBUG_REGISTERS_FLOAT: u32 = 4u32;
 pub const DEBUG_REGISTERS_INT32: u32 = 1u32;
 pub const DEBUG_REGISTERS_INT64: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_REGISTER_DESCRIPTION {
     pub Type: u32,
     pub Flags: u32,
@@ -2270,11 +2123,6 @@ pub struct DEBUG_REGISTER_DESCRIPTION {
     pub SubregMask: u64,
     pub SubregShift: u32,
     pub Reserved0: u32,
-}
-impl Default for DEBUG_REGISTER_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_REGISTER_SUB_REGISTER: u32 = 1u32;
 pub const DEBUG_REGSRC_DEBUGGEE: u32 = 0u32;
@@ -2365,18 +2213,13 @@ impl Default for DEBUG_SMBIOS_INFO {
 }
 pub const DEBUG_SOURCE_IS_STATEMENT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
     pub TextSize: u32,
     pub CommandSize: u32,
     pub ArgumentSize: u32,
-}
-impl Default for DEBUG_SPECIFIC_FILTER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_SRCFILE_SYMBOL_CHECKSUMINFO: u32 = 2u32;
 pub const DEBUG_SRCFILE_SYMBOL_TOKEN: u32 = 0u32;
@@ -2456,7 +2299,7 @@ pub const DEBUG_STATUS_TIMEOUT: u32 = 17u32;
 pub const DEBUG_STATUS_WAIT_INPUT: u32 = 16u32;
 pub const DEBUG_STATUS_WAIT_TIMEOUT: u64 = 8589934592u64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_SYMBOL_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -2471,11 +2314,6 @@ pub struct DEBUG_SYMBOL_ENTRY {
     pub Arg32: u32,
     pub Reserved: u32,
 }
-impl Default for DEBUG_SYMBOL_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DEBUG_SYMBOL_EXPANDED: u32 = 16u32;
 pub const DEBUG_SYMBOL_EXPANSION_LEVEL_MASK: u32 = 15u32;
 pub const DEBUG_SYMBOL_IS_ARGUMENT: u32 = 256u32;
@@ -2483,7 +2321,7 @@ pub const DEBUG_SYMBOL_IS_ARRAY: u32 = 64u32;
 pub const DEBUG_SYMBOL_IS_FLOAT: u32 = 128u32;
 pub const DEBUG_SYMBOL_IS_LOCAL: u32 = 512u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Module: u64,
     pub TypeId: u32,
@@ -2492,14 +2330,9 @@ pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Flags: u32,
     pub Reserved: u64,
 }
-impl Default for DEBUG_SYMBOL_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const DEBUG_SYMBOL_READ_ONLY: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -2513,11 +2346,6 @@ pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub StartColumn: u32,
     pub EndColumn: u32,
     pub Reserved: u32,
-}
-impl Default for DEBUG_SYMBOL_SOURCE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_SYMENT_IS_CODE: u32 = 1u32;
 pub const DEBUG_SYMENT_IS_DATA: u32 = 2u32;
@@ -2550,7 +2378,7 @@ pub const DEBUG_TBINFO_PRIORITY_CLASS: u32 = 2u32;
 pub const DEBUG_TBINFO_START_OFFSET: u32 = 16u32;
 pub const DEBUG_TBINFO_TIMES: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub Valid: u32,
     pub ExitStatus: u32,
@@ -2563,36 +2391,21 @@ pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub StartOffset: u64,
     pub Affinity: u64,
 }
-impl Default for DEBUG_THREAD_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
     pub OwnerName: windows_core::PSTR,
 }
-impl Default for DEBUG_TRIAGE_FOLLOWUP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
     pub OwnerName: windows_core::PSTR,
     pub FeaturePathSize: u32,
     pub FeaturePath: windows_core::PSTR,
-}
-impl Default for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2671,37 +2484,22 @@ impl Default for DEBUG_VALUE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
     pub Nat: windows_core::BOOL,
 }
-impl Default for DEBUG_VALUE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl Default for DEBUG_VALUE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u32,
     pub HighPart: u32,
-}
-impl Default for DEBUG_VALUE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEBUG_VALUE_FLOAT128: u32 = 9u32;
 pub const DEBUG_VALUE_FLOAT32: u32 = 5u32;
@@ -2745,6 +2543,7 @@ impl core::ops::Deref for DebugBaseEventCallbacks {
 }
 windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacks, windows_core::IUnknown, IDebugEventCallbacks);
 #[repr(C)]
+#[doc(hidden)]
 pub struct DebugBaseEventCallbacks_Vtbl {
     pub base__: IDebugEventCallbacks_Vtbl,
 }
@@ -2767,6 +2566,7 @@ impl core::ops::Deref for DebugBaseEventCallbacksWide {
 }
 windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacksWide, windows_core::IUnknown, IDebugEventCallbacksWide);
 #[repr(C)]
+#[doc(hidden)]
 pub struct DebugBaseEventCallbacksWide_Vtbl {
     pub base__: IDebugEventCallbacksWide_Vtbl,
 }
@@ -2842,17 +2642,12 @@ pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: windows_core::R
 pub const EXT_ANALYZER_FLAG_ID: u32 = 2u32;
 pub const EXT_ANALYZER_FLAG_MOD: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EXT_API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
     pub Revision: u16,
     pub Reserved: u16,
-}
-impl Default for EXT_API_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EXT_API_VERSION_NUMBER: u32 = 5u32;
 pub const EXT_API_VERSION_NUMBER32: u32 = 5u32;
@@ -2871,7 +2666,7 @@ impl Default for EXT_CAB_XML_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EXT_CAB_XML_DATA_0 {
     pub SubTag: windows_core::PCWSTR,
     pub MatchPattern: windows_core::PCWSTR,
@@ -2879,11 +2674,6 @@ pub struct EXT_CAB_XML_DATA_0 {
     pub ReturnTextSize: u32,
     pub _bitfield: u32,
     pub Reserved2: u32,
-}
-impl Default for EXT_CAB_XML_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type EXT_DECODE_ERROR = Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR)>;
 #[repr(C)]
@@ -2914,16 +2704,11 @@ pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: win
 pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_core::HRESULT>;
 pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EXT_MATCH_PATTERN_A {
     pub Str: windows_core::PCSTR,
     pub Pattern: windows_core::PCSTR,
     pub CaseSensitive: u32,
-}
-impl Default for EXT_MATCH_PATTERN_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>) -> windows_core::HRESULT>;
 pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_core::HRESULT>;
@@ -3018,16 +2803,11 @@ pub const FAILURE_ANALYSIS_XSD_VERIFY: u32 = 8388608u32;
 pub const FAILURE_ANALYSIS_XSLT_FILE_INPUT: u32 = 268435456u32;
 pub const FAILURE_ANALYSIS_XSLT_FILE_OUTPUT: u32 = 536870912u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FA_ENTRY {
     pub Tag: DEBUG_FLR_PARAM_TYPE,
     pub FullSize: u16,
     pub DataSize: u16,
-}
-impl Default for FA_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3072,15 +2852,10 @@ impl Default for FIELD_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FIELD_INFO_1 {
     pub Position: u16,
     pub Size: u16,
-}
-impl Default for FIELD_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FormatBSTRString: PreferredFormat = PreferredFormat(8i32);
 pub const FormatEnumNameOnly: PreferredFormat = PreferredFormat(12i32);
@@ -3111,85 +2886,50 @@ impl Default for GET_CONTEXT_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_CURRENT_PROCESS_ADDRESS {
     pub Processor: u32,
     pub CurrentThread: u64,
     pub Address: u64,
 }
-impl Default for GET_CURRENT_PROCESS_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_CURRENT_THREAD_ADDRESS {
     pub Processor: u32,
     pub Address: u64,
 }
-impl Default for GET_CURRENT_THREAD_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_EXPRESSION_EX {
     pub Expression: windows_core::PCSTR,
     pub Remainder: windows_core::PCSTR,
     pub Value: u64,
 }
-impl Default for GET_EXPRESSION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_INPUT_LINE {
     pub Prompt: windows_core::PCSTR,
     pub Buffer: windows_core::PSTR,
     pub BufferSize: u32,
     pub InputSize: u32,
 }
-impl Default for GET_INPUT_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_PEB_ADDRESS {
     pub CurrentThread: u64,
     pub Address: u64,
 }
-impl Default for GET_PEB_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_SET_SYMPATH {
     pub Args: windows_core::PCSTR,
     pub Result: windows_core::PSTR,
     pub Length: i32,
 }
-impl Default for GET_SET_SYMPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GET_TEB_ADDRESS {
     pub Address: u64,
-}
-impl Default for GET_TEB_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(ICodeAddressConcept, ICodeAddressConcept_Vtbl, 0xc7371568_5c78_4a00_a4ab_6ef8823184cb);
 windows_core::imp::interface_hierarchy!(ICodeAddressConcept, windows_core::IUnknown);
@@ -3205,6 +2945,7 @@ impl ICodeAddressConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodeAddressConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContainingSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3248,6 +2989,7 @@ impl IComparableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComparableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CompareObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -3295,6 +3037,7 @@ impl IDataModelConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3493,6 +3236,7 @@ impl IDataModelManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3804,6 +3548,7 @@ impl IDataModelManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelManager2_Vtbl {
     pub base__: IDataModelManager_Vtbl,
     pub AcquireSubNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3893,6 +3638,7 @@ impl IDataModelNameBinder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelNameBinder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BindValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4002,6 +3748,7 @@ impl IDataModelScript {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScript_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4110,6 +3857,7 @@ impl IDataModelScriptClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorClass, windows_core::HRESULT, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
@@ -4188,6 +3936,7 @@ impl IDataModelScriptDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebug_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDebugState: unsafe extern "system" fn(*mut core::ffi::c_void) -> ScriptDebugState,
@@ -4344,6 +4093,7 @@ impl IDataModelScriptDebug2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebug2_Vtbl {
     pub base__: IDataModelScriptDebug_Vtbl,
     pub SetBreakpointAtFunction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4395,6 +4145,7 @@ impl IDataModelScriptDebugBreakpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -4479,6 +4230,7 @@ impl IDataModelScriptDebugBreakpointEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpointEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4527,6 +4279,7 @@ impl IDataModelScriptDebugClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyDebugEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const ScriptDebugEventInformation, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ScriptExecutionKind) -> windows_core::HRESULT,
@@ -4563,6 +4316,7 @@ impl IDataModelScriptDebugStack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugStack_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrameCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
@@ -4647,6 +4401,7 @@ impl IDataModelScriptDebugStackFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugStackFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4767,6 +4522,7 @@ impl IDataModelScriptDebugVariableSetEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4814,6 +4570,7 @@ impl IDataModelScriptHostContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptHostContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyScriptChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, ScriptChangeKind) -> windows_core::HRESULT,
@@ -4901,6 +4658,7 @@ impl IDataModelScriptManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDefaultNameBinder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5030,6 +4788,7 @@ impl IDataModelScriptProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5135,6 +4894,7 @@ impl IDataModelScriptProviderEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptProviderEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5195,6 +4955,7 @@ impl IDataModelScriptTemplate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptTemplate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5276,6 +5037,7 @@ impl IDataModelScriptTemplateEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataModelScriptTemplateEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5323,6 +5085,7 @@ impl IDebugAdvanced {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5389,6 +5152,7 @@ impl IDebugAdvanced2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5515,6 +5279,7 @@ impl IDebugAdvanced3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5671,6 +5436,7 @@ impl IDebugAdvanced4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugAdvanced4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5881,6 +5647,7 @@ impl IDebugBreakpoint {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugBreakpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6241,6 +6008,7 @@ impl IDebugBreakpoint2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugBreakpoint2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -6643,6 +6411,7 @@ impl IDebugBreakpoint3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugBreakpoint3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7185,6 +6954,7 @@ impl IDebugClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -7947,6 +7717,7 @@ impl IDebugClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -8819,6 +8590,7 @@ impl IDebugClient3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -9764,6 +9536,7 @@ impl IDebugClient4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -10942,6 +10715,7 @@ impl IDebugClient5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -12435,6 +12209,7 @@ impl IDebugClient6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -13940,6 +13715,7 @@ impl IDebugClient7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -15460,6 +15236,7 @@ impl IDebugClient8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugClient8_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -16909,6 +16686,7 @@ impl IDebugControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -18426,6 +18204,7 @@ impl IDebugControl2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -20114,6 +19893,7 @@ impl IDebugControl3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -22255,6 +22035,7 @@ impl IDebugControl4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -24933,6 +24714,7 @@ impl IDebugControl5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -27671,6 +27453,7 @@ impl IDebugControl6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -30436,6 +30219,7 @@ impl IDebugControl7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugControl7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -32368,6 +32152,7 @@ impl IDebugDataSpaces {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -32669,6 +32454,7 @@ impl IDebugDataSpaces2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -33055,6 +32841,7 @@ impl IDebugDataSpaces3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -33531,6 +33318,7 @@ impl IDebugDataSpaces4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugDataSpaces4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -34025,6 +33813,7 @@ impl IDebugEventCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugEventCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34237,6 +34026,7 @@ impl IDebugEventCallbacksWide {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugEventCallbacksWide_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34449,6 +34239,7 @@ impl IDebugEventContextCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugEventContextCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -34646,6 +34437,7 @@ impl IDebugFAEntryTags {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFAEntryTags_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE,
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE) -> windows_core::HRESULT,
@@ -34768,6 +34560,7 @@ impl IDebugFailureAnalysis {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFailureAnalysis_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFailureClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -34970,6 +34763,7 @@ impl IDebugFailureAnalysis2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFailureAnalysis2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFailureClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -35384,6 +35178,7 @@ impl IDebugFailureAnalysis3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugFailureAnalysis3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFailureClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
@@ -35831,6 +35626,7 @@ impl IDebugHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHostDefinedInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -35909,6 +35705,7 @@ impl IDebugHostBaseClass {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostBaseClass_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -35955,6 +35752,7 @@ impl IDebugHostConstant {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostConstant_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -36003,6 +35801,7 @@ impl IDebugHostContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsEqualTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -36061,6 +35860,7 @@ impl IDebugHostData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostData_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLocationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationKind) -> windows_core::HRESULT,
@@ -36139,6 +35939,7 @@ impl IDebugHostErrorSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostErrorSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, ErrorClass, windows_core::HRESULT, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -36182,6 +35983,7 @@ impl IDebugHostEvaluator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostEvaluator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EvaluateExpression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36234,6 +36036,7 @@ impl IDebugHostEvaluator2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostEvaluator2_Vtbl {
     pub base__: IDebugHostEvaluator_Vtbl,
     pub AssignTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36274,6 +36077,7 @@ impl IDebugHostExtensibility {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostExtensibility_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateFunctionAlias: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36344,6 +36148,7 @@ impl IDebugHostField {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostField_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLocationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationKind) -> windows_core::HRESULT,
@@ -36464,6 +36269,7 @@ impl IDebugHostMemory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostMemory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
@@ -36551,6 +36357,7 @@ impl IDebugHostMemory2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostMemory2_Vtbl {
     pub base__: IDebugHostMemory_Vtbl,
     pub LinearizeLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *mut Location) -> windows_core::HRESULT,
@@ -36629,6 +36436,7 @@ impl IDebugHostModule {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostModule_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetImageName: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36743,6 +36551,7 @@ impl IDebugHostModule2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostModule2_Vtbl {
     pub base__: IDebugHostModule_Vtbl,
     pub FindContainingSymbolByRVA: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -36779,6 +36588,7 @@ impl IDebugHostModuleSignature {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostModuleSignature_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -36830,6 +36640,7 @@ impl IDebugHostPublic {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostPublic_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLocationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocationKind) -> windows_core::HRESULT,
@@ -36890,6 +36701,7 @@ impl IDebugHostScriptHost {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostScriptHost_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36929,6 +36741,7 @@ impl IDebugHostStatus {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostStatus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PollUserInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -37010,6 +36823,7 @@ impl IDebugHostSymbol {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbol_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37148,6 +36962,7 @@ impl IDebugHostSymbol2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbol2_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LanguageKind) -> windows_core::HRESULT,
@@ -37190,6 +37005,7 @@ impl IDebugHostSymbolEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbolEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37299,6 +37115,7 @@ impl IDebugHostSymbols {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostSymbols_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateModuleSignature: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -37530,6 +37347,7 @@ impl IDebugHostType {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostType_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetTypeKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TypeKind) -> windows_core::HRESULT,
@@ -37854,6 +37672,7 @@ impl IDebugHostType2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostType2_Vtbl {
     pub base__: IDebugHostType_Vtbl,
     pub IsTypedef: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -37971,6 +37790,7 @@ impl IDebugHostTypeSignature {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugHostTypeSignature_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHashCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -38037,6 +37857,7 @@ impl IDebugInputCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugInputCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -38082,6 +37903,7 @@ impl IDebugOutputCallbacks {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -38127,6 +37949,7 @@ impl IDebugOutputCallbacks2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputCallbacks2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -38187,6 +38010,7 @@ impl IDebugOutputCallbacksWide {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputCallbacksWide_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -38220,6 +38044,7 @@ impl IDebugOutputStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugOutputStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -38255,6 +38080,7 @@ impl IDebugPlmClient {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPlmClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -38297,6 +38123,7 @@ impl IDebugPlmClient2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPlmClient2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -38409,6 +38236,7 @@ impl IDebugPlmClient3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugPlmClient3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -38580,6 +38408,7 @@ impl IDebugRegisters {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugRegisters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberRegisters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -38856,6 +38685,7 @@ impl IDebugRegisters2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugRegisters2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberRegisters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39228,6 +39058,7 @@ impl IDebugSymbolGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbolGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39450,6 +39281,7 @@ impl IDebugSymbolGroup2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbolGroup2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -39952,6 +39784,7 @@ impl IDebugSymbols {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -40774,6 +40607,7 @@ impl IDebugSymbols2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -42000,6 +41834,7 @@ impl IDebugSymbols3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -43907,6 +43742,7 @@ impl IDebugSymbols4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -45886,6 +45722,7 @@ impl IDebugSymbols5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSymbols5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -47409,6 +47246,7 @@ impl IDebugSystemObjects {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -48009,6 +47847,7 @@ impl IDebugSystemObjects2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -48714,6 +48553,7 @@ impl IDebugSystemObjects3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -49536,6 +49376,7 @@ impl IDebugSystemObjects4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDebugSystemObjects4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -50177,6 +50018,7 @@ impl IDynamicConceptProviderConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDynamicConceptProviderConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -50268,6 +50110,7 @@ impl IDynamicKeyProviderConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDynamicKeyProviderConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -50332,6 +50175,7 @@ impl IEquatableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEquatableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AreObjectsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -50418,6 +50262,7 @@ impl IHostDataModelAccess {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHostDataModelAccess_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDataModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50467,6 +50312,7 @@ impl IIndexableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIndexableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDimensionality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -50539,6 +50385,7 @@ impl IIterableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIterableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDefaultIndexDimensionality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -50596,6 +50443,7 @@ impl IKeyEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50661,6 +50509,7 @@ impl IKeyStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKeyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50733,6 +50582,7 @@ impl IModelIterator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelIterator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50740,7 +50590,7 @@ pub struct IModelIterator_Vtbl {
 }
 pub trait IModelIterator_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn GetNext(&self, object: windows_core::OutRef<'_, IModelObject>, dimensions: u64, indexers: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn GetNext(&self, object: windows_core::OutRef<'_, IModelObject>, dimensions: u64, indexers: *mut Option<IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
 }
 impl IModelIterator_Vtbl {
     pub const fn new<Identity: IModelIterator_Impl, const OFFSET: isize>() -> Self {
@@ -50805,6 +50655,7 @@ impl IModelKeyReference {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelKeyReference_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetKeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50919,6 +50770,7 @@ impl IModelKeyReference2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelKeyReference2_Vtbl {
     pub base__: IModelKeyReference_Vtbl,
     pub OverrideContextObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50952,6 +50804,7 @@ impl IModelMethod {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelMethod_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51182,6 +51035,7 @@ impl IModelObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51635,6 +51489,7 @@ impl IModelPropertyAccessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IModelPropertyAccessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51684,56 +51539,36 @@ impl Default for INLINE_FRAME_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INLINE_FRAME_CONTEXT_0 {
     pub FrameId: u8,
     pub FrameType: u8,
     pub FrameSignature: u16,
 }
-impl Default for INLINE_FRAME_CONTEXT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const INSUFFICIENT_SPACE_TO_COPY: u32 = 10u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOSPACE {
     pub Address: u32,
     pub Length: u32,
     pub Data: u32,
 }
-impl Default for IOSPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOSPACE32 {
     pub Address: u32,
     pub Length: u32,
     pub Data: u32,
 }
-impl Default for IOSPACE32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOSPACE64 {
     pub Address: u64,
     pub Length: u32,
     pub Data: u32,
 }
-impl Default for IOSPACE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOSPACE_EX {
     pub Address: u32,
     pub Length: u32,
@@ -51742,13 +51577,8 @@ pub struct IOSPACE_EX {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl Default for IOSPACE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOSPACE_EX32 {
     pub Address: u32,
     pub Length: u32,
@@ -51757,13 +51587,8 @@ pub struct IOSPACE_EX32 {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-impl Default for IOSPACE_EX32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IOSPACE_EX64 {
     pub Address: u64,
     pub Length: u32,
@@ -51771,11 +51596,6 @@ pub struct IOSPACE_EX64 {
     pub InterfaceType: u32,
     pub BusNumber: u32,
     pub AddressSpace: u32,
-}
-impl Default for IOSPACE_EX64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IPreferredRuntimeTypeConcept, IPreferredRuntimeTypeConcept_Vtbl, 0x9d6c1d7b_a76f_4618_8068_5f76bd9a4e8a);
 windows_core::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, windows_core::IUnknown);
@@ -51791,6 +51611,7 @@ impl IPreferredRuntimeTypeConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPreferredRuntimeTypeConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CastToPreferredRuntimeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51830,6 +51651,7 @@ impl IRawEnumerator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRawEnumerator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51875,6 +51697,7 @@ impl IStringDisplayableConcept {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStringDisplayableConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ToDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -51921,7 +51744,7 @@ pub const IntrinsicVoid: IntrinsicKind = IntrinsicKind(0i32);
 pub const IntrinsicWChar: IntrinsicKind = IntrinsicKind(3i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDDEBUGGER_DATA32 {
     pub Header: DBGKD_DEBUG_DATA_HEADER32,
     pub KernBase: u32,
@@ -51990,15 +51813,9 @@ pub struct KDDEBUGGER_DATA32 {
     pub KdPrintRolloverCount: u32,
     pub MmLoadedUserImageList: u32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for KDDEBUGGER_DATA32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDDEBUGGER_DATA64 {
     pub Header: DBGKD_DEBUG_DATA_HEADER64,
     pub KernBase: u64,
@@ -52164,12 +51981,6 @@ pub struct KDDEBUGGER_DATA64 {
     pub PointerAuthMask: u64,
     pub OffsetPrcbExceptionStack: u16,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for KDDEBUGGER_DATA64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type KDEXTS_LOCK_CALLBACKROUTINE = Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub const KDEXTS_LOCK_CALLBACKROUTINE_DEFINED: u32 = 2u32;
 #[repr(C)]
@@ -52192,7 +52003,7 @@ impl Default for KDEXTS_LOCK_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDEXTS_PTE_INFO {
     pub SizeOfStruct: u32,
     pub VirtualAddress: u64,
@@ -52203,11 +52014,6 @@ pub struct KDEXTS_PTE_INFO {
     pub Levels: u64,
     pub _bitfield1: u32,
     pub _bitfield2: u32,
-}
-impl Default for KDEXTS_PTE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> bool>;
 #[repr(C)]
@@ -52226,7 +52032,7 @@ impl Default for KDEXT_FILELOCK_OWNER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleTableEntry: u64,
     pub Handle: u64,
@@ -52236,36 +52042,21 @@ pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub PagedOut: bool,
 }
-impl Default for KDEXT_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDEXT_PROCESS_FIND_PARAMS {
     pub SizeofStruct: u32,
     pub Pid: u32,
     pub Session: u32,
     pub ImageName: windows_core::PSTR,
 }
-impl Default for KDEXT_PROCESS_FIND_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDEXT_THREAD_FIND_PARAMS {
     pub SizeofStruct: u32,
     pub StackPointer: u64,
     pub Cid: u32,
     pub Thread: u64,
-}
-impl Default for KDEXT_THREAD_FIND_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
@@ -52280,15 +52071,10 @@ pub struct LanguageKind(pub i32);
 pub const LanguageUnknown: LanguageKind = LanguageKind(0i32);
 pub const LessSpecific: SignatureComparison = SignatureComparison(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Location {
     pub HostDefined: u64,
     pub Offset: u64,
-}
-impl Default for Location {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LocationConstant: LocationKind = LocationKind(2i32);
 #[repr(transparent)]
@@ -52337,14 +52123,9 @@ impl Default for OS_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OS_INFO_0 {
     pub _bitfield: u32,
-}
-impl Default for OS_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -52376,25 +52157,15 @@ impl Default for OS_INFO_v1_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OS_INFO_v1_0_0 {
     pub Major: u32,
     pub Minor: u32,
 }
-impl Default for OS_INFO_v1_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OS_INFO_v1_1 {
     pub _bitfield: u32,
-}
-impl Default for OS_INFO_v1_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -52455,16 +52226,11 @@ impl Default for PHYSICAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PHYSICAL_TO_VIRTUAL {
     pub Status: u32,
     pub Size: u32,
     pub PdeAddress: u64,
-}
-impl Default for PHYSICAL_TO_VIRTUAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -52502,15 +52268,10 @@ impl Default for POINTER_SEARCH_PHYSICAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSORINFO {
     pub Processor: u16,
     pub NumberProcessors: u16,
-}
-impl Default for PROCESSORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -52530,17 +52291,12 @@ impl Default for PROCESS_COMMIT_USAGE {
 }
 pub const PROCESS_END: TANALYZE_RETURN = TANALYZE_RETURN(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_NAME_ENTRY {
     pub ProcessId: u32,
     pub NameOffset: u32,
     pub NameSize: u32,
     pub NextEntry: u32,
-}
-impl Default for PROCESS_NAME_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PSYM_DUMP_FIELD_CALLBACK = Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut core::ffi::c_void) -> u32>;
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
@@ -52640,15 +52396,10 @@ impl Default for READCONTROLSPACE64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct READ_WRITE_MSR {
     pub Msr: u32,
     pub Value: i64,
-}
-impl Default for READ_WRITE_MSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -52675,7 +52426,7 @@ pub const STACK_FRAME_TYPE_INLINE: u32 = 2u32;
 pub const STACK_FRAME_TYPE_RA: u32 = 128u32;
 pub const STACK_FRAME_TYPE_STACK: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STACK_SRC_INFO {
     pub ImagePath: windows_core::PCWSTR,
     pub ModuleName: windows_core::PCWSTR,
@@ -52684,21 +52435,11 @@ pub struct STACK_SRC_INFO {
     pub Row: u32,
     pub Column: u32,
 }
-impl Default for STACK_SRC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
-}
-impl Default for STACK_SYM_FRAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -52792,39 +52533,24 @@ impl Default for ScriptDebugEventInformation_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ScriptDebugEventInformation_0_1 {
     pub BreakpointId: u64,
 }
-impl Default for ScriptDebugEventInformation_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ScriptDebugEventInformation_0_0 {
     pub IsUncaught: u8,
-}
-impl Default for ScriptDebugEventInformation_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ScriptDebugException: ScriptDebugEvent = ScriptDebugEvent(2i32);
 pub const ScriptDebugExecuting: ScriptDebugState = ScriptDebugState(2i32);
 pub const ScriptDebugNoDebugger: ScriptDebugState = ScriptDebugState(0i32);
 pub const ScriptDebugNotExecuting: ScriptDebugState = ScriptDebugState(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ScriptDebugPosition {
     pub Line: u32,
     pub Column: u32,
-}
-impl Default for ScriptDebugPosition {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -52921,15 +52647,10 @@ impl Default for TARGET_DEBUG_INFO_v2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
     pub Virtual: u64,
     pub Physical: u64,
-}
-impl Default for TRANSLATE_VIRTUAL_TO_PHYSICAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TRIAGE_FOLLOWUP_DEFAULT: u32 = 2u32;
 pub const TRIAGE_FOLLOWUP_FAIL: u32 = 0u32;
@@ -52950,18 +52671,13 @@ pub const TypeUDT: TypeKind = TypeKind(0i32);
 pub const UNAVAILABLE_ERROR: u32 = 12u32;
 pub const Unrelated: SignatureComparison = SignatureComparison(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIRTUAL_TO_PHYSICAL {
     pub Status: u32,
     pub Size: u32,
     pub PdeAddress: u64,
     pub Virtual: u64,
     pub Physical: u64,
-}
-impl Default for VIRTUAL_TO_PHYSICAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VarArgsCStyle: VarArgsKind = VarArgsKind(1i32);
 #[repr(transparent)]
@@ -53002,17 +52718,12 @@ impl Default for WDBGEXTS_DISASSEMBLE_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WDBGEXTS_MODULE_IN_RANGE {
     pub Start: u64,
     pub End: u64,
     pub FoundModBase: u64,
     pub FoundModSize: u32,
-}
-impl Default for WDBGEXTS_MODULE_IN_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -53026,7 +52737,7 @@ impl Default for WDBGEXTS_QUERY_INTERFACE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WDBGEXTS_THREAD_OS_INFO {
     pub ThreadId: u32,
     pub ExitStatus: u32,
@@ -53039,14 +52750,9 @@ pub struct WDBGEXTS_THREAD_OS_INFO {
     pub StartOffset: u64,
     pub Affinity: u64,
 }
-impl Default for WDBGEXTS_THREAD_OS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -53061,15 +52767,9 @@ pub struct WINDBG_EXTENSION_APIS {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for WINDBG_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -53084,15 +52784,9 @@ pub struct WINDBG_EXTENSION_APIS32 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for WINDBG_EXTENSION_APIS32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -53107,14 +52801,8 @@ pub struct WINDBG_EXTENSION_APIS64 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for WINDBG_EXTENSION_APIS64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -53127,13 +52815,8 @@ pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
     pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
-impl Default for WINDBG_OLDKD_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -53141,11 +52824,6 @@ pub struct WINDBG_OLD_EXTENSION_APIS {
     pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
     pub lpDisasmRoutine: PWINDBG_DISASM,
     pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
-}
-impl Default for WINDBG_OLD_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WIN_95: OS_TYPE = OS_TYPE(0i32);
 pub const WIN_98: OS_TYPE = OS_TYPE(1i32);

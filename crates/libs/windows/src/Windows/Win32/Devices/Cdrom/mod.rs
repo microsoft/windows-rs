@@ -25,14 +25,9 @@ pub const CDROM_CD_TEXT_PACK_TOC_INFO2: u32 = 137u32;
 pub const CDROM_CD_TEXT_PACK_UPC_EAN: u32 = 142u32;
 pub const CDROM_DISK_AUDIO_TRACK: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_DISK_DATA {
     pub DiskData: u32,
-}
-impl Default for CDROM_DISK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CDROM_DISK_DATA_TRACK: u32 = 2u32;
 #[repr(C)]
@@ -47,15 +42,10 @@ impl Default for CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_EXCLUSIVE_ACCESS {
     pub RequestType: EXCLUSIVE_ACCESS_REQUEST_TYPE,
     pub Flags: u32,
-}
-impl Default for CDROM_EXCLUSIVE_ACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CDROM_EXCLUSIVE_CALLER_LENGTH: u32 = 64u32;
 #[repr(C)]
@@ -117,18 +107,13 @@ impl Default for CDROM_PERFORMANCE_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_PERFORMANCE_REQUEST {
     pub RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
     pub PerformanceType: CDROM_PERFORMANCE_TYPE,
     pub Exceptions: CDROM_PERFORMANCE_EXCEPTION_TYPE,
     pub Tolerance: CDROM_PERFORMANCE_TOLERANCE_TYPE,
     pub StaringLba: u32,
-}
-impl Default for CDROM_PERFORMANCE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -140,7 +125,7 @@ pub struct CDROM_PERFORMANCE_TOLERANCE_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_PLAY_AUDIO_MSF {
     pub StartingM: u8,
     pub StartingS: u8,
@@ -149,23 +134,13 @@ pub struct CDROM_PLAY_AUDIO_MSF {
     pub EndingS: u8,
     pub EndingF: u8,
 }
-impl Default for CDROM_PLAY_AUDIO_MSF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_READ_TOC_EX {
     pub _bitfield: u8,
     pub SessionTrack: u8,
     pub Reserved2: u8,
     pub Reserved3: u8,
-}
-impl Default for CDROM_READ_TOC_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CDROM_READ_TOC_EX_FORMAT_ATIP: u32 = 4u32;
 pub const CDROM_READ_TOC_EX_FORMAT_CDTEXT: u32 = 5u32;
@@ -174,32 +149,22 @@ pub const CDROM_READ_TOC_EX_FORMAT_PMA: u32 = 3u32;
 pub const CDROM_READ_TOC_EX_FORMAT_SESSION: u32 = 1u32;
 pub const CDROM_READ_TOC_EX_FORMAT_TOC: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_SEEK_AUDIO_MSF {
     pub M: u8,
     pub S: u8,
     pub F: u8,
 }
-impl Default for CDROM_SEEK_AUDIO_MSF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_SET_SPEED {
     pub RequestType: CDROM_SPEED_REQUEST,
     pub ReadSpeed: u16,
     pub WriteSpeed: u16,
     pub RotationControl: WRITE_ROTATION,
 }
-impl Default for CDROM_SET_SPEED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_SET_STREAMING {
     pub RequestType: CDROM_SPEED_REQUEST,
     pub ReadSize: u32,
@@ -214,46 +179,26 @@ pub struct CDROM_SET_STREAMING {
     pub RandomAccess: bool,
     pub Persistent: bool,
 }
-impl Default for CDROM_SET_STREAMING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_SIMPLE_OPC_INFO {
     pub RequestType: CDROM_OPC_INFO_TYPE,
     pub Exclude0: bool,
     pub Exclude1: bool,
 }
-impl Default for CDROM_SIMPLE_OPC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SPEED_REQUEST(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_STREAMING_CONTROL {
     pub RequestType: STREAMING_CONTROL_REQUEST_TYPE,
 }
-impl Default for CDROM_STREAMING_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_SUB_Q_DATA_FORMAT {
     pub Format: u8,
     pub Track: u8,
-}
-impl Default for CDROM_SUB_Q_DATA_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -413,14 +358,9 @@ impl Default for CDROM_WRITE_SPEED_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CDROM_WRITE_SPEED_REQUEST {
     pub RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
-}
-impl Default for CDROM_WRITE_SPEED_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CD_RAW_READ_C2_SIZE: u32 = 296u32;
 pub const CD_RAW_READ_SUBCODE_SIZE: u32 = 96u32;
@@ -503,16 +443,11 @@ pub const MediaBlankTypeUncloseLastSession: MEDIA_BLANK_TYPE = MEDIA_BLANK_TYPE(
 pub const MediaBlankTypeUnreserveLastTrack: MEDIA_BLANK_TYPE = MEDIA_BLANK_TYPE(3i32);
 pub const OBSOLETE_IOCTL_CDROM_GET_CONTROL: u32 = 147508u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RAW_READ_INFO {
     pub DiskOffset: i64,
     pub SectorCount: u32,
     pub TrackMode: TRACK_MODE_TYPE,
-}
-impl Default for RAW_READ_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RawWithC2: TRACK_MODE_TYPE = TRACK_MODE_TYPE(4i32);
 pub const RawWithC2AndSubCode: TRACK_MODE_TYPE = TRACK_MODE_TYPE(3i32);

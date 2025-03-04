@@ -106,7 +106,7 @@ impl Default for MAGCOLOREFFECT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -114,11 +114,6 @@ pub struct MAGIMAGEHEADER {
     pub stride: u32,
     pub offset: u32,
     pub cbSize: usize,
-}
-impl Default for MAGIMAGEHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

@@ -9,6 +9,7 @@ impl IWCNConnectNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWCNConnectNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -103,6 +104,7 @@ impl IWCNDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWCNDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPassword: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_PASSWORD_TYPE, u32, *const u8) -> windows_core::HRESULT,
@@ -551,16 +553,11 @@ pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     pub Category: u16,
     pub SubCategoryOUI: u32,
     pub SubCategory: u16,
-}
-impl Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -580,15 +577,10 @@ pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
 pub const WCN_VALUE_VERSION_1_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(16i32);
 pub const WCN_VALUE_VERSION_2_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(32i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WCN_VENDOR_EXTENSION_SPEC {
     pub VendorId: u32,
     pub SubType: u32,
     pub Index: u32,
     pub Flags: u32,
-}
-impl Default for WCN_VENDOR_EXTENSION_SPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

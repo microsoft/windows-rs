@@ -1537,16 +1537,11 @@ pub const ASC_RET_USED_DCE_STYLE: u32 = 512u32;
 pub const ASC_RET_USE_SESSION_KEY: u32 = 32u32;
 pub const AUDIT_ENUMERATE_USERS: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUDIT_POLICY_INFORMATION {
     pub AuditSubCategoryGuid: windows_core::GUID,
     pub AuditingInformation: u32,
     pub AuditCategoryGuid: windows_core::GUID,
-}
-impl Default for AUDIT_POLICY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const AUDIT_QUERY_MISC_POLICY: u32 = 64u32;
 pub const AUDIT_QUERY_SYSTEM_POLICY: u32 = 2u32;
@@ -1754,18 +1749,13 @@ pub const DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PR
 pub const DOMAIN_NO_LM_OWF_CHANGE: i32 = 64i32;
 pub const DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DOMAIN_PASSWORD_INFORMATION {
     pub MinPasswordLength: u16,
     pub PasswordHistoryLength: u16,
     pub PasswordProperties: DOMAIN_PASSWORD_PROPERTIES,
     pub MaxPasswordAge: i64,
     pub MinPasswordAge: i64,
-}
-impl Default for DOMAIN_PASSWORD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(2u32);
 pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(4u32);
@@ -1816,16 +1806,10 @@ pub const DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_
 pub const ENABLE_TLS_CLIENT_EARLY_START: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENCRYPTED_CREDENTIALW {
     pub Cred: super::super::Credentials::CREDENTIALW,
     pub ClearCredentialBlobSize: u32,
-}
-#[cfg(feature = "Win32_Security_Credentials")]
-impl Default for ENCRYPTED_CREDENTIALW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ENCRYPT_MESSAGE_FN = Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> windows_core::HRESULT>;
@@ -1895,6 +1879,7 @@ impl ICcgDomainAuthCredentials {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICcgDomainAuthCredentials_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPasswordCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -2068,7 +2053,7 @@ pub const ISSP_LEVEL: u32 = 32u32;
 pub const ISSP_MODE: u32 = 1u32;
 pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub SinceLastUsed: u64,
     pub DomainName: LSA_UNICODE_STRING,
@@ -2080,11 +2065,6 @@ pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub CredDomainName: LSA_UNICODE_STRING,
     pub GlobalCache: bool,
 }
-impl Default for KDC_PROXY_CACHE_ENTRY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1u32;
 pub const KDC_PROXY_SETTINGS_V1: u32 = 1u32;
 pub const KERBEROS_REVISION: u32 = 6u32;
@@ -2093,7 +2073,7 @@ pub const KERBEROS_VERSION: u32 = 5u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_ADDRESS_TYPE(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: LSA_UNICODE_STRING,
@@ -2101,26 +2081,16 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub AddressType: KERB_ADDRESS_TYPE,
     pub DcFlags: u32,
 }
-impl Default for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: LSA_UNICODE_STRING,
     pub KdcAddress: LSA_UNICODE_STRING,
     pub AddressType: KERB_ADDRESS_TYPE,
 }
-impl Default for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub UserName: LSA_UNICODE_STRING,
@@ -2128,11 +2098,6 @@ pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub Password: LSA_UNICODE_STRING,
     pub LogonId: super::super::super::Foundation::LUID,
     pub Flags: KERB_REQUEST_FLAGS,
-}
-impl Default for KERB_ADD_CREDENTIALS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2159,7 +2124,7 @@ impl Default for KERB_AUTH_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub DiscoveryTime: u64,
     pub RealmName: LSA_UNICODE_STRING,
@@ -2170,32 +2135,17 @@ pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub CacheFlags: u32,
     pub KdcName: LSA_UNICODE_STRING,
 }
-impl Default for KERB_BINDING_CACHE_ENTRY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CERTIFICATE_HASHINFO {
     pub StoreNameLength: u16,
     pub HashLength: u16,
 }
-impl Default for KERB_CERTIFICATE_HASHINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CERTIFICATE_INFO {
     pub CertInfoSize: u32,
     pub InfoType: u32,
-}
-impl Default for KERB_CERTIFICATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2238,18 +2188,13 @@ pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: u32 = 4u32;
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON {
     pub Logon: KERB_CERTIFICATE_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
 }
-impl Default for KERB_CERTIFICATE_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: LSA_UNICODE_STRING,
@@ -2257,11 +2202,6 @@ pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub OldPassword: LSA_UNICODE_STRING,
     pub NewPassword: LSA_UNICODE_STRING,
     pub Impersonating: bool,
-}
-impl Default for KERB_CHANGEPASSWORD_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KERB_CHECKSUM_CRC32: u32 = 1u32;
 pub const KERB_CHECKSUM_DES_MAC: i32 = -133i32;
@@ -2288,47 +2228,27 @@ pub const KERB_CHECKSUM_SHA256: i32 = -139i32;
 pub const KERB_CHECKSUM_SHA384: i32 = -140i32;
 pub const KERB_CHECKSUM_SHA512: i32 = -141i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
 }
-impl Default for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
     pub _bitfield: u32,
 }
-impl Default for KERB_CLOUD_KERBEROS_DEBUG_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     pub _bitfield: u32,
 }
-impl Default for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl Default for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2356,16 +2276,11 @@ impl Default for KERB_CRYPTO_KEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_CRYPTO_KEY32 {
     pub KeyType: i32,
     pub Length: u32,
     pub Offset: u32,
-}
-impl Default for KERB_CRYPTO_KEY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2477,20 +2392,15 @@ impl Default for KERB_EXTERNAL_TICKET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_INTERACTIVE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: LSA_UNICODE_STRING,
     pub UserName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
 }
-impl Default for KERB_INTERACTIVE_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_INTERACTIVE_PROFILE {
     pub MessageType: KERB_PROFILE_BUFFER_TYPE,
     pub LogonCount: u16,
@@ -2509,21 +2419,11 @@ pub struct KERB_INTERACTIVE_PROFILE {
     pub LogonServer: LSA_UNICODE_STRING,
     pub UserFlags: u32,
 }
-impl Default for KERB_INTERACTIVE_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
     pub Logon: KERB_INTERACTIVE_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl Default for KERB_INTERACTIVE_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1u32;
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
@@ -2531,16 +2431,11 @@ pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_LOGON_SUBMIT_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_NET_ADDRESS {
     pub Family: u32,
     pub Length: u32,
     pub Address: windows_core::PSTR,
-}
-impl Default for KERB_NET_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2561,73 +2456,43 @@ pub struct KERB_PROFILE_BUFFER_TYPE(pub i32);
 pub struct KERB_PROTOCOL_MESSAGE_TYPE(pub i32);
 pub const KERB_PURGE_ALL_TICKETS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
-impl Default for KERB_PURGE_BINDING_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
 }
-impl Default for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfPurged: u32,
 }
-impl Default for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
     pub TicketTemplate: KERB_TICKET_CACHE_INFO_EX,
 }
-impl Default for KERB_PURGE_TKT_CACHE_EX_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
     pub ServerName: LSA_UNICODE_STRING,
     pub RealmName: LSA_UNICODE_STRING,
 }
-impl Default for KERB_PURGE_TKT_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-}
-impl Default for KERB_QUERY_BINDING_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2642,42 +2507,27 @@ impl Default for KERB_QUERY_BINDING_CACHE_RESPONSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub DomainName: LSA_UNICODE_STRING,
 }
-impl Default for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub ExtendedPolicies: u32,
     pub DsFlags: u32,
 }
-impl Default for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl Default for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2692,16 +2542,11 @@ impl Default for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl Default for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2752,15 +2597,10 @@ impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl Default for KERB_QUERY_TKT_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2777,41 +2617,26 @@ impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
 pub const KERB_REFRESH_POLICY_KDC: u32 = 2u32;
 pub const KERB_REFRESH_POLICY_KERBEROS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_REFRESH_POLICY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
 }
-impl Default for KERB_REFRESH_POLICY_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_REFRESH_POLICY_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
 }
-impl Default for KERB_REFRESH_POLICY_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KERB_REFRESH_SCCRED_GETTGT: u32 = 1u32;
 pub const KERB_REFRESH_SCCRED_RELEASE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_REFRESH_SCCRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CredentialBlob: LSA_UNICODE_STRING,
     pub LogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
-}
-impl Default for KERB_REFRESH_SCCRED_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(1u32);
 #[repr(transparent)]
@@ -2820,18 +2645,13 @@ pub struct KERB_REQUEST_FLAGS(pub u32);
 pub const KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(4u32);
 pub const KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(2u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub UserName: LSA_UNICODE_STRING,
     pub DomainName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
-}
-impl Default for KERB_RETRIEVE_KEY_TAB_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2855,7 +2675,7 @@ pub const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: u32 = 4u32;
 pub const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -2865,34 +2685,18 @@ pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub EncryptionType: KERB_CRYPTO_KEY_TYPE,
     pub CredentialsHandle: super::super::Credentials::SecHandle,
 }
-#[cfg(feature = "Win32_Security_Credentials")]
-impl Default for KERB_RETRIEVE_TKT_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
 }
-impl Default for KERB_RETRIEVE_TKT_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub ServerName: LSA_UNICODE_STRING,
     pub Flags: u32,
     pub LastStatus: super::super::super::Foundation::NTSTATUS,
     pub Expiry: i64,
-}
-impl Default for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: u32 = 1u32;
 #[repr(C)]
@@ -2913,23 +2717,18 @@ impl Default for KERB_S4U2PROXY_CRED {
 }
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
     pub ClientUpn: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
 }
-impl Default for KERB_S4U_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: u32 = 8u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -2944,15 +2743,9 @@ pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub KdcAddress: LSA_UNICODE_STRING,
     pub KdcAddressType: u32,
 }
-#[cfg(feature = "Win32_Security_Credentials")]
-impl Default for KERB_SETPASSWORD_EX_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SETPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -2961,12 +2754,6 @@ pub struct KERB_SETPASSWORD_REQUEST {
     pub DomainName: LSA_UNICODE_STRING,
     pub AccountName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
-}
-#[cfg(feature = "Win32_Security_Credentials")]
-impl Default for KERB_SETPASSWORD_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KERB_SETPASS_USE_CREDHANDLE: u32 = 2u32;
 pub const KERB_SETPASS_USE_LOGONID: u32 = 1u32;
@@ -2996,18 +2783,13 @@ impl Default for KERB_SMART_CARD_PROFILE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
     pub Logon: KERB_SMART_CARD_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
 }
-impl Default for KERB_SMART_CARD_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_SUBMIT_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -3016,13 +2798,8 @@ pub struct KERB_SUBMIT_TKT_REQUEST {
     pub KerbCredSize: u32,
     pub KerbCredOffset: u32,
 }
-impl Default for KERB_SUBMIT_TKT_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO {
     pub ServerName: LSA_UNICODE_STRING,
     pub RealmName: LSA_UNICODE_STRING,
@@ -3032,13 +2809,8 @@ pub struct KERB_TICKET_CACHE_INFO {
     pub EncryptionType: i32,
     pub TicketFlags: KERB_TICKET_FLAGS,
 }
-impl Default for KERB_TICKET_CACHE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX {
     pub ClientName: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
@@ -3050,13 +2822,8 @@ pub struct KERB_TICKET_CACHE_INFO_EX {
     pub EncryptionType: i32,
     pub TicketFlags: u32,
 }
-impl Default for KERB_TICKET_CACHE_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub ClientName: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
@@ -3070,13 +2837,8 @@ pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub SessionKeyType: u32,
     pub BranchId: u32,
 }
-impl Default for KERB_TICKET_CACHE_INFO_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub ClientName: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
@@ -3091,11 +2853,6 @@ pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub BranchId: u32,
     pub CacheFlags: u32,
     pub KdcCalled: LSA_UNICODE_STRING,
-}
-impl Default for KERB_TICKET_CACHE_INFO_EX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3166,40 +2923,25 @@ impl Default for KERB_TICKET_LOGON {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub SessionKey: KERB_CRYPTO_KEY,
 }
-impl Default for KERB_TICKET_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TICKET_UNLOCK_LOGON {
     pub Logon: KERB_TICKET_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
 }
-impl Default for KERB_TICKET_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERB_TRANSFER_CRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub OriginLogonId: super::super::super::Foundation::LUID,
     pub DestinationLogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
-}
-impl Default for KERB_TRANSFER_CRED_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KERB_TRANSFER_CRED_WITH_TICKETS: u32 = 1u32;
 pub const KERB_USE_DEFAULT_TICKET_FLAGS: u32 = 0u32;
@@ -3381,7 +3123,7 @@ impl Default for LSA_AUTH_INFORMATION {
 pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_DISPATCH_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
     pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
@@ -3395,20 +3137,10 @@ pub struct LSA_DISPATCH_TABLE {
     pub CopyToClientBuffer: PLSA_COPY_TO_CLIENT_BUFFER,
     pub CopyFromClientBuffer: PLSA_COPY_FROM_CLIENT_BUFFER,
 }
-impl Default for LSA_DISPATCH_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_ENUMERATION_INFORMATION {
     pub Sid: super::super::PSID,
-}
-impl Default for LSA_ENUMERATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3433,32 +3165,22 @@ impl Default for LSA_FOREST_TRUST_COLLISION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD {
     pub Index: u32,
     pub Type: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE,
     pub Flags: u32,
     pub Name: LSA_UNICODE_STRING,
 }
-impl Default for LSA_FOREST_TRUST_COLLISION_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
     pub Sid: super::super::PSID,
     pub DnsName: LSA_UNICODE_STRING,
     pub NetbiosName: LSA_UNICODE_STRING,
-}
-impl Default for LSA_FOREST_TRUST_DOMAIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3538,16 +3260,11 @@ impl Default for LSA_FOREST_TRUST_RECORD2_0 {
 pub struct LSA_FOREST_TRUST_RECORD_TYPE(pub i32);
 pub const LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_FOREST_TRUST_SCANNER_INFO {
     pub DomainSid: super::super::PSID,
     pub DnsName: LSA_UNICODE_STRING,
     pub NetbiosName: LSA_UNICODE_STRING,
-}
-impl Default for LSA_FOREST_TRUST_SCANNER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535i32;
 pub const LSA_GLOBAL_SECRET_PREFIX: windows_core::PCWSTR = windows_core::w!("G$");
@@ -3572,16 +3289,11 @@ impl windows_core::Free for LSA_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_LAST_INTER_LOGON_INFO {
     pub LastSuccessfulLogon: i64,
     pub LastFailedLogon: i64,
     pub FailedAttemptCountSinceLastSuccessfulLogon: u32,
-}
-impl Default for LSA_LAST_INTER_LOGON_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LSA_LOCAL_SECRET_PREFIX: windows_core::PCWSTR = windows_core::w!("L$");
 pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
@@ -3631,7 +3343,7 @@ pub const LSA_SCANNER_INFO_ADMIN_ALL_FLAGS: i32 = 1i32;
 pub const LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION: i32 = 1i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
     pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
@@ -3698,27 +3410,16 @@ pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub SetAppModeInfo: PLSA_SET_APP_MODE_INFO,
     pub GetClientInfoEx: PLSA_GET_CLIENT_INFO_EX,
 }
-#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-impl Default for LSA_SECPKG_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LSA_SECRET_MAXIMUM_COUNT: i32 = 4096i32;
 pub const LSA_SECRET_MAXIMUM_LENGTH: i32 = 512i32;
 pub const LSA_SID_DISABLED_ADMIN: i32 = 1i32;
 pub const LSA_SID_DISABLED_CONFLICT: i32 = 2i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PSTR,
-}
-impl Default for LSA_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LSA_TLN_DISABLED_ADMIN: i32 = 2i32;
 pub const LSA_TLN_DISABLED_CONFLICT: i32 = 4i32;
@@ -3773,64 +3474,39 @@ impl Default for LSA_TOKEN_INFORMATION_V3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRANSLATED_NAME {
     pub Use: super::super::SID_NAME_USE,
     pub Name: LSA_UNICODE_STRING,
     pub DomainIndex: i32,
 }
-impl Default for LSA_TRANSLATED_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRANSLATED_SID {
     pub Use: super::super::SID_NAME_USE,
     pub RelativeId: u32,
     pub DomainIndex: i32,
 }
-impl Default for LSA_TRANSLATED_SID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRANSLATED_SID2 {
     pub Use: super::super::SID_NAME_USE,
     pub Sid: super::super::PSID,
     pub DomainIndex: i32,
     pub Flags: u32,
 }
-impl Default for LSA_TRANSLATED_SID2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_TRUST_INFORMATION {
     pub Name: LSA_UNICODE_STRING,
     pub Sid: super::super::PSID,
 }
-impl Default for LSA_TRUST_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LSA_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PWSTR,
-}
-impl Default for LSA_UNICODE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(3i32);
 pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(0i32);
@@ -3861,19 +3537,14 @@ pub const MSV1_0_AV_FLAG_FORCE_GUEST: u32 = 1u32;
 pub const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: u32 = 2u32;
 pub const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_AV_PAIR {
     pub AvId: u16,
     pub AvLen: u16,
 }
-impl Default for MSV1_0_AV_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const MSV1_0_CHALLENGE_LENGTH: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: LSA_UNICODE_STRING,
@@ -3882,22 +3553,12 @@ pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub NewPassword: LSA_UNICODE_STRING,
     pub Impersonating: bool,
 }
-impl Default for MSV1_0_CHANGEPASSWORD_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub PasswordInfoValid: bool,
     pub DomainPasswordInfo: DOMAIN_PASSWORD_INFORMATION,
-}
-impl Default for MSV1_0_CHANGEPASSWORD_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: u32 = 262144u32;
 pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(2u32);
@@ -3933,20 +3594,15 @@ pub const MSV1_0_DISABLE_PERSONAL_FALLBACK: u32 = 4096u32;
 pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(16u32);
 pub const MSV1_0_GUEST_LOGON: MSV1_0 = MSV1_0(2u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: LSA_UNICODE_STRING,
     pub UserName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
 }
-impl Default for MSV1_0_INTERACTIVE_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
     pub LogonCount: u16,
@@ -3964,11 +3620,6 @@ pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub HomeDirectoryDrive: LSA_UNICODE_STRING,
     pub LogonServer: LSA_UNICODE_STRING,
     pub UserFlags: u32,
-}
-impl Default for MSV1_0_INTERACTIVE_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MSV1_0_INTERNET_DOMAIN: u32 = 524288u32;
 #[repr(C)]
@@ -4103,17 +3754,12 @@ pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_
 pub const MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(8u32);
 pub const MSV1_0_S4U2SELF: u32 = 131072u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_S4U_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
     pub UserPrincipalName: LSA_UNICODE_STRING,
     pub DomainName: LSA_UNICODE_STRING,
-}
-impl Default for MSV1_0_S4U_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MSV1_0_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2u32;
 pub const MSV1_0_SHA_PASSWORD_LENGTH: u32 = 20u32;
@@ -4225,7 +3871,7 @@ pub const MSV1_0_USE_CLIENT_CHALLENGE: u32 = 128u32;
 pub const MSV1_0_USE_DOMAIN_FOR_ROUTING_ONLY: u32 = 32768u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSV1_0_VALIDATION_INFO {
     pub LogoffTime: i64,
     pub KickoffTime: i64,
@@ -4236,12 +3882,6 @@ pub struct MSV1_0_VALIDATION_INFO {
     pub UserFlags: u32,
     pub WhichFields: u32,
     pub UserId: u32,
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl Default for MSV1_0_VALIDATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MSV1_0_VALIDATION_KICKOFF_TIME: u32 = 2u32;
 pub const MSV1_0_VALIDATION_LOGOFF_TIME: u32 = 1u32;
@@ -4378,26 +4018,16 @@ pub const NEGOSSP_NAME_A: windows_core::PCSTR = windows_core::s!("Negotiate");
 pub const NEGOSSP_NAME_W: windows_core::PCWSTR = windows_core::w!("Negotiate");
 pub const NEGOTIATE_ALLOW_NTLM: u32 = 268435456u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_REQUEST {
     pub MessageType: u32,
     pub LogonId: super::super::super::Foundation::LUID,
 }
-impl Default for NEGOTIATE_CALLER_NAME_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_RESPONSE {
     pub MessageType: u32,
     pub CallerName: windows_core::PWSTR,
-}
-impl Default for NEGOTIATE_CALLER_NAME_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32u32;
 #[repr(transparent)]
@@ -4419,17 +4049,12 @@ impl Default for NEGOTIATE_PACKAGE_PREFIX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEGOTIATE_PACKAGE_PREFIXES {
     pub MessageType: u32,
     pub PrefixCount: u32,
     pub Offset: u32,
     pub Pad: u32,
-}
-impl Default for NEGOTIATE_PACKAGE_PREFIXES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4446,20 +4071,14 @@ impl Default for NETLOGON_GENERIC_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETLOGON_INTERACTIVE_INFO {
     pub Identity: NETLOGON_LOGON_IDENTITY_INFO,
     pub LmOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
     pub NtOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
 }
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl Default for NETLOGON_INTERACTIVE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETLOGON_LOGON_IDENTITY_INFO {
     pub LogonDomainName: LSA_UNICODE_STRING,
     pub ParameterControl: u32,
@@ -4467,40 +4086,24 @@ pub struct NETLOGON_LOGON_IDENTITY_INFO {
     pub UserName: LSA_UNICODE_STRING,
     pub Workstation: LSA_UNICODE_STRING,
 }
-impl Default for NETLOGON_LOGON_IDENTITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETLOGON_LOGON_INFO_CLASS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETLOGON_NETWORK_INFO {
     pub Identity: NETLOGON_LOGON_IDENTITY_INFO,
     pub LmChallenge: CLEAR_BLOCK,
     pub NtChallengeResponse: LSA_STRING,
     pub LmChallengeResponse: LSA_STRING,
 }
-impl Default for NETLOGON_NETWORK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETLOGON_SERVICE_INFO {
     pub Identity: NETLOGON_LOGON_IDENTITY_INFO,
     pub LmOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
     pub NtOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl Default for NETLOGON_SERVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NGC_DATA_FLAG_IS_CLOUD_TRUST_CRED: u32 = 8u32;
 pub const NGC_DATA_FLAG_IS_SMARTCARD_DATA: u32 = 4u32;
@@ -4580,29 +4183,19 @@ impl Default for PKU2U_CERTIFICATE_S4U_LOGON {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PKU2U_CERT_BLOB {
     pub CertOffset: u32,
     pub CertLength: u16,
 }
-impl Default for PKU2U_CERT_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PKU2U_CREDUI_CONTEXT {
     pub Version: u64,
     pub cbHeaderLength: u16,
     pub cbStructureLength: u32,
     pub CertArrayCount: u16,
     pub CertArrayOffset: u32,
-}
-impl Default for PKU2U_CREDUI_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4728,15 +4321,10 @@ pub type PLSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction:
 pub type PLSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = Option<unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_ACCOUNT_DOMAIN_INFO {
     pub DomainName: LSA_UNICODE_STRING,
     pub DomainSid: super::super::PSID,
-}
-impl Default for POLICY_ACCOUNT_DOMAIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4769,29 +4357,19 @@ pub const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1i32;
 pub struct POLICY_AUDIT_EVENT_TYPE(pub i32);
 pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_AUDIT_FULL_QUERY_INFO {
     pub ShutDownOnFull: bool,
     pub LogIsFull: bool,
 }
-impl Default for POLICY_AUDIT_FULL_QUERY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_AUDIT_FULL_SET_INFO {
     pub ShutDownOnFull: bool,
 }
-impl Default for POLICY_AUDIT_FULL_SET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const POLICY_AUDIT_LOG_ADMIN: i32 = 512i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_AUDIT_LOG_INFO {
     pub AuditLogPercentFull: u32,
     pub MaximumLogSize: u32,
@@ -4799,11 +4377,6 @@ pub struct POLICY_AUDIT_LOG_INFO {
     pub AuditLogFullShutdownInProgress: bool,
     pub TimeToShutdown: i64,
     pub NextAuditRecordId: u32,
-}
-impl Default for POLICY_AUDIT_LOG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4831,28 +4404,18 @@ pub const POLICY_CREATE_ACCOUNT: i32 = 16i32;
 pub const POLICY_CREATE_PRIVILEGE: i32 = 64i32;
 pub const POLICY_CREATE_SECRET: i32 = 32i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DEFAULT_QUOTA_INFO {
     pub QuotaLimits: super::super::QUOTA_LIMITS,
 }
-impl Default for POLICY_DEFAULT_QUOTA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DNS_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub DnsForestName: LSA_UNICODE_STRING,
     pub DomainGuid: windows_core::GUID,
     pub Sid: super::super::PSID,
-}
-impl Default for POLICY_DNS_DOMAIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4869,7 +4432,7 @@ impl Default for POLICY_DOMAIN_EFS_INFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_DOMAIN_INFORMATION_CLASS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub AuthenticationOptions: u32,
     pub MaxServiceTicketAge: i64,
@@ -4877,11 +4440,6 @@ pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub MaxRenewAge: i64,
     pub MaxClockSkew: i64,
     pub Reserved: i64,
-}
-impl Default for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POLICY_GET_PRIVATE_INFORMATION: i32 = 4i32;
 #[repr(transparent)]
@@ -4893,73 +4451,43 @@ pub const POLICY_LOOKUP_NAMES: i32 = 2048i32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_LSA_SERVER_ROLE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
 }
-impl Default for POLICY_LSA_SERVER_ROLE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO {
     pub Rid: u32,
     pub Sid: super::super::PSID,
 }
-impl Default for POLICY_MACHINE_ACCT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO2 {
     pub Rid: u32,
     pub Sid: super::super::PSID,
     pub ObjectGuid: windows_core::GUID,
 }
-impl Default for POLICY_MACHINE_ACCT_INFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_MODIFICATION_INFO {
     pub ModifiedId: i64,
     pub DatabaseCreationTime: i64,
-}
-impl Default for POLICY_MODIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POLICY_NOTIFICATION: i32 = 4096i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_NOTIFICATION_INFORMATION_CLASS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_PD_ACCOUNT_INFO {
     pub Name: LSA_UNICODE_STRING,
 }
-impl Default for POLICY_PD_ACCOUNT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_PRIMARY_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
     pub Sid: super::super::PSID,
-}
-impl Default for POLICY_PRIMARY_DOMAIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POLICY_QOS_ALLOW_LOCAL_ROOT_CERT_STORE: u32 = 32u32;
 pub const POLICY_QOS_DHCP_SERVER_ALLOWED: u32 = 128u32;
@@ -4970,15 +4498,10 @@ pub const POLICY_QOS_OUTBOUND_INTEGRITY: u32 = 2u32;
 pub const POLICY_QOS_RAS_SERVER_ALLOWED: u32 = 64u32;
 pub const POLICY_QOS_SCHANNEL_REQUIRED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POLICY_REPLICA_SOURCE_INFO {
     pub ReplicaSource: LSA_UNICODE_STRING,
     pub ReplicaAccountName: LSA_UNICODE_STRING,
-}
-impl Default for POLICY_REPLICA_SOURCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const POLICY_SERVER_ADMIN: i32 = 1024i32;
 pub const POLICY_SET_AUDIT_REQUIREMENTS: i32 = 256i32;
@@ -5100,16 +4623,11 @@ pub const SAM_INIT_NOTIFICATION_ROUTINE: windows_core::PCSTR = windows_core::s!(
 pub const SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: windows_core::PCSTR = windows_core::s!("PasswordChangeNotify");
 pub const SAM_PASSWORD_FILTER_ROUTINE: windows_core::PCSTR = windows_core::s!("PasswordFilter");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_ELEMENT {
     pub Original: windows_core::PSTR,
     pub Mapped: windows_core::PSTR,
     pub Continuable: bool,
-}
-impl Default for SAM_REGISTER_MAPPING_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5142,16 +4660,11 @@ pub const SASL_OPTION_RECV_SIZE: u32 = 2u32;
 pub const SASL_OPTION_SEND_SIZE: u32 = 1u32;
 pub const SCHANNEL_ALERT: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCHANNEL_ALERT_TOKEN {
     pub dwTokenType: u32,
     pub dwAlertType: SCHANNEL_ALERT_TOKEN_ALERT_TYPE,
     pub dwAlertNumber: u32,
-}
-impl Default for SCHANNEL_ALERT_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5269,15 +4782,10 @@ pub const SCHANNEL_SECRET_PRIVKEY: u32 = 2u32;
 pub const SCHANNEL_SECRET_TYPE_CAPI: u32 = 1u32;
 pub const SCHANNEL_SESSION: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCHANNEL_SESSION_TOKEN {
     pub dwTokenType: u32,
     pub dwFlags: SCHANNEL_SESSION_TOKEN_FLAGS,
-}
-impl Default for SCHANNEL_SESSION_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5363,15 +4871,10 @@ pub const SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_F
 pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(1024u32);
 pub const SCH_CRED_REVOCATION_CHECK_END_CERT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(256u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCH_CRED_SECRET_CAPI {
     pub dwType: u32,
     pub hProv: usize,
-}
-impl Default for SCH_CRED_SECRET_CAPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5459,18 +4962,13 @@ pub const SECPKGCONTEXT_CIPHERINFO_V1: u32 = 1u32;
 pub const SECPKGCONTEXT_CONNECTION_INFO_EX_V1: u32 = 1u32;
 pub const SECPKG_ANSI_ATTRIBUTE: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_APP_MODE_INFO {
     pub UserFunction: u32,
     pub Argument1: usize,
     pub Argument2: usize,
     pub UserData: SecBuffer,
     pub ReturnToLsa: bool,
-}
-impl Default for SECPKG_APP_MODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5564,15 +5062,10 @@ pub const SECPKG_ATTR_USER_FLAGS: u32 = 11u32;
 pub const SECPKG_ATTR_USE_NCRYPT: u32 = 98u32;
 pub const SECPKG_ATTR_USE_VALIDATED: u32 = 15u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_BYTE_VECTOR {
     pub ByteArrayOffset: u32,
     pub ByteArrayLength: u16,
-}
-impl Default for SECPKG_BYTE_VECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CALLFLAGS_APPCONTAINER: u32 = 1u32;
 pub const SECPKG_CALLFLAGS_APPCONTAINER_AUTHCAPABLE: u32 = 2u32;
@@ -5607,7 +5100,7 @@ pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_MESSAGE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     pub MessageType: u32,
     pub Flags: u32,
@@ -5615,37 +5108,22 @@ pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     pub DcName: LSA_UNICODE_STRING,
     pub DcFlags: u32,
 }
-impl Default for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     pub MessageType: u32,
     pub OriginLogonId: super::super::super::Foundation::LUID,
     pub DestinationLogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
 }
-impl Default for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_CLEANUP_CREDENTIALS: u32 = 2u32;
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_OPTIMISTIC_LOGON: u32 = 1u32;
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_TO_SSO_SESSION: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     pub MessageType: u32,
     pub Flags: u32,
-}
-impl Default for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CALL_PROCESS_TERM: u32 = 256u32;
 pub const SECPKG_CALL_RECURSIVE: u32 = 8u32;
@@ -5658,7 +5136,7 @@ pub const SECPKG_CALL_WOWA32: u32 = 262144u32;
 pub const SECPKG_CALL_WOWCLIENT: u32 = 64u32;
 pub const SECPKG_CALL_WOWX86: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_CLIENT_INFO {
     pub LogonId: super::super::super::Foundation::LUID,
     pub ProcessID: u32,
@@ -5670,13 +5148,8 @@ pub struct SECPKG_CLIENT_INFO {
     pub ImpersonationLevel: super::super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::super::super::Foundation::HANDLE,
 }
-impl Default for SECPKG_CLIENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_CLIENT_INFO_EX {
     pub LogonId: super::super::super::Foundation::LUID,
     pub ProcessID: u32,
@@ -5689,11 +5162,6 @@ pub struct SECPKG_CLIENT_INFO_EX {
     pub ClientToken: super::super::super::Foundation::HANDLE,
     pub IdentificationLogonId: super::super::super::Foundation::LUID,
     pub IdentificationToken: super::super::super::Foundation::HANDLE,
-}
-impl Default for SECPKG_CLIENT_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CLIENT_PROCESS_TERMINATED: u32 = 1u32;
 pub const SECPKG_CLIENT_THREAD_TERMINATED: u32 = 2u32;
@@ -5715,7 +5183,7 @@ impl Default for SECPKG_CONTEXT_THUNKS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CRED(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_CREDENTIAL {
     pub Version: u64,
     pub cbHeaderLength: u16,
@@ -5731,11 +5199,6 @@ pub struct SECPKG_CREDENTIAL {
     pub PrincipalName: SECPKG_BYTE_VECTOR,
     pub PackageList: SECPKG_BYTE_VECTOR,
     pub MarshaledSuppliedCreds: SECPKG_BYTE_VECTOR,
-}
-impl Default for SECPKG_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_CREDENTIAL_ATTRIBUTE: u32 = 0u32;
 pub const SECPKG_CREDENTIAL_FLAGS_CALLER_HAS_TCB: u32 = 1u32;
@@ -5757,17 +5220,12 @@ pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = SECPKG_CRED(2u32);
 pub const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32u32;
 pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_DLL_FUNCTIONS {
     pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
     pub FreeHeap: PLSA_FREE_LSA_HEAP,
     pub RegisterCallback: PLSA_REGISTER_CALLBACK,
     pub LocatePackageById: PLSA_LOCATE_PKG_BY_ID,
-}
-impl Default for SECPKG_DLL_FUNCTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5784,27 +5242,17 @@ impl Default for SECPKG_EVENT_NOTIFY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_EVENT_PACKAGE_CHANGE {
     pub ChangeType: SECPKG_PACKAGE_CHANGE_TYPE,
     pub PackageId: usize,
     pub PackageName: SECURITY_STRING,
 }
-impl Default for SECPKG_EVENT_PACKAGE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_EVENT_ROLE_CHANGE {
     pub PreviousRole: u32,
     pub NewRole: u32,
-}
-impl Default for SECPKG_EVENT_ROLE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5874,7 +5322,7 @@ pub const SECPKG_FLAG_STREAM: u32 = 1024u32;
 pub const SECPKG_FLAG_TOKEN_ONLY: u32 = 4u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_FUNCTION_TABLE {
     pub InitializePackage: PLSA_AP_INITIALIZE_PACKAGE,
     pub LogonUserA: PLSA_AP_LOGON_USER,
@@ -5920,12 +5368,6 @@ pub struct SECPKG_FUNCTION_TABLE {
     pub PostLogonUserSurrogate: PLSA_AP_POST_LOGON_USER_SURROGATE,
     pub ExtractTargetInfo: SpExtractTargetInfoFn,
 }
-#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-impl Default for SECPKG_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECPKG_GSS_INFO {
@@ -5951,7 +5393,7 @@ pub const SECPKG_INTERFACE_VERSION_8: u32 = 8388608u32;
 pub const SECPKG_INTERFACE_VERSION_9: u32 = 16777216u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_KERNEL_FUNCTIONS {
     pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
     pub FreeHeap: PLSA_FREE_LSA_HEAP,
@@ -5963,15 +5405,9 @@ pub struct SECPKG_KERNEL_FUNCTIONS {
     pub SerializeSchannelAuthData: PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA,
     pub LocatePackageById: PKSEC_LOCATE_PKG_BY_ID,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for SECPKG_KERNEL_FUNCTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_KERNEL_FUNCTION_TABLE {
     pub Initialize: KspInitPackageFn,
     pub DeleteContext: KspDeleteContextFn,
@@ -5989,25 +5425,14 @@ pub struct SECPKG_KERNEL_FUNCTION_TABLE {
     pub SetPackagePagingMode: KspSetPagingModeFn,
     pub SerializeAuthData: KspSerializeAuthDataFn,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl Default for SECPKG_KERNEL_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SECPKG_LSAMODEINIT_NAME: windows_core::PCSTR = windows_core::s!("SpLsaModeInitialize");
 pub const SECPKG_MAX_OID_LENGTH: u32 = 32u32;
 pub const SECPKG_MSVAV_FLAGS_VALID: u32 = 1u32;
 pub const SECPKG_MSVAV_TIMESTAMP_VALID: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_MUTUAL_AUTH_LEVEL {
     pub MutualAuthLevel: u32,
-}
-impl Default for SECPKG_MUTUAL_AUTH_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6029,7 +5454,7 @@ pub const SECPKG_NEGOTIATION_IN_PROGRESS: u32 = 2u32;
 pub const SECPKG_NEGOTIATION_OPTIMISTIC: u32 = 1u32;
 pub const SECPKG_NEGOTIATION_TRY_MULTICRED: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_NTLM_TARGETINFO {
     pub Flags: u32,
     pub MsvAvNbComputerName: windows_core::PWSTR,
@@ -6040,11 +5465,6 @@ pub struct SECPKG_NTLM_TARGETINFO {
     pub MsvAvFlags: u32,
     pub MsvAvTimestamp: super::super::super::Foundation::FILETIME,
     pub MsvAvTargetName: windows_core::PWSTR,
-}
-impl Default for SECPKG_NTLM_TARGETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_OPTIONS_PERMANENT: u32 = 1u32;
 pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(1u32);
@@ -6057,7 +5477,7 @@ pub const SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACK
 pub struct SECPKG_PACKAGE_CHANGE_TYPE(pub u32);
 pub const SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_PARAMETERS {
     pub Version: u32,
     pub MachineState: u32,
@@ -6067,25 +5487,15 @@ pub struct SECPKG_PARAMETERS {
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub DomainGuid: windows_core::GUID,
 }
-impl Default for SECPKG_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_POST_LOGON_USER_INFO {
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
     pub LinkedLogonId: super::super::super::Foundation::LUID,
 }
-impl Default for SECPKG_POST_LOGON_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED {
     pub LogonId: super::super::super::Foundation::LUID,
     pub DownlevelName: LSA_UNICODE_STRING,
@@ -6102,13 +5512,8 @@ pub struct SECPKG_PRIMARY_CRED {
     pub Spare3: LSA_UNICODE_STRING,
     pub Spare4: LSA_UNICODE_STRING,
 }
-impl Default for SECPKG_PRIMARY_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED_EX {
     pub LogonId: super::super::super::Foundation::LUID,
     pub DownlevelName: LSA_UNICODE_STRING,
@@ -6128,14 +5533,9 @@ pub struct SECPKG_PRIMARY_CRED_EX {
     pub PrevLogonId: super::super::super::Foundation::LUID,
     pub FlagsEx: u32,
 }
-impl Default for SECPKG_PRIMARY_CRED_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: windows_core::GUID,
     pub RedirectedLogonHandle: super::super::super::Foundation::HANDLE,
@@ -6145,11 +5545,6 @@ pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub GetLogonCreds: PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS,
     pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
     pub GetRedirectedLogonSid: PLSA_REDIRECTED_LOGON_GET_SID,
-}
-impl Default for SECPKG_REDIRECTED_LOGON_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_REDIRECTED_LOGON_GUID_INITIALIZER: windows_core::GUID = windows_core::GUID::from_u128(0xc2be5457_82eb_483e_ae4e_7468ef14d509);
 #[repr(C)]
@@ -6168,15 +5563,10 @@ impl Default for SECPKG_SERIALIZED_OID {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SESSIONINFO_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_SHORT_VECTOR {
     pub ShortArrayOffset: u32,
     pub ShortArrayCount: u16,
-}
-impl Default for SECPKG_SHORT_VECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECPKG_STATE_CRED_ISOLATION_ENABLED: u32 = 32u32;
 pub const SECPKG_STATE_DOMAIN_CONTROLLER: u32 = 4u32;
@@ -6209,7 +5599,7 @@ impl Default for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_SUPPLIED_CREDENTIAL {
     pub cbHeaderLength: u16,
     pub cbStructureLength: u16,
@@ -6217,11 +5607,6 @@ pub struct SECPKG_SUPPLIED_CREDENTIAL {
     pub DomainName: SECPKG_SHORT_VECTOR,
     pub PackedCredentials: SECPKG_BYTE_VECTOR,
     pub CredFlags: u32,
-}
-impl Default for SECPKG_SUPPLIED_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6249,20 +5634,15 @@ impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
 }
 pub const SECPKG_SURROGATE_LOGON_VERSION_1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_TARGETINFO {
     pub DomainSid: super::super::PSID,
     pub ComputerName: windows_core::PCWSTR,
 }
-impl Default for SECPKG_TARGETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
 pub const SECPKG_USERMODEINIT_NAME: windows_core::PCSTR = windows_core::s!("SpUserModeInitialize");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_USER_FUNCTION_TABLE {
     pub InstanceInit: SpInstanceInitFn,
     pub InitUserModeContext: SpInitUserModeContextFn,
@@ -6280,20 +5660,10 @@ pub struct SECPKG_USER_FUNCTION_TABLE {
     pub ImportContext: SpImportSecurityContextFn,
     pub MarshalAttributeData: SpMarshalAttributeDataFn,
 }
-impl Default for SECPKG_USER_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECPKG_WOW_CLIENT_DLL {
     pub WowClientDllPath: SECURITY_STRING,
-}
-impl Default for SECPKG_WOW_CLIENT_DLL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECQOP_WRAP_NO_ENCRYPT: u32 = 2147483649u32;
 pub const SECQOP_WRAP_OOB_DATA: u32 = 1073741824u32;
@@ -6305,7 +5675,7 @@ pub const SECURITY_ENTRYPOINT_ANSI: windows_core::PCWSTR = windows_core::w!("Ini
 pub const SECURITY_ENTRYPOINT_ANSIA: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceA");
 pub const SECURITY_ENTRYPOINT_ANSIW: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceW");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURITY_LOGON_SESSION_DATA {
     pub Size: u32,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -6330,11 +5700,6 @@ pub struct SECURITY_LOGON_SESSION_DATA {
     pub PasswordLastSet: i64,
     pub PasswordCanChange: i64,
     pub PasswordMustChange: i64,
-}
-impl Default for SECURITY_LOGON_SESSION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6391,17 +5756,12 @@ pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_4: u32 = 4u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_5: u32 = 5u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SECURITY_USER_DATA {
     pub UserName: SECURITY_STRING,
     pub LogonDomainName: SECURITY_STRING,
     pub LogonServer: SECURITY_STRING,
     pub pSid: super::super::PSID,
-}
-impl Default for SECURITY_USER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6444,7 +5804,7 @@ impl Default for SEC_CERTIFICATE_REQUEST_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS {
     pub dwInitiatorAddrType: u32,
     pub cbInitiatorLength: u32,
@@ -6455,14 +5815,9 @@ pub struct SEC_CHANNEL_BINDINGS {
     pub cbApplicationDataLength: u32,
     pub dwApplicationDataOffset: u32,
 }
-impl Default for SEC_CHANNEL_BINDINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SEC_CHANNEL_BINDINGS_AUDIT_BINDINGS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS_EX {
     pub magicNumber: u32,
     pub flags: u32,
@@ -6477,20 +5832,10 @@ pub struct SEC_CHANNEL_BINDINGS_EX {
     pub cbApplicationDataLength: u32,
     pub dwApplicationDataOffset: u32,
 }
-impl Default for SEC_CHANNEL_BINDINGS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS_RESULT {
     pub flags: u32,
-}
-impl Default for SEC_CHANNEL_BINDINGS_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SEC_CHANNEL_BINDINGS_RESULT_ABSENT: u32 = 2u32;
 pub const SEC_CHANNEL_BINDINGS_RESULT_CLIENT_SUPPORT: u32 = 1u32;
@@ -6501,24 +5846,14 @@ pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_MISSING: u32 = 64u32;
 pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_PROXY: u32 = 32u32;
 pub const SEC_CHANNEL_BINDINGS_VALID_FLAGS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_DTLS_MTU {
     pub PathMTU: u16,
 }
-impl Default for SEC_DTLS_MTU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_FLAGS {
     pub Flags: u64,
-}
-impl Default for SEC_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type SEC_GET_KEY_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void, principal: *mut core::ffi::c_void, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut windows_core::HRESULT)>;
 #[repr(C)]
@@ -6614,7 +5949,7 @@ impl Default for SEC_TRAFFIC_SECRETS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub User: u32,
     pub UserLength: u32,
@@ -6624,16 +5959,11 @@ pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub PasswordLength: u32,
     pub Flags: u32,
 }
-impl Default for SEC_WINNT_AUTH_IDENTITY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_FOR_SYSTEM: u32 = 4u32;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_LOGON: u32 = 1u32;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_PROCESS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EX2 {
     pub Version: u32,
     pub cbHeaderLength: u16,
@@ -6648,13 +5978,8 @@ pub struct SEC_WINNT_AUTH_IDENTITY_EX2 {
     pub PackageListOffset: u32,
     pub PackageListLength: u16,
 }
-impl Default for SEC_WINNT_AUTH_IDENTITY_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EX32 {
     pub Version: u32,
     pub Length: u32,
@@ -6667,11 +5992,6 @@ pub struct SEC_WINNT_AUTH_IDENTITY_EX32 {
     pub Flags: u32,
     pub PackageList: u32,
     pub PackageListLength: u32,
-}
-impl Default for SEC_WINNT_AUTH_IDENTITY_EX32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6798,17 +6118,12 @@ impl Default for SE_ADT_CLAIMS {
 }
 pub const SE_ADT_OBJECT_ONLY: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SE_ADT_OBJECT_TYPE {
     pub ObjectType: windows_core::GUID,
     pub Flags: u16,
     pub Level: u16,
     pub AccessMask: u32,
-}
-impl Default for SE_ADT_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SE_ADT_PARAMETERS_SELF_RELATIVE: u32 = 1u32;
 pub const SE_ADT_PARAMETERS_SEND_TO_LSA: u32 = 2u32;
@@ -6892,15 +6207,10 @@ pub struct SLLICENSINGSTATUS(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLREFERRALTYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SL_ACTIVATION_INFO_HEADER {
     pub cbSize: u32,
     pub r#type: SL_ACTIVATION_TYPE,
-}
-impl Default for SL_ACTIVATION_INFO_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6908,16 +6218,11 @@ pub struct SL_ACTIVATION_TYPE(pub i32);
 pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(1i32);
 pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SL_AD_ACTIVATION_INFO {
     pub header: SL_ACTIVATION_INFO_HEADER,
     pub pwszProductKey: windows_core::PCWSTR,
     pub pwszActivationObjectName: windows_core::PCWSTR,
-}
-impl Default for SL_AD_ACTIVATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SL_CLIENTAPI_ZONE: u32 = 61440u32;
 pub const SL_DATA_BINARY: SLDATATYPE = SLDATATYPE(3u32);
@@ -7276,7 +6581,7 @@ pub const SL_I_STORE_BASED_ACTIVATION: windows_core::HRESULT = windows_core::HRE
 pub const SL_I_TIMEBASED_EXTENDED_GRACE_PERIOD: windows_core::HRESULT = windows_core::HRESULT(0x4004FC06_u32 as _);
 pub const SL_I_TIMEBASED_VALIDITY_PERIOD: windows_core::HRESULT = windows_core::HRESULT(0x4004FC04_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SL_LICENSING_STATUS {
     pub SkuId: windows_core::GUID,
     pub eStatus: SLLICENSINGSTATUS,
@@ -7284,11 +6589,6 @@ pub struct SL_LICENSING_STATUS {
     pub dwTotalGraceDays: u32,
     pub hrReason: windows_core::HRESULT,
     pub qwValidityExpiration: u64,
-}
-impl Default for SL_LICENSING_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = SLLICENSINGSTATUS(2i32);
 pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = SLLICENSINGSTATUS(4i32);
@@ -7717,15 +7017,10 @@ impl Default for SecPkgContext_AuthorityW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_AuthzID {
     pub AuthzIDLength: u32,
     pub AuthzID: windows_core::PSTR,
-}
-impl Default for SecPkgContext_AuthzID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7739,7 +7034,7 @@ impl Default for SecPkgContext_Bindings {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_CertInfo {
     pub dwVersion: u32,
     pub cbSubjectName: u32,
@@ -7748,21 +7043,11 @@ pub struct SecPkgContext_CertInfo {
     pub pwszIssuerName: windows_core::PWSTR,
     pub dwKeySize: u32,
 }
-impl Default for SecPkgContext_CertInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_CertificateValidationResult {
     pub dwChainErrorStatus: u32,
     pub hrVerifyChainStatus: windows_core::HRESULT,
-}
-impl Default for SecPkgContext_CertificateValidationResult {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7801,15 +7086,10 @@ impl Default for SecPkgContext_CipherInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_ClientCertPolicyResult {
     pub dwPolicyResult: windows_core::HRESULT,
     pub guidPolicyId: windows_core::GUID,
-}
-impl Default for SecPkgContext_ClientCertPolicyResult {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7823,7 +7103,7 @@ impl Default for SecPkgContext_ClientSpecifiedTarget {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_ConnectionInfo {
     pub dwProtocol: u32,
     pub aiCipher: super::super::Cryptography::ALG_ID,
@@ -7832,12 +7112,6 @@ pub struct SecPkgContext_ConnectionInfo {
     pub dwHashStrength: u32,
     pub aiExch: super::super::Cryptography::ALG_ID,
     pub dwExchStrength: u32,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl Default for SecPkgContext_ConnectionInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7857,15 +7131,10 @@ impl Default for SecPkgContext_ConnectionInfoEx {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_CredInfo {
     pub CredClass: SECPKG_CRED_CLASS,
     pub IsPromptingNeeded: u32,
-}
-impl Default for SecPkgContext_CredInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7924,24 +7193,14 @@ impl Default for SecPkgContext_EapPrfInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_EarlyStart {
     pub dwEarlyStartFlags: u32,
 }
-impl Default for SecPkgContext_EarlyStart {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_Flags {
     pub Flags: u32,
-}
-impl Default for SecPkgContext_Flags {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -8025,25 +7284,15 @@ impl Default for SecPkgContext_KeyingMaterial_Inproc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_LastClientTokenStatus {
     pub LastClientTokenStatus: SECPKG_ATTR_LCT_STATUS,
 }
-impl Default for SecPkgContext_LastClientTokenStatus {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_Lifespan {
     pub tsStart: i64,
     pub tsExpiry: i64,
-}
-impl Default for SecPkgContext_Lifespan {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8060,14 +7309,9 @@ impl Default for SecPkgContext_LocalCredentialInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_LogoffTime {
     pub tsLogoffTime: i64,
-}
-impl Default for SecPkgContext_LogoffTime {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8138,24 +7382,14 @@ impl Default for SecPkgContext_NegoKeys {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_NegoPackageInfo {
     pub PackageMask: u32,
 }
-impl Default for SecPkgContext_NegoPackageInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_NegoStatus {
     pub LastStatus: u32,
-}
-impl Default for SecPkgContext_NegoStatus {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8211,14 +7445,9 @@ impl Default for SecPkgContext_PackageInfoW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_PasswordExpiry {
     pub tsPasswordExpires: i64,
-}
-impl Default for SecPkgContext_PasswordExpiry {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8304,17 +7533,12 @@ impl Default for SecPkgContext_SessionKey {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_Sizes {
     pub cbMaxToken: u32,
     pub cbMaxSignature: u32,
     pub cbBlockSize: u32,
     pub cbSecurityTrailer: u32,
-}
-impl Default for SecPkgContext_Sizes {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8329,18 +7553,13 @@ impl Default for SecPkgContext_SrtpParameters {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_StreamSizes {
     pub cbHeader: u32,
     pub cbTrailer: u32,
     pub cbMaximumMessage: u32,
     pub cBuffers: u32,
     pub cbBlockSize: u32,
-}
-impl Default for SecPkgContext_StreamSizes {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8364,15 +7583,10 @@ impl Default for SecPkgContext_SupportedSignatures {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_Target {
     pub TargetLength: u32,
     pub Target: windows_core::PSTR,
-}
-impl Default for SecPkgContext_Target {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8399,24 +7613,14 @@ impl Default for SecPkgContext_TokenBinding {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_UiInfo {
     pub hParentWindow: super::super::super::Foundation::HWND,
 }
-impl Default for SecPkgContext_UiInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgContext_UserFlags {
     pub UserFlags: u32,
-}
-impl Default for SecPkgContext_UserFlags {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(10i32);
 pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(40i32);
@@ -8424,18 +7628,13 @@ pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(0i32);
 pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(20i32);
 pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(30i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgCred_CipherStrengths {
     pub dwMinimumCipherStrength: u32,
     pub dwMaximumCipherStrength: u32,
 }
-impl Default for SecPkgCred_CipherStrengths {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgCred_ClientCertPolicy {
     pub dwFlags: u32,
     pub guidPolicyId: windows_core::GUID,
@@ -8446,11 +7645,6 @@ pub struct SecPkgCred_ClientCertPolicy {
     pub fOmitUsageCheck: windows_core::BOOL,
     pub pwszSslCtlStoreName: windows_core::PWSTR,
     pub pwszSslCtlIdentifier: windows_core::PWSTR,
-}
-impl Default for SecPkgCred_ClientCertPolicy {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8490,14 +7684,9 @@ impl Default for SecPkgCred_SupportedAlgs {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgCred_SupportedProtocols {
     pub grbitProtocol: u32,
-}
-impl Default for SecPkgCred_SupportedProtocols {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8511,7 +7700,7 @@ impl Default for SecPkgCredentials_Cert {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecPkgCredentials_KdcProxySettingsW {
     pub Version: u32,
     pub Flags: u32,
@@ -8519,11 +7708,6 @@ pub struct SecPkgCredentials_KdcProxySettingsW {
     pub ProxyServerLength: u16,
     pub ClientTlsCredOffset: u16,
     pub ClientTlsCredLength: u16,
-}
-impl Default for SecPkgCredentials_KdcProxySettingsW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8782,15 +7966,10 @@ pub const TLS1_ALERT_UNSUPPORTED_EXT: u32 = 110u32;
 pub const TLS1_ALERT_USER_CANCELED: u32 = 90u32;
 pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TLS_EXTENSION_SUBSCRIPTION {
     pub ExtensionType: u16,
     pub HandshakeType: u16,
-}
-impl Default for TLS_EXTENSION_SUBSCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8813,14 +7992,9 @@ pub const TLS_PARAMS_OPTIONAL: u32 = 1u32;
 pub struct TOKENBINDING_EXTENSION_FORMAT(pub i32);
 pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = TOKENBINDING_EXTENSION_FORMAT(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TOKENBINDING_IDENTIFIER {
     pub keyType: u8,
-}
-impl Default for TOKENBINDING_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8898,31 +8072,21 @@ impl Default for TRUSTED_DOMAIN_AUTH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
 }
-impl Default for TRUSTED_DOMAIN_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION2 {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX2,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
 }
-impl Default for TRUSTED_DOMAIN_FULL_INFORMATION2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub Name: LSA_UNICODE_STRING,
     pub FlatName: LSA_UNICODE_STRING,
@@ -8930,11 +8094,6 @@ pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub TrustDirection: TRUSTED_DOMAIN_TRUST_DIRECTION,
     pub TrustType: TRUSTED_DOMAIN_TRUST_TYPE,
     pub TrustAttributes: TRUSTED_DOMAIN_TRUST_ATTRIBUTES,
-}
-impl Default for TRUSTED_DOMAIN_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8954,24 +8113,14 @@ impl Default for TRUSTED_DOMAIN_INFORMATION_EX2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_NAME_INFO {
     pub Name: LSA_UNICODE_STRING,
 }
-impl Default for TRUSTED_DOMAIN_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     pub SupportedEncryptionTypes: u32,
-}
-impl Default for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8986,25 +8135,15 @@ pub struct TRUSTED_DOMAIN_TRUST_TYPE(pub u32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_INFORMATION_CLASS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_PASSWORD_INFO {
     pub Password: LSA_UNICODE_STRING,
     pub OldPassword: LSA_UNICODE_STRING,
 }
-impl Default for TRUSTED_PASSWORD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRUSTED_POSIX_OFFSET_INFO {
     pub Offset: u32,
-}
-impl Default for TRUSTED_POSIX_OFFSET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TRUSTED_QUERY_AUTH: i32 = 64i32;
 pub const TRUSTED_QUERY_CONTROLLERS: i32 = 2i32;
@@ -9083,7 +8222,7 @@ pub const UNISP_RPC_ID: u32 = 14u32;
 pub const USER_ACCOUNT_AUTO_LOCKED: u32 = 1024u32;
 pub const USER_ACCOUNT_DISABLED: u32 = 1u32;
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct USER_ALL_INFORMATION {
     pub LastLogon: i64,
     pub LastLogoff: i64,
@@ -9118,11 +8257,6 @@ pub struct USER_ALL_INFORMATION {
     pub NtPasswordPresent: bool,
     pub PasswordExpired: bool,
     pub PrivateDataSensitive: bool,
-}
-impl Default for USER_ALL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const USER_ALL_PARAMETERS: u32 = 2097152u32;
 pub const USER_DONT_EXPIRE_PASSWORD: u32 = 512u32;

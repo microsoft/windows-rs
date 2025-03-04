@@ -58,7 +58,7 @@ impl Default for GNSS_AGNSS_INJECTBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_AGNSS_INJECTPOSITION {
     pub Size: u32,
     pub Version: u32,
@@ -66,37 +66,22 @@ pub struct GNSS_AGNSS_INJECTPOSITION {
     pub BasicData: GNSS_FIXDATA_BASIC,
     pub AccuracyData: GNSS_FIXDATA_ACCURACY,
 }
-impl Default for GNSS_AGNSS_INJECTPOSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_AGNSS_INJECTTIME {
     pub Size: u32,
     pub Version: u32,
     pub UtcTime: super::super::Foundation::FILETIME,
     pub TimeUncertainty: u32,
 }
-impl Default for GNSS_AGNSS_INJECTTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_AGNSS_REQUEST_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub RequestType: GNSS_AGNSS_REQUEST_TYPE,
     pub BlobFormat: u32,
-}
-impl Default for GNSS_AGNSS_REQUEST_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -153,7 +138,7 @@ impl Default for GNSS_BREADCRUMB_LIST_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_BREADCRUMB_V1 {
     pub FixTimeStamp: super::super::Foundation::FILETIME,
     pub Latitude: f64,
@@ -166,11 +151,6 @@ pub struct GNSS_BREADCRUMB_V1 {
     pub Heading: i16,
     pub HeadingAccuracy: u8,
     pub FixSuccess: u8,
-}
-impl Default for GNSS_BREADCRUMB_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -188,16 +168,11 @@ impl Default for GNSS_CHIPSETINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_CONTINUOUSTRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub PreferredInterval: u32,
-}
-impl Default for GNSS_CONTINUOUSTRACKING_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -266,16 +241,11 @@ impl Default for GNSS_DEVICE_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_DISTANCETRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub MovementThreshold: u32,
-}
-impl Default for GNSS_DISTANCETRACKING_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -300,17 +270,12 @@ pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_DRIVER_REQUEST(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_DRIVER_REQUEST_DATA {
     pub Size: u32,
     pub Version: u32,
     pub Request: GNSS_DRIVER_REQUEST,
     pub RequestFlag: u32,
-}
-impl Default for GNSS_DRIVER_REQUEST_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GNSS_DRIVER_VERSION_1: u32 = 1u32;
 pub const GNSS_DRIVER_VERSION_2: u32 = 2u32;
@@ -417,7 +382,7 @@ pub const GNSS_Event_NiRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(12i32);
 pub const GNSS_Event_NmeaData: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(13i32);
 pub const GNSS_Event_RequireAgnss: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_FIXDATA {
     pub Size: u32,
     pub Version: u32,
@@ -430,13 +395,8 @@ pub struct GNSS_FIXDATA {
     pub AccuracyData: GNSS_FIXDATA_ACCURACY,
     pub SatelliteData: GNSS_FIXDATA_SATELLITE,
 }
-impl Default for GNSS_FIXDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_FIXDATA_2 {
     pub Size: u32,
     pub Version: u32,
@@ -449,13 +409,8 @@ pub struct GNSS_FIXDATA_2 {
     pub AccuracyData: GNSS_FIXDATA_ACCURACY_2,
     pub SatelliteData: GNSS_FIXDATA_SATELLITE,
 }
-impl Default for GNSS_FIXDATA_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_FIXDATA_ACCURACY {
     pub Size: u32,
     pub Version: u32,
@@ -474,13 +429,8 @@ pub struct GNSS_FIXDATA_ACCURACY {
     pub HorizontalDilutionOfPrecision: f32,
     pub VerticalDilutionOfPrecision: f32,
 }
-impl Default for GNSS_FIXDATA_ACCURACY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_FIXDATA_ACCURACY_2 {
     pub Size: u32,
     pub Version: u32,
@@ -501,13 +451,8 @@ pub struct GNSS_FIXDATA_ACCURACY_2 {
     pub GeometricDilutionOfPrecision: f64,
     pub TimeDilutionOfPrecision: f64,
 }
-impl Default for GNSS_FIXDATA_ACCURACY_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_FIXDATA_BASIC {
     pub Size: u32,
     pub Version: u32,
@@ -517,13 +462,8 @@ pub struct GNSS_FIXDATA_BASIC {
     pub Speed: f64,
     pub Heading: f64,
 }
-impl Default for GNSS_FIXDATA_BASIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_FIXDATA_BASIC_2 {
     pub Size: u32,
     pub Version: u32,
@@ -533,11 +473,6 @@ pub struct GNSS_FIXDATA_BASIC_2 {
     pub Speed: f64,
     pub Heading: f64,
     pub AltitudeEllipsoid: f64,
-}
-impl Default for GNSS_FIXDATA_BASIC_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -702,31 +637,21 @@ impl Default for GNSS_GEOREGION_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_GEOREGIONTYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_GEOREGION_CIRCLE {
     pub Latitude: f64,
     pub Longitude: f64,
     pub RadiusInMeters: f64,
-}
-impl Default for GNSS_GEOREGION_CIRCLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = GNSS_GEOREGIONTYPE(1i32);
 pub const GNSS_GeofenceState_Entered: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(1i32);
 pub const GNSS_GeofenceState_Exited: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(2i32);
 pub const GNSS_GeofenceState_Unknown: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_LKGFIX_PARAM {
     pub Size: u32,
     pub Version: u32,
-}
-impl Default for GNSS_LKGFIX_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
 pub const GNSS_NI_CP: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(2i32);
@@ -775,17 +700,12 @@ impl Default for GNSS_NI_REQUEST_PARAM_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_REQUEST_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_NI_RESPONSE {
     pub Size: u32,
     pub Version: u32,
     pub RequestId: u32,
     pub UserResponse: GNSS_NI_USER_RESPONSE,
-}
-impl Default for GNSS_NI_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GNSS_NI_Request_AreaTrigger: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(2i32);
 pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(1i32);
@@ -835,18 +755,13 @@ impl Default for GNSS_PLATFORM_CAPABILITY {
 pub const GNSS_ResetEngine: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(9i32);
 pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(16i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_SATELLITEINFO {
     pub SatelliteId: u32,
     pub UsedInPositiong: windows_core::BOOL,
     pub Elevation: f64,
     pub Azimuth: f64,
     pub SignalToNoiseRatio: f64,
-}
-impl Default for GNSS_SATELLITEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GNSS_SATELLITE_ANY: u32 = 0u32;
 pub const GNSS_SATELLITE_BEIDOU: u32 = 4u32;
@@ -886,16 +801,11 @@ impl Default for GNSS_SELFTESTRESULT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_SINGLESHOT_PARAM {
     pub Size: u32,
     pub Version: u32,
     pub ResponseTime: u32,
-}
-impl Default for GNSS_SINGLESHOT_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -959,27 +869,17 @@ impl Default for GNSS_SUPL_NI_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_SUPL_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-impl Default for GNSS_SUPL_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_SUPL_VERSION_2 {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
     pub ServiceIndicator: u32,
-}
-impl Default for GNSS_SUPL_VERSION_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GNSS_SetLocationNIRequestAllowed: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(2i32);
 pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(1i32);
@@ -1072,6 +972,7 @@ impl ICivicAddressReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICivicAddressReport_Vtbl {
     pub base__: ILocationReport_Vtbl,
     pub GetAddressLine1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1218,6 +1119,7 @@ impl ICivicAddressReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICivicAddressReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     pub CivicAddressReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1266,6 +1168,7 @@ impl IDefaultLocation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDefaultLocation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1370,6 +1273,7 @@ impl IDispCivicAddressReport {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDispCivicAddressReport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub AddressLine1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1561,6 +1465,7 @@ impl IDispLatLongReport {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDispLatLongReport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Latitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -1711,6 +1616,7 @@ impl ILatLongReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILatLongReport_Vtbl {
     pub base__: ILocationReport_Vtbl,
     pub GetLatitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -1827,6 +1733,7 @@ impl ILatLongReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILatLongReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     pub LatLongReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1907,6 +1814,7 @@ impl ILocation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterForReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
@@ -2051,6 +1959,7 @@ impl ILocationEvents {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLocationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2096,6 +2005,7 @@ impl ILocationPower {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationPower_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2150,6 +2060,7 @@ impl ILocationReport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationReport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSensorID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2266,6 +2177,7 @@ impl ILocationReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILocationReportFactory_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ListenForReports: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2432,6 +2344,7 @@ impl core::ops::Deref for _ICivicAddressReportFactoryEvents {
 windows_core::imp::interface_hierarchy!(_ICivicAddressReportFactoryEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ICivicAddressReportFactoryEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -2461,6 +2374,7 @@ impl core::ops::Deref for _ILatLongReportFactoryEvents {
 windows_core::imp::interface_hierarchy!(_ILatLongReportFactoryEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct _ILatLongReportFactoryEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }

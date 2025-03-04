@@ -15,6 +15,7 @@ impl windows_core::RuntimeType for IMdmAlert {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMdmAlert_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -36,6 +37,7 @@ impl windows_core::RuntimeType for IMdmSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMdmSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Alerts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -52,6 +54,7 @@ impl windows_core::RuntimeType for IMdmSessionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMdmSessionManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SessionIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPlatformDiagnosticActionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformDiagnosticActionsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsScenarioEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut bool) -> windows_core::HRESULT,
@@ -19,6 +20,7 @@ impl windows_core::RuntimeType for IPlatformDiagnosticTraceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformDiagnosticTraceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ScenarioId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -33,6 +35,7 @@ impl windows_core::RuntimeType for IPlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RuntimeFileTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,

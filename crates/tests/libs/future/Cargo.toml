@@ -1,0 +1,23 @@
+[package]
+name = "test_future"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows]
+workspace = true
+features = [
+    "Storage_Streams",
+    "System_Threading",
+    "Win32_Foundation",
+]
+
+[dependencies.windows-future]
+workspace = true
+
+[dev-dependencies]
+futures = "0.3"

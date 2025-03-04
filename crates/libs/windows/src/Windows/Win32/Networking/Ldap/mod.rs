@@ -1719,14 +1719,9 @@ pub unsafe fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
     unsafe { ldap_value_free_len(vals as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BerElement {
     pub opaque: windows_core::PSTR,
-}
-impl Default for BerElement {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DBGPRINT = Option<unsafe extern "system" fn(format: windows_core::PCSTR) -> u32>;
 pub type DEREFERENCECONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
@@ -1776,28 +1771,18 @@ impl Default for LDAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_core::PSTR,
     pub ldapaif_version: i32,
 }
-impl Default for LDAPAPIFeatureInfoA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_core::PWSTR,
     pub ldapaif_version: i32,
-}
-impl Default for LDAPAPIFeatureInfoW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1830,28 +1815,18 @@ impl Default for LDAPAPIInfoW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAPControlA {
     pub ldctl_oid: windows_core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: bool,
 }
-impl Default for LDAPControlA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAPControlW {
     pub ldctl_oid: windows_core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: bool,
-}
-impl Default for LDAPControlW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1922,28 +1897,18 @@ impl Default for LDAPModW_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: windows_core::PSTR,
     pub sk_matchruleoid: windows_core::PSTR,
     pub sk_reverseorder: bool,
 }
-impl Default for LDAPSortKeyA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: windows_core::PWSTR,
     pub sk_matchruleoid: windows_core::PWSTR,
     pub sk_reverseorder: bool,
-}
-impl Default for LDAPSortKeyW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1979,15 +1944,10 @@ pub const LDAP_AUTH_SASL: i32 = 131i32;
 pub const LDAP_AUTH_SIMPLE: i32 = 128i32;
 pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = LDAP_RETCODE(86i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: windows_core::PSTR,
-}
-impl Default for LDAP_BERVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LDAP_BIND_CMD: i32 = 96i32;
 pub const LDAP_BUSY: LDAP_RETCODE = LDAP_RETCODE(51i32);
@@ -2213,17 +2173,12 @@ pub const LDAP_PORT: u32 = 389u32;
 pub const LDAP_PROTOCOL_ERROR: LDAP_RETCODE = LDAP_RETCODE(2i32);
 pub const LDAP_REFERRAL: LDAP_RETCODE = LDAP_RETCODE(10i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
     pub QueryForConnection: QUERYFORCONNECTION,
     pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
     pub DereferenceRoutine: DEREFERENCECONNECTION,
-}
-impl Default for LDAP_REFERRAL_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LDAP_REFERRAL_LIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(97i32);
 pub const LDAP_REFERRAL_V2: LDAP_RETCODE = LDAP_RETCODE(9i32);
@@ -2344,15 +2299,10 @@ pub const LDAP_SUCCESS: LDAP_RETCODE = LDAP_RETCODE(0i32);
 pub const LDAP_TIMELIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(3i32);
 pub const LDAP_TIMEOUT: LDAP_RETCODE = LDAP_RETCODE(85i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
-}
-impl Default for LDAP_TIMEVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LDAP_TTL_EXTENDED_OP_OID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.1466.101.119.1");
 pub const LDAP_TTL_EXTENDED_OP_OID_W: windows_core::PCWSTR = windows_core::w!("1.3.6.1.4.1.1466.101.119.1");
@@ -2375,16 +2325,11 @@ pub const LDAP_VERSION1: u32 = 1u32;
 pub const LDAP_VERSION2: u32 = 2u32;
 pub const LDAP_VERSION3: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDAP_VERSION_INFO {
     pub lv_size: u32,
     pub lv_major: u32,
     pub lv_minor: u32,
-}
-impl Default for LDAP_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;

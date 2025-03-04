@@ -951,6 +951,7 @@ impl windows_core::RuntimeType for IColorHelper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColorHelper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -959,6 +960,7 @@ impl windows_core::RuntimeType for IColorHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColorHelperStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromArgb: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, u8, *mut Color) -> windows_core::HRESULT,
@@ -968,6 +970,7 @@ impl windows_core::RuntimeType for IColorHelperStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColorHelperStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, Color, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -977,6 +980,7 @@ impl windows_core::RuntimeType for IColors {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColors_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -985,6 +989,7 @@ impl windows_core::RuntimeType for IColorsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IColorsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AliceBlue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Color) -> windows_core::HRESULT,
@@ -1134,6 +1139,7 @@ impl windows_core::RuntimeType for IUIContentRoot {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIContentRoot_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UIContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1143,6 +1149,7 @@ impl windows_core::RuntimeType for IUIContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }

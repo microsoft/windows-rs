@@ -35,20 +35,30 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
 }
+impl Default for FILTER_AGGREGATE_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
     pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
 }
+impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FrameID: u32,
     pub NumberOfInstances: u32,
@@ -64,14 +74,24 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
 }
+impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
     pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
 }
+impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub FilterNameLength: u16,
@@ -80,7 +100,7 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterAltitudeBufferOffset: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -99,16 +119,21 @@ pub struct FILTER_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBuffer: [u16; 1],
 }
+impl Default for FILTER_FULL_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FILTER_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
     pub MessageId: u64,
 }
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct FILTER_REPLY_HEADER {
     pub Status: super::super::Foundation::NTSTATUS,
     pub MessageId: u64,
@@ -118,6 +143,11 @@ pub struct FILTER_REPLY_HEADER {
 pub struct FILTER_VOLUME_BASIC_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
+}
+impl Default for FILTER_VOLUME_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type FILTER_VOLUME_INFORMATION_CLASS = i32;
 #[repr(C)]
@@ -129,6 +159,11 @@ pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub FileSystemType: FLT_FILESYSTEM_TYPE,
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
+}
+impl Default for FILTER_VOLUME_STANDARD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1u32;
@@ -186,14 +221,24 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub Flags: u32,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
 }
+impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
     pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
 }
+impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub AltitudeLength: u16,
@@ -205,7 +250,7 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub SupportedFeatures: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -221,14 +266,14 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub SupportedFeatures: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INSTANCE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
     pub InstanceNameBufferOffset: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INSTANCE_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
@@ -243,7 +288,7 @@ pub struct INSTANCE_FULL_INFORMATION {
 pub type INSTANCE_INFORMATION_CLASS = i32;
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct INSTANCE_PARTIAL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,

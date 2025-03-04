@@ -111,6 +111,7 @@ impl windows_core::RuntimeType for IBackPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBackPressedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -121,6 +122,7 @@ impl windows_core::RuntimeType for ICameraEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICameraEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -129,6 +131,7 @@ impl windows_core::RuntimeType for IHardwareButtonsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHardwareButtonsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BackPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -139,6 +142,7 @@ impl windows_core::RuntimeType for IHardwareButtonsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHardwareButtonsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CameraHalfPressed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,

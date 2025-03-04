@@ -214,6 +214,7 @@ impl IAccClientDocMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccClientDocMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -326,6 +327,7 @@ impl IAccDictionary {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccDictionary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLocalizedString: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -434,6 +436,7 @@ impl IAccServerDocMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccServerDocMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NewDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -525,6 +528,7 @@ impl IAccStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAccStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -702,6 +706,7 @@ impl IAnchor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnchor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetGravity: unsafe extern "system" fn(*mut core::ffi::c_void, TsGravity) -> windows_core::HRESULT,
@@ -865,6 +870,7 @@ impl IClonableWrapper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IClonableWrapper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CloneNewWrapper: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -899,6 +905,7 @@ impl ICoCreateLocally {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoCreateLocally_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -940,6 +947,7 @@ impl ICoCreatedLocally {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICoCreatedLocally_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -985,6 +993,7 @@ impl IDocWrap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDocWrap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDoc: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1045,6 +1054,7 @@ impl IEnumITfCompositionView {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumITfCompositionView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1054,7 +1064,7 @@ pub struct IEnumITfCompositionView_Vtbl {
 }
 pub trait IEnumITfCompositionView_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumITfCompositionView>;
-    fn Next(&self, ulcount: u32, rgcompositionview: windows_core::OutRef<'_, ITfCompositionView>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgcompositionview: *mut Option<ITfCompositionView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1123,6 +1133,7 @@ impl IEnumSpeechCommands {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSpeechCommands_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1201,6 +1212,7 @@ impl IEnumTfCandidates {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfCandidates_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1210,7 +1222,7 @@ pub struct IEnumTfCandidates_Vtbl {
 }
 pub trait IEnumTfCandidates_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfCandidates>;
-    fn Next(&self, ulcount: u32, ppcand: windows_core::OutRef<'_, ITfCandidateString>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppcand: *mut Option<ITfCandidateString>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1279,6 +1291,7 @@ impl IEnumTfContextViews {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfContextViews_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1288,7 +1301,7 @@ pub struct IEnumTfContextViews_Vtbl {
 }
 pub trait IEnumTfContextViews_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfContextViews>;
-    fn Next(&self, ulcount: u32, rgviews: windows_core::OutRef<'_, ITfContextView>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgviews: *mut Option<ITfContextView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1357,6 +1370,7 @@ impl IEnumTfContexts {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfContexts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1366,7 +1380,7 @@ pub struct IEnumTfContexts_Vtbl {
 }
 pub trait IEnumTfContexts_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfContexts>;
-    fn Next(&self, ulcount: u32, rgcontext: windows_core::OutRef<'_, ITfContext>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgcontext: *mut Option<ITfContext>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1435,6 +1449,7 @@ impl IEnumTfDisplayAttributeInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfDisplayAttributeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1444,7 +1459,7 @@ pub struct IEnumTfDisplayAttributeInfo_Vtbl {
 }
 pub trait IEnumTfDisplayAttributeInfo_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfDisplayAttributeInfo>;
-    fn Next(&self, ulcount: u32, rginfo: windows_core::OutRef<'_, ITfDisplayAttributeInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rginfo: *mut Option<ITfDisplayAttributeInfo>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1513,6 +1528,7 @@ impl IEnumTfDocumentMgrs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfDocumentMgrs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1522,7 +1538,7 @@ pub struct IEnumTfDocumentMgrs_Vtbl {
 }
 pub trait IEnumTfDocumentMgrs_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfDocumentMgrs>;
-    fn Next(&self, ulcount: u32, rgdocumentmgr: windows_core::OutRef<'_, ITfDocumentMgr>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, rgdocumentmgr: *mut Option<ITfDocumentMgr>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1591,6 +1607,7 @@ impl IEnumTfFunctionProviders {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfFunctionProviders_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1600,7 +1617,7 @@ pub struct IEnumTfFunctionProviders_Vtbl {
 }
 pub trait IEnumTfFunctionProviders_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfFunctionProviders>;
-    fn Next(&self, ulcount: u32, ppcmdobj: windows_core::OutRef<'_, ITfFunctionProvider>, pcfetch: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppcmdobj: *mut Option<ITfFunctionProvider>, pcfetch: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1670,6 +1687,7 @@ impl IEnumTfInputProcessorProfiles {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfInputProcessorProfiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1754,6 +1772,7 @@ impl IEnumTfLangBarItems {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfLangBarItems_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1763,7 +1782,7 @@ pub struct IEnumTfLangBarItems_Vtbl {
 }
 pub trait IEnumTfLangBarItems_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfLangBarItems>;
-    fn Next(&self, ulcount: u32, ppitem: windows_core::OutRef<'_, ITfLangBarItem>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppitem: *mut Option<ITfLangBarItem>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -1832,6 +1851,7 @@ impl IEnumTfLanguageProfiles {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfLanguageProfiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1910,6 +1930,7 @@ impl IEnumTfLatticeElements {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfLatticeElements_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1988,6 +2009,7 @@ impl IEnumTfProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1997,7 +2019,7 @@ pub struct IEnumTfProperties_Vtbl {
 }
 pub trait IEnumTfProperties_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfProperties>;
-    fn Next(&self, ulcount: u32, ppprop: windows_core::OutRef<'_, ITfProperty>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppprop: *mut Option<ITfProperty>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -2067,6 +2089,7 @@ impl IEnumTfPropertyValue {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfPropertyValue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2151,6 +2174,7 @@ impl IEnumTfRanges {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfRanges_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2160,7 +2184,7 @@ pub struct IEnumTfRanges_Vtbl {
 }
 pub trait IEnumTfRanges_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfRanges>;
-    fn Next(&self, ulcount: u32, pprange: windows_core::OutRef<'_, ITfRange>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, pprange: *mut Option<ITfRange>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -2229,6 +2253,7 @@ impl IEnumTfUIElements {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumTfUIElements_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2238,7 +2263,7 @@ pub struct IEnumTfUIElements_Vtbl {
 }
 pub trait IEnumTfUIElements_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfUIElements>;
-    fn Next(&self, ulcount: u32, ppelement: windows_core::OutRef<'_, ITfUIElement>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, ulcount: u32, ppelement: *mut Option<ITfUIElement>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
@@ -2295,6 +2320,7 @@ impl IInternalDocWrap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternalDocWrap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyRevoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2410,6 +2436,7 @@ impl ISpeechCommandProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpeechCommandProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumSpeechCommands: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2586,6 +2613,7 @@ impl ITextStoreACP {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreACP_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseSink: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3056,6 +3084,7 @@ impl ITextStoreACP2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreACP2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseSink: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3389,6 +3418,7 @@ impl ITextStoreACPEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreACPEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ScrollToRect: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, super::super::Foundation::RECT, u32) -> windows_core::HRESULT,
@@ -3446,6 +3476,7 @@ impl ITextStoreACPServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreACPServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -3542,6 +3573,7 @@ impl ITextStoreACPSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreACPSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTextChange: unsafe extern "system" fn(*mut core::ffi::c_void, TEXT_STORE_TEXT_CHANGE_FLAGS, *const TS_TEXTCHANGE) -> windows_core::HRESULT,
@@ -3644,6 +3676,7 @@ impl ITextStoreACPSinkEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreACPSinkEx_Vtbl {
     pub base__: ITextStoreACPSink_Vtbl,
     pub OnDisconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3837,6 +3870,7 @@ impl ITextStoreAnchor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreAnchor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseSink: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4192,6 +4226,7 @@ impl ITextStoreAnchorEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreAnchorEx_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ScrollToRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::RECT, u32) -> windows_core::HRESULT,
@@ -4251,6 +4286,7 @@ impl ITextStoreAnchorSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreAnchorSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTextChange: unsafe extern "system" fn(*mut core::ffi::c_void, TEXT_STORE_CHANGE_FLAGS, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4353,6 +4389,7 @@ impl ITextStoreSinkAnchorEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITextStoreSinkAnchorEx_Vtbl {
     pub base__: ITextStoreAnchorSink_Vtbl,
     pub OnDisconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4383,6 +4420,7 @@ impl ITfActiveLanguageProfileNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfActiveLanguageProfileNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnActivated: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
@@ -4431,6 +4469,7 @@ impl ITfCandidateList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCandidateList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumCandidates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4554,6 +4593,7 @@ impl ITfCandidateListUIElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCandidateListUIElement_Vtbl {
     pub base__: ITfUIElement_Vtbl,
     pub GetUpdatedFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4698,6 +4738,7 @@ impl ITfCandidateListUIElementBehavior {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCandidateListUIElementBehavior_Vtbl {
     pub base__: ITfCandidateListUIElement_Vtbl,
     pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4758,6 +4799,7 @@ impl ITfCandidateString {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCandidateString_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4870,6 +4912,7 @@ impl ITfCategoryMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCategoryMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -5074,6 +5117,7 @@ impl ITfCleanupContextDurationSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCleanupContextDurationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStartCleanupContext: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5119,6 +5163,7 @@ impl ITfCleanupContextSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCleanupContextSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCleanupContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5152,6 +5197,7 @@ impl ITfClientId {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfClientId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClientId: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
@@ -5196,6 +5242,7 @@ impl ITfCompartment {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCompartment_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5249,6 +5296,7 @@ impl ITfCompartmentEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCompartmentEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -5292,6 +5340,7 @@ impl ITfCompartmentMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCompartmentMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCompartment: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5379,6 +5428,7 @@ impl ITfComposition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfComposition_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5448,6 +5498,7 @@ impl ITfCompositionSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCompositionSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCompositionTerminated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5487,6 +5538,7 @@ impl ITfCompositionView {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCompositionView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwnerClsid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -5544,6 +5596,7 @@ impl ITfConfigureSystemKeystrokeFeed {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfConfigureSystemKeystrokeFeed_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DisableSystemKeystrokeFeed: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5673,6 +5726,7 @@ impl ITfContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RequestEditSession: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, TF_CONTEXT_EDIT_CONTEXT_FLAGS, *mut windows_core::HRESULT) -> windows_core::HRESULT,
@@ -5942,6 +5996,7 @@ impl ITfContextComposition {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContextComposition_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartComposition: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6047,6 +6102,7 @@ impl ITfContextKeyEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContextKeyEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnKeyDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6162,6 +6218,7 @@ impl ITfContextOwner {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContextOwner_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetACPFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::POINT, u32, *mut i32) -> windows_core::HRESULT,
@@ -6285,6 +6342,7 @@ impl ITfContextOwnerCompositionServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContextOwnerCompositionServices_Vtbl {
     pub base__: ITfContextComposition_Vtbl,
     pub TerminateComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6334,6 +6392,7 @@ impl ITfContextOwnerCompositionSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContextOwnerCompositionSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStartComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6427,6 +6486,7 @@ impl ITfContextOwnerServices {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContextOwnerServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLayoutChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6550,6 +6610,7 @@ impl ITfContextView {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfContextView_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRangeFromPoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Foundation::POINT, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6646,6 +6707,7 @@ impl ITfCreatePropertyStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfCreatePropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsStoreSerializable: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6724,6 +6786,7 @@ impl ITfDisplayAttributeInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfDisplayAttributeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGUID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -6814,6 +6877,7 @@ impl ITfDisplayAttributeMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfDisplayAttributeMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUpdateInfo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6871,6 +6935,7 @@ impl ITfDisplayAttributeNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfDisplayAttributeNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUpdateInfo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6910,6 +6975,7 @@ impl ITfDisplayAttributeProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfDisplayAttributeProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumDisplayAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6994,6 +7060,7 @@ impl ITfDocumentMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfDocumentMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -7099,6 +7166,7 @@ impl ITfEditRecord {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfEditRecord_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSelectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -7153,6 +7221,7 @@ impl ITfEditSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfEditSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DoEditSession: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -7192,6 +7261,7 @@ impl ITfEditTransactionSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfEditTransactionSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStartEditTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7250,6 +7320,7 @@ impl ITfFnAdviseText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnAdviseText_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub OnTextUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
@@ -7292,6 +7363,7 @@ impl ITfFnBalloon {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnBalloon_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UpdateBalloon: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBBalloonStyle, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -7328,6 +7400,7 @@ impl ITfFnConfigure {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnConfigure_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u16, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -7364,6 +7437,7 @@ impl ITfFnConfigureRegisterEudc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnConfigureRegisterEudc_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u16, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7400,6 +7474,7 @@ impl ITfFnConfigureRegisterWord {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnConfigureRegisterWord_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u16, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7439,6 +7514,7 @@ impl ITfFnCustomSpeechCommand {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnCustomSpeechCommand_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub SetSpeechCommandProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7481,6 +7557,7 @@ impl ITfFnGetLinguisticAlternates {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnGetLinguisticAlternates_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub GetAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7523,6 +7600,7 @@ impl ITfFnGetPreferredTouchKeyboardLayout {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub GetLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TKBLayoutType, *const u16) -> windows_core::HRESULT,
@@ -7562,6 +7640,7 @@ impl ITfFnGetSAPIObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnGetSAPIObject_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, TfSapiObject, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7607,6 +7686,7 @@ impl ITfFnLMInternal {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnLMInternal_Vtbl {
     pub base__: ITfFnLMProcessor_Vtbl,
     pub ProcessLattice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7682,6 +7762,7 @@ impl ITfFnLMProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnLMProcessor_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub QueryRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -7799,6 +7880,7 @@ impl ITfFnLangProfileUtil {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnLangProfileUtil_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub RegisterActiveProfiles: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7862,6 +7944,7 @@ impl ITfFnPlayBack {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnPlayBack_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub QueryRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -7912,6 +7995,7 @@ impl ITfFnPropertyUIStatus {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnPropertyUIStatus_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
@@ -7980,6 +8064,7 @@ impl ITfFnReconversion {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnReconversion_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub QueryRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -8049,6 +8134,7 @@ impl ITfFnSearchCandidateProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnSearchCandidateProvider_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub GetSearchCandidates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8103,6 +8189,7 @@ impl ITfFnShowHelp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFnShowHelp_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -8136,6 +8223,7 @@ impl ITfFunction {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFunction_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8187,6 +8275,7 @@ impl ITfFunctionProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfFunctionProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -8257,6 +8346,7 @@ impl ITfInputProcessorProfileActivationSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInputProcessorProfileActivationSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -8322,6 +8412,7 @@ impl ITfInputProcessorProfileMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInputProcessorProfileMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -8446,6 +8537,7 @@ impl ITfInputProcessorProfileSubstituteLayout {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInputProcessorProfileSubstituteLayout_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -8556,6 +8648,7 @@ impl ITfInputProcessorProfiles {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInputProcessorProfiles_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -8787,6 +8880,7 @@ impl ITfInputProcessorProfilesEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInputProcessorProfilesEx_Vtbl {
     pub base__: ITfInputProcessorProfiles_Vtbl,
     pub SetLanguageProfileDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, *const windows_core::GUID, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
@@ -8844,6 +8938,7 @@ impl ITfInputScope {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInputScope_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInputScopes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut InputScope, *mut u32) -> windows_core::HRESULT,
@@ -8941,6 +9036,7 @@ impl ITfInputScope2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInputScope2_Vtbl {
     pub base__: ITfInputScope_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -8996,6 +9092,7 @@ impl ITfInsertAtSelection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfInsertAtSelection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InsertTextAtSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, INSERT_TEXT_AT_SELECTION_FLAGS, windows_core::PCWSTR, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9077,6 +9174,7 @@ impl ITfIntegratableCandidateListUIElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfIntegratableCandidateListUIElement_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIntegrationStyle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -9209,6 +9307,7 @@ impl ITfKeyEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfKeyEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -9320,6 +9419,7 @@ impl ITfKeyTraceEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfKeyTraceEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnKeyTraceDown: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
@@ -9437,6 +9537,7 @@ impl ITfKeystrokeMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfKeystrokeMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseKeyEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -9650,6 +9751,7 @@ impl ITfLMLattice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLMLattice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -9722,6 +9824,7 @@ impl ITfLangBarEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -9821,6 +9924,7 @@ impl ITfLangBarItem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TF_LANGBARITEMINFO) -> windows_core::HRESULT,
@@ -9911,6 +10015,7 @@ impl ITfLangBarItemBalloon {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarItemBalloon_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::super::Foundation::POINT, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -9990,6 +10095,7 @@ impl ITfLangBarItemBitmap {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarItemBitmap_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::super::Foundation::POINT, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -10084,6 +10190,7 @@ impl ITfLangBarItemBitmapButton {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarItemBitmapButton_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::super::Foundation::POINT, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -10208,6 +10315,7 @@ impl ITfLangBarItemButton {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarItemButton_Vtbl {
     pub base__: ITfLangBarItem_Vtbl,
     pub OnClick: unsafe extern "system" fn(*mut core::ffi::c_void, TfLBIClick, super::super::Foundation::POINT, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -10349,6 +10457,7 @@ impl ITfLangBarItemMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarItemMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10505,6 +10614,7 @@ impl ITfLangBarItemSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarItemSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -10571,6 +10681,7 @@ impl ITfLangBarMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLangBarMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, u32, *const u32) -> windows_core::HRESULT,
@@ -10694,6 +10805,7 @@ impl ITfLanguageProfileNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfLanguageProfileNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLanguageChange: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -10745,6 +10857,7 @@ impl ITfMSAAControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfMSAAControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SystemEnableMSAA: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10788,6 +10901,7 @@ impl ITfMenu {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfMenu_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -10837,6 +10951,7 @@ impl ITfMessagePump {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfMessagePump_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -10915,6 +11030,7 @@ impl ITfMouseSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfMouseSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnMouseEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -10961,6 +11077,7 @@ impl ITfMouseTracker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfMouseTracker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseMouseSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -11019,6 +11136,7 @@ impl ITfMouseTrackerACP {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfMouseTrackerACP_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseMouseSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -11071,6 +11189,7 @@ impl ITfPersistentPropertyLoaderACP {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfPersistentPropertyLoaderACP_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -11113,6 +11232,7 @@ impl ITfPreservedKeyNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfPreservedKeyNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *const TF_PRESERVEDKEY) -> windows_core::HRESULT,
@@ -11172,6 +11292,7 @@ impl ITfProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfProperty_Vtbl {
     pub base__: ITfReadOnlyProperty_Vtbl,
     pub FindRange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, TfAnchor) -> windows_core::HRESULT,
@@ -11304,6 +11425,7 @@ impl ITfPropertyStore {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfPropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -11476,6 +11598,7 @@ impl ITfQueryEmbedded {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfQueryEmbedded_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -11640,6 +11763,7 @@ impl ITfRange {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfRange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -11952,6 +12076,7 @@ impl ITfRangeACP {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfRangeACP_Vtbl {
     pub base__: ITfRange_Vtbl,
     pub GetExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -11996,6 +12121,7 @@ impl ITfRangeBackup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfRangeBackup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Restore: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12051,6 +12177,7 @@ impl ITfReadOnlyProperty {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfReadOnlyProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -12174,6 +12301,7 @@ impl ITfReadingInformationUIElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfReadingInformationUIElement_Vtbl {
     pub base__: ITfUIElement_Vtbl,
     pub GetUpdatedFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -12294,6 +12422,7 @@ impl ITfReverseConversion {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfReverseConversion_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DoReverseConversion: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12339,6 +12468,7 @@ impl ITfReverseConversionList {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfReverseConversionList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -12396,6 +12526,7 @@ impl ITfReverseConversionMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfReverseConversionMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetReverseConversion: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const windows_core::GUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12441,6 +12572,7 @@ impl ITfSource {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfSource_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseSink: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -12495,6 +12627,7 @@ impl ITfSourceSingle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfSourceSingle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseSingleSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12543,6 +12676,7 @@ impl ITfSpeechUIServer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfSpeechUIServer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12597,6 +12731,7 @@ impl ITfStatusSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfStatusSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -12633,6 +12768,7 @@ impl ITfSystemDeviceTypeLangBarItem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfSystemDeviceTypeLangBarItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetIconMode: unsafe extern "system" fn(*mut core::ffi::c_void, LANG_BAR_ITEM_ICON_MODE_FLAGS) -> windows_core::HRESULT,
@@ -12685,6 +12821,7 @@ impl ITfSystemLangBarItem {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfSystemLangBarItem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -12739,6 +12876,7 @@ impl ITfSystemLangBarItemSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfSystemLangBarItemSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12787,6 +12925,7 @@ impl ITfSystemLangBarItemText {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfSystemLangBarItemText_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetItemText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -12839,6 +12978,7 @@ impl ITfTextEditSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfTextEditSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnEndEdit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12875,6 +13015,7 @@ impl ITfTextInputProcessor {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfTextInputProcessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -12926,6 +13067,7 @@ impl ITfTextInputProcessorEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfTextInputProcessorEx_Vtbl {
     pub base__: ITfTextInputProcessor_Vtbl,
     pub ActivateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -12960,6 +13102,7 @@ impl ITfTextLayoutSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfTextLayoutSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLayoutChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, TfLayoutCode, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12993,6 +13136,7 @@ impl ITfThreadFocusSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfThreadFocusSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnSetThreadFocus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13098,6 +13242,7 @@ impl ITfThreadMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfThreadMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -13344,6 +13489,7 @@ impl ITfThreadMgr2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfThreadMgr2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -13576,6 +13722,7 @@ impl ITfThreadMgrEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfThreadMgrEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnInitDocumentMgr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13657,6 +13804,7 @@ impl ITfThreadMgrEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfThreadMgrEx_Vtbl {
     pub base__: ITfThreadMgr_Vtbl,
     pub ActivateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32) -> windows_core::HRESULT,
@@ -13714,6 +13862,7 @@ impl ITfToolTipUIElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfToolTipUIElement_Vtbl {
     pub base__: ITfUIElement_Vtbl,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13758,6 +13907,7 @@ impl ITfTransitoryExtensionSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfTransitoryExtensionSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTransitoryExtensionUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -13803,6 +13953,7 @@ impl ITfTransitoryExtensionUIElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfTransitoryExtensionUIElement_Vtbl {
     pub base__: ITfUIElement_Vtbl,
     pub GetDocumentMgr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13857,6 +14008,7 @@ impl ITfUIElement {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfUIElement_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13956,6 +14108,7 @@ impl ITfUIElementMgr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfUIElementMgr_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginUIElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL, *mut u32) -> windows_core::HRESULT,
@@ -14043,6 +14196,7 @@ impl ITfUIElementSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITfUIElementSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginUIElement: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -14109,6 +14263,7 @@ impl IUIManagerEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUIManagerEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnWindowOpening: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
@@ -14211,6 +14366,7 @@ impl IVersionInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVersionInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSubcomponentCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -14543,16 +14699,11 @@ pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
 pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
 pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TF_HALTCOND {
     pub pHaltRange: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
-}
-impl Default for TF_HALTCOND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_HF_OBJECT: u32 = 1u32;
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
@@ -14561,7 +14712,7 @@ pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELE
 pub const TF_IE_CORRECTION: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: u16,
@@ -14572,12 +14723,6 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub dwCaps: u32,
     pub hkl: super::Input::KeyboardAndMouse::HKL,
     pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-impl Default for TF_INPUTPROCESSORPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
@@ -14613,7 +14758,7 @@ impl Default for TF_LANGBARITEMINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_core::GUID,
     pub langid: u16,
@@ -14621,21 +14766,11 @@ pub struct TF_LANGUAGEPROFILE {
     pub fActive: windows_core::BOOL,
     pub guidProfile: windows_core::GUID,
 }
-impl Default for TF_LANGUAGEPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,
-}
-impl Default for TF_LBBALLOONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_LBI_BALLOON: u32 = 16u32;
 pub const TF_LBI_BITMAP: u32 = 8u32;
@@ -14717,7 +14852,7 @@ pub const TF_MOD_RCONTROL: u32 = 16u32;
 pub const TF_MOD_RSHIFT: u32 = 32u32;
 pub const TF_MOD_SHIFT: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_core::GUID,
     pub ichStart: i32,
@@ -14726,22 +14861,12 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub dwPrivate: u32,
     pub clsidTIP: windows_core::GUID,
 }
-impl Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const TF_POPF_ALL: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
-}
-impl Default for TF_PRESERVEDKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_PROCESS_ATOM: windows_core::PCWSTR = windows_core::w!("_CTF_PROCESS_ATOM_");
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
@@ -14798,26 +14923,16 @@ pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
 pub const TF_SD_LOADING: u32 = 2u32;
 pub const TF_SD_READONLY: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TF_SELECTION {
     pub range: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub style: TF_SELECTIONSTYLE,
 }
-impl Default for TF_SELECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: windows_core::BOOL,
-}
-impl Default for TF_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
@@ -15041,15 +15156,10 @@ pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
 pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
 pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
-}
-impl Default for TS_RUNINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
@@ -15063,39 +15173,24 @@ pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: windows_core::BOOL,
 }
-impl Default for TS_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
     pub style: TS_SELECTIONSTYLE,
 }
-impl Default for TS_SELECTION_ACP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: core::mem::ManuallyDrop<Option<IAnchor>>,
     pub paEnd: core::mem::ManuallyDrop<Option<IAnchor>>,
     pub style: TS_SELECTIONSTYLE,
-}
-impl Default for TS_SELECTION_ANCHOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
@@ -15109,15 +15204,10 @@ pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
 pub const TS_SS_TRANSITORY: u32 = 4u32;
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
-}
-impl Default for TS_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TS_STRF_END: u32 = 2u32;
 pub const TS_STRF_MID: u32 = 1u32;
@@ -15128,16 +15218,11 @@ pub const TS_S_ASYNC: windows_core::HRESULT = windows_core::HRESULT(0x40300_u32 
 pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,
     pub acpNewEnd: i32,
-}
-impl Default for TS_TEXTCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[repr(transparent)]

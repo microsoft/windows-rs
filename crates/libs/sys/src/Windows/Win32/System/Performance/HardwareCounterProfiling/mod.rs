@@ -3,7 +3,7 @@ windows_targets::link!("kernel32.dll" "system" fn EnableThreadProfiling(threadha
 windows_targets::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation:: HANDLE, enabled : *mut bool) -> u32);
 windows_targets::link!("kernel32.dll" "system" fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation:: HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
@@ -23,5 +23,10 @@ pub struct PERFORMANCE_DATA {
     pub RetryCount: u32,
     pub Reserved: u32,
     pub HwCounters: [HARDWARE_COUNTER_DATA; 16],
+}
+impl Default for PERFORMANCE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;

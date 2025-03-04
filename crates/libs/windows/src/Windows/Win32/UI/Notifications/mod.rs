@@ -10,6 +10,7 @@ impl INotificationActivationCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INotificationActivationCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const NOTIFICATION_USER_INPUT_DATA, u32) -> windows_core::HRESULT,
@@ -33,13 +34,8 @@ impl INotificationActivationCallback_Vtbl {
 }
 impl windows_core::RuntimeName for INotificationActivationCallback {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: windows_core::PCWSTR,
     pub Value: windows_core::PCWSTR,
-}
-impl Default for NOTIFICATION_USER_INPUT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

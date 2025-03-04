@@ -101,6 +101,7 @@ impl IReferenceClock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReferenceClock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
@@ -180,6 +181,7 @@ impl core::ops::Deref for IReferenceClock2 {
 }
 windows_core::imp::interface_hierarchy!(IReferenceClock2, windows_core::IUnknown, IReferenceClock);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReferenceClock2_Vtbl {
     pub base__: IReferenceClock_Vtbl,
 }
@@ -207,6 +209,7 @@ impl IReferenceClockTimerControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IReferenceClockTimerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -312,14 +315,9 @@ impl Default for MMTIME_0 {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MMTIME_0_1 {
     pub songptrpos: u32,
-}
-impl Default for MMTIME_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -387,15 +385,10 @@ pub const MM_WOM_CLOSE: u32 = 956u32;
 pub const MM_WOM_DONE: u32 = 957u32;
 pub const MM_WOM_OPEN: u32 = 955u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
-}
-impl Default for TIMECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -409,16 +402,11 @@ impl Default for TIMECODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
     pub dwFrames: u32,
-}
-impl Default for TIMECODE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

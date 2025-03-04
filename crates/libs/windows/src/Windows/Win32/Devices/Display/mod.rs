@@ -716,15 +716,10 @@ impl Default for BACKLIGHT_REDUCTION_GAMMA_RAMP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BANK_POSITION {
     pub ReadBankPosition: u32,
     pub WriteBankPosition: u32,
-}
-impl Default for BANK_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
 pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
@@ -733,15 +728,9 @@ pub const BITMAP_BITS_WORD_ALIGN: u32 = 16u32;
 pub const BITMAP_PLANES: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BLENDOBJ {
     pub BlendFunction: super::super::Graphics::Gdi::BLENDFUNCTION,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for BLENDOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BMF_16BPP: i32 = 4i32;
 pub const BMF_1BPP: i32 = 1i32;
@@ -785,16 +774,11 @@ impl Default for BRIGHTNESS_LEVEL {
 pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
 pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BRIGHTNESS_NIT_RANGE {
     pub MinLevelInMillinit: u32,
     pub MaxLevelInMillinit: u32,
     pub StepSizeInMillinit: u32,
-}
-impl Default for BRIGHTNESS_NIT_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -878,27 +862,17 @@ pub const CHAR_TYPE_LEADING: u32 = 2u32;
 pub const CHAR_TYPE_SBCS: u32 = 0u32;
 pub const CHAR_TYPE_TRAILING: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHROMATICITY_COORDINATE {
     pub x: f32,
     pub y: f32,
 }
-impl Default for CHROMATICITY_COORDINATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CIECHROMA {
     pub x: i32,
     pub y: i32,
     pub Y: i32,
-}
-impl Default for CIECHROMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -915,7 +889,7 @@ impl Default for CLIPLINE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CLIPOBJ {
     pub iUniq: u32,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -924,13 +898,8 @@ pub struct CLIPOBJ {
     pub iMode: u8,
     pub fjOptions: u8,
 }
-impl Default for CLIPOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COLORINFO {
     pub Red: CIECHROMA,
     pub Green: CIECHROMA,
@@ -948,11 +917,6 @@ pub struct COLORINFO {
     pub YellowInMagentaDye: i32,
     pub CyanInYellowDye: i32,
     pub MagentaInYellowDye: i32,
-}
-impl Default for COLORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1027,24 +991,14 @@ impl Default for COLORSPACE_TRANSFORM_DATA_CAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     pub _bitfield: u32,
 }
-impl Default for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     pub _bitfield: u32,
-}
-impl Default for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1074,14 +1028,9 @@ impl Default for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     pub _bitfield: u32,
-}
-impl Default for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1178,21 +1127,16 @@ impl Default for DEVHTADJDATA {
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVHTINFO {
     pub HTFlags: u32,
     pub HTPatternSize: u32,
     pub DevPelsDPI: u32,
     pub ColorInfo: COLORINFO,
 }
-impl Default for DEVHTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVINFO {
     pub flGraphicsCaps: u32,
     pub lfDefaultFont: super::super::Graphics::Gdi::LOGFONTW,
@@ -1204,12 +1148,6 @@ pub struct DEVINFO {
     pub cyDither: u16,
     pub hpalDefault: super::super::Graphics::Gdi::HPALETTE,
     pub flGraphicsCaps2: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DEVINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DEVPKEY_Device_ActivityId: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
 pub const DEVPKEY_Device_AdapterLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
@@ -1242,15 +1180,10 @@ impl Default for DHSURF {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_2DREGION {
     pub cx: u32,
     pub cy: u32,
-}
-impl Default for DISPLAYCONFIG_2DREGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1264,16 +1197,11 @@ impl Default for DISPLAYCONFIG_ADAPTER_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     pub PathSourceSize: super::super::Foundation::POINTL,
     pub DesktopImageRegion: super::super::Foundation::RECTL,
     pub DesktopImageClip: super::super::Foundation::RECTL,
-}
-impl Default for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(4i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(9i32);
@@ -1285,17 +1213,12 @@ pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_I
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(2i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub r#type: DISPLAYCONFIG_DEVICE_INFO_TYPE,
     pub size: u32,
     pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
-}
-impl Default for DISPLAYCONFIG_DEVICE_INFO_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(10i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
@@ -1334,15 +1257,9 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1367,14 +1284,9 @@ impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1464,14 +1376,9 @@ impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1504,14 +1411,9 @@ impl Default for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1522,15 +1424,10 @@ pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCO
 pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(1i32);
 pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(5i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
-}
-impl Default for DISPLAYCONFIG_RATIONAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1557,15 +1454,10 @@ pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCON
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(1i32);
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub SDRWhiteLevel: u32,
-}
-impl Default for DISPLAYCONFIG_SDR_WHITE_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1590,14 +1482,9 @@ impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1625,14 +1512,9 @@ impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1657,14 +1539,9 @@ impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1678,17 +1555,12 @@ impl Default for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_SOURCE_MODE {
     pub width: u32,
     pub height: u32,
     pub pixelFormat: DISPLAYCONFIG_PIXELFORMAT,
     pub position: super::super::Foundation::POINTL,
-}
-impl Default for DISPLAYCONFIG_SOURCE_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1713,25 +1585,15 @@ impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     pub _bitfield: u32,
 }
-impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_TARGET_BASE_TYPE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
-}
-impl Default for DISPLAYCONFIG_TARGET_BASE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1772,14 +1634,9 @@ impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1842,28 +1699,18 @@ impl Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: u32,
-}
-impl Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 pub const DISPLAYPOLICY_DC: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPLAY_BRIGHTNESS {
     pub ucDisplayPolicy: u8,
     pub ucACBrightness: u8,
     pub ucDCBrightness: u8,
-}
-impl Default for DISPLAY_BRIGHTNESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DM_DEFAULT: u32 = 1u32;
 pub const DM_MONOCHROME: u32 = 2u32;
@@ -1915,15 +1762,10 @@ impl Default for DRVENABLEDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DRVFN {
     pub iFunc: u32,
     pub pfn: PFN,
-}
-impl Default for DRVFN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DRVQUERY_USERMODE: u32 = 1u32;
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
@@ -2018,15 +1860,10 @@ pub const ENDCAP_BUTT: i32 = 2i32;
 pub const ENDCAP_ROUND: i32 = 0i32;
 pub const ENDCAP_SQUARE: i32 = 1i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENGSAFESEMAPHORE {
     pub hsem: HSEMAPHORE,
     pub lCount: i32,
-}
-impl Default for ENGSAFESEMAPHORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2048,7 +1885,7 @@ pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENG_TIME_FIELDS {
     pub usYear: u16,
     pub usMonth: u16,
@@ -2058,11 +1895,6 @@ pub struct ENG_TIME_FIELDS {
     pub usSecond: u16,
     pub usMilliseconds: u16,
     pub usWeekday: u16,
-}
-impl Default for ENG_TIME_FIELDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2147,16 +1979,11 @@ impl Default for FD_GLYPHSET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FD_KERNINGPAIR {
     pub wcFirst: u16,
     pub wcSecond: u16,
     pub fwdKern: i16,
-}
-impl Default for FD_KERNINGPAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2174,52 +2001,34 @@ impl Default for FD_LIGATURE {
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FD_XFORM {
     pub eXX: u32,
     pub eXY: u32,
     pub eYX: u32,
     pub eYY: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Default for FD_XFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FD_XFORM {
     pub eXX: f32,
     pub eXY: f32,
     pub eYX: f32,
     pub eYY: f32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FD_XFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
 pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLOATOBJ {
     pub ul1: u32,
     pub ul2: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Default for FLOATOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLOATOBJ_XFORM {
     pub eM11: FLOATOBJ,
     pub eM12: FLOATOBJ,
@@ -2228,15 +2037,9 @@ pub struct FLOATOBJ_XFORM {
     pub eDx: FLOATOBJ,
     pub eDy: FLOATOBJ,
 }
-#[cfg(target_arch = "x86")]
-impl Default for FLOATOBJ_XFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FLOATOBJ_XFORM {
     pub eM11: f32,
     pub eM12: f32,
@@ -2244,12 +2047,6 @@ pub struct FLOATOBJ_XFORM {
     pub eM22: f32,
     pub eDx: f32,
     pub eDy: f32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for FLOATOBJ_XFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -2326,7 +2123,7 @@ pub const FM_SEL_UNDERSCORE: u32 = 2u32;
 pub const FM_TYPE_LICENSED: u32 = 2u32;
 pub const FM_VERSION_NUMBER: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FONTDIFF {
     pub jReserved1: u8,
     pub jReserved2: u8,
@@ -2338,13 +2135,8 @@ pub struct FONTDIFF {
     pub fwdMaxCharInc: i16,
     pub ptlCaret: super::super::Foundation::POINTL,
 }
-impl Default for FONTDIFF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FONTINFO {
     pub cjThis: u32,
     pub flCaps: u32,
@@ -2353,11 +2145,6 @@ pub struct FONTINFO {
     pub cjMaxGlyph4: u32,
     pub cjMaxGlyph8: u32,
     pub cjMaxGlyph32: u32,
-}
-impl Default for FONTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2379,16 +2166,11 @@ impl Default for FONTOBJ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FONTSIM {
     pub dpBold: i32,
     pub dpItalic: i32,
     pub dpBoldItalic: i32,
-}
-impl Default for FONTSIM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
@@ -2430,78 +2212,44 @@ pub const FP_WINDINGMODE: i32 = 2i32;
 pub type FREEOBJPROC = Option<unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> windows_core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSCNTL_SCREEN_INFO {
     pub Position: super::super::System::Console::COORD,
     pub ScreenSize: super::super::System::Console::COORD,
     pub nNumberOfChars: u32,
 }
-#[cfg(feature = "Win32_System_Console")]
-impl Default for FSCNTL_SCREEN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSVIDEO_COPY_FRAME_BUFFER {
     pub SrcScreen: FSCNTL_SCREEN_INFO,
     pub DestScreen: FSCNTL_SCREEN_INFO,
 }
-#[cfg(feature = "Win32_System_Console")]
-impl Default for FSVIDEO_COPY_FRAME_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSVIDEO_CURSOR_POSITION {
     pub Coord: VIDEO_CURSOR_POSITION,
     pub dwType: u32,
 }
-impl Default for FSVIDEO_CURSOR_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSVIDEO_MODE_INFORMATION {
     pub VideoMode: VIDEO_MODE_INFORMATION,
     pub VideoMemory: VIDEO_MEMORY_INFORMATION,
 }
-impl Default for FSVIDEO_MODE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSVIDEO_REVERSE_MOUSE_POINTER {
     pub Screen: FSCNTL_SCREEN_INFO,
     pub dwType: u32,
 }
-#[cfg(feature = "Win32_System_Console")]
-impl Default for FSVIDEO_REVERSE_MOUSE_POINTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FSVIDEO_SCREEN_INFORMATION {
     pub ScreenSize: super::super::System::Console::COORD,
     pub FontSize: super::super::System::Console::COORD,
-}
-#[cfg(feature = "Win32_System_Console")]
-impl Default for FSVIDEO_SCREEN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
@@ -2541,16 +2289,11 @@ impl Default for GAMMA_RAMP_DXGI_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GAMMA_RAMP_RGB {
     pub Red: f32,
     pub Green: f32,
     pub Blue: f32,
-}
-impl Default for GAMMA_RAMP_RGB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2928,6 +2671,7 @@ impl ICloneViewHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICloneViewHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetConnectedIDs: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut u32, u32) -> windows_core::HRESULT,
@@ -3243,17 +2987,12 @@ pub const INDEX_DrvUnloadFontFile: i32 = 46i32;
 pub const INDEX_DrvUnlockDisplayArea: i32 = 102i32;
 pub const INDEX_LAST: i32 = 89i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INDIRECT_DISPLAY_INFO {
     pub DisplayAdapterLuid: super::super::Foundation::LUID,
     pub Flags: u32,
     pub NumMonitors: u32,
     pub DisplayAdapterTargetBase: u32,
-}
-impl Default for INDIRECT_DISPLAY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
 pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
@@ -3369,6 +3108,7 @@ impl IViewHelper {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IViewHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetConnectedIDs: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut u32, u32) -> windows_core::HRESULT,
@@ -3580,16 +3320,11 @@ pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
 pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(2i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MC_TIMING_REPORT {
     pub dwHorizontalFrequencyInHZ: u32,
     pub dwVerticalFrequencyInHZ: u32,
     pub bTimingStatusByte: u8,
-}
-impl Default for MC_TIMING_REPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3597,7 +3332,7 @@ pub struct MC_VCP_CODE_TYPE(pub i32);
 pub const MC_VERTICAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(1i32);
 pub const MC_WIDTH: MC_SIZE_TYPE = MC_SIZE_TYPE(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIPI_DSI_CAPS {
     pub DSITypeMajor: u8,
     pub DSITypeMinor: u8,
@@ -3617,11 +3352,6 @@ pub struct MIPI_DSI_CAPS {
     pub ProductLo: u8,
     pub LengthHi: u8,
     pub LengthLo: u8,
-}
-impl Default for MIPI_DSI_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3648,14 +3378,9 @@ impl Default for MIPI_DSI_PACKET_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIPI_DSI_PACKET_0_0 {
     pub _bitfield: u8,
-}
-impl Default for MIPI_DSI_PACKET_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3669,15 +3394,10 @@ impl Default for MIPI_DSI_PACKET_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIPI_DSI_PACKET_1_0 {
     pub Data0: u8,
     pub Data1: u8,
-}
-impl Default for MIPI_DSI_PACKET_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3702,14 +3422,9 @@ impl Default for MIPI_DSI_RESET_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIPI_DSI_RESET_0_0 {
     pub _bitfield: u32,
-}
-impl Default for MIPI_DSI_RESET_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3730,14 +3445,9 @@ impl Default for MIPI_DSI_TRANSMISSION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIPI_DSI_TRANSMISSION_0 {
     pub _bitfield: u16,
-}
-impl Default for MIPI_DSI_TRANSMISSION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
 pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
@@ -3807,25 +3517,15 @@ pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPU
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OUTPUT_WIRE_FORMAT {
     pub ColorEncoding: OUTPUT_COLOR_ENCODING,
     pub BitsPerPixel: u32,
 }
-impl Default for OUTPUT_WIRE_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PALOBJ {
     pub ulReserved: u32,
-}
-impl Default for PALOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PAL_BGR: u32 = 8u32;
 pub const PAL_BITFIELDS: u32 = 2u32;
@@ -3857,26 +3557,16 @@ impl Default for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
-impl Default for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PANEL_GET_BACKLIGHT_REDUCTION {
     pub BacklightUsersetting: u16,
     pub BacklightEffective: u16,
     pub GammaRamp: BACKLIGHT_REDUCTION_GAMMA_RAMP,
-}
-impl Default for PANEL_GET_BACKLIGHT_REDUCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3901,15 +3591,10 @@ impl Default for PANEL_GET_BRIGHTNESS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PANEL_GET_BRIGHTNESS_0_0 {
     pub CurrentInMillinits: u32,
     pub TargetInMillinits: u32,
-}
-impl Default for PANEL_GET_BRIGHTNESS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3934,14 +3619,9 @@ impl Default for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
-}
-impl Default for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3966,14 +3646,9 @@ impl Default for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PANEL_SET_BACKLIGHT_OPTIMIZATION {
     pub Level: BACKLIGHT_OPTIMIZATION_LEVEL,
-}
-impl Default for PANEL_SET_BACKLIGHT_OPTIMIZATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4031,14 +3706,9 @@ impl Default for PANEL_SET_BRIGHTNESS_STATE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PANEL_SET_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
-}
-impl Default for PANEL_SET_BRIGHTNESS_STATE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4053,15 +3723,10 @@ impl Default for PATHDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PATHOBJ {
     pub fl: u32,
     pub cCurves: u32,
-}
-impl Default for PATHOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PD_BEGINSUBPATH: u32 = 1u32;
 pub const PD_BEZIERS: u32 = 16u32;
@@ -4069,17 +3734,12 @@ pub const PD_CLOSEFIGURE: u32 = 8u32;
 pub const PD_ENDSUBPATH: u32 = 2u32;
 pub const PD_RESETSTYLE: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERBANDINFO {
     pub bRepeatThisBand: windows_core::BOOL,
     pub szlBand: super::super::Foundation::SIZE,
     pub ulHorzRes: u32,
     pub ulVertRes: u32,
-}
-impl Default for PERBANDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PFN = Option<unsafe extern "system" fn() -> isize>;
 pub type PFN_DrvAccumulateD3DDirtyRect = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> windows_core::BOOL>;
@@ -4208,51 +3868,29 @@ pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTE {
     pub x: u32,
     pub y: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Default for POINTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTE {
     pub x: f32,
     pub y: f32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for POINTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTFIX {
     pub x: i32,
     pub y: i32,
 }
-impl Default for POINTFIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTQF {
     pub x: i64,
     pub y: i64,
-}
-impl Default for POINTQF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PO_ALL_INTEGERS: u32 = 4u32;
 pub const PO_BEZIERS: u32 = 1u32;
@@ -4347,28 +3985,18 @@ impl core::ops::Not for QUERY_DISPLAY_CONFIG_FLAGS {
 }
 pub const RB_DITHERCOLOR: i32 = -2147483648i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECTFX {
     pub xLeft: i32,
     pub yTop: i32,
     pub xRight: i32,
     pub yBottom: i32,
 }
-impl Default for RECTFX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RUN {
     pub iStart: i32,
     pub iStop: i32,
-}
-impl Default for RUN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1024u32);
 pub const SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8192u32);
@@ -4527,27 +4155,17 @@ pub const TTO_METRICS_ONLY: u32 = 1u32;
 pub const TTO_QUBICS: u32 = 2u32;
 pub const TTO_UNHINTED: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TYPE1_FONT {
     pub hPFM: super::super::Foundation::HANDLE,
     pub hPFB: super::super::Foundation::HANDLE,
     pub ulIdentifier: u32,
 }
-impl Default for TYPE1_FONT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VGA_CHAR {
     pub Char: i8,
     pub Attributes: i8,
-}
-impl Default for VGA_CHAR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4582,7 +4200,7 @@ impl Default for VIDEOPARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_BANK_SELECT {
     pub Length: u32,
     pub Size: u32,
@@ -4597,11 +4215,6 @@ pub struct VIDEO_BANK_SELECT {
     pub PlanarHCBankCodeOffset: u32,
     pub PlanarHCEnableCodeOffset: u32,
     pub PlanarHCDisableCodeOffset: u32,
-}
-impl Default for VIDEO_BANK_SELECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4619,15 +4232,10 @@ impl Default for VIDEO_BRIGHTNESS_POLICY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_BRIGHTNESS_POLICY_0 {
     pub BatteryLevel: u8,
     pub Brightness: u8,
-}
-impl Default for VIDEO_BRIGHTNESS_POLICY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4653,20 +4261,15 @@ impl Default for VIDEO_CLUT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_CLUTDATA {
     pub Red: u8,
     pub Green: u8,
     pub Blue: u8,
     pub Unused: u8,
 }
-impl Default for VIDEO_CLUTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_COLOR_CAPABILITIES {
     pub Length: u32,
     pub AttributeFlags: u32,
@@ -4687,11 +4290,6 @@ pub struct VIDEO_COLOR_CAPABILITIES {
     pub GreenGamma: i32,
     pub BlueGamma: i32,
 }
-impl Default for VIDEO_COLOR_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEO_COLOR_LUT_DATA {
@@ -4707,7 +4305,7 @@ impl Default for VIDEO_COLOR_LUT_DATA {
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_CURSOR_ATTRIBUTES {
     pub Width: u16,
     pub Height: u16,
@@ -4716,34 +4314,19 @@ pub struct VIDEO_CURSOR_ATTRIBUTES {
     pub Rate: u8,
     pub Enable: u8,
 }
-impl Default for VIDEO_CURSOR_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_CURSOR_POSITION {
     pub Column: i16,
     pub Row: i16,
 }
-impl Default for VIDEO_CURSOR_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
 pub const VIDEO_DEVICE_NAME: windows_core::PCSTR = windows_core::s!("DISPLAY%d");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_DEVICE_SESSION_STATUS {
     pub bEnable: u32,
     pub bSuccess: u32,
-}
-impl Default for VIDEO_DEVICE_SESSION_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
 pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
@@ -4849,14 +4432,9 @@ impl Default for VIDEO_MEMORY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_MODE {
     pub RequestedMode: u32,
-}
-impl Default for VIDEO_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
 pub const VIDEO_MODE_ANIMATE_UPDATE: u32 = 16u32;
@@ -4866,7 +4444,7 @@ pub const VIDEO_MODE_COLOR: u32 = 1u32;
 pub const VIDEO_MODE_COLOR_POINTER: u32 = 4u32;
 pub const VIDEO_MODE_GRAPHICS: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_MODE_INFORMATION {
     pub Length: u32,
     pub ModeIndex: u32,
@@ -4889,11 +4467,6 @@ pub struct VIDEO_MODE_INFORMATION {
     pub VideoMemoryBitmapHeight: u32,
     pub DriverSpecificAttributeFlags: u32,
 }
-impl Default for VIDEO_MODE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
 pub const VIDEO_MODE_LINEAR: u32 = 256u32;
 pub const VIDEO_MODE_MANAGED_PALETTE: u32 = 8u32;
@@ -4915,15 +4488,10 @@ impl Default for VIDEO_MONITOR_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_NUM_MODES {
     pub NumModes: u32,
     pub ModeInformationLength: u32,
-}
-impl Default for VIDEO_NUM_MODES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
 #[repr(C)]
@@ -4986,7 +4554,7 @@ impl Default for VIDEO_POINTER_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_POINTER_CAPABILITIES {
     pub Flags: u32,
     pub MaxWidth: u32,
@@ -4994,33 +4562,18 @@ pub struct VIDEO_POINTER_CAPABILITIES {
     pub HWPtrBitmapStart: u32,
     pub HWPtrBitmapEnd: u32,
 }
-impl Default for VIDEO_POINTER_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_POINTER_POSITION {
     pub Column: i16,
     pub Row: i16,
 }
-impl Default for VIDEO_POINTER_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_POWER_MANAGEMENT {
     pub Length: u32,
     pub DPMSVersion: u32,
     pub PowerState: u32,
-}
-impl Default for VIDEO_POWER_MANAGEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5059,14 +4612,9 @@ pub const VIDEO_REASON_POLICY3: u32 = 3u32;
 pub const VIDEO_REASON_POLICY4: u32 = 4u32;
 pub const VIDEO_REASON_SCRATCH: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_REGISTER_VDM {
     pub MinimumStateSize: u32,
-}
-impl Default for VIDEO_REGISTER_VDM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5097,14 +4645,9 @@ pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
 pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
 pub const VIDEO_STATE_UNEMULATED_VGA_STATE: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VIDEO_VDM {
     pub ProcessHandle: super::super::Foundation::HANDLE,
-}
-impl Default for VIDEO_VDM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5217,7 +4760,7 @@ pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 pub const WVIDEO_DEVICE_NAME: windows_core::PCWSTR = windows_core::w!("DISPLAY%d");
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XFORML {
     pub eM11: u32,
     pub eM12: u32,
@@ -5226,15 +4769,9 @@ pub struct XFORML {
     pub eDx: u32,
     pub eDy: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Default for XFORML {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XFORML {
     pub eM11: f32,
     pub eM12: f32,
@@ -5243,21 +4780,10 @@ pub struct XFORML {
     pub eDx: f32,
     pub eDy: f32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for XFORML {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XFORMOBJ {
     pub ulReserved: u32,
-}
-impl Default for XFORMOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const XF_INV_FXTOL: i32 = 3i32;
 pub const XF_INV_LTOL: i32 = 1i32;

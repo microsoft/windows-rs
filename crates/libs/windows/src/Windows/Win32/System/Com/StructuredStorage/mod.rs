@@ -1070,15 +1070,10 @@ impl Default for CABSTRBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: windows_core::PSTR,
-}
-impl Default for CAC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1308,6 +1303,7 @@ impl IDirectWriterLock {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDirectWriterLock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub WaitForWriteAccess: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1371,6 +1367,7 @@ impl IEnumSTATPROPSETSTG {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSTATPROPSETSTG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut STATPROPSETSTG, *mut u32) -> windows_core::HRESULT,
@@ -1450,6 +1447,7 @@ impl IEnumSTATPROPSTG {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSTATPROPSTG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Variant")]
@@ -1534,6 +1532,7 @@ impl IEnumSTATSTG {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSTATSTG_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::STATSTG, *mut u32) -> windows_core::HRESULT,
@@ -1615,6 +1614,7 @@ impl IFillLockBytes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFillLockBytes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FillAppend: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1705,6 +1705,7 @@ impl ILayoutStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILayoutStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LayoutScript: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::StorageLayout, u32, u32) -> windows_core::HRESULT,
@@ -1792,6 +1793,7 @@ impl ILockBytes {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILockBytes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadAt: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1881,6 +1883,7 @@ impl IMemoryAllocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMemoryAllocator_Vtbl {
     pub Allocate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> *mut core::ffi::c_void,
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -1960,6 +1963,7 @@ impl IPersistStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistStorage_Vtbl {
     pub base__: super::IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2050,6 +2054,7 @@ impl IPropertyBag {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyBag_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2123,6 +2128,7 @@ impl IPropertyBag2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyBag2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2228,6 +2234,7 @@ impl IPropertySetStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertySetStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2344,6 +2351,7 @@ impl IPropertyStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPropertyStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Variant")]
@@ -2494,6 +2502,7 @@ impl IRootStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRootStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SwitchToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2612,6 +2621,7 @@ impl IStorage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IStorage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateStream: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::STGM, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2804,15 +2814,10 @@ impl Default for OLESTREAM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
-}
-impl Default for OLESTREAMVTBL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PIDDI_THUMBNAIL: i32 = 2i32;
 pub const PIDDSI_BYTECOUNT: u32 = 4u32;
@@ -2884,7 +2889,7 @@ pub const PID_MODIFY_TIME: u32 = 2147483649u32;
 pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::super::Variant::VARENUM,
@@ -2892,12 +2897,6 @@ pub struct PROPBAG2 {
     pub dwHint: u32,
     pub pstrName: windows_core::PWSTR,
     pub clsid: windows_core::GUID,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for PROPBAG2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PROPSETFLAG_ANSI: u32 = 2u32;
 pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
@@ -3192,7 +3191,7 @@ impl Default for SERIALIZEDPROPERTYVALUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_core::GUID,
     pub clsid: windows_core::GUID,
@@ -3202,24 +3201,13 @@ pub struct STATPROPSETSTG {
     pub atime: super::super::super::Foundation::FILETIME,
     pub dwOSVersion: u32,
 }
-impl Default for STATPROPSETSTG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_core::PWSTR,
     pub propid: u32,
     pub vt: super::super::Variant::VARENUM,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for STATPROPSTG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3237,27 +3225,17 @@ pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
 pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,
     pub ulSectorSize: u32,
     pub pwcsTemplateFile: windows_core::PCWSTR,
 }
-impl Default for STGOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_core::GUID,
     pub pStream: core::mem::ManuallyDrop<Option<super::IStream>>,
-}
-impl Default for VERSIONEDSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

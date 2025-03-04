@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IPlatformTelemetryClientStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformTelemetryClientStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -13,6 +14,7 @@ impl windows_core::RuntimeType for IPlatformTelemetryRegistrationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformTelemetryRegistrationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlatformTelemetryRegistrationStatus) -> windows_core::HRESULT,
@@ -22,6 +24,7 @@ impl windows_core::RuntimeType for IPlatformTelemetryRegistrationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StorageSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,

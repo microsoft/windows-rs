@@ -149,6 +149,7 @@ impl windows_core::RuntimeType for IDesktopWindowTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDesktopWindowTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

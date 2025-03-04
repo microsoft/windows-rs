@@ -372,7 +372,7 @@ pub unsafe fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: R
     unsafe { ReportEventW(heventlog, wtype, wcategory, dweventid, lpusersid.unwrap_or(core::mem::zeroed()) as _, lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lprawdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -391,23 +391,13 @@ pub struct EVENTLOGRECORD {
     pub DataLength: u32,
     pub DataOffset: u32,
 }
-impl Default for EVENTLOGRECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(16u16);
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(8u16);
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(1u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
-}
-impl Default for EVENTLOG_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EVENTLOG_INFORMATION_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(4u16);
 pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(2u32);
@@ -504,18 +494,13 @@ pub struct EVT_RENDER_CONTEXT_FLAGS(pub u32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_RENDER_FLAGS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_core::PWSTR,
     pub User: windows_core::PWSTR,
     pub Domain: windows_core::PWSTR,
     pub Password: windows_core::PWSTR,
     pub Flags: u32,
-}
-impl Default for EVT_RPC_LOGIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

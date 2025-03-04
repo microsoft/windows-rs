@@ -231,9 +231,14 @@ pub struct DOS_IMAGE_INFO {
     pub ImageSize: u32,
     pub Timestamp: u32,
 }
+impl Default for DOS_IMAGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type FOUND_IMAGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GPA_MEMORY_CHUNK {
     pub GuestPhysicalStartPageIndex: u64,
     pub PageCount: u64,
@@ -245,13 +250,18 @@ pub union GUEST_OS_INFO {
     pub ClosedSource: GUEST_OS_INFO_0,
     pub OpenSource: GUEST_OS_INFO_1,
 }
+impl Default for GUEST_OS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GUEST_OS_INFO_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct GUEST_OS_INFO_1 {
     pub _bitfield: u64,
 }
@@ -296,7 +306,7 @@ pub type HDV_PCI_BAR_SELECTOR = i32;
 pub type HDV_PCI_DEVICE_GET_DETAILS = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> windows_sys::core::HRESULT>;
 pub type HDV_PCI_DEVICE_INITIALIZE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
     pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
@@ -316,7 +326,7 @@ pub type HDV_PCI_DEVICE_STOP = Option<unsafe extern "system" fn(devicecontext: *
 pub type HDV_PCI_DEVICE_TEARDOWN = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void)>;
 pub type HDV_PCI_INTERFACE_VERSION = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HDV_PCI_PNP_ID {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -333,7 +343,7 @@ pub type HDV_PCI_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(devicecon
 pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> windows_sys::core::HRESULT>;
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HVSOCKET_ADDRESS_INFO {
     pub SystemId: windows_sys::core::GUID,
     pub VirtualMachineId: windows_sys::core::GUID,
@@ -368,6 +378,11 @@ pub struct MODULE_INFO {
     pub ProcessImageName: windows_sys::core::PCSTR,
     pub Image: DOS_IMAGE_INFO,
 }
+impl Default for MODULE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PAGING_MODE = i32;
 pub const Paging_32Bit: PAGING_MODE = 2i32;
 pub const Paging_Armv8: PAGING_MODE = 5i32;
@@ -383,7 +398,7 @@ pub const ProcessorVendor_Unknown: VIRTUAL_PROCESSOR_VENDOR = 0i32;
 pub type REGISTER_ID = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_HV {
     pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub Reserved: u16,
@@ -401,8 +416,13 @@ pub union VIRTUAL_PROCESSOR_REGISTER {
     pub Reg128: VIRTUAL_PROCESSOR_REGISTER_0,
     pub X64: VIRTUAL_PROCESSOR_REGISTER_1,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_0 {
     pub Low64: u64,
     pub High64: u64,
@@ -415,6 +435,11 @@ pub union VIRTUAL_PROCESSOR_REGISTER_1 {
     pub FpControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_2,
     pub XmmControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_3,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
@@ -425,14 +450,24 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
     pub LastFpOp: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
     pub LastFpRip: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0_0,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
@@ -445,19 +480,29 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub Selector: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     pub Attributes: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0_0,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
     pub Limit: u16,
     pub Base: u64,
@@ -469,21 +514,31 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_3 {
     pub XmmStatusControl: u32,
     pub XmmStatusControlMask: u32,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     pub LastFpRdp: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_3_0_0,
 }
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     pub LastFpDp: u32,
     pub LastFpDs: u16,
 }
 pub type VIRTUAL_PROCESSOR_VENDOR = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct VM_GENCOUNTER {
     pub GenerationCount: u64,
     pub GenerationCountHigh: u64,
@@ -495,8 +550,13 @@ pub union WHV_ACCESS_GPA_CONTROLS {
     pub AsUINT64: u64,
     pub Anonymous: WHV_ACCESS_GPA_CONTROLS_0,
 }
+impl Default for WHV_ACCESS_GPA_CONTROLS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_ACCESS_GPA_CONTROLS_0 {
     pub CacheType: WHV_CACHE_TYPE,
     pub Reserved: u32,
@@ -506,6 +566,11 @@ pub struct WHV_ACCESS_GPA_CONTROLS_0 {
 pub union WHV_ADVISE_GPA_RANGE {
     pub Populate: WHV_ADVISE_GPA_RANGE_POPULATE,
 }
+impl Default for WHV_ADVISE_GPA_RANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_ADVISE_GPA_RANGE_CODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -513,14 +578,24 @@ pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
     pub Flags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub AccessType: WHV_MEMORY_ACCESS_TYPE,
 }
+impl Default for WHV_ADVISE_GPA_RANGE_POPULATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     pub AsUINT32: u32,
     pub Anonymous: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0,
 }
+impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -548,6 +623,11 @@ pub union WHV_CAPABILITY {
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub SchedulerFeatures: WHV_SCHEDULER_FEATURES,
 }
+impl Default for WHV_CAPABILITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_CAPABILITY_CODE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -555,13 +635,18 @@ pub union WHV_CAPABILITY_FEATURES {
     pub Anonymous: WHV_CAPABILITY_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_CAPABILITY_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_CAPABILITY_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub _bitfield: u32,
     pub HighestFrequencyMhz: u32,
@@ -570,7 +655,7 @@ pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub FrequencyStepMhz: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_CPUID_OUTPUT {
     pub Eax: u32,
     pub Ebx: u32,
@@ -579,7 +664,7 @@ pub struct WHV_CPUID_OUTPUT {
 }
 pub type WHV_CREATE_VPCI_DEVICE_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_DOORBELL_MATCH_DATA {
     pub GuestAddress: u64,
     pub Value: u64,
@@ -587,7 +672,7 @@ pub struct WHV_DOORBELL_MATCH_DATA {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,
@@ -599,7 +684,7 @@ pub struct WHV_EMULATOR_CALLBACKS {
 }
 pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> windows_sys::core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_EMULATOR_IO_ACCESS_INFO {
     pub Direction: u8,
     pub Port: u16,
@@ -615,6 +700,11 @@ pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO {
     pub AccessSize: u8,
     pub Data: [u8; 8],
 }
+impl Default for WHV_EMULATOR_MEMORY_ACCESS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_EMULATOR_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> windows_sys::core::HRESULT>;
 pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> windows_sys::core::HRESULT>;
 #[repr(C)]
@@ -623,8 +713,13 @@ pub union WHV_EMULATOR_STATUS {
     pub Anonymous: WHV_EMULATOR_STATUS_0,
     pub AsUINT32: u32,
 }
+impl Default for WHV_EMULATOR_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_EMULATOR_STATUS_0 {
     pub _bitfield: u32,
 }
@@ -636,8 +731,13 @@ pub union WHV_EXTENDED_VM_EXITS {
     pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_EXTENDED_VM_EXITS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
 }
@@ -655,6 +755,11 @@ pub struct WHV_HYPERCALL_CONTEXT {
     pub XmmRegisters: [WHV_UINT128; 6],
     pub Reserved1: [u64; 2],
 }
+impl Default for WHV_HYPERCALL_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -662,13 +767,18 @@ pub union WHV_INTERNAL_ACTIVITY_REGISTER {
     pub Anonymous: WHV_INTERNAL_ACTIVITY_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_INTERRUPT_CONTROL {
     pub _bitfield: u64,
     pub Destination: u32,
@@ -689,27 +799,37 @@ pub struct WHV_MEMORY_ACCESS_CONTEXT {
     pub Gpa: u64,
     pub Gva: u64,
 }
+impl Default for WHV_MEMORY_ACCESS_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_MEMORY_ACCESS_INFO {
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
     pub AsUINT32: u32,
 }
+impl Default for WHV_MEMORY_ACCESS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
 pub type WHV_MEMORY_ACCESS_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_MEMORY_RANGE_ENTRY {
     pub GuestAddress: u64,
     pub SizeInBytes: u64,
 }
 pub type WHV_MSR_ACTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_MSR_ACTION_ENTRY {
     pub Index: u32,
     pub ReadAction: u8,
@@ -723,14 +843,24 @@ pub struct WHV_NOTIFICATION_PORT_PARAMETERS {
     pub Reserved: u32,
     pub Anonymous: WHV_NOTIFICATION_PORT_PARAMETERS_0,
 }
+impl Default for WHV_NOTIFICATION_PORT_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     pub Doorbell: WHV_DOORBELL_MATCH_DATA,
     pub Event: WHV_NOTIFICATION_PORT_PARAMETERS_0_0,
 }
+impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     pub ConnectionId: u32,
 }
@@ -739,7 +869,7 @@ pub type WHV_NOTIFICATION_PORT_TYPE = i32;
 pub type WHV_PARTITION_COUNTER_SET = i32;
 pub type WHV_PARTITION_HANDLE = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {
     pub Mapped4KPageCount: u64,
     pub Mapped2MPageCount: u64,
@@ -779,9 +909,14 @@ pub union WHV_PARTITION_PROPERTY {
     pub ProcessorPerfmonFeatures: WHV_PROCESSOR_PERFMON_FEATURES,
     pub DisableSmt: windows_sys::core::BOOL,
 }
+impl Default for WHV_PARTITION_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_PARTITION_PROPERTY_CODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
     pub MmioAccessCount: u64,
     pub EoiAccessCount: u64,
@@ -791,7 +926,7 @@ pub struct WHV_PROCESSOR_APIC_COUNTERS {
 }
 pub type WHV_PROCESSOR_COUNTER_SET = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_EVENT_COUNTERS {
     pub PageFaultCount: u64,
     pub ExceptionCount: u64,
@@ -803,8 +938,13 @@ pub union WHV_PROCESSOR_FEATURES {
     pub Anonymous: WHV_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -814,8 +954,13 @@ pub union WHV_PROCESSOR_FEATURES1 {
     pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_PROCESSOR_FEATURES1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_FEATURES1_0 {
     pub _bitfield: u64,
 }
@@ -826,11 +971,21 @@ pub struct WHV_PROCESSOR_FEATURES_BANKS {
     pub Reserved0: u32,
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0,
 }
+impl Default for WHV_PROCESSOR_FEATURES_BANKS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 2],
+}
+impl Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -838,15 +993,20 @@ pub struct WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_PROCESSOR_FEATURES,
     pub Bank1: WHV_PROCESSOR_FEATURES1,
 }
+impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTER {
     pub Count: u64,
     pub Time100ns: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTERS {
     pub PageInvalidations: WHV_PROCESSOR_INTERCEPT_COUNTER,
     pub ControlRegisterAccesses: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -869,19 +1029,24 @@ pub union WHV_PROCESSOR_PERFMON_FEATURES {
     pub Anonymous: WHV_PROCESSOR_PERFMON_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_PERFMON_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_RUNTIME_COUNTERS {
     pub TotalRuntime100ns: u64,
     pub HypervisorRuntime100ns: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     pub SyntheticInterruptsCount: u64,
     pub LongSpinWaitHypercallsCount: u64,
@@ -897,8 +1062,13 @@ pub union WHV_PROCESSOR_XSAVE_FEATURES {
     pub Anonymous: WHV_PROCESSOR_XSAVE_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -925,8 +1095,13 @@ pub union WHV_REGISTER_VALUE {
     pub InternalActivity: WHV_INTERNAL_ACTIVITY_REGISTER,
     pub PendingDebugException: WHV_X64_PENDING_DEBUG_EXCEPTION,
 }
+impl Default for WHV_REGISTER_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_RUN_VP_CANCELED_CONTEXT {
     pub CancelReason: WHV_RUN_VP_CANCEL_REASON,
 }
@@ -938,6 +1113,11 @@ pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub Reserved: u32,
     pub VpContext: WHV_VP_EXIT_CONTEXT,
     pub Anonymous: WHV_RUN_VP_EXIT_CONTEXT_0,
+}
+impl Default for WHV_RUN_VP_EXIT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -958,6 +1138,11 @@ pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub ApicWrite: WHV_X64_APIC_WRITE_CONTEXT,
     pub SynicSintDeliverable: WHV_SYNIC_SINT_DELIVERABLE_CONTEXT,
 }
+impl Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_RUN_VP_EXIT_REASON = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -965,8 +1150,13 @@ pub union WHV_SCHEDULER_FEATURES {
     pub Anonymous: WHV_SCHEDULER_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_SCHEDULER_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_SCHEDULER_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -978,8 +1168,13 @@ pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub VirtualFunctionIndex: u16,
     pub Reserved: u16,
 }
+impl Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_SYNIC_EVENT_PARAMETERS {
     pub VpIndex: u32,
     pub TargetSint: u8,
@@ -988,7 +1183,7 @@ pub struct WHV_SYNIC_EVENT_PARAMETERS {
 }
 pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     pub DeliverableSints: u16,
     pub Reserved1: u16,
@@ -1000,8 +1195,13 @@ pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -1012,21 +1212,36 @@ pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     pub Reserved0: u32,
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0,
 }
+impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 1],
 }
+impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_SYNTHETIC_PROCESSOR_FEATURES,
 }
+impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
 pub type WHV_TRANSLATE_GVA_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_TRANSLATE_GVA_RESULT {
     pub ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
     pub Reserved: u32,
@@ -1039,6 +1254,11 @@ pub struct WHV_TRIGGER_PARAMETERS {
     pub Reserved: u32,
     pub Anonymous: WHV_TRIGGER_PARAMETERS_0,
 }
+impl Default for WHV_TRIGGER_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_TRIGGER_PARAMETERS_0 {
@@ -1046,8 +1266,13 @@ pub union WHV_TRIGGER_PARAMETERS_0 {
     pub SynicEvent: WHV_SYNIC_EVENT_PARAMETERS,
     pub DeviceInterrupt: WHV_TRIGGER_PARAMETERS_0_0,
 }
+impl Default for WHV_TRIGGER_PARAMETERS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
     pub LogicalDeviceId: u64,
     pub MsiAddress: u64,
@@ -1061,8 +1286,13 @@ pub union WHV_UINT128 {
     pub Anonymous: WHV_UINT128_0,
     pub Dword: [u32; 4],
 }
+impl Default for WHV_UINT128 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_UINT128_0 {
     pub Low64: u64,
     pub High64: u64,
@@ -1074,11 +1304,21 @@ pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY {
     pub Reserved: u32,
     pub Anonymous: WHV_VIRTUAL_PROCESSOR_PROPERTY_0,
 }
+impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     pub NumaNode: u16,
     pub Padding: u64,
+}
+impl Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE = i32;
 pub type WHV_VIRTUAL_PROCESSOR_STATE_TYPE = i32;
@@ -1089,15 +1329,25 @@ pub struct WHV_VPCI_DEVICE_NOTIFICATION {
     pub Reserved1: u32,
     pub Anonymous: WHV_VPCI_DEVICE_NOTIFICATION_0,
 }
+impl Default for WHV_VPCI_DEVICE_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_VPCI_DEVICE_NOTIFICATION_0 {
     pub Reserved2: u64,
 }
+impl Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_VPCI_DEVICE_NOTIFICATION_TYPE = i32;
 pub type WHV_VPCI_DEVICE_PROPERTY_CODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_VPCI_DEVICE_REGISTER {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub SizeInBytes: u32,
@@ -1105,7 +1355,7 @@ pub struct WHV_VPCI_DEVICE_REGISTER {
 }
 pub type WHV_VPCI_DEVICE_REGISTER_SPACE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_VPCI_HARDWARE_IDS {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -1124,6 +1374,11 @@ pub struct WHV_VPCI_INTERRUPT_TARGET {
     pub ProcessorCount: u32,
     pub Processors: [u32; 1],
 }
+impl Default for WHV_VPCI_INTERRUPT_TARGET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_VPCI_INTERRUPT_TARGET_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1134,11 +1389,21 @@ pub struct WHV_VPCI_MMIO_MAPPING {
     pub OffsetInBytes: u64,
     pub VirtualAddress: *mut core::ffi::c_void,
 }
+impl Default for WHV_VPCI_MMIO_MAPPING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_VPCI_MMIO_RANGE_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_VPCI_PROBED_BARS {
     pub Value: [u32; 6],
+}
+impl Default for WHV_VPCI_PROBED_BARS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 #[repr(C)]
@@ -1153,14 +1418,24 @@ pub struct WHV_VP_EXCEPTION_CONTEXT {
     pub ErrorCode: u32,
     pub ExceptionParameter: u64,
 }
+impl Default for WHV_VP_EXCEPTION_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_VP_EXCEPTION_INFO {
     pub Anonymous: WHV_VP_EXCEPTION_INFO_0,
     pub AsUINT32: u32,
 }
+impl Default for WHV_VP_EXCEPTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_VP_EXCEPTION_INFO_0 {
     pub _bitfield: u32,
 }
@@ -1175,23 +1450,28 @@ pub struct WHV_VP_EXIT_CONTEXT {
     pub Rip: u64,
     pub Rflags: u64,
 }
+impl Default for WHV_VP_EXIT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_EOI_CONTEXT {
     pub InterruptVector: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_INIT_SIPI_CONTEXT {
     pub ApicIcr: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_SMI_CONTEXT {
     pub ApicIcr: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_APIC_WRITE_CONTEXT {
     pub Type: WHV_X64_APIC_WRITE_TYPE,
     pub Reserved: u32,
@@ -1199,7 +1479,7 @@ pub struct WHV_X64_APIC_WRITE_CONTEXT {
 }
 pub type WHV_X64_APIC_WRITE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
     pub Rax: u64,
     pub Rcx: u64,
@@ -1220,8 +1500,13 @@ pub struct WHV_X64_CPUID_RESULT {
     pub Ecx: u32,
     pub Edx: u32,
 }
+impl Default for WHV_X64_CPUID_RESULT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_CPUID_RESULT2 {
     pub Function: u32,
     pub Index: u32,
@@ -1237,8 +1522,13 @@ pub union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     pub Anonymous: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     pub _bitfield: u64,
 }
@@ -1247,6 +1537,11 @@ pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
+}
+impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1258,14 +1553,24 @@ pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     pub LastFpOp: u16,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0,
 }
+impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRip: u64,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0,
 }
+impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
@@ -1277,14 +1582,19 @@ pub union WHV_X64_FP_REGISTER {
     pub Anonymous: WHV_X64_FP_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl Default for WHV_X64_FP_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_FP_REGISTER_0 {
     pub Mantissa: u64,
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     pub DeliverableType: WHV_X64_PENDING_INTERRUPTION_TYPE,
 }
@@ -1294,8 +1604,13 @@ pub union WHV_X64_INTERRUPT_STATE_REGISTER {
     pub Anonymous: WHV_X64_INTERRUPT_STATE_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     pub _bitfield: u64,
 }
@@ -1315,14 +1630,24 @@ pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT {
     pub Ds: WHV_X64_SEGMENT_REGISTER,
     pub Es: WHV_X64_SEGMENT_REGISTER,
 }
+impl Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_X64_IO_PORT_ACCESS_INFO {
     pub Anonymous: WHV_X64_IO_PORT_ACCESS_INFO_0,
     pub AsUINT32: u32,
 }
+impl Default for WHV_X64_IO_PORT_ACCESS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -1335,14 +1660,24 @@ pub struct WHV_X64_MSR_ACCESS_CONTEXT {
     pub Rax: u64,
     pub Rdx: u64,
 }
+impl Default for WHV_X64_MSR_ACCESS_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_X64_MSR_ACCESS_INFO {
     pub Anonymous: WHV_X64_MSR_ACCESS_INFO_0,
     pub AsUINT32: u32,
 }
+impl Default for WHV_X64_MSR_ACCESS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_MSR_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -1352,8 +1687,13 @@ pub union WHV_X64_MSR_EXIT_BITMAP {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_MSR_EXIT_BITMAP_0,
 }
+impl Default for WHV_X64_MSR_EXIT_BITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_MSR_EXIT_BITMAP_0 {
     pub _bitfield: u64,
 }
@@ -1363,8 +1703,13 @@ pub union WHV_X64_PENDING_DEBUG_EXCEPTION {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_PENDING_DEBUG_EXCEPTION_0,
 }
+impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     pub _bitfield: u64,
 }
@@ -1375,8 +1720,13 @@ pub union WHV_X64_PENDING_EXCEPTION_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXCEPTION_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl Default for WHV_X64_PENDING_EXCEPTION_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
@@ -1388,8 +1738,13 @@ pub union WHV_X64_PENDING_EXT_INT_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXT_INT_EVENT_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_EXT_INT_EVENT_0 {
     pub _bitfield: u64,
     pub Reserved2: u64,
@@ -1400,8 +1755,13 @@ pub union WHV_X64_PENDING_INTERRUPTION_REGISTER {
     pub Anonymous: WHV_X64_PENDING_INTERRUPTION_REGISTER_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
@@ -1416,14 +1776,24 @@ pub struct WHV_X64_RDTSC_CONTEXT {
     pub ReferenceTime: u64,
     pub RdtscInfo: WHV_X64_RDTSC_INFO,
 }
+impl Default for WHV_X64_RDTSC_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_X64_RDTSC_INFO {
     pub Anonymous: WHV_X64_RDTSC_INFO_0,
     pub AsUINT64: u64,
 }
+impl Default for WHV_X64_RDTSC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_RDTSC_INFO_0 {
     pub _bitfield: u64,
 }
@@ -1435,14 +1805,24 @@ pub struct WHV_X64_SEGMENT_REGISTER {
     pub Selector: u16,
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0,
 }
+impl Default for WHV_X64_SEGMENT_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_X64_SEGMENT_REGISTER_0 {
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0_0,
     pub Attributes: u16,
 }
+impl Default for WHV_X64_SEGMENT_REGISTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_SEGMENT_REGISTER_0_0 {
     pub _bitfield: u16,
 }
@@ -1453,9 +1833,14 @@ pub struct WHV_X64_TABLE_REGISTER {
     pub Limit: u16,
     pub Base: u64,
 }
+impl Default for WHV_X64_TABLE_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WHV_X64_UNSUPPORTED_FEATURE_CODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     pub FeatureCode: WHV_X64_UNSUPPORTED_FEATURE_CODE,
     pub Reserved: u32,
@@ -1467,8 +1852,13 @@ pub union WHV_X64_VP_EXECUTION_STATE {
     pub Anonymous: WHV_X64_VP_EXECUTION_STATE_0,
     pub AsUINT16: u16,
 }
+impl Default for WHV_X64_VP_EXECUTION_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
@@ -1478,6 +1868,11 @@ pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
 }
+impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
@@ -1485,14 +1880,24 @@ pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     pub XmmStatusControl: u32,
     pub XmmStatusControlMask: u32,
 }
+impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRdp: u64,
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0,
 }
+impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpDp: u32,
     pub LastFpDs: u16,

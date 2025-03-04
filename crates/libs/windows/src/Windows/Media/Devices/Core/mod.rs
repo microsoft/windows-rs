@@ -748,6 +748,7 @@ impl windows_core::RuntimeType for ICameraIntrinsics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICameraIntrinsics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FocalLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector2) -> windows_core::HRESULT,
@@ -766,6 +767,7 @@ impl windows_core::RuntimeType for ICameraIntrinsics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICameraIntrinsics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UndistortedProjectionTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
@@ -779,6 +781,7 @@ impl windows_core::RuntimeType for ICameraIntrinsicsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICameraIntrinsicsFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector2, windows_numerics::Vector2, windows_numerics::Vector3, windows_numerics::Vector2, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -788,6 +791,7 @@ impl windows_core::RuntimeType for IDepthCorrelatedCoordinateMapper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDepthCorrelatedCoordinateMapper_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_Spatial")]
@@ -812,6 +816,7 @@ impl windows_core::RuntimeType for IFrameControlCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameControlCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Exposure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -825,6 +830,7 @@ impl windows_core::RuntimeType for IFrameControlCapabilities2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameControlCapabilities2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Flash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -834,6 +840,7 @@ impl windows_core::RuntimeType for IFrameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExposureControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -848,6 +855,7 @@ impl windows_core::RuntimeType for IFrameController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameController2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FlashControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -857,6 +865,7 @@ impl windows_core::RuntimeType for IFrameExposureCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameExposureCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -869,6 +878,7 @@ impl windows_core::RuntimeType for IFrameExposureCompensationCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameExposureCompensationCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -881,6 +891,7 @@ impl windows_core::RuntimeType for IFrameExposureCompensationControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameExposureCompensationControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -891,6 +902,7 @@ impl windows_core::RuntimeType for IFrameExposureControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameExposureControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Auto: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -903,6 +915,7 @@ impl windows_core::RuntimeType for IFrameFlashCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameFlashCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -914,6 +927,7 @@ impl windows_core::RuntimeType for IFrameFlashControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameFlashControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FrameFlashMode) -> windows_core::HRESULT,
@@ -930,6 +944,7 @@ impl windows_core::RuntimeType for IFrameFocusCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameFocusCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -942,6 +957,7 @@ impl windows_core::RuntimeType for IFrameFocusControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameFocusControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -952,6 +968,7 @@ impl windows_core::RuntimeType for IFrameIsoSpeedCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameIsoSpeedCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -964,6 +981,7 @@ impl windows_core::RuntimeType for IFrameIsoSpeedControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IFrameIsoSpeedControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Auto: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -976,6 +994,7 @@ impl windows_core::RuntimeType for IVariablePhotoSequenceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IVariablePhotoSequenceController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Supported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

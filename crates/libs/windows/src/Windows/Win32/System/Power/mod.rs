@@ -592,7 +592,7 @@ impl Default for ACPI_REAL_TIME {
 }
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub AcWakeSupported: bool,
     pub DcWakeSupported: bool,
@@ -605,11 +605,6 @@ pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub RealTimeFeaturesSupported: bool,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
-impl Default for ACPI_TIME_AND_ALARM_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -617,7 +612,7 @@ pub struct ACPI_TIME_RESOLUTION(pub i32);
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
 pub const ACTIVE_COOLING: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSleep: SYSTEM_POWER_STATE,
     pub MaxSleep: SYSTEM_POWER_STATE,
@@ -625,11 +620,6 @@ pub struct ADMINISTRATOR_POWER_POLICY {
     pub MaxVideoTimeout: u32,
     pub MinSpindownTimeout: u32,
     pub MaxSpindownTimeout: u32,
-}
-impl Default for ADMINISTRATOR_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
 pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(5i32);
@@ -656,26 +646,16 @@ impl Default for BATTERY_CHARGER_STATUS {
 }
 pub const BATTERY_CHARGING: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub MaxCurrent: u32,
 }
-impl Default for BATTERY_CHARGING_SOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub SourceOnline: bool,
-}
-impl Default for BATTERY_CHARGING_SOURCE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -708,45 +688,30 @@ impl Default for BATTERY_INFORMATION {
 }
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BATTERY_MANUFACTURE_DATE {
     pub Day: u8,
     pub Month: u8,
     pub Year: u16,
 }
-impl Default for BATTERY_MANUFACTURE_DATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BATTERY_QUERY_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
     pub AtRate: u32,
 }
-impl Default for BATTERY_QUERY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
     pub Capacity: u32,
-}
-impl Default for BATTERY_REPORTING_SCALE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BATTERY_RUNTIME_WMI_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec);
 pub const BATTERY_SEALED: u32 = 268435456u32;
@@ -771,17 +736,12 @@ impl Default for BATTERY_SET_INFORMATION {
 pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
 pub const BATTERY_STATIC_DATA_WMI_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BATTERY_STATUS {
     pub PowerState: u32,
     pub Capacity: u32,
     pub Voltage: u32,
     pub Rate: i32,
-}
-impl Default for BATTERY_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364);
 pub const BATTERY_STATUS_WMI_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a);
@@ -815,18 +775,13 @@ impl Default for BATTERY_USB_CHARGER_STATUS {
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BATTERY_WAIT_STATUS {
     pub BatteryTag: u32,
     pub Timeout: u32,
     pub PowerState: u32,
     pub LowCapacity: u32,
     pub HighCapacity: u32,
-}
-impl Default for BATTERY_WAIT_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(1i32);
 pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(4i32);
@@ -934,15 +889,10 @@ pub type EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: 
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMI_CHANNEL_MEASUREMENT_DATA {
     pub AbsoluteEnergy: u64,
     pub AbsoluteTime: u64,
-}
-impl Default for EMI_CHANNEL_MEASUREMENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -970,14 +920,9 @@ impl Default for EMI_MEASUREMENT_DATA_V2 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMI_METADATA_SIZE {
     pub MetadataSize: u32,
-}
-impl Default for EMI_METADATA_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1010,14 +955,9 @@ impl Default for EMI_METADATA_V2 {
 }
 pub const EMI_NAME_MAX: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EMI_VERSION {
     pub EmiVersion: u16,
-}
-impl Default for EMI_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const EMI_VERSION_V1: u32 = 1u32;
 pub const EMI_VERSION_V2: u32 = 2u32;
@@ -1080,28 +1020,18 @@ pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(
 pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(78i32);
 pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(69i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub LidOpenWakeAc: SYSTEM_POWER_STATE,
     pub LidOpenWakeDc: SYSTEM_POWER_STATE,
     pub BroadcastCapacityResolution: u32,
 }
-impl Default for GLOBAL_MACHINE_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
-}
-impl Default for GLOBAL_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1220,16 +1150,11 @@ impl Default for MACHINE_POWER_POLICY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
     pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
-}
-impl Default for MACHINE_PROCESSOR_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128u32;
@@ -1333,16 +1258,11 @@ impl Default for POWERBROADCAST_SETTING {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ACTION(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_ACTION_POLICY {
     pub Action: POWER_ACTION,
     pub Flags: u32,
     pub EventCode: POWER_ACTION_POLICY_EVENT_CODE,
-}
-impl Default for POWER_ACTION_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1390,15 +1310,10 @@ pub struct POWER_COOLING_MODE(pub u16);
 pub struct POWER_DATA_ACCESSOR(pub i32);
 pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_IDLE_RESILIENCY {
     pub CoalescingTimeout: u32,
     pub IdleResiliencyPeriod: u32,
-}
-impl Default for POWER_IDLE_RESILIENCY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1407,15 +1322,10 @@ pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = POWER_A
 pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2u32);
 pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: bool,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
-}
-impl Default for POWER_MONITOR_INVOCATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1424,14 +1334,9 @@ pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: bool,
-}
-impl Default for POWER_PLATFORM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1442,73 +1347,43 @@ pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_R
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
-}
-impl Default for POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_REQUEST_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     pub IsAllowed: bool,
 }
-impl Default for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: bool,
     pub Console: bool,
 }
-impl Default for POWER_SESSION_CONNECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: bool,
     pub LastInputTime: u64,
 }
-impl Default for POWER_SESSION_RIT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
 }
-impl Default for POWER_SESSION_TIMEOUTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: bool,
     pub Locked: bool,
-}
-impl Default for POWER_SESSION_WINLOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1516,14 +1391,9 @@ pub struct POWER_SETTING_ALTITUDE(pub i32);
 pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(8u32);
 pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(16u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
-}
-impl Default for POWER_USER_PRESENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1554,16 +1424,11 @@ pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
 pub const PPM_IDLESTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
 pub const PPM_IDLESTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_IDLESTATE_EVENT {
     pub NewState: u32,
     pub OldState: u32,
     pub Processors: u64,
-}
-impl Default for PPM_IDLESTATE_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1633,17 +1498,12 @@ impl Default for PPM_IDLE_STATE_ACCOUNTING_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub TotalTimeUs: u64,
     pub MinTimeUs: u32,
     pub MaxTimeUs: u32,
     pub Count: u32,
-}
-impl Default for PPM_IDLE_STATE_BUCKET_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PPM_PERFMON_PERFSTATE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
@@ -1655,20 +1515,15 @@ pub const PPM_PERFSTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::fro
 pub const PPM_PERFSTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
 pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub State: u32,
     pub Latency: u32,
     pub Speed: u32,
     pub Processors: u64,
 }
-impl Default for PPM_PERFSTATE_DOMAIN_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_PERFSTATE_EVENT {
     pub State: u32,
     pub Status: u32,
@@ -1676,37 +1531,22 @@ pub struct PPM_PERFSTATE_EVENT {
     pub Speed: u32,
     pub Processor: u32,
 }
-impl Default for PPM_PERFSTATE_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_THERMALCHANGE_EVENT {
     pub ThermalConstraint: u32,
     pub Processors: u64,
 }
-impl Default for PPM_THERMALCHANGE_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PPM_THERMALCONSTRAINT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
 pub const PPM_THERMAL_POLICY_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_THERMAL_POLICY_EVENT {
     pub Mode: u8,
     pub Processors: u64,
 }
-impl Default for PPM_THERMAL_POLICY_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_WMI_IDLE_STATE {
     pub Latency: u32,
     pub Power: u32,
@@ -1719,11 +1559,6 @@ pub struct PPM_WMI_IDLE_STATE {
     pub Context: u32,
     pub IdleHandler: u32,
     pub Reserved1: u32,
-}
-impl Default for PPM_WMI_IDLE_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1756,19 +1591,14 @@ impl Default for PPM_WMI_IDLE_STATES_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_WMI_LEGACY_PERFSTATE {
     pub Frequency: u32,
     pub Flags: u32,
     pub PercentFrequency: u32,
 }
-impl Default for PPM_WMI_LEGACY_PERFSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPM_WMI_PERF_STATE {
     pub Frequency: u32,
     pub Power: u32,
@@ -1784,11 +1614,6 @@ pub struct PPM_WMI_PERF_STATE {
     pub Reserved1: u32,
     pub Reserved2: u64,
     pub Reserved3: u64,
-}
-impl Default for PPM_WMI_PERF_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1852,32 +1677,22 @@ impl Default for PPM_WMI_PERF_STATES_EX {
 }
 pub const PROCESSOR_NUMBER_PKEY: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
 }
-impl Default for PROCESSOR_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
     pub InitialApicId: u32,
 }
-impl Default for PROCESSOR_OBJECT_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSOR_POWER_INFORMATION {
     pub Number: u32,
     pub MaxMhz: u32,
@@ -1885,11 +1700,6 @@ pub struct PROCESSOR_POWER_INFORMATION {
     pub MhzLimit: u32,
     pub MaxIdleState: u32,
     pub CurrentIdleState: u32,
-}
-impl Default for PROCESSOR_POWER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2004,16 +1814,11 @@ pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEV
 pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(13i32);
 pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(91i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RESUME_PERFORMANCE {
     pub PostTimeMs: u32,
     pub TotalResumeTimeMs: u64,
     pub ResumeCompleteTimestamp: u64,
-}
-impl Default for RESUME_PERFORMANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(79i32);
 #[repr(C)]
@@ -2097,17 +1902,12 @@ impl Default for SYSTEM_POWER_CAPABILITIES {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_POWER_INFORMATION {
     pub MaxIdlenessAllowed: u32,
     pub Idleness: u32,
     pub TimeRemaining: u32,
     pub CoolingMode: POWER_COOLING_MODE,
-}
-impl Default for SYSTEM_POWER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2164,7 +1964,7 @@ impl Default for SYSTEM_POWER_POLICY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_STATE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SYSTEM_POWER_STATUS {
     pub ACLineStatus: u8,
     pub BatteryFlag: u8,
@@ -2172,11 +1972,6 @@ pub struct SYSTEM_POWER_STATUS {
     pub SystemStatusFlag: u8,
     pub BatteryLifeTime: u32,
     pub BatteryFullLifeTime: u32,
-}
-impl Default for SYSTEM_POWER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SYS_BUTTON_LID: u32 = 4u32;
 pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
@@ -2222,7 +2017,7 @@ pub const SystemWakeSource: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(35
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
 pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct THERMAL_EVENT {
     pub Version: u32,
     pub Size: u32,
@@ -2230,11 +2025,6 @@ pub struct THERMAL_EVENT {
     pub Temperature: u32,
     pub TripPointTemperature: u32,
     pub Initiator: windows_core::PWSTR,
-}
-impl Default for THERMAL_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const THERMAL_EVENT_VERSION: u32 = 1u32;
 #[repr(C)]
@@ -2257,7 +2047,7 @@ impl Default for THERMAL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct THERMAL_POLICY {
     pub Version: u32,
     pub WaitForUpdate: bool,
@@ -2269,24 +2059,14 @@ pub struct THERMAL_POLICY {
     pub ActiveLevel: u32,
     pub OverThrottled: bool,
 }
-impl Default for THERMAL_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
 pub const THERMAL_POLICY_VERSION_2: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct THERMAL_WAIT_READ {
     pub Timeout: u32,
     pub LowTemperature: u32,
     pub HighTemperature: u32,
-}
-impl Default for THERMAL_WAIT_READ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
 pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
@@ -2349,14 +2129,9 @@ pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMAT
 pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(2i32);
 pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WAKE_ALARM_INFORMATION {
     pub TimerIdentifier: u32,
     pub Timeout: u32,
-}
-impl Default for WAKE_ALARM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32);

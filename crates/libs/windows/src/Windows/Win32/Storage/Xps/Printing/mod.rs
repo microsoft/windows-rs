@@ -41,6 +41,7 @@ impl IPrintDocumentPackageStatusEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintDocumentPackageStatusEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub PackageStatusUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *const PrintDocumentPackageStatus) -> windows_core::HRESULT,
@@ -87,6 +88,7 @@ impl IPrintDocumentPackageTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintDocumentPackageTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPackageTargetTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -148,6 +150,7 @@ impl IPrintDocumentPackageTarget2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintDocumentPackageTarget2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIsTargetIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -206,6 +209,7 @@ impl IPrintDocumentPackageTargetFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintDocumentPackageTargetFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -254,6 +258,7 @@ impl IXpsPrintJob {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsPrintJob_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -307,6 +312,7 @@ impl IXpsPrintJobStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IXpsPrintJobStream_Vtbl {
     pub base__: super::super::super::System::Com::ISequentialStream_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -340,7 +346,7 @@ pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompleti
 pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
 pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PrintDocumentPackageStatus {
     pub JobId: u32,
     pub CurrentDocument: i32,
@@ -348,11 +354,6 @@ pub struct PrintDocumentPackageStatus {
     pub CurrentPageTotal: i32,
     pub Completion: PrintDocumentPackageCompletion,
     pub PackageStatus: windows_core::HRESULT,
-}
-impl Default for PrintDocumentPackageStatus {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const PrintDocumentPackageTarget: windows_core::GUID = windows_core::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
 pub const PrintDocumentPackageTargetFactory: windows_core::GUID = windows_core::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
@@ -364,7 +365,7 @@ pub struct XPS_JOB_COMPLETION(pub i32);
 pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,
     pub currentDocument: i32,
@@ -372,9 +373,4 @@ pub struct XPS_JOB_STATUS {
     pub currentPageTotal: i32,
     pub completion: XPS_JOB_COMPLETION,
     pub jobStatus: windows_core::HRESULT,
-}
-impl Default for XPS_JOB_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

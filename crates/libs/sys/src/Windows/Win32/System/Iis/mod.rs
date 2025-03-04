@@ -16,7 +16,7 @@ pub const ASP_MD_UT_APP: u32 = 101u32;
 pub const BINARY_METADATA: METADATATYPES = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
     pub cbAllocated: u32,
@@ -36,6 +36,11 @@ pub const CLSID_WamAdmin: windows_sys::core::GUID = windows_sys::core::GUID::fro
 pub struct CONFIGURATION_ENTRY {
     pub bstrKey: windows_sys::core::BSTR,
     pub bstrValue: windows_sys::core::BSTR,
+}
+impl Default for CONFIGURATION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
 pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
@@ -84,6 +89,11 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub ReadClient: PFN_IIS_READCLIENT,
     pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
 }
+impl Default for EXTENSION_CONTROL_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
 pub type FTP_ACCESS = i32;
@@ -116,6 +126,11 @@ pub struct HSE_CUSTOM_ERROR_INFO {
     pub uHttpSubError: u16,
     pub fAsync: windows_sys::core::BOOL,
 }
+impl Default for HSE_CUSTOM_ERROR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
@@ -126,6 +141,11 @@ pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: u32,
 }
+impl Default for HSE_EXEC_UNICODE_URL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
@@ -133,12 +153,22 @@ pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub pszCustomUserName: windows_sys::core::PWSTR,
     pub pszCustomAuthType: windows_sys::core::PSTR,
 }
+impl Default for HSE_EXEC_UNICODE_URL_USER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
     pub lpbData: *mut core::ffi::c_void,
+}
+impl Default for HSE_EXEC_URL_ENTITY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
@@ -153,10 +183,15 @@ pub struct HSE_EXEC_URL_INFO {
     pub pEntity: *mut HSE_EXEC_URL_ENTITY_INFO,
     pub dwExecUrlFlags: u32,
 }
+impl Default for HSE_EXEC_URL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HSE_EXEC_URL_STATUS {
     pub uHttpStatusCode: u16,
     pub uHttpSubStatus: u16,
@@ -168,6 +203,11 @@ pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: windows_sys::core::PSTR,
     pub pszCustomAuthType: windows_sys::core::PSTR,
+}
+impl Default for HSE_EXEC_URL_USER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_IO_ASYNC: u32 = 2u32;
 pub const HSE_IO_CACHE_RESPONSE: u32 = 32u32;
@@ -230,6 +270,11 @@ pub struct HSE_RESPONSE_VECTOR {
     pub nElementCount: u32,
     pub lpElementArray: *mut HSE_VECTOR_ELEMENT,
 }
+impl Default for HSE_RESPONSE_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_SEND_HEADER_EX_INFO {
@@ -238,6 +283,11 @@ pub struct HSE_SEND_HEADER_EX_INFO {
     pub cchStatus: u32,
     pub cchHeader: u32,
     pub fKeepConn: windows_sys::core::BOOL,
+}
+impl Default for HSE_SEND_HEADER_EX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_STATUS_ERROR: u32 = 4u32;
 pub const HSE_STATUS_PENDING: u32 = 3u32;
@@ -260,6 +310,11 @@ pub struct HSE_TF_INFO {
     pub TailLength: u32,
     pub dwFlags: u32,
 }
+impl Default for HSE_TF_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_TRACE_INFO {
@@ -268,6 +323,11 @@ pub struct HSE_TRACE_INFO {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
+impl Default for HSE_TRACE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
@@ -275,6 +335,11 @@ pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub dwFlags: u32,
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
+}
+impl Default for HSE_UNICODE_URL_MAPEX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_URL_FLAGS_DONT_CACHE: u32 = 16u32;
 pub const HSE_URL_FLAGS_EXECUTE: u32 = 4u32;
@@ -297,6 +362,11 @@ pub struct HSE_URL_MAPEX_INFO {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
+impl Default for HSE_URL_MAPEX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSE_VECTOR_ELEMENT {
@@ -305,6 +375,11 @@ pub struct HSE_VECTOR_ELEMENT {
     pub cbOffset: u64,
     pub cbSize: u64,
 }
+impl Default for HSE_VECTOR_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
 #[repr(C)]
@@ -312,6 +387,11 @@ pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
     pub lpszExtensionDesc: [i8; 256],
+}
+impl Default for HSE_VERSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
 pub const HSE_VERSION_MINOR: u32 = 0u32;
@@ -322,6 +402,11 @@ pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszPhysicalPath: windows_sys::core::PCSTR,
     pub dwReason: u32,
 }
+impl Default for HTTP_FILTER_ACCESS_DENIED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_FILTER_AUTHENT {
@@ -330,8 +415,13 @@ pub struct HTTP_FILTER_AUTHENT {
     pub pszPassword: windows_sys::core::PSTR,
     pub cbPasswordBuff: u32,
 }
+impl Default for HTTP_FILTER_AUTHENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -356,6 +446,11 @@ pub struct HTTP_FILTER_CONTEXT {
     pub AllocMem: isize,
     pub ServerSupportFunction: isize,
 }
+impl Default for HTTP_FILTER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_FILTER_LOG {
@@ -371,8 +466,13 @@ pub struct HTTP_FILTER_LOG {
     pub dwBytesRecvd: u32,
     pub msTimeForProcessing: u32,
 }
+impl Default for HTTP_FILTER_LOG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -388,12 +488,22 @@ pub struct HTTP_FILTER_RAW_DATA {
     pub cbInBuffer: u32,
     pub dwReserved: u32,
 }
+impl Default for HTTP_FILTER_RAW_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: windows_sys::core::PCSTR,
     pub pszPhysicalPath: windows_sys::core::PSTR,
     pub cbPathBuff: u32,
+}
+impl Default for HTTP_FILTER_URL_MAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -406,6 +516,11 @@ pub struct HTTP_FILTER_URL_MAP_EX {
     pub cchMatchingURL: u32,
     pub pszScriptMapEntry: windows_sys::core::PCSTR,
 }
+impl Default for HTTP_FILTER_URL_MAP_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_FILTER_VERSION {
@@ -414,6 +529,11 @@ pub struct HTTP_FILTER_VERSION {
     pub lpszFilterDesc: [i8; 257],
     pub dwFlags: u32,
 }
+impl Default for HTTP_FILTER_VERSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_TRACE_CONFIGURATION {
@@ -421,6 +541,11 @@ pub struct HTTP_TRACE_CONFIGURATION {
     pub dwAreas: u32,
     pub dwVerbosity: u32,
     pub fProviderEnabled: windows_sys::core::BOOL,
+}
+impl Default for HTTP_TRACE_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -439,6 +564,11 @@ pub struct HTTP_TRACE_EVENT {
     pub cEventItems: u32,
     pub pEventItems: *mut HTTP_TRACE_EVENT_ITEM,
 }
+impl Default for HTTP_TRACE_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -448,6 +578,11 @@ pub struct HTTP_TRACE_EVENT_ITEM {
     pub pbData: *mut u8,
     pub cbData: u32,
     pub pszDataDescription: windows_sys::core::PCWSTR,
+}
+impl Default for HTTP_TRACE_EVENT_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
@@ -582,6 +717,11 @@ pub struct LOGGING_PARAMETERS {
     pub FtpSubStatus: u32,
     pub hrStatus: windows_sys::core::HRESULT,
     pub pszInformation: windows_sys::core::PCWSTR,
+}
+impl Default for LOGGING_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
 pub const MD_ACCESS_EXECUTE: u32 = 4u32;
@@ -796,6 +936,11 @@ pub struct MD_CHANGE_OBJECT_W {
     pub dwMDChangeType: u32,
     pub dwMDNumDataIDs: u32,
     pub pdwMDDataIDs: *mut u32,
+}
+impl Default for MD_CHANGE_OBJECT_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MD_CHANGE_TYPE_ADD_OBJECT: u32 = 2u32;
 pub const MD_CHANGE_TYPE_DELETE_DATA: u32 = 8u32;
@@ -1242,14 +1387,24 @@ pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub Anonymous: METADATA_GETALL_INTERNAL_RECORD_0,
     pub dwMDDataTag: u32,
 }
+impl Default for METADATA_GETALL_INTERNAL_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub dwMDDataOffset: usize,
     pub pbMDData: *mut u8,
 }
+impl Default for METADATA_GETALL_INTERNAL_RECORD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct METADATA_GETALL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -1260,7 +1415,7 @@ pub struct METADATA_GETALL_RECORD {
     pub dwMDDataTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct METADATA_HANDLE_INFO {
     pub dwMDPermissions: u32,
     pub dwMDSystemChangeNumber: u32,
@@ -1286,6 +1441,11 @@ pub struct METADATA_RECORD {
     pub dwMDDataLen: u32,
     pub pbMDData: *mut u8,
     pub dwMDDataTag: u32,
+}
+impl Default for METADATA_RECORD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const METADATA_REFERENCE: u32 = 8u32;
 pub const METADATA_SECURE: u32 = 4u32;
@@ -1334,6 +1494,11 @@ pub struct POST_PROCESS_PARAMETERS {
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
 }
+impl Default for POST_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRE_PROCESS_PARAMETERS {
@@ -1350,6 +1515,11 @@ pub struct PRE_PROCESS_PARAMETERS {
     pub SessionStartTime: super::super::Foundation::FILETIME,
     pub BytesSentPerSession: u64,
     pub BytesReceivedPerSession: u64,
+}
+impl Default for PRE_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SF_DENIED_APPLICATION: u32 = 8u32;
 pub const SF_DENIED_BY_CONFIG: u32 = 65536u32;

@@ -245,6 +245,7 @@ impl windows_core::RuntimeType for IAtomPubClient {
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAtomPubClient_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RetrieveServiceDocumentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -273,6 +274,7 @@ impl windows_core::RuntimeType for IAtomPubClientFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAtomPubClientFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
@@ -288,6 +290,7 @@ impl windows_core::RuntimeType for IResourceCollection {
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IResourceCollection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -303,6 +306,7 @@ impl windows_core::RuntimeType for IServiceDocument {
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IServiceDocument_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Workspaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -315,6 +319,7 @@ impl windows_core::RuntimeType for IWorkspace {
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWorkspace_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

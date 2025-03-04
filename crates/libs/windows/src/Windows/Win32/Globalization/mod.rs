@@ -7026,7 +7026,7 @@ pub const C3_NOTAPPLICABLE: u32 = 0u32;
 pub const C3_SYMBOL: u32 = 8u32;
 pub const C3_VOWELMARK: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CALDATETIME {
     pub CalId: u32,
     pub Era: u32,
@@ -7038,11 +7038,6 @@ pub struct CALDATETIME {
     pub Minute: u32,
     pub Second: u32,
     pub Tick: u32,
-}
-impl Default for CALDATETIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7133,16 +7128,11 @@ pub const CAL_UMALQURA: u32 = 23u32;
 pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
 pub const CANITER_SKIP_ZEROES: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CHARSETINFO {
     pub ciCharset: u32,
     pub ciACP: u32,
     pub fs: FONTSIGNATURE,
-}
-impl Default for CHARSETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const CMLangConvertCharset: windows_core::GUID = windows_core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
 pub const CMLangString: windows_core::GUID = windows_core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
@@ -7368,7 +7358,7 @@ pub const CT_CTYPE1: u32 = 1u32;
 pub const CT_CTYPE2: u32 = 2u32;
 pub const CT_CTYPE3: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CURRENCYFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -7379,13 +7369,8 @@ pub struct CURRENCYFMTA {
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_core::PSTR,
 }
-impl Default for CURRENCYFMTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CURRENCYFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -7395,11 +7380,6 @@ pub struct CURRENCYFMTW {
     pub NegativeOrder: u32,
     pub PositiveOrder: u32,
     pub lpCurrencySymbol: windows_core::PWSTR,
-}
-impl Default for CURRENCYFMTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: u32) -> windows_core::BOOL>;
@@ -7416,17 +7396,12 @@ pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLA
 pub const DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(8u32);
 pub const DayUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DetectEncodingInfo {
     pub nLangID: u32,
     pub nCodePage: u32,
     pub nDocPercent: i32,
     pub nConfidence: i32,
-}
-impl Default for DetectEncodingInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ELS_GUID_LANGUAGE_DETECTION: windows_core::GUID = windows_core::GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702);
 pub const ELS_GUID_SCRIPT_DETECTION: windows_core::GUID = windows_core::GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7);
@@ -7439,29 +7414,17 @@ pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: windows_core::GUID = windows_co
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: windows_core::GUID = windows_core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTA,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for ENUMTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
     pub etmAxesList: super::Graphics::Gdi::AXESLISTW,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for ENUMTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
 #[repr(transparent)]
@@ -7572,15 +7535,10 @@ pub const GEO_PARENT: SYSGEOTYPE = SYSGEOTYPE(13i32);
 pub const GEO_RFC1766: SYSGEOTYPE = SYSGEOTYPE(6i32);
 pub const GEO_TIMEZONES: SYSGEOTYPE = SYSGEOTYPE(10i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
-}
-impl Default for GOFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
@@ -7614,6 +7572,7 @@ impl IComprehensiveSpellCheckProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IComprehensiveSpellCheckProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ComprehensiveCheck: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7663,6 +7622,7 @@ impl IEnumCodePage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumCodePage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7732,6 +7692,7 @@ impl IEnumRfc1766 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumRfc1766_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7801,6 +7762,7 @@ impl IEnumScript {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumScript_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7861,6 +7823,7 @@ impl IEnumSpellingError {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSpellingError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7909,6 +7872,7 @@ impl IMLangCodePages {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangCodePages_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCharCodePages: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u32) -> windows_core::HRESULT,
@@ -8020,6 +7984,7 @@ impl IMLangConvertCharset {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangConvertCharset_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
@@ -8143,6 +8108,7 @@ impl IMLangFontLink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangFontLink_Vtbl {
     pub base__: IMLangCodePages_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8246,6 +8212,7 @@ impl IMLangFontLink2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangFontLink2_Vtbl {
     pub base__: IMLangCodePages_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8363,6 +8330,7 @@ impl IMLangLineBreakConsole {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangLineBreakConsole_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BreakLineML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, i32, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -8429,6 +8397,7 @@ impl IMLangString {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangString_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Sync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -8519,6 +8488,7 @@ impl IMLangStringAStr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangStringAStr_Vtbl {
     pub base__: IMLangString_Vtbl,
     pub SetAStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32, windows_core::PCSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -8630,6 +8600,7 @@ impl IMLangStringBufA {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangStringBufA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -8714,6 +8685,7 @@ impl IMLangStringBufW {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangStringBufW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -8813,6 +8785,7 @@ impl IMLangStringWStr {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMLangStringWStr_Vtbl {
     pub base__: IMLangString_Vtbl,
     pub SetWStr: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, windows_core::PCWSTR, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -8975,6 +8948,7 @@ impl IMultiLanguage {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMultiLanguage_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -9299,6 +9273,7 @@ impl IMultiLanguage2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMultiLanguage2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -9640,6 +9615,7 @@ impl IMultiLanguage3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMultiLanguage3_Vtbl {
     pub base__: IMultiLanguage2_Vtbl,
     pub DetectOutboundCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, *const u32, u32, *mut u32, *mut u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -9710,6 +9686,7 @@ impl IOptionDescription {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOptionDescription_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -9926,6 +9903,7 @@ impl ISpellCheckProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpellCheckProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -10122,6 +10100,7 @@ impl ISpellCheckProviderFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpellCheckProviderFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -10296,6 +10275,7 @@ impl ISpellChecker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpellChecker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -10524,6 +10504,7 @@ impl ISpellChecker2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpellChecker2_Vtbl {
     pub base__: ISpellChecker_Vtbl,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -10560,6 +10541,7 @@ impl ISpellCheckerChangedEventHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpellCheckerChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -10612,6 +10594,7 @@ impl ISpellCheckerFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpellCheckerFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -10708,6 +10691,7 @@ impl ISpellingError {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISpellingError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StartIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -10803,6 +10787,7 @@ impl IUserDictionariesRegistrar {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUserDictionariesRegistrar_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterUserDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -11361,32 +11346,20 @@ pub const MinuteUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(6i32);
 pub const MonthUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(2i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICA,
     pub ntmFontSig: FONTSIGNATURE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for NEWTEXTMETRICEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICW,
     pub ntmFontSig: FONTSIGNATURE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for NEWTEXTMETRICEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLSVERSIONINFO {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -11394,24 +11367,14 @@ pub struct NLSVERSIONINFO {
     pub dwEffectiveId: u32,
     pub guidCustomVersion: windows_core::GUID,
 }
-impl Default for NLSVERSIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NLSVERSIONINFOEX {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
     pub dwDefinedVersion: u32,
     pub dwEffectiveId: u32,
     pub guidCustomVersion: windows_core::GUID,
-}
-impl Default for NLSVERSIONINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
 pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
@@ -11426,7 +11389,7 @@ pub const NORM_IGNORESYMBOLS: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(4u32);
 pub const NORM_IGNOREWIDTH: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(131072u32);
 pub const NORM_LINGUISTIC_CASING: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(134217728u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NUMBERFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -11435,13 +11398,8 @@ pub struct NUMBERFMTA {
     pub lpThousandSep: windows_core::PSTR,
     pub NegativeOrder: u32,
 }
-impl Default for NUMBERFMTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NUMBERFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -11449,11 +11407,6 @@ pub struct NUMBERFMTW {
     pub lpDecimalSep: windows_core::PWSTR,
     pub lpThousandSep: windows_core::PWSTR,
     pub NegativeOrder: u32,
-}
-impl Default for NUMBERFMTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
 pub const NormalizationC: NORM_FORM = NORM_FORM(1i32);
@@ -11464,15 +11417,10 @@ pub const NormalizationOther: NORM_FORM = NORM_FORM(0i32);
 pub const OFFLINE_SERVICES: u32 = 2u32;
 pub const ONLINE_SERVICES: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OPENTYPE_FEATURE_RECORD {
     pub tagFeature: u32,
     pub lParameter: i32,
-}
-impl Default for OPENTYPE_FEATURE_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PFN_MAPPINGCALLBACKPROC = Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut core::ffi::c_void, dwdatasize: u32, result: windows_core::HRESULT)>;
 #[repr(C)]
@@ -11524,54 +11472,34 @@ impl Default for SCRIPTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
 }
-impl Default for SCRIPT_ANALYSIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
-impl Default for SCRIPT_CHARPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
-impl Default for SCRIPT_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
     pub dwReserved: u32,
-}
-impl Default for SCRIPT_DIGITSUBSTITUTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1u32;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_FONTPROPERTIES {
     pub cBytes: i32,
     pub wgBlank: u16,
@@ -11580,35 +11508,20 @@ pub struct SCRIPT_FONTPROPERTIES {
     pub wgKashida: u16,
     pub iKashidaWidth: i32,
 }
-impl Default for SCRIPT_FONTPROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_GLYPHPROP {
     pub sva: SCRIPT_VISATTR,
     pub reserved: u16,
-}
-impl Default for SCRIPT_GLYPHPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_IS_COMPLEX_FLAGS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
     pub a: SCRIPT_ANALYSIS,
-}
-impl Default for SCRIPT_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11630,35 +11543,20 @@ pub const SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(3i32);
 pub const SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(5i32);
 pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(6i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
-impl Default for SCRIPT_LOGATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-impl Default for SCRIPT_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
-}
-impl Default for SCRIPT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11676,14 +11574,9 @@ impl Default for SCRIPT_TABDEF {
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
 pub const SCRIPT_UNDEFINED: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
-}
-impl Default for SCRIPT_VISATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SGCM_RTL: u32 = 1u32;
 pub const SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(2u32);
@@ -13071,16 +12964,11 @@ pub const UFMT_STRING: UFormattableType = UFormattableType(3i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFieldCategory(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UFieldPosition {
     pub field: i32,
     pub beginIndex: i32,
     pub endIndex: i32,
-}
-impl Default for UFieldPosition {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -13128,7 +13016,7 @@ pub struct UHashtable(pub isize);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UIDNA(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UIDNAInfo {
     pub size: i16,
     pub isTransitionalDifferent: i8,
@@ -13136,11 +13024,6 @@ pub struct UIDNAInfo {
     pub errors: u32,
     pub reservedI2: i32,
     pub reservedI3: i32,
-}
-impl Default for UIDNAInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UIDNA_CHECK_BIDI: i32 = 4i32;
 pub const UIDNA_CHECK_CONTEXTJ: i32 = 8i32;
@@ -13339,15 +13222,10 @@ pub struct UMessagePatternPartType(pub i32);
 pub struct UMutableCPTrie(pub isize);
 pub type UNESCAPE_CHAR_AT = Option<unsafe extern "system" fn(offset: i32, context: *mut core::ffi::c_void) -> u16>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,
-}
-impl Default for UNICODERANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
 pub const UNORM2_COMPOSE: UNormalization2Mode = UNormalization2Mode(0i32);
@@ -13658,7 +13536,7 @@ pub struct URelativeDateTimeFormatterField(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URelativeDateTimeUnit(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UReplaceableCallbacks {
     pub length: isize,
     pub charAt: isize,
@@ -13666,11 +13544,6 @@ pub struct UReplaceableCallbacks {
     pub replace: isize,
     pub extract: isize,
     pub copy: isize,
-}
-impl Default for UReplaceableCallbacks {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14146,7 +14019,7 @@ pub type UTextClose = Option<unsafe extern "system" fn(ut: *mut UText)>;
 pub type UTextCopy = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
 pub type UTextExtract = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,
@@ -14164,11 +14037,6 @@ pub struct UTextFuncs {
     pub spare1: UTextClose,
     pub spare2: UTextClose,
     pub spare3: UTextClose,
-}
-impl Default for UTextFuncs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type UTextMapNativeIndexToUTF16 = Option<unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32>;
 pub type UTextMapOffsetToNative = Option<unsafe extern "system" fn(ut: *const UText) -> i64>;
@@ -14208,17 +14076,12 @@ pub struct UTraceLevel(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UTransDirection(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UTransPosition {
     pub contextStart: i32,
     pub contextLimit: i32,
     pub start: i32,
     pub limit: i32,
-}
-impl Default for UTransPosition {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -76,6 +76,11 @@ pub struct KEY_VALUE_ENTRY {
     pub DataOffset: u32,
     pub Type: u32,
 }
+impl Default for KEY_VALUE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type KEY_VALUE_INFORMATION_CLASS = i32;
 pub const KeyBasicInformation: KEY_INFORMATION_CLASS = 0i32;
 pub const KeyCachedInformation: KEY_INFORMATION_CLASS = 4i32;
@@ -116,6 +121,11 @@ pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl Default for REG_ENUMERATE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
@@ -129,6 +139,11 @@ pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl Default for REG_ENUMERATE_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_INFORMATION {
@@ -140,6 +155,11 @@ pub struct REG_QUERY_KEY_INFORMATION {
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
+}
+impl Default for REG_QUERY_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -154,6 +174,11 @@ pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl Default for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
@@ -167,6 +192,11 @@ pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl Default for REG_QUERY_VALUE_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
@@ -177,4 +207,9 @@ pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
+}
+impl Default for REG_SET_INFORMATION_KEY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

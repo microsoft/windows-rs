@@ -50,6 +50,11 @@ pub struct COMMCONFIG {
     pub dwProviderSize: u32,
     pub wcProviderData: [u16; 1],
 }
+impl Default for COMMCONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct COMMPROP {
@@ -72,9 +77,14 @@ pub struct COMMPROP {
     pub dwProvSpec2: u32,
     pub wcProvChar: [u16; 1],
 }
+impl Default for COMMPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type COMMPROP_STOP_PARITY = u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -84,14 +94,14 @@ pub struct COMMTIMEOUTS {
 }
 pub type COMM_EVENT_MASK = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMSTAT {
     pub _bitfield: u32,
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -259,6 +269,11 @@ pub struct MODEMDEVCAPS {
     pub dwMaxDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
+impl Default for MODEMDEVCAPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
 pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
 pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
@@ -277,6 +292,11 @@ pub struct MODEMSETTINGS {
     pub dwNegotiatedModemOptions: u32,
     pub dwNegotiatedDCERate: u32,
     pub abVariablePortion: [u8; 1],
+}
+impl Default for MODEMSETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MODEMSETTINGS_SPEAKER_MODE = u32;
 pub type MODEM_SPEAKER_VOLUME = u32;

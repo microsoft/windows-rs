@@ -165,6 +165,7 @@ impl windows_core::RuntimeType for IEnterprise {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnterprise_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -179,6 +180,7 @@ impl windows_core::RuntimeType for IEnterpriseEnrollmentManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnterpriseEnrollmentManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnrolledEnterprises: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -192,6 +194,7 @@ impl windows_core::RuntimeType for IEnterpriseEnrollmentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnterpriseEnrollmentResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub EnrolledEnterprise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -202,6 +205,7 @@ impl windows_core::RuntimeType for IInstallationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInstallationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AddPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -221,6 +225,7 @@ impl windows_core::RuntimeType for IInstallationManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInstallationManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Management_Deployment")]
@@ -241,6 +246,7 @@ impl windows_core::RuntimeType for IPackageInstallResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPackageInstallResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -254,6 +260,7 @@ impl windows_core::RuntimeType for IPackageInstallResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPackageInstallResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

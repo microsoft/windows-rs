@@ -109,17 +109,12 @@ impl Default for DMO_MEDIA_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: core::mem::ManuallyDrop<Option<IMediaBuffer>>,
     pub dwStatus: u32,
     pub rtTimestamp: i64,
     pub rtTimelength: i64,
-}
-impl Default for DMO_OUTPUT_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(8i32);
 pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(16777216i32);
@@ -132,15 +127,10 @@ pub const DMO_OUTPUT_STREAMF_OPTIONAL: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTP
 pub const DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(2i32);
 pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DMO_PARTIAL_MEDIATYPE {
     pub r#type: windows_core::GUID,
     pub subtype: windows_core::GUID,
-}
-impl Default for DMO_PARTIAL_MEDIATYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _DMO_PROCESS_OUTPUT_FLAGS = _DMO_PROCESS_OUTPUT_FLAGS(1i32);
 pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = _DMO_QUALITY_STATUS_FLAGS(1i32);
@@ -168,6 +158,7 @@ impl IDMOQualityControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDMOQualityControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetNow: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
@@ -243,6 +234,7 @@ impl IDMOVideoOutputOptimizations {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDMOVideoOutputOptimizations_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryOperationModePreferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -333,6 +325,7 @@ impl IEnumDMO {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumDMO_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -408,6 +401,7 @@ impl IMediaBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -540,6 +534,7 @@ impl IMediaObject {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -789,6 +784,7 @@ impl IMediaObjectInPlace {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaObjectInPlace_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, i64, u32) -> windows_core::HRESULT,

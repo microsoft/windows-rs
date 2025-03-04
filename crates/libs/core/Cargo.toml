@@ -1,11 +1,11 @@
 [package]
 name = "windows-core"
-version = "0.59.0"
+version = "0.60.1"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
-description = "Rust for Windows"
+description = "Core type support for COM and Windows"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
@@ -22,12 +22,12 @@ version = "0.1.0"
 path = "../link"
 
 [dependencies.windows-result]
-version = "0.3.0"
+version = "0.3.1"
 path = "../result"
 default-features = false
 
 [dependencies.windows-strings]
-version = "0.3.0"
+version = "0.3.1"
 path = "../strings"
 default-features = false
 

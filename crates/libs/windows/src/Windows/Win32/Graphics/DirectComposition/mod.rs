@@ -94,33 +94,23 @@ pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPOSITION_FRAME_ID_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMPOSITION_FRAME_STATS {
     pub startTime: u64,
     pub targetTime: u64,
     pub framePeriod: u64,
 }
-impl Default for COMPOSITION_FRAME_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMPOSITION_STATS {
     pub presentCount: u32,
     pub refreshCount: u32,
     pub virtualRefreshCount: u32,
     pub time: u64,
 }
-impl Default for COMPOSITION_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMPOSITION_TARGET_ID {
     pub displayAdapterLuid: super::super::Foundation::LUID,
     pub renderAdapterLuid: super::super::Foundation::LUID,
@@ -128,24 +118,14 @@ pub struct COMPOSITION_TARGET_ID {
     pub vidPnTargetId: u32,
     pub uniqueId: u32,
 }
-impl Default for COMPOSITION_TARGET_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMPOSITION_TARGET_STATS {
     pub outstandingPresents: u32,
     pub presentTime: u64,
     pub vblankDuration: u64,
     pub presentedStats: COMPOSITION_STATS,
     pub completedStats: COMPOSITION_STATS,
-}
-impl Default for COMPOSITION_TARGET_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -181,19 +161,13 @@ pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = DCOMPOSITIO
 pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub lastFrameTime: i64,
     pub currentCompositionRate: super::Dxgi::Common::DXGI_RATIONAL,
     pub currentTime: i64,
     pub timeFrequency: i64,
     pub nextEstimatedFrameTime: i64,
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl Default for DCOMPOSITION_FRAME_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 #[repr(transparent)]
@@ -203,16 +177,11 @@ pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = DCOMPOS
 pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(0i32);
 pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCompositionInkTrailPoint {
     pub x: f32,
     pub y: f32,
     pub radius: f32,
-}
-impl Default for DCompositionInkTrailPoint {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IDCompositionAffineTransform2DEffect, IDCompositionAffineTransform2DEffect_Vtbl, 0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
 impl core::ops::Deref for IDCompositionAffineTransform2DEffect {
@@ -254,6 +223,7 @@ impl IDCompositionAffineTransform2DEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionAffineTransform2DEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -365,6 +335,7 @@ impl IDCompositionAnimation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionAnimation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -444,8 +415,7 @@ impl core::ops::Deref for IDCompositionArithmeticCompositeEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionArithmeticCompositeEffect {
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::Result<()> {
+    pub unsafe fn SetCoefficients(&self, coefficients: *const windows_numerics::Vector4) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCoefficients)(windows_core::Interface::as_raw(self), coefficients).ok() }
     }
     pub unsafe fn SetClampOutput(&self, clampoutput: bool) -> windows_core::Result<()> {
@@ -489,12 +459,10 @@ impl IDCompositionArithmeticCompositeEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetCoefficients: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetCoefficients: usize,
+    pub SetCoefficients: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector4) -> windows_core::HRESULT,
     pub SetClampOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetCoefficient1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCoefficient12: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
@@ -505,9 +473,8 @@ pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
     pub SetCoefficient4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCoefficient42: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionArithmeticCompositeEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::Result<()>;
+    fn SetCoefficients(&self, coefficients: *const windows_numerics::Vector4) -> windows_core::Result<()>;
     fn SetClampOutput(&self, clampoutput: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetCoefficient1(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetCoefficient12(&self, coeffcient1: f32) -> windows_core::Result<()>;
@@ -518,10 +485,9 @@ pub trait IDCompositionArithmeticCompositeEffect_Impl: IDCompositionFilterEffect
     fn SetCoefficient4(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetCoefficient42(&self, coefficient4: f32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionArithmeticCompositeEffect_Vtbl {
     pub const fn new<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetCoefficients<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCoefficients<Identity: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coefficients: *const windows_numerics::Vector4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionArithmeticCompositeEffect_Impl::SetCoefficients(this, core::mem::transmute_copy(&coefficients)).into()
@@ -599,7 +565,6 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
         iid == &<IDCompositionArithmeticCompositeEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionArithmeticCompositeEffect {}
 windows_core::imp::define_interface!(IDCompositionBlendEffect, IDCompositionBlendEffect_Vtbl, 0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
 impl core::ops::Deref for IDCompositionBlendEffect {
@@ -616,6 +581,7 @@ impl IDCompositionBlendEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionBlendEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -653,12 +619,10 @@ impl core::ops::Deref for IDCompositionBrightnessEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionBrightnessEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionBrightnessEffect {
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()> {
+    pub unsafe fn SetWhitePoint(&self, whitepoint: *const windows_numerics::Vector2) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWhitePoint)(windows_core::Interface::as_raw(self), whitepoint).ok() }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetBlackPoint(&self, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()> {
+    pub unsafe fn SetBlackPoint(&self, blackpoint: *const windows_numerics::Vector2) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBlackPoint)(windows_core::Interface::as_raw(self), blackpoint).ok() }
     }
     pub unsafe fn SetWhitePointX<P0>(&self, animation: P0) -> windows_core::Result<()>
@@ -699,16 +663,11 @@ impl IDCompositionBrightnessEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionBrightnessEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetWhitePoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetWhitePoint: usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetBlackPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetBlackPoint: usize,
+    pub SetWhitePoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetBlackPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
     pub SetWhitePointX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetWhitePointX2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetWhitePointY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -718,10 +677,9 @@ pub struct IDCompositionBrightnessEffect_Vtbl {
     pub SetBlackPointY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBlackPointY2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionBrightnessEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()>;
-    fn SetBlackPoint(&self, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()>;
+    fn SetWhitePoint(&self, whitepoint: *const windows_numerics::Vector2) -> windows_core::Result<()>;
+    fn SetBlackPoint(&self, blackpoint: *const windows_numerics::Vector2) -> windows_core::Result<()>;
     fn SetWhitePointX(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetWhitePointX2(&self, whitepointx: f32) -> windows_core::Result<()>;
     fn SetWhitePointY(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
@@ -731,16 +689,15 @@ pub trait IDCompositionBrightnessEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetBlackPointY(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetBlackPointY2(&self, blackpointy: f32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionBrightnessEffect_Vtbl {
     pub const fn new<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetWhitePoint<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWhitePoint<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitepoint: *const windows_numerics::Vector2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionBrightnessEffect_Impl::SetWhitePoint(this, core::mem::transmute_copy(&whitepoint)).into()
             }
         }
-        unsafe extern "system" fn SetBlackPoint<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBlackPoint<Identity: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blackpoint: *const windows_numerics::Vector2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionBrightnessEffect_Impl::SetBlackPoint(this, core::mem::transmute_copy(&blackpoint)).into()
@@ -812,11 +769,11 @@ impl IDCompositionBrightnessEffect_Vtbl {
         iid == &<IDCompositionBrightnessEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionBrightnessEffect {}
 windows_core::imp::define_interface!(IDCompositionClip, IDCompositionClip_Vtbl, 0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
 windows_core::imp::interface_hierarchy!(IDCompositionClip, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionClip_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -861,6 +818,7 @@ impl IDCompositionColorMatrixEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionColorMatrixEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -946,6 +904,7 @@ impl IDCompositionCompositeEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionCompositeEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -998,6 +957,7 @@ impl IDCompositionDelegatedInkTrail {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionDelegatedInkTrail_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddTrailPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *const DCompositionInkTrailPoint, u32, *mut u32) -> windows_core::HRESULT,
@@ -1097,6 +1057,7 @@ impl IDCompositionDesktopDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionDesktopDevice_Vtbl {
     pub base__: IDCompositionDevice2_Vtbl,
     pub CreateTargetForHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1307,6 +1268,7 @@ impl IDCompositionDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1814,6 +1776,7 @@ impl IDCompositionDevice2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionDevice2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2234,6 +2197,7 @@ impl IDCompositionDevice3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionDevice3_Vtbl {
     pub base__: IDCompositionDevice2_Vtbl,
     pub CreateGaussianBlurEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2477,6 +2441,7 @@ impl IDCompositionDevice4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionDevice4_Vtbl {
     pub base__: IDCompositionDevice3_Vtbl,
     pub CheckCompositionTextureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -2537,6 +2502,7 @@ impl IDCompositionDeviceDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionDeviceDebug_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableDebugCounters: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2574,6 +2540,7 @@ impl windows_core::RuntimeName for IDCompositionDeviceDebug {}
 windows_core::imp::define_interface!(IDCompositionEffect, IDCompositionEffect_Vtbl, 0xec81b08f_bfcb_4e8d_b193_a915587999e8);
 windows_core::imp::interface_hierarchy!(IDCompositionEffect, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionEffect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -2613,6 +2580,7 @@ impl IDCompositionEffectGroup {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionEffectGroup_Vtbl {
     pub base__: IDCompositionEffect_Vtbl,
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2673,6 +2641,7 @@ impl IDCompositionFilterEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionFilterEffect_Vtbl {
     pub base__: IDCompositionEffect_Vtbl,
     pub SetInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2719,6 +2688,7 @@ impl IDCompositionGaussianBlurEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionGaussianBlurEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetStandardDeviation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2788,6 +2758,7 @@ impl IDCompositionHueRotationEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionHueRotationEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2842,6 +2813,7 @@ impl IDCompositionInkTrailDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionInkTrailDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateDelegatedInkTrail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2986,6 +2958,7 @@ impl IDCompositionLinearTransferEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionLinearTransferEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetRedYIntercept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3214,6 +3187,7 @@ impl IDCompositionMatrixTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionMatrixTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
     pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2) -> windows_core::HRESULT,
@@ -3280,6 +3254,7 @@ impl IDCompositionMatrixTransform3D {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionMatrixTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
     pub SetMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
@@ -3442,6 +3417,7 @@ impl IDCompositionRectangleClip {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionRectangleClip_Vtbl {
     pub base__: IDCompositionClip_Vtbl,
     pub SetLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3712,6 +3688,7 @@ impl IDCompositionRotateTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionRotateTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
     pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3856,6 +3833,7 @@ impl IDCompositionRotateTransform3D {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionRotateTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
     pub SetAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4018,6 +3996,7 @@ impl IDCompositionSaturationEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionSaturationEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetSaturation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4099,6 +4078,7 @@ impl IDCompositionScaleTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionScaleTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
     pub SetScaleX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4252,6 +4232,7 @@ impl IDCompositionScaleTransform3D {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionScaleTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
     pub SetScaleX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4394,8 +4375,7 @@ impl IDCompositionShadowEffect {
     pub unsafe fn SetStandardDeviation2(&self, amount: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation2)(windows_core::Interface::as_raw(self), amount).ok() }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetColor(&self, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::Result<()> {
+    pub unsafe fn SetColor(&self, color: *const windows_numerics::Vector4) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
     pub unsafe fn SetRed<P0>(&self, animation: P0) -> windows_core::Result<()>
@@ -4436,14 +4416,12 @@ impl IDCompositionShadowEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionShadowEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetStandardDeviation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStandardDeviation2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetColor: usize,
+    pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector4) -> windows_core::HRESULT,
     pub SetRed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRed2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetGreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4453,11 +4431,10 @@ pub struct IDCompositionShadowEffect_Vtbl {
     pub SetAlpha: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAlpha2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionShadowEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetStandardDeviation(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetStandardDeviation2(&self, amount: f32) -> windows_core::Result<()>;
-    fn SetColor(&self, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::Result<()>;
+    fn SetColor(&self, color: *const windows_numerics::Vector4) -> windows_core::Result<()>;
     fn SetRed(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetRed2(&self, amount: f32) -> windows_core::Result<()>;
     fn SetGreen(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
@@ -4467,7 +4444,6 @@ pub trait IDCompositionShadowEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetAlpha(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetAlpha2(&self, amount: f32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionShadowEffect_Vtbl {
     pub const fn new<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetStandardDeviation<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, animation: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4482,7 +4458,7 @@ impl IDCompositionShadowEffect_Vtbl {
                 IDCompositionShadowEffect_Impl::SetStandardDeviation2(this, core::mem::transmute_copy(&amount)).into()
             }
         }
-        unsafe extern "system" fn SetColor<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColor<Identity: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const windows_numerics::Vector4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionShadowEffect_Impl::SetColor(this, core::mem::transmute_copy(&color)).into()
@@ -4555,7 +4531,6 @@ impl IDCompositionShadowEffect_Vtbl {
         iid == &<IDCompositionShadowEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDCompositionShadowEffect {}
 windows_core::imp::define_interface!(IDCompositionSkewTransform, IDCompositionSkewTransform_Vtbl, 0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
 impl core::ops::Deref for IDCompositionSkewTransform {
@@ -4604,6 +4579,7 @@ impl IDCompositionSkewTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionSkewTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
     pub SetAngleX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4716,6 +4692,7 @@ impl IDCompositionSurface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionSurface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::super::Foundation::POINT) -> windows_core::HRESULT,
@@ -4796,6 +4773,7 @@ impl IDCompositionSurfaceFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionSurfaceFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4925,6 +4903,7 @@ impl IDCompositionTableTransferEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTableTransferEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     pub SetRedTable: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32) -> windows_core::HRESULT,
@@ -5105,6 +5084,7 @@ impl IDCompositionTarget {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5151,6 +5131,7 @@ impl IDCompositionTexture {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTexture_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5224,6 +5205,7 @@ impl core::ops::Deref for IDCompositionTransform {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTransform, windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTransform_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
 }
@@ -5246,6 +5228,7 @@ impl core::ops::Deref for IDCompositionTransform3D {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTransform3D, windows_core::IUnknown, IDCompositionEffect);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTransform3D_Vtbl {
     pub base__: IDCompositionEffect_Vtbl,
 }
@@ -5288,6 +5271,7 @@ impl IDCompositionTranslateTransform {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTranslateTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
     pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5378,6 +5362,7 @@ impl IDCompositionTranslateTransform3D {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTranslateTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
     pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5457,16 +5442,13 @@ impl core::ops::Deref for IDCompositionTurbulenceEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionTurbulenceEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionTurbulenceEffect {
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetOffset(&self, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()> {
+    pub unsafe fn SetOffset(&self, offset: *const windows_numerics::Vector2) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOffset)(windows_core::Interface::as_raw(self), offset).ok() }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetBaseFrequency(&self, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()> {
+    pub unsafe fn SetBaseFrequency(&self, frequency: *const windows_numerics::Vector2) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBaseFrequency)(windows_core::Interface::as_raw(self), frequency).ok() }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetSize(&self, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()> {
+    pub unsafe fn SetSize(&self, size: *const windows_numerics::Vector2) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), size).ok() }
     }
     pub unsafe fn SetNumOctaves(&self, numoctaves: u32) -> windows_core::Result<()> {
@@ -5484,20 +5466,12 @@ impl IDCompositionTurbulenceEffect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionTurbulenceEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetOffset: usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetBaseFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetBaseFrequency: usize,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetSize: usize,
+    pub SetOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetBaseFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
     pub SetNumOctaves: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetSeed: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5508,9 +5482,9 @@ pub struct IDCompositionTurbulenceEffect_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDCompositionTurbulenceEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetOffset(&self, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()>;
-    fn SetBaseFrequency(&self, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()>;
-    fn SetSize(&self, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::Result<()>;
+    fn SetOffset(&self, offset: *const windows_numerics::Vector2) -> windows_core::Result<()>;
+    fn SetBaseFrequency(&self, frequency: *const windows_numerics::Vector2) -> windows_core::Result<()>;
+    fn SetSize(&self, size: *const windows_numerics::Vector2) -> windows_core::Result<()>;
     fn SetNumOctaves(&self, numoctaves: u32) -> windows_core::Result<()>;
     fn SetSeed(&self, seed: u32) -> windows_core::Result<()>;
     fn SetNoise(&self, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> windows_core::Result<()>;
@@ -5519,19 +5493,19 @@ pub trait IDCompositionTurbulenceEffect_Impl: IDCompositionFilterEffect_Impl {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionTurbulenceEffect_Vtbl {
     pub const fn new<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetOffset<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOffset<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *const windows_numerics::Vector2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionTurbulenceEffect_Impl::SetOffset(this, core::mem::transmute_copy(&offset)).into()
             }
         }
-        unsafe extern "system" fn SetBaseFrequency<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBaseFrequency<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frequency: *const windows_numerics::Vector2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionTurbulenceEffect_Impl::SetBaseFrequency(this, core::mem::transmute_copy(&frequency)).into()
             }
         }
-        unsafe extern "system" fn SetSize<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSize<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *const windows_numerics::Vector2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionTurbulenceEffect_Impl::SetSize(this, core::mem::transmute_copy(&size)).into()
@@ -5595,6 +5569,7 @@ impl IDCompositionVirtualSurface {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionVirtualSurface_Vtbl {
     pub base__: IDCompositionSurface_Vtbl,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -5710,6 +5685,7 @@ impl IDCompositionVisual {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionVisual_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetOffsetX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5902,6 +5878,7 @@ impl IDCompositionVisual2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionVisual2_Vtbl {
     pub base__: IDCompositionVisual_Vtbl,
     pub SetOpacityMode: unsafe extern "system" fn(*mut core::ffi::c_void, DCOMPOSITION_OPACITY_MODE) -> windows_core::HRESULT,
@@ -5975,8 +5952,7 @@ impl IDCompositionVisual3 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform.param().abi()).ok() }
     }
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> windows_core::Result<()> {
+    pub unsafe fn SetTransform2(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransform2)(windows_core::Interface::as_raw(self), matrix).ok() }
     }
     pub unsafe fn SetVisible(&self, visible: bool) -> windows_core::Result<()> {
@@ -5984,6 +5960,7 @@ impl IDCompositionVisual3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionVisual3_Vtbl {
     pub base__: IDCompositionVisualDebug_Vtbl,
     pub SetDepthMode: unsafe extern "system" fn(*mut core::ffi::c_void, DCOMPOSITION_DEPTH_MODE) -> windows_core::HRESULT,
@@ -5992,10 +5969,7 @@ pub struct IDCompositionVisual3_Vtbl {
     pub SetOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetOpacity2: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetTransform2: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetTransform2: usize,
+    pub SetTransform2: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
     pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6006,7 +5980,7 @@ pub trait IDCompositionVisual3_Impl: IDCompositionVisualDebug_Impl {
     fn SetOpacity(&self, animation: windows_core::Ref<'_, IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetOpacity2(&self, opacity: f32) -> windows_core::Result<()>;
     fn SetTransform(&self, transform: windows_core::Ref<'_, IDCompositionTransform3D>) -> windows_core::Result<()>;
-    fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> windows_core::Result<()>;
+    fn SetTransform2(&self, matrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
     fn SetVisible(&self, visible: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6048,7 +6022,7 @@ impl IDCompositionVisual3_Vtbl {
                 IDCompositionVisual3_Impl::SetTransform(this, core::mem::transmute_copy(&transform)).into()
             }
         }
-        unsafe extern "system" fn SetTransform2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform2<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionVisual3_Impl::SetTransform2(this, core::mem::transmute_copy(&matrix)).into()
@@ -6102,6 +6076,7 @@ impl IDCompositionVisualDebug {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDCompositionVisualDebug_Vtbl {
     pub base__: IDCompositionVisual2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]

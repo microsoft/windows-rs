@@ -78,6 +78,7 @@ impl windows_core::RuntimeType for ICommunicationBlockingAccessManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsBlockingActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -92,6 +93,7 @@ impl windows_core::RuntimeType for ICommunicationBlockingAppManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentAppActiveBlockingApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -102,6 +104,7 @@ impl windows_core::RuntimeType for ICommunicationBlockingAppManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestSetAsActiveBlockingAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

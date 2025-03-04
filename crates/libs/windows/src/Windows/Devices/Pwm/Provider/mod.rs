@@ -186,6 +186,7 @@ impl IPwmControllerProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPwmControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PinCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -241,6 +242,7 @@ impl IPwmProvider_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPwmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

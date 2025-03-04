@@ -56,6 +56,7 @@ impl windows_core::RuntimeType for IEnhancedWaypoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnhancedWaypoint_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -69,6 +70,7 @@ impl windows_core::RuntimeType for IEnhancedWaypointFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnhancedWaypointFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -81,6 +83,7 @@ impl windows_core::RuntimeType for IManeuverWarning {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IManeuverWarning_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ManeuverWarningKind) -> windows_core::HRESULT,
@@ -91,6 +94,7 @@ impl windows_core::RuntimeType for IMapAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapAddress_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BuildingName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -114,6 +118,7 @@ impl windows_core::RuntimeType for IMapAddress2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapAddress2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormattedAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -123,6 +128,7 @@ impl windows_core::RuntimeType for IMapLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapLocation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -138,6 +144,7 @@ impl windows_core::RuntimeType for IMapLocationFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapLocationFinderResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Locations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -148,6 +155,7 @@ impl windows_core::RuntimeType for IMapLocationFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapLocationFinderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -168,6 +176,7 @@ impl windows_core::RuntimeType for IMapLocationFinderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapLocationFinderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -180,6 +189,7 @@ impl windows_core::RuntimeType for IMapManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowDownloadedMapsUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -190,6 +200,7 @@ impl windows_core::RuntimeType for IMapRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRoute_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -210,6 +221,7 @@ impl windows_core::RuntimeType for IMapRoute2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRoute2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ViolatedRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MapRouteRestrictions) -> windows_core::HRESULT,
@@ -220,6 +232,7 @@ impl windows_core::RuntimeType for IMapRoute3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRoute3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DurationWithoutTraffic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -230,6 +243,7 @@ impl windows_core::RuntimeType for IMapRoute4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRoute4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsScenic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -239,6 +253,7 @@ impl windows_core::RuntimeType for IMapRouteDrivingOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteDrivingOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxAlternateRouteCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -255,6 +270,7 @@ impl windows_core::RuntimeType for IMapRouteDrivingOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteDrivingOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DepartureTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -265,6 +281,7 @@ impl windows_core::RuntimeType for IMapRouteFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteFinderResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Route: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -275,6 +292,7 @@ impl windows_core::RuntimeType for IMapRouteFinderResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteFinderResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AlternateRoutes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -284,6 +302,7 @@ impl windows_core::RuntimeType for IMapRouteFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteFinderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -332,6 +351,7 @@ impl windows_core::RuntimeType for IMapRouteFinderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteFinderStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -344,6 +364,7 @@ impl windows_core::RuntimeType for IMapRouteFinderStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteFinderStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDrivingRouteFromEnhancedWaypointsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -354,6 +375,7 @@ impl windows_core::RuntimeType for IMapRouteLeg {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteLeg_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -373,6 +395,7 @@ impl windows_core::RuntimeType for IMapRouteLeg2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteLeg2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DurationWithoutTraffic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -383,6 +406,7 @@ impl windows_core::RuntimeType for IMapRouteManeuver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteManeuver_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -400,6 +424,7 @@ impl windows_core::RuntimeType for IMapRouteManeuver2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteManeuver2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartHeading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -411,6 +436,7 @@ impl windows_core::RuntimeType for IMapRouteManeuver3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapRouteManeuver3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Warnings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -420,6 +446,7 @@ impl windows_core::RuntimeType for IMapServiceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetServiceToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -430,6 +457,7 @@ impl windows_core::RuntimeType for IMapServiceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapServiceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WorldViewRegionCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -439,6 +467,7 @@ impl windows_core::RuntimeType for IMapServiceStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapServiceStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DataAttributions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -448,6 +477,7 @@ impl windows_core::RuntimeType for IMapServiceStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapServiceStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDataUsagePreference: unsafe extern "system" fn(*mut core::ffi::c_void, MapServiceDataUsagePreference) -> windows_core::HRESULT,
@@ -458,6 +488,7 @@ impl windows_core::RuntimeType for IPlaceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlaceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
@@ -478,6 +509,7 @@ impl windows_core::RuntimeType for IPlaceInfoCreateOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlaceInfoCreateOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -490,6 +522,7 @@ impl windows_core::RuntimeType for IPlaceInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlaceInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
@@ -513,6 +546,7 @@ impl windows_core::RuntimeType for IPlaceInfoStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlaceInfoStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

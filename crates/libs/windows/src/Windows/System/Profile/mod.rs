@@ -176,6 +176,7 @@ impl windows_core::RuntimeType for IAnalyticsInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalyticsInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VersionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -186,6 +187,7 @@ impl windows_core::RuntimeType for IAnalyticsInfoStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalyticsInfoStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetSystemPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -195,6 +197,7 @@ impl windows_core::RuntimeType for IAnalyticsVersionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalyticsVersionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DeviceFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -205,6 +208,7 @@ impl windows_core::RuntimeType for IAnalyticsVersionInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnalyticsVersionInfo2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProductName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -214,6 +218,7 @@ impl windows_core::RuntimeType for IAppApplicabilityStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAppApplicabilityStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetUnsupportedAppRequirements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -223,6 +228,7 @@ impl windows_core::RuntimeType for IEducationSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEducationSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEducationEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -232,6 +238,7 @@ impl windows_core::RuntimeType for IHardwareIdentificationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHardwareIdentificationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -244,6 +251,7 @@ impl windows_core::RuntimeType for IHardwareToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHardwareToken_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -264,6 +272,7 @@ impl windows_core::RuntimeType for IKnownRetailInfoPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IKnownRetailInfoPropertiesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RetailAccessCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -294,6 +303,7 @@ impl windows_core::RuntimeType for IPlatformAutomaticAppSignInManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformAutomaticAppSignInManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Policy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlatformAutomaticAppSignInPolicy) -> windows_core::HRESULT,
@@ -303,6 +313,7 @@ impl windows_core::RuntimeType for IPlatformDiagnosticsAndUsageDataSettingsStati
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CollectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlatformDataCollectionLevel) -> windows_core::HRESULT,
@@ -315,6 +326,7 @@ impl windows_core::RuntimeType for IRetailInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRetailInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDemoModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -325,6 +337,7 @@ impl windows_core::RuntimeType for ISharedModeSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISharedModeSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -334,6 +347,7 @@ impl windows_core::RuntimeType for ISharedModeSettingsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISharedModeSettingsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShouldAvoidLocalStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -343,6 +357,7 @@ impl windows_core::RuntimeType for ISmartAppControlPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISmartAppControlPolicyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -354,6 +369,7 @@ impl windows_core::RuntimeType for ISystemIdentificationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemIdentificationInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
@@ -367,6 +383,7 @@ impl windows_core::RuntimeType for ISystemIdentificationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemIdentificationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetSystemIdForPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -377,6 +394,7 @@ impl windows_core::RuntimeType for ISystemSetupInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISystemSetupInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OutOfBoxExperienceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SystemOutOfBoxExperienceState) -> windows_core::HRESULT,
@@ -388,6 +406,7 @@ impl windows_core::RuntimeType for IUnsupportedAppRequirement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUnsupportedAppRequirement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Requirement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -398,6 +417,7 @@ impl windows_core::RuntimeType for IWindowsIntegrityPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowsIntegrityPolicyStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,

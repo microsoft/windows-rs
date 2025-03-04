@@ -733,6 +733,7 @@ impl IActiveXUIHandlerSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveXUIHandlerSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateScrollableContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -793,6 +794,7 @@ impl IActiveXUIHandlerSite2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveXUIHandlerSite2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddSuspensionExemption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -848,6 +850,7 @@ impl IActiveXUIHandlerSite3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IActiveXUIHandlerSite3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MessageBoxW: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR, u32, *mut i32) -> windows_core::HRESULT,
@@ -895,6 +898,7 @@ impl IAnchorClick {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAnchorClick_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ProcOnClick: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -943,6 +947,7 @@ impl IAudioSessionSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IAudioSessionSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAudioSessionGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -1000,6 +1005,7 @@ impl ICaretPositionProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICaretPositionProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCaretPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::POINT, *mut f32) -> windows_core::HRESULT,
@@ -1035,6 +1041,7 @@ impl core::ops::Deref for IDeviceRect {
 windows_core::imp::interface_hierarchy!(IDeviceRect, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDeviceRect_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
@@ -1066,6 +1073,7 @@ impl IDithererImpl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDithererImpl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1151,6 +1159,7 @@ impl IDocObjectService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDocObjectService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1281,6 +1290,7 @@ impl IDownloadBehavior {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDownloadBehavior_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub startDownload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1321,6 +1331,7 @@ impl IDownloadManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDownloadManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1369,16 +1380,11 @@ pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS
 pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
 pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
     pub dwLaunchOptionFlags: u32,
-}
-impl Default for IELAUNCHURLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IEPROCESS_MODULE_NAME: windows_core::PCWSTR = windows_core::w!("IERtUtil.dll");
 pub const IEWebDriverManager: windows_core::GUID = windows_core::GUID::from_u128(0x90314af2_5250_47b3_89d8_6295fc23bc22);
@@ -1416,6 +1422,7 @@ impl IEnumManagerFrames {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumManagerFrames_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut super::super::Foundation::HWND, *mut u32) -> windows_core::HRESULT,
@@ -1509,6 +1516,7 @@ impl IEnumOpenServiceActivity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumOpenServiceActivity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1517,7 +1525,7 @@ pub struct IEnumOpenServiceActivity_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOpenServiceActivity_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IOpenServiceActivity>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IOpenServiceActivity>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivity>;
@@ -1587,6 +1595,7 @@ impl IEnumOpenServiceActivityCategory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumOpenServiceActivityCategory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1595,7 +1604,7 @@ pub struct IEnumOpenServiceActivityCategory_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumOpenServiceActivityCategory_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IOpenServiceActivityCategory>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IOpenServiceActivityCategory>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivityCategory>;
@@ -1671,6 +1680,7 @@ impl IEnumSTATURL {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumSTATURL_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut STATURL, *mut u32) -> windows_core::HRESULT,
@@ -1749,6 +1759,7 @@ impl IExtensionValidation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IExtensionValidation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     Validate: usize,
@@ -1807,6 +1818,7 @@ impl IHTMLPersistData {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHTMLPersistData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -1904,6 +1916,7 @@ impl IHTMLPersistDataOM {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHTMLPersistDataOM_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub XMLDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2028,6 +2041,7 @@ impl IHTMLUserDataOM {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHTMLUserDataOM_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub XMLDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2261,6 +2275,7 @@ impl IHeaderFooter {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHeaderFooter_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub htmlHead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2575,6 +2590,7 @@ impl IHeaderFooter2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHeaderFooter2_Vtbl {
     pub base__: IHeaderFooter_Vtbl,
     pub Setfont: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2642,6 +2658,7 @@ impl IHomePage {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHomePage_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub navigateHomePage: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2718,6 +2735,7 @@ impl IHomePageSetting {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHomePageSetting_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHomePage: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2792,6 +2810,7 @@ impl IIEWebDriverManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIEWebDriverManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ExecuteCommand: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -2859,6 +2878,7 @@ impl IIEWebDriverSite {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIEWebDriverSite_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub WindowOperation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -2940,6 +2960,7 @@ impl IImageDecodeEventSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageDecodeEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSurface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const windows_core::GUID, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3033,6 +3054,7 @@ impl IImageDecodeEventSink2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageDecodeEventSink2_Vtbl {
     pub base__: IImageDecodeEventSink_Vtbl,
     pub IsAlphaPremultRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -3082,6 +3104,7 @@ impl IImageDecodeFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IImageDecodeFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3156,6 +3179,7 @@ impl IIntelliForms {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIntelliForms_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -3212,6 +3236,7 @@ impl IInternetExplorerManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetExplorerManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3245,6 +3270,7 @@ impl IInternetExplorerManager2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetExplorerManager2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumFrameWindows: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3345,6 +3371,7 @@ impl ILayoutRect {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct ILayoutRect_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetnextRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3533,6 +3560,7 @@ impl IMapMIMEToCLSID {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapMIMEToCLSID_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnableDefaultMappings: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -3587,6 +3615,7 @@ impl IMediaActivityNotifySite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaActivityNotifySite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnMediaActivityStarted: unsafe extern "system" fn(*mut core::ffi::c_void, MEDIA_ACTIVITY_NOTIFY_TYPE) -> windows_core::HRESULT,
@@ -3647,6 +3676,7 @@ impl IOpenService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpenService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -3832,6 +3862,7 @@ impl IOpenServiceActivity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpenServiceActivity_Vtbl {
     pub base__: IOpenService_Vtbl,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4145,6 +4176,7 @@ impl IOpenServiceActivityCategory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpenServiceActivityCategory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HasDefaultActivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -4261,6 +4293,7 @@ impl IOpenServiceActivityInput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpenServiceActivityInput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVariable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4358,6 +4391,7 @@ impl IOpenServiceActivityManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpenServiceActivityManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCategoryEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, OpenServiceActivityContentType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4462,6 +4496,7 @@ impl IOpenServiceActivityOutputContext {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpenServiceActivityOutputContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4540,6 +4575,7 @@ impl IOpenServiceManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IOpenServiceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InstallService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4598,6 +4634,7 @@ impl windows_core::RuntimeName for IOpenServiceManager {}
 windows_core::imp::define_interface!(IPeerFactory, IPeerFactory_Vtbl, 0x6663f9d3_b482_11d1_89c6_00c04fb6bfc4);
 windows_core::imp::interface_hierarchy!(IPeerFactory, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeerFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -4649,6 +4686,7 @@ impl IPersistHistory {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistHistory_Vtbl {
     pub base__: super::super::System::Com::IPersist_Vtbl,
     pub LoadHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4721,6 +4759,7 @@ impl IPrintTaskRequestFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintTaskRequestFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreatePrintTaskRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4754,6 +4793,7 @@ impl IPrintTaskRequestHandler {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPrintTaskRequestHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HandlePrintTaskRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4793,6 +4833,7 @@ impl IScrollableContextMenu {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScrollableContextMenu_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -4846,6 +4887,7 @@ impl IScrollableContextMenu2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IScrollableContextMenu2_Vtbl {
     pub base__: IScrollableContextMenu_Vtbl,
     pub AddSeparator: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4895,6 +4937,7 @@ impl ISniffStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISniffStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -4942,6 +4985,7 @@ impl ISurfacePresenterFlip {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISurfacePresenterFlip_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Present: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4981,6 +5025,7 @@ impl ISurfacePresenterFlip2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISurfacePresenterFlip2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5020,6 +5065,7 @@ impl ISurfacePresenterFlipBuffer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISurfacePresenterFlipBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5068,6 +5114,7 @@ impl ITargetContainer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetContainer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFrameUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -5131,6 +5178,7 @@ impl ITargetEmbedding {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetEmbedding_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetTargetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5241,6 +5289,7 @@ impl ITargetFrame {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFrameName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -5500,6 +5549,7 @@ impl ITargetFrame2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetFrame2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetFrameName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -5725,6 +5775,7 @@ impl ITargetFramePriv {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetFramePriv_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindFrameDownwards: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5841,6 +5892,7 @@ impl ITargetFramePriv2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetFramePriv2_Vtbl {
     pub base__: ITargetFramePriv_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -5886,6 +5938,7 @@ impl ITargetNotify {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetNotify_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -5930,6 +5983,7 @@ impl ITargetNotify2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITargetNotify2_Vtbl {
     pub base__: ITargetNotify_Vtbl,
     pub GetOptionString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5980,6 +6034,7 @@ impl ITimer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6067,6 +6122,7 @@ impl ITimerEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimerEx_Vtbl {
     pub base__: ITimer_Vtbl,
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -6118,6 +6174,7 @@ impl ITimerService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimerService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTimer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6182,6 +6239,7 @@ impl ITimerSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimerSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6221,6 +6279,7 @@ impl ITridentTouchInput {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITridentTouchInput_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnPointerMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -6257,6 +6316,7 @@ impl ITridentTouchInputSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITridentTouchInputSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     SetManipulationMode: usize,
@@ -6293,6 +6353,7 @@ impl core::ops::Deref for IUrlHistoryNotify {
 windows_core::imp::interface_hierarchy!(IUrlHistoryNotify, windows_core::IUnknown, super::super::System::Ole::IOleCommandTarget);
 #[cfg(feature = "Win32_System_Ole")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUrlHistoryNotify_Vtbl {
     pub base__: super::super::System::Ole::IOleCommandTarget_Vtbl,
 }
@@ -6347,6 +6408,7 @@ impl IUrlHistoryStg {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUrlHistoryStg_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddUrl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -6438,6 +6500,7 @@ impl IUrlHistoryStg2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUrlHistoryStg2_Vtbl {
     pub base__: IUrlHistoryStg_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
@@ -6498,6 +6561,7 @@ impl IViewObjectPresentFlip {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IViewObjectPresentFlip_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyRender: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -6549,6 +6613,7 @@ impl IViewObjectPresentFlip2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IViewObjectPresentFlip2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub NotifyLeavingView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6609,6 +6674,7 @@ impl IViewObjectPresentFlipSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IViewObjectPresentFlipSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     CreateSurfacePresenterFlip: usize,
@@ -6726,6 +6792,7 @@ impl IViewObjectPresentFlipSite2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IViewObjectPresentFlipSite2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6783,6 +6850,7 @@ impl IWebBrowserEventsService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebBrowserEventsService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FireBeforeNavigate2Event: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -6861,6 +6929,7 @@ impl IWebBrowserEventsUrlService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWebBrowserEventsUrlService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUrlForEvents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6925,6 +6994,7 @@ impl Iwfolders {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct Iwfolders_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub navigate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6996,18 +7066,13 @@ pub const MediaCasting: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(
 pub const MediaPlayback: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(0i32);
 pub const MediaRecording: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
     pub ulURL: u32,
     pub ulRefURL: u32,
     pub ulPostData: u32,
     pub dwFlags: u32,
-}
-impl Default for NAVIGATEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7187,7 +7252,7 @@ pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLAC
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATURL {
     pub cbSize: u32,
     pub pwcsUrl: windows_core::PWSTR,
@@ -7196,11 +7261,6 @@ pub struct STATURL {
     pub ftLastUpdated: super::super::Foundation::FILETIME,
     pub ftExpires: super::super::Foundation::FILETIME,
     pub dwFlags: u32,
-}
-impl Default for STATURL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;

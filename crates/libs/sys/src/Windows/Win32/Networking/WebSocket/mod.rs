@@ -24,6 +24,11 @@ pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_0,
     pub CloseStatus: WEB_SOCKET_BUFFER_1,
 }
+impl Default for WEB_SOCKET_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WEB_SOCKET_BUFFER_1 {
@@ -31,11 +36,21 @@ pub struct WEB_SOCKET_BUFFER_1 {
     pub ulReasonLength: u32,
     pub usStatus: u16,
 }
+impl Default for WEB_SOCKET_BUFFER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
+}
+impl Default for WEB_SOCKET_BUFFER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WEB_SOCKET_BUFFER_TYPE = i32;
 pub const WEB_SOCKET_CLOSE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483644i32;
@@ -53,6 +68,11 @@ pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcValue: windows_sys::core::PSTR,
     pub ulValueLength: u32,
 }
+impl Default for WEB_SOCKET_HTTP_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEB_SOCKET_INDICATE_RECEIVE_COMPLETE_ACTION: WEB_SOCKET_ACTION = 4i32;
 pub const WEB_SOCKET_INDICATE_SEND_COMPLETE_ACTION: WEB_SOCKET_ACTION = 2i32;
 pub const WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1003i32;
@@ -69,6 +89,11 @@ pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut core::ffi::c_void,
     pub ulValueSize: u32,
+}
+impl Default for WEB_SOCKET_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WEB_SOCKET_PROPERTY_TYPE = i32;
 pub const WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1002i32;

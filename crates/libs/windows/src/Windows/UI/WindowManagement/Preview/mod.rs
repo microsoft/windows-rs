@@ -3,6 +3,7 @@ impl windows_core::RuntimeType for IWindowManagementPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowManagementPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
@@ -11,6 +12,7 @@ impl windows_core::RuntimeType for IWindowManagementPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowManagementPreviewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetPreferredMinSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Size) -> windows_core::HRESULT,

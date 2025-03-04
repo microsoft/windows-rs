@@ -859,7 +859,7 @@ pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = CIP_STATUS(5i32
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = CIP_STATUS(7i32);
 pub const CLASSIDPROP: MONIKERPROPERTY = MONIKERPROPERTY(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CODEBASEHOLD {
     pub cbSize: u32,
     pub szDistUnit: windows_core::PWSTR,
@@ -868,36 +868,21 @@ pub struct CODEBASEHOLD {
     pub dwVersionLS: u32,
     pub dwStyle: u32,
 }
-impl Default for CODEBASEHOLD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_core::GUID,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwFlags: u32,
 }
-impl Default for CONFIRMSAFETY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DATAINFO {
     pub ulTotalSize: u32,
     pub ulavrPacketSize: u32,
     pub ulConnectSpeed: u32,
     pub ulProcessorSpeed: u32,
-}
-impl Default for DATAINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const E_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x8000000A_u32 as _);
 pub const FEATURE_ADDON_MANAGEMENT: INTERNETFEATURELIST = INTERNETFEATURELIST(13i32);
@@ -951,18 +936,13 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
     pub lpszLoggedUrlName: windows_core::PSTR,
     pub StartTime: super::super::super::Foundation::SYSTEMTIME,
     pub EndTime: super::super::super::Foundation::SYSTEMTIME,
     pub lpszExtendedInfo: windows_core::PSTR,
-}
-impl Default for HIT_LOGGING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(IBindCallbackRedirect, IBindCallbackRedirect_Vtbl, 0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
 windows_core::imp::interface_hierarchy!(IBindCallbackRedirect, windows_core::IUnknown);
@@ -978,6 +958,7 @@ impl IBindCallbackRedirect {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBindCallbackRedirect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Redirect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -1017,6 +998,7 @@ impl IBindHttpSecurity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBindHttpSecurity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIgnoreCertMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1060,6 +1042,7 @@ impl IBindProtocol {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IBindProtocol_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateBinding: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1102,6 +1085,7 @@ impl ICatalogFileInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICatalogFileInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCatalogFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PSTR) -> windows_core::HRESULT,
@@ -1160,6 +1144,7 @@ impl ICodeInstall {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICodeInstall_Vtbl {
     pub base__: IWindowForBindingUI_Vtbl,
     pub OnCodeInstallProblem: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -1196,6 +1181,7 @@ impl IDataFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDataFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DoEncode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32, *const u8, i32, *mut u8, i32, *mut i32, *mut i32, u32) -> windows_core::HRESULT,
@@ -1275,6 +1261,7 @@ impl IEncodingFilterFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEncodingFilterFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FindBestFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, DATAINFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1332,6 +1319,7 @@ impl IGetBindHandle {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IGetBindHandle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBindHandle: unsafe extern "system" fn(*mut core::ffi::c_void, BINDHANDLETYPES, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
@@ -1385,6 +1373,7 @@ impl IHttpNegotiate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpNegotiate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginningTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1445,6 +1434,7 @@ impl IHttpNegotiate2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpNegotiate2_Vtbl {
     pub base__: IHttpNegotiate_Vtbl,
     pub GetRootSecurityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32, usize) -> windows_core::HRESULT,
@@ -1481,6 +1471,7 @@ impl IHttpNegotiate3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpNegotiate3_Vtbl {
     pub base__: IHttpNegotiate2_Vtbl,
     pub GetSerializedClientCertContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -1517,6 +1508,7 @@ impl IHttpSecurity {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHttpSecurity_Vtbl {
     pub base__: IWindowForBindingUI_Vtbl,
     pub OnSecurityProblem: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1542,6 +1534,7 @@ impl windows_core::RuntimeName for IHttpSecurity {}
 windows_core::imp::define_interface!(IInternet, IInternet_Vtbl, 0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
 windows_core::imp::interface_hierarchy!(IInternet, windows_core::IUnknown);
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
@@ -1567,6 +1560,7 @@ impl IInternetBindInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetBindInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1622,6 +1616,7 @@ impl IInternetBindInfoEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetBindInfoEx_Vtbl {
     pub base__: IInternetBindInfo_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1664,6 +1659,7 @@ impl IInternetHostSecurityManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetHostSecurityManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSecurityId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32, usize) -> windows_core::HRESULT,
@@ -1721,6 +1717,7 @@ impl IInternetPriority {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetPriority_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -1787,6 +1784,7 @@ impl IInternetProtocol {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetProtocol_Vtbl {
     pub base__: IInternetProtocolRoot_Vtbl,
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1864,6 +1862,7 @@ impl IInternetProtocolEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetProtocolEx_Vtbl {
     pub base__: IInternetProtocol_Vtbl,
     pub StartEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::super::Foundation::HANDLE_PTR) -> windows_core::HRESULT,
@@ -1918,6 +1917,7 @@ impl IInternetProtocolInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetProtocolInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ParseUrl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PARSEACTION, u32, windows_core::PWSTR, u32, *mut u32, u32) -> windows_core::HRESULT,
@@ -1998,6 +1998,7 @@ impl IInternetProtocolRoot {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetProtocolRoot_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::super::Foundation::HANDLE_PTR) -> windows_core::HRESULT,
@@ -2091,6 +2092,7 @@ impl IInternetProtocolSink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetProtocolSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Switch: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROTOCOLDATA) -> windows_core::HRESULT,
@@ -2160,6 +2162,7 @@ impl IInternetProtocolSinkStackable {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetProtocolSinkStackable_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SwitchSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2253,6 +2256,7 @@ impl IInternetSecurityManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetSecurityManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetSecuritySite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2364,6 +2368,7 @@ impl IInternetSecurityManagerEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetSecurityManagerEx_Vtbl {
     pub base__: IInternetSecurityManager_Vtbl,
     pub ProcessUrlActionEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u8, u32, *const u8, u32, u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -2421,6 +2426,7 @@ impl IInternetSecurityManagerEx2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetSecurityManagerEx2_Vtbl {
     pub base__: IInternetSecurityManagerEx_Vtbl,
     pub MapUrlToZoneEx2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32, u32, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -2487,6 +2493,7 @@ impl IInternetSecurityMgrSite {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetSecurityMgrSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -2574,6 +2581,7 @@ impl IInternetSession {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub RegisterNameSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -2664,6 +2672,7 @@ impl IInternetThreadSwitch {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetThreadSwitch_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Prepare: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2746,6 +2755,7 @@ impl IInternetZoneManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetZoneManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetZoneAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut ZONEATTRIBUTES) -> windows_core::HRESULT,
@@ -2893,6 +2903,7 @@ impl IInternetZoneManagerEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetZoneManagerEx_Vtbl {
     pub base__: IInternetZoneManager_Vtbl,
     pub GetZoneActionPolicyEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, u32, URLZONEREG, u32) -> windows_core::HRESULT,
@@ -2950,6 +2961,7 @@ impl IInternetZoneManagerEx2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IInternetZoneManagerEx2_Vtbl {
     pub base__: IInternetZoneManagerEx_Vtbl,
     pub GetZoneAttributesEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut ZONEATTRIBUTES, u32) -> windows_core::HRESULT,
@@ -3013,6 +3025,7 @@ impl IMonikerProp {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMonikerProp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PutProperty: unsafe extern "system" fn(*mut core::ffi::c_void, MONIKERPROPERTY, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -3132,6 +3145,7 @@ impl IPersistMoniker {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPersistMoniker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClassID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -3239,6 +3253,7 @@ impl ISoftDistExt {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISoftDistExt_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Data_Xml_MsXml")]
@@ -3314,6 +3329,7 @@ impl IUriBuilderFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriBuilderFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateIUriBuilder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3371,6 +3387,7 @@ impl IUriContainer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IUriContainer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3410,6 +3427,7 @@ impl IWinInetCacheHints {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinInetCacheHints_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetCacheExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -3449,6 +3467,7 @@ impl IWinInetCacheHints2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinInetCacheHints2_Vtbl {
     pub base__: IWinInetCacheHints_Vtbl,
     pub SetCacheExtension2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PWSTR, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -3482,6 +3501,7 @@ impl IWinInetFileStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinInetFileStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetHandleForUnlock: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
@@ -3530,6 +3550,7 @@ impl IWinInetHttpInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinInetHttpInfo_Vtbl {
     pub base__: IWinInetInfo_Vtbl,
     pub QueryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -3560,6 +3581,7 @@ impl IWinInetHttpTimeouts {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinInetHttpTimeouts_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRequestTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -3590,6 +3612,7 @@ impl IWinInetInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWinInetInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryOption: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3623,6 +3646,7 @@ impl IWindowForBindingUI {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWindowForBindingUI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
@@ -3659,6 +3683,7 @@ impl IWrappedProtocol {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWrappedProtocol_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWrapperCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, usize) -> windows_core::HRESULT,
@@ -3698,6 +3723,7 @@ impl IZoneIdentifier {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IZoneIdentifier_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3785,6 +3811,7 @@ impl IZoneIdentifier2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IZoneIdentifier2_Vtbl {
     pub base__: IZoneIdentifier_Vtbl,
     pub GetLastWriterPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -3946,7 +3973,7 @@ impl Default for PROTOCOLDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: core::mem::ManuallyDrop<Option<IInternetProtocolSink>>,
@@ -3954,22 +3981,12 @@ pub struct PROTOCOLFILTERDATA {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwFilterFlags: u32,
 }
-impl Default for PROTOCOLFILTERDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_core::PCWSTR,
     pub szTargetUrl: windows_core::PCWSTR,
-}
-impl Default for PROTOCOL_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4025,19 +4042,14 @@ pub const QUERY_USES_CACHE: QUERYOPTION = QUERYOPTION(12i32);
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = QUERYOPTION(15i32);
 pub const QUERY_USES_NETWORK: QUERYOPTION = QUERYOPTION(8i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
     pub bInheritHandle: windows_core::BOOL,
 }
-impl Default for REMSECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
@@ -4053,24 +4065,14 @@ pub struct RemBINDINFO {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwReserved: u32,
 }
-impl Default for RemBINDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RemFORMATETC {
     pub cfFormat: u32,
     pub ptd: u32,
     pub dwAspect: u32,
     pub lindex: i32,
     pub tymed: u32,
-}
-impl Default for RemFORMATETC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SECURITY_IE_STATE_GREEN: u32 = 0u32;
 pub const SECURITY_IE_STATE_RED: u32 = 1u32;
@@ -4083,7 +4085,7 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128u32;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SOFTDISTINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -4098,11 +4100,6 @@ pub struct SOFTDISTINFO {
     pub dwAdvertisedVersionMS: u32,
     pub dwAdvertisedVersionLS: u32,
     pub dwReserved: u32,
-}
-impl Default for SOFTDISTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: u32 = 2u32;
@@ -4119,16 +4116,11 @@ pub const SZM_DELETE: SZM_FLAGS = SZM_FLAGS(1i32);
 pub struct SZM_FLAGS(pub i32);
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct StartParam {
     pub iid: windows_core::GUID,
     pub pIBindCtx: core::mem::ManuallyDrop<Option<super::IBindCtx>>,
     pub pItf: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Default for StartParam {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = MONIKERPROPERTY(3i32);
 pub const UAS_EXACTLEGACY: u32 = 4096u32;

@@ -138,11 +138,21 @@ pub struct PXE_ADDRESS {
     pub uAddrLen: u32,
     pub uPort: u16,
 }
+impl Default for PXE_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PXE_ADDRESS_0 {
     pub bAddress: [u8; 16],
     pub uIpAddress: u32,
+}
+impl Default for PXE_ADDRESS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
 pub const PXE_ADDR_USE_ADDR: u32 = 4u32;
@@ -166,11 +176,21 @@ pub struct PXE_DHCPV6_MESSAGE {
     pub TransactionIDByte3: u8,
     pub Options: [PXE_DHCPV6_OPTION; 1],
 }
+impl Default for PXE_DHCPV6_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
     pub Message: [u8; 1],
+}
+impl Default for PXE_DHCPV6_MESSAGE_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -180,12 +200,22 @@ pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     pub pInterfaceIdOption: *mut core::ffi::c_void,
     pub cbInterfaceIdOption: u16,
 }
+impl Default for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_OPTION {
     pub OptionCode: u16,
     pub DataLength: u16,
     pub Data: [u8; 1],
+}
+impl Default for PXE_DHCPV6_OPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
 #[repr(C, packed(1))]
@@ -196,6 +226,11 @@ pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub LinkAddress: [u8; 16],
     pub PeerAddress: [u8; 16],
     pub Options: [PXE_DHCPV6_OPTION; 1],
+}
+impl Default for PXE_DHCPV6_RELAY_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
 pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
@@ -222,11 +257,21 @@ pub struct PXE_DHCP_MESSAGE {
     pub Anonymous: PXE_DHCP_MESSAGE_0,
     pub Option: PXE_DHCP_OPTION,
 }
+impl Default for PXE_DHCP_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
     pub uMagicCookie: u32,
+}
+impl Default for PXE_DHCP_MESSAGE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -234,6 +279,11 @@ pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
     pub OptionLength: u8,
     pub OptionValue: [u8; 1],
+}
+impl Default for PXE_DHCP_OPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
 pub const PXE_DHCP_SERVER_SIZE: u32 = 64u32;
@@ -248,6 +298,11 @@ pub struct PXE_PROVIDER {
     pub pwszFilePath: windows_sys::core::PWSTR,
     pub bIsCritical: windows_sys::core::BOOL,
     pub uIndex: u32,
+}
+impl Default for PXE_PROVIDER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
 pub const PXE_PROV_ATTR_FILTER_IPV6: u32 = 1u32;
@@ -265,7 +320,7 @@ pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
 pub type TRANSPORTCLIENT_CALLBACK_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
     pub ullFileSize: u64,
@@ -383,6 +438,11 @@ pub struct WDS_CLI_CRED {
     pub pwszDomain: windows_sys::core::PCWSTR,
     pub pwszPassword: windows_sys::core::PCWSTR,
 }
+impl Default for WDS_CLI_CRED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WDS_CLI_FIRMWARE_BIOS: WDS_CLI_FIRMWARE_TYPE = 1i32;
 pub const WDS_CLI_FIRMWARE_EFI: WDS_CLI_FIRMWARE_TYPE = 2i32;
 pub type WDS_CLI_FIRMWARE_TYPE = i32;
@@ -437,7 +497,7 @@ pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
 pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionStart: PFN_WdsTransportClientSessionStart,
     pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
@@ -467,6 +527,11 @@ pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub pvProtocolData: *mut core::ffi::c_void,
     pub ulProtocolDataLength: u32,
 }
+impl Default for WDS_TRANSPORTCLIENT_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = u32;
 pub const WDS_TRANSPORTCLIENT_SESSION_COMPLETE: TRANSPORTCLIENT_CALLBACK_ID = 2i32;
 pub const WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE: TRANSPORTCLIENT_CALLBACK_ID = 5i32;
@@ -491,12 +556,18 @@ pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub hRegistryKey: super::Registry::HKEY,
     pub hProvider: super::super::Foundation::HANDLE,
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: TRANSPORTPROVIDER_CALLBACK_ID = 12i32;
 pub const WDS_TRANSPORTPROVIDER_OPEN_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = 2i32;
 pub const WDS_TRANSPORTPROVIDER_READ_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = 5i32;
 pub const WDS_TRANSPORTPROVIDER_REFRESH_SETTINGS: TRANSPORTPROVIDER_CALLBACK_ID = 10i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
     pub ulLength: u32,
     pub ulProviderVersion: u32,

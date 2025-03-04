@@ -13,3 +13,8 @@ pub struct SUBSCRIBED_MESSAGE {
     pub cbPayloadHint: u32,
     pub payload: [u8; 1],
 }
+impl Default for SUBSCRIBED_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}

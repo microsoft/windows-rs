@@ -269,18 +269,13 @@ pub unsafe fn QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: 
     unsafe { QueryWorkingSetEx(hprocess, pv as _, cb).ok() }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
     pub cb: u32,
     pub Reserved: u32,
     pub TotalSize: usize,
     pub TotalInUse: usize,
     pub PeakUsage: usize,
-}
-impl Default for ENUM_PAGE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -304,7 +299,7 @@ impl Default for MODULEINFO {
 pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCWSTR) -> windows_core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PERFORMANCE_INFORMATION {
     pub cb: u32,
     pub CommitTotal: usize,
@@ -321,13 +316,8 @@ pub struct PERFORMANCE_INFORMATION {
     pub ProcessCount: u32,
     pub ThreadCount: u32,
 }
-impl Default for PERFORMANCE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -340,13 +330,8 @@ pub struct PROCESS_MEMORY_COUNTERS {
     pub PagefileUsage: usize,
     pub PeakPagefileUsage: usize,
 }
-impl Default for PROCESS_MEMORY_COUNTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -360,13 +345,8 @@ pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub PeakPagefileUsage: usize,
     pub PrivateUsage: usize,
 }
-impl Default for PROCESS_MEMORY_COUNTERS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -382,11 +362,6 @@ pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
 }
-impl Default for PROCESS_MEMORY_COUNTERS_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -400,14 +375,9 @@ impl Default for PSAPI_WORKING_SET_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
     pub _bitfield: usize,
-}
-impl Default for PSAPI_WORKING_SET_BLOCK_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -432,24 +402,14 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     pub _bitfield: usize,
 }
-impl Default for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     pub _bitfield: usize,
-}
-impl Default for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -485,14 +445,9 @@ impl Default for PSAPI_WS_WATCH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
     pub BasicInfo: PSAPI_WS_WATCH_INFORMATION,
     pub FaultingThreadId: usize,
     pub Flags: usize,
-}
-impl Default for PSAPI_WS_WATCH_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

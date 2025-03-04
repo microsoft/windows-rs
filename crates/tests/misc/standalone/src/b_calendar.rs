@@ -1154,6 +1154,7 @@ impl windows_core::RuntimeType for ICalendar {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICalendar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Clone: unsafe extern "system" fn(
@@ -1422,6 +1423,7 @@ impl windows_core::RuntimeType for ICalendarFactory {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICalendarFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     CreateCalendarDefaultCalendarAndClock: usize,
@@ -1437,6 +1439,7 @@ impl windows_core::RuntimeType for ICalendarFactory2 {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICalendarFactory2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     CreateCalendarWithTimeZone: usize,
@@ -1451,6 +1454,7 @@ impl windows_core::RuntimeType for ITimeZoneOnCalendar {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ITimeZoneOnCalendar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetTimeZone: unsafe extern "system" fn(

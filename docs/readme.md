@@ -13,12 +13,15 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows](https://crates.io/crates/windows) - Safer bindings including C-style APIs as well as COM and WinRT APIs.
 
 * [windows-bindgen](https://crates.io/crates/windows-bindgen) - Code generator for Windows metadata.
-* [windows-core](https://crates.io/crates/windows-core) - Core type support for the Windows bindings.
+* [windows-collections](https://crates.io/crates/windows-collections) - Windows collection types.
+* [windows-core](https://crates.io/crates/windows-core) - Core type support for COM and Windows.
+* [windows-future](https://crates.io/crates/windows-future) - Windows async type support.
+* [windows-link](https://crates.io/crates/windows-link) - Linking for Windows.
+* [windows-numerics](https://crates.io/crates/windows-numerics) - Windows numeric types.
 * [windows-registry](https://crates.io/crates/windows-registry) - Windows registry.
 * [windows-result](https://crates.io/crates/windows-result) - Windows error handling.
 * [windows-strings](https://crates.io/crates/windows-strings) - Windows string types.
-* [windows-link](https://crates.io/crates/windows-link) - Direct linking for Windows.
-* [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows (and the precursor to `windows-link` for older compilers).
 * [windows-version](https://crates.io/crates/windows-version) - Windows version information.
+* [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows (and the precursor to `windows-link` for older compilers).
 
 * [cppwinrt](https://crates.io/crates/cppwinrt) - Bundles the C++/WinRT compiler for use in Rust.

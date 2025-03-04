@@ -322,6 +322,7 @@ impl windows_core::RuntimeType for IConditionForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConditionForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ConditionForceEffectKind) -> windows_core::HRESULT,
@@ -332,6 +333,7 @@ impl windows_core::RuntimeType for IConditionForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConditionForceEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, ConditionForceEffectKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -341,6 +343,7 @@ impl windows_core::RuntimeType for IConstantForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConstantForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
@@ -447,6 +450,7 @@ impl IForceFeedbackEffect_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IForceFeedbackEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Gain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
@@ -460,6 +464,7 @@ impl windows_core::RuntimeType for IForceFeedbackMotor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IForceFeedbackMotor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AreEffectsPaused: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -481,6 +486,7 @@ impl windows_core::RuntimeType for IPeriodicForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeriodicForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PeriodicForceEffectKind) -> windows_core::HRESULT,
@@ -492,6 +498,7 @@ impl windows_core::RuntimeType for IPeriodicForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPeriodicForceEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, PeriodicForceEffectKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -501,6 +508,7 @@ impl windows_core::RuntimeType for IRampForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRampForceEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, windows_numerics::Vector3, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,

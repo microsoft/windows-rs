@@ -26,6 +26,11 @@ pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut core::ffi::c_void,
 }
+impl Default for COMPRESS_ALLOCATION_ROUTINES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type COMPRESS_INFORMATION_CLASS = i32;
 pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = 1i32;
 pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = 0i32;

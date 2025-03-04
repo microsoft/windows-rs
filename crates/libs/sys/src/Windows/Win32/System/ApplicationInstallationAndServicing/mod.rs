@@ -352,6 +352,11 @@ pub struct ACTCTXA {
     pub lpApplicationName: windows_sys::core::PCSTR,
     pub hModule: super::super::Foundation::HMODULE,
 }
+impl Default for ACTCTXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTCTXW {
@@ -364,6 +369,11 @@ pub struct ACTCTXW {
     pub lpResourceName: windows_sys::core::PCWSTR,
     pub lpApplicationName: windows_sys::core::PCWSTR,
     pub hModule: super::super::Foundation::HMODULE,
+}
+impl Default for ACTCTXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type ACTCTX_COMPATIBILITY_ELEMENT_TYPE = i32;
 pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = 3i32;
@@ -393,6 +403,12 @@ pub struct ACTCTX_SECTION_KEYED_DATA {
     pub ulFlags: u32,
     pub AssemblyMetadata: super::WindowsProgramming::ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA,
 }
+#[cfg(feature = "Win32_System_WindowsProgramming")]
+impl Default for ACTCTX_SECTION_KEYED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
@@ -416,11 +432,21 @@ pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub lpAssemblyDirectoryName: windows_sys::core::PCWSTR,
     pub ulFileCount: u32,
 }
+impl Default for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
     pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
+}
+impl Default for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -438,14 +464,19 @@ pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub lpRootConfigurationPath: windows_sys::core::PCWSTR,
     pub lpAppDirPath: windows_sys::core::PCWSTR,
 }
+impl Default for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
     pub ulAssemblyIndex: u32,
     pub ulFileIndexInAssembly: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub ulFlags: u32,
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
@@ -517,6 +548,11 @@ pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub lpFileName: windows_sys::core::PCWSTR,
     pub lpFilePath: windows_sys::core::PCWSTR,
 }
+impl Default for ASSEMBLY_FILE_DETAILED_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ASSEMBLY_INFO {
@@ -526,12 +562,17 @@ pub struct ASSEMBLY_INFO {
     pub pszCurrentAssemblyPathBuf: windows_sys::core::PWSTR,
     pub cchBuf: u32,
 }
+impl Default for ASSEMBLY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CANOF_PARSE_DISPLAY_NAME: CREATE_ASM_NAME_OBJ_FLAGS = 1i32;
 pub const CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = 2i32;
 pub const CLSID_EvalCom2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6e5e1910_8053_4660_b795_6b612e29bc58);
 pub const CLSID_MsmMerge2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: windows_sys::core::GUID,
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
@@ -547,9 +588,14 @@ pub struct DELTA_HASH {
     pub HashSize: u32,
     pub HashValue: [u8; 32],
 }
+impl Default for DELTA_HASH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DELTA_HEADER_INFO {
     pub FileTypeSet: i64,
     pub FileType: i64,
@@ -566,11 +612,21 @@ pub struct DELTA_INPUT {
     pub uSize: usize,
     pub Editable: windows_sys::core::BOOL,
 }
+impl Default for DELTA_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DELTA_INPUT_0 {
     pub lpcStart: *const core::ffi::c_void,
     pub lpStart: *mut core::ffi::c_void,
+}
+impl Default for DELTA_INPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
 #[repr(C)]
@@ -578,6 +634,11 @@ pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
 pub struct DELTA_OUTPUT {
     pub lpStart: *mut core::ffi::c_void,
     pub uSize: usize,
+}
+impl Default for DELTA_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525u32;
 pub const ERROR_PATCH_CORRUPT: u32 = 3222159618u32;
@@ -768,6 +829,11 @@ pub struct FUSION_INSTALL_REFERENCE {
     pub guidScheme: windows_sys::core::GUID,
     pub szIdentifier: windows_sys::core::PCWSTR,
     pub szNonCannonicalData: windows_sys::core::PCWSTR,
+}
+impl Default for FUSION_INSTALL_REFERENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FUSION_REFCOUNT_FILEPATH_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb02f9d65_fb77_4f7a_afa5_b391309f11c9);
 pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2ec93463_b0c3_45e1_8364_327e96aea856);
@@ -1253,6 +1319,11 @@ pub struct MSIFILEHASHINFO {
     pub dwFileHashInfoSize: u32,
     pub dwData: [u32; 4],
 }
+impl Default for MSIFILEHASHINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MSIHANDLE = u32;
 pub type MSIINSTALLCONTEXT = i32;
 pub const MSIINSTALLCONTEXT_ALL: MSIINSTALLCONTEXT = 7i32;
@@ -1287,6 +1358,11 @@ pub struct MSIPATCHSEQUENCEINFOA {
     pub dwOrder: u32,
     pub uStatus: u32,
 }
+impl Default for MSIPATCHSEQUENCEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MSIPATCHSEQUENCEINFOW {
@@ -1294,6 +1370,11 @@ pub struct MSIPATCHSEQUENCEINFOW {
     pub ePatchDataType: MSIPATCHDATATYPE,
     pub dwOrder: u32,
     pub uStatus: u32,
+}
+impl Default for MSIPATCHSEQUENCEINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MSIPATCHSTATE = i32;
 pub const MSIPATCHSTATE_ALL: MSIPATCHSTATE = 15i32;
@@ -1369,7 +1450,7 @@ pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = 1i32;
 pub const PACKMAN_RUNTIME_SILVERLIGHTMOBILE: PACKMAN_RUNTIME = 2i32;
 pub const PACKMAN_RUNTIME_XNA: PACKMAN_RUNTIME = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
@@ -1380,8 +1461,13 @@ pub struct PATCH_INTERLEAVE_MAP {
     pub CountRanges: u32,
     pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
 }
+impl Default for PATCH_INTERLEAVE_MAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PATCH_INTERLEAVE_MAP_0 {
     pub OldOffset: u32,
     pub OldLength: u32,
@@ -1397,12 +1483,22 @@ pub struct PATCH_OLD_FILE_INFO {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
+impl Default for PATCH_OLD_FILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PATCH_OLD_FILE_INFO_0 {
     pub OldFileNameA: windows_sys::core::PCSTR,
     pub OldFileNameW: windows_sys::core::PCWSTR,
     pub OldFileHandle: super::super::Foundation::HANDLE,
+}
+impl Default for PATCH_OLD_FILE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1414,6 +1510,11 @@ pub struct PATCH_OLD_FILE_INFO_A {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
+impl Default for PATCH_OLD_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_H {
@@ -1424,6 +1525,11 @@ pub struct PATCH_OLD_FILE_INFO_H {
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
+impl Default for PATCH_OLD_FILE_INFO_H {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_W {
@@ -1433,6 +1539,11 @@ pub struct PATCH_OLD_FILE_INFO_W {
     pub IgnoreRangeArray: *mut PATCH_IGNORE_RANGE,
     pub RetainRangeCount: u32,
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
+}
+impl Default for PATCH_OLD_FILE_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1446,6 +1557,11 @@ pub struct PATCH_OPTION_DATA {
     pub SymLoadContext: *mut core::ffi::c_void,
     pub InterleaveMapArray: *mut *mut PATCH_INTERLEAVE_MAP,
     pub MaxLzxWindowSize: u32,
+}
+impl Default for PATCH_OPTION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288u32;
@@ -1465,7 +1581,7 @@ pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3u32;
 pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4u32;
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PATCH_RETAIN_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
@@ -1499,7 +1615,7 @@ pub const PID_TITLE: u32 = 2u32;
 pub const PID_WORDCOUNT: u32 = 15u32;
 pub type PINSTALLUI_HANDLER_RECORD = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PMSIHANDLE {
     pub m_h: MSIHANDLE,
 }
@@ -1539,7 +1655,7 @@ pub const PM_APPLICATION_STATE_MOVING: PM_APPLICATION_STATE = 6i32;
 pub const PM_APPLICATION_STATE_UNINSTALLING: PM_APPLICATION_STATE = 4i32;
 pub const PM_APPLICATION_STATE_UPDATING: PM_APPLICATION_STATE = 3i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct PM_APPTASKTYPE {
     pub ProductID: windows_sys::core::GUID,
     pub TaskType: PM_TASK_TYPE,
@@ -1563,11 +1679,21 @@ pub struct PM_BSATASKID {
     pub ProductID: windows_sys::core::GUID,
     pub TaskID: windows_sys::core::BSTR,
 }
+impl Default for PM_BSATASKID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PM_BWTASKID {
     pub ProductID: windows_sys::core::GUID,
     pub TaskID: windows_sys::core::BSTR,
+}
+impl Default for PM_BWTASKID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PM_ENUM_APP_FILTER = i32;
 pub type PM_ENUM_BSA_FILTER = i32;
@@ -1599,6 +1725,11 @@ pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
 }
+impl Default for PM_ENUM_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PM_ENUM_FILTER_0 {
@@ -1620,6 +1751,11 @@ pub union PM_ENUM_FILTER_0 {
     pub AppSupportedFileExtPID: windows_sys::core::GUID,
     pub ShareTargetFileType: windows_sys::core::BSTR,
 }
+impl Default for PM_ENUM_FILTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PM_ENUM_TASK_FILTER = i32;
 pub type PM_ENUM_TILE_FILTER = i32;
 #[repr(C)]
@@ -1627,6 +1763,11 @@ pub type PM_ENUM_TILE_FILTER = i32;
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: windows_sys::core::GUID,
     pub ExtensionID: windows_sys::core::BSTR,
+}
+impl Default for PM_EXTENSIONCONSUMER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1641,11 +1782,21 @@ pub struct PM_INSTALLINFO {
     pub OfferID: windows_sys::core::GUID,
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
 }
+impl Default for PM_INSTALLINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PM_INVOCATIONINFO {
     pub URIBaseOrAUMID: windows_sys::core::BSTR,
     pub URIFragmentOrArgs: windows_sys::core::BSTR,
+}
+impl Default for PM_INVOCATIONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PM_LIVETILE_RECURRENCE_TYPE = i32;
 pub const PM_LIVETILE_RECURRENCE_TYPE_INSTANT: PM_LIVETILE_RECURRENCE_TYPE = 0i32;
@@ -1672,6 +1823,11 @@ pub struct PM_STARTAPPBLOB {
     pub IsModernLightUp: windows_sys::core::BOOL,
     pub LightUpSupportMask: u16,
 }
+impl Default for PM_STARTAPPBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PM_STARTTILEBLOB {
@@ -1688,6 +1844,11 @@ pub struct PM_STARTTILEBLOB {
     pub IsRestoring: windows_sys::core::BOOL,
     pub IsModern: windows_sys::core::BOOL,
     pub InvocationInfo: PM_INVOCATIONINFO,
+}
+impl Default for PM_STARTTILEBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PM_STARTTILE_TYPE = i32;
 pub const PM_STARTTILE_TYPE_APPLIST: PM_STARTTILE_TYPE = 3i32;
@@ -1750,6 +1911,11 @@ pub struct PM_UPDATEINFO {
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
     pub DeploymentOptions: u32,
 }
+impl Default for PM_UPDATEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PM_UPDATEINFO_LEGACY {
@@ -1760,6 +1926,11 @@ pub struct PM_UPDATEINFO_LEGACY {
     pub cbLicense: u32,
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
 }
+impl Default for PM_UPDATEINFO_LEGACY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_sys::core::BOOL>;
 pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_sys::core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
 #[repr(C)]
@@ -1767,6 +1938,11 @@ pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u
 pub struct PROTECTED_FILE_DATA {
     pub FileName: [u16; 260],
     pub FileNumber: u32,
+}
+impl Default for PROTECTED_FILE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type QUERYASMINFO_FLAGS = u32;
 pub const QUERYASMINFO_FLAG_VALIDATE: QUERYASMINFO_FLAGS = 1u32;

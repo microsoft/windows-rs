@@ -306,6 +306,11 @@ pub struct CODEBASEHOLD {
     pub dwVersionLS: u32,
     pub dwStyle: u32,
 }
+impl Default for CODEBASEHOLD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONFIRMSAFETY {
@@ -313,9 +318,14 @@ pub struct CONFIRMSAFETY {
     pub pUnk: *mut core::ffi::c_void,
     pub dwFlags: u32,
 }
+impl Default for CONFIRMSAFETY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct DATAINFO {
     pub ulTotalSize: u32,
     pub ulavrPacketSize: u32,
@@ -381,6 +391,11 @@ pub struct HIT_LOGGING_INFO {
     pub StartTime: super::super::super::Foundation::SYSTEMTIME,
     pub EndTime: super::super::super::Foundation::SYSTEMTIME,
     pub lpszExtendedInfo: windows_sys::core::PSTR,
+}
+impl Default for HIT_LOGGING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IEObjectType = i32;
 pub const IE_EPM_OBJECT_EVENT: IEObjectType = 0i32;
@@ -508,6 +523,11 @@ pub struct PROTOCOLDATA {
     pub pData: *mut core::ffi::c_void,
     pub cbData: u32,
 }
+impl Default for PROTOCOLDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROTOCOLFILTERDATA {
@@ -517,12 +537,22 @@ pub struct PROTOCOLFILTERDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwFilterFlags: u32,
 }
+impl Default for PROTOCOLFILTERDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_sys::core::PCWSTR,
     pub szTargetUrl: windows_sys::core::PCWSTR,
+}
+impl Default for PROTOCOL_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PSUACTION = i32;
 pub const PSU_DEFAULT: PSUACTION = 1i32;
@@ -570,7 +600,7 @@ pub const QUERY_USES_CACHE: QUERYOPTION = 12i32;
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = 15i32;
 pub const QUERY_USES_NETWORK: QUERYOPTION = 8i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
@@ -593,8 +623,13 @@ pub struct RemBINDINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub dwReserved: u32,
 }
+impl Default for RemBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct RemFORMATETC {
     pub cfFormat: u32,
     pub ptd: u32,
@@ -629,6 +664,11 @@ pub struct SOFTDISTINFO {
     pub dwAdvertisedVersionLS: u32,
     pub dwReserved: u32,
 }
+impl Default for SOFTDISTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: u32 = 2u32;
 pub const SOFTDIST_ADSTATE_INSTALLED: u32 = 3u32;
@@ -647,6 +687,11 @@ pub struct StartParam {
     pub iid: windows_sys::core::GUID,
     pub pIBindCtx: *mut core::ffi::c_void,
     pub pItf: *mut core::ffi::c_void,
+}
+impl Default for StartParam {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = 3i32;
 pub const UAS_EXACTLEGACY: u32 = 4096u32;
@@ -902,4 +947,9 @@ pub struct ZONEATTRIBUTES {
     pub dwTemplateRecommended: u32,
     pub dwTemplateCurrentLevel: u32,
     pub dwFlags: u32,
+}
+impl Default for ZONEATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

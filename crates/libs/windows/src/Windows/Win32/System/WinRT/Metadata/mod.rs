@@ -159,15 +159,10 @@ pub const COR_E_OUTOFMEMORY: i32 = -2147024882i32;
 pub const COR_E_TARGETPARAMCOUNT: windows_core::HRESULT = windows_core::HRESULT(0x8002000E_u32 as _);
 pub const COR_E_UNAUTHORIZEDACCESS: i32 = -2147024891i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_FIELD_OFFSET {
     pub ridOfField: u32,
     pub ulOffset: u32,
-}
-impl Default for COR_FIELD_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_ILEXCEPTION_CLAUSE_DEPRECATED: CorExceptionFlag = CorExceptionFlag(0i32);
 pub const COR_ILEXCEPTION_CLAUSE_DUPLICATED: CorExceptionFlag = CorExceptionFlag(8i32);
@@ -177,16 +172,11 @@ pub const COR_ILEXCEPTION_CLAUSE_FINALLY: CorExceptionFlag = CorExceptionFlag(2i
 pub const COR_ILEXCEPTION_CLAUSE_NONE: CorExceptionFlag = CorExceptionFlag(0i32);
 pub const COR_ILEXCEPTION_CLAUSE_OFFSETLEN: CorExceptionFlag = CorExceptionFlag(0i32);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct COR_NATIVE_LINK {
     pub m_linkType: u8,
     pub m_flags: u8,
     pub m_entryPoint: u32,
-}
-impl Default for COR_NATIVE_LINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_NATIVE_LINK_CUSTOM_VALUE: windows_core::PCWSTR = windows_core::w!("COMPLUS_NativeLink");
 pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: windows_core::PCSTR = windows_core::s!("COMPLUS_NativeLink");
@@ -217,17 +207,12 @@ pub const COUNINITEE_DLL: COUNINITIEE = COUNINITIEE(1i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COUNINITIEE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CVStruct {
     pub Major: i16,
     pub Minor: i16,
     pub Sub: i16,
     pub Build: i16,
-}
-impl Default for CVStruct {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -515,6 +500,7 @@ impl ICeeGen {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICeeGen_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EmitString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
@@ -680,6 +666,7 @@ impl IHostFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IHostFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub MarkToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -746,16 +733,11 @@ impl Default for IMAGE_COR_ILMETHOD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_FAT {
     pub _bitfield: u32,
     pub CodeSize: u32,
     pub LocalVarSigTok: u32,
-}
-impl Default for IMAGE_COR_ILMETHOD_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -872,47 +854,27 @@ impl Default for IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_SECT_FAT {
     pub _bitfield: u32,
 }
-impl Default for IMAGE_COR_ILMETHOD_SECT_FAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_SECT_SMALL {
     pub Kind: u8,
     pub DataSize: u8,
 }
-impl Default for IMAGE_COR_ILMETHOD_SECT_SMALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_ILMETHOD_TINY {
     pub Flags_CodeSize: u8,
 }
-impl Default for IMAGE_COR_ILMETHOD_TINY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_COR_VTABLEFIXUP {
     pub RVA: u32,
     pub Count: u16,
     pub Type: u16,
-}
-impl Default for IMAGE_COR_VTABLEFIXUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const IMAGE_DIRECTORY_ENTRY_COMHEADER: ReplacesGeneralNumericDefines = ReplacesGeneralNumericDefines(14i32);
 windows_core::imp::define_interface!(IMapToken, IMapToken_Vtbl, 0x06a3ea8b_0225_11d1_bf72_00c04fc31e12);
@@ -923,6 +885,7 @@ impl IMapToken {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMapToken_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -1001,6 +964,7 @@ impl IMetaDataAssemblyEmit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataAssemblyEmit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DefineAssembly: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32, windows_core::PCWSTR, *const ASSEMBLYMETADATA, u32, *mut u32) -> windows_core::HRESULT,
@@ -1165,6 +1129,7 @@ impl IMetaDataAssemblyImport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataAssemblyImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAssemblyProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const core::ffi::c_void, *mut u32, *mut u32, windows_core::PWSTR, u32, *mut u32, *mut ASSEMBLYMETADATA, *mut u32) -> windows_core::HRESULT,
@@ -1333,6 +1298,7 @@ impl IMetaDataDispenser {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataDispenser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub DefineScope: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1446,6 +1412,7 @@ impl IMetaDataDispenserEx {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataDispenserEx_Vtbl {
     pub base__: IMetaDataDispenser_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1765,6 +1732,7 @@ impl IMetaDataEmit {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataEmit_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetModuleProps: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2276,6 +2244,7 @@ impl IMetaDataEmit2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataEmit2_Vtbl {
     pub base__: IMetaDataEmit_Vtbl,
     pub DefineMethodSpec: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
@@ -2378,6 +2347,7 @@ impl IMetaDataError {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
@@ -2414,6 +2384,7 @@ impl IMetaDataFilter {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub UnmarkAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2684,6 +2655,7 @@ impl IMetaDataImport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CloseEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
@@ -3344,6 +3316,7 @@ impl IMetaDataImport2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataImport2_Vtbl {
     pub base__: IMetaDataImport_Vtbl,
     pub EnumGenericParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -3440,6 +3413,7 @@ impl IMetaDataInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetFileMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut u64, *mut u32) -> windows_core::HRESULT,
@@ -3524,6 +3498,7 @@ impl IMetaDataTables {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataTables_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStringHeapSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3728,6 +3703,7 @@ impl IMetaDataTables2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataTables2_Vtbl {
     pub base__: IMetaDataTables_Vtbl,
     pub GetMetaDataStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -3776,6 +3752,7 @@ impl IMetaDataValidate {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataValidate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ValidatorInit: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3818,6 +3795,7 @@ impl IMetaDataWinMDImport {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMetaDataWinMDImport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUntransformedTypeRefProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -3933,6 +3911,7 @@ impl IRoMetaDataLocator {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRoMetaDataLocator_Vtbl {
     pub Locate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4017,6 +3996,7 @@ impl IRoSimpleMetaDataBuilder {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRoSimpleMetaDataBuilder_Vtbl {
     pub SetWinRtInterface: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub SetDelegate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -4320,16 +4300,11 @@ pub const NONVERSIONABLE_TYPE_W: windows_core::PCWSTR = windows_core::w!("System
 pub struct NativeTypeArrayFlags(pub i32);
 pub const NoDupCheck: MergeFlags = MergeFlags(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct OSINFO {
     pub dwOSPlatformId: u32,
     pub dwOSMajorVersion: u32,
     pub dwOSMinorVersion: u32,
-}
-impl Default for OSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

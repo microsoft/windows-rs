@@ -1,6 +1,6 @@
 [package]
 name = "windows-future"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
@@ -20,10 +20,13 @@ default = ["std"]
 std = []
 
 [dependencies.windows-core]
-version = "0.59.0"
+version = "0.60.1"
 path = "../core"
 default-features = false
 
 [dependencies.windows-link]
 version = "0.1.0"
 path = "../link"
+
+[dev-dependencies]
+windows-result = { path = "../result" }

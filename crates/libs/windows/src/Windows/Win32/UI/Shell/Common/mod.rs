@@ -1,13 +1,8 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_core::PCWSTR,
     pub pszSpec: windows_core::PCWSTR,
-}
-impl Default for COMDLG_FILTERSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -31,6 +26,7 @@ impl IObjectArray {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectArray_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -96,6 +92,7 @@ impl IObjectCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IObjectCollection_Vtbl {
     pub base__: IObjectArray_Vtbl,
     pub AddObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -149,14 +146,9 @@ impl IObjectCollection_Vtbl {
 }
 impl windows_core::RuntimeName for IObjectCollection {}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
-}
-impl Default for ITEMIDLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -102,6 +102,7 @@ impl IConnectionRequestCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IConnectionRequestCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -144,6 +145,7 @@ impl IEnumPortableDeviceConnectors {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumPortableDeviceConnectors_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -152,7 +154,7 @@ pub struct IEnumPortableDeviceConnectors_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumPortableDeviceConnectors_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, crequested: u32, pconnectors: windows_core::OutRef<'_, IPortableDeviceConnector>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, crequested: u32, pconnectors: *mut Option<IPortableDeviceConnector>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cconnectors: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumPortableDeviceConnectors>;
@@ -225,6 +227,7 @@ impl IEnumPortableDeviceObjectIDs {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IEnumPortableDeviceObjectIDs_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -306,6 +309,7 @@ impl IMediaRadioManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaRadioManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRadioInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -363,6 +367,7 @@ impl IMediaRadioManagerNotifySink {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMediaRadioManagerNotifySink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnInstanceAdd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -469,6 +474,7 @@ impl IPortableDevice {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -664,6 +670,7 @@ impl IPortableDeviceCapabilities {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSupportedCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -876,6 +883,7 @@ impl IPortableDeviceConnector {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceConnector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1033,6 +1041,7 @@ impl IPortableDeviceContent {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceContent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1188,6 +1197,7 @@ impl IPortableDeviceContent2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceContent2_Vtbl {
     pub base__: IPortableDeviceContent_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1244,6 +1254,7 @@ impl IPortableDeviceDataStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceDataStream_Vtbl {
     pub base__: super::super::System::Com::IStream_Vtbl,
     pub GetObjectID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1302,6 +1313,7 @@ impl IPortableDeviceDispatchFactory {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceDispatchFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
@@ -1347,6 +1359,7 @@ impl IPortableDeviceEventCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceEventCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1389,6 +1402,7 @@ impl IPortableDeviceKeyCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceKeyCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
@@ -1489,6 +1503,7 @@ impl IPortableDeviceManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -1599,6 +1614,7 @@ impl IPortableDevicePropVariantCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDevicePropVariantCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
@@ -1746,6 +1762,7 @@ impl IPortableDeviceProperties {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceProperties_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSupportedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1883,6 +1900,7 @@ impl IPortableDevicePropertiesBulk {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDevicePropertiesBulk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueueGetValuesByObjectList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -1979,6 +1997,7 @@ impl IPortableDevicePropertiesBulkCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDevicePropertiesBulkCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStart: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -2069,6 +2088,7 @@ impl IPortableDeviceResources {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceResources_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSupportedResources: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2233,6 +2253,7 @@ impl IPortableDeviceService {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2406,6 +2427,7 @@ impl IPortableDeviceServiceActivation {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceServiceActivation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2538,6 +2560,7 @@ impl IPortableDeviceServiceCapabilities {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceServiceCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSupportedMethods: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2808,6 +2831,7 @@ impl IPortableDeviceServiceManager {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceServiceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDeviceServices: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
@@ -2859,6 +2883,7 @@ impl IPortableDeviceServiceMethodCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceServiceMethodCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2905,6 +2930,7 @@ impl IPortableDeviceServiceMethods {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceServiceMethods_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2956,6 +2982,7 @@ impl IPortableDeviceServiceOpenCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceServiceOpenCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
@@ -2989,6 +3016,7 @@ impl IPortableDeviceUnitsStream {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceUnitsStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SeekInUnits: unsafe extern "system" fn(*mut core::ffi::c_void, i64, WPD_STREAM_UNITS, u32, *mut u64) -> windows_core::HRESULT,
@@ -3218,6 +3246,7 @@ impl IPortableDeviceValues {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceValues_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
@@ -3728,6 +3757,7 @@ impl IPortableDeviceValuesCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceValuesCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
@@ -3824,6 +3854,7 @@ impl IPortableDeviceWebControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPortableDeviceWebControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetDeviceFromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3905,6 +3936,7 @@ impl IRadioInstance {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRadioInstance_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRadioManagerSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -4025,6 +4057,7 @@ impl IRadioInstanceCollection {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IRadioInstanceCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -4099,6 +4132,7 @@ impl IWpdSerializer {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IWpdSerializer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetIPortableDeviceValuesFromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4663,16 +4697,11 @@ pub const WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WPD_COMMAND_ACCE
 pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(8i32);
 pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     pub Command: super::super::Foundation::PROPERTYKEY,
     pub AccessType: u32,
     pub AccessProperty: super::super::Foundation::PROPERTYKEY,
-}
-impl Default for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const WPD_COMMAND_ACCESS_READ: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(1i32);
 pub const WPD_COMMAND_ACCESS_READWRITE: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(3i32);

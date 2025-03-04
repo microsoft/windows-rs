@@ -1,26 +1,16 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_DEBUG_IL_TO_NATIVE_MAP {
     pub ilOffset: u32,
     pub nativeStartOffset: u32,
     pub nativeEndOffset: u32,
 }
-impl Default for COR_DEBUG_IL_TO_NATIVE_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_IL_MAP {
     pub oldOffset: u32,
     pub newOffset: u32,
     pub fAccurate: windows_core::BOOL,
-}
-impl Default for COR_IL_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_PRF_ALL: COR_PRF_MONITOR = COR_PRF_MONITOR(-1879048193i32);
 pub const COR_PRF_ALLOWABLE_AFTER_ATTACH: COR_PRF_MONITOR = COR_PRF_MONITOR(268763902i32);
@@ -58,15 +48,10 @@ pub const COR_PRF_CODEGEN_DISABLE_INLINING: COR_PRF_CODEGEN_FLAGS = COR_PRF_CODE
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_CODEGEN_FLAGS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_CODE_INFO {
     pub startAddress: usize,
     pub size: usize,
-}
-impl Default for COR_PRF_CODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_PRF_CORE_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(2i32);
 pub const COR_PRF_DESKTOP_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(1i32);
@@ -102,32 +87,22 @@ pub struct COR_PRF_EVENTPIPE_LEVEL(pub i32);
 pub const COR_PRF_EVENTPIPE_LOGALWAYS: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(0i32);
 pub const COR_PRF_EVENTPIPE_OBJECT: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_PARAM_DESC {
     pub r#type: u32,
     pub elementType: u32,
     pub name: windows_core::PCWSTR,
 }
-impl Default for COR_PRF_EVENTPIPE_PARAM_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_PARAM_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
     pub providerName: windows_core::PCWSTR,
     pub keywords: u64,
     pub loggingLevel: u32,
     pub filterData: windows_core::PCWSTR,
-}
-impl Default for COR_PRF_EVENTPIPE_PROVIDER_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_PRF_EVENTPIPE_SBYTE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(5i32);
 pub const COR_PRF_EVENTPIPE_SINGLE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(13i32);
@@ -138,29 +113,19 @@ pub const COR_PRF_EVENTPIPE_UINT64: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENT
 pub const COR_PRF_EVENTPIPE_VERBOSE: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(5i32);
 pub const COR_PRF_EVENTPIPE_WARNING: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_EVENT_DATA {
     pub ptr: u64,
     pub size: u32,
     pub reserved: u32,
 }
-impl Default for COR_PRF_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_EX_CLAUSE_INFO {
     pub clauseType: COR_PRF_CLAUSE_TYPE,
     pub programCounter: usize,
     pub framePointer: usize,
     pub shadowStackPointer: usize,
-}
-impl Default for COR_PRF_EX_CLAUSE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_PRF_FIELD_APP_DOMAIN_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(1i32);
 pub const COR_PRF_FIELD_CONTEXT_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(4i32);
@@ -168,31 +133,21 @@ pub const COR_PRF_FIELD_NOT_A_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(
 pub const COR_PRF_FIELD_RVA_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(8i32);
 pub const COR_PRF_FIELD_THREAD_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_FILTER_DATA {
     pub Ptr: u64,
     pub Size: u32,
     pub Type: u32,
-}
-impl Default for COR_PRF_FILTER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_PRF_FINALIZER_CRITICAL: COR_PRF_FINALIZER_FLAGS = COR_PRF_FINALIZER_FLAGS(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_FINALIZER_FLAGS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_FUNCTION {
     pub functionId: usize,
     pub reJitId: usize,
-}
-impl Default for COR_PRF_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -207,31 +162,21 @@ impl Default for COR_PRF_FUNCTION_ARGUMENT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_FUNCTION_ARGUMENT_RANGE {
     pub startAddress: usize,
     pub length: u32,
-}
-impl Default for COR_PRF_FUNCTION_ARGUMENT_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_GC_GENERATION(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_GC_GENERATION_RANGE {
     pub generation: COR_PRF_GC_GENERATION,
     pub rangeStart: usize,
     pub rangeLength: usize,
     pub rangeLengthReserved: usize,
-}
-impl Default for COR_PRF_GC_GENERATION_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_PRF_GC_GEN_0: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(0i32);
 pub const COR_PRF_GC_GEN_1: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(1i32);
@@ -284,15 +229,10 @@ pub const COR_PRF_HIGH_REQUIRE_PROFILE_IMAGE: COR_PRF_HIGH_MONITOR = COR_PRF_HIG
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_PRF_JIT_CACHE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_METHOD {
     pub moduleId: usize,
     pub methodId: u32,
-}
-impl Default for COR_PRF_METHOD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -333,16 +273,11 @@ pub const COR_PRF_MONITOR_REMOTING_COOKIE: COR_PRF_MONITOR = COR_PRF_MONITOR(174
 pub const COR_PRF_MONITOR_SUSPENDS: COR_PRF_MONITOR = COR_PRF_MONITOR(65536i32);
 pub const COR_PRF_MONITOR_THREADS: COR_PRF_MONITOR = COR_PRF_MONITOR(512i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COR_PRF_NONGC_HEAP_RANGE {
     pub rangeStart: usize,
     pub rangeLength: usize,
     pub rangeLengthReserved: usize,
-}
-impl Default for COR_PRF_NONGC_HEAP_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const COR_PRF_REJIT_BLOCK_INLINING: COR_PRF_REJIT_FLAGS = COR_PRF_REJIT_FLAGS(1i32);
 #[repr(transparent)]
@@ -419,6 +354,7 @@ impl ICorProfilerAssemblyReferenceProvider {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerAssemblyReferenceProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
@@ -668,6 +604,7 @@ impl ICorProfilerCallback {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1334,6 +1271,7 @@ impl ICorProfilerCallback10 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback10_Vtbl {
     pub base__: ICorProfilerCallback9_Vtbl,
     pub EventPipeEventDelivered: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, u32, u32, *const u8, u32, *const u8, *const windows_core::GUID, *const windows_core::GUID, usize, u32, *const usize) -> windows_core::HRESULT,
@@ -1397,6 +1335,7 @@ impl ICorProfilerCallback11 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback11_Vtbl {
     pub base__: ICorProfilerCallback10_Vtbl,
     pub LoadAsNotificationOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -1454,6 +1393,7 @@ impl ICorProfilerCallback2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback2_Vtbl {
     pub base__: ICorProfilerCallback_Vtbl,
     pub ThreadNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -1565,6 +1505,7 @@ impl ICorProfilerCallback3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback3_Vtbl {
     pub base__: ICorProfilerCallback2_Vtbl,
     pub InitializeForAttach: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1640,6 +1581,7 @@ impl ICorProfilerCallback4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback4_Vtbl {
     pub base__: ICorProfilerCallback3_Vtbl,
     pub ReJITCompilationStarted: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, windows_core::BOOL) -> windows_core::HRESULT,
@@ -1724,6 +1666,7 @@ impl ICorProfilerCallback5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback5_Vtbl {
     pub base__: ICorProfilerCallback4_Vtbl,
     pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> windows_core::HRESULT,
@@ -1767,6 +1710,7 @@ impl ICorProfilerCallback6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback6_Vtbl {
     pub base__: ICorProfilerCallback5_Vtbl,
     pub GetAssemblyReferences: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1803,6 +1747,7 @@ impl ICorProfilerCallback7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback7_Vtbl {
     pub base__: ICorProfilerCallback6_Vtbl,
     pub ModuleInMemorySymbolsUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
@@ -1842,6 +1787,7 @@ impl ICorProfilerCallback8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback8_Vtbl {
     pub base__: ICorProfilerCallback7_Vtbl,
     pub DynamicMethodJITCompilationStarted: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::BOOL, *const u8, u32) -> windows_core::HRESULT,
@@ -1890,6 +1836,7 @@ impl ICorProfilerCallback9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerCallback9_Vtbl {
     pub base__: ICorProfilerCallback8_Vtbl,
     pub DynamicMethodUnloaded: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
@@ -1926,6 +1873,7 @@ impl ICorProfilerFunctionControl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerFunctionControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetCodegenFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -1995,6 +1943,7 @@ impl ICorProfilerFunctionEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerFunctionEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2218,6 +2167,7 @@ impl ICorProfilerInfo {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClassFromObject: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize) -> windows_core::HRESULT,
@@ -2656,6 +2606,7 @@ impl ICorProfilerInfo10 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo10_Vtbl {
     pub base__: ICorProfilerInfo9_Vtbl,
     pub EnumerateObjectReferences: unsafe extern "system" fn(*mut core::ffi::c_void, usize, ObjectReferenceCallback, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2753,6 +2704,7 @@ impl ICorProfilerInfo11 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo11_Vtbl {
     pub base__: ICorProfilerInfo10_Vtbl,
     pub GetEnvironmentVariableA: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
@@ -2837,6 +2789,7 @@ impl ICorProfilerInfo12 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo12_Vtbl {
     pub base__: ICorProfilerInfo11_Vtbl,
     pub EventPipeStartSession: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, windows_core::BOOL, *mut u64) -> windows_core::HRESULT,
@@ -2960,6 +2913,7 @@ impl ICorProfilerInfo13 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo13_Vtbl {
     pub base__: ICorProfilerInfo12_Vtbl,
     pub CreateHandle: unsafe extern "system" fn(*mut core::ffi::c_void, usize, COR_PRF_HANDLE_TYPE, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3053,6 +3007,7 @@ impl ICorProfilerInfo14 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo14_Vtbl {
     pub base__: ICorProfilerInfo13_Vtbl,
     pub EnumerateNonGCObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3223,6 +3178,7 @@ impl ICorProfilerInfo2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo2_Vtbl {
     pub base__: ICorProfilerInfo_Vtbl,
     pub DoStackSnapshot: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *const StackSnapshotCallback, u32, *const core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
@@ -3544,6 +3500,7 @@ impl ICorProfilerInfo3 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo3_Vtbl {
     pub base__: ICorProfilerInfo2_Vtbl,
     pub EnumJITedFunctions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3757,6 +3714,7 @@ impl ICorProfilerInfo4 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo4_Vtbl {
     pub base__: ICorProfilerInfo3_Vtbl,
     pub EnumThreads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3901,6 +3859,7 @@ impl ICorProfilerInfo5 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo5_Vtbl {
     pub base__: ICorProfilerInfo4_Vtbl,
     pub GetEventMask2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -3952,6 +3911,7 @@ impl ICorProfilerInfo6 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo6_Vtbl {
     pub base__: ICorProfilerInfo5_Vtbl,
     pub EnumNgenModuleMethodsInliningThisMethod: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, u32, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4003,6 +3963,7 @@ impl ICorProfilerInfo7 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo7_Vtbl {
     pub base__: ICorProfilerInfo6_Vtbl,
     pub ApplyMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
@@ -4078,6 +4039,7 @@ impl ICorProfilerInfo8 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo8_Vtbl {
     pub base__: ICorProfilerInfo7_Vtbl,
     pub IsFunctionDynamic: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -4150,6 +4112,7 @@ impl ICorProfilerInfo9 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerInfo9_Vtbl {
     pub base__: ICorProfilerInfo8_Vtbl,
     pub GetNativeCodeStartAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, u32, *mut u32, *mut usize) -> windows_core::HRESULT,
@@ -4222,6 +4185,7 @@ impl ICorProfilerMethodEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerMethodEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4321,6 +4285,7 @@ impl ICorProfilerModuleEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerModuleEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4420,6 +4385,7 @@ impl ICorProfilerObjectEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerObjectEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4519,6 +4485,7 @@ impl ICorProfilerThreadEnum {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICorProfilerThreadEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4600,6 +4567,7 @@ impl IMethodMalloc {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IMethodMalloc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Alloc: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> *mut core::ffi::c_void,

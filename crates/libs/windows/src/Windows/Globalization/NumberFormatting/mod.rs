@@ -484,6 +484,7 @@ impl windows_core::RuntimeType for ICurrencyFormatter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICurrencyFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Currency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -497,6 +498,7 @@ impl windows_core::RuntimeType for ICurrencyFormatter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICurrencyFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CurrencyFormatterMode) -> windows_core::HRESULT,
@@ -508,6 +510,7 @@ impl windows_core::RuntimeType for ICurrencyFormatterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ICurrencyFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateCurrencyFormatterCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -518,6 +521,7 @@ impl windows_core::RuntimeType for IDecimalFormatterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IDecimalFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateDecimalFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -527,6 +531,7 @@ impl windows_core::RuntimeType for IIncrementNumberRounder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IIncrementNumberRounder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RoundingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RoundingAlgorithm) -> windows_core::HRESULT,
@@ -623,6 +628,7 @@ impl INumberFormatter_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumberFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormatInt: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -718,6 +724,7 @@ impl INumberFormatter2_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumberFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FormatInt: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1001,6 +1008,7 @@ impl INumberFormatterOptions_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumberFormatterOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1107,6 +1115,7 @@ impl INumberParser_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumberParser_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ParseInt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1262,6 +1271,7 @@ impl INumberRounder_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumberRounder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RoundInt32: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
@@ -1331,6 +1341,7 @@ impl INumberRounderOption_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumberRounderOption_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NumberRounder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1341,6 +1352,7 @@ impl windows_core::RuntimeType for INumeralSystemTranslator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumeralSystemTranslator_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1354,6 +1366,7 @@ impl windows_core::RuntimeType for INumeralSystemTranslatorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct INumeralSystemTranslatorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1363,6 +1376,7 @@ impl windows_core::RuntimeType for IPercentFormatterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPercentFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePercentFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1372,6 +1386,7 @@ impl windows_core::RuntimeType for IPermilleFormatterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct IPermilleFormatterFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreatePermilleFormatter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1432,6 +1447,7 @@ impl ISignedZeroOption_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISignedZeroOption_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsZeroSigned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -1442,6 +1458,7 @@ impl windows_core::RuntimeType for ISignificantDigitsNumberRounder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISignificantDigitsNumberRounder_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RoundingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RoundingAlgorithm) -> windows_core::HRESULT,
@@ -1505,6 +1522,7 @@ impl ISignificantDigitsOption_Vtbl {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ISignificantDigitsOption_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,

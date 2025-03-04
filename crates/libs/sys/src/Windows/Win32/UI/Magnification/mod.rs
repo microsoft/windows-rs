@@ -24,8 +24,13 @@ windows_targets::link!("magnification.dll" "system" fn MagUninitialize() -> wind
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
+impl Default for MAGCOLOREFFECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -38,6 +43,11 @@ pub struct MAGIMAGEHEADER {
 #[derive(Clone, Copy)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
+}
+impl Default for MAGTRANSFORM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
 pub const MS_INVERTCOLORS: i32 = 4i32;

@@ -22,17 +22,12 @@ where
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D11_RESOURCE_FLAGS {
     pub BindFlags: u32,
     pub MiscFlags: u32,
     pub CPUAccessFlags: u32,
     pub StructureByteStride: u32,
-}
-impl Default for D3D11_RESOURCE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 windows_core::imp::define_interface!(ID3D11On12Device, ID3D11On12Device_Vtbl, 0x85611e73_70a9_490e_9614_a9e302777904);
 windows_core::imp::interface_hierarchy!(ID3D11On12Device, windows_core::IUnknown);
@@ -55,6 +50,7 @@ impl ID3D11On12Device {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D11On12Device_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -130,6 +126,7 @@ impl ID3D11On12Device1 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D11On12Device1_Vtbl {
     pub base__: ID3D11On12Device_Vtbl,
     pub GetD3D12Device: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -185,6 +182,7 @@ impl ID3D11On12Device2 {
     }
 }
 #[repr(C)]
+#[doc(hidden)]
 pub struct ID3D11On12Device2_Vtbl {
     pub base__: ID3D11On12Device1_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
