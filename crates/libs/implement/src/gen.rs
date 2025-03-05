@@ -20,6 +20,7 @@ pub(crate) fn gen_all(inputs: &ImplementInputs) -> Vec<syn::Item> {
 
     items.push(gen_original_impl(inputs));
     items.push(gen_impl_struct(inputs));
+    items.push(gen_impl_into_com_object(inputs));
     items.push(gen_impl_deref(inputs));
     items.push(gen_impl_impl(inputs));
     items.push(gen_iunknown_impl(inputs));
@@ -53,7 +54,7 @@ fn gen_original_impl(inputs: &ImplementInputs) -> syn::Item {
     //
     // Right now, we can't generate static COM objects that have base classes because we rely on
     // boxing and then unboxing during construction of aggregated types.
-    if !inputs.is_generic {
+    if inputs.base_class_info.is_none() && !inputs.is_generic {
         output.items.push(gen_into_static(inputs));
     }
 
@@ -68,9 +69,20 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
     let original_ident = &inputs.original_ident;
     let vis = &inputs.original_type.vis;
 
-    let mut impl_fields = quote! {
-        identity: &'static ::windows_core::IInspectable_Vtbl,
-    };
+    let mut impl_fields = quote!();
+
+    if let Some(ref base) = inputs.base_class_info {
+        let base_ty = &base.field_ty;
+        impl_fields.extend(quote! {
+            base: <#base_ty as ::windows_core::ComObjectInner>::Outer,
+        });
+    }
+
+    if inputs.base_class_info.is_none() {
+        impl_fields.extend(quote! {
+            identity: &'static ::windows_core::IInspectable_Vtbl,
+        });
+    }
 
     for interface_chain in inputs.interface_chains.iter() {
         let vtbl_ty = interface_chain.implement.to_vtbl_ident();
@@ -82,8 +94,13 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
 
     impl_fields.extend(quote! {
         this: #original_ident::#generics,
-        count: ::windows_core::imp::WeakRefCount,
     });
+
+    if inputs.base_class_info.is_none() {
+        impl_fields.extend(quote! {
+            header: ::windows_core::ComObjectHeader,
+        });
+    }
 
     parse_quote! {
         #[repr(C)]
@@ -137,6 +154,26 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
         impl #generics #impl_ident::#generics where #constraints {}
     };
 
+    if let Some(ref base_class_info) = inputs.base_class_info {
+        // Emit a method which allows the app to go from &Derived_Impl to &Base_Impl.
+        let base_field_ident = &base_class_info.field_ident;
+        let base_ty = &base_class_info.field_ty;
+        output.items.push(parse_quote! {
+            /// Provides access to the base object.
+            // TODO: Handle generics for the base type.
+            pub fn base(&self) -> &<#base_ty as ::windows_core::ComObjectInner>::Outer {
+                &self.#base_field_ident
+            }
+            // Do NOT provide a method for returning &mut #base_ty. Doing so would allow for
+            // breaking memory safety, because it would allow any caller to swap instances of
+            // the Foo_Impl. This may be fixable by moving the reference count field out of the
+            // _Impl types.
+            //
+            // It might be safe to return Pin<&mut Foo_Impl>.
+            // It would be safe to directly return &mut Foo (not &mut Foo_Impl!)
+        });
+    }
+
     // This is here so that IInspectable::GetRuntimeClassName can work properly.
     // For a test case for this, see crates/tests/misc/component_client.
     let identity_type = if let Some(first) = inputs.interface_chains.first() {
@@ -145,24 +182,41 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
         quote! { ::windows_core::IInspectable }
     };
 
-    output.items.push(parse_quote! {
-        const VTABLE_IDENTITY: ::windows_core::IInspectable_Vtbl =
-            ::windows_core::IInspectable_Vtbl::new::<
-                #impl_ident::#generics,
-                #identity_type,
-                0,
-            >();
-    });
+    // Use the "identity" interface from the base class, if there is a base class.
+    if inputs.base_class_info.is_none() {
+        output.items.push(parse_quote! {
+            const VTABLE_IDENTITY: ::windows_core::IInspectable_Vtbl =
+                ::windows_core::IInspectable_Vtbl::new::<
+                    #impl_ident::#generics,
+                    #identity_type,
+                    0, // #chain_offset_expression,
+                >();
+        });
+    }
 
     for (interface_index, interface_chain) in inputs.interface_chains.iter().enumerate() {
         let vtbl_ty = interface_chain.implement.to_vtbl_ident();
+        let chain_ident = &interface_chain.field_ident;
         let vtable_const_ident = &interface_chain.vtable_const_ident;
 
-        let chain_offset_in_pointers: isize = -1 - interface_index as isize;
+        let chain_offset_expression = if inputs.is_generic {
+            let chain_offset_in_pointers: isize = -1 - interface_index as isize;
+            quote!(#chain_offset_in_pointers)
+        } else {
+            quote! {
+                // The nested { ... } scope is necessary; do not remove it.
+                {
+                    -((::core::mem::offset_of!(
+                        #impl_ident::#generics,
+                        #chain_ident) / ::core::mem::size_of::<*const u8>()) as isize)
+                }
+            }
+        };
+
         output.items.push(parse_quote! {
             const #vtable_const_ident: #vtbl_ty = #vtbl_ty::new::<
                 #impl_ident::#generics,
-                #chain_offset_in_pointers,
+                #chain_offset_expression,
             >();
         });
     }
@@ -178,6 +232,37 @@ fn gen_iunknown_impl(inputs: &ImplementInputs) -> syn::Item {
     let original_ident = &inputs.original_type.ident;
 
     let trust_level = proc_macro2::Literal::usize_unsuffixed(inputs.trust_level);
+
+    let header_fn: syn::ImplItemFn = if let Some(_) = inputs.base_class_info {
+        parse_quote! {
+            #[inline(always)]
+            fn header(&self) -> &::windows_core::ComObjectHeader {
+                self.base().header()
+            }
+        }
+    } else {
+        parse_quote! {
+            #[inline(always)]
+            fn header(&self) -> &::windows_core::ComObjectHeader {
+                &self.header
+            }
+        }
+    };
+
+    let identity_interface_fn: syn::ImplItemFn = if let Some(ref base) = inputs.base_class_info {
+        let base_field = &base.field_ident;
+        parse_quote! {
+            fn identity_interface(&self) -> &&'static ::windows_core::IInspectable_Vtbl {
+                self.#base_field.identity_interface()
+            }
+        }
+    } else {
+        parse_quote! {
+            fn identity_interface(&self) -> &&'static ::windows_core::IInspectable_Vtbl {
+                &self.identity
+            }
+        }
+    };
 
     let mut output: syn::ItemImpl = parse_quote! {
         impl #generics ::windows_core::IUnknownImpl for #impl_ident::#generics where #constraints {
@@ -198,36 +283,22 @@ fn gen_iunknown_impl(inputs: &ImplementInputs) -> syn::Item {
                 self.this
             }
 
-            #[inline(always)]
-            fn AddRef(&self) -> u32 {
-                self.count.add_ref()
-            }
-
-            #[inline(always)]
-            unsafe fn Release(self_: *mut Self) -> u32 {
-                let remaining = (*self_).count.release();
-                if remaining == 0 {
-                    _ = ::windows_core::imp::Box::from_raw(self_);
-                }
-                remaining
-            }
-
-            #[inline(always)]
-            fn is_reference_count_one(&self) -> bool {
-                self.count.is_one()
-            }
+            #identity_interface_fn
+            #header_fn
 
             unsafe fn GetTrustLevel(&self, value: *mut i32) -> ::windows_core::HRESULT {
-                if value.is_null() {
-                    return ::windows_core::imp::E_POINTER;
+                unsafe {
+                    if value.is_null() {
+                        return ::windows_core::imp::E_POINTER;
+                    }
+                    *value = #trust_level;
+                    ::windows_core::HRESULT(0)
                 }
-                *value = #trust_level;
-                ::windows_core::HRESULT(0)
             }
 
             fn to_object(&self) -> ::windows_core::ComObject<Self::Impl> {
-                self.count.add_ref();
                 unsafe {
+                    self.count_field().add_ref();
                     ::windows_core::ComObject::from_raw(
                         ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self)
                     )
@@ -252,24 +323,6 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
     parse_quote! {
         impl #generics ::windows_core::ComObjectInner for #original_ident::#generics where #constraints {
             type Outer = #impl_ident::#generics;
-
-            // IMPORTANT! This function handles assembling the "boxed" type of a COM object.
-            // It immediately moves the box into a heap allocation (box) and returns only a ComObject
-            // reference that points to it. We intentionally _do not_ expose any owned instances of
-            // Foo_Impl to safe Rust code, because doing so would allow unsound behavior in safe Rust
-            // code, due to the adjustments of the reference count that Foo_Impl permits.
-            //
-            // This is why this function returns ComObject<Self> instead of returning #impl_ident.
-
-            fn into_object(self) -> ::windows_core::ComObject<Self> {
-                let boxed = ::windows_core::imp::Box::<#impl_ident::#generics>::new(self.into_outer());
-                unsafe {
-                    let ptr = ::windows_core::imp::Box::into_raw(boxed);
-                    ::windows_core::ComObject::from_raw(
-                        ::core::ptr::NonNull::new_unchecked(ptr)
-                    )
-                }
-            }
         }
     }
 }
@@ -306,20 +359,39 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
         quote!()
     };
 
-    let identity_query = quote! {
-        if iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID
-        || iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID
-        || iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
-            break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+    let base_query = if let Some(ref base) = inputs.base_class_info {
+        let base_field = &base.field_ident;
+        quote! {
+            if <_ as ::windows_core::IUnknownImpl>::QueryInterface(&self.#base_field, iid, interface).0 >= 0 {
+                return ::windows_core::HRESULT(0);
+            }
         }
+    } else {
+        quote!()
     };
 
-    let tear_off_query = quote! {
-        let tear_off_ptr = self.count.query(&iid, &self.identity as *const _ as *mut _);
-        if !tear_off_ptr.is_null() {
-            *interface = tear_off_ptr;
-            return ::windows_core::HRESULT(0);
+    let identity_query = if inputs.base_class_info.is_none() {
+        quote! {
+            if iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID
+            || iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID
+            || iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
+                break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+            }
         }
+    } else {
+        quote!()
+    };
+
+    let tear_off_query = if inputs.base_class_info.is_none() {
+        quote! {
+            let tear_off_ptr = count_field.query(&iid, &self.identity as *const _ as *mut _);
+            if !tear_off_ptr.is_null() {
+                *interface = tear_off_ptr;
+                return ::windows_core::HRESULT(0);
+            }
+        }
+    } else {
+        quote!()
     };
 
     parse_quote! {
@@ -329,11 +401,14 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
             interface: *mut *mut ::core::ffi::c_void,
         ) -> ::windows_core::HRESULT {
             unsafe {
+                #base_query
+
                 if iid.is_null() || interface.is_null() {
                     return ::windows_core::imp::E_POINTER;
                 }
 
                 let iid = *iid;
+                let count_field = <Self as ::windows_core::IUnknownImpl>::count_field(self);
 
                 let interface_ptr: *const ::core::ffi::c_void = 'found: {
                     #identity_query
@@ -347,59 +422,163 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
 
                 debug_assert!(!interface_ptr.is_null());
                 *interface = interface_ptr as *mut ::core::ffi::c_void;
-                self.count.add_ref();
+                count_field.add_ref();
                 return ::windows_core::HRESULT(0);
             }
         }
     }
 }
 
-/// Generates the `T::into_outer` function. This function is part of how we construct a
-/// `ComObject<T>` from a `T`.
+fn gen_impl_into_com_object(inputs: &ImplementInputs) -> syn::Item {
+    let original_ident = &inputs.original_type.ident;
+    let generics = &inputs.generics;
+    let constraints = &inputs.constraints;
+    let impl_ident = &inputs.impl_ident;
+
+    if let Some(ref base) = inputs.base_class_info {
+        let base_type = &base.field_ty;
+        parse_quote! {
+            impl #generics ::windows_core::IntoAggregatedComObject for #original_ident::#generics where #constraints {
+                type Base = #base_type;
+
+                // IMPORTANT! This function handles assembling the "boxed" type of a COM object.
+                // It immediately moves the box into a heap allocation (box) and returns only a ComObject
+                // reference that points to it. We intentionally _do not_ expose any owned instances of
+                // Foo_Impl to safe Rust code, because doing so would allow unsound behavior in safe Rust
+                // code, due to the adjustments of the reference count that Foo_Impl permits.
+                //
+                // This is why this function returns ComObject<Self> instead of returning #impl_ident.
+
+                unsafe fn into_object(self, base: <Self::Base as ComObjectInner>::Outer) -> ::windows_core::ComObject<Self> {
+                    unsafe {
+                        let boxed = ::windows_core::imp::Box::<#impl_ident::#generics>::new(self.into_outer(base));
+                        let ptr = ::windows_core::imp::Box::into_raw(boxed);
+                        ::windows_core::ComObject::from_raw(
+                            ::core::ptr::NonNull::new_unchecked(ptr)
+                        )
+                    }
+                }
+            }
+        }
+    } else {
+        parse_quote! {
+            impl #generics ::windows_core::IntoComObject for #original_ident::#generics where #constraints {
+                // IMPORTANT! This function handles assembling the "boxed" type of a COM object.
+                // It immediately moves the box into a heap allocation (box) and returns only a ComObject
+                // reference that points to it. We intentionally _do not_ expose any owned instances of
+                // Foo_Impl to safe Rust code, because doing so would allow unsound behavior in safe Rust
+                // code, due to the adjustments of the reference count that Foo_Impl permits.
+                //
+                // This is why this function returns ComObject<Self> instead of returning #impl_ident.
+
+                fn into_object(self) -> ::windows_core::ComObject<Self> {
+                    unsafe {
+                        let boxed = ::windows_core::imp::Box::<#impl_ident::#generics>::new(self.into_outer());
+                        let ptr = ::windows_core::imp::Box::into_raw(boxed);
+                        ::windows_core::ComObject::from_raw(
+                            ::core::ptr::NonNull::new_unchecked(ptr)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
 fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
     let generics = &inputs.generics;
     let impl_ident = &inputs.impl_ident;
 
-    let mut initializers = quote! {
-        identity: &#impl_ident::#generics::VTABLE_IDENTITY,
-    };
+    let mut vtbl_initializers = quote!();
+
+    if inputs.base_class_info.is_none() {
+        vtbl_initializers.extend(quote! {
+            identity: &#impl_ident::#generics::VTABLE_IDENTITY,
+        });
+    }
 
     for interface_chain in inputs.interface_chains.iter() {
         let vtbl_field_ident = &interface_chain.field_ident;
         let vtable_const_ident = &interface_chain.vtable_const_ident;
 
-        initializers.extend(quote_spanned! {
-            interface_chain.implement.span =>
+        vtbl_initializers.extend(quote! {
             #vtbl_field_ident: &#impl_ident::#generics::#vtable_const_ident,
         });
     }
 
-    // If the type is generic then into_outer() cannot be a const fn.
-    let maybe_const = if inputs.is_generic {
-        quote!()
+    if let Some(ref base) = inputs.base_class_info {
+        let base_type = &base.field_ty;
+        parse_quote! {
+            // This constructs an "outer" object. This should only be used by the implementation
+            // of the outer object, never by application code.
+            //
+            // The callers of this function (`into_static` and `into_object`) are both responsible
+            // for maintaining one of our invariants: Application code never has an owned instance
+            // of the outer (implementation) type. into_static() maintains this invariant by
+            // returning a wrapped StaticComObject value, which owns its contents but never gives
+            // application code a way to mutably access its contents. This prevents the refcount
+            // shearing problem.
+            //
+            // TODO: Make it impossible for app code to call this function, by placing it in a
+            // module and marking this as private to the module.
+            #[inline(always)]
+            const unsafe fn into_outer(
+                self,
+                base: <#base_type as ::windows_core::ComObjectInner>::Outer,
+            ) -> #impl_ident::#generics {
+                #impl_ident::#generics {
+                    #vtbl_initializers
+                    this: self,
+                    base,
+                }
+            }
+        }
     } else {
-        quote!(const)
-    };
+        // If the type is generic then into_outer() cannot be a const fn.
+        let maybe_const = if inputs.is_generic {
+            quote!()
+        } else {
+            quote!(const)
+        };
 
-    parse_quote! {
-        // This constructs an "outer" object. This should only be used by the implementation
-        // of the outer object, never by application code.
-        //
-        // The callers of this function (`into_static` and `into_object`) are both responsible
-        // for maintaining one of our invariants: Application code never has an owned instance
-        // of the outer (implementation) type. into_static() maintains this invariant by
-        // returning a wrapped StaticComObject value, which owns its contents but never gives
-        // application code a way to mutably access its contents. This prevents the refcount
-        // shearing problem.
-        //
-        // TODO: Make it impossible for app code to call this function, by placing it in a
-        // module and marking this as private to the module.
-        #[inline(always)]
-        #maybe_const fn into_outer(self) -> #impl_ident::#generics {
-            #impl_ident::#generics {
-                #initializers
-                count: ::windows_core::imp::WeakRefCount::new(),
-                this: self,
+        parse_quote! {
+            // This constructs an "outer" object. This should only be used by the implementation
+            // of the outer object, never by application code.
+            //
+            // The callers of this function (`into_static` and `into_object`) are both responsible
+            // for maintaining one of our invariants: Application code never has an owned instance
+            // of the outer (implementation) type. into_static() maintains this invariant by
+            // returning a wrapped StaticComObject value, which owns its contents but never gives
+            // application code a way to mutably access its contents. This prevents the refcount
+            // shearing problem.
+            //
+            // TODO: Make it impossible for app code to call this function, by placing it in a
+            // module and marking this as private to the module.
+            #[inline(always)]
+            #maybe_const unsafe fn into_outer(self) -> #impl_ident::#generics {
+                #impl_ident::#generics {
+                    header: ::windows_core::ComObjectHeader {
+                        count: ::windows_core::imp::WeakRefCount::new(),
+                        destructor: |this: *mut ::core::ffi::c_void| {
+                            unsafe {
+                                let self_ = this as *mut #impl_ident::#generics;
+                                _ = ::windows_core::imp::Box::from_raw(self_);
+                            }
+                        },
+                        query_interface: |
+                            this: *const ::core::ffi::c_void,
+                            iid: *const ::windows_core::GUID,
+                            interface: *mut *mut ::core::ffi::c_void,
+                        | -> ::windows_core::HRESULT {
+                            unsafe {
+                                let self_ = &*(this as *mut #impl_ident::#generics);
+                                <_ as ::windows_core::IUnknownImpl>::QueryInterface(self_, iid, interface)
+                            }
+                        }
+                    },
+                    #vtbl_initializers
+                    this: self,
+                }
             }
         }
     }
@@ -415,7 +594,9 @@ fn gen_into_static(inputs: &ImplementInputs) -> syn::ImplItem {
         /// into a `StaticComObject`. This allows the COM object to be stored in static
         /// (global) variables.
         pub const fn into_static(self) -> ::windows_core::StaticComObject<Self> {
-            ::windows_core::StaticComObject::from_outer(self.into_outer())
+            unsafe {
+                ::windows_core::StaticComObject::from_outer(self.into_outer())
+            }
         }
     }
 }
@@ -452,32 +633,10 @@ fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
     let generics = &inputs.generics;
     let constraints = &inputs.constraints;
 
-    items.push(parse_quote! {
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
-            #[inline(always)]
-            fn from(this: #original_ident::#generics) -> Self {
-                let com_object = ::windows_core::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-    });
-
-    items.push(parse_quote! {
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
-            #[inline(always)]
-            fn from(this: #original_ident::#generics) -> Self {
-                let com_object = ::windows_core::ComObject::new(this);
-                com_object.into_interface()
-            }
-        }
-    });
-
-    for interface_chain in inputs.interface_chains.iter() {
-        let interface_ident = interface_chain.implement.to_ident();
-
-        items.push(parse_quote_spanned! {
-            interface_chain.implement.span =>
-            impl #generics ::core::convert::From<#original_ident::#generics> for #interface_ident where #constraints {
+    // These conversions only work for non-aggregated types.
+    if inputs.base_class_info.is_none() {
+        items.push(parse_quote! {
+            impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
                 #[inline(always)]
                 fn from(this: #original_ident::#generics) -> Self {
                     let com_object = ::windows_core::ComObject::new(this);
@@ -485,6 +644,31 @@ fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
                 }
             }
         });
+
+        items.push(parse_quote! {
+            impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
+                #[inline(always)]
+                fn from(this: #original_ident::#generics) -> Self {
+                    let com_object = ::windows_core::ComObject::new(this);
+                    com_object.into_interface()
+                }
+            }
+        });
+
+        for interface_chain in inputs.interface_chains.iter() {
+            let interface_ident = interface_chain.implement.to_ident();
+
+            items.push(parse_quote_spanned! {
+            interface_chain.implement.span =>
+                impl #generics ::core::convert::From<#original_ident::#generics> for #interface_ident where #constraints {
+                    #[inline(always)]
+                    fn from(this: #original_ident::#generics) -> Self {
+                        let com_object = ::windows_core::ComObject::new(this);
+                        com_object.into_interface()
+                    }
+                }
+            });
+        }
     }
 
     items
@@ -507,7 +691,8 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
             #[inline(always)]
             fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
                 unsafe {
-                    let interface_ptr = &self.identity;
+                    let interface_ptr: &&'static ::windows_core::IInspectable_Vtbl =
+                        <_ as ::windows_core::IUnknownImpl>::identity_interface(self);
                     ::core::mem::transmute(interface_ptr)
                 }
             }
@@ -519,7 +704,8 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
             #[inline(always)]
             fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IInspectable> {
                 unsafe {
-                    let interface_ptr = &self.identity;
+                    let interface_ptr: &&'static ::windows_core::IInspectable_Vtbl =
+                        <_ as ::windows_core::IUnknownImpl>::identity_interface(self);
                     ::core::mem::transmute(interface_ptr)
                 }
             }
@@ -567,11 +753,11 @@ fn gen_impl_as_impl(
             #[inline(always)]
             unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<#original_ident::#generics> {
                 unsafe {
-                    let this = ::windows_core::Interface::as_raw(self);
-                    // Subtract away the vtable offset plus 1, for the `identity` field, to get
-                    // to the impl struct which contains that original implementation type.
-                    let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #interface_chain_index) as *mut #impl_ident::#generics;
-                    ::core::ptr::NonNull::new_unchecked(::core::ptr::addr_of!((*this).this) as *const #original_ident::#generics as *mut #original_ident::#generics)
+                let this = ::windows_core::Interface::as_raw(self);
+                // Subtract away the vtable offset plus 1, for the `identity` field, to get
+                // to the impl struct which contains that original implementation type.
+                let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #interface_chain_index) as *mut #impl_ident::#generics;
+                ::core::ptr::NonNull::new_unchecked(::core::ptr::addr_of!((*this).this) as *const #original_ident::#generics as *mut #original_ident::#generics)
                 }
             }
         }
