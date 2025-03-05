@@ -17,7 +17,7 @@ impl IBase_Impl for Base {
 }
 
 unsafe fn base_value(test: &IBase) -> i32 {
-    test.BaseValue()
+    unsafe { test.BaseValue() }
 }
 
 #[test]

@@ -40,7 +40,7 @@ impl ITest_Impl for Test_Impl {
         if input.is_none() {
             E_INVALIDARG
         } else {
-            self.interface(input, output)
+            unsafe { self.interface(input, output) }
         }
     }
 
@@ -48,7 +48,7 @@ impl ITest_Impl for Test_Impl {
         if output.is_null() {
             S_FALSE
         } else {
-            self.interface(input, output)
+            unsafe { self.interface(input, output) }
         }
     }
 
@@ -65,7 +65,7 @@ impl ITest_Impl for Test_Impl {
         if input.is_none() {
             E_INVALIDARG.ok()
         } else {
-            self.result_interface(input, output)
+            unsafe { self.result_interface(input, output) }
         }
     }
 }

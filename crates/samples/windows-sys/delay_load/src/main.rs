@@ -4,24 +4,26 @@ use windows_sys::{core::*, Win32::Foundation::*, Win32::System::LibraryLoader::*
 ///
 /// The `PCSTR` parameters need to be valid for reads up until and including the next `\0`.
 pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
-    let library = LoadLibraryExA(
-        library,
-        core::ptr::null_mut(),
-        LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
-    );
+    unsafe {
+        let library = LoadLibraryExA(
+            library,
+            core::ptr::null_mut(),
+            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
+        );
 
-    if library.is_null() {
-        return None;
+        if library.is_null() {
+            return None;
+        }
+
+        let address = GetProcAddress(library, function);
+
+        if address.is_some() {
+            return Some(std::mem::transmute_copy(&address));
+        }
+
+        FreeLibrary(library);
+        None
     }
-
-    let address = GetProcAddress(library, function);
-
-    if address.is_some() {
-        return Some(std::mem::transmute_copy(&address));
-    }
-
-    FreeLibrary(library);
-    None
 }
 
 fn main() {

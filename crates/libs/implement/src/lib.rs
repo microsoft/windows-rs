@@ -6,7 +6,8 @@
 
 use quote::{quote, ToTokens};
 
-mod gen;
+mod r#gen;
+use r#gen::gen_all;
 
 #[cfg(test)]
 mod tests;
@@ -75,7 +76,7 @@ fn implement_core(
         original_type,
     };
 
-    let items = gen::gen_all(&inputs);
+    let items = gen_all(&inputs);
     let mut tokens = inputs.original_type.into_token_stream();
     for item in items {
         tokens.extend(item.into_token_stream());

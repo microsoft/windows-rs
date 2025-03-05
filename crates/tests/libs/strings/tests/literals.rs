@@ -9,8 +9,19 @@ fn literals() -> Result<()> {
     const W: PCWSTR = w!("wide");
     assert_eq!(unsafe { W.to_string()? }, "wide");
 
-    const H: &HSTRING = h!("hstring");
-    assert_eq!(H, "hstring");
+    let h: &'static HSTRING = h!("hstring");
+    assert_eq!(h, "hstring");
 
     Ok(())
 }
+
+#[test]
+fn temporary() {
+    expect_pcstr(s!("ansi"));
+    expect_pcwstr(w!("wide"));
+    expect_hstring(h!("hstring"));
+}
+
+fn expect_hstring(_: &'static HSTRING) {}
+fn expect_pcwstr(_: PCWSTR) {}
+fn expect_pcstr(_: PCSTR) {}

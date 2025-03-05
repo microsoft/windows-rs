@@ -5,7 +5,7 @@ extern "C" {
 }
 
 unsafe fn to_string(s: PCWSTR) -> String {
-    String::from_utf16_lossy(std::slice::from_raw_parts(s, wcslen(s)))
+    unsafe { String::from_utf16_lossy(std::slice::from_raw_parts(s, wcslen(s))) }
 }
 
 #[test]

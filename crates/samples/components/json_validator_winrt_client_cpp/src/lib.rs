@@ -2,7 +2,7 @@
 
 #[test]
 fn test() {
-    extern "system" {
+    unsafe extern "system" {
         fn client();
     }
     unsafe {
