@@ -9,7 +9,7 @@ unsafe extern "system" fn CreateJsonValidator(
     schema_len: usize,
     handle: *mut usize,
 ) -> HRESULT {
-    create_validator(schema, schema_len, handle).into()
+    unsafe { create_validator(schema, schema_len, handle).into() }
 }
 
 // Validates a JSON value against a previously-compiled schema.
@@ -21,39 +21,45 @@ unsafe extern "system" fn ValidateJson(
     sanitized_value: *mut *mut u8,
     sanitized_value_len: *mut usize,
 ) -> HRESULT {
-    validate(
-        handle,
-        value,
-        value_len,
-        sanitized_value,
-        sanitized_value_len,
-    )
-    .into()
+    unsafe {
+        validate(
+            handle,
+            value,
+            value_len,
+            sanitized_value,
+            sanitized_value_len,
+        )
+        .into()
+    }
 }
 
 // Closes a JSON validator object.
 #[no_mangle]
 unsafe extern "system" fn CloseJsonValidator(handle: usize) {
-    if handle != 0 {
-        _ = Box::from_raw(handle as *mut Validator);
+    unsafe {
+        if handle != 0 {
+            _ = Box::from_raw(handle as *mut Validator);
+        }
     }
 }
 
 // Implementation of the `CreateJsonValidator` function so we can use `Result` for simplicity.
 unsafe fn create_validator(schema: *const u8, schema_len: usize, handle: *mut usize) -> Result<()> {
-    let schema = json_from_raw_parts(schema, schema_len)?;
+    unsafe {
+        let schema = json_from_raw_parts(schema, schema_len)?;
 
-    let compiled =
-        Validator::new(&schema).map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
+        let compiled =
+            Validator::new(&schema).map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
 
-    if handle.is_null() {
-        return Err(E_POINTER.into());
+        if handle.is_null() {
+            return Err(E_POINTER.into());
+        }
+
+        // The handle is not null so we can safely dereference it here.
+        *handle = Box::into_raw(Box::new(compiled)) as usize;
+
+        Ok(())
     }
-
-    // The handle is not null so we can safely dereference it here.
-    *handle = Box::into_raw(Box::new(compiled)) as usize;
-
-    Ok(())
 }
 
 // Implementation of the `ValidateJson` function so we can use `Result` for simplicity.
@@ -64,56 +70,60 @@ unsafe fn validate(
     sanitized_value: *mut *mut u8,
     sanitized_value_len: *mut usize,
 ) -> Result<()> {
-    if handle == 0 {
-        return Err(E_HANDLE.into());
-    }
+    unsafe {
+        if handle == 0 {
+            return Err(E_HANDLE.into());
+        }
 
-    let value = json_from_raw_parts(value, value_len)?;
+        let value = json_from_raw_parts(value, value_len)?;
 
-    // This looks a bit tricky but we're just turning the opaque handle into `Validator` pointer
-    // and then returning a reference to avoid taking ownership of it.
-    let schema = &*(handle as *const Validator);
+        // This looks a bit tricky but we're just turning the opaque handle into `Validator` pointer
+        // and then returning a reference to avoid taking ownership of it.
+        let schema = &*(handle as *const Validator);
 
-    if schema.is_valid(&value) {
-        if !sanitized_value.is_null() && !sanitized_value_len.is_null() {
-            let value = value.to_string();
+        if schema.is_valid(&value) {
+            if !sanitized_value.is_null() && !sanitized_value_len.is_null() {
+                let value = value.to_string();
 
-            *sanitized_value = CoTaskMemAlloc(value.len()) as _;
+                *sanitized_value = CoTaskMemAlloc(value.len()) as _;
 
-            if (*sanitized_value).is_null() {
-                return Err(E_OUTOFMEMORY.into());
+                if (*sanitized_value).is_null() {
+                    return Err(E_OUTOFMEMORY.into());
+                }
+
+                (*sanitized_value).copy_from(value.as_ptr(), value.len());
+                *sanitized_value_len = value.len();
             }
 
-            (*sanitized_value).copy_from(value.as_ptr(), value.len());
-            *sanitized_value_len = value.len();
+            Ok(())
+        } else {
+            let mut message = String::new();
+
+            // The `validate` method returns a collection of errors. We'll just return the first
+            // for simplicity.
+            if let Some(error) = schema.validate(&value).unwrap_err().next() {
+                message = error.to_string();
+            }
+
+            Err(Error::new(E_INVALIDARG, message))
         }
-
-        Ok(())
-    } else {
-        let mut message = String::new();
-
-        // The `validate` method returns a collection of errors. We'll just return the first
-        // for simplicity.
-        if let Some(error) = schema.validate(&value).unwrap_err().next() {
-            message = error.to_string();
-        }
-
-        Err(Error::new(E_INVALIDARG, message))
     }
 }
 
 // Takes care of all the JSON parsing and parameter validation.
 unsafe fn json_from_raw_parts(value: *const u8, value_len: usize) -> Result<serde_json::Value> {
-    if value.is_null() {
-        return Err(E_POINTER.into());
+    unsafe {
+        if value.is_null() {
+            return Err(E_POINTER.into());
+        }
+
+        let value = std::slice::from_raw_parts(value, value_len);
+
+        let value =
+            std::str::from_utf8(value).map_err(|_| Error::from(ERROR_NO_UNICODE_TRANSLATION))?;
+
+        serde_json::from_str(value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")))
     }
-
-    let value = std::slice::from_raw_parts(value, value_len);
-
-    let value =
-        std::str::from_utf8(value).map_err(|_| Error::from(ERROR_NO_UNICODE_TRANSLATION))?;
-
-    serde_json::from_str(value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")))
 }
 
 #[test]

@@ -109,7 +109,7 @@ impl CppConst {
             }
         } else if let Some(attribute) = self.field.find_attribute("ConstantAttribute") {
             let args = attribute.args();
-            let Some((_, Value::Str(mut input))) = args.first() else {
+            let Some(&(_, Value::Str(mut input))) = args.first() else {
                 panic!()
             };
 

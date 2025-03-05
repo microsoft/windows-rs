@@ -10,8 +10,10 @@ unsafe fn as_mut_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
     let mut data = std::ptr::null_mut();
     let mut len = 0;
 
-    interop.GetBuffer(&mut data, &mut len)?;
-    Ok(std::slice::from_raw_parts_mut(data, len as usize))
+    unsafe {
+        interop.GetBuffer(&mut data, &mut len)?;
+        Ok(std::slice::from_raw_parts_mut(data, len as usize))
+    }
 }
 
 fn main() -> Result<()> {
