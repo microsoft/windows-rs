@@ -239,6 +239,8 @@ jobs:
         run:  cargo test -p test_linux --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_literals
         run:  cargo test -p test_literals --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_marshal
+        run:  cargo test -p test_marshal --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_match
         run:  cargo test -p test_match --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_metadata
@@ -257,10 +259,10 @@ jobs:
         run:  cargo test -p test_numerics --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_overloads
         run:  cargo test -p test_overloads --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_overloads_client
-        run:  cargo test -p test_overloads_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_overloads_client
+        run:  cargo test -p test_overloads_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_query_signature
         run:  cargo test -p test_query_signature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_readme
@@ -359,10 +361,10 @@ jobs:
         run:  cargo test -p windows-numerics --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-registry
         run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows-result
-        run:  cargo test -p windows-result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows-result
+        run:  cargo test -p windows-result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-strings
         run:  cargo test -p windows-strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-sys

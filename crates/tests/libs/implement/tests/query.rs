@@ -1,4 +1,7 @@
-use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*, Win32::System::Com::*, Win32::System::Com::Marshal::*};
+use windows::{
+    core::*, Foundation::*, Win32::Foundation::*, Win32::System::Com::Marshal::*,
+    Win32::System::Com::*, Win32::System::WinRT::*,
+};
 
 #[implement(IStringable)]
 struct Stringable;
