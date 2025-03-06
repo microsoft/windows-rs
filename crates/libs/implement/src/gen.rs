@@ -315,6 +315,7 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
     };
 
     let marshal_query = quote! {
+        #[cfg(windows)]
         if iid == <::windows_core::imp::IMarshal as ::windows_core::Interface>::IID {
             return ::windows_core::imp::marshaler(self.to_interface(), interface);
         }

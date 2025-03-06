@@ -215,10 +215,13 @@ impl TearOff {
                 || *iid == IAgileObject::IID
             {
                 ptr
-            } else if *iid == IMarshal::IID {
-                this.weak_count.add_ref();
-                return marshaler(transmute::<*mut c_void, IUnknown>(ptr), interface);
             } else {
+                #[cfg(windows)]
+                if *iid == IMarshal::IID {
+                    this.weak_count.add_ref();
+                    return marshaler(transmute::<*mut c_void, IUnknown>(ptr), interface);
+                }
+
                 null_mut()
             };
 
