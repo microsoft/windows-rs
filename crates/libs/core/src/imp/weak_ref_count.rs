@@ -1,5 +1,5 @@
 use super::*;
-use crate::Interface;
+use crate::{IUnknown, IUnknown_Vtbl, Interface, GUID, HRESULT};
 use core::ffi::c_void;
 use core::mem::{transmute, transmute_copy};
 use core::ptr::null_mut;
@@ -49,7 +49,7 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: &crate::GUID, object: *mut c_void) -> *mut c_void {
+    pub unsafe fn query(&self, iid: &GUID, object: *mut c_void) -> *mut c_void {
         unsafe {
             if iid != &IWeakReferenceSource::IID {
                 return null_mut();
@@ -129,7 +129,7 @@ impl TearOff {
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl {
-        base__: crate::IUnknown_Vtbl {
+        base__: IUnknown_Vtbl {
             QueryInterface: Self::StrongQueryInterface,
             AddRef: Self::StrongAddRef,
             Release: Self::StrongRelease,
@@ -138,7 +138,7 @@ impl TearOff {
     };
 
     const WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl {
-        base__: crate::IUnknown_Vtbl {
+        base__: IUnknown_Vtbl {
             QueryInterface: Self::WeakQueryInterface,
             AddRef: Self::WeakAddRef,
             Release: Self::WeakRelease,
@@ -158,13 +158,9 @@ impl TearOff {
         unsafe { transmute(value << 1) }
     }
 
-    unsafe fn query_interface(
-        &self,
-        iid: *const crate::GUID,
-        interface: *mut *mut c_void,
-    ) -> crate::HRESULT {
+    unsafe fn query_interface(&self, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT {
         unsafe {
-            ((*(*(self.object as *mut *mut crate::IUnknown_Vtbl))).QueryInterface)(
+            ((*(*(self.object as *mut *mut IUnknown_Vtbl))).QueryInterface)(
                 self.object,
                 iid,
                 interface,
@@ -174,9 +170,9 @@ impl TearOff {
 
     unsafe extern "system" fn StrongQueryInterface(
         ptr: *mut c_void,
-        iid: *const crate::GUID,
+        iid: *const GUID,
         interface: *mut *mut c_void,
-    ) -> crate::HRESULT {
+    ) -> HRESULT {
         unsafe {
             let this = Self::from_strong_ptr(ptr);
 
@@ -189,7 +185,7 @@ impl TearOff {
             if *iid == IWeakReferenceSource::IID {
                 *interface = ptr;
                 this.strong_count.add_ref();
-                return crate::HRESULT(0);
+                return HRESULT(0);
             }
 
             // As the tear-off is sharing the identity of the object, simply delegate any remaining
@@ -200,9 +196,9 @@ impl TearOff {
 
     unsafe extern "system" fn WeakQueryInterface(
         ptr: *mut c_void,
-        iid: *const crate::GUID,
+        iid: *const GUID,
         interface: *mut *mut c_void,
-    ) -> crate::HRESULT {
+    ) -> HRESULT {
         unsafe {
             let this = Self::from_weak_ptr(ptr);
 
@@ -215,10 +211,13 @@ impl TearOff {
             // the object.
 
             *interface = if *iid == IWeakReference::IID
-                || *iid == crate::IUnknown::IID
+                || *iid == IUnknown::IID
                 || *iid == IAgileObject::IID
             {
                 ptr
+            } else if *iid == IMarshal::IID {
+                this.weak_count.add_ref();
+                return marshaler(transmute::<*mut c_void, IUnknown>(ptr), interface);
             } else {
                 null_mut()
             };
@@ -227,7 +226,7 @@ impl TearOff {
                 E_NOINTERFACE
             } else {
                 this.weak_count.add_ref();
-                crate::HRESULT(0)
+                HRESULT(0)
             }
         }
     }
@@ -256,7 +255,7 @@ impl TearOff {
 
             // Forward strong `Release` to the object so that it can destroy itself. It will then
             // decrement its weak reference and allow the tear-off to be released as needed.
-            ((*(*(this.object as *mut *mut crate::IUnknown_Vtbl))).Release)(this.object)
+            ((*(*(this.object as *mut *mut IUnknown_Vtbl))).Release)(this.object)
         }
     }
 
@@ -280,7 +279,7 @@ impl TearOff {
     unsafe extern "system" fn StrongDowngrade(
         ptr: *mut c_void,
         interface: *mut *mut c_void,
-    ) -> crate::HRESULT {
+    ) -> HRESULT {
         unsafe {
             let this = Self::from_strong_ptr(ptr);
 
@@ -289,15 +288,15 @@ impl TearOff {
             // reference.
             *interface = &mut this.weak_vtable as *mut _ as _;
             this.weak_count.add_ref();
-            crate::HRESULT(0)
+            HRESULT(0)
         }
     }
 
     unsafe extern "system" fn WeakUpgrade(
         ptr: *mut c_void,
-        iid: *const crate::GUID,
+        iid: *const GUID,
         interface: *mut *mut c_void,
-    ) -> crate::HRESULT {
+    ) -> HRESULT {
         unsafe {
             let this = Self::from_weak_ptr(ptr);
 
@@ -318,7 +317,7 @@ impl TearOff {
                 })
                 .unwrap_or_else(|_| {
                     *interface = null_mut();
-                    crate::HRESULT(0)
+                    HRESULT(0)
                 })
         }
     }

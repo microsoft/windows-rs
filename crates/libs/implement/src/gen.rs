@@ -314,6 +314,12 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
         }
     };
 
+    let marshal_query = quote! {
+        if iid == <::windows_core::imp::IMarshal as ::windows_core::Interface>::IID {
+            return ::windows_core::imp::marshaler(self.to_interface(), interface);
+        }
+    };
+
     let tear_off_query = quote! {
         let tear_off_ptr = self.count.query(&iid, &self.identity as *const _ as *mut _);
         if !tear_off_ptr.is_null() {
@@ -338,6 +344,7 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
                 let interface_ptr: *const ::core::ffi::c_void = 'found: {
                     #identity_query
                     #(#queries)*
+                    #marshal_query
                     #dynamic_cast_query
                     #tear_off_query
 

@@ -20,4 +20,5 @@
     REGDB_E_CLASSNOTREG
     RoGetAgileReference
     RPC_E_DISCONNECTED
+    S_OK
     TYPE_E_TYPEMISMATCH

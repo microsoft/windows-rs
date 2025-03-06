@@ -40,7 +40,7 @@ impl<C: crate::RuntimeName, I: Interface> FactoryCache<C, I> {
             }
 
             // Otherwise, we load the factory the usual way.
-            let factory = factory::<C, I>()?;
+            let factory = load_factory::<C, I>()?;
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
@@ -70,7 +70,7 @@ unsafe impl<C, I> Sync for FactoryCache<C, I> {}
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.
-pub fn factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
+pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
     let mut factory: Option<I> = None;
     let name = crate::HSTRING::from(C::NAME);
 
