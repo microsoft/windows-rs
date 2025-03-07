@@ -1,4 +1,7 @@
-use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{
+    core::*, Foundation::*, Win32::Foundation::*, Win32::System::Com::Marshal::*,
+    Win32::System::Com::*, Win32::System::WinRT::*,
+};
 
 #[implement(IStringable)]
 struct Stringable;
@@ -58,6 +61,12 @@ fn test_query<I: Interface>(interface: &I) {
         {
             let hr = interface.query(&IUnknown::IID, std::ptr::null_mut());
             assert_eq!(hr, E_POINTER);
+        }
+
+        // Implementations support IAgileObject and IMarshal
+        {
+            interface.cast::<IAgileObject>().expect("IAgileObject");
+            interface.cast::<IMarshal>().expect("IMarshal");
         }
     }
 }

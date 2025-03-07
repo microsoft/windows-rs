@@ -121,6 +121,12 @@ impl<
                 || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
             {
                 &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
             } else {
                 core::ptr::null_mut()
             };

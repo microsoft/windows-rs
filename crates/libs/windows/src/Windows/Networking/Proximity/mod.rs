@@ -60,7 +60,14 @@ impl<F: FnMut(windows_core::Ref<'_, ProximityDevice>) -> windows_core::Result<()
             if iid.is_null() || interface.is_null() {
                 return windows_core::HRESULT(-2147467261);
             }
-            *interface = if *iid == <DeviceArrivedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            *interface = if *iid == <DeviceArrivedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+            } else {
+                core::ptr::null_mut()
+            };
             if (*interface).is_null() {
                 windows_core::HRESULT(-2147467262)
             } else {
@@ -129,7 +136,14 @@ impl<F: FnMut(windows_core::Ref<'_, ProximityDevice>) -> windows_core::Result<()
             if iid.is_null() || interface.is_null() {
                 return windows_core::HRESULT(-2147467261);
             }
-            *interface = if *iid == <DeviceDepartedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            *interface = if *iid == <DeviceDepartedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+            } else {
+                core::ptr::null_mut()
+            };
             if (*interface).is_null() {
                 windows_core::HRESULT(-2147467262)
             } else {
@@ -391,7 +405,14 @@ impl<F: FnMut(windows_core::Ref<'_, ProximityDevice>, windows_core::Ref<'_, Prox
             if iid.is_null() || interface.is_null() {
                 return windows_core::HRESULT(-2147467261);
             }
-            *interface = if *iid == <MessageReceivedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            *interface = if *iid == <MessageReceivedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+            } else {
+                core::ptr::null_mut()
+            };
             if (*interface).is_null() {
                 windows_core::HRESULT(-2147467262)
             } else {
@@ -460,7 +481,14 @@ impl<F: FnMut(windows_core::Ref<'_, ProximityDevice>, i64) -> windows_core::Resu
             if iid.is_null() || interface.is_null() {
                 return windows_core::HRESULT(-2147467261);
             }
-            *interface = if *iid == <MessageTransmittedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { core::ptr::null_mut() };
+            *interface = if *iid == <MessageTransmittedHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void), interface);
+            } else {
+                core::ptr::null_mut()
+            };
             if (*interface).is_null() {
                 windows_core::HRESULT(-2147467262)
             } else {

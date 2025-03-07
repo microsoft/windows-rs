@@ -260,4 +260,5 @@ impl windows_core::RuntimeName for IWeakReferenceSource {}
 pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0x89020001_u32 as _);
 pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
 pub const RPC_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80010108_u32 as _);
+pub const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);
 pub const TYPE_E_TYPEMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0x80028CA0_u32 as _);
