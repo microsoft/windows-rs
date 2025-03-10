@@ -52,6 +52,8 @@ macro_rules! h {
                     padding1: 0,
                     padding2: 0,
                     ptr: OUTPUT.as_ptr(),
+                    padding3: 0,
+                    padding4: 0,
                 };
                 // SAFETY: an `HSTRING` is exactly equivalent to a pointer to an `HSTRING_HEADER`
                 unsafe {
@@ -136,6 +138,8 @@ pub struct HSTRING_HEADER {
     pub padding1: u32,
     pub padding2: u32,
     pub ptr: *const u16,
+    pub padding3: i32,
+    pub padding4: u16,
 }
 
 #[doc(hidden)]
