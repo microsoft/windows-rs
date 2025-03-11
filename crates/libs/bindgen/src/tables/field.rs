@@ -23,7 +23,8 @@ impl Field {
 
     pub fn ty(&self, enclosing: Option<&CppStruct>) -> Type {
         let mut blob = self.blob(2);
-        blob.read_usize();
+        let prolog = blob.read_u8();
+        debug_assert_eq!(prolog, 0x6);
         blob.read_modifiers();
 
         let ty = Type::from_blob(&mut blob, enclosing, &[]);
