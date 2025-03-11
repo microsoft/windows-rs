@@ -6,3 +6,6 @@ pub use generic_factory::*;
 
 mod bindings;
 pub use bindings::*;
+
+mod marshaler;
+pub use marshaler::*;

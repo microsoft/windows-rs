@@ -61,8 +61,10 @@ struct PersistState {
 
 impl ICustomPersist_Impl for Persist_Impl {
     unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT {
-        *clsid = "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into().unwrap();
-        S_OK
+        unsafe {
+            *clsid = "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into().unwrap();
+            S_OK
+        }
     }
 }
 
@@ -79,7 +81,9 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
     unsafe fn Load(&self, input: *const core::ffi::c_void, size: u32) -> HRESULT {
         let mut writer = self.0.write().unwrap();
         if size <= writer.memory.len() as u32 {
-            std::ptr::copy(input, writer.memory.as_mut_ptr() as _, size as usize);
+            unsafe {
+                std::ptr::copy(input, writer.memory.as_mut_ptr() as _, size as usize);
+            }
             writer.dirty = true;
             S_OK
         } else {
@@ -90,7 +94,9 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
     unsafe fn Save(&self, output: *mut core::ffi::c_void, clear_dirty: BOOL, size: u32) -> HRESULT {
         let mut writer = self.0.write().unwrap();
         if size <= writer.memory.len() as u32 {
-            std::ptr::copy(writer.memory.as_mut_ptr() as _, output, size as usize);
+            unsafe {
+                std::ptr::copy(writer.memory.as_mut_ptr() as _, output, size as usize);
+            }
             if clear_dirty.as_bool() {
                 writer.dirty = false;
             }
@@ -102,7 +108,9 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
 
     unsafe fn GetSizeMax(&self, len: *mut u32) -> HRESULT {
         let reader = self.0.read().unwrap();
-        *len = reader.memory.len() as u32;
+        unsafe {
+            *len = reader.memory.len() as u32;
+        }
         S_OK
     }
 

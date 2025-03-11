@@ -41,8 +41,7 @@ macro_rules! h {
     ($s:literal) => {{
         const INPUT: &[u8] = $s.as_bytes();
         const OUTPUT_LEN: usize = $crate::utf16_len(INPUT) + 1;
-        #[allow(clippy::declare_interior_mutable_const)]
-        const RESULT: $crate::HSTRING = {
+        static RESULT: $crate::HSTRING = {
             if OUTPUT_LEN == 1 {
                 unsafe { ::core::mem::transmute(::core::ptr::null::<u16>()) }
             } else {
@@ -53,6 +52,8 @@ macro_rules! h {
                     padding1: 0,
                     padding2: 0,
                     ptr: OUTPUT.as_ptr(),
+                    padding3: 0,
+                    padding4: 0,
                 };
                 // SAFETY: an `HSTRING` is exactly equivalent to a pointer to an `HSTRING_HEADER`
                 unsafe {
@@ -60,7 +61,6 @@ macro_rules! h {
                 }
             }
         };
-        #[allow(clippy::borrow_interior_mutable_const)]
         &RESULT
     }};
 }
@@ -138,6 +138,8 @@ pub struct HSTRING_HEADER {
     pub padding1: u32,
     pub padding2: u32,
     pub ptr: *const u16,
+    pub padding3: i32,
+    pub padding4: u16,
 }
 
 #[doc(hidden)]

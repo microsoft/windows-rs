@@ -17,7 +17,7 @@ impl ITest_Impl for Test_Impl {
         Ok(())
     }
     unsafe fn TestOther(&self, other: Ref<ITest>, result: &mut i32) -> Result<()> {
-        other.ok()?.Test(result)
+        unsafe { other.ok()?.Test(result) }
     }
 }
 

@@ -1,5 +1,5 @@
 [package]
-name = "test_matrix3x2"
+name = "test_numerics"
 version = "0.0.0"
 edition = "2021"
 publish = false

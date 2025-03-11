@@ -14,7 +14,7 @@ struct Test {
 
 impl ITest_Impl for Test_Impl {
     unsafe fn Test(&self) -> u32 {
-        *self.drop
+        unsafe { *self.drop }
     }
 }
 
