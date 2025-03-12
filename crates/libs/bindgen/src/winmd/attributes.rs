@@ -49,9 +49,13 @@ impl MethodAttributes {
     pub const SpecialName: Self = Self(0x800);
 }
 
+flags!(MethodImplAttributes, u16);
+impl MethodImplAttributes {}
+
 // These are not really ECMA-335 attributes but instead the flags found in the method signature.
 flags!(MethodCallAttributes, u8);
 impl MethodCallAttributes {
+    pub const HASTHIS: Self = Self(0x20);
     pub const VARARG: Self = Self(0x05);
 }
 

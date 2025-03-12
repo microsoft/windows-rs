@@ -44,7 +44,7 @@ impl TypeDef {
     pub fn generics(&self) -> Vec<Type> {
         self.file()
             .equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
-            .map(|generic: GenericParam| Type::Generic(generic.name()))
+            .map(|generic: GenericParam| Type::Generic(generic))
             .collect()
     }
 

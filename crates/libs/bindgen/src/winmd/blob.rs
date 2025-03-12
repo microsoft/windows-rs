@@ -5,6 +5,12 @@ pub struct Blob {
     slice: &'static [u8],
 }
 
+impl std::fmt::Debug for Blob {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.slice)
+    }
+}
+
 impl std::ops::Deref for Blob {
     type Target = [u8];
 

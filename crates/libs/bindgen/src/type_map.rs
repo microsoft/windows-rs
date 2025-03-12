@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Default, Clone, Debug, PartialEq, Eq)]
 pub struct TypeMap(HashMap<TypeName, HashSet<Type>>);
 
 pub trait Dependencies {

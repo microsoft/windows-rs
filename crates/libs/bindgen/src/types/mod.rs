@@ -42,7 +42,7 @@ pub enum Type {
     CppStruct(CppStruct),
     CppConst(CppConst),
 
-    Generic(&'static str),
+    Generic(GenericParam),
     PtrMut(Box<Self>, usize),
     PtrConst(Box<Self>, usize),
     ArrayFixed(Box<Self>, usize),
@@ -293,13 +293,13 @@ impl Type {
 
     #[track_caller]
     fn from_blob_impl(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
-        let code = blob.read_usize();
+        let code = blob.read_u8();
 
-        if let Some(code) = Self::from_element_type(code) {
+        if let Some(code) = Self::from_element_type(code as usize) {
             return code;
         }
 
-        match code as u8 {
+        match code {
             ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => {
                 Self::from_ref(blob.decode(), enclosing, generics)
             }
@@ -315,7 +315,12 @@ impl Type {
                 Self::ArrayFixed(Box::new(kind), bounds)
             }
             ELEMENT_TYPE_GENERICINST => {
-                blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
+                let type_code = blob.read_u8();
+
+                debug_assert!(matches!(
+                    type_code,
+                    ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS
+                ));
 
                 let code = blob.decode::<TypeDefOrRef>();
                 let code_name = code.type_name();
@@ -459,7 +464,7 @@ impl Type {
             Self::CppDelegate(ty) => ty.write_name(writer),
             Self::Delegate(ty) => ty.write_name(writer),
             Self::Class(ty) => ty.write_name(writer),
-            Self::Generic(param) => to_ident(param),
+            Self::Generic(param) => to_ident(param.name()),
             Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
                 let ty = ty.write_default(writer);
@@ -541,7 +546,7 @@ impl Type {
                 quote! { [#name; #len] }
             }
             Self::Generic(name) => {
-                let name = to_ident(name);
+                let name = to_ident(name.name());
                 quote! { windows_core::AbiType<#name> }
             }
             Self::Struct(ty) => {

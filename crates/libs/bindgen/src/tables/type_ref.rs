@@ -15,7 +15,7 @@ impl TypeRef {
         trim_tick(self.str(1))
     }
 
-    fn namespace(&self) -> &'static str {
+    pub fn namespace(&self) -> &'static str {
         self.str(2)
     }
 }

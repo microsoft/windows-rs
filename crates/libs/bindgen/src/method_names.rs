@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Default)]
 pub struct MethodNames(HashMap<String, u32>);
 
 impl MethodNames {
