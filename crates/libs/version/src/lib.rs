@@ -35,20 +35,17 @@ impl OsVersion {
     /// Gets the version information of the currently running operating system.
     #[cfg(not(test))]
     pub fn current() -> Self {
+        let mut info = OSVERSIONINFOEXW::new();
+
         unsafe {
-            let mut info = OSVERSIONINFOEXW {
-                dwOSVersionInfoSize: core::mem::size_of::<OSVERSIONINFOEXW>() as u32,
-                ..core::mem::zeroed()
-            };
-
             RtlGetVersion(&mut info as *mut _ as *mut _);
+        }
 
-            OsVersion {
-                major: info.dwMajorVersion,
-                minor: info.dwMinorVersion,
-                pack: info.wServicePackMajor as u32,
-                build: info.dwBuildNumber,
-            }
+        OsVersion {
+            major: info.dwMajorVersion,
+            minor: info.dwMinorVersion,
+            pack: info.wServicePackMajor as u32,
+            build: info.dwBuildNumber,
         }
     }
 
@@ -61,14 +58,21 @@ impl OsVersion {
 
 /// Determines if the currently running operating system is a Windows Server release.
 pub fn is_server() -> bool {
-    unsafe {
-        let mut info = OSVERSIONINFOEXW {
-            dwOSVersionInfoSize: core::mem::size_of::<OSVERSIONINFOEXW>() as u32,
-            ..core::mem::zeroed()
-        };
+    let mut info = OSVERSIONINFOEXW::new();
 
+    unsafe {
         RtlGetVersion(&mut info as *mut _ as *mut _);
-        info.wProductType as u32 != VER_NT_WORKSTATION
+    }
+
+    info.wProductType as u32 != VER_NT_WORKSTATION
+}
+
+impl OSVERSIONINFOEXW {
+    fn new() -> Self {
+        Self {
+            dwOSVersionInfoSize: core::mem::size_of::<Self>() as u32,
+            ..Default::default()
+        }
     }
 }
 
