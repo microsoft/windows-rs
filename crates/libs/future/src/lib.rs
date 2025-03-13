@@ -9,12 +9,12 @@
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 mod bindings;
-mod bindings_impl;
+mod bindings_sys;
 mod get;
 mod waiter;
 
 pub use bindings::*;
-use bindings_impl::*;
+use bindings_sys::*;
 use waiter::*;
 use windows_core::*;
 

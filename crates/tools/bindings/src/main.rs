@@ -3,8 +3,8 @@ use windows_bindgen::*;
 fn main() {
     let time = std::time::Instant::now();
 
-    bindgen(["--etc", "crates/tools/bindings/src/async.txt"]).unwrap();
-    bindgen(["--etc", "crates/tools/bindings/src/async_impl.txt"]).unwrap();
+    bindgen(["--etc", "crates/tools/bindings/src/future.txt"]).unwrap();
+    bindgen(["--etc", "crates/tools/bindings/src/future_sys.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/collections.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/core_com.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/core.txt"]).unwrap();
