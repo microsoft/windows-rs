@@ -1,6 +1,0 @@
---out crates/libs/collections/src/bindings_impl.rs
---flat
---no-comment
-
---filter
-    E_BOUNDS

@@ -6,9 +6,7 @@ mod bindings;
 pub use bindings::*;
 
 #[cfg(feature = "std")]
-mod bindings_impl;
-#[cfg(feature = "std")]
-use bindings_impl::*;
+const E_BOUNDS: windows_core::HRESULT = windows_core::HRESULT(0x8000000B_u32 as _);
 
 #[cfg(feature = "std")]
 mod iterable;
