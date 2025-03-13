@@ -36,10 +36,7 @@ where
     V::Default: Clone,
 {
     fn Lookup(&self, key: Ref<'_, K>) -> Result<V> {
-        let value = self
-            .map
-            .get(&*key)
-            .ok_or_else(|| Error::from(imp::E_BOUNDS))?;
+        let value = self.map.get(&*key).ok_or_else(|| Error::from(E_BOUNDS))?;
 
         V::from_default(value)
     }
@@ -92,7 +89,7 @@ where
             })
             .into_interface())
         } else {
-            Err(Error::from(imp::E_BOUNDS))
+            Err(Error::from(E_BOUNDS))
         }
     }
 

@@ -46,7 +46,7 @@ where
         if self.owner.values.len() > current {
             T::from_default(&owner.values[current])
         } else {
-            Err(Error::from(imp::E_BOUNDS))
+            Err(Error::from(E_BOUNDS))
         }
     }
 

@@ -5,16 +5,12 @@
 --flat --sys --no-comment --no-deps
 
 --filter
-    CloseHandle
     CoIncrementMTAUsage
     CoTaskMemAlloc
     CoTaskMemFree
-    CreateEventW
     EncodePointer
     FreeLibrary
     GetProcAddress
     LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
     LoadLibraryExA
     RoGetActivationFactory
-    SetEvent
-    WaitForSingleObject
