@@ -5,7 +5,9 @@
 mod bindings;
 pub use bindings::*;
 
+#[cfg(feature = "std")]
 mod bindings_impl;
+#[cfg(feature = "std")]
 use bindings_impl::*;
 
 #[cfg(feature = "std")]
