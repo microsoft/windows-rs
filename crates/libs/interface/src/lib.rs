@@ -431,7 +431,7 @@ impl Interface {
         }
     }
 
-    /// Gets the parent trait constrait which is nothing if the parent is IUnknown
+    /// Gets the parent trait constraint which is nothing if the parent is IUnknown
     fn parent_trait_constraint(&self) -> proc_macro2::TokenStream {
         if let Some((ident, path)) = self.parent_path().split_last() {
             if ident != "IUnknown" {
