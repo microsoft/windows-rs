@@ -10,27 +10,18 @@ repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
 
+[dependencies]
+windows-link = { workspace = true }
+windows-result = { workspace = true }
+windows-strings = { workspace = true }
+
+[features]
+default = ["std"]
+std = ["windows-result/std", "windows-strings/std"]
+
 [lints]
 workspace = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-
-[dependencies.windows-link]
-version = "0.1.0"
-path = "../link"
-
-[dependencies.windows-result]
-version = "0.3.1"
-path = "../result"
-default-features = false
-
-[dependencies.windows-strings]
-version = "0.3.1"
-path = "../strings"
-default-features = false
-
-[features]
-default = ["std"]
-std = ["windows-result/std", "windows-strings/std"]

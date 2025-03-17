@@ -44,9 +44,11 @@ workspace = true
 
 [dev-dependencies.windows-future]
 workspace = true
+features = ["std"]
 
 [dev-dependencies.cppwinrt]
 workspace = true
 
 [dev-dependencies.windows-collections]
 workspace = true
+features = ["std"]

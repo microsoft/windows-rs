@@ -28,18 +28,29 @@ unsafe_op_in_unsafe_fn = "warn"
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_debugger_visualizer, windows_slim_errors)'] }
 
 [workspace.dependencies]
-cppwinrt = { path = "crates/libs/cppwinrt" }
-windows = { path = "crates/libs/windows" }
-windows-bindgen = { path = "crates/libs/bindgen" }
-windows-collections = { path = "crates/libs/collections" }
-windows-core = { path = "crates/libs/core" }
-windows-future = { path = "crates/libs/future" }
-windows-link = { path = "crates/libs/link" }
-windows-numerics = { path = "crates/libs/numerics" }
-windows-registry = { path = "crates/libs/registry" }
-windows-result = { path = "crates/libs/result" }
-windows-strings = { path = "crates/libs/strings" }
-windows-sys = { path = "crates/libs/sys" }
-windows-targets = { path = "crates/libs/targets" }
-windows-version = { path = "crates/libs/version" }
 helpers = { path = "crates/tools/helpers" }
+proc-macro2 = { version = "1.0", default-features = false }
+quote = { version = "1.0", default-features = false }
+rayon = { version = "1.10", default-features = false }
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+syn = { version = "2.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "clone-impls"] }
+toml = { version = "0.8", features = ["parse"] }
+jsonschema = { version = "0.23", default-features = false }
+serde_json = {version = "1.0" }
+# generated dependencies
+cppwinrt = { version = "0.2.1", path = "crates/libs/cppwinrt", default-features = false }
+windows = { version = "0.60.0", path = "crates/libs/windows", default-features = false }
+windows-bindgen = { version = "0.60.0", path = "crates/libs/bindgen", default-features = false }
+windows-collections = { version = "0.1.1", path = "crates/libs/collections", default-features = false }
+windows-core = { version = "0.60.1", path = "crates/libs/core", default-features = false }
+windows-future = { version = "0.1.1", path = "crates/libs/future", default-features = false }
+windows-implement = { version = "0.59.0", path = "crates/libs/implement", default-features = false }
+windows-interface = { version = "0.59.0", path = "crates/libs/interface", default-features = false }
+windows-link = { version = "0.1.0", path = "crates/libs/link", default-features = false }
+windows-numerics = { version = "0.1.1", path = "crates/libs/numerics", default-features = false }
+windows-registry = { version = "0.5.0", path = "crates/libs/registry", default-features = false }
+windows-result = { version = "0.3.1", path = "crates/libs/result", default-features = false }
+windows-strings = { version = "0.3.1", path = "crates/libs/strings", default-features = false }
+windows-sys = { version = "0.59.0", path = "crates/libs/sys", default-features = false }
+windows-targets = { version = "0.53.0", path = "crates/libs/targets", default-features = false }
+windows-version = { version = "0.1.3", path = "crates/libs/version", default-features = false }

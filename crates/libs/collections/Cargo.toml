@@ -8,22 +8,20 @@ description = "Windows collection types"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 
+[dependencies]
+windows-core = { workspace = true }
+
+[dev-dependencies]
+windows-result = { workspace = true }
+windows-strings = { workspace = true }
+
+[features]
+default = ["std"]
+std = []
+
 [lints]
 workspace = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-
-[dependencies.windows-core]
-version = "0.60.1"
-path = "../core"
-default-features = false
-
-[features]
-default = ["std"]
-std = []
-
-[dev-dependencies]
-windows-result = { path = "../result" }
-windows-strings = { path = "../strings" }
