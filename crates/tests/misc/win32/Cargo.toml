@@ -11,6 +11,7 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
+    "std",
     "Win32_Gaming",
     "Win32_Graphics_Direct2D",
     "Win32_Graphics_Direct3D",
