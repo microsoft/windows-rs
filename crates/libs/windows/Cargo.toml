@@ -13,6 +13,13 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 exclude = ["features.json"]
 
+[dependencies]
+windows-collections = { workspace = true }
+windows-core = { workspace = true }
+windows-future = { workspace = true }
+windows-link = { workspace = true }
+windows-numerics = { workspace = true }
+
 [lib]
 # This crate does not contain tests. All tests are in separate crates.
 test = false
@@ -25,30 +32,6 @@ workspace = true
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 rustdoc-args = ["--cfg", "docsrs"]
-
-[dependencies.windows-core]
-version = "0.60.1"
-path = "../core"
-default-features = false
-
-[dependencies.windows-link]
-version = "0.1.0"
-path = "../link"
-
-[dependencies.windows-collections]
-version = "0.1.1"
-path = "../collections"
-default-features = false
-
-[dependencies.windows-numerics]
-version = "0.1.1"
-path = "../numerics"
-default-features = false
-
-[dependencies.windows-future]
-version = "0.1.1"
-path = "../future"
-default-features = false
 
 [features]
 default = ["std"]

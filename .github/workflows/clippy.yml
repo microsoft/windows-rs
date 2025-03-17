@@ -72,5 +72,7 @@ jobs:
         run:  cargo clippy -p tool_msvc
       - name: Check tool_standalone
         run:  cargo clippy -p tool_standalone
+      - name: Check tool_workspace
+        run:  cargo clippy -p tool_workspace
       - name: Check tool_yml
         run:  cargo clippy -p tool_yml

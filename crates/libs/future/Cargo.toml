@@ -8,25 +8,20 @@ description = "Windows async types"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 
+[dependencies]
+windows-core = { workspace = true }
+windows-link = { workspace = true }
+
+[dev-dependencies]
+windows-result = { workspace = true }
+
+[features]
+default = ["std"]
+std = []
+
 [lints]
 workspace = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-
-[features]
-default = ["std"]
-std = []
-
-[dependencies.windows-core]
-version = "0.60.1"
-path = "../core"
-default-features = false
-
-[dependencies.windows-link]
-version = "0.1.0"
-path = "../link"
-
-[dev-dependencies]
-windows-result = { path = "../result" }

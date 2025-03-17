@@ -339,6 +339,8 @@ jobs:
         run:  cargo test -p tool_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_workspace
+        run:  cargo test -p tool_workspace --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_yml
         run:  cargo test -p tool_yml --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows
@@ -359,10 +361,10 @@ jobs:
         run:  cargo test -p windows-link --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-numerics
         run:  cargo test -p windows-numerics --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test windows-registry
-        run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows-registry
+        run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-result
         run:  cargo test -p windows-result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-strings
