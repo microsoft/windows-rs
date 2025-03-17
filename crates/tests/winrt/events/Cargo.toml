@@ -18,6 +18,7 @@ workspace = true
 [dependencies.windows]
 workspace = true
 features = [
+    "std",
     "Foundation",
     "Win32_System_WinRT",
 ]
