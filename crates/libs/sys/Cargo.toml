@@ -14,7 +14,6 @@ categories = ["os::windows-apis"]
 windows-targets = { workspace = true }
 
 [lib]
-# This crate does not contain tests. All tests are in separate crates.
 test = false
 doctest = false
 

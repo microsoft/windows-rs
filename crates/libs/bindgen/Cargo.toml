@@ -10,8 +10,8 @@ readme = "readme.md"
 
 [dependencies]
 rayon = { workspace = true }
-serde = { workspace = true }
-serde_json = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true, features = ["std"] }
 
 [lints]
 workspace = true

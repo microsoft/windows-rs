@@ -11,7 +11,7 @@ repository = "https://github.com/microsoft/windows-rs"
 [dependencies]
 proc-macro2 = { workspace = true }
 quote = { workspace = true }
-syn = { workspace = true }
+syn = { workspace = true, features = ["parsing", "proc-macro", "printing", "full", "clone-impls"] }
 
 [dev-dependencies]
 windows-core = { workspace = true }

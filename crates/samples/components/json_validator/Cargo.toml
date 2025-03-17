@@ -9,10 +9,5 @@ crate-type = ["cdylib"]
 
 [dependencies]
 jsonschema = { version = "0.23", default-features = false }
-serde_json = {version = "1.0", default-features = false }
-
-[dependencies.windows]
-workspace = true
-features = [
-    "Win32_System_Com",
-]
+serde_json = { workspace = true }
+windows = { workspace = true, features = ["Win32_System_Com"] }

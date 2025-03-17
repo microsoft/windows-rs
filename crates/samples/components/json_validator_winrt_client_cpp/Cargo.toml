@@ -6,14 +6,8 @@ publish = false
 
 [build-dependencies]
 cc = "1.0"
+cppwinrt = { workspace = true }
 
-[build-dependencies.cppwinrt]
-workspace = true
-
-[dependencies.windows-link]
-workspace = true
-
-# The build needs the output (.dll) of the component. This causes a warning about lack of linkage target.
-# Cargo doesn't understand cdylib targets. https://github.com/rust-lang/cargo/issues/7825
-[dependencies.sample_json_validator_winrt]
-path = "../json_validator_winrt"
+[dependencies]
+windows-link = { workspace = true }
+sample_json_validator_winrt = { path = "../json_validator_winrt" }
