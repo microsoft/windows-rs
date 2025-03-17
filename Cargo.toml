@@ -15,9 +15,6 @@ exclude = [
     "crates/targets/baseline",
 ]
 
-# This compiles external dependencies (outside crates) with full optimization.
-# This can improve run time while iterating on development (testing, etc.).
-# This has NO EFFECT on end users using windows-* crates.
 [profile.dev.package."*"]
 opt-level = 2
 
@@ -32,11 +29,10 @@ helpers = { path = "crates/tools/helpers" }
 proc-macro2 = { version = "1.0", default-features = false }
 quote = { version = "1.0", default-features = false }
 rayon = { version = "1.10", default-features = false }
-serde = { version = "1.0", default-features = false, features = ["derive"] }
-syn = { version = "2.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "clone-impls"] }
+serde = { version = "1.0", default-features = false }
+syn = { version = "2.0", default-features = false }
 toml = { version = "0.8", features = ["parse"] }
-jsonschema = { version = "0.23", default-features = false }
-serde_json = {version = "1.0" }
+serde_json = {version = "1.0", default-features = false }
 # generated dependencies
 cppwinrt = { version = "0.2.1", path = "crates/libs/cppwinrt", default-features = false }
 windows = { version = "0.60.0", path = "crates/libs/windows", default-features = false }

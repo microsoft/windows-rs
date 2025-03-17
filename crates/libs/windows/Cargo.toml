@@ -21,7 +21,6 @@ windows-link = { workspace = true }
 windows-numerics = { workspace = true }
 
 [lib]
-# This crate does not contain tests. All tests are in separate crates.
 test = false
 doctest = false
 
