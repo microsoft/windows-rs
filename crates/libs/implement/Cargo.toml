@@ -14,7 +14,7 @@ quote = { workspace = true }
 syn = { workspace = true, features = ["parsing", "proc-macro", "printing", "full", "clone-impls"] }
 
 [dev-dependencies]
-windows-core = { workspace = true }
+windows-core = { path = "../core" }
 
 [lints]
 workspace = true
