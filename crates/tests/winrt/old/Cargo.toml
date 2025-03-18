@@ -20,6 +20,7 @@ workspace = true
 [dependencies.windows]
 workspace = true
 features = [
+    "std",
     "AI_MachineLearning",
     "ApplicationModel_Activation",
     "ApplicationModel_Appointments",

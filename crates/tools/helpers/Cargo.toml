@@ -6,5 +6,5 @@ publish = false
 
 [dependencies]
 windows-link = { workspace = true }
-toml = { version = "0.8", features = ["parse"] }
-serde = { version = "1.0", features = ["derive"] }
+serde = { workspace = true, features = ["derive"] }
+toml = "0.8"

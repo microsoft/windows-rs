@@ -10,16 +10,9 @@ crate-type = ["cdylib"]
 
 [dependencies]
 jsonschema = { version = "0.23", default-features = false }
-serde_json = {version = "1.0", default-features = false }
+serde_json = { workspace = true }
+windows = { workspace = true, features = ["Win32_System_WinRT"] }
+windows-core = { workspace = true }
 
-[dependencies.windows]
-workspace = true
-features = [
-    "Win32_System_WinRT",
-]
-
-[dependencies.windows-core]
-workspace = true
-
-[build-dependencies.windows-bindgen]
-workspace = true
+[build-dependencies]
+windows-bindgen = { workspace = true }

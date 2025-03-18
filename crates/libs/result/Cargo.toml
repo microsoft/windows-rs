@@ -1,6 +1,6 @@
 [package]
 name = "windows-result"
-version = "0.3.1"
+version = "0.3.2"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
@@ -9,6 +9,9 @@ description = "Windows error handling"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
+
+[dependencies]
+windows-link = { workspace = true }
 
 [features]
 default = ["std"]
@@ -20,7 +23,3 @@ workspace = true
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-
-[dependencies.windows-link]
-version = "0.1.0"
-path = "../link"

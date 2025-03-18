@@ -1,8 +1,6 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 
-const VERSION: &str = "2.0.240405.15";
-
 /// Calls the C++/WinRT compiler with the given arguments.
 ///
 /// Use `cppwinrt(["-help"])` for available options.
@@ -15,7 +13,7 @@ where
     let mut path = std::env::temp_dir();
     path.push(unique());
     std::fs::create_dir_all(&path).unwrap();
-    path.push(format!("cppwinrt-{VERSION}.exe"));
+    path.push("cppwinrt.exe");
     std::fs::write(&path, std::include_bytes!("../cppwinrt.exe")).unwrap();
 
     let mut command = std::process::Command::new(&path);
@@ -73,6 +71,6 @@ mod tests {
     #[test]
     fn unexpected_version() {
         let ok = cppwinrt(["-help"]);
-        assert!(ok.contains(VERSION), "unexpected version");
+        assert!(ok.contains("2.0.240405.15"), "unexpected version");
     }
 }

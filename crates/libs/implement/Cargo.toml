@@ -1,12 +1,20 @@
 [package]
 name = "windows-implement"
-version = "0.59.0"
+version = "0.60.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
 description = "The implement macro for the windows crate"
 repository = "https://github.com/microsoft/windows-rs"
+
+[dependencies]
+proc-macro2 = { workspace = true }
+quote = { workspace = true }
+syn = { workspace = true, features = ["parsing", "proc-macro", "printing", "full", "clone-impls"] }
+
+[dev-dependencies]
+windows-core = { path = "../core" }
 
 [lints]
 workspace = true
@@ -17,11 +25,3 @@ targets = []
 
 [lib]
 proc-macro = true
-
-[dependencies]
-syn = { version = "2.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] }
-quote = "1.0"
-proc-macro2 = "1.0"
-
-[dev-dependencies]
-windows-core = { path = "../core" }

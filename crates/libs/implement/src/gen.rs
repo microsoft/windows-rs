@@ -8,7 +8,7 @@
 //! item, within the narrowest possible scope. This allows us to detect errors more quickly during
 //! development. If the input to `parse_quote` cannot be parsed, then the macro will panic and
 //! the panic will point to the specific `parse_quote` call, rather than the entire output of the
-//! `implement` proc macro being unparseable. This greatly aids in development.
+//! `implement` proc macro being unparsable. This greatly aids in development.
 
 use super::*;
 use quote::{quote, quote_spanned};
@@ -570,7 +570,7 @@ fn gen_impl_as_impl(
     parse_quote_spanned! {
         interface_chain.implement.span =>
         impl #generics ::windows_core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
-            // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
+            // SAFETY: the offset is guaranteed to be in bounds, and the implementation struct
             // is guaranteed to live at least as long as `self`.
             #[inline(always)]
             unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<#original_ident::#generics> {

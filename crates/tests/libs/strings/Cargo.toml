@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows-strings]
 workspace = true
+features = ["std"]
 
 [dependencies.windows-link]
 workspace = true

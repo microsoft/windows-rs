@@ -13,6 +13,7 @@ workspace = true
 
 [dependencies.windows-collections]
 workspace = true
+features = ["std"]
 
 [build-dependencies.windows-bindgen]
 workspace = true
