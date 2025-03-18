@@ -35,11 +35,11 @@ toml = { version = "0.8", features = ["parse"] }
 serde_json = {version = "1.0", default-features = false }
 # generated dependencies
 cppwinrt = { version = "0.2.2", path = "crates/libs/cppwinrt", default-features = false }
-windows = { version = "0.61.0", path = "crates/libs/windows", default-features = false }
+windows = { version = "0.61.1", path = "crates/libs/windows", default-features = false }
 windows-bindgen = { version = "0.61.0", path = "crates/libs/bindgen", default-features = false }
-windows-collections = { version = "0.1.2", path = "crates/libs/collections", default-features = false }
+windows-collections = { version = "0.2.0", path = "crates/libs/collections", default-features = false }
 windows-core = { version = "0.61.0", path = "crates/libs/core", default-features = false }
-windows-future = { version = "0.1.2", path = "crates/libs/future", default-features = false }
+windows-future = { version = "0.2.0", path = "crates/libs/future", default-features = false }
 windows-implement = { version = "0.60.0", path = "crates/libs/implement", default-features = false }
 windows-interface = { version = "0.59.1", path = "crates/libs/interface", default-features = false }
 windows-link = { version = "0.1.1", path = "crates/libs/link", default-features = false }
