@@ -24,4 +24,14 @@ impl Field<'_> {
     pub fn signature(&self) -> Blob {
         self.blob(2)
     }
+
+    pub fn ty(&self) -> Type {
+        let mut blob = self.signature();
+        let prolog = blob.read_u8();
+        debug_assert_eq!(prolog, 0x6);
+
+        blob.read_modifiers();
+
+        todo!()
+    }
 }

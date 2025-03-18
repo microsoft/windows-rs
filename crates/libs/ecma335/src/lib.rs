@@ -12,3 +12,9 @@ pub use attributes::*;
 pub use value::*;
 mod bindings;
 use bindings::*;
+
+mod ty;
+pub use ty::*;
+
+mod type_name;
+pub use type_name::*;

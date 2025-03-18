@@ -40,8 +40,8 @@ impl<'a> Blob<'a> {
         }
     }
 
-    pub fn decode<D: Decode<'a>>(&mut self) -> D {
-        D::decode(self.file, self.read_usize())
+    pub fn decode<D: Decode<'a>>(&'a mut self) -> D {
+        D::decode(self.file, self.read_compressed())
     }
 
     pub fn try_read(&mut self, expected: usize) -> bool {
@@ -62,21 +62,83 @@ impl<'a> Blob<'a> {
                 break;
             } else {
                 self.offset(offset);
-                mods.push(TypeDefOrRef::decode(self.file, self.read_usize()))
+                mods.push(TypeDefOrRef::decode(self.file, self.read_compressed()))
             }
         }
         mods
     }
 
-    // TODO: read_compressed
-    pub fn read_usize(&mut self) -> usize {
+    // Used to parse field and methods type signatures
+    pub fn read_type_signature(&'a mut self, generics: &[Type]) -> Type {
+        let is_const = self.read_modifiers().iter().any(|def| {
+            def.namespace() == "System.Runtime.CompilerServices" && def.name() =="IsConst"
+        });
+
+        let is_ref = self.try_read(ELEMENT_TYPE_BYREF as usize);
+
+        if self.try_read(ELEMENT_TYPE_VOID as usize) {
+            return Type::Void;
+        }
+
+        let is_array = self.try_read(ELEMENT_TYPE_SZARRAY as usize);
+
+        let mut pointers = 0;
+
+        while self.try_read(ELEMENT_TYPE_PTR as usize) {
+            pointers += 1;
+        }
+
+        let ty = self.read_type_code(generics);
+
+        // TODO: why don't we just use IsConst to decide whether pointers are const?
+        if pointers > 0 {
+            Type::PtrMut(Box::new(ty), pointers)
+        } else if is_const {
+            Type::ConstRef(Box::new(ty))
+        } else if is_array {
+            if is_ref {
+                Type::ArrayRef(Box::new(ty))
+            } else {
+                Type::Array(Box::new(ty))
+            }
+        } else {
+            ty
+        }
+    }
+
+    // Used to parse type codes
+    pub fn read_type_code(&'a mut self, generics: &[Type]) -> Type {
+        match self.read_u8() {
+            ELEMENT_TYPE_VOID => Type::Void,
+            ELEMENT_TYPE_BOOLEAN => Type::Bool,
+            ELEMENT_TYPE_CHAR => Type::Char,
+            ELEMENT_TYPE_I1 => Type::I8,
+            ELEMENT_TYPE_U1 => Type::U8,
+            ELEMENT_TYPE_I2 => Type::I16,
+            ELEMENT_TYPE_U2 => Type::U16,
+            ELEMENT_TYPE_I4 => Type::I32,
+            ELEMENT_TYPE_U4 => Type::U32,
+            ELEMENT_TYPE_I8 => Type::I64,
+            ELEMENT_TYPE_U8 => Type::U64,
+            ELEMENT_TYPE_R4 => Type::F32,
+            ELEMENT_TYPE_R8 => Type::F64,
+            ELEMENT_TYPE_I => Type::ISize,
+            ELEMENT_TYPE_U => Type::USize,
+            ELEMENT_TYPE_STRING => Type::String,
+            ELEMENT_TYPE_OBJECT => Type::Object,
+            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => self.decode::<TypeDefOrRef>().ty(generics),
+            _ => todo!()
+        }
+    }
+
+    pub fn read_compressed(&mut self) -> usize {
         let (value, offset) = self.peek();
         self.offset(offset);
         value
     }
 
     pub fn read_str(&mut self) -> &str {
-        let len = self.read_usize();
+        let len = self.read_compressed();
         let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
         self.offset(len);
         value

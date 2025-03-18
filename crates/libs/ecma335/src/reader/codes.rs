@@ -109,7 +109,7 @@ code! { TypeOrMethodDef(1)
     (TypeDef, 0)
 }
 
-impl TypeDefOrRef<'_> {
+impl<'a> TypeDefOrRef<'a> {
     pub fn namespace(&self) -> &str {
         match self {
             Self::TypeDef(row) => row.namespace(),
@@ -124,6 +124,10 @@ impl TypeDefOrRef<'_> {
             Self::TypeRef(row) => row.name(),
             rest => panic!("{rest:?}"),
         }
+    }
+
+    pub fn ty(&'a self, generics: &[Type]) -> Type {
+        todo!()
     }
 }
 
