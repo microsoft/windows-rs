@@ -1,5 +1,6 @@
 use super::*;
 
+mod assembly_ref;
 mod attribute;
 mod class_layout;
 mod constant;
@@ -10,13 +11,12 @@ mod interface_impl;
 mod member_ref;
 mod method_def;
 mod method_param;
+mod module;
 mod module_ref;
 mod nested_class;
 mod type_def;
 mod type_ref;
 mod type_spec;
-mod module;
-mod assembly_ref;
 
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {

@@ -126,7 +126,7 @@ impl<'a> TypeDefOrRef<'a> {
         }
     }
 
-    pub fn ty(&'a self, generics: &[Type]) -> Type {
+    pub fn ty(&self, _generics: &[Type]) -> Type {
         todo!()
     }
 }

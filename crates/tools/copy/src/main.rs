@@ -54,7 +54,7 @@ fn write_attributes<R: r::HasAttributes>(output: &mut w::File, parent: w::HasAtt
             types.push(convert_type(&r::Type::from_blob(&mut signature, None, &[])));
         }
 
-        let signature = output.MethodDefSig(&types, &w::Type::Void, MethodCallAttributes::HASTHIS);
+        let signature = output.MethodDefSig(&types, &Type::Void, MethodCallAttributes::HASTHIS);
         let ctor = output.MemberRef(".ctor", signature, attribute_ref);
 
         let fixed: Vec<Value> = args
@@ -117,11 +117,11 @@ fn write_def(output: &mut w::File, def: r::TypeDef, include_methods: bool) {
     for def_interface in def.interface_impls() {
         let interface = convert_type(&def_interface.ty(&generics));
 
-        let interface = if let w::Type::Name(tn) = interface {
+        let interface = if let Type::Name(tn) = interface {
             if tn.generics.is_empty() {
-                w::TypeDefOrRef::TypeRef(output.TypeRef(tn.namespace, tn.name))
+                w::TypeDefOrRef::TypeRef(output.TypeRef(&tn.namespace, &tn.name))
             } else {
-                w::TypeDefOrRef::TypeSpec(output.TypeSpec(&tn))
+                w::TypeDefOrRef::TypeSpec(output.TypeSpec(&tn.namespace, &tn.name, &tn.generics))
             }
         } else {
             panic!();
@@ -150,7 +150,7 @@ fn write_def(output: &mut w::File, def: r::TypeDef, include_methods: bool) {
     if include_methods {
         for method in def.methods() {
             let signature = method.signature("", &generics);
-            let types: Vec<w::Type> = signature
+            let types: Vec<Type> = signature
                 .params
                 .iter()
                 .map(|param| convert_type(&param.ty))
@@ -186,55 +186,59 @@ fn write_def(output: &mut w::File, def: r::TypeDef, include_methods: bool) {
     }
 }
 
-fn convert_type(input: &r::Type) -> w::Type<'static> {
+fn convert_type(input: &r::Type) -> Type {
     match input {
-        r::Type::Void => w::Type::Void,
-        r::Type::Bool => w::Type::Bool,
-        r::Type::Char => w::Type::Char,
-        r::Type::I8 => w::Type::I8,
-        r::Type::U8 => w::Type::U8,
-        r::Type::I16 => w::Type::I16,
-        r::Type::U16 => w::Type::U16,
-        r::Type::I32 => w::Type::I32,
-        r::Type::U32 => w::Type::U32,
-        r::Type::I64 => w::Type::I64,
-        r::Type::U64 => w::Type::U64,
-        r::Type::F32 => w::Type::F32,
-        r::Type::F64 => w::Type::F64,
-        r::Type::ISize => w::Type::ISize,
-        r::Type::USize => w::Type::USize,
-        r::Type::String => w::Type::String,
-        r::Type::Object => w::Type::Object,
-        r::Type::GUID => w::Type::new("System", "Guid"),
-        r::Type::BOOL => w::Type::new("Windows.Win32.Foundation", "BOOL"),
+        r::Type::Void => Type::Void,
+        r::Type::Bool => Type::Bool,
+        r::Type::Char => Type::Char,
+        r::Type::I8 => Type::I8,
+        r::Type::U8 => Type::U8,
+        r::Type::I16 => Type::I16,
+        r::Type::U16 => Type::U16,
+        r::Type::I32 => Type::I32,
+        r::Type::U32 => Type::U32,
+        r::Type::I64 => Type::I64,
+        r::Type::U64 => Type::U64,
+        r::Type::F32 => Type::F32,
+        r::Type::F64 => Type::F64,
+        r::Type::ISize => Type::ISize,
+        r::Type::USize => Type::USize,
+        r::Type::String => Type::String,
+        r::Type::Object => Type::Object,
+        r::Type::GUID => Type::named("System", "Guid"),
+        r::Type::BOOL => Type::named("Windows.Win32.Foundation", "BOOL"),
         // TODO: Type::HRESULT is ambiguous... since it can refer to either the WinRT or Win32 HRESULT
-        r::Type::HRESULT => w::Type::new("Windows.Foundation", "HResult"),
-        r::Type::Array(ty) => w::Type::Array(Box::new(convert_type(ty))),
-        r::Type::ArrayRef(ty) => w::Type::ArrayRef(Box::new(convert_type(ty))),
-        r::Type::ConstRef(ty) => w::Type::ConstRef(Box::new(convert_type(ty))),
-        r::Type::Enum(ty) => w::Type::new(ty.def.namespace(), ty.def.name()),
-        r::Type::CppEnum(ty) => w::Type::new(ty.def.namespace(), ty.def.name()),
-        r::Type::Struct(ty) => w::Type::new(ty.def.namespace(), ty.def.name()),
-        r::Type::CppStruct(ty) => w::Type::new(ty.def.namespace(), ty.def.name()),
-        r::Type::Class(ty) => w::Type::new(ty.def.namespace(), ty.def.name()),
-        r::Type::Delegate(ty) => w::Type::Name(w::TypeName {
-            namespace: ty.def.namespace(),
-            name: ty.def.raw_name(),
-            generics: ty.generics.iter().map(|ty| convert_type(ty)).collect(),
-        }),
-        r::Type::CppDelegate(ty) => w::Type::new(ty.def.namespace(), ty.def.name()),
-        r::Type::Interface(ty) => w::Type::Name(w::TypeName {
-            namespace: ty.def.namespace(),
-            name: ty.def.raw_name(),
-            generics: ty.generics.iter().map(|ty| convert_type(ty)).collect(),
-        }),
-        r::Type::Generic(name) => w::Type::Generic(name.sequence() as usize),
-        r::Type::Type => w::Type::new("System", "Type"),
-        r::Type::PtrMut(ty, pointers) => w::Type::PtrMut(Box::new(convert_type(ty)), *pointers),
-        r::Type::PtrConst(ty, pointers) => w::Type::PtrConst(Box::new(convert_type(ty)), *pointers),
-        r::Type::ArrayFixed(ty, len) => w::Type::ArrayFixed(Box::new(convert_type(ty)), *len),
+        r::Type::HRESULT => Type::named("Windows.Foundation", "HResult"),
+        r::Type::Array(ty) => Type::Array(Box::new(convert_type(ty))),
+        r::Type::ArrayRef(ty) => Type::ArrayRef(Box::new(convert_type(ty))),
+        r::Type::ConstRef(ty) => Type::ConstRef(Box::new(convert_type(ty))),
+        r::Type::Enum(ty) => Type::named(ty.def.namespace(), ty.def.name()),
+        r::Type::CppEnum(ty) => Type::named(ty.def.namespace(), ty.def.name()),
+        r::Type::Struct(ty) => Type::named(ty.def.namespace(), ty.def.name()),
+        r::Type::CppStruct(ty) => Type::named(ty.def.namespace(), ty.def.name()),
+        r::Type::Class(ty) => Type::named(ty.def.namespace(), ty.def.name()),
+        r::Type::Delegate(ty) => {
+            convert_generic(ty.def.namespace(), ty.def.raw_name(), &ty.generics)
+        }
+        r::Type::CppDelegate(ty) => Type::named(ty.def.namespace(), ty.def.name()),
+        r::Type::Interface(ty) => {
+            convert_generic(ty.def.namespace(), ty.def.raw_name(), &ty.generics)
+        }
+        r::Type::Generic(name) => Type::Generic(name.sequence() as usize),
+        r::Type::Type => Type::named("System", "Type"),
+        r::Type::PtrMut(ty, pointers) => Type::PtrMut(Box::new(convert_type(ty)), *pointers),
+        r::Type::PtrConst(ty, pointers) => Type::PtrConst(Box::new(convert_type(ty)), *pointers),
+        r::Type::ArrayFixed(ty, len) => Type::ArrayFixed(Box::new(convert_type(ty)), *len),
         rest => panic!("{rest:?}"),
     }
+}
+
+fn convert_generic(namespace: &str, name: &str, generics: &[r::Type]) -> Type {
+    Type::Name(TypeName {
+        namespace: namespace.to_string(),
+        name: name.to_string(),
+        generics: generics.iter().map(|ty| convert_type(ty)).collect(),
+    })
 }
 
 fn convert_value(value: &r::Value) -> Value {

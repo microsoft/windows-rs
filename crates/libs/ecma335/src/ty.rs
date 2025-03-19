@@ -1,7 +1,7 @@
 use super::*;
 
-#[derive(Debug)]
-pub enum Type<'a> {
+#[derive(Debug, PartialEq)]
+pub enum Type {
     Void,
     Bool,
     Char,
@@ -20,7 +20,7 @@ pub enum Type<'a> {
     String,
     Object,
     Type,
-    Name(TypeName<'a>),
+    Name(TypeName),
     Array(Box<Self>),    // ELEMENT_TYPE_SZARRAY
     ArrayRef(Box<Self>), // ELEMENT_TYPE_BYREF, ELEMENT_TYPE_SZARRAY
     ConstRef(Box<Self>), // ELEMENT_TYPE_CMOD_REQD (IsConst)
@@ -31,9 +31,13 @@ pub enum Type<'a> {
     ArrayFixed(Box<Self>, usize), // ELEMENT_TYPE_ARRAY
 }
 
-impl<'a> Type<'a> {
-    pub fn new(namespace: &'a str, name: &'a str) -> Self {
-        Self::Name(TypeName::new(namespace, name))
+impl Type {
+    pub fn named(namespace: &str, name: &str) -> Self {
+        Self::Name(TypeName {
+            namespace: namespace.to_string(),
+            name: name.to_string(),
+            generics: vec![],
+        })
     }
 
     pub fn code(&self) -> u8 {

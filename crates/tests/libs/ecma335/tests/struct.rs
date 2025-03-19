@@ -16,7 +16,7 @@ fn test() {
             | TypeAttributes::WindowsRuntime,
     );
 
-    let signature = file.FieldSig(&Type::new("System", "Guid"));
+    let signature = file.FieldSig(&Type::named("System", "Guid"));
     file.Field("SomeGuid", signature, FieldAttributes::Public);
 
     let signature = file.FieldSig(&Type::I32);

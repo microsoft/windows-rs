@@ -31,7 +31,7 @@ impl MethodDef<'_> {
         self.list(5)
     }
 
-    // pub fn import_name(&'a self) -> Option<&'a str> {
+    // pub fn import_name(&self) -> Option<&str> {
     //     self.impl_map().and_then(|map| {
     //         let import_name = map.import_name();
     //         if self.name() != import_name {
@@ -41,7 +41,6 @@ impl MethodDef<'_> {
     //         }
     //     })
     // }
-
 
     pub fn parent(&self) -> MemberRefParent {
         MemberRefParent::TypeDef(self.file().parent(5, *self))
@@ -53,7 +52,7 @@ impl MethodDef<'_> {
             .next()
     }
 
-    // pub fn module_name(&'a self) -> &'a str {
+    // pub fn module_name(&self) -> &str {
     //     self.impl_map().map_or("", |map| map.scope().name())
     // }
 

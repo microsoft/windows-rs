@@ -30,8 +30,6 @@ impl Field<'_> {
         let prolog = blob.read_u8();
         debug_assert_eq!(prolog, 0x6);
 
-        blob.read_modifiers();
-
-        todo!()
+        blob.read_type_signature(&[])
     }
 }

@@ -143,18 +143,18 @@ impl File {
         TypeRef(pos)
     }
 
-    pub fn TypeSpec(&mut self, tn: &TypeName) -> TypeSpec {
-        debug_assert!(!tn.generics.is_empty());
+    pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> TypeSpec {
+        debug_assert!(!generics.is_empty());
 
-        let type_ref = self.TypeRef(tn.namespace, tn.name);
+        let type_ref = self.TypeRef(namespace, name);
 
         let mut buffer = vec![];
         buffer.push(ELEMENT_TYPE_GENERICINST);
         buffer.push(ELEMENT_TYPE_CLASS);
         buffer.write_compressed(TypeDefOrRef::TypeRef(type_ref).encode() as usize);
-        buffer.write_compressed(tn.generics.len());
+        buffer.write_compressed(generics.len());
 
-        for ty in &tn.generics {
+        for ty in generics {
             self.Type(ty, &mut buffer);
         }
 
@@ -321,31 +321,33 @@ impl File {
                 buffer.write_compressed(*len);
             }
 
-            Type::Name(ty) => {
-                if !ty.generics.is_empty() {
-                    buffer.push(ELEMENT_TYPE_GENERICINST);
-                }
-
-                let pos = self.TypeRef(ty.namespace, ty.name);
-                // Technically this should be ELEMENT_TYPE_CLASS if the type is not a value type but that requires more contextual information.
-                // TODO: we could replace Type::Name with Type::Value and Type::Class to provide this context if needed.
-                buffer.push(ELEMENT_TYPE_VALUETYPE);
-                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
-
-                if !ty.generics.is_empty() {
-                    buffer.write_compressed(ty.generics.len());
-
-                    for ty in &ty.generics {
-                        self.Type(ty, buffer);
-                    }
-                }
-            }
-
             Type::Generic(number) => {
                 buffer.push(ELEMENT_TYPE_VAR);
                 buffer.write_compressed(*number);
             }
-            Type::Type => self.Type(&Type::new("System", "Type"), buffer),
+
+            Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
+            Type::Type => self.TypeName("System", "Type", &[], buffer),
+        }
+    }
+
+    fn TypeName(&mut self, namespace: &str, name: &str, generics: &[Type], buffer: &mut Vec<u8>) {
+        if !generics.is_empty() {
+            buffer.push(ELEMENT_TYPE_GENERICINST);
+        }
+
+        let pos = self.TypeRef(namespace, name);
+        // Technically this should be ELEMENT_TYPE_CLASS if the type is not a value type but that requires more contextual information.
+        // TODO: we could replace Type::Name with Type::Value and Type::Class to provide this context if needed.
+        buffer.push(ELEMENT_TYPE_VALUETYPE);
+        buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+
+        if !generics.is_empty() {
+            buffer.write_compressed(generics.len());
+
+            for ty in generics {
+                self.Type(ty, buffer);
+            }
         }
     }
 

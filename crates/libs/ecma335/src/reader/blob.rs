@@ -71,7 +71,7 @@ impl<'a> Blob<'a> {
     // Used to parse field and methods type signatures
     pub fn read_type_signature(&'a mut self, generics: &[Type]) -> Type {
         let is_const = self.read_modifiers().iter().any(|def| {
-            def.namespace() == "System.Runtime.CompilerServices" && def.name() =="IsConst"
+            def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
         });
 
         let is_ref = self.try_read(ELEMENT_TYPE_BYREF as usize);
@@ -126,8 +126,10 @@ impl<'a> Blob<'a> {
             ELEMENT_TYPE_U => Type::USize,
             ELEMENT_TYPE_STRING => Type::String,
             ELEMENT_TYPE_OBJECT => Type::Object,
-            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => self.decode::<TypeDefOrRef>().ty(generics),
-            _ => todo!()
+            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => {
+                self.decode::<TypeDefOrRef>().ty(generics)
+            }
+            _ => todo!(),
         }
     }
 

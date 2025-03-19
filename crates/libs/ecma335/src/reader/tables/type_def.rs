@@ -30,7 +30,7 @@ impl TypeDef<'_> {
     pub fn fields(&self) -> RowIterator<Field> {
         self.list(4)
     }
-    
+
     pub fn methods(&self) -> RowIterator<MethodDef> {
         self.list(5)
     }
