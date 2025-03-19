@@ -17,10 +17,11 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
-// fn write_attributes<R: r::HasAttributes>(output: &mut w::File, parent: w::HasAttribute, row: R) {
-//     for attribute in row.attributes() {
-//         let ty = attribute.ty().parent();
-//         let attribute_ref = w::MemberRefParent::TypeRef(output.TypeRef(ty.namespace(), ty.name()));
+ fn write_attributes<'a, R: reader::HasAttributes<'a> >(output: &mut writer::File, parent: writer::HasAttribute, row: &'a R) {
+     for attribute in row.attributes() {
+        let ty = attribute.ty();
+         let ty = ty.parent();
+         let attribute_ref = writer::MemberRefParent::TypeRef(output.TypeRef(ty.namespace(), ty.name()));
 //         let args = attribute.args();
 
 //         let mut signature = attribute.ty().signature();
@@ -60,8 +61,8 @@ fn main() {
 
 //         let value = output.AttributeValue(&fixed, &named);
 //         output.Attribute(parent, w::AttributeType::MemberRef(ctor), value);
-//     }
-// }
+     }
+ }
 
 fn write_def(output: &mut writer::File, def: reader::TypeDef) {
     let extends = def
