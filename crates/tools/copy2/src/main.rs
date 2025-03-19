@@ -92,25 +92,8 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
 
     // write_attributes(output, w::HasAttribute::TypeDef(type_def), def);
 
-    for def_interface in def.interface_impls() {
-        let interface = def_interface.interface(&generics);
-
-        let interface = if let Type::Name(tn) = interface {
-            if tn.generics.is_empty() {
-                writer::TypeDefOrRef::TypeRef(output.TypeRef(&tn.namespace, &tn.name))
-            } else {
-                writer::TypeDefOrRef::TypeSpec(output.TypeSpec(
-                    &tn.namespace,
-                    &tn.name,
-                    &tn.generics,
-                ))
-            }
-        } else {
-            panic!();
-        };
-
-        // TODO: output.InterfaceImpl should just accept "Type"
-        let interface_impl = output.InterfaceImpl(type_def, interface);
+    for interface_impl in def.interface_impls() {
+        let interface_impl = output.InterfaceImpl(type_def, &interface_impl.interface(&generics));
 
         //     write_attributes(
         //         output,

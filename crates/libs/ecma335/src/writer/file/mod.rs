@@ -257,9 +257,24 @@ impl File {
             });
     }
 
-    pub fn InterfaceImpl(&mut self, type_def: TypeDef, interface: TypeDefOrRef) -> InterfaceImpl {
+    pub fn InterfaceImpl(&mut self, class: TypeDef, interface: &Type) -> InterfaceImpl {
+        let Type::Name(interface) = interface else {
+            panic!("invalid interfae type");
+        };
+
+        let interface = 
+            if interface.generics.is_empty() {
+                TypeDefOrRef::TypeRef(self.TypeRef(&interface.namespace, &interface.name))
+            } else {
+                TypeDefOrRef::TypeSpec(self.TypeSpec(
+                    &interface.namespace,
+                    &interface.name,
+                    &interface.generics,
+                ))
+            };
+
         InterfaceImpl(self.records.InterfaceImpl.push_pos(records::InterfaceImpl {
-            Class: type_def.0,
+            Class: class.0,
             Interface: interface,
         }))
     }
@@ -333,7 +348,7 @@ impl File {
 
             Type::Generic(number) => {
                 buffer.push(ELEMENT_TYPE_VAR);
-                buffer.write_compressed((*number).into());
+                buffer.write_compressed((*number) as usize);
             }
 
             Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
