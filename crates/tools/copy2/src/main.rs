@@ -75,17 +75,21 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
 
     for field in def.fields() {
         let signature = output.FieldSig(&field.ty());
-
         let parent = output.Field(field.name(), signature, field.flags());
 
         if let Some(constant) = field.constant() {
-            let value = &constant.value();
+            let value = constant.value();
             let ty = value.ty();
             let value = output.ConstantValue(&value);
 
             output.Constant(writer::HasConstant::Field(parent), ty.code(), value);
         }
     }
+
+    let generics: Vec<_> = def
+        .generic_params()
+        .map(|param| Type::Generic(param.sequence()))
+        .collect();
 
     // write_attributes(output, w::HasAttribute::TypeDef(type_def), def);
 
@@ -113,52 +117,31 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
     //     );
     // }
 
-    // for generic in def.generic_params() {
-    //     output.GenericParam(
-    //         generic.name(),
-    //         w::TypeOrMethodDef::TypeDef(type_def),
-    //         generic.sequence(),
-    //         generic.flags(),
-    //     );
-    // }
+    for generic in def.generic_params() {
+        output.GenericParam(
+            generic.name(),
+            writer::TypeOrMethodDef::TypeDef(type_def),
+            generic.sequence(),
+            generic.flags(),
+        );
+    }
 
-    // // Methods on classes is a huge overhead on .winmd size but adds no value as all of this information
-    // // is redundantly stored elsewhere.
-    // if include_methods {
-    //     for method in def.methods() {
-    //         let signature = method.signature("", &generics);
-    //         let types: Vec<Type> = signature
-    //             .params
-    //             .iter()
-    //             .map(|param| convert_type(&param.ty))
-    //             .collect();
-    //         let signature_blob = output.MethodDefSig(
-    //             &types,
-    //             &convert_type(&signature.return_type),
-    //             MethodCallAttributes(signature.call_flags.0),
-    //         );
-    //         let flags = MethodAttributes(method.flags().0);
-    //         let impl_flags = MethodImplAttributes(method.impl_flags().0);
+    if extends == Default::default() {
+        for method in def.methods() {
+            let signature = method.signature(&generics);
+            let signature_blob = output.MethodDefSig(&signature);
+            let method_def = output.MethodDef(
+                method.name(),
+                signature_blob,
+                method.flags(),
+                method.impl_flags(),
+            );
 
-    //         let method_def = output.MethodDef(method.name(), signature_blob, flags, impl_flags);
+            for param in method.params() {
+                output.Param(param.name(), param.sequence(), param.flags());
+            }
 
-    //         if let Some(return_param) = signature.return_param {
-    //             output.Param(
-    //                 return_param.name(),
-    //                 return_param.sequence(),
-    //                 ParamAttributes(return_param.flags().0),
-    //             );
-    //         }
-
-    //         for param in signature.params {
-    //             output.Param(
-    //                 param.def.name(),
-    //                 param.def.sequence(),
-    //                 ParamAttributes(param.def.flags().0),
-    //             );
-    //         }
-
-    //         write_attributes(output, w::HasAttribute::MethodDef(method_def), method);
-    //     }
-    // }
+            //         write_attributes(output, w::HasAttribute::MethodDef(method_def), method);
+        }
+    }
 }

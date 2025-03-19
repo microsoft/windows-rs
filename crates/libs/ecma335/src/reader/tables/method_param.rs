@@ -11,8 +11,8 @@ impl MethodParam<'_> {
         ParamAttributes(self.usize(0).try_into().unwrap())
     }
 
-    pub fn sequence(&self) -> usize {
-        self.usize(1)
+    pub fn sequence(&self) -> u16 {
+        self.usize(1).try_into().unwrap()
     }
 
     pub fn name(&self) -> &str {

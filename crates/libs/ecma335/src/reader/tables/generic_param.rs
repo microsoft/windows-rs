@@ -7,12 +7,12 @@ impl std::fmt::Debug for GenericParam<'_> {
 }
 
 impl GenericParam<'_> {
-    pub fn sequence(&self) -> usize {
-        self.usize(0)
+    pub fn sequence(&self) -> u16 {
+        self.usize(0).try_into().unwrap()
     }
 
-    pub fn flags(&self) -> usize {
-        self.usize(1)
+    pub fn flags(&self) -> GenericParamAttributes {
+        GenericParamAttributes(self.usize(1).try_into().unwrap())
     }
 
     pub fn owner(&self) -> TypeOrMethodDef {

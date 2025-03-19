@@ -121,7 +121,7 @@ pub struct Module {
 #[derive(Copy, Clone)]
 pub struct GenericParam {
     pub Number: u16,
-    pub Flags: u16,
+    pub Flags: GenericParamAttributes,
     pub Owner: TypeOrMethodDef,
     pub Name: u32,
 }
@@ -388,7 +388,7 @@ impl Records {
 
         for x in self.GenericParam {
             buffer.write_u16(x.Number);
-            buffer.write_u16(x.Flags);
+            buffer.write_u16(x.Flags.0);
             buffer.write_code(x.Owner.encode(), type_or_method_def);
             buffer.write_u32(x.Name);
         }

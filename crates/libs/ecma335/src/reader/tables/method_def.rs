@@ -23,8 +23,23 @@ impl MethodDef<'_> {
         self.str(3)
     }
 
-    pub fn signature(&self) -> Blob {
-        self.blob(4)
+    pub fn signature(&self, generics: &[Type]) -> Signature {
+        let mut blob = self.blob(4);
+        let flags = MethodCallAttributes(blob.read_u8());
+        let param_count = blob.read_compressed();
+        let return_type = blob.read_type_signature(generics);
+
+        let mut types = vec![];
+
+        for _ in 0..param_count {
+            types.push(blob.read_type_signature(generics));
+        }
+
+        Signature {
+            flags,
+            return_type,
+            types,
+        }
     }
 
     pub fn params(&self) -> RowIterator<MethodParam> {

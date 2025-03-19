@@ -105,3 +105,6 @@ impl TypeAttributes {
         (self.0 & 0x00000006) != 0
     }
 }
+
+flags!(GenericParamAttributes, u16);
+impl GenericParamAttributes {}

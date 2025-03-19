@@ -235,7 +235,13 @@ impl File {
         );
     }
 
-    pub fn GenericParam(&mut self, name: &str, owner: TypeOrMethodDef, number: u16, flags: u16) {
+    pub fn GenericParam(
+        &mut self,
+        name: &str,
+        owner: TypeOrMethodDef,
+        number: u16,
+        flags: GenericParamAttributes,
+    ) {
         self.GenericParam
             .entry(owner)
             .or_default()
@@ -323,7 +329,7 @@ impl File {
 
             Type::Generic(number) => {
                 buffer.push(ELEMENT_TYPE_VAR);
-                buffer.write_compressed(*number);
+                buffer.write_compressed((*number).into());
             }
 
             Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
@@ -359,17 +365,12 @@ impl File {
     }
 
     /// Writes the method signature into a `MethodDefSig` buffer and stores it in the file, returning the blob offset.
-    pub fn MethodDefSig(
-        &mut self,
-        params: &[Type],
-        return_type: &Type,
-        flags: MethodCallAttributes,
-    ) -> MethodDefSig {
-        let mut buffer = vec![flags.0];
-        buffer.write_compressed(params.len());
-        self.Type(return_type, &mut buffer);
+    pub fn MethodDefSig(&mut self, signature: &Signature) -> MethodDefSig {
+        let mut buffer = vec![signature.flags.0];
+        buffer.write_compressed(signature.types.len());
+        self.Type(&signature.return_type, &mut buffer);
 
-        for ty in params {
+        for ty in &signature.types {
             self.Type(ty, &mut buffer);
         }
 
