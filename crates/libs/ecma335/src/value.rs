@@ -13,25 +13,25 @@ pub enum Value {
     I64(i64),
     F32(f32),
     F64(f64),
-    Str(&'static str),
-    TypeName(&'static str),
+    String(String),
+    TypeName(String),
 }
 
 impl Value {
-    pub fn ty(&self) -> u8 {
+    pub fn ty(&self) -> Type {
         match self {
-            Self::Bool(..) => ELEMENT_TYPE_BOOLEAN,
-            Self::U8(..) => ELEMENT_TYPE_U1,
-            Self::I8(..) => ELEMENT_TYPE_I1,
-            Self::U16(..) => ELEMENT_TYPE_U2,
-            Self::I16(..) => ELEMENT_TYPE_I2,
-            Self::U32(..) => ELEMENT_TYPE_U4,
-            Self::I32(..) => ELEMENT_TYPE_I4,
-            Self::U64(..) => ELEMENT_TYPE_U8,
-            Self::I64(..) => ELEMENT_TYPE_I8,
-            Self::F32(..) => ELEMENT_TYPE_R4,
-            Self::F64(..) => ELEMENT_TYPE_R8,
-            Self::Str(..) => ELEMENT_TYPE_STRING,
+            Self::Bool(..) => Type::Bool,
+            Self::U8(..) => Type::U8,
+            Self::I8(..) => Type::I8,
+            Self::U16(..) => Type::U16,
+            Self::I16(..) => Type::I16,
+            Self::U32(..) => Type::U32,
+            Self::I32(..) => Type::I32,
+            Self::U64(..) => Type::U64,
+            Self::I64(..) => Type::I64,
+            Self::F32(..) => Type::F32,
+            Self::F64(..) => Type::F64,
+            Self::String(..) => Type::String,
             rest => panic!("{rest:?}"),
         }
     }

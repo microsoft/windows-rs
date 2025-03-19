@@ -106,7 +106,7 @@ fn write_def(output: &mut w::File, def: r::TypeDef, include_methods: bool) {
             let ty = value.ty();
             let value = output.ConstantValue(&value);
 
-            output.Constant(w::HasConstant::Field(parent), ty as u8, value);
+            output.Constant(w::HasConstant::Field(parent), ty.code(), value);
         }
     }
 
@@ -254,8 +254,8 @@ fn convert_value(value: &r::Value) -> Value {
         r::Value::I64(value) => Value::I64(*value),
         r::Value::F32(value) => Value::F32(*value),
         r::Value::F64(value) => Value::F64(*value),
-        r::Value::Str(value) => Value::Str(value),
-        r::Value::TypeName(tn) => Value::TypeName(tn),
+        r::Value::Str(value) => Value::String(value.to_string()),
+        r::Value::TypeName(tn) => Value::TypeName(format!("{tn}")),
         rest => panic!("{rest:?}"),
     }
 }

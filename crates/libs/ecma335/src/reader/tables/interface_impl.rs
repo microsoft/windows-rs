@@ -11,7 +11,7 @@ impl InterfaceImpl<'_> {
         TypeDef(self.row(0))
     }
 
-    pub fn interface(&self) -> TypeDefOrRef {
-        self.decode(1)
+    pub fn interface(&self, generics: &[Type]) -> Type {
+        self.decode::<TypeDefOrRef>(1).ty(generics)
     }
 }

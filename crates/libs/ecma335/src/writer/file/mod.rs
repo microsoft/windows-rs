@@ -394,7 +394,7 @@ impl File {
 
         for (name, value) in named {
             buffer.push(0x53); // field=0x53 property=0x54
-            buffer.push(value.ty());
+            buffer.push(value.ty().code());
             buffer.write_compressed(name.len());
             buffer.extend_from_slice(name.as_bytes());
             buffer.write_value(value);

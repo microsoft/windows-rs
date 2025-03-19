@@ -101,7 +101,7 @@ impl Write for Vec<u8> {
             Value::I64(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::F32(value) => self.extend_from_slice(&value.to_le_bytes()),
             Value::F64(value) => self.extend_from_slice(&value.to_le_bytes()),
-            Value::Str(value) => {
+            Value::String(value) => {
                 self.write_compressed(value.len());
                 self.extend_from_slice(value.as_bytes());
             }

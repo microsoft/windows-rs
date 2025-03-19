@@ -7,7 +7,7 @@ impl std::fmt::Debug for TypeSpec<'_> {
 }
 
 impl TypeSpec<'_> {
-    pub fn signature(&self) -> Blob {
-        self.blob(0)
+    pub fn ty(&self, generics: &[Type]) -> Type {
+        self.blob(0).read_type_code(generics)
     }
 }

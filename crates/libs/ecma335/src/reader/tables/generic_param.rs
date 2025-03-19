@@ -15,6 +15,10 @@ impl GenericParam<'_> {
         self.usize(1)
     }
 
+    pub fn owner(&self) -> TypeOrMethodDef {
+        self.decode(2)
+    }
+
     pub fn name(&self) -> &str {
         self.str(3)
     }

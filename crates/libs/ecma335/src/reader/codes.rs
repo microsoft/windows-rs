@@ -126,8 +126,11 @@ impl<'a> TypeDefOrRef<'a> {
         }
     }
 
-    pub fn ty(&self, _generics: &[Type]) -> Type {
-        todo!()
+    pub fn ty(&self, generics: &[Type]) -> Type {
+        match self {
+            Self::TypeSpec(def) => def.ty(generics),
+            _ => Type::named(self.namespace(), self.name()),
+        }
     }
 }
 
