@@ -164,11 +164,13 @@ impl File {
     }
 
     /// Adds a `Field` row to the file, returning the row offset.
-    pub fn Field(&mut self, name: &str, signature: FieldSig, flags: FieldAttributes) -> Field {
+    pub fn Field(&mut self, name: &str, ty: &Type, flags: FieldAttributes) -> Field {
+        let signature = self.FieldSig(ty);
+
         Field(self.records.Field.push_pos(records::Field {
             Name: self.strings.insert(name),
             Flags: flags,
-            Signature: signature.0,
+            Signature: signature,
         }))
     }
 
@@ -176,16 +178,18 @@ impl File {
     pub fn MethodDef(
         &mut self,
         name: &str,
-        signature: MethodDefSig,
+        signature: &Signature,
         flags: MethodAttributes,
         impl_flags: MethodImplAttributes,
     ) -> MethodDef {
+        let signature = self.MethodDefSig(signature);
+
         MethodDef(self.records.MethodDef.push_pos(records::MethodDef {
             RVA: 0,
             ImplFlags: impl_flags,
             Flags: flags,
             Name: self.strings.insert(name),
-            Signature: signature.0,
+            Signature: signature,
             ParamList: self.records.Param.len() as u32,
         }))
     }
@@ -358,14 +362,14 @@ impl File {
     }
 
     /// Writes the `Type` into a `FileSig` buffer and stores it in the file, returning the blob offset.
-    pub fn FieldSig(&mut self, ty: &Type) -> FieldSig {
+    fn FieldSig(&mut self, ty: &Type) -> FieldSig {
         let mut buffer = vec![0x6]; // FIELD
         self.Type(ty, &mut buffer);
         FieldSig(self.blobs.insert(&buffer))
     }
 
     /// Writes the method signature into a `MethodDefSig` buffer and stores it in the file, returning the blob offset.
-    pub fn MethodDefSig(&mut self, signature: &Signature) -> MethodDefSig {
+    fn MethodDefSig(&mut self, signature: &Signature) -> MethodDefSig {
         let mut buffer = vec![signature.flags.0];
         buffer.write_compressed(signature.types.len());
         self.Type(&signature.return_type, &mut buffer);

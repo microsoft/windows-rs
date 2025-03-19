@@ -74,8 +74,7 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
     let type_def = output.TypeDef(def.namespace(), def.name(), extends, def.flags());
 
     for field in def.fields() {
-        let signature = output.FieldSig(&field.ty());
-        let parent = output.Field(field.name(), signature, field.flags());
+        let parent = output.Field(field.name(), &field.ty(), field.flags());
 
         if let Some(constant) = field.constant() {
             let value = constant.value();
@@ -93,29 +92,32 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
 
     // write_attributes(output, w::HasAttribute::TypeDef(type_def), def);
 
-    // let generics = def.generics();
+    for def_interface in def.interface_impls() {
+        let interface = def_interface.interface(&generics);
 
-    // for def_interface in def.interface_impls() {
-    //     let interface = convert_type(&def_interface.ty(&generics));
+        let interface = if let Type::Name(tn) = interface {
+            if tn.generics.is_empty() {
+                writer::TypeDefOrRef::TypeRef(output.TypeRef(&tn.namespace, &tn.name))
+            } else {
+                writer::TypeDefOrRef::TypeSpec(output.TypeSpec(
+                    &tn.namespace,
+                    &tn.name,
+                    &tn.generics,
+                ))
+            }
+        } else {
+            panic!();
+        };
 
-    //     let interface = if let Type::Name(tn) = interface {
-    //         if tn.generics.is_empty() {
-    //             w::TypeDefOrRef::TypeRef(output.TypeRef(&tn.namespace, &tn.name))
-    //         } else {
-    //             w::TypeDefOrRef::TypeSpec(output.TypeSpec(&tn.namespace, &tn.name, &tn.generics))
-    //         }
-    //     } else {
-    //         panic!();
-    //     };
+        // TODO: output.InterfaceImpl should just accept "Type"
+        let interface_impl = output.InterfaceImpl(type_def, interface);
 
-    //     let interface_impl = output.InterfaceImpl(type_def, interface);
-
-    //     write_attributes(
-    //         output,
-    //         w::HasAttribute::InterfaceImpl(interface_impl),
-    //         def_interface,
-    //     );
-    // }
+        //     write_attributes(
+        //         output,
+        //         w::HasAttribute::InterfaceImpl(interface_impl),
+        //         def_interface,
+        //     );
+    }
 
     for generic in def.generic_params() {
         output.GenericParam(
@@ -128,11 +130,9 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
 
     if extends == Default::default() {
         for method in def.methods() {
-            let signature = method.signature(&generics);
-            let signature_blob = output.MethodDefSig(&signature);
             let method_def = output.MethodDef(
                 method.name(),
-                signature_blob,
+                &method.signature(&generics),
                 method.flags(),
                 method.impl_flags(),
             );

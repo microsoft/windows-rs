@@ -97,7 +97,7 @@ pub struct Constant {
 pub struct Field {
     pub Flags: FieldAttributes,
     pub Name: u32,
-    pub Signature: u32,
+    pub Signature: FieldSig,
 }
 
 pub struct MethodDef {
@@ -105,7 +105,7 @@ pub struct MethodDef {
     pub ImplFlags: MethodImplAttributes,
     pub Flags: MethodAttributes,
     pub Name: u32,
-    pub Signature: u32,
+    pub Signature: MethodDefSig,
     pub ParamList: u32,
 }
 
@@ -316,7 +316,7 @@ impl Records {
         for x in self.Field {
             buffer.write_u16(x.Flags.0);
             buffer.write_u32(x.Name);
-            buffer.write_u32(x.Signature);
+            buffer.write_u32(x.Signature.0);
         }
 
         for x in self.MethodDef {
@@ -324,7 +324,7 @@ impl Records {
             buffer.write_u16(x.ImplFlags.0);
             buffer.write_u16(x.Flags.0);
             buffer.write_u32(x.Name);
-            buffer.write_u32(x.Signature);
+            buffer.write_u32(x.Signature.0);
             buffer.write_index(x.ParamList, self.Param.len());
         }
 
