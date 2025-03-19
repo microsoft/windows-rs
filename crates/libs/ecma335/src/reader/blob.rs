@@ -40,7 +40,7 @@ impl<'a> Blob<'a> {
         }
     }
 
-    pub fn decode<D: Decode<'a>>(&'a mut self) -> D {
+    pub fn decode<D: Decode<'a>>(&mut self) -> D {
         D::decode(self.file, self.read_compressed())
     }
 
@@ -69,7 +69,7 @@ impl<'a> Blob<'a> {
     }
 
     // Used to parse field and methods type signatures
-    pub fn read_type_signature(&'a mut self, generics: &[Type]) -> Type {
+    pub fn read_type_signature(&mut self, generics: &[Type]) -> Type {
         let is_const = self.read_modifiers().iter().any(|def| {
             def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
         });
@@ -106,8 +106,7 @@ impl<'a> Blob<'a> {
         }
     }
 
-    // Used to parse type codes
-    pub fn read_type_code(&'a mut self, generics: &[Type]) -> Type {
+    pub fn read_type_code(&mut self, generics: &[Type]) -> Type {
         match self.read_u8() {
             ELEMENT_TYPE_VOID => Type::Void,
             ELEMENT_TYPE_BOOLEAN => Type::Bool,
@@ -129,7 +128,38 @@ impl<'a> Blob<'a> {
             ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => {
                 self.decode::<TypeDefOrRef>().ty(generics)
             }
-            _ => todo!(),
+            ELEMENT_TYPE_VAR => generics[self.read_compressed()].clone(),
+            ELEMENT_TYPE_ARRAY => {
+                let ty = self.read_type_signature(generics);
+                let rank = self.read_compressed();
+                debug_assert_eq!(rank, 1);
+                let count = self.read_compressed();
+                debug_assert_eq!(count, 1);
+                let bounds = self.read_compressed();
+                Type::ArrayFixed(Box::new(ty), bounds)
+            }
+            ELEMENT_TYPE_GENERICINST => {
+                let type_code = self.read_u8();
+
+                debug_assert!(matches!(
+                    type_code,
+                    ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS
+                ));
+
+                let ty = self.decode::<TypeDefOrRef>();
+                let mut ty_generics = vec![];
+
+                for _ in 0..self.read_compressed() {
+                    ty_generics.push(self.read_type_code(generics));
+                }
+
+                Type::Name(TypeName {
+                    namespace: ty.namespace().to_string(),
+                    name: ty.name().to_string(),
+                    generics: ty_generics,
+                })
+            }
+            rest => panic!("{rest:?}"),
         }
     }
 

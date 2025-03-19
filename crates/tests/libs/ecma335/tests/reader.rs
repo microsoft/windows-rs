@@ -1,4 +1,4 @@
-use windows_ecma335::{*, reader::*};
+use windows_ecma335::{reader::*, *};
 
 #[test]
 fn test() {

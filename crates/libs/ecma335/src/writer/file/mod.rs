@@ -58,7 +58,7 @@ impl File {
         file.AssemblyRef("System");
 
         // The parent type of "globals" expected by most parsers.
-        file.TypeDef("", "<Module>", TypeDefOrRef::zeroed(), TypeAttributes(0));
+        file.TypeDef("", "<Module>", TypeDefOrRef::default(), TypeAttributes(0));
 
         file
     }
