@@ -219,24 +219,33 @@ impl File {
     }
 
     /// Adds an `Attribute` row to the file. This is a sorted table so the row offset is not yet available.
-    pub fn Attribute(&mut self, parent: HasAttribute, ty: AttributeType, value: AttributeValue) {
+    pub fn Attribute(
+        &mut self,
+        parent: HasAttribute,
+        ty: AttributeType,
+        value: &[(String, Value)],
+    ) {
+        let value = self.AttributeValue(value);
+
         self.Attribute
             .entry(parent)
             .or_default()
             .push(records::Attribute {
                 Parent: parent,
                 Type: ty,
-                Value: value.0,
+                Value: value,
             });
     }
 
-    pub fn Constant(&mut self, parent: HasConstant, ty: u8, value: ConstantValue) {
+    pub fn Constant(&mut self, parent: HasConstant, ty: u8, value: &Value) {
+        let value = self.ConstantValue(value);
+
         self.Constant.insert(
             parent,
             records::Constant {
                 Parent: parent,
                 Type: ty,
-                Value: value.0,
+                Value: value,
             },
         );
     }
@@ -398,13 +407,13 @@ impl File {
         MethodDefSig(self.blobs.insert(&buffer))
     }
 
-    pub fn ConstantValue(&mut self, value: &Value) -> ConstantValue {
+    fn ConstantValue(&mut self, value: &Value) -> ConstantValue {
         let mut buffer = vec![];
         buffer.write_value(value);
         ConstantValue(self.blobs.insert(&buffer))
     }
 
-    pub fn AttributeValue(&mut self, values: &[(String, Value)]) -> AttributeValue {
+    fn AttributeValue(&mut self, values: &[(String, Value)]) -> AttributeValue {
         let mut buffer = vec![];
         buffer.write_u16(1); // prolog
 

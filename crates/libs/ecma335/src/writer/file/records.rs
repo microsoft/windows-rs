@@ -91,7 +91,7 @@ pub struct ClassLayout {
 pub struct Constant {
     pub Type: u8,
     pub Parent: HasConstant,
-    pub Value: u32,
+    pub Value: ConstantValue,
 }
 
 pub struct Field {
@@ -151,7 +151,7 @@ pub struct TypeRef {
 pub struct Attribute {
     pub Parent: HasAttribute,
     pub Type: AttributeType,
-    pub Value: u32,
+    pub Value: AttributeValue,
 }
 
 pub struct MemberRef {
@@ -349,13 +349,13 @@ impl Records {
             buffer.push(x.Type);
             buffer.push(0);
             buffer.write_code(x.Parent.encode(), has_constant);
-            buffer.write_u32(x.Value);
+            buffer.write_u32(x.Value.0);
         }
 
         for x in self.Attribute {
             buffer.write_code(x.Parent.encode(), has_custom_attribute);
             buffer.write_code(x.Type.encode(), custom_attribute_type);
-            buffer.write_u32(x.Value);
+            buffer.write_u32(x.Value.0);
         }
 
         for x in self.TypeSpec {

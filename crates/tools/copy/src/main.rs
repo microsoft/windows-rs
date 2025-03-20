@@ -38,9 +38,8 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
         if let Some(constant) = field.constant() {
             let value = constant.value();
             let ty = value.ty();
-            let value = output.ConstantValue(&value);
 
-            output.Constant(writer::HasConstant::Field(parent), ty.code(), value);
+            output.Constant(writer::HasConstant::Field(parent), ty.code(), &value);
         }
     }
 
@@ -104,7 +103,10 @@ fn write_attributes<'a, R: reader::HasAttributes<'a>>(
             writer::MemberRefParent::TypeRef(output.TypeRef(ty.namespace(), ty.name()));
 
         let ctor = output.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
-        let value = output.AttributeValue(&attribute.value());
-        output.Attribute(parent, writer::AttributeType::MemberRef(ctor), value);
+        output.Attribute(
+            parent,
+            writer::AttributeType::MemberRef(ctor),
+            &attribute.value(),
+        );
     }
 }
