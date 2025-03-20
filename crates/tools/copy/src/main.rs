@@ -36,10 +36,7 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
         let parent = output.Field(field.name(), &field.ty(), field.flags());
 
         if let Some(constant) = field.constant() {
-            let value = constant.value();
-            let ty = value.ty();
-
-            output.Constant(writer::HasConstant::Field(parent), ty.code(), &value);
+            output.Constant(writer::HasConstant::Field(parent), &constant.value());
         }
     }
 

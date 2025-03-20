@@ -19,7 +19,7 @@ pub enum Type {
     USize,
     String,
     Object,
-    AttributeEnum,
+    AttributeEnum, // 0x55 is an unnamed ELEMENT_TYPE used by attributes to specify an enum
     Name(TypeName),
     Array(Box<Self>),    // ELEMENT_TYPE_SZARRAY
     ArrayRef(Box<Self>), // ELEMENT_TYPE_BYREF, ELEMENT_TYPE_SZARRAY

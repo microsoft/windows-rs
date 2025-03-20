@@ -237,7 +237,8 @@ impl File {
             });
     }
 
-    pub fn Constant(&mut self, parent: HasConstant, ty: u8, value: &Value) {
+    pub fn Constant(&mut self, parent: HasConstant, value: &Value) {
+        let ty = value.ty().code();
         let value = self.ConstantValue(value);
 
         self.Constant.insert(
