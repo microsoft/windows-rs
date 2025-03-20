@@ -22,24 +22,6 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
-fn write_attributes<'a, R: reader::HasAttributes<'a>>(
-    output: &mut writer::File,
-    parent: writer::HasAttribute,
-    row: &'a R,
-) {
-    for attribute in row.attributes() {
-        let ctor = attribute.ctor();
-        let ty = ctor.parent();
-
-        let attribute_ref =
-            writer::MemberRefParent::TypeRef(output.TypeRef(ty.namespace(), ty.name()));
-
-        let ctor = output.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
-        let value = output.AttributeValue(&attribute.value());
-        output.Attribute(parent, writer::AttributeType::MemberRef(ctor), value);
-    }
-}
-
 fn write_def(output: &mut writer::File, def: reader::TypeDef) {
     let extends = def
         .extends()
@@ -88,7 +70,10 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
         );
     }
 
-    if extends == Default::default() {
+    let is_winrt_class = def.category() == reader::TypeCategory::Class
+        && def.flags().contains(TypeAttributes::WindowsRuntime);
+
+    if !is_winrt_class {
         for method in def.methods() {
             let method_def = output.MethodDef(
                 method.name(),
@@ -103,5 +88,23 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
 
             write_attributes(output, writer::HasAttribute::MethodDef(method_def), &method);
         }
+    }
+}
+
+fn write_attributes<'a, R: reader::HasAttributes<'a>>(
+    output: &mut writer::File,
+    parent: writer::HasAttribute,
+    row: &'a R,
+) {
+    for attribute in row.attributes() {
+        let ctor = attribute.ctor();
+        let ty = ctor.parent();
+
+        let attribute_ref =
+            writer::MemberRefParent::TypeRef(output.TypeRef(ty.namespace(), ty.name()));
+
+        let ctor = output.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
+        let value = output.AttributeValue(&attribute.value());
+        output.Attribute(parent, writer::AttributeType::MemberRef(ctor), value);
     }
 }

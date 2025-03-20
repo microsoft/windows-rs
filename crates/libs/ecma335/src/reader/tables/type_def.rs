@@ -51,4 +51,22 @@ impl TypeDef<'_> {
     pub fn nested(&self) -> Option<NestedClass> {
         self.file().equal_range(0, self.index() + 1).next()
     }
+
+    pub fn category(&self) -> TypeCategory {
+        if let Some(extends) = self.extends() {
+            if extends.namespace() == "System" {
+                match extends.name() {
+                    "Enum" => TypeCategory::Enum,
+                    "MulticastDelegate" => TypeCategory::Delegate,
+                    "ValueType" => TypeCategory::Struct,
+                    "Attribute" => TypeCategory::Attribute,
+                    _ => TypeCategory::Class,
+                }
+            } else {
+                TypeCategory::Class
+            }
+        } else {
+            TypeCategory::Interface
+        }
+    }
 }
