@@ -1,7 +1,0 @@
-[package]
-name = "tool_copy2"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-windows-ecma335 = { workspace = true }

@@ -4,5 +4,4 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-windows-bindgen = { workspace = true }
 windows-ecma335 = { workspace = true }

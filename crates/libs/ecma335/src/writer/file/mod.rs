@@ -422,7 +422,6 @@ impl File {
         buffer.write_u16((values.len() - count).try_into().unwrap());
 
         for (name, value) in &values[count..] {
-            
             buffer.push(0x53); // field=0x53 property=0x54
             buffer.push(value.ty().code());
 

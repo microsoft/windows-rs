@@ -17,7 +17,7 @@ impl Attribute<'_> {
         self.decode(1)
     }
 
-    pub fn values(&self) -> Vec<(String, Value)> {
+    pub fn value(&self) -> Vec<(String, Value)> {
         let signature = self.ctor().signature(&[]);
         debug_assert_eq!(signature.flags, MethodCallAttributes::HASTHIS);
         debug_assert_eq!(signature.return_type, Type::Void);
@@ -52,7 +52,7 @@ impl Attribute<'_> {
 }
 
 fn read_value(blob: &mut Blob, ty: &Type, name: &mut String) -> Value {
-     match ty {
+    match ty {
         Type::Bool => Value::Bool(blob.read_bool()),
         Type::I8 => Value::I8(blob.read_i8()),
         Type::U8 => Value::U8(blob.read_u8()),
