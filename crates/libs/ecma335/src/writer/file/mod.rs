@@ -354,7 +354,6 @@ impl File {
 
             Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
             Type::Type => self.TypeName("System", "Type", &[], buffer),
-            Type::AttributeType => buffer.push(0x50),
             Type::AttributeEnum => buffer.push(0x55),
         }
     }

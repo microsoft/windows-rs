@@ -3,10 +3,19 @@ use windows_ecma335::*;
 fn main() {
     let time = std::time::Instant::now();
 
-    let input = reader::File::read("crates/libs/bindgen/default/Windows.winmd").unwrap();
-
     let mut output = writer::File::new("test");
 
+    let input = reader::File::read("crates/libs/bindgen/default/Windows.winmd").unwrap();
+    for def in input.table::<reader::TypeDef>() {
+        write_def(&mut output, def);
+    }
+
+    let input = reader::File::read("crates/libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    for def in input.table::<reader::TypeDef>() {
+        write_def(&mut output, def);
+    }
+
+    let input = reader::File::read("crates/libs/bindgen/default/Windows.Wdk.winmd").unwrap();
     for def in input.table::<reader::TypeDef>() {
         write_def(&mut output, def);
     }

@@ -41,7 +41,7 @@ impl Attribute<'_> {
                 Type::I64 => Value::I64(blob.read_i64()),
                 Type::U64 => Value::U64(blob.read_u64()),
                 Type::String => Value::String(blob.read_utf8()),
-                Type::Type => Value::AttributeType(blob.read_utf8()),
+                Type::Type => Value::String(blob.read_utf8()),
                 Type::Name(..) => Value::I32(blob.read_i32()),
                 rest => panic!("{rest:?}"),
             };
@@ -64,7 +64,6 @@ impl Attribute<'_> {
                 ELEMENT_TYPE_I4 => Value::I32(blob.read_i32()),
                 ELEMENT_TYPE_U4 => Value::U32(blob.read_u32()),
                 ELEMENT_TYPE_STRING => Value::String(blob.read_utf8()),
-                0x50 => Value::AttributeType(blob.read_utf8()),
                 0x55 => {
                     let enum_type = name;
                     name = blob.read_utf8();
@@ -73,7 +72,6 @@ impl Attribute<'_> {
                 rest => panic!("{rest:?}"),
             };
 
-            println!("{name} - {value:?}");
             values.push((name, value));
         }
 
