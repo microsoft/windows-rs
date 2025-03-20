@@ -14,7 +14,6 @@ pub enum Value {
     F32(f32),
     F64(f64),
     String(String),
-    TypeName(String),
 }
 
 impl Value {
@@ -32,7 +31,6 @@ impl Value {
             Self::F32(..) => Type::F32,
             Self::F64(..) => Type::F64,
             Self::String(..) => Type::String,
-            rest => panic!("{rest:?}"),
         }
     }
 }

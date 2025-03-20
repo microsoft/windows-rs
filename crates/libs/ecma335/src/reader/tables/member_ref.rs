@@ -15,7 +15,7 @@ impl MemberRef<'_> {
         self.str(1)
     }
 
-    pub fn signature(&self) -> Blob {
-        self.blob(2)
+    pub fn signature(&self, generics: &[Type]) -> Signature {
+        self.blob(2).read_method_signature(generics)
     }
 }

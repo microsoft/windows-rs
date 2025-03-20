@@ -93,7 +93,7 @@ impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
 
     fn find_attribute(&'a self, name: &str) -> Option<Attribute<'a>> {
         self.attributes()
-            .find(|attribute| attribute.ty().parent().name() == name)
+            .find(|attribute| attribute.ctor().parent().name() == name)
     }
 
     fn has_attribute(&'a self, name: &str) -> bool {

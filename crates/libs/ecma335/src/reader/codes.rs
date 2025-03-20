@@ -50,10 +50,10 @@ impl AttributeType<'_> {
         }
     }
 
-    pub fn signature(&self) -> Blob {
+    pub fn signature(&self, generics: &[Type]) -> Signature {
         match self {
-            Self::MethodDef(row) => row.blob(4),
-            Self::MemberRef(row) => row.blob(2),
+            Self::MethodDef(row) => row.signature(generics),
+            Self::MemberRef(row) => row.signature(generics),
         }
     }
 }
@@ -127,9 +127,17 @@ impl<'a> TypeDefOrRef<'a> {
     }
 
     pub fn ty(&self, generics: &[Type]) -> Type {
-        match self {
-            Self::TypeSpec(def) => def.ty(generics),
-            _ => Type::named(self.namespace(), self.name()),
+        if let Self::TypeSpec(def) = self {
+            return def.ty(generics);
+        }
+
+        let namespace = self.namespace();
+        let name = self.name();
+
+        if (namespace, name) == ("System", "Type") {
+            Type::Type
+        } else {
+            Type::named(namespace, name)
         }
     }
 }

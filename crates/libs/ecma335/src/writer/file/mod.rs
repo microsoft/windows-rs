@@ -197,12 +197,14 @@ impl File {
     pub fn MemberRef(
         &mut self,
         name: &str,
-        signature: MethodDefSig,
+        signature: &Signature,
         parent: MemberRefParent,
     ) -> MemberRef {
+        let signature = self.MethodDefSig(signature);
+
         MemberRef(self.records.MemberRef.push_pos(records::MemberRef {
             Name: self.strings.insert(name),
-            Signature: signature.0,
+            Signature: signature,
             Parent: parent,
         }))
     }
@@ -262,16 +264,15 @@ impl File {
             panic!("invalid interfae type");
         };
 
-        let interface = 
-            if interface.generics.is_empty() {
-                TypeDefOrRef::TypeRef(self.TypeRef(&interface.namespace, &interface.name))
-            } else {
-                TypeDefOrRef::TypeSpec(self.TypeSpec(
-                    &interface.namespace,
-                    &interface.name,
-                    &interface.generics,
-                ))
-            };
+        let interface = if interface.generics.is_empty() {
+            TypeDefOrRef::TypeRef(self.TypeRef(&interface.namespace, &interface.name))
+        } else {
+            TypeDefOrRef::TypeSpec(self.TypeSpec(
+                &interface.namespace,
+                &interface.name,
+                &interface.generics,
+            ))
+        };
 
         InterfaceImpl(self.records.InterfaceImpl.push_pos(records::InterfaceImpl {
             Class: class.0,
@@ -402,17 +403,23 @@ impl File {
         ConstantValue(self.blobs.insert(&buffer))
     }
 
-    pub fn AttributeValue(&mut self, fixed: &[Value], named: &[(&str, Value)]) -> AttributeValue {
+    pub fn AttributeValue(&mut self, values: &[(String, Value)]) -> AttributeValue {
         let mut buffer = vec![];
         buffer.write_u16(1); // prolog
 
-        for value in fixed {
-            buffer.write_value(value);
+        let mut values = values.iter();
+
+        for (name, value) in &mut values {
+            if name.is_empty() {
+                buffer.write_value(value);
+            } else {
+                break;
+            }
         }
 
-        buffer.write_u16(named.len().try_into().unwrap());
+        buffer.write_u16(values.len().try_into().unwrap());
 
-        for (name, value) in named {
+        for (name, value) in values {
             buffer.push(0x53); // field=0x53 property=0x54
             buffer.push(value.ty().code());
             buffer.write_compressed(name.len());

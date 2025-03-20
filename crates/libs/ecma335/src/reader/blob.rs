@@ -68,6 +68,24 @@ impl<'a> Blob<'a> {
         mods
     }
 
+    pub fn read_method_signature(&mut self, generics: &[Type]) -> Signature {
+        let flags = MethodCallAttributes(self.read_u8());
+        let param_count = self.read_compressed();
+        let return_type = self.read_type_signature(generics);
+
+        let mut types = vec![];
+
+        for _ in 0..param_count {
+            types.push(self.read_type_signature(generics));
+        }
+
+        Signature {
+            flags,
+            return_type,
+            types,
+        }
+    }
+
     // Used to parse field and methods type signatures
     pub fn read_type_signature(&mut self, generics: &[Type]) -> Type {
         let is_const = self.read_modifiers().iter().any(|def| {
@@ -169,11 +187,11 @@ impl<'a> Blob<'a> {
         value
     }
 
-    pub fn read_str(&mut self) -> &str {
+    pub fn read_utf8(&mut self) -> String {
         let len = self.read_compressed();
         let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
         self.offset(len);
-        value
+        value.to_string()
     }
 
     pub fn read_utf16(self) -> String {

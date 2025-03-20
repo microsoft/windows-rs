@@ -24,22 +24,7 @@ impl MethodDef<'_> {
     }
 
     pub fn signature(&self, generics: &[Type]) -> Signature {
-        let mut blob = self.blob(4);
-        let flags = MethodCallAttributes(blob.read_u8());
-        let param_count = blob.read_compressed();
-        let return_type = blob.read_type_signature(generics);
-
-        let mut types = vec![];
-
-        for _ in 0..param_count {
-            types.push(blob.read_type_signature(generics));
-        }
-
-        Signature {
-            flags,
-            return_type,
-            types,
-        }
+        self.blob(4).read_method_signature(generics)
     }
 
     pub fn params(&self) -> RowIterator<MethodParam> {

@@ -157,7 +157,7 @@ pub struct Attribute {
 pub struct MemberRef {
     pub Parent: MemberRefParent,
     pub Name: u32,
-    pub Signature: u32,
+    pub Signature: MethodDefSig,
 }
 
 impl Records {
@@ -342,7 +342,7 @@ impl Records {
         for x in self.MemberRef {
             buffer.write_code(x.Parent.encode(), member_ref_parent);
             buffer.write_u32(x.Name);
-            buffer.write_u32(x.Signature);
+            buffer.write_u32(x.Signature.0);
         }
 
         for x in self.Constant {

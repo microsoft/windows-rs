@@ -105,10 +105,6 @@ impl Write for Vec<u8> {
                 self.write_compressed(value.len());
                 self.extend_from_slice(value.as_bytes());
             }
-            Value::TypeName(tn) => {
-                self.write_compressed(tn.len());
-                self.extend_from_slice(tn.as_bytes());
-            }
         }
     }
 }

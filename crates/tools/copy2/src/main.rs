@@ -17,52 +17,24 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
- fn write_attributes<'a, R: reader::HasAttributes<'a> >(output: &mut writer::File, parent: writer::HasAttribute, row: &'a R) {
-     for attribute in row.attributes() {
-        let ty = attribute.ty();
-         let ty = ty.parent();
-         let attribute_ref = writer::MemberRefParent::TypeRef(output.TypeRef(ty.namespace(), ty.name()));
-//         let args = attribute.args();
+fn write_attributes<'a, R: reader::HasAttributes<'a>>(
+    output: &mut writer::File,
+    parent: writer::HasAttribute,
+    row: &'a R,
+) {
+    for attribute in row.attributes() {
+        let ctor = attribute.ctor();
+        let ty = ctor.parent();
+        let attribute_ref =
+            writer::MemberRefParent::TypeRef(output.TypeRef(ty.namespace(), ty.name()));
+        let values = attribute.values();
+        let signature = ctor.signature(&[]);
 
-//         let mut signature = attribute.ty().signature();
-//         let _call_flags = signature.read_u8();
-//         let param_count = signature.read_usize();
-//         let mut types = vec![];
-//         let _return_type = r::Type::from_blob(&mut signature, None, &[]);
-
-//         for _ in 0..param_count {
-//             types.push(convert_type(&r::Type::from_blob(&mut signature, None, &[])));
-//         }
-
-//         let signature = output.MethodDefSig(&types, &Type::Void, MethodCallAttributes::HASTHIS);
-//         let ctor = output.MemberRef(".ctor", signature, attribute_ref);
-
-//         let fixed: Vec<Value> = args
-//             .iter()
-//             .filter_map(|(name, value)| {
-//                 if name.is_empty() {
-//                     Some(convert_value(value))
-//                 } else {
-//                     None
-//                 }
-//             })
-//             .collect();
-
-//         let named: Vec<(&str, Value)> = args
-//             .iter()
-//             .filter_map(|(name, value)| {
-//                 if !name.is_empty() {
-//                     Some((*name, convert_value(value)))
-//                 } else {
-//                     None
-//                 }
-//             })
-//             .collect();
-
-//         let value = output.AttributeValue(&fixed, &named);
-//         output.Attribute(parent, w::AttributeType::MemberRef(ctor), value);
-     }
- }
+        let ctor = output.MemberRef(".ctor", &signature, attribute_ref);
+        let value = output.AttributeValue(&values);
+        output.Attribute(parent, writer::AttributeType::MemberRef(ctor), value);
+    }
+}
 
 fn write_def(output: &mut writer::File, def: reader::TypeDef) {
     let extends = def
@@ -91,16 +63,16 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
         .map(|param| Type::Generic(param.sequence()))
         .collect();
 
-    // write_attributes(output, w::HasAttribute::TypeDef(type_def), def);
+    write_attributes(output, writer::HasAttribute::TypeDef(type_def), &def);
 
-    for interface_impl in def.interface_impls() {
-        let interface_impl = output.InterfaceImpl(type_def, &interface_impl.interface(&generics));
+    for def_interface in def.interface_impls() {
+        let interface_impl = output.InterfaceImpl(type_def, &def_interface.interface(&generics));
 
-        //     write_attributes(
-        //         output,
-        //         w::HasAttribute::InterfaceImpl(interface_impl),
-        //         def_interface,
-        //     );
+        write_attributes(
+            output,
+            writer::HasAttribute::InterfaceImpl(interface_impl),
+            &def_interface,
+        );
     }
 
     for generic in def.generic_params() {
@@ -125,7 +97,7 @@ fn write_def(output: &mut writer::File, def: reader::TypeDef) {
                 output.Param(param.name(), param.sequence(), param.flags());
             }
 
-            //         write_attributes(output, w::HasAttribute::MethodDef(method_def), method);
+            write_attributes(output, writer::HasAttribute::MethodDef(method_def), &method);
         }
     }
 }
