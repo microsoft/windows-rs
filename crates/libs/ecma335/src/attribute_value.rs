@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug)]
-pub enum Value {
+pub enum AttributeValue {
     Bool(bool),
     U8(u8),
     I8(i8),
@@ -14,12 +14,12 @@ pub enum Value {
     F32(f32),
     F64(f64),
     String(String),
-    AttributeType(String),
-    AttributeEnum(String, i32)
+    Type(String),
+    Enum(String, i32)
 }
 
 impl Value {
-    pub fn ty(&self) -> Type {
+    pub fn ty(&self) -> u8 {
         match self {
             Self::Bool(..) => Type::Bool,
             Self::U8(..) => Type::U8,
@@ -33,8 +33,8 @@ impl Value {
             Self::F32(..) => Type::F32,
             Self::F64(..) => Type::F64,
             Self::String(..) => Type::String,
-            Self::AttributeType(..) => Type::AttributeType,
-            Self::AttributeEnum(..) => Type::AttributeEnum,
+            Self::Type(..) => Type::Type,
+            Self::Enum(..) => Type::Enum,
         }
     }
 }

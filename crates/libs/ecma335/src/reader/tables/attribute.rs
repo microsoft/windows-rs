@@ -40,7 +40,8 @@ impl Attribute<'_> {
                 Type::U32 => Value::U32(blob.read_u32()),
                 Type::I64 => Value::I64(blob.read_i64()),
                 Type::U64 => Value::U64(blob.read_u64()),
-                Type::String | Type::Type => Value::String(blob.read_utf8()),
+                Type::String => Value::String(blob.read_utf8()),
+                Type::Type => Value::AttributeType(blob.read_utf8()),
                 Type::Name(..) => Value::I32(blob.read_i32()),
                 rest => panic!("{rest:?}"),
             };
@@ -63,15 +64,16 @@ impl Attribute<'_> {
                 ELEMENT_TYPE_I4 => Value::I32(blob.read_i32()),
                 ELEMENT_TYPE_U4 => Value::U32(blob.read_u32()),
                 ELEMENT_TYPE_STRING => Value::String(blob.read_utf8()),
-                0x50 => Value::String(blob.read_utf8()),
+                0x50 => Value::AttributeType(blob.read_utf8()),
                 0x55 => {
-                    // previous `name` is the enum type name so we have to "re-read" the name to get the field name
+                    let enum_type = name;
                     name = blob.read_utf8();
-                    Value::I32(blob.read_i32())
+                    Value::AttributeEnum(enum_type, blob.read_i32())
                 }
                 rest => panic!("{rest:?}"),
             };
 
+            println!("{name} - {value:?}");
             values.push((name, value));
         }
 

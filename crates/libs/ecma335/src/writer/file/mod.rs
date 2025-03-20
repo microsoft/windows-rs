@@ -354,6 +354,8 @@ impl File {
 
             Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
             Type::Type => self.TypeName("System", "Type", &[], buffer),
+            Type::AttributeType => buffer.push(0x50),
+            Type::AttributeEnum => buffer.push(0x55),
         }
     }
 
@@ -407,21 +409,29 @@ impl File {
         let mut buffer = vec![];
         buffer.write_u16(1); // prolog
 
-        let mut values = values.iter();
+        let mut count = 0;
 
-        for (name, value) in &mut values {
+        for (name, value) in values {
             if name.is_empty() {
+                count += 1;
                 buffer.write_value(value);
             } else {
                 break;
             }
         }
 
-        buffer.write_u16(values.len().try_into().unwrap());
+        buffer.write_u16((values.len() - count).try_into().unwrap());
 
-        for (name, value) in values {
+        for (name, value) in &values[count..] {
+            
             buffer.push(0x53); // field=0x53 property=0x54
             buffer.push(value.ty().code());
+
+            if let Value::AttributeEnum(type_name, _) = value {
+                buffer.write_compressed(type_name.len());
+                buffer.extend_from_slice(type_name.as_bytes());
+            }
+
             buffer.write_compressed(name.len());
             buffer.extend_from_slice(name.as_bytes());
             buffer.write_value(value);

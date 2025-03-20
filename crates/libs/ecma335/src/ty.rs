@@ -20,6 +20,8 @@ pub enum Type {
     String,
     Object,
     Type,
+    AttributeType,
+    AttributeEnum,
     Name(TypeName),
     Array(Box<Self>),    // ELEMENT_TYPE_SZARRAY
     ArrayRef(Box<Self>), // ELEMENT_TYPE_BYREF, ELEMENT_TYPE_SZARRAY
@@ -53,6 +55,9 @@ impl Type {
             Self::I64 => ELEMENT_TYPE_I8,
             Self::F32 => ELEMENT_TYPE_R4,
             Self::F64 => ELEMENT_TYPE_R8,
+            Self::String => ELEMENT_TYPE_STRING,
+            Self::AttributeType => 0x50,
+            Self::AttributeEnum => 0x55,
             rest => panic!("{rest:?}"),
         }
     }
