@@ -131,14 +131,7 @@ impl<'a> TypeDefOrRef<'a> {
             return def.ty(generics);
         }
 
-        let namespace = self.namespace();
-        let name = self.name();
-
-        if (namespace, name) == ("System", "Type") {
-            Type::Type
-        } else {
-            Type::named(namespace, name)
-        }
+        Type::named(self.namespace(), self.name())
     }
 }
 

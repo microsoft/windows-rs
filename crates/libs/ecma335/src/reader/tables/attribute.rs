@@ -63,8 +63,13 @@ fn read_value(blob: &mut Blob, ty: &Type, name: &mut String) -> Value {
         Type::I64 => Value::I64(blob.read_i64()),
         Type::U64 => Value::U64(blob.read_u64()),
         Type::String => Value::String(blob.read_utf8()),
-        Type::Type => Value::String(blob.read_utf8()),
-        Type::Name(..) => Value::I32(blob.read_i32()),
+        Type::Name(tn) => {
+            if tn.namespace == "System" && tn.name == "Type" {
+                Value::String(blob.read_utf8())
+            } else {
+                Value::I32(blob.read_i32())
+            }
+        }
         Type::AttributeEnum => {
             let enum_name = name.clone();
             *name = blob.read_utf8();

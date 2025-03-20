@@ -19,7 +19,6 @@ pub enum Type {
     USize,
     String,
     Object,
-    Type,
     AttributeEnum,
     Name(TypeName),
     Array(Box<Self>),    // ELEMENT_TYPE_SZARRAY
