@@ -1,5 +1,5 @@
-use windows_ecma335::*;
 use std::collections::HashMap;
+use windows_ecma335::*;
 
 enum ArgKind {
     None,
@@ -56,7 +56,10 @@ fn main() {
     let mut writer = writer::File::new(&name);
 
     for path in input {
-        let reader = reader::File::read(path).unwrap();
+        let Some(reader) = reader::File::read(&path) else {
+            panic!("failed to read .winmd format `{path}`");
+        };
+
         let mut nested = HashMap::<usize, Vec<usize>>::new();
 
         for map in reader.NestedClass() {
@@ -114,7 +117,12 @@ fn expand_input(input: Vec<String>) -> Vec<String> {
     result
 }
 
-fn write_type(reader: &reader::File, nested: &HashMap<usize, Vec<usize>>, writer: &mut writer::File, def: reader::TypeDef) -> writer::TypeDef {
+fn write_type(
+    reader: &reader::File,
+    nested: &HashMap<usize, Vec<usize>>,
+    writer: &mut writer::File,
+    def: reader::TypeDef,
+) -> writer::TypeDef {
     let extends = def
         .extends()
         .map(|extends| {

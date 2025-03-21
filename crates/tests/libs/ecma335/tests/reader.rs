@@ -23,8 +23,14 @@ fn test() {
 #[test]
 fn array() {
     let file = reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
-    let def = file.TypeDef().find(|def| def.name() == "VDMCONTEXT").unwrap();
-    let field = def.fields().find(|field| field.name() == "ExtendedRegisters").unwrap();
+    let def = file
+        .TypeDef()
+        .find(|def| def.name() == "VDMCONTEXT")
+        .unwrap();
+    let field = def
+        .fields()
+        .find(|field| field.name() == "ExtendedRegisters")
+        .unwrap();
 
     assert_eq!(field.ty(), Type::ArrayFixed(Box::new(Type::U8), 512));
 }
