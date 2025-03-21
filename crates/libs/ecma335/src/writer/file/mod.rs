@@ -350,11 +350,13 @@ impl File {
             }
 
             Type::ArrayFixed(ty, len) => {
+                // See II.23.2.13 ArrayShape
                 buffer.push(ELEMENT_TYPE_ARRAY);
                 self.Type(ty, buffer);
-                buffer.write_compressed(1);
-                buffer.write_compressed(1);
-                buffer.write_compressed(*len);
+                buffer.write_compressed(1); // rank
+                buffer.write_compressed(1); // num_sizes
+                buffer.write_compressed(*len); // size
+                buffer.write_compressed(0); // num_lo_bounds
             }
 
             Type::Generic(number) => {

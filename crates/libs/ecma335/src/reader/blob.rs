@@ -5,6 +5,12 @@ pub struct Blob<'a> {
     slice: &'a [u8],
 }
 
+impl Drop for Blob<'_> {
+    fn drop(&mut self) {
+        debug_assert_eq!(self.len(), 0);
+    }
+}
+
 impl std::fmt::Debug for Blob<'_> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:?}", self.slice)
@@ -148,13 +154,16 @@ impl<'a> Blob<'a> {
             }
             ELEMENT_TYPE_VAR => generics[self.read_compressed()].clone(),
             ELEMENT_TYPE_ARRAY => {
+                // See II.23.2.13 ArrayShape
                 let ty = self.read_type_signature(generics);
                 let rank = self.read_compressed();
                 debug_assert_eq!(rank, 1);
-                let count = self.read_compressed();
-                debug_assert_eq!(count, 1);
-                let bounds = self.read_compressed();
-                Type::ArrayFixed(Box::new(ty), bounds)
+                let num_sizes = self.read_compressed();
+                debug_assert_eq!(num_sizes, 1);
+                let size = self.read_compressed();
+                let num_lo_bounds = self.read_compressed();
+                debug_assert_eq!(num_lo_bounds, 0);
+                Type::ArrayFixed(Box::new(ty), size)
             }
             ELEMENT_TYPE_GENERICINST => {
                 let type_code = self.read_u8();

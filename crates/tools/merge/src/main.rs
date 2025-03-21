@@ -58,6 +58,7 @@ fn main() {
         let input = reader::File::read(path).unwrap();
 
         for def in input.table::<reader::TypeDef>() {
+            // TODO: does this need to be sorted to ensure stable output?
             write_type(&mut writer, def);
         }
     }
