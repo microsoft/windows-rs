@@ -162,7 +162,11 @@ impl<'a> Blob<'a> {
                 debug_assert_eq!(num_sizes, 1);
                 let size = self.read_compressed();
                 let num_lo_bounds = self.read_compressed();
-                debug_assert_eq!(num_lo_bounds, 0);
+                debug_assert!(num_lo_bounds == 0 || num_lo_bounds == 1);
+                for _ in 0..num_lo_bounds {
+                    let lo_bounds = self.read_compressed();
+                    debug_assert_eq!(lo_bounds, 0);
+                }
                 Type::ArrayFixed(Box::new(ty), size)
             }
             ELEMENT_TYPE_GENERICINST => {
@@ -204,21 +208,27 @@ impl<'a> Blob<'a> {
         value.to_string()
     }
 
-    pub fn read_utf16(self) -> String {
+    pub fn read_utf16(&mut self) -> String {
         let slice = self.slice;
-        if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
+
+        let value = if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
             let slice = slice
                 .chunks_exact(2)
                 .take(slice.len() / 2)
                 .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
                 .collect::<Vec<u16>>();
+
             String::from_utf16_lossy(&slice)
         } else {
             let slice = unsafe {
                 std::slice::from_raw_parts(slice.as_ptr() as *const u16, slice.len() / 2)
             };
+
             String::from_utf16_lossy(slice)
-        }
+        };
+
+        self.offset(slice.len());
+        value
     }
 
     pub fn read_bool(&mut self) -> bool {
