@@ -66,7 +66,7 @@ fn main() {
         }
 
         for def in reader.TypeDef() {
-            // TODO: does this need to be sorted to ensure stable output?
+            // TODO: does this need to be sorted (relative to other input files) to ensure stable output?
 
             if !def.flags().is_nested() {
                 write_type(&reader, &nested, &mut writer, def);
@@ -149,15 +149,6 @@ fn write_type(reader: &reader::File, nested: &HashMap<usize, Vec<usize>>, writer
         );
     }
 
-    if let Some(inner) = nested.get(&def.index()) {
-        for inner in inner {
-            let inner: reader::TypeDef = reader.row(*inner);
-            let _inner = write_type(reader, nested, writer, inner);
-
-            //writer.NestedClass(inner, type_def);
-        }
-    }
-
     for generic in def.generic_params() {
         writer.GenericParam(
             generic.name(),
@@ -184,6 +175,15 @@ fn write_type(reader: &reader::File, nested: &HashMap<usize, Vec<usize>>, writer
             }
 
             write_attributes(writer, writer::HasAttribute::MethodDef(method_def), &method);
+        }
+    }
+
+    if let Some(inner) = nested.get(&def.index()) {
+        for inner in inner {
+            let inner: reader::TypeDef = reader.row(*inner);
+            let inner = write_type(reader, nested, writer, inner);
+
+            writer.NestedClass(inner, type_def);
         }
     }
 

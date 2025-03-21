@@ -162,33 +162,6 @@ pub struct MemberRef {
 
 impl Records {
     pub fn into_stream(self) -> Vec<u8> {
-        if [
-            self.Assembly.len(),
-            self.AssemblyRef.len(),
-            self.Attribute.len(),
-            self.ClassLayout.len(),
-            self.Constant.len(),
-            self.Field.len(),
-            self.GenericParam.len(),
-            self.ImplMap.len(),
-            self.InterfaceImpl.len(),
-            self.MemberRef.len(),
-            self.MethodDef.len(),
-            self.Module.len(),
-            self.ModuleRef.len(),
-            self.NestedClass.len(),
-            self.Param.len(),
-            self.Property.len(),
-            self.TypeDef.len(),
-            self.TypeRef.len(),
-            self.TypeSpec.len(),
-        ]
-        .iter()
-        .any(|len| *len > u32::MAX as usize)
-        {
-            panic!("metadata table too large");
-        }
-
         let resolution_scope = coded_index_size(&[
             self.Module.len(),
             self.ModuleRef.len(),
@@ -268,25 +241,25 @@ impl Records {
 
         // Followed by the length of each of the valid tables...
 
-        buffer.write_u32(self.Module.len() as u32);
-        buffer.write_u32(self.TypeRef.len() as u32);
-        buffer.write_u32(self.TypeDef.len() as u32);
-        buffer.write_u32(self.Field.len() as u32);
-        buffer.write_u32(self.MethodDef.len() as u32);
-        buffer.write_u32(self.Param.len() as u32);
-        buffer.write_u32(self.InterfaceImpl.len() as u32);
-        buffer.write_u32(self.MemberRef.len() as u32);
-        buffer.write_u32(self.Constant.len() as u32);
-        buffer.write_u32(self.Attribute.len() as u32);
-        buffer.write_u32(self.ClassLayout.len() as u32);
-        buffer.write_u32(self.Property.len() as u32);
-        buffer.write_u32(self.ModuleRef.len() as u32);
-        buffer.write_u32(self.TypeSpec.len() as u32);
-        buffer.write_u32(self.ImplMap.len() as u32);
-        buffer.write_u32(self.Assembly.len() as u32);
-        buffer.write_u32(self.AssemblyRef.len() as u32);
-        buffer.write_u32(self.NestedClass.len() as u32);
-        buffer.write_u32(self.GenericParam.len() as u32);
+        buffer.write_u32(self.Module.len().try_into().unwrap());
+        buffer.write_u32(self.TypeRef.len().try_into().unwrap());
+        buffer.write_u32(self.TypeDef.len().try_into().unwrap());
+        buffer.write_u32(self.Field.len().try_into().unwrap());
+        buffer.write_u32(self.MethodDef.len().try_into().unwrap());
+        buffer.write_u32(self.Param.len().try_into().unwrap());
+        buffer.write_u32(self.InterfaceImpl.len().try_into().unwrap());
+        buffer.write_u32(self.MemberRef.len().try_into().unwrap());
+        buffer.write_u32(self.Constant.len().try_into().unwrap());
+        buffer.write_u32(self.Attribute.len().try_into().unwrap());
+        buffer.write_u32(self.ClassLayout.len().try_into().unwrap());
+        buffer.write_u32(self.Property.len().try_into().unwrap());
+        buffer.write_u32(self.ModuleRef.len().try_into().unwrap());
+        buffer.write_u32(self.TypeSpec.len().try_into().unwrap());
+        buffer.write_u32(self.ImplMap.len().try_into().unwrap());
+        buffer.write_u32(self.Assembly.len().try_into().unwrap());
+        buffer.write_u32(self.AssemblyRef.len().try_into().unwrap());
+        buffer.write_u32(self.NestedClass.len().try_into().unwrap());
+        buffer.write_u32(self.GenericParam.len().try_into().unwrap());
 
         // Followed by each table's rows...
 
