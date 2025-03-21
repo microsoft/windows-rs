@@ -386,6 +386,11 @@ impl Records {
             buffer.write_u32(x.HashValue);
         }
 
+        for x in self.NestedClass {
+            buffer.write_index(x.NestedClass, self.TypeDef.len());
+            buffer.write_index(x.EnclosingClass, self.TypeDef.len());
+        }
+
         for x in self.GenericParam {
             buffer.write_u16(x.Number);
             buffer.write_u16(x.Flags.0);

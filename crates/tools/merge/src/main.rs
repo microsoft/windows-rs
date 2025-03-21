@@ -1,4 +1,5 @@
 use windows_ecma335::*;
+use std::collections::HashMap;
 
 enum ArgKind {
     None,
@@ -55,11 +56,21 @@ fn main() {
     let mut writer = writer::File::new(&name);
 
     for path in input {
-        let input = reader::File::read(path).unwrap();
+        let reader = reader::File::read(path).unwrap();
+        let mut nested = HashMap::<usize, Vec<usize>>::new();
 
-        for def in input.table::<reader::TypeDef>() {
+        for map in reader.NestedClass() {
+            let outer = map.outer();
+            let inner = map.inner();
+            nested.entry(outer.index()).or_default().push(inner.index());
+        }
+
+        for def in reader.TypeDef() {
             // TODO: does this need to be sorted to ensure stable output?
-            write_type(&mut writer, def);
+
+            if !def.flags().is_nested() {
+                write_type(&reader, &nested, &mut writer, def);
+            }
         }
     }
 
@@ -103,7 +114,7 @@ fn expand_input(input: Vec<String>) -> Vec<String> {
     result
 }
 
-fn write_type(writer: &mut writer::File, def: reader::TypeDef) {
+fn write_type(reader: &reader::File, nested: &HashMap<usize, Vec<usize>>, writer: &mut writer::File, def: reader::TypeDef) -> writer::TypeDef {
     let extends = def
         .extends()
         .map(|extends| {
@@ -138,6 +149,15 @@ fn write_type(writer: &mut writer::File, def: reader::TypeDef) {
         );
     }
 
+    if let Some(inner) = nested.get(&def.index()) {
+        for inner in inner {
+            let inner: reader::TypeDef = reader.row(*inner);
+            let _inner = write_type(reader, nested, writer, inner);
+
+            //writer.NestedClass(inner, type_def);
+        }
+    }
+
     for generic in def.generic_params() {
         writer.GenericParam(
             generic.name(),
@@ -166,6 +186,8 @@ fn write_type(writer: &mut writer::File, def: reader::TypeDef) {
             write_attributes(writer, writer::HasAttribute::MethodDef(method_def), &method);
         }
     }
+
+    type_def
 }
 
 fn write_attributes<'a, R: reader::HasAttributes<'a>>(

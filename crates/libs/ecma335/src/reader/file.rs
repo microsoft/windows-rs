@@ -556,6 +556,10 @@ impl File {
         Blob::new(self, &self.bytes[offset..offset + blob_size])
     }
 
+    pub fn row<'a, R: AsRow<'a>>(&'a self, row: usize) -> R {
+        R::from_row(Row::new(self, row))
+    }
+
     pub(crate) fn list<'a, R: AsRow<'a>>(
         &'a self,
         row: usize,
@@ -672,6 +676,10 @@ impl File {
     }
 
     pub fn TypeDef(&self) -> RowIterator<TypeDef> {
+        self.table()
+    }
+
+    pub fn NestedClass(&self) -> RowIterator<NestedClass> {
         self.table()
     }
 }

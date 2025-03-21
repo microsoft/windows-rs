@@ -48,10 +48,6 @@ impl TypeDef<'_> {
         self.file().equal_range(2, self.index() + 1).next()
     }
 
-    pub fn nested(&self) -> Option<NestedClass> {
-        self.file().equal_range(0, self.index() + 1).next()
-    }
-
     pub fn category(&self) -> TypeCategory {
         if let Some(extends) = self.extends() {
             if extends.namespace() == "System" {

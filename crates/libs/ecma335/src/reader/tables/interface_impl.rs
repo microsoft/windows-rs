@@ -8,7 +8,7 @@ impl std::fmt::Debug for InterfaceImpl<'_> {
 
 impl InterfaceImpl<'_> {
     pub fn class(&self) -> TypeDef {
-        TypeDef(self.row(0))
+        self.row(0)
     }
 
     pub fn interface(&self, generics: &[Type]) -> Type {

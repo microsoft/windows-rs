@@ -12,7 +12,7 @@ impl ImplMap<'_> {
     }
 
     pub fn scope(&self) -> ModuleRef {
-        ModuleRef(self.row(3))
+        self.row(3)
     }
 
     pub fn import_name(&self) -> &str {

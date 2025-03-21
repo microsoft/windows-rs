@@ -11,10 +11,10 @@ impl std::fmt::Debug for NestedClass<'_> {
 
 impl NestedClass<'_> {
     pub fn inner(&self) -> TypeDef {
-        TypeDef(self.row(0))
+        self.row(0)
     }
 
     pub fn outer(&self) -> TypeDef {
-        TypeDef(self.row(1))
+        self.row(1)
     }
 }

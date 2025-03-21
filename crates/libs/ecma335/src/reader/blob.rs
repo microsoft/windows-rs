@@ -163,10 +163,12 @@ impl<'a> Blob<'a> {
                 let size = self.read_compressed();
                 let num_lo_bounds = self.read_compressed();
                 debug_assert!(num_lo_bounds == 0 || num_lo_bounds == 1);
+
                 for _ in 0..num_lo_bounds {
                     let lo_bounds = self.read_compressed();
                     debug_assert_eq!(lo_bounds, 0);
                 }
+                
                 Type::ArrayFixed(Box::new(ty), size)
             }
             ELEMENT_TYPE_GENERICINST => {

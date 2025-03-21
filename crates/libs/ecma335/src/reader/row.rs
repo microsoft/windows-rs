@@ -36,8 +36,8 @@ pub trait AsRow<'a>: Copy {
         self.file().str(self.index(), Self::TABLE, column)
     }
 
-    fn row(&'a self, column: usize) -> Row<'a> {
-        Row::new(self.file(), self.usize(column) - 1)
+    fn row<R: AsRow<'a>>(&'a self, column: usize) -> R {
+        self.file().row(self.usize(column) - 1)
     }
 
     fn decode<T: Decode<'a>>(&'a self, column: usize) -> T {

@@ -269,6 +269,13 @@ impl File {
             });
     }
 
+    pub fn NestedClass(&mut self, inner: TypeDef, outer: TypeDef) {
+        self.records.NestedClass.push(records::NestedClass {
+            NestedClass: inner.0,
+            EnclosingClass: outer.0,
+        })
+    }
+
     pub fn InterfaceImpl(&mut self, class: TypeDef, interface: &Type) -> InterfaceImpl {
         let Type::Name(interface) = interface else {
             panic!("invalid interfae type");
