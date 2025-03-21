@@ -1,5 +1,5 @@
 [package]
-name = "tool_copy"
+name = "tool_merge"
 version = "0.1.0"
 edition = "2021"
 

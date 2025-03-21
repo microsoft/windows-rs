@@ -1,0 +1,190 @@
+use windows_ecma335::*;
+
+enum ArgKind {
+    None,
+    Input,
+    Output,
+}
+
+fn main() {
+    let time = std::time::Instant::now();
+    let mut output = None;
+    let mut input = vec![];
+    let mut kind = ArgKind::None;
+
+    for arg in std::env::args().skip(1) {
+        if arg.starts_with('-') {
+            kind = ArgKind::None;
+        }
+
+        match kind {
+            ArgKind::None => match arg.as_str() {
+                "--in" => kind = ArgKind::Input,
+                "--out" => kind = ArgKind::Output,
+                _ => panic!("invalid option `{arg}`"),
+            },
+            ArgKind::Output => {
+                if output.is_none() {
+                    output = Some(arg.to_string());
+                } else {
+                    panic!("exactly one `--out` is required");
+                }
+            }
+            ArgKind::Input => input.push(arg.to_string()),
+        }
+    }
+
+    let input = expand_input(input);
+
+    if input.is_empty() {
+        panic!("at least one `--in` is required");
+    };
+
+    let Some(output) = output else {
+        panic!("exactly one `--out` is required");
+    };
+
+    let output = std::path::Path::new(&output);
+    let name = output.with_extension("");
+
+    let name = name
+        .file_name()
+        .expect("`--out` file name is required")
+        .to_string_lossy();
+
+    let mut writer = writer::File::new(&name);
+
+    for path in input {
+        let input = reader::File::read(path).unwrap();
+
+        for def in input.table::<reader::TypeDef>() {
+            write_type(&mut writer, def);
+        }
+    }
+
+    let bytes = writer.into_stream();
+    std::fs::write(output, bytes).unwrap();
+    println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
+}
+
+fn expand_input(input: Vec<String>) -> Vec<String> {
+    let mut result = vec![];
+
+    for input in input {
+        let path = std::path::Path::new(&input);
+
+        if path.is_dir() {
+            let prev_len = result.len();
+
+            for path in path
+                .read_dir()
+                .unwrap_or_else(|_| panic!("failed to read directory `{input}`"))
+                .flatten()
+                .map(|entry| entry.path())
+            {
+                if path.is_file()
+                    && path
+                        .extension()
+                        .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
+                {
+                    result.push(path.to_string_lossy().to_string());
+                }
+            }
+
+            if result.len() == prev_len {
+                panic!("failed to find .winmd files in directory `{input}`");
+            }
+        } else {
+            result.push(input);
+        }
+    }
+
+    result
+}
+
+fn write_type(writer: &mut writer::File, def: reader::TypeDef) {
+    let extends = def
+        .extends()
+        .map(|extends| {
+            writer::TypeDefOrRef::TypeRef(writer.TypeRef(extends.namespace(), extends.name()))
+        })
+        .unwrap_or_default();
+
+    let type_def = writer.TypeDef(def.namespace(), def.name(), extends, def.flags());
+
+    for field in def.fields() {
+        let parent = writer.Field(field.name(), &field.ty(), field.flags());
+
+        if let Some(constant) = field.constant() {
+            writer.Constant(writer::HasConstant::Field(parent), &constant.value());
+        }
+    }
+
+    let generics: Vec<_> = def
+        .generic_params()
+        .map(|param| Type::Generic(param.sequence()))
+        .collect();
+
+    write_attributes(writer, writer::HasAttribute::TypeDef(type_def), &def);
+
+    for map in def.interface_impls() {
+        let interface_impl = writer.InterfaceImpl(type_def, &map.interface(&generics));
+
+        write_attributes(
+            writer,
+            writer::HasAttribute::InterfaceImpl(interface_impl),
+            &map,
+        );
+    }
+
+    for generic in def.generic_params() {
+        writer.GenericParam(
+            generic.name(),
+            writer::TypeOrMethodDef::TypeDef(type_def),
+            generic.sequence(),
+            generic.flags(),
+        );
+    }
+
+    let is_winrt_class = def.category() == reader::TypeCategory::Class
+        && def.flags().contains(TypeAttributes::WindowsRuntime);
+
+    if !is_winrt_class {
+        for method in def.methods() {
+            let method_def = writer.MethodDef(
+                method.name(),
+                &method.signature(&generics),
+                method.flags(),
+                method.impl_flags(),
+            );
+
+            for param in method.params() {
+                writer.Param(param.name(), param.sequence(), param.flags());
+            }
+
+            write_attributes(writer, writer::HasAttribute::MethodDef(method_def), &method);
+        }
+    }
+}
+
+fn write_attributes<'a, R: reader::HasAttributes<'a>>(
+    writer: &mut writer::File,
+    parent: writer::HasAttribute,
+    row: &'a R,
+) {
+    for attribute in row.attributes() {
+        let ctor = attribute.ctor();
+        let ty = ctor.parent();
+
+        let attribute_ref =
+            writer::MemberRefParent::TypeRef(writer.TypeRef(ty.namespace(), ty.name()));
+
+        let ctor = writer.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
+
+        writer.Attribute(
+            parent,
+            writer::AttributeType::MemberRef(ctor),
+            &attribute.value(),
+        );
+    }
+}
