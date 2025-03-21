@@ -33,11 +33,7 @@ pub enum Type {
 
 impl Type {
     pub fn named(namespace: &str, name: &str) -> Self {
-        Self::Name(TypeName {
-            namespace: namespace.to_string(),
-            name: name.to_string(),
-            generics: vec![],
-        })
+        Self::Name(TypeName::named(namespace, name))
     }
 
     pub fn code(&self) -> u8 {

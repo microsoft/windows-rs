@@ -1,5 +1,7 @@
 use windows_ecma335::*;
 
+// TODO: use this "mdmerge" to produce the winmd file included with windows-bindgen so its gets smaller
+
 fn main() {
     let time = std::time::Instant::now();
     let mut output = writer::File::new("test");

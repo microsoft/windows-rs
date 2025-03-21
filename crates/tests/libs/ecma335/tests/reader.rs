@@ -1,13 +1,10 @@
-use windows_ecma335::{reader::*, *};
+use windows_ecma335::*;
 
 #[test]
 fn test() {
-    let file = File::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
+    let file = reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
 
-    let def = file
-        .table::<TypeDef>()
-        .find(|def| def.name() == "Point")
-        .unwrap();
+    let def = file.TypeDef().find(|def| def.name() == "Point").unwrap();
 
     assert_eq!(def.namespace(), "Windows.Foundation");
     assert_eq!(def.name(), "Point");

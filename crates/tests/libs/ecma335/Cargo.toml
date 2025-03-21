@@ -6,6 +6,3 @@ publish = false
 
 [dependencies.windows-ecma335]
 workspace = true
-
-[dependencies.windows-bindgen]
-workspace = true

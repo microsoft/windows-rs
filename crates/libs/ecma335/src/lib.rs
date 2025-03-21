@@ -21,3 +21,5 @@ pub use type_name::*;
 
 mod signature;
 pub use signature::*;
+
+pub use reader::HasAttributes;

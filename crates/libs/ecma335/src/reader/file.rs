@@ -670,6 +670,10 @@ impl File {
     pub fn table<'a, R: AsRow<'a>>(&'a self) -> RowIterator<'a, R> {
         RowIterator::new(self, 0..self.tables[R::TABLE].len)
     }
+
+    pub fn TypeDef(&self) -> RowIterator<TypeDef> {
+        self.table()
+    }
 }
 
 fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {
