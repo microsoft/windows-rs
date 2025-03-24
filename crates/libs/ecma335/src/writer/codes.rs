@@ -71,6 +71,10 @@ code! { HasConstant(2)
     (Field, 0)
 }
 
+code! { MemberForwarded(1)
+    (MethodDef, 1)
+}
+
 code! { TypeOrMethodDef(1)
     (TypeDef, 0)
 }

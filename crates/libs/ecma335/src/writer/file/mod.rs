@@ -23,6 +23,7 @@ pub struct File {
     // Indexes for fast lookup of preexisting rows.
     TypeRef: HashMap<String, HashMap<String, u32>>,
     AssemblyRef: HashMap<String, u32>,
+    ModuleRef: HashMap<String, u32>,
 
     // Staging for sorted rows before these records can be written. BTreeMap is used rather than HashMap to allow reproducible builds.
     Constant: BTreeMap<HasConstant, records::Constant>,
@@ -61,6 +62,36 @@ impl File {
         file.TypeDef("", "<Module>", TypeDefOrRef::default(), TypeAttributes(0));
 
         file
+    }
+
+    fn ModuleRef(&mut self, name: &str) -> ModuleRef {
+        if let Some(pos) = self.ModuleRef.get(name) {
+            return ModuleRef(*pos);
+        }
+
+        let pos = self.records.ModuleRef.push_pos(records::ModuleRef {
+            Name: self.strings.insert(name),
+        });
+
+        self.ModuleRef.insert(name.to_string(), pos);
+        ModuleRef(pos)
+    }
+
+    pub fn ImplMap(
+        &mut self,
+        method: MethodDef,
+        flags: PInvokeAttributes,
+        import_name: &str,
+        import_scope: &str,
+    ) {
+        let scope = self.ModuleRef(import_scope);
+
+        self.records.ImplMap.push(records::ImplMap {
+            MappingFlags: flags,
+            MemberForwarded: MemberForwarded::MethodDef(method),
+            ImportName: self.strings.insert(import_name),
+            ImportScope: scope,
+        })
     }
 
     /// Adds an `AssemblyRef` row representing the given namespace to the file, returning the row offset.

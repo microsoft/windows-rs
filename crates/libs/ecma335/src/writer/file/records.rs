@@ -62,10 +62,10 @@ pub struct InterfaceImpl {
 }
 
 pub struct ImplMap {
-    pub MappingFlags: u16,
-    pub MemberForwarded: u32,
+    pub MappingFlags: PInvokeAttributes,
+    pub MemberForwarded: MemberForwarded,
     pub ImportName: u32,
-    pub ImportScope: u32,
+    pub ImportScope: identifiers::ModuleRef,
 }
 
 #[derive(Default)]
@@ -208,6 +208,8 @@ impl Records {
             0,
         ]);
 
+        let member_forwarded = coded_index_size(&[self.Field.len(), self.MethodDef.len()]);
+
         let valid_tables: u64 = (1 << 0) | // Module 
         (1 << 0x01) | // TypeRef
         (1 << 0x02) | // TypeDef
@@ -263,7 +265,7 @@ impl Records {
 
         // Followed by each table's rows...
 
-        for r in self.Module {
+        for r in &self.Module {
             buffer.write_u16(r.Generation);
             buffer.write_u32(r.Name);
             buffer.write_u32(r.Mvid);
@@ -271,7 +273,7 @@ impl Records {
             buffer.write_u32(r.EncBaseId);
         }
 
-        for r in self.TypeRef {
+        for r in &self.TypeRef {
             buffer.write_code(r.ResolutionScope.encode(), resolution_scope);
             buffer.write_u32(r.TypeName);
             buffer.write_u32(r.TypeNamespace);
@@ -286,13 +288,13 @@ impl Records {
             buffer.write_index(r.MethodList, self.MethodDef.len());
         }
 
-        for r in self.Field {
+        for r in &self.Field {
             buffer.write_u16(r.Flags.0);
             buffer.write_u32(r.Name);
             buffer.write_u32(r.Signature.0);
         }
 
-        for r in self.MethodDef {
+        for r in &self.MethodDef {
             buffer.write_u32(r.RVA);
             buffer.write_u16(r.ImplFlags.0);
             buffer.write_u16(r.Flags.0);
@@ -301,47 +303,58 @@ impl Records {
             buffer.write_index(r.ParamList, self.Param.len());
         }
 
-        for r in self.Param {
+        for r in &self.Param {
             buffer.write_u16(r.Flags.0);
             buffer.write_u16(r.Sequence);
             buffer.write_u32(r.Name);
         }
 
-        for r in self.InterfaceImpl {
+        for r in &self.InterfaceImpl {
             buffer.write_index(r.Class, self.TypeDef.len());
             buffer.write_code(r.Interface.encode(), type_def_or_ref);
         }
 
-        for r in self.MemberRef {
+        for r in &self.MemberRef {
             buffer.write_code(r.Parent.encode(), member_ref_parent);
             buffer.write_u32(r.Name);
             buffer.write_u32(r.Signature.0);
         }
 
-        for r in self.Constant {
+        for r in &self.Constant {
             buffer.push(r.Type);
             buffer.push(0);
             buffer.write_code(r.Parent.encode(), has_constant);
             buffer.write_u32(r.Value.0);
         }
 
-        for r in self.Attribute {
+        for r in &self.Attribute {
             buffer.write_code(r.Parent.encode(), has_custom_attribute);
             buffer.write_code(r.Type.encode(), custom_attribute_type);
             buffer.write_u32(r.Value.0);
         }
 
-        for r in self.ClassLayout {
+        for r in &self.ClassLayout {
             buffer.write_u16(r.PackingSize);
             buffer.write_u32(r.ClassSize);
             buffer.write_index(r.Parent, self.TypeDef.len());
         }
 
-        for r in self.TypeSpec {
+        for r in &self.ModuleRef {
+            buffer.write_u32(r.Name);
+        }
+
+        for r in &self.TypeSpec {
             buffer.write_u32(r.Signature);
         }
 
-        for r in self.Assembly {
+        for r in &self.ImplMap {
+            buffer.write_u16(r.MappingFlags.0);
+            buffer.write_code(r.MemberForwarded.encode(), member_forwarded);
+            buffer.write_u32(r.ImportName);
+            buffer.write_index(r.ImportScope.0, self.ModuleRef.len());
+        }
+
+        for r in &self.Assembly {
             buffer.write_u32(r.HashAlgId);
             buffer.write_u16(r.MajorVersion);
             buffer.write_u16(r.MinorVersion);
@@ -353,7 +366,7 @@ impl Records {
             buffer.write_u32(r.Culture);
         }
 
-        for r in self.AssemblyRef {
+        for r in &self.AssemblyRef {
             buffer.write_u16(r.MajorVersion);
             buffer.write_u16(r.MinorVersion);
             buffer.write_u16(r.BuildNumber);
@@ -365,12 +378,12 @@ impl Records {
             buffer.write_u32(r.HashValue);
         }
 
-        for r in self.NestedClass {
+        for r in &self.NestedClass {
             buffer.write_index(r.NestedClass, self.TypeDef.len());
             buffer.write_index(r.EnclosingClass, self.TypeDef.len());
         }
 
-        for r in self.GenericParam {
+        for r in &self.GenericParam {
             buffer.write_u16(r.Number);
             buffer.write_u16(r.Flags.0);
             buffer.write_code(r.Owner.encode(), type_or_method_def);

@@ -152,11 +152,7 @@ fn write_type(
             writer.Constant(writer::HasConstant::Field(parent), &constant.value());
         }
 
-        write_attributes(
-            writer,
-            writer::HasAttribute::Field(parent),
-            &field,
-        );
+        write_attributes(writer, writer::HasAttribute::Field(parent), &field);
     }
 
     let generics: Vec<_> = def
@@ -202,11 +198,24 @@ fn write_type(
             }
 
             write_attributes(writer, writer::HasAttribute::MethodDef(method_def), &method);
+
+            if let Some(impl_map) = method.impl_map() {
+                writer.ImplMap(
+                    method_def,
+                    impl_map.flags(),
+                    impl_map.import_name(),
+                    impl_map.import_scope().name(),
+                );
+            }
         }
     }
 
     if let Some(class_layout) = def.class_layout() {
-        writer.ClassLayout(type_def, class_layout.packing_size(), class_layout.class_size());
+        writer.ClassLayout(
+            type_def,
+            class_layout.packing_size(),
+            class_layout.class_size(),
+        );
     }
 
     if let Some(inner) = nested.get(&def.index()) {

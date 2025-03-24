@@ -39,6 +39,8 @@ impl<const LEN: usize> STREAM_HEADER<LEN> {
 
 impl File {
     pub fn into_stream(mut self) -> Vec<u8> {
+        // Flatten sorted records...
+
         self.records.Constant.extend(self.Constant.values());
 
         self.records
@@ -49,16 +51,37 @@ impl File {
             .GenericParam
             .extend(self.GenericParam.values().flatten());
 
-        debug_assert!(self.records.ClassLayout.iter().map(|r| r.Parent).is_sorted());
+        // Test sorted order...
+
+        debug_assert!(self
+            .records
+            .ClassLayout
+            .iter()
+            .map(|r| r.Parent)
+            .is_sorted());
         debug_assert!(self.records.Constant.iter().map(|r| r.Parent).is_sorted());
         debug_assert!(self.records.Attribute.iter().map(|r| r.Parent).is_sorted());
-        
+        debug_assert!(self
+            .records
+            .GenericParam
+            .iter()
+            .map(|r| r.Owner)
+            .is_sorted());
+        debug_assert!(self
+            .records
+            .ImplMap
+            .iter()
+            .map(|r| r.MemberForwarded)
+            .is_sorted());
+
         debug_assert!(self
             .records
             .NestedClass
             .iter()
             .map(|r| r.NestedClass)
             .is_sorted());
+
+        // Serialize...
 
         let mut strings = self.strings.into_stream();
         let mut blobs = self.blobs.into_stream();

@@ -83,7 +83,7 @@ impl ParamAttributes {
     pub const Optional: Self = Self(0x10);
 }
 
-flags!(PInvokeAttributes, usize);
+flags!(PInvokeAttributes, u16);
 impl PInvokeAttributes {
     pub const SupportsLastError: Self = Self(0x40);
     pub const CallConvPlatformapi: Self = Self(0x100);
