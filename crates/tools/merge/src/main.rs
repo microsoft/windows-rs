@@ -205,6 +205,10 @@ fn write_type(
         }
     }
 
+    if let Some(class_layout) = def.class_layout() {
+        writer.ClassLayout(type_def, class_layout.packing_size(), class_layout.class_size());
+    }
+
     if let Some(inner) = nested.get(&def.index()) {
         for inner in inner {
             let inner_def: reader::TypeDef = reader.row(*inner);

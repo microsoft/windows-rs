@@ -49,6 +49,7 @@ impl File {
             .GenericParam
             .extend(self.GenericParam.values().flatten());
 
+        debug_assert!(self.records.ClassLayout.iter().map(|r| r.Parent).is_sorted());
         debug_assert!(self.records.Constant.iter().map(|r| r.Parent).is_sorted());
         debug_assert!(self.records.Attribute.iter().map(|r| r.Parent).is_sorted());
         

@@ -269,6 +269,14 @@ impl File {
             });
     }
 
+    pub fn ClassLayout(&mut self, parent: TypeDef, packing_size: u16, class_size: u32) {
+        self.records.ClassLayout.push(records::ClassLayout {
+            PackingSize: packing_size,
+            ClassSize: class_size,
+            Parent: parent.0,
+        })
+    }
+
     pub fn NestedClass(&mut self, inner: TypeDef, outer: TypeDef) {
         debug_assert!(inner.0 > outer.0);
 

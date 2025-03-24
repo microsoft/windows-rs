@@ -263,112 +263,118 @@ impl Records {
 
         // Followed by each table's rows...
 
-        for x in self.Module {
-            buffer.write_u16(x.Generation);
-            buffer.write_u32(x.Name);
-            buffer.write_u32(x.Mvid);
-            buffer.write_u32(x.EncId);
-            buffer.write_u32(x.EncBaseId);
+        for r in self.Module {
+            buffer.write_u16(r.Generation);
+            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Mvid);
+            buffer.write_u32(r.EncId);
+            buffer.write_u32(r.EncBaseId);
         }
 
-        for x in self.TypeRef {
-            buffer.write_code(x.ResolutionScope.encode(), resolution_scope);
-            buffer.write_u32(x.TypeName);
-            buffer.write_u32(x.TypeNamespace);
+        for r in self.TypeRef {
+            buffer.write_code(r.ResolutionScope.encode(), resolution_scope);
+            buffer.write_u32(r.TypeName);
+            buffer.write_u32(r.TypeNamespace);
         }
 
-        for x in &self.TypeDef {
-            buffer.write_u32(x.Flags.0);
-            buffer.write_u32(x.TypeName);
-            buffer.write_u32(x.TypeNamespace);
-            buffer.write_code(x.Extends.encode(), type_def_or_ref);
-            buffer.write_index(x.FieldList, self.Field.len());
-            buffer.write_index(x.MethodList, self.MethodDef.len());
+        for r in &self.TypeDef {
+            buffer.write_u32(r.Flags.0);
+            buffer.write_u32(r.TypeName);
+            buffer.write_u32(r.TypeNamespace);
+            buffer.write_code(r.Extends.encode(), type_def_or_ref);
+            buffer.write_index(r.FieldList, self.Field.len());
+            buffer.write_index(r.MethodList, self.MethodDef.len());
         }
 
-        for x in self.Field {
-            buffer.write_u16(x.Flags.0);
-            buffer.write_u32(x.Name);
-            buffer.write_u32(x.Signature.0);
+        for r in self.Field {
+            buffer.write_u16(r.Flags.0);
+            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Signature.0);
         }
 
-        for x in self.MethodDef {
-            buffer.write_u32(x.RVA);
-            buffer.write_u16(x.ImplFlags.0);
-            buffer.write_u16(x.Flags.0);
-            buffer.write_u32(x.Name);
-            buffer.write_u32(x.Signature.0);
-            buffer.write_index(x.ParamList, self.Param.len());
+        for r in self.MethodDef {
+            buffer.write_u32(r.RVA);
+            buffer.write_u16(r.ImplFlags.0);
+            buffer.write_u16(r.Flags.0);
+            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Signature.0);
+            buffer.write_index(r.ParamList, self.Param.len());
         }
 
-        for x in self.Param {
-            buffer.write_u16(x.Flags.0);
-            buffer.write_u16(x.Sequence);
-            buffer.write_u32(x.Name);
+        for r in self.Param {
+            buffer.write_u16(r.Flags.0);
+            buffer.write_u16(r.Sequence);
+            buffer.write_u32(r.Name);
         }
 
-        for x in self.InterfaceImpl {
-            buffer.write_index(x.Class, self.TypeDef.len());
-            buffer.write_code(x.Interface.encode(), type_def_or_ref);
+        for r in self.InterfaceImpl {
+            buffer.write_index(r.Class, self.TypeDef.len());
+            buffer.write_code(r.Interface.encode(), type_def_or_ref);
         }
 
-        for x in self.MemberRef {
-            buffer.write_code(x.Parent.encode(), member_ref_parent);
-            buffer.write_u32(x.Name);
-            buffer.write_u32(x.Signature.0);
+        for r in self.MemberRef {
+            buffer.write_code(r.Parent.encode(), member_ref_parent);
+            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Signature.0);
         }
 
-        for x in self.Constant {
-            buffer.push(x.Type);
+        for r in self.Constant {
+            buffer.push(r.Type);
             buffer.push(0);
-            buffer.write_code(x.Parent.encode(), has_constant);
-            buffer.write_u32(x.Value.0);
+            buffer.write_code(r.Parent.encode(), has_constant);
+            buffer.write_u32(r.Value.0);
         }
 
-        for x in self.Attribute {
-            buffer.write_code(x.Parent.encode(), has_custom_attribute);
-            buffer.write_code(x.Type.encode(), custom_attribute_type);
-            buffer.write_u32(x.Value.0);
+        for r in self.Attribute {
+            buffer.write_code(r.Parent.encode(), has_custom_attribute);
+            buffer.write_code(r.Type.encode(), custom_attribute_type);
+            buffer.write_u32(r.Value.0);
         }
 
-        for x in self.TypeSpec {
-            buffer.write_u32(x.Signature);
+        for r in self.ClassLayout {
+            buffer.write_u16(r.PackingSize);
+            buffer.write_u32(r.ClassSize);
+            buffer.write_index(r.Parent, self.TypeDef.len());
         }
 
-        for x in self.Assembly {
-            buffer.write_u32(x.HashAlgId);
-            buffer.write_u16(x.MajorVersion);
-            buffer.write_u16(x.MinorVersion);
-            buffer.write_u16(x.BuildNumber);
-            buffer.write_u16(x.RevisionNumber);
-            buffer.write_u32(x.Flags.0);
-            buffer.write_u32(x.PublicKey);
-            buffer.write_u32(x.Name);
-            buffer.write_u32(x.Culture);
+        for r in self.TypeSpec {
+            buffer.write_u32(r.Signature);
         }
 
-        for x in self.AssemblyRef {
-            buffer.write_u16(x.MajorVersion);
-            buffer.write_u16(x.MinorVersion);
-            buffer.write_u16(x.BuildNumber);
-            buffer.write_u16(x.RevisionNumber);
-            buffer.write_u32(x.Flags.0);
-            buffer.write_u32(x.PublicKeyOrToken);
-            buffer.write_u32(x.Name);
-            buffer.write_u32(x.Culture);
-            buffer.write_u32(x.HashValue);
+        for r in self.Assembly {
+            buffer.write_u32(r.HashAlgId);
+            buffer.write_u16(r.MajorVersion);
+            buffer.write_u16(r.MinorVersion);
+            buffer.write_u16(r.BuildNumber);
+            buffer.write_u16(r.RevisionNumber);
+            buffer.write_u32(r.Flags.0);
+            buffer.write_u32(r.PublicKey);
+            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Culture);
         }
 
-        for x in self.NestedClass {
-            buffer.write_index(x.NestedClass, self.TypeDef.len());
-            buffer.write_index(x.EnclosingClass, self.TypeDef.len());
+        for r in self.AssemblyRef {
+            buffer.write_u16(r.MajorVersion);
+            buffer.write_u16(r.MinorVersion);
+            buffer.write_u16(r.BuildNumber);
+            buffer.write_u16(r.RevisionNumber);
+            buffer.write_u32(r.Flags.0);
+            buffer.write_u32(r.PublicKeyOrToken);
+            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Culture);
+            buffer.write_u32(r.HashValue);
         }
 
-        for x in self.GenericParam {
-            buffer.write_u16(x.Number);
-            buffer.write_u16(x.Flags.0);
-            buffer.write_code(x.Owner.encode(), type_or_method_def);
-            buffer.write_u32(x.Name);
+        for r in self.NestedClass {
+            buffer.write_index(r.NestedClass, self.TypeDef.len());
+            buffer.write_index(r.EnclosingClass, self.TypeDef.len());
+        }
+
+        for r in self.GenericParam {
+            buffer.write_u16(r.Number);
+            buffer.write_u16(r.Flags.0);
+            buffer.write_code(r.Owner.encode(), type_or_method_def);
+            buffer.write_u32(r.Name);
         }
 
         buffer.into_stream()

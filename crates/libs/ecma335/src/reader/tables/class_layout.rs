@@ -9,7 +9,11 @@ impl std::fmt::Debug for ClassLayout<'_> {
 }
 
 impl ClassLayout<'_> {
-    pub fn packing_size(&self) -> usize {
-        self.usize(0)
+    pub fn packing_size(&self) -> u16 {
+        self.usize(0).try_into().unwrap()
+    }
+
+    pub fn class_size(&self) -> u32 {
+        self.usize(1).try_into().unwrap()
     }
 }
