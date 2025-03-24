@@ -151,6 +151,12 @@ fn write_type(
         if let Some(constant) = field.constant() {
             writer.Constant(writer::HasConstant::Field(parent), &constant.value());
         }
+
+        write_attributes(
+            writer,
+            writer::HasAttribute::Field(parent),
+            &field,
+        );
     }
 
     let generics: Vec<_> = def
