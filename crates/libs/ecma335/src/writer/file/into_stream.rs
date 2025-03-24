@@ -49,6 +49,16 @@ impl File {
             .GenericParam
             .extend(self.GenericParam.values().flatten());
 
+        debug_assert!(self.records.Constant.iter().map(|r| r.Parent).is_sorted());
+        debug_assert!(self.records.Attribute.iter().map(|r| r.Parent).is_sorted());
+        
+        debug_assert!(self
+            .records
+            .NestedClass
+            .iter()
+            .map(|r| r.NestedClass)
+            .is_sorted());
+
         let mut strings = self.strings.into_stream();
         let mut blobs = self.blobs.into_stream();
         let mut records = self.records.into_stream();

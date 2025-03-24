@@ -1,7 +1,7 @@
 macro_rules! identifiers {
     ($($name:ident)+) => {
         $(
-        #[derive(Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd)]
+        #[derive(Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd, Debug)]
         pub struct $name(pub(crate) u32);
     )*
     };

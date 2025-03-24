@@ -72,7 +72,7 @@ fn main() {
             // TODO: does this need to be sorted (relative to other input files) to ensure stable output?
 
             if !def.flags().is_nested() {
-                write_type(&reader, &nested, &mut writer, def);
+                write_type(&reader, &nested, &mut writer, def, None);
             }
         }
     }
@@ -122,7 +122,8 @@ fn write_type(
     nested: &HashMap<usize, Vec<usize>>,
     writer: &mut writer::File,
     def: reader::TypeDef,
-) -> writer::TypeDef {
+    outer: Option<writer::TypeDef>,
+) {
     let extends = def
         .extends()
         .map(|extends| {
@@ -130,7 +131,19 @@ fn write_type(
         })
         .unwrap_or_default();
 
+    if cfg!(debug_assertions) {
+        if def.flags().is_nested() {
+            assert!(def.namespace().is_empty());
+        } else {
+            assert!(!def.namespace().is_empty());
+        }
+    }
+
     let type_def = writer.TypeDef(def.namespace(), def.name(), extends, def.flags());
+
+    if let Some(outer) = outer {
+        writer.NestedClass(type_def, outer);
+    }
 
     for field in def.fields() {
         let parent = writer.Field(field.name(), &field.ty(), field.flags());
@@ -188,14 +201,12 @@ fn write_type(
 
     if let Some(inner) = nested.get(&def.index()) {
         for inner in inner {
-            let inner: reader::TypeDef = reader.row(*inner);
-            let inner = write_type(reader, nested, writer, inner);
-
-            writer.NestedClass(inner, type_def);
+            let inner_def: reader::TypeDef = reader.row(*inner);
+            debug_assert!(inner_def.namespace().is_empty());
+            debug_assert!(inner_def.flags().is_nested());
+            write_type(reader, nested, writer, inner_def, Some(type_def));
         }
     }
-
-    type_def
 }
 
 fn write_attributes<'a, R: reader::HasAttributes<'a>>(

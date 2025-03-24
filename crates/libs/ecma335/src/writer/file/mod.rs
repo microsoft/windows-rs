@@ -270,6 +270,8 @@ impl File {
     }
 
     pub fn NestedClass(&mut self, inner: TypeDef, outer: TypeDef) {
+        debug_assert!(inner.0 > outer.0);
+
         self.records.NestedClass.push(records::NestedClass {
             NestedClass: inner.0,
             EnclosingClass: outer.0,
