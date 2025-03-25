@@ -195,8 +195,6 @@ fn write_type(
 
             for param_def in method.params() {
                 let param = writer.Param(param_def.name(), param_def.sequence(), param_def.flags());
-
-                // TODO: this is broken?!
                 write_attributes(writer, writer::HasAttribute::Param(param), &param_def);
             }
 
