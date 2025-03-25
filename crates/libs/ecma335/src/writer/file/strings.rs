@@ -24,8 +24,6 @@ impl Strings {
             return *pos;
         }
 
-        // TODO: do substring matching to reduce size of String heap?
-
         let pos = id::StringId(self.stream.len().try_into().unwrap());
         self.map.insert(value.to_string(), pos);
         self.stream.extend_from_slice(value.as_bytes());

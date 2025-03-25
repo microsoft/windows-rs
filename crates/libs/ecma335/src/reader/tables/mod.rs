@@ -22,7 +22,7 @@ macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
         $(
         #[derive(Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd)]
-        pub struct $name<'a>(pub Row<'a>);
+        pub struct $name<'a>(pub(crate) Row<'a>);
         impl<'a> AsRow<'a> for $name<'a> {
             const TABLE: usize = $table;
             fn to_row(&self) -> Row<'a> {
@@ -54,12 +54,4 @@ tables! {
     (TypeSpec, 10)
     (Module, 0)
     (AssemblyRef, 0x23)
-}
-
-fn trim_tick(name: &str) -> &str {
-    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-        &name[..name.len() - 2]
-    } else {
-        name
-    }
 }
