@@ -6,16 +6,16 @@ impl std::fmt::Debug for TypeDef<'_> {
     }
 }
 
-impl TypeDef<'_> {
+impl<'a> TypeDef<'a> {
     pub fn flags(&self) -> TypeAttributes {
         TypeAttributes(self.usize(0).try_into().unwrap())
     }
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'a str {
         self.str(1)
     }
 
-    pub fn namespace(&self) -> &str {
+    pub fn namespace(&self) -> &'a str {
         self.str(2)
     }
 

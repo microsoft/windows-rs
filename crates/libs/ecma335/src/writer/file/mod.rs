@@ -1,5 +1,4 @@
 use super::*;
-use std::collections::*;
 mod into_stream;
 
 mod rec;

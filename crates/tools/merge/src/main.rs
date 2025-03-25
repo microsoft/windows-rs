@@ -70,7 +70,7 @@ fn main() {
 
         for def in reader.TypeDef().skip(1) {
             if !def.flags().is_nested() {
-                write_type(&reader, &nested, &mut writer, def, None);
+                write_type(&nested, &mut writer, def, None);
             }
         }
     }
@@ -117,7 +117,6 @@ fn expand_input(input: Vec<String>) -> Vec<String> {
 }
 
 fn write_type(
-    reader: &reader::File,
     nested: &HashMap<reader::TypeDef, Vec<reader::TypeDef>>,
     writer: &mut writer::File,
     def: reader::TypeDef,
@@ -222,7 +221,7 @@ fn write_type(
         for inner_def in inner {
             debug_assert!(inner_def.namespace().is_empty());
             debug_assert!(inner_def.flags().is_nested());
-            write_type(reader, nested, writer, *inner_def, Some(type_def));
+            write_type(nested, writer, *inner_def, Some(type_def));
         }
     }
 }
