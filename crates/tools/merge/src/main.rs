@@ -193,8 +193,11 @@ fn write_type(
                 method.impl_flags(),
             );
 
-            for param in method.params() {
-                writer.Param(param.name(), param.sequence(), param.flags());
+            for param_def in method.params() {
+                let param = writer.Param(param_def.name(), param_def.sequence(), param_def.flags());
+
+                // TODO: this is broken?!
+                write_attributes(writer, writer::HasAttribute::Param(param), &param_def);
             }
 
             write_attributes(writer, writer::HasAttribute::MethodDef(method_def), &method);

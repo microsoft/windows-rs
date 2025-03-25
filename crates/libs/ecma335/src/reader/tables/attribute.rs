@@ -62,10 +62,10 @@ fn read_value(blob: &mut Blob, ty: &Type, name: &mut String) -> Value {
         Type::U32 => Value::U32(blob.read_u32()),
         Type::I64 => Value::I64(blob.read_i64()),
         Type::U64 => Value::U64(blob.read_u64()),
-        Type::String => Value::String(blob.read_utf8()),
+        Type::String => Value::Utf8(blob.read_utf8()),
         Type::Name(tn) => {
             if tn.namespace == "System" && tn.name == "Type" {
-                Value::String(blob.read_utf8())
+                Value::Utf8(blob.read_utf8())
             } else {
                 Value::I32(blob.read_i32())
             }
