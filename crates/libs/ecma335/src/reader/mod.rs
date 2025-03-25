@@ -1,15 +1,15 @@
 use super::*;
 
 mod blob;
+mod cache;
 mod codes;
 mod file;
 mod row;
 mod tables;
 mod type_category;
-mod cache;
 
-pub use cache::*;
 pub use blob::*;
+pub use cache::*;
 pub use codes::*;
 pub use file::*;
 pub use row::*;
