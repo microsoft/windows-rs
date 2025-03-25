@@ -679,7 +679,7 @@ impl File {
         self.table()
     }
 
-    pub fn NestedClass(&self) -> RowIterator<NestedClass> {
+    pub fn NestedClass<'a>(&'a self) -> RowIterator<'a, NestedClass<'a>> {
         self.table()
     }
 }

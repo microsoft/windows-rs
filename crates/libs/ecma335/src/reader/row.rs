@@ -20,7 +20,7 @@ pub trait AsRow<'a>: Copy {
     fn to_row(&self) -> Row<'a>;
     fn from_row(row: Row<'a>) -> Self;
 
-    fn file(&'a self) -> &'a File {
+    fn file(&self) -> &'a File {
         self.to_row().file
     }
 
@@ -28,27 +28,27 @@ pub trait AsRow<'a>: Copy {
         self.to_row().index
     }
 
-    fn usize(&'a self, column: usize) -> usize {
+    fn usize(&self, column: usize) -> usize {
         self.file().usize(self.index(), Self::TABLE, column)
     }
 
-    fn str(&'a self, column: usize) -> &'a str {
+    fn str(&self, column: usize) -> &'a str {
         self.file().str(self.index(), Self::TABLE, column)
     }
 
-    fn row<R: AsRow<'a>>(&'a self, column: usize) -> R {
+    fn row<R: AsRow<'a>>(&self, column: usize) -> R {
         self.file().row(self.usize(column) - 1)
     }
 
-    fn decode<T: Decode<'a>>(&'a self, column: usize) -> T {
+    fn decode<T: Decode<'a>>(&self, column: usize) -> T {
         T::decode(self.file(), self.usize(column))
     }
 
-    fn blob(&'a self, column: usize) -> Blob<'a> {
+    fn blob(&self, column: usize) -> Blob<'a> {
         self.file().blob(self.index(), Self::TABLE, column)
     }
 
-    fn list<R: AsRow<'a>>(&'a self, column: usize) -> RowIterator<'a, R> {
+    fn list<R: AsRow<'a>>(&self, column: usize) -> RowIterator<'a, R> {
         self.file().list(self.index(), Self::TABLE, column)
     }
 }
@@ -80,23 +80,23 @@ impl<'a, R: AsRow<'a>> Iterator for RowIterator<'a, R> {
 }
 
 pub trait HasAttributes<'a> {
-    fn attributes(&'a self) -> RowIterator<'a, Attribute<'a>>;
-    fn find_attribute(&'a self, name: &str) -> Option<Attribute<'a>>;
-    fn has_attribute(&'a self, name: &str) -> bool;
+    fn attributes(&self) -> RowIterator<'a, Attribute<'a>>;
+    fn find_attribute(&self, name: &str) -> Option<Attribute<'a>>;
+    fn has_attribute(&self, name: &str) -> bool;
 }
 
 impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
-    fn attributes(&'a self) -> RowIterator<'a, Attribute<'a>> {
+    fn attributes(&self) -> RowIterator<'a, Attribute<'a>> {
         self.file()
             .equal_range(0, Into::<HasAttribute>::into(*self).encode())
     }
 
-    fn find_attribute(&'a self, name: &str) -> Option<Attribute<'a>> {
+    fn find_attribute(&self, name: &str) -> Option<Attribute<'a>> {
         self.attributes()
             .find(|attribute| attribute.ctor().parent().name() == name)
     }
 
-    fn has_attribute(&'a self, name: &str) -> bool {
+    fn has_attribute(&self, name: &str) -> bool {
         self.find_attribute(name).is_some()
     }
 }

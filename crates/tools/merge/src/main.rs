@@ -60,12 +60,12 @@ fn main() {
             panic!("failed to read .winmd format `{path}`");
         };
 
-        let mut nested = HashMap::<usize, Vec<usize>>::new();
+        let mut nested = HashMap::<reader::TypeDef, Vec<reader::TypeDef>>::new();
 
         for map in reader.NestedClass() {
             let outer = map.outer();
             let inner = map.inner();
-            nested.entry(outer.index()).or_default().push(inner.index());
+            nested.entry(outer).or_default().push(inner);
         }
 
         // TODO: this needs to be sorted (relative to other input files) to ensure stable output
@@ -118,7 +118,7 @@ fn expand_input(input: Vec<String>) -> Vec<String> {
 
 fn write_type(
     reader: &reader::File,
-    nested: &HashMap<usize, Vec<usize>>,
+    nested: &HashMap<reader::TypeDef, Vec<reader::TypeDef>>,
     writer: &mut writer::File,
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
@@ -218,12 +218,11 @@ fn write_type(
         );
     }
 
-    if let Some(inner) = nested.get(&def.index()) {
-        for inner in inner {
-            let inner_def: reader::TypeDef = reader.row(*inner);
+    if let Some(inner) = nested.get(&def) {
+        for inner_def in inner {
             debug_assert!(inner_def.namespace().is_empty());
             debug_assert!(inner_def.flags().is_nested());
-            write_type(reader, nested, writer, inner_def, Some(type_def));
+            write_type(reader, nested, writer, *inner_def, Some(type_def));
         }
     }
 }
