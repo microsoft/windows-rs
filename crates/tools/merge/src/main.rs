@@ -68,7 +68,6 @@ fn main() {
             nested.entry(outer).or_default().push(inner);
         }
 
-        // TODO: this needs to be sorted (relative to other input files) to ensure stable output
         for def in reader.TypeDef().skip(1) {
             if !def.flags().is_nested() {
                 write_type(&reader, &nested, &mut writer, def, None);
@@ -113,6 +112,7 @@ fn expand_input(input: Vec<String>) -> Vec<String> {
         }
     }
 
+    result.sort();
     result
 }
 
