@@ -4,7 +4,7 @@ macro_rules! code {
     ($name:ident($size:literal) $(($table:ident, $code:literal))+) => {
         #[derive(Clone, Copy, Eq, PartialEq, Hash)]
         pub enum $name {
-            $($table($table),)*
+            $($table(id::$table),)*
         }
         impl $name {
             pub fn encode(&self) -> u32 {
@@ -36,7 +36,7 @@ code! { TypeDefOrRef(2)
 impl Default for TypeDefOrRef {
     fn default() -> Self {
         // This results in an encoded value of zero.
-        TypeDefOrRef::TypeDef(TypeDef(u32::MAX))
+        TypeDefOrRef::TypeDef(id::TypeDef(u32::MAX))
     }
 }
 

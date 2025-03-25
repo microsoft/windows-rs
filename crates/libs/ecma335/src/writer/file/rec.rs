@@ -17,20 +17,13 @@ pub struct Records {
     pub ModuleRef: Vec<ModuleRef>,
     pub NestedClass: Vec<NestedClass>,
     pub Param: Vec<Param>,
-    pub Property: Vec<Property>,
     pub TypeDef: Vec<TypeDef>,
     pub TypeRef: Vec<TypeRef>,
     pub TypeSpec: Vec<TypeSpec>,
 }
 
 pub struct TypeSpec {
-    pub Signature: u32,
-}
-
-pub struct Property {
-    pub Flags: u16,
-    pub Name: u32,
-    pub Type: u32,
+    pub Signature: id::BlobId,
 }
 
 pub struct NestedClass {
@@ -39,7 +32,7 @@ pub struct NestedClass {
 }
 
 pub struct ModuleRef {
-    pub Name: u32,
+    pub Name: id::StringId,
 }
 
 #[derive(Default)]
@@ -51,21 +44,21 @@ pub struct Assembly {
     pub RevisionNumber: u16,
     pub Flags: AssemblyFlags,
     pub PublicKey: u32,
-    pub Name: u32,
+    pub Name: id::StringId,
     pub Culture: u32,
 }
 
 #[derive(Copy, Clone)]
 pub struct InterfaceImpl {
-    pub Class: u32,
+    pub Class: id::TypeDef,
     pub Interface: TypeDefOrRef,
 }
 
 pub struct ImplMap {
     pub MappingFlags: PInvokeAttributes,
     pub MemberForwarded: MemberForwarded,
-    pub ImportName: u32,
-    pub ImportScope: identifiers::ModuleRef,
+    pub ImportName: id::StringId,
+    pub ImportScope: id::ModuleRef,
 }
 
 #[derive(Default)]
@@ -75,8 +68,8 @@ pub struct AssemblyRef {
     pub BuildNumber: u16,
     pub RevisionNumber: u16,
     pub Flags: AssemblyFlags,
-    pub PublicKeyOrToken: u32,
-    pub Name: u32,
+    pub PublicKeyOrToken: id::BlobId,
+    pub Name: id::StringId,
     pub Culture: u32,
     pub HashValue: u32,
 }
@@ -91,28 +84,28 @@ pub struct ClassLayout {
 pub struct Constant {
     pub Type: u8,
     pub Parent: HasConstant,
-    pub Value: ConstantValue,
+    pub Value: id::BlobId,
 }
 
 pub struct Field {
     pub Flags: FieldAttributes,
-    pub Name: u32,
-    pub Signature: FieldSig,
+    pub Name: id::StringId,
+    pub Signature: id::BlobId,
 }
 
 pub struct MethodDef {
     pub RVA: u32,
     pub ImplFlags: MethodImplAttributes,
     pub Flags: MethodAttributes,
-    pub Name: u32,
-    pub Signature: MethodDefSig,
+    pub Name: id::StringId,
+    pub Signature: id::BlobId,
     pub ParamList: u32,
 }
 
 #[derive(Default)]
 pub struct Module {
     pub Generation: u16,
-    pub Name: u32,
+    pub Name: id::StringId,
     pub Mvid: u32,
     pub EncId: u32,
     pub EncBaseId: u32,
@@ -123,19 +116,19 @@ pub struct GenericParam {
     pub Number: u16,
     pub Flags: GenericParamAttributes,
     pub Owner: TypeOrMethodDef,
-    pub Name: u32,
+    pub Name: id::StringId,
 }
 
 pub struct Param {
     pub Flags: ParamAttributes,
     pub Sequence: u16,
-    pub Name: u32,
+    pub Name: id::StringId,
 }
 
 pub struct TypeDef {
     pub Flags: TypeAttributes,
-    pub TypeName: u32,
-    pub TypeNamespace: u32,
+    pub TypeName: id::StringId,
+    pub TypeNamespace: id::StringId,
     pub Extends: TypeDefOrRef,
     pub FieldList: u32,
     pub MethodList: u32,
@@ -143,22 +136,22 @@ pub struct TypeDef {
 
 pub struct TypeRef {
     pub ResolutionScope: ResolutionScope,
-    pub TypeName: u32,
-    pub TypeNamespace: u32,
+    pub TypeName: id::StringId,
+    pub TypeNamespace: id::StringId,
 }
 
 #[derive(Copy, Clone)]
 pub struct Attribute {
     pub Parent: HasAttribute,
     pub Type: AttributeType,
-    pub Value: AttributeValue,
+    pub Value: id::BlobId,
 }
 
 #[derive(Hash, PartialEq, Eq, Copy, Clone)]
 pub struct MemberRef {
     pub Parent: MemberRefParent,
-    pub Name: u32,
-    pub Signature: MethodDefSig,
+    pub Name: id::StringId,
+    pub Signature: id::BlobId,
 }
 
 impl Records {
@@ -172,7 +165,7 @@ impl Records {
         let type_def_or_ref =
             coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.TypeSpec.len()]);
         let has_constant =
-            coded_index_size(&[self.Field.len(), self.Param.len(), self.Property.len()]);
+            coded_index_size(&[self.Field.len(), self.Param.len(), 0]);
 
         let type_or_method_def = coded_index_size(&[self.TypeDef.len(), self.MethodDef.len()]);
 
@@ -222,7 +215,6 @@ impl Records {
         (1 << 0x0B) | // Constant
         (1 << 0x0C) | // CustomAttribute
         (1 << 0x0F) | // ClassLayout
-        (1 << 0x17) | // Property
         (1 << 0x1A) | // ModuleRef
         (1 << 0x1B) | // TypeSpec
         (1 << 0x1C) | // ImplMap
@@ -255,7 +247,6 @@ impl Records {
         buffer.write_u32(self.Constant.len().try_into().unwrap());
         buffer.write_u32(self.Attribute.len().try_into().unwrap());
         buffer.write_u32(self.ClassLayout.len().try_into().unwrap());
-        buffer.write_u32(self.Property.len().try_into().unwrap());
         buffer.write_u32(self.ModuleRef.len().try_into().unwrap());
         buffer.write_u32(self.TypeSpec.len().try_into().unwrap());
         buffer.write_u32(self.ImplMap.len().try_into().unwrap());
@@ -268,7 +259,7 @@ impl Records {
 
         for r in &self.Module {
             buffer.write_u16(r.Generation);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
             buffer.write_u32(r.Mvid);
             buffer.write_u32(r.EncId);
             buffer.write_u32(r.EncBaseId);
@@ -276,14 +267,14 @@ impl Records {
 
         for r in &self.TypeRef {
             buffer.write_code(r.ResolutionScope.encode(), resolution_scope);
-            buffer.write_u32(r.TypeName);
-            buffer.write_u32(r.TypeNamespace);
+            buffer.write_u32(r.TypeName.0);
+            buffer.write_u32(r.TypeNamespace.0);
         }
 
         for r in &self.TypeDef {
             buffer.write_u32(r.Flags.0);
-            buffer.write_u32(r.TypeName);
-            buffer.write_u32(r.TypeNamespace);
+            buffer.write_u32(r.TypeName.0);
+            buffer.write_u32(r.TypeNamespace.0);
             buffer.write_code(r.Extends.encode(), type_def_or_ref);
             buffer.write_index(r.FieldList, self.Field.len());
             buffer.write_index(r.MethodList, self.MethodDef.len());
@@ -291,7 +282,7 @@ impl Records {
 
         for r in &self.Field {
             buffer.write_u16(r.Flags.0);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
             buffer.write_u32(r.Signature.0);
         }
 
@@ -299,7 +290,7 @@ impl Records {
             buffer.write_u32(r.RVA);
             buffer.write_u16(r.ImplFlags.0);
             buffer.write_u16(r.Flags.0);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
             buffer.write_u32(r.Signature.0);
             buffer.write_index(r.ParamList, self.Param.len());
         }
@@ -307,17 +298,17 @@ impl Records {
         for r in &self.Param {
             buffer.write_u16(r.Flags.0);
             buffer.write_u16(r.Sequence);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
         }
 
         for r in &self.InterfaceImpl {
-            buffer.write_index(r.Class, self.TypeDef.len());
+            buffer.write_index(r.Class.0, self.TypeDef.len());
             buffer.write_code(r.Interface.encode(), type_def_or_ref);
         }
 
         for r in &self.MemberRef {
             buffer.write_code(r.Parent.encode(), member_ref_parent);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
             buffer.write_u32(r.Signature.0);
         }
 
@@ -341,17 +332,17 @@ impl Records {
         }
 
         for r in &self.ModuleRef {
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
         }
 
         for r in &self.TypeSpec {
-            buffer.write_u32(r.Signature);
+            buffer.write_u32(r.Signature.0);
         }
 
         for r in &self.ImplMap {
             buffer.write_u16(r.MappingFlags.0);
             buffer.write_code(r.MemberForwarded.encode(), member_forwarded);
-            buffer.write_u32(r.ImportName);
+            buffer.write_u32(r.ImportName.0);
             buffer.write_index(r.ImportScope.0, self.ModuleRef.len());
         }
 
@@ -363,7 +354,7 @@ impl Records {
             buffer.write_u16(r.RevisionNumber);
             buffer.write_u32(r.Flags.0);
             buffer.write_u32(r.PublicKey);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
             buffer.write_u32(r.Culture);
         }
 
@@ -373,8 +364,8 @@ impl Records {
             buffer.write_u16(r.BuildNumber);
             buffer.write_u16(r.RevisionNumber);
             buffer.write_u32(r.Flags.0);
-            buffer.write_u32(r.PublicKeyOrToken);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.PublicKeyOrToken.0);
+            buffer.write_u32(r.Name.0);
             buffer.write_u32(r.Culture);
             buffer.write_u32(r.HashValue);
         }
@@ -388,7 +379,7 @@ impl Records {
             buffer.write_u16(r.Number);
             buffer.write_u16(r.Flags.0);
             buffer.write_code(r.Owner.encode(), type_or_method_def);
-            buffer.write_u32(r.Name);
+            buffer.write_u32(r.Name.0);
         }
 
         buffer.into_stream()

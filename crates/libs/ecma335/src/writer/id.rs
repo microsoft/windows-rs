@@ -1,7 +1,7 @@
 macro_rules! identifiers {
     ($($name:ident)+) => {
         $(
-        #[derive(Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd, Debug)]
+        #[derive(Default,Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd, Debug)]
         pub struct $name(pub(crate) u32);
     )*
     };
@@ -27,8 +27,6 @@ identifiers! {
     AssemblyRef
     Param
 
-    FieldSig
-    MethodDefSig
-    AttributeValue
-    ConstantValue
+    BlobId
+    StringId
 }

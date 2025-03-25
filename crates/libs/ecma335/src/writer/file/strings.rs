@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct Strings {
-    map: HashMap<String, u32>,
+    map: HashMap<String, id::StringId>,
     stream: Vec<u8>,
 }
 
@@ -15,9 +15,9 @@ impl Default for Strings {
 }
 
 impl Strings {
-    pub fn insert(&mut self, value: &str) -> u32 {
+    pub fn insert(&mut self, value: &str) -> id::StringId {
         if value.is_empty() {
-            return 0;
+            return id::StringId(0);
         }
 
         if let Some(pos) = self.map.get(value) {
@@ -26,7 +26,7 @@ impl Strings {
 
         // TODO: do substring matching to reduce size of String heap?
 
-        let pos = self.stream.len().try_into().unwrap();
+        let pos = id::StringId(self.stream.len().try_into().unwrap());
         self.map.insert(value.to_string(), pos);
         self.stream.extend_from_slice(value.as_bytes());
         self.stream.push(0);
