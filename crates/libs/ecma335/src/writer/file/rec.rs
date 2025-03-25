@@ -164,8 +164,7 @@ impl Records {
         ]);
         let type_def_or_ref =
             coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.TypeSpec.len()]);
-        let has_constant =
-            coded_index_size(&[self.Field.len(), self.Param.len(), 0]);
+        let has_constant = coded_index_size(&[self.Field.len(), self.Param.len(), 0]);
 
         let type_or_method_def = coded_index_size(&[self.TypeDef.len(), self.MethodDef.len()]);
 

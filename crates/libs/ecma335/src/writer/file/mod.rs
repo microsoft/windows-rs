@@ -107,7 +107,7 @@ impl File {
             return *pos;
         }
 
-        let pos = id::AssemblyRef( if namespace == "System" {
+        let pos = id::AssemblyRef(if namespace == "System" {
             self.records.AssemblyRef.push_pos(rec::AssemblyRef {
                 Name: self.strings.insert("mscorlib"),
                 MajorVersion: 4,
