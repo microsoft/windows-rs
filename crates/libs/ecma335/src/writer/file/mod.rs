@@ -24,6 +24,7 @@ pub struct File {
     TypeRef: HashMap<String, HashMap<String, u32>>,
     AssemblyRef: HashMap<String, u32>,
     ModuleRef: HashMap<String, u32>,
+    MemberRef: HashMap<records::MemberRef, identifiers::MemberRef>,
 
     // Staging for sorted rows before these records can be written. BTreeMap is used rather than HashMap to allow reproducible builds.
     Constant: BTreeMap<HasConstant, records::Constant>,
@@ -230,14 +231,22 @@ impl File {
         name: &str,
         signature: &Signature,
         parent: MemberRefParent,
-    ) -> MemberRef {
+    ) -> identifiers::MemberRef {
         let signature = self.MethodDefSig(signature);
 
-        MemberRef(self.records.MemberRef.push_pos(records::MemberRef {
+        let record = records::MemberRef {
             Name: self.strings.insert(name),
             Signature: signature,
             Parent: parent,
-        }))
+        };
+
+        if let Some(pos) = self.MemberRef.get(&record) {
+            return *pos;
+        }
+
+        let pos = MemberRef(self.records.MemberRef.push_pos(record));
+        self.MemberRef.insert(record, pos);
+        pos
     }
 
     /// Adds a `Param` row to the file, returning the row offset.

@@ -154,6 +154,7 @@ pub struct Attribute {
     pub Value: AttributeValue,
 }
 
+#[derive(Hash, PartialEq, Eq, Copy, Clone)]
 pub struct MemberRef {
     pub Parent: MemberRefParent,
     pub Name: u32,
