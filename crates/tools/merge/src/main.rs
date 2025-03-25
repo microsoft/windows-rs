@@ -68,9 +68,8 @@ fn main() {
             nested.entry(outer.index()).or_default().push(inner.index());
         }
 
+        // TODO: this needs to be sorted (relative to other input files) to ensure stable output
         for def in reader.TypeDef().skip(1) {
-            // TODO: does this need to be sorted (relative to other input files) to ensure stable output?
-
             if !def.flags().is_nested() {
                 write_type(&reader, &nested, &mut writer, def, None);
             }
