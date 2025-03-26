@@ -10,7 +10,7 @@ impl Transaction {
     pub fn new() -> Result<Self> {
         let handle = unsafe { CreateTransaction(null_mut(), null_mut(), 0, 0, 0, 0, null()) };
 
-        if handle == INVALID_HANDLE_VALUE {
+        if core::ptr::eq(handle, INVALID_HANDLE_VALUE) {
             Err(Error::from_win32())
         } else {
             Ok(Self(handle))
