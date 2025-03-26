@@ -1,4 +1,3 @@
-use std::collections::HashMap;
 use windows_ecma335::*;
 
 enum ArgKind {
@@ -37,10 +36,6 @@ fn main() {
 
     let input = expand_input(input);
 
-    if input.is_empty() {
-        panic!("at least one `--in` is required");
-    };
-
     let Some(output) = output else {
         panic!("exactly one `--out` is required");
     };
@@ -55,24 +50,10 @@ fn main() {
 
     let mut writer = writer::File::new(&name);
 
-    for path in input {
-        let Some(reader) = reader::File::read(&path) else {
-            panic!("failed to read .winmd format `{path}`");
-        };
+    let index = reader::Index::new(&input);
 
-        let mut nested = HashMap::<reader::TypeDef, Vec<reader::TypeDef>>::new();
-
-        for map in reader.NestedClass() {
-            let outer = map.outer();
-            let inner = map.inner();
-            nested.entry(outer).or_default().push(inner);
-        }
-
-        for def in reader.TypeDef().skip(1) {
-            if !def.flags().is_nested() {
-                write_type(&nested, &mut writer, def, None);
-            }
-        }
+    for ty in index.all() {
+        write_type(&mut writer, &index, ty, None);
     }
 
     let bytes = writer.into_stream();
@@ -80,8 +61,12 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
-fn expand_input(input: Vec<String>) -> Vec<String> {
+fn expand_input(input: Vec<String>) -> Vec<reader::File> {
     let mut result = vec![];
+
+    let read_file = |path| {
+        reader::File::read(&path).unwrap_or_else(|| panic!("failed to read .winmd format `{path}`"))
+    };
 
     for input in input {
         let path = std::path::Path::new(&input);
@@ -100,7 +85,7 @@ fn expand_input(input: Vec<String>) -> Vec<String> {
                         .extension()
                         .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
                 {
-                    result.push(path.to_string_lossy().to_string());
+                    result.push(read_file(path.to_string_lossy().to_string()));
                 }
             }
 
@@ -108,17 +93,16 @@ fn expand_input(input: Vec<String>) -> Vec<String> {
                 panic!("failed to find .winmd files in directory `{input}`");
             }
         } else {
-            result.push(input);
+            result.push(read_file(input));
         }
     }
 
-    result.sort();
     result
 }
 
 fn write_type(
-    nested: &HashMap<reader::TypeDef, Vec<reader::TypeDef>>,
     writer: &mut writer::File,
+    index: &reader::Index,
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
 ) {
@@ -217,12 +201,10 @@ fn write_type(
         );
     }
 
-    if let Some(inner) = nested.get(&def) {
-        for inner_def in inner {
-            debug_assert!(inner_def.namespace().is_empty());
-            debug_assert!(inner_def.flags().is_nested());
-            write_type(nested, writer, *inner_def, Some(type_def));
-        }
+    for inner_def in index.nested(def) {
+        debug_assert!(inner_def.namespace().is_empty());
+        debug_assert!(inner_def.flags().is_nested());
+        write_type(writer, index, inner_def, Some(type_def));
     }
 }
 
