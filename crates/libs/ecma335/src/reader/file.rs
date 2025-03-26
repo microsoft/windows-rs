@@ -1,7 +1,6 @@
 use super::*;
 
 pub struct File {
-    pub(crate) reader: *const Reader,
     bytes: Vec<u8>,
     strings: usize,
     blobs: usize,
@@ -43,10 +42,13 @@ impl PartialOrd for File {
 unsafe impl Sync for File {}
 
 impl File {
+    pub fn read<P: AsRef<std::path::Path>>(path: P) -> Option<Self> {
+        std::fs::read(path).ok().and_then(Self::new)
+    }
+
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
         let mut result = File {
             bytes,
-            reader: std::ptr::null(),
             strings: 0,
             blobs: 0,
             tables: Default::default(),
@@ -523,7 +525,7 @@ impl File {
         }
     }
 
-    pub(crate) fn str(&'static self, row: usize, table: usize, column: usize) -> &'static str {
+    pub(crate) fn str(&self, row: usize, table: usize, column: usize) -> &str {
         let offset = self.strings + self.usize(row, table, column);
         let bytes = &self.bytes[offset..];
         let nul_pos = bytes
@@ -533,7 +535,7 @@ impl File {
         std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
     }
 
-    pub(crate) fn blob(&'static self, row: usize, table: usize, column: usize) -> Blob {
+    pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> Blob {
         let offset = self.blobs + self.usize(row, table, column);
         let initial_byte = self.bytes[offset];
 
@@ -554,12 +556,16 @@ impl File {
         Blob::new(self, &self.bytes[offset..offset + blob_size])
     }
 
-    pub(crate) fn list<R: AsRow>(
-        &'static self,
+    pub fn row<'a, R: AsRow<'a>>(&'a self, row: usize) -> R {
+        R::from_row(Row::new(self, row))
+    }
+
+    pub(crate) fn list<'a, R: AsRow<'a>>(
+        &'a self,
         row: usize,
         table: usize,
         column: usize,
-    ) -> RowIterator<R> {
+    ) -> RowIterator<'a, R> {
         let first = self.usize(row, table, column) - 1;
         let next = row + 1;
         let last = if next < self.tables[table].len {
@@ -570,11 +576,11 @@ impl File {
         RowIterator::new(self, first..last)
     }
 
-    pub(crate) fn equal_range<L: AsRow>(
-        &'static self,
+    pub(crate) fn equal_range<'a, L: AsRow<'a>>(
+        &'a self,
         column: usize,
         value: usize,
-    ) -> RowIterator<L> {
+    ) -> RowIterator<'a, L> {
         let mut first = 0;
         let mut last = self.tables[L::TABLE].len;
         let mut count = last;
@@ -608,7 +614,7 @@ impl File {
         RowIterator::new(self, first..last)
     }
 
-    pub(crate) fn parent<P: AsRow, C: AsRow>(&'static self, column: usize, child: C) -> P {
+    pub(crate) fn parent<'a, P: AsRow<'a>, C: AsRow<'a>>(&'a self, column: usize, child: C) -> P {
         P::from_row(Row::new(
             self,
             self.upper_bound_of(
@@ -665,13 +671,16 @@ impl File {
         first
     }
 
-    pub(crate) fn table<R: AsRow>(&'static self) -> RowIterator<R> {
+    pub fn table<'a, R: AsRow<'a>>(&'a self) -> RowIterator<'a, R> {
         RowIterator::new(self, 0..self.tables[R::TABLE].len)
     }
 
-    pub(crate) fn reader(&self) -> &'static Reader {
-        // Safety: At this point the File is already pointing to a valid Reader.
-        unsafe { &*self.reader }
+    pub fn TypeDef(&self) -> RowIterator<TypeDef> {
+        self.table()
+    }
+
+    pub fn NestedClass<'a>(&'a self) -> RowIterator<'a, NestedClass<'a>> {
+        self.table()
     }
 }
 

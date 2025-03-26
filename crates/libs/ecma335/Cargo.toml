@@ -1,0 +1,11 @@
+[package]
+name = "windows-ecma335"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2021"
+rust-version = "1.82"
+license = "MIT OR Apache-2.0"
+description = "Low-level metadata writer for ECMA-335"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+categories = ["os::windows-apis"]
