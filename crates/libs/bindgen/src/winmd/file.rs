@@ -22,7 +22,7 @@ impl std::hash::Hash for File {
 
 impl PartialEq for File {
     fn eq(&self, other: &Self) -> bool {
-        self.bytes.as_ptr() == other.bytes.as_ptr()
+        std::ptr::eq(self.bytes.as_ptr(), other.bytes.as_ptr())
     }
 }
 
