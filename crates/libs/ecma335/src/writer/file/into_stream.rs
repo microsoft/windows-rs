@@ -69,7 +69,7 @@ impl File {
             .iter()
             .map(|r| r.Owner)
             .is_sorted());
-            
+
         debug_assert!(self
             .records
             .ImplMap
