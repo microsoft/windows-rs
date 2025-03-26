@@ -86,15 +86,4 @@ fn test() {
     let reader = reader::File::read("tests/class.winmd").unwrap();
 
     let _ty = reader.TypeDef().find(|def| def.name() == "Name").unwrap();
-
-    // let required_interfaces = ty.required_interfaces();
-    // assert_eq!(required_interfaces.len(), 1);
-    // assert_eq!(required_interfaces[0].def.name(), "IName");
-    // assert_eq!(required_interfaces[0].kind, reader::InterfaceKind::Default);
-
-    // let at: Vec<_> = required_interfaces[0].def.attributes().collect();
-    // assert_eq!(at.len(), 1);
-
-    // let guid = required_interfaces[0].def.guid_attribute().unwrap();
-    // assert_eq!(format!("{guid}"), "d095a8ca-1103-4ef5-998c-62821510ef8f");
 }

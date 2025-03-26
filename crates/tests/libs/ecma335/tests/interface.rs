@@ -53,9 +53,7 @@ fn test() {
     assert_eq!(sig.flags, MethodCallAttributes::HASTHIS);
     assert_eq!(sig.return_type, Type::I32);
     assert_eq!(sig.types.len(), 2);
-    //assert_eq!(sig.types[0].def.name(), "i8");
     assert_eq!(sig.types[0], Type::I8);
-    //assert_eq!(sig.types[1].def.name(), "i16");
     assert_eq!(sig.types[1], Type::I16);
 
     assert_eq!(methods[1].name(), "Two");

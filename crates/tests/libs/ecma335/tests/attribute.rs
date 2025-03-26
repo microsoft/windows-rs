@@ -69,6 +69,4 @@ fn test() {
 
     let attributes: Vec<_> = ty.attributes().collect();
     assert_eq!(attributes.len(), 1);
-    // let guid = ty.guid_attribute().unwrap();
-    // assert_eq!(format!("{guid}"), "d095a8ca-1103-4ef5-998c-62821510ef8f");
 }
