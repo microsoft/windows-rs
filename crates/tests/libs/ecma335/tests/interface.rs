@@ -26,7 +26,7 @@ fn test() {
         types: vec![Type::I8, Type::I16],
     };
 
-    file.MethodDef("One", &signature, flags, MethodImplAttributes(0));
+    file.MethodDef("One", &signature, flags, Default::default());
     file.Param("i8", 1, ParamAttributes::In);
     file.Param("i16", 2, ParamAttributes::In);
 
@@ -36,7 +36,7 @@ fn test() {
         types: vec![],
     };
 
-    file.MethodDef("Two", &signature, flags, MethodImplAttributes(0));
+    file.MethodDef("Two", &signature, flags, Default::default());
 
     let bytes = file.into_stream();
     std::fs::write("tests/interface.winmd", bytes).unwrap();

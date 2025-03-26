@@ -36,6 +36,8 @@ jobs:
         run:  cargo clippy -p windows-collections
       - name: Check windows-core
         run:  cargo clippy -p windows-core
+      - name: Check windows-ecma335
+        run:  cargo clippy -p windows-ecma335
       - name: Check windows-future
         run:  cargo clippy -p windows-future
       - name: Check windows-implement
@@ -68,6 +70,8 @@ jobs:
         run:  cargo clippy -p tool_gnu
       - name: Check tool_license
         run:  cargo clippy -p tool_license
+      - name: Check tool_merge
+        run:  cargo clippy -p tool_merge
       - name: Check tool_msvc
         run:  cargo clippy -p tool_msvc
       - name: Check tool_standalone

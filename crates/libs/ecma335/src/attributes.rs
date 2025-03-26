@@ -1,7 +1,7 @@
 macro_rules! flags {
     ($name:ident, $size:ty) => {
         #[derive(Default, Copy, Clone, PartialEq, Eq, Debug, Ord, PartialOrd)]
-        pub struct $name(pub $size);
+        pub struct $name(pub(crate) $size);
         impl $name {
             pub fn contains(&self, contains: Self) -> bool {
                 *self & contains == contains
