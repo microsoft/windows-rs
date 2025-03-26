@@ -205,6 +205,8 @@ jobs:
         run:  cargo test -p test_dispatch --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_does_not_return
         run:  cargo test -p test_does_not_return --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_ecma335
+        run:  cargo test -p test_ecma335 --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_enums
         run:  cargo test -p test_enums --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_error
@@ -257,10 +259,10 @@ jobs:
         run:  cargo test -p test_not_dll --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_numerics
         run:  cargo test -p test_numerics --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_overloads
-        run:  cargo test -p test_overloads --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_overloads
+        run:  cargo test -p test_overloads --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_overloads_client
         run:  cargo test -p test_overloads_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_query_signature
@@ -335,6 +337,8 @@ jobs:
         run:  cargo test -p tool_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_license
         run:  cargo test -p tool_license --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_merge
+        run:  cargo test -p tool_merge --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_standalone
@@ -353,16 +357,18 @@ jobs:
         run:  cargo test -p windows-collections --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-ecma335
+        run:  cargo test -p windows-ecma335 --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-future
         run:  cargo test -p windows-future --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows-implement
         run:  cargo test -p windows-implement --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-interface
         run:  cargo test -p windows-interface --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-link
         run:  cargo test -p windows-link --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows-numerics
         run:  cargo test -p windows-numerics --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-registry

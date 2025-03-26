@@ -39,6 +39,10 @@ jobs:
       - name: Check windows-core
         run:  cargo check -p windows-core --all-features
       - name: Rust version
+        run: rustup update --no-self-update 1.82 && rustup default 1.82
+      - name: Check windows-ecma335
+        run:  cargo check -p windows-ecma335 --all-features
+      - name: Rust version
         run: rustup update --no-self-update 1.74 && rustup default 1.74
       - name: Check windows-future
         run:  cargo check -p windows-future --all-features
