@@ -102,7 +102,7 @@ impl File {
             com_virtual_address,
         ))?;
 
-        if clr.cb != std::mem::size_of::<IMAGE_COR20_HEADER>() as u32 {
+        if clr.cb as usize != std::mem::size_of::<IMAGE_COR20_HEADER>() {
             return None;
         }
 
@@ -565,7 +565,7 @@ impl File {
         row: usize,
         table: usize,
         column: usize,
-    ) -> RowIterator<'a, R> {
+    ) -> RowRange<'a, R> {
         let first = self.usize(row, table, column) - 1;
         let next = row + 1;
         let last = if next < self.tables[table].len {
@@ -573,45 +573,7 @@ impl File {
         } else {
             self.tables[R::TABLE].len
         };
-        RowIterator::new(self, first..last)
-    }
-
-    pub(crate) fn equal_range<'a, L: AsRow<'a>>(
-        &'a self,
-        column: usize,
-        value: usize,
-    ) -> RowIterator<'a, L> {
-        let mut first = 0;
-        let mut last = self.tables[L::TABLE].len;
-        let mut count = last;
-
-        loop {
-            if count == 0 {
-                last = first;
-                break;
-            }
-
-            let count2 = count / 2;
-            let middle = first + count2;
-            let middle_value = self.usize(middle, L::TABLE, column);
-
-            match middle_value.cmp(&value) {
-                Ordering::Less => {
-                    first = middle + 1;
-                    count -= count2 + 1;
-                }
-                Ordering::Greater => count = count2,
-                Ordering::Equal => {
-                    let first2 = self.lower_bound_of(L::TABLE, first, middle, column, value);
-                    first += count;
-                    last = self.upper_bound_of(L::TABLE, middle + 1, first, column, value);
-                    first = first2;
-                    break;
-                }
-            }
-        }
-
-        RowIterator::new(self, first..last)
+        RowRange::new(self, first..last)
     }
 
     pub(crate) fn parent<'a, P: AsRow<'a>, C: AsRow<'a>>(&'a self, column: usize, child: C) -> P {
@@ -627,6 +589,118 @@ impl File {
         ))
     }
 
+    pub(crate) fn equal_range<'a, L: AsRow<'a>>(
+        &'a self,
+        column: usize,
+        value: usize,
+    ) -> RowRange<'a, L> {
+        //self.equal_range_by(|probe:L|value.cmp(&probe.usize(column)))
+        let mut first = 0;
+        let mut last = self.tables[L::TABLE].len;
+        let mut count = last;
+
+        loop {
+            if count == 0 {
+                last = first;
+                break;
+            }
+
+            let count2 = count / 2;
+            let middle = first + count2;
+
+            match value.cmp(&self.usize(middle, L::TABLE, column)) {
+                Ordering::Greater => {
+                    first = middle + 1;
+                    count -= count2 + 1;
+                }
+                Ordering::Less => count = count2,
+                Ordering::Equal => {
+                    let first2 = self.lower_bound_of(L::TABLE, first, middle, column, value);
+                    first += count;
+                    last = self.upper_bound_of(L::TABLE, middle + 1, first, column, value);
+                    first = first2;
+                    break;
+                }
+            }
+        }
+
+        RowRange::new(self, first..last)
+    }
+
+    pub(crate) fn equal_range_by<'a, R, F>(&'a self, mut cmp: F) -> RowRange<'a, R>
+    where
+        R: AsRow<'a>,
+        F: FnMut(R) -> Ordering + Copy,
+    {
+        let mut first = 0;
+        let mut last = self.tables[R::TABLE].len;
+        let mut count = last;
+
+        loop {
+            if count == 0 {
+                last = first;
+                break;
+            }
+
+            let count2 = count / 2;
+            let middle = first + count2;
+
+            match cmp(R::from_row(Row::new(self, middle))) {
+                Ordering::Greater => {
+                    first = middle + 1;
+                    count -= count2 + 1;
+                }
+                Ordering::Less => count = count2,
+                Ordering::Equal => {
+                    let first2 = self.lower_bound_by(first, middle, cmp);
+                    first += count;
+                    last = self.upper_bound_by(middle + 1, first, cmp);
+                    first = first2;
+                    break;
+                }
+            }
+        }
+
+        RowRange::new(self, first..last)
+    }
+
+    pub fn equal_range_str<'a, L: AsRow<'a>>(
+        &'a self,
+        column: usize,
+        value: &str,
+    ) -> RowRange<'a, L> {
+        let mut first = 0;
+        let mut last = self.tables[L::TABLE].len;
+        let mut count = last;
+
+        loop {
+            if count == 0 {
+                last = first;
+                break;
+            }
+
+            let count2 = count / 2;
+            let middle = first + count2;
+
+            match value.cmp(self.str(middle, L::TABLE, column)) {
+                Ordering::Greater => {
+                    first = middle + 1;
+                    count -= count2 + 1;
+                }
+                Ordering::Less => count = count2,
+                Ordering::Equal => {
+                    let first2 = self.lower_bound_str(L::TABLE, first, middle, column, value);
+                    first += count;
+                    last = self.upper_bound_str(L::TABLE, middle + 1, first, column, value);
+                    first = first2;
+                    break;
+                }
+            }
+        }
+
+        RowRange::new(self, first..last)
+    }
+
     fn lower_bound_of(
         &self,
         table: usize,
@@ -639,7 +713,48 @@ impl File {
         while count > 0 {
             let count2 = count / 2;
             let middle = first + count2;
-            if self.usize(middle, table, column) < value {
+            if Ordering::Greater == value.cmp(&self.usize(middle, table, column)) {
+                first = middle + 1;
+                count -= count2 + 1;
+            } else {
+                count = count2;
+            }
+        }
+        first
+    }
+
+    fn lower_bound_by<'a, R, F>(&'a self, mut first: usize, last: usize, mut cmp: F) -> usize
+    where
+        R: AsRow<'a>,
+        F: FnMut(R) -> Ordering,
+    {
+        let mut count = last - first;
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if Ordering::Greater == cmp(R::from_row(Row::new(self, middle))) {
+                first = middle + 1;
+                count -= count2 + 1;
+            } else {
+                count = count2;
+            }
+        }
+        first
+    }
+
+    fn lower_bound_str(
+        &self,
+        table: usize,
+        mut first: usize,
+        last: usize,
+        column: usize,
+        value: &str,
+    ) -> usize {
+        let mut count = last - first;
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if Ordering::Greater == value.cmp(self.str(middle, table, column)) {
                 first = middle + 1;
                 count -= count2 + 1;
             } else {
@@ -661,7 +776,7 @@ impl File {
         while count > 0 {
             let count2 = count / 2;
             let middle = first + count2;
-            if value < self.usize(middle, table, column) {
+            if Ordering::Less == value.cmp(&self.usize(middle, table, column)) {
                 count = count2
             } else {
                 first = middle + 1;
@@ -671,17 +786,72 @@ impl File {
         first
     }
 
-    pub fn table<'a, R: AsRow<'a>>(&'a self) -> RowIterator<'a, R> {
-        RowIterator::new(self, 0..self.tables[R::TABLE].len)
+    fn upper_bound_by<'a, R, F>(&'a self, mut first: usize, last: usize, mut cmp: F) -> usize
+    where
+        R: AsRow<'a>,
+        F: FnMut(R) -> Ordering,
+    {
+        let mut count = last - first;
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if Ordering::Less == cmp(R::from_row(Row::new(self, middle))) {
+                count = count2
+            } else {
+                first = middle + 1;
+                count -= count2 + 1;
+            }
+        }
+        first
     }
 
-    pub fn TypeDef(&self) -> RowIterator<TypeDef> {
+    fn upper_bound_str(
+        &self,
+        table: usize,
+        mut first: usize,
+        last: usize,
+        column: usize,
+        value: &str,
+    ) -> usize {
+        let mut count = last - first;
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if Ordering::Less == value.cmp(self.str(middle, table, column)) {
+                count = count2
+            } else {
+                first = middle + 1;
+                count -= count2 + 1;
+            }
+        }
+        first
+    }
+
+    pub fn table<'a, R: AsRow<'a>>(&'a self) -> RowRange<'a, R> {
+        RowRange::new(self, 0..self.tables[R::TABLE].len)
+    }
+
+    pub fn TypeDef(&self) -> RowRange<TypeDef> {
         self.table()
     }
 
-    pub fn NestedClass<'a>(&'a self) -> RowIterator<'a, NestedClass<'a>> {
+    // TODO: re-sort NestedClass table by enclosing class rather than enclosed class
+    pub fn NestedClass<'a>(&'a self) -> RowRange<'a, NestedClass<'a>> {
         self.table()
     }
+
+    pub fn namespace(&self, namespace: &str) -> RowRange<TypeDef> {
+        self.equal_range_by(|probe: TypeDef| namespace.cmp(probe.namespace()))
+    }
+
+    // TODO: this, combined with preferring TypeDefs in references should work?
+    pub fn get(&self, namespace: &str, name: &str) -> RowRange<TypeDef> {
+        self.equal_range_by(|def: TypeDef| (namespace, name).cmp(&(def.namespace(), def.name())))
+    }
+
+    // pub fn expect(&self, namespace: &str, name: &str) -> TypeDef {
+    //     // assumes sorted TypeDef table - assert the Sorted bit in the TypeDef table?
+    // }
 }
 
 fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {

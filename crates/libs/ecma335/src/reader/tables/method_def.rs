@@ -27,7 +27,7 @@ impl MethodDef<'_> {
         self.blob(4).read_method_signature(generics)
     }
 
-    pub fn params(&self) -> RowIterator<MethodParam> {
+    pub fn params(&self) -> RowRange<MethodParam> {
         self.list(5)
     }
 

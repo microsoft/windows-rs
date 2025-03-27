@@ -27,20 +27,20 @@ impl<'a> TypeDef<'a> {
         Some(self.decode(3))
     }
 
-    pub fn fields(&self) -> RowIterator<Field> {
+    pub fn fields(&self) -> RowRange<Field> {
         self.list(4)
     }
 
-    pub fn methods(&self) -> RowIterator<MethodDef> {
+    pub fn methods(&self) -> RowRange<MethodDef> {
         self.list(5)
     }
 
-    pub fn generic_params(&self) -> RowIterator<GenericParam> {
+    pub fn generic_params(&self) -> RowRange<GenericParam> {
         self.file()
             .equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
     }
 
-    pub fn interface_impls(&self) -> RowIterator<InterfaceImpl> {
+    pub fn interface_impls(&self) -> RowRange<InterfaceImpl> {
         self.file().equal_range(0, self.index() + 1)
     }
 

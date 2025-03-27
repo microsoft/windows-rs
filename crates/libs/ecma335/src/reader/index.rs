@@ -1,13 +1,13 @@
 use super::*;
 
 pub struct Index<'a> {
-    types: BTreeMap<&'a str, BTreeMap<&'a str, Vec<TypeDef<'a>>>>,
+    types: HashMap<&'a str, HashMap<&'a str, Vec<TypeDef<'a>>>>,
     nested: HashMap<TypeDef<'a>, Vec<TypeDef<'a>>>,
 }
 
 impl<'a> Index<'a> {
     pub fn new(files: &'a [File]) -> Self {
-        let mut types: BTreeMap<&str, BTreeMap<&str, Vec<TypeDef>>> = BTreeMap::new();
+        let mut types: HashMap<&str, HashMap<&str, Vec<TypeDef>>> = HashMap::new();
         let mut nested: HashMap<TypeDef, Vec<TypeDef>> = HashMap::new();
 
         for file in files {
@@ -22,7 +22,7 @@ impl<'a> Index<'a> {
                 types
                     .entry(namespace)
                     .or_default()
-                    .entry(trim_tick(def.name()))
+                    .entry(def.name())
                     .or_default()
                     .push(def);
             }

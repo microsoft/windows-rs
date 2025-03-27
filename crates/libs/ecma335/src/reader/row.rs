@@ -48,18 +48,19 @@ pub trait AsRow<'a>: Copy {
         self.file().blob(self.index(), Self::TABLE, column)
     }
 
-    fn list<R: AsRow<'a>>(&self, column: usize) -> RowIterator<'a, R> {
+    fn list<R: AsRow<'a>>(&self, column: usize) -> RowRange<'a, R> {
         self.file().list(self.index(), Self::TABLE, column)
     }
 }
 
-pub struct RowIterator<'a, R: AsRow<'a>> {
+#[derive(Clone)]
+pub struct RowRange<'a, R: AsRow<'a>> {
     file: &'a File,
     rows: std::ops::Range<usize>,
     phantom: std::marker::PhantomData<R>,
 }
 
-impl<'a, R: AsRow<'a>> RowIterator<'a, R> {
+impl<'a, R: AsRow<'a>> RowRange<'a, R> {
     pub(crate) fn new(file: &'a File, rows: std::ops::Range<usize>) -> Self {
         Self {
             file,
@@ -67,9 +68,17 @@ impl<'a, R: AsRow<'a>> RowIterator<'a, R> {
             phantom: std::marker::PhantomData,
         }
     }
+
+    pub fn is_empty(&self) -> bool {
+        self.rows.is_empty()
+    }
+
+    pub fn len(&self) -> usize {
+        self.rows.len()
+    }
 }
 
-impl<'a, R: AsRow<'a>> Iterator for RowIterator<'a, R> {
+impl<'a, R: AsRow<'a>> Iterator for RowRange<'a, R> {
     type Item = R;
 
     fn next(&mut self) -> Option<Self::Item> {
@@ -80,13 +89,13 @@ impl<'a, R: AsRow<'a>> Iterator for RowIterator<'a, R> {
 }
 
 pub trait HasAttributes<'a> {
-    fn attributes(&self) -> RowIterator<'a, Attribute<'a>>;
+    fn attributes(&self) -> RowRange<'a, Attribute<'a>>;
     fn find_attribute(&self, name: &str) -> Option<Attribute<'a>>;
     fn has_attribute(&self, name: &str) -> bool;
 }
 
 impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
-    fn attributes(&self) -> RowIterator<'a, Attribute<'a>> {
+    fn attributes(&self) -> RowRange<'a, Attribute<'a>> {
         self.file()
             .equal_range(0, Into::<HasAttribute>::into(*self).encode())
     }

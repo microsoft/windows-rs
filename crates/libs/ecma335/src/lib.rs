@@ -23,4 +23,10 @@ pub use type_name::*;
 mod signature;
 pub use signature::*;
 
-pub use reader::{AsRow, HasAttributes};
+pub use reader::HasAttributes;
+
+mod merge;
+pub use merge::*;
+
+// mod fast_merge;
+// pub use fast_merge::*;
