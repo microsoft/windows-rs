@@ -1,9 +1,9 @@
 use super::*;
 
 pub struct Index {
-    pub(crate) files: Vec<File>,
-    pub(crate) types: HashMap<String, HashMap<String, Vec<(usize, usize)>>>,
-    pub(crate) nested: HashMap<(usize, usize), Vec<(usize, usize)>>,
+    files: Vec<File>,
+    types: HashMap<String, HashMap<String, Vec<(usize, usize)>>>,
+    nested: HashMap<(usize, usize), Vec<usize>>,
 }
 
 impl Index {
@@ -13,7 +13,7 @@ impl Index {
 
     pub fn new(files: Vec<File>) -> Self {
         let mut types: HashMap<String, HashMap<String, Vec<(usize, usize)>>> = HashMap::new();
-        let mut nested: HashMap<(usize, usize), Vec<(usize, usize)>> = HashMap::new();
+        let mut nested: HashMap<(usize, usize), Vec<usize>> = HashMap::new();
 
         for (file_pos, file) in files.iter().enumerate() {
             for def_pos in file.TypeDef() {
@@ -40,7 +40,7 @@ impl Index {
                 nested
                     .entry((file_pos, outer))
                     .or_default()
-                    .push((file_pos, inner));
+                    .push(inner);
             }
         }
 
@@ -51,7 +51,7 @@ impl Index {
         }
     }
 
-    pub fn files(&self, pos: usize) -> &File {
+    pub(crate) fn files(&self, pos: usize) -> &File {
         &self.files[pos]
     }
 
@@ -92,10 +92,10 @@ impl Index {
             .into_iter()
             .flatten()
             .cloned()
-            .map(|(file, pos)| {
+            .map(move |pos| {
                 TypeDef(Row {
                     index: self,
-                    file,
+                    file: ty.0.file,
                     pos,
                 })
             })

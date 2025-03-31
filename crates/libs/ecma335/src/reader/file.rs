@@ -7,40 +7,6 @@ pub struct File {
     tables: [Table; 17],
 }
 
-impl std::fmt::Debug for File {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::write!(f, "{:?}", self.bytes.as_ptr())
-    }
-}
-
-impl std::hash::Hash for File {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        self.bytes.as_ptr().hash(state);
-    }
-}
-
-impl PartialEq for File {
-    fn eq(&self, other: &Self) -> bool {
-        std::ptr::eq(self.bytes.as_ptr(), other.bytes.as_ptr())
-    }
-}
-
-impl Eq for File {}
-
-impl Ord for File {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.bytes.as_ptr().cmp(&other.bytes.as_ptr())
-    }
-}
-
-impl PartialOrd for File {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-unsafe impl Sync for File {}
-
 impl File {
     pub fn read<P: AsRef<std::path::Path>>(path: P) -> Option<Self> {
         std::fs::read(path).ok().and_then(Self::new)
@@ -660,11 +626,11 @@ impl File {
         first
     }
 
-    pub fn TypeDef(&self) -> std::ops::Range<usize> {
+    pub(crate) fn TypeDef(&self) -> std::ops::Range<usize> {
         0..self.tables[TypeDef::TABLE].len
     }
 
-    pub fn NestedClass(&self) -> std::ops::Range<usize> {
+    pub(crate) fn NestedClass(&self) -> std::ops::Range<usize> {
         0..self.tables[NestedClass::TABLE].len
     }
 }
