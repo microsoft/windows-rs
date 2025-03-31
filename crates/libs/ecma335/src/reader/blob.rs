@@ -1,7 +1,8 @@
 use super::*;
 
 pub struct Blob<'a> {
-    file: &'a File,
+    index: &'a Index,
+    file: usize,
     slice: &'a [u8],
 }
 
@@ -26,8 +27,8 @@ impl std::ops::Deref for Blob<'_> {
 }
 
 impl<'a> Blob<'a> {
-    pub fn new(file: &'a File, slice: &'a [u8]) -> Self {
-        Self { file, slice }
+    pub fn new(index: &'a Index, file: usize, slice: &'a [u8]) -> Self {
+        Self { index, file, slice }
     }
 
     fn peek(&self) -> (usize, usize) {
@@ -47,7 +48,7 @@ impl<'a> Blob<'a> {
     }
 
     pub fn decode<D: Decode<'a>>(&mut self) -> D {
-        D::decode(self.file, self.read_compressed())
+        D::decode(self.index, self.file, self.read_compressed())
     }
 
     pub fn try_read(&mut self, expected: usize) -> bool {
@@ -68,7 +69,11 @@ impl<'a> Blob<'a> {
                 break;
             } else {
                 self.offset(offset);
-                mods.push(TypeDefOrRef::decode(self.file, self.read_compressed()))
+                mods.push(TypeDefOrRef::decode(
+                    self.index,
+                    self.file,
+                    self.read_compressed(),
+                ))
             }
         }
         mods

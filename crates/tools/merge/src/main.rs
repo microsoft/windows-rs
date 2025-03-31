@@ -50,7 +50,7 @@ fn main() {
 
     let mut writer = writer::File::new(&name);
 
-    let index = reader::Index::new(&input);
+    let index = reader::Index::new(input);
 
     for ty in index.all() {
         write_type(&mut writer, &index, ty, None);

@@ -1,17 +1,54 @@
 use super::*;
 
-#[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Copy, Clone)]
 pub struct Row<'a> {
-    file: &'a File,
-    pos: usize,
+    pub index: &'a Index,
+    pub file: usize,
+    pub pos: usize,
+}
+
+impl std::fmt::Debug for Row<'_> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Row")
+            .field("file", &self.file)
+            .field("pos", &self.pos)
+            .finish()
+    }
+}
+
+impl std::hash::Hash for Row<'_> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.file.hash(state);
+        self.pos.hash(state);
+    }
+}
+
+impl PartialEq for Row<'_> {
+    fn eq(&self, other: &Self) -> bool {
+        (self.file, self.pos) == (other.file, other.pos)
+    }
+}
+
+impl Eq for Row<'_> {}
+
+impl Ord for Row<'_> {
+    fn cmp(&self, other: &Self) -> Ordering {
+        (self.file, self.pos).cmp(&(other.file, other.pos))
+    }
+}
+
+impl PartialOrd for Row<'_> {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
 }
 
 unsafe impl Send for Row<'_> {}
 unsafe impl Sync for Row<'_> {}
 
 impl<'a> Row<'a> {
-    pub(crate) fn new(file: &'a File, pos: usize) -> Self {
-        Self { file, pos }
+    pub(crate) fn new(index: &'a Index, file: usize, pos: usize) -> Self {
+        Self { index, file, pos }
     }
 }
 
@@ -20,8 +57,14 @@ pub trait AsRow<'a>: Copy {
     fn to_row(&self) -> Row<'a>;
     fn from_row(row: Row<'a>) -> Self;
 
+    fn index(&self) -> &'a Index {
+        let row = self.to_row();
+        row.index
+    }
+
     fn file(&self) -> &'a File {
-        self.to_row().file
+        let row = self.to_row();
+        row.index.file(row.file)
     }
 
     fn pos(&self) -> usize {
@@ -37,44 +80,65 @@ pub trait AsRow<'a>: Copy {
     }
 
     fn row<R: AsRow<'a>>(&self, column: usize) -> R {
-        R::from_row(Row::new(self.file(), self.usize(column) - 1))
+        let row = self.to_row();
+        R::from_row(Row::new(row.index, row.file, self.usize(column) - 1))
     }
 
     fn decode<T: Decode<'a>>(&self, column: usize) -> T {
-        T::decode(self.file(), self.usize(column))
+        let row = self.to_row();
+        T::decode(row.index, row.file, self.usize(column))
     }
 
     fn blob(&self, column: usize) -> Blob<'a> {
-        self.file().blob(self.pos(), Self::TABLE, column)
+        let row = self.to_row();
+        Blob::new(
+            row.index,
+            row.file,
+            self.file().blob(self.pos(), Self::TABLE, column),
+        )
     }
 
     fn list<R: AsRow<'a>>(&self, column: usize) -> RowIterator<'a, R> {
-        let file = self.file();
-        RowIterator::new(file, file.list(self.pos(), Self::TABLE, column, R::TABLE))
+        let row = self.to_row();
+        RowIterator::new(
+            row.index,
+            row.file,
+            self.file().list(self.pos(), Self::TABLE, column, R::TABLE),
+        )
     }
 
     fn equal_range<L: AsRow<'a>>(&self, column: usize, value: usize) -> RowIterator<'a, L> {
-        let file = self.file();
+        let row = self.to_row();
 
-        RowIterator::new(file, file.equal_range(L::TABLE, column, value))
+        RowIterator::new(
+            row.index,
+            row.file,
+            self.file().equal_range(L::TABLE, column, value),
+        )
     }
 
     fn parent_row<P: AsRow<'a>>(&'a self, column: usize) -> P {
-        let file = self.file();
+        let row = self.to_row();
 
-        P::from_row(Row::new(file, file.parent(self.pos(), P::TABLE, column)))
+        P::from_row(Row::new(
+            row.index,
+            row.file,
+            self.file().parent(self.pos(), P::TABLE, column),
+        ))
     }
 }
 
 pub struct RowIterator<'a, R: AsRow<'a>> {
-    file: &'a File,
+    index: &'a Index,
+    file: usize,
     rows: std::ops::Range<usize>,
     phantom: std::marker::PhantomData<R>,
 }
 
 impl<'a, R: AsRow<'a>> RowIterator<'a, R> {
-    pub(crate) fn new(file: &'a File, rows: std::ops::Range<usize>) -> Self {
+    pub(crate) fn new(index: &'a Index, file: usize, rows: std::ops::Range<usize>) -> Self {
         Self {
+            index,
             file,
             rows,
             phantom: std::marker::PhantomData,
@@ -88,7 +152,7 @@ impl<'a, R: AsRow<'a>> Iterator for RowIterator<'a, R> {
     fn next(&mut self) -> Option<Self::Item> {
         self.rows
             .next()
-            .map(|row| R::from_row(Row::new(self.file, row)))
+            .map(|row| R::from_row(Row::new(self.index, self.file, row)))
     }
 }
 

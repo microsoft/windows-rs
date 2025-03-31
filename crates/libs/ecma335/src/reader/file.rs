@@ -535,7 +535,7 @@ impl File {
         std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
     }
 
-    pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> Blob {
+    pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
         let offset = self.blobs + self.usize(row, table, column);
         let initial_byte = self.bytes[offset];
 
@@ -553,7 +553,7 @@ impl File {
         }
 
         let offset = offset + blob_size_bytes;
-        Blob::new(self, &self.bytes[offset..offset + blob_size])
+        &self.bytes[offset..offset + blob_size]
     }
 
     pub(crate) fn list(
@@ -660,16 +660,12 @@ impl File {
         first
     }
 
-    pub fn table<'a, R: AsRow<'a>>(&'a self) -> RowIterator<'a, R> {
-        RowIterator::new(self, 0..self.tables[R::TABLE].len)
+    pub fn TypeDef(&self) -> std::ops::Range<usize> {
+        0..self.tables[TypeDef::TABLE].len
     }
 
-    pub fn TypeDef(&self) -> RowIterator<TypeDef> {
-        self.table()
-    }
-
-    pub fn NestedClass<'a>(&'a self) -> RowIterator<'a, NestedClass<'a>> {
-        self.table()
+    pub fn NestedClass(&self) -> std::ops::Range<usize> {
+        0..self.tables[NestedClass::TABLE].len
     }
 }
 
