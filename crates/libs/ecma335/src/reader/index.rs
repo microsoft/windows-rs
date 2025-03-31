@@ -37,10 +37,7 @@ impl Index {
             for map in file.NestedClass() {
                 let inner = file.usize(map, TypeDef::TABLE, 0);
                 let outer = file.usize(map, TypeDef::TABLE, 1);
-                nested
-                    .entry((file_pos, outer))
-                    .or_default()
-                    .push(inner);
+                nested.entry((file_pos, outer)).or_default().push(inner);
             }
         }
 

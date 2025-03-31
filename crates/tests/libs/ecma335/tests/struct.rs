@@ -27,8 +27,7 @@ fn test() {
     std::fs::write("tests/struct.winmd", bytes).unwrap();
 
     let reader = reader::Index::read("tests/struct.winmd").unwrap();
-
-    let ty = reader.all().find(|def| def.name() == "Name").unwrap();
+    let ty = reader.expect("Namespace", "Name");
 
     let fields: Vec<_> = ty.fields().collect();
     assert_eq!(fields.len(), 2);

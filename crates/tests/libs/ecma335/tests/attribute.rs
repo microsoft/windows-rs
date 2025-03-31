@@ -61,11 +61,7 @@ fn test() {
     std::fs::write("tests/attribute.winmd", bytes).unwrap();
 
     let reader = reader::Index::read("tests/attribute.winmd").unwrap();
-
-    let ty = reader
-        .all()
-        .find(|def| def.name() == "Name")
-        .unwrap();
+    let ty = reader.expect("Namespace", "Name");
 
     let attributes: Vec<_> = ty.attributes().collect();
     assert_eq!(attributes.len(), 1);

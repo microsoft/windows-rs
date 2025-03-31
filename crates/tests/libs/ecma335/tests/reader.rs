@@ -23,10 +23,8 @@ fn test() {
 #[test]
 fn array() {
     let file = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
-    let def = file
-        .all()
-        .find(|def| def.name() == "VDMCONTEXT")
-        .unwrap();
+    let def = file.all().find(|def| def.name() == "VDMCONTEXT").unwrap();
+    
     let field = def
         .fields()
         .find(|field| field.name() == "ExtendedRegisters")

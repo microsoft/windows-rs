@@ -84,6 +84,5 @@ fn test() {
     std::fs::write("tests/class.winmd", bytes).unwrap();
 
     let reader = reader::Index::read("tests/class.winmd").unwrap();
-
     let _ty = reader.expect("Namespace", "Name");
 }
