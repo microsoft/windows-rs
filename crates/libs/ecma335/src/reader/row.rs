@@ -37,7 +37,7 @@ pub trait AsRow<'a>: Copy {
     }
 
     fn row<R: AsRow<'a>>(&self, column: usize) -> R {
-        self.file().row(self.usize(column) - 1)
+        R::from_row(Row::new(self.file(), self.usize(column) - 1))
     }
 
     fn decode<T: Decode<'a>>(&self, column: usize) -> T {
@@ -49,7 +49,20 @@ pub trait AsRow<'a>: Copy {
     }
 
     fn list<R: AsRow<'a>>(&self, column: usize) -> RowIterator<'a, R> {
-        self.file().list(self.index(), Self::TABLE, column)
+        let file = self.file();
+        RowIterator::new(file, file.list(self.index(), Self::TABLE, column, R::TABLE))
+    }
+
+    fn equal_range<L: AsRow<'a>>(&self, column: usize, value: usize) -> RowIterator<'a, L> {
+        let file = self.file();
+
+        RowIterator::new(file, file.equal_range(L::TABLE, column, value))
+    }
+
+    fn parent_row<P: AsRow<'a>>(&'a self, column: usize) -> P {
+        let file = self.file();
+
+        P::from_row(Row::new(file, file.parent(self.index(), P::TABLE, column)))
     }
 }
 
@@ -87,8 +100,7 @@ pub trait HasAttributes<'a> {
 
 impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
     fn attributes(&self) -> RowIterator<'a, Attribute<'a>> {
-        self.file()
-            .equal_range(0, Into::<HasAttribute>::into(*self).encode())
+        self.equal_range(0, Into::<HasAttribute>::into(*self).encode())
     }
 
     fn find_attribute(&self, name: &str) -> Option<Attribute<'a>> {

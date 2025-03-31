@@ -32,12 +32,11 @@ impl MethodDef<'_> {
     }
 
     pub fn parent(&self) -> MemberRefParent {
-        MemberRefParent::TypeDef(self.file().parent(5, *self))
+        MemberRefParent::TypeDef(self.parent_row(5))
     }
 
     pub fn impl_map(&self) -> Option<ImplMap> {
-        self.file()
-            .equal_range(1, MemberForwarded::MethodDef(*self).encode())
+        self.equal_range(1, MemberForwarded::MethodDef(*self).encode())
             .next()
     }
 

@@ -556,33 +556,31 @@ impl File {
         Blob::new(self, &self.bytes[offset..offset + blob_size])
     }
 
-    pub fn row<'a, R: AsRow<'a>>(&'a self, row: usize) -> R {
-        R::from_row(Row::new(self, row))
-    }
-
-    pub(crate) fn list<'a, R: AsRow<'a>>(
-        &'a self,
+    pub(crate) fn list(
+        &self,
         row: usize,
         table: usize,
         column: usize,
-    ) -> RowIterator<'a, R> {
+        other_table: usize,
+    ) -> std::ops::Range<usize> {
         let first = self.usize(row, table, column) - 1;
         let next = row + 1;
         let last = if next < self.tables[table].len {
             self.usize(next, table, column) - 1
         } else {
-            self.tables[R::TABLE].len
+            self.tables[other_table].len
         };
-        RowIterator::new(self, first..last)
+        first..last
     }
 
-    pub(crate) fn equal_range<'a, L: AsRow<'a>>(
-        &'a self,
+    pub(crate) fn equal_range(
+        &self,
+        table: usize,
         column: usize,
         value: usize,
-    ) -> RowIterator<'a, L> {
+    ) -> std::ops::Range<usize> {
         let mut first = 0;
-        let mut last = self.tables[L::TABLE].len;
+        let mut last = self.tables[table].len;
         let mut count = last;
 
         loop {
@@ -593,7 +591,7 @@ impl File {
 
             let count2 = count / 2;
             let middle = first + count2;
-            let middle_value = self.usize(middle, L::TABLE, column);
+            let middle_value = self.usize(middle, table, column);
 
             match middle_value.cmp(&value) {
                 Ordering::Less => {
@@ -602,32 +600,23 @@ impl File {
                 }
                 Ordering::Greater => count = count2,
                 Ordering::Equal => {
-                    let first2 = self.lower_bound_of(L::TABLE, first, middle, column, value);
+                    let first2 = self.lower_bound(table, first, middle, column, value);
                     first += count;
-                    last = self.upper_bound_of(L::TABLE, middle + 1, first, column, value);
+                    last = self.upper_bound(table, middle + 1, first, column, value);
                     first = first2;
                     break;
                 }
             }
         }
 
-        RowIterator::new(self, first..last)
+        first..last
     }
 
-    pub(crate) fn parent<'a, P: AsRow<'a>, C: AsRow<'a>>(&'a self, column: usize, child: C) -> P {
-        P::from_row(Row::new(
-            self,
-            self.upper_bound_of(
-                P::TABLE,
-                0,
-                self.tables[P::TABLE].len,
-                column,
-                child.index() + 1,
-            ) - 1,
-        ))
+    pub(crate) fn parent(&self, row: usize, table: usize, column: usize) -> usize {
+        self.upper_bound(table, 0, self.tables[table].len, column, row + 1) - 1
     }
 
-    fn lower_bound_of(
+    fn lower_bound(
         &self,
         table: usize,
         mut first: usize,
@@ -649,7 +638,7 @@ impl File {
         first
     }
 
-    fn upper_bound_of(
+    fn upper_bound(
         &self,
         table: usize,
         mut first: usize,
