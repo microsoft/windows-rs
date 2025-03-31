@@ -64,7 +64,7 @@ pub trait AsRow<'a>: Copy {
 
     fn file(&self) -> &'a File {
         let row = self.to_row();
-        row.index.file(row.file)
+        row.index.files(row.file)
     }
 
     fn pos(&self) -> usize {

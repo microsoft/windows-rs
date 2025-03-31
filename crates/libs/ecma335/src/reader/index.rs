@@ -7,6 +7,10 @@ pub struct Index {
 }
 
 impl Index {
+    pub fn read<P: AsRef<std::path::Path>>(path: P) -> Option<Self> {
+        Some(Self::new(vec![File::read(path)?]))
+    }
+
     pub fn new(files: Vec<File>) -> Self {
         let mut types: HashMap<String, HashMap<String, Vec<(usize, usize)>>> = HashMap::new();
         let mut nested: HashMap<(usize, usize), Vec<(usize, usize)>> = HashMap::new();
@@ -47,7 +51,7 @@ impl Index {
         }
     }
 
-    pub fn file(&self, pos: usize) -> &File {
+    pub fn files(&self, pos: usize) -> &File {
         &self.files[pos]
     }
 

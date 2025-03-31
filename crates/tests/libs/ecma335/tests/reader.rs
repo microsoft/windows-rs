@@ -2,9 +2,9 @@ use windows_ecma335::*;
 
 #[test]
 fn test() {
-    let file = reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
+    let file = reader::Index::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
 
-    let def = file.TypeDef().find(|def| def.name() == "Point").unwrap();
+    let def = file.expect("Windows.Foundation", "Point");
     assert_eq!(def.namespace(), "Windows.Foundation");
     assert_eq!(def.name(), "Point");
 
@@ -22,9 +22,9 @@ fn test() {
 
 #[test]
 fn array() {
-    let file = reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let file = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
     let def = file
-        .TypeDef()
+        .all()
         .find(|def| def.name() == "VDMCONTEXT")
         .unwrap();
     let field = def

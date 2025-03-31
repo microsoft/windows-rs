@@ -60,10 +60,10 @@ fn test() {
     let bytes = file.into_stream();
     std::fs::write("tests/attribute.winmd", bytes).unwrap();
 
-    let reader = reader::File::read("tests/attribute.winmd").unwrap();
+    let reader = reader::Index::read("tests/attribute.winmd").unwrap();
 
     let ty = reader
-        .table::<reader::TypeDef>()
+        .all()
         .find(|def| def.name() == "Name")
         .unwrap();
 
