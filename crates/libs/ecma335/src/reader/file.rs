@@ -722,8 +722,8 @@ impl View for [u8] {
 
     fn view_as_str(&self, offset: usize) -> Option<&[u8]> {
         let buffer = &self[offset..];
-        let index = buffer.iter().position(|c| *c == b'\0')?;
-        Some(&self[offset..offset + index])
+        let pos = buffer.iter().position(|c| *c == b'\0')?;
+        Some(&self[offset..offset + pos])
     }
 
     fn is_proper_length<T>(&self, offset: usize) -> Option<()> {

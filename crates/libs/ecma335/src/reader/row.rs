@@ -3,15 +3,15 @@ use super::*;
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Row<'a> {
     file: &'a File,
-    index: usize,
+    pos: usize,
 }
 
 unsafe impl Send for Row<'_> {}
 unsafe impl Sync for Row<'_> {}
 
 impl<'a> Row<'a> {
-    pub(crate) fn new(file: &'a File, index: usize) -> Self {
-        Self { file, index }
+    pub(crate) fn new(file: &'a File, pos: usize) -> Self {
+        Self { file, pos }
     }
 }
 
@@ -24,16 +24,16 @@ pub trait AsRow<'a>: Copy {
         self.to_row().file
     }
 
-    fn index(&self) -> usize {
-        self.to_row().index
+    fn pos(&self) -> usize {
+        self.to_row().pos
     }
 
     fn usize(&self, column: usize) -> usize {
-        self.file().usize(self.index(), Self::TABLE, column)
+        self.file().usize(self.pos(), Self::TABLE, column)
     }
 
     fn str(&self, column: usize) -> &'a str {
-        self.file().str(self.index(), Self::TABLE, column)
+        self.file().str(self.pos(), Self::TABLE, column)
     }
 
     fn row<R: AsRow<'a>>(&self, column: usize) -> R {
@@ -45,12 +45,12 @@ pub trait AsRow<'a>: Copy {
     }
 
     fn blob(&self, column: usize) -> Blob<'a> {
-        self.file().blob(self.index(), Self::TABLE, column)
+        self.file().blob(self.pos(), Self::TABLE, column)
     }
 
     fn list<R: AsRow<'a>>(&self, column: usize) -> RowIterator<'a, R> {
         let file = self.file();
-        RowIterator::new(file, file.list(self.index(), Self::TABLE, column, R::TABLE))
+        RowIterator::new(file, file.list(self.pos(), Self::TABLE, column, R::TABLE))
     }
 
     fn equal_range<L: AsRow<'a>>(&self, column: usize, value: usize) -> RowIterator<'a, L> {
@@ -62,7 +62,7 @@ pub trait AsRow<'a>: Copy {
     fn parent_row<P: AsRow<'a>>(&'a self, column: usize) -> P {
         let file = self.file();
 
-        P::from_row(Row::new(file, file.parent(self.index(), P::TABLE, column)))
+        P::from_row(Row::new(file, file.parent(self.pos(), P::TABLE, column)))
     }
 }
 

@@ -40,11 +40,11 @@ impl<'a> TypeDef<'a> {
     }
 
     pub fn interface_impls(&self) -> RowIterator<InterfaceImpl> {
-        self.equal_range(0, self.index() + 1)
+        self.equal_range(0, self.pos() + 1)
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
-        self.equal_range(2, self.index() + 1).next()
+        self.equal_range(2, self.pos() + 1).next()
     }
 
     pub fn category(&self) -> TypeCategory {
