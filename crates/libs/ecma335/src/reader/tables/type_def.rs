@@ -6,16 +6,16 @@ impl std::fmt::Debug for TypeDef<'_> {
     }
 }
 
-impl<'a> TypeDef<'a> {
+impl TypeDef<'_> {
     pub fn flags(&self) -> TypeAttributes {
         TypeAttributes(self.usize(0).try_into().unwrap())
     }
 
-    pub fn name(&self) -> &'a str {
+    pub fn name(&self) -> &str {
         self.str(1)
     }
 
-    pub fn namespace(&self) -> &'a str {
+    pub fn namespace(&self) -> &str {
         self.str(2)
     }
 
@@ -36,16 +36,15 @@ impl<'a> TypeDef<'a> {
     }
 
     pub fn generic_params(&self) -> RowIterator<GenericParam> {
-        self.file()
-            .equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
+        self.equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
     }
 
     pub fn interface_impls(&self) -> RowIterator<InterfaceImpl> {
-        self.file().equal_range(0, self.index() + 1)
+        self.equal_range(0, self.pos() + 1)
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
-        self.file().equal_range(2, self.index() + 1).next()
+        self.equal_range(2, self.pos() + 1).next()
     }
 
     pub fn category(&self) -> TypeCategory {

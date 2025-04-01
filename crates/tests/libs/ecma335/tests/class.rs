@@ -83,7 +83,6 @@ fn test() {
     let bytes = file.into_stream();
     std::fs::write("tests/class.winmd", bytes).unwrap();
 
-    let reader = reader::File::read("tests/class.winmd").unwrap();
-
-    let _ty = reader.TypeDef().find(|def| def.name() == "Name").unwrap();
+    let reader = reader::Index::read("tests/class.winmd").unwrap();
+    let _ty = reader.expect("Namespace", "Name");
 }

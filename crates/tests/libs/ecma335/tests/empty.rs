@@ -6,5 +6,5 @@ fn test() {
     let bytes = file.into_stream();
     std::fs::write("tests/empty.winmd", bytes).unwrap();
 
-    let _reader = reader::File::read("tests/empty.winmd").unwrap();
+    let _reader = reader::Index::read("tests/empty.winmd").unwrap();
 }

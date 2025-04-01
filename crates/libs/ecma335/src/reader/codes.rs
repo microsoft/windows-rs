@@ -1,7 +1,7 @@
 use super::*;
 
 pub trait Decode<'a> {
-    fn decode(file: &'a File, code: usize) -> Self;
+    fn decode(index: &'a Index, file: usize, code: usize) -> Self;
 }
 
 macro_rules! code {
@@ -11,10 +11,10 @@ macro_rules! code {
             $($table($table<'a>),)*
         }
         impl<'a> Decode<'a> for $name<'a> {
-            fn decode(file: &'a File, code: usize) -> Self {
+            fn decode(index: &'a Index, file: usize, code: usize) -> Self {
                 let (kind, row) = (code & ((1 << $size) - 1), (code >> $size) - 1);
                 match kind {
-                    $($code => Self::$table($table(Row::new(file, row))),)*
+                    $($code => Self::$table($table(Row::new(index, file, row))),)*
                     rest => panic!("{rest:?}"),
                 }
             }
@@ -23,7 +23,7 @@ macro_rules! code {
             #[allow(dead_code)]
             pub fn encode(&self) -> usize {
                 match self {
-                    $(Self::$table(row) => (row.index() + 1) << $size | $code,)*
+                    $(Self::$table(row) => (row.pos() + 1) << $size | $code,)*
                 }
             }
         }
@@ -109,7 +109,7 @@ code! { TypeOrMethodDef(1)
     (TypeDef, 0)
 }
 
-impl<'a> TypeDefOrRef<'a> {
+impl TypeDefOrRef<'_> {
     pub fn namespace(&self) -> &str {
         match self {
             Self::TypeDef(row) => row.namespace(),

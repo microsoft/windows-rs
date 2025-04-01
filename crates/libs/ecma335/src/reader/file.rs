@@ -7,40 +7,6 @@ pub struct File {
     tables: [Table; 17],
 }
 
-impl std::fmt::Debug for File {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::write!(f, "{:?}", self.bytes.as_ptr())
-    }
-}
-
-impl std::hash::Hash for File {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        self.bytes.as_ptr().hash(state);
-    }
-}
-
-impl PartialEq for File {
-    fn eq(&self, other: &Self) -> bool {
-        std::ptr::eq(self.bytes.as_ptr(), other.bytes.as_ptr())
-    }
-}
-
-impl Eq for File {}
-
-impl Ord for File {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.bytes.as_ptr().cmp(&other.bytes.as_ptr())
-    }
-}
-
-impl PartialOrd for File {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-unsafe impl Sync for File {}
-
 impl File {
     pub fn read<P: AsRef<std::path::Path>>(path: P) -> Option<Self> {
         std::fs::read(path).ok().and_then(Self::new)
@@ -535,7 +501,7 @@ impl File {
         std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
     }
 
-    pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> Blob {
+    pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
         let offset = self.blobs + self.usize(row, table, column);
         let initial_byte = self.bytes[offset];
 
@@ -553,36 +519,34 @@ impl File {
         }
 
         let offset = offset + blob_size_bytes;
-        Blob::new(self, &self.bytes[offset..offset + blob_size])
+        &self.bytes[offset..offset + blob_size]
     }
 
-    pub fn row<'a, R: AsRow<'a>>(&'a self, row: usize) -> R {
-        R::from_row(Row::new(self, row))
-    }
-
-    pub(crate) fn list<'a, R: AsRow<'a>>(
-        &'a self,
+    pub(crate) fn list(
+        &self,
         row: usize,
         table: usize,
         column: usize,
-    ) -> RowIterator<'a, R> {
+        other_table: usize,
+    ) -> std::ops::Range<usize> {
         let first = self.usize(row, table, column) - 1;
         let next = row + 1;
         let last = if next < self.tables[table].len {
             self.usize(next, table, column) - 1
         } else {
-            self.tables[R::TABLE].len
+            self.tables[other_table].len
         };
-        RowIterator::new(self, first..last)
+        first..last
     }
 
-    pub(crate) fn equal_range<'a, L: AsRow<'a>>(
-        &'a self,
+    pub(crate) fn equal_range(
+        &self,
+        table: usize,
         column: usize,
         value: usize,
-    ) -> RowIterator<'a, L> {
+    ) -> std::ops::Range<usize> {
         let mut first = 0;
-        let mut last = self.tables[L::TABLE].len;
+        let mut last = self.tables[table].len;
         let mut count = last;
 
         loop {
@@ -593,7 +557,7 @@ impl File {
 
             let count2 = count / 2;
             let middle = first + count2;
-            let middle_value = self.usize(middle, L::TABLE, column);
+            let middle_value = self.usize(middle, table, column);
 
             match middle_value.cmp(&value) {
                 Ordering::Less => {
@@ -602,32 +566,23 @@ impl File {
                 }
                 Ordering::Greater => count = count2,
                 Ordering::Equal => {
-                    let first2 = self.lower_bound_of(L::TABLE, first, middle, column, value);
+                    let first2 = self.lower_bound(table, first, middle, column, value);
                     first += count;
-                    last = self.upper_bound_of(L::TABLE, middle + 1, first, column, value);
+                    last = self.upper_bound(table, middle + 1, first, column, value);
                     first = first2;
                     break;
                 }
             }
         }
 
-        RowIterator::new(self, first..last)
+        first..last
     }
 
-    pub(crate) fn parent<'a, P: AsRow<'a>, C: AsRow<'a>>(&'a self, column: usize, child: C) -> P {
-        P::from_row(Row::new(
-            self,
-            self.upper_bound_of(
-                P::TABLE,
-                0,
-                self.tables[P::TABLE].len,
-                column,
-                child.index() + 1,
-            ) - 1,
-        ))
+    pub(crate) fn parent(&self, row: usize, table: usize, column: usize) -> usize {
+        self.upper_bound(table, 0, self.tables[table].len, column, row + 1) - 1
     }
 
-    fn lower_bound_of(
+    fn lower_bound(
         &self,
         table: usize,
         mut first: usize,
@@ -649,7 +604,7 @@ impl File {
         first
     }
 
-    fn upper_bound_of(
+    fn upper_bound(
         &self,
         table: usize,
         mut first: usize,
@@ -671,16 +626,12 @@ impl File {
         first
     }
 
-    pub fn table<'a, R: AsRow<'a>>(&'a self) -> RowIterator<'a, R> {
-        RowIterator::new(self, 0..self.tables[R::TABLE].len)
+    pub(crate) fn TypeDef(&self) -> std::ops::Range<usize> {
+        0..self.tables[TypeDef::TABLE].len
     }
 
-    pub fn TypeDef(&self) -> RowIterator<TypeDef> {
-        self.table()
-    }
-
-    pub fn NestedClass<'a>(&'a self) -> RowIterator<'a, NestedClass<'a>> {
-        self.table()
+    pub(crate) fn NestedClass(&self) -> std::ops::Range<usize> {
+        0..self.tables[NestedClass::TABLE].len
     }
 }
 
@@ -733,8 +684,8 @@ impl View for [u8] {
 
     fn view_as_str(&self, offset: usize) -> Option<&[u8]> {
         let buffer = &self[offset..];
-        let index = buffer.iter().position(|c| *c == b'\0')?;
-        Some(&self[offset..offset + index])
+        let pos = buffer.iter().position(|c| *c == b'\0')?;
+        Some(&self[offset..offset + pos])
     }
 
     fn is_proper_length<T>(&self, offset: usize) -> Option<()> {

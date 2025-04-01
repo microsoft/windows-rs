@@ -24,8 +24,7 @@ impl Field<'_> {
     }
 
     pub fn constant(&self) -> Option<Constant> {
-        self.file()
-            .equal_range(1, HasConstant::Field(*self).encode())
+        self.equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }
 }
