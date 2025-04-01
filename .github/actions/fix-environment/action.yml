@@ -64,3 +64,7 @@ runs:
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-llvm
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-i686-gcc
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-gcc
+    - name: Add LLVM to PATH
+      shell: pwsh
+      run: |
+        echo "C:\Program Files\LLVM\bin" | Out-File -FilePath $env:GITHUB_PATH -Append
