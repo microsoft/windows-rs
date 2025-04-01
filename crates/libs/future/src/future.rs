@@ -24,7 +24,7 @@ pub trait Async: Interface {
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()>;
 
     // Calls the given handler with the current object and status.
-    fn invoke_completed(&self, hander: &Self::CompletedHandler, status: AsyncStatus);
+    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus);
 
     // Returns the value produced on completion. This should only be called when execution completes.
     fn get_results(&self) -> Result<Self::Output>;
@@ -76,7 +76,7 @@ impl<A: Async> Future for AsyncFuture<A> {
         }
 
         if let Some(shared_waker) = &self.waker {
-            // We have a shared waker which means we're either getting polled again or been transfered to
+            // We have a shared waker which means we're either getting polled again or been transferred to
             // another execution context. As we can't tell the difference, we need to update the shared waker
             // to make sure we've got the "current" waker.
             let mut guard = shared_waker.lock().unwrap();

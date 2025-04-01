@@ -1,0 +1,8 @@
+[package]
+name = "test_ecma335"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-ecma335]
+workspace = true

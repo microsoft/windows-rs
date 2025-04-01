@@ -33,7 +33,7 @@ where
         let item = self
             .values
             .get(index as usize)
-            .ok_or_else(|| Error::from(imp::E_BOUNDS))?;
+            .ok_or_else(|| Error::from(E_BOUNDS))?;
 
         T::from_default(item)
     }
@@ -87,7 +87,7 @@ where
         if let Some(item) = self.owner.values.get(current) {
             T::from_default(item)
         } else {
-            Err(Error::from(imp::E_BOUNDS))
+            Err(Error::from(E_BOUNDS))
         }
     }
 
