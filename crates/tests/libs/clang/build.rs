@@ -1,4 +1,8 @@
 fn main() {
+    if !cfg!(target_env = "msvc") {
+        return;
+    }
+
     if let Ok(files) = std::fs::read_dir("tests") {
         for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {

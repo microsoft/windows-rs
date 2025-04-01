@@ -1,4 +1,4 @@
-#![cfg(target_arch = "x86_64")]
+#![cfg(all(target_arch = "x86_64", target_env = "msvc"))]
 
 use windows_clang::*;
 
