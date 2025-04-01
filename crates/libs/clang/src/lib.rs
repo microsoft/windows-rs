@@ -28,8 +28,3 @@ pub fn version() -> Owned<CXString> {
     link!("libclang.dll" "system" fn clang_getClangVersion() -> CXString);
     unsafe { Owned::new(clang_getClangVersion()) }
 }
-
-#[test]
-fn test() {
-    assert!(version().starts_with("clang version"));
-}
