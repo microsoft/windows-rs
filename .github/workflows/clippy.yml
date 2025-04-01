@@ -32,6 +32,8 @@ jobs:
         run:  cargo clippy -p windows
       - name: Check windows-bindgen
         run:  cargo clippy -p windows-bindgen
+      - name: Check windows-clang
+        run:  cargo clippy -p windows-clang
       - name: Check windows-collections
         run:  cargo clippy -p windows-collections
       - name: Check windows-core

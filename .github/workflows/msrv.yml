@@ -32,6 +32,10 @@ jobs:
         run:  cargo check -p windows-bindgen --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.74 && rustup default 1.74
+      - name: Check windows-clang
+        run:  cargo check -p windows-clang --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.74 && rustup default 1.74
       - name: Check windows-collections
         run:  cargo check -p windows-collections --all-features
       - name: Rust version

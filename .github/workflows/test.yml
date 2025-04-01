@@ -169,6 +169,8 @@ jobs:
         run:  cargo test -p test_calling_convention --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_cfg_generic
         run:  cargo test -p test_cfg_generic --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_clang
+        run:  cargo test -p test_clang --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_class_hierarchy
         run:  cargo test -p test_class_hierarchy --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_collection_interop
@@ -257,10 +259,10 @@ jobs:
         run:  cargo test -p test_noexcept --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_numerics
-        run:  cargo test -p test_numerics --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_numerics
+        run:  cargo test -p test_numerics --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_overloads
         run:  cargo test -p test_overloads --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_overloads_client
@@ -353,16 +355,18 @@ jobs:
         run:  cargo test -p windows --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-bindgen
         run:  cargo test -p windows-bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-clang
+        run:  cargo test -p windows-clang --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-collections
         run:  cargo test -p windows-collections --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows-ecma335
         run:  cargo test -p windows-ecma335 --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-future
         run:  cargo test -p windows-future --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows-implement
         run:  cargo test -p windows-implement --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-interface
