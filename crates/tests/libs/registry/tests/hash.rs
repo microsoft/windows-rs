@@ -1,4 +1,3 @@
-
 use windows_registry::*;
 
 #[test]
