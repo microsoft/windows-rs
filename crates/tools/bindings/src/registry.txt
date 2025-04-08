@@ -37,4 +37,5 @@
     RegOpenKeyTransactedW
     RegQueryInfoKeyW
     RegQueryValueExW
+    RegRenameKey
     RegSetValueExW
