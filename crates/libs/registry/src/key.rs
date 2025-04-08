@@ -36,6 +36,12 @@ impl Key {
         self.0
     }
 
+    /// Changes the name of the specified registry key.
+    pub fn rename<F: AsRef<str>, T: AsRef<str>>(&self, from: F, to: T) -> Result<()> {
+        let result = unsafe { RegRenameKey(self.0, pcwstr(from).as_ptr(), pcwstr(to).as_ptr()) };
+        win32_error(result)
+    }
+
     /// Removes the registry keys and values of the specified key recursively.
     pub fn remove_tree<T: AsRef<str>>(&self, path: T) -> Result<()> {
         let result = unsafe { RegDeleteTreeW(self.0, pcwstr(path).as_ptr()) };

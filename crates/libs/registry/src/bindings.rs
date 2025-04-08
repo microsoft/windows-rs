@@ -23,6 +23,7 @@ windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : HKEY, lpsubk
 windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : HKEY, lpsubkey : PCWSTR, uloptions : u32, samdesired : REG_SAM_FLAGS, phkresult : *mut HKEY, htransaction : HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : HKEY, lpclass : PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut FILETIME) -> WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : HKEY, lpvaluename : PCWSTR, lpreserved : *const u32, lptype : *mut REG_VALUE_TYPE, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
+windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubkeyname : PCWSTR, lpnewkeyname : PCWSTR) -> WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : PCWSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> WIN32_ERROR);
 pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
