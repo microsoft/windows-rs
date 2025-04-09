@@ -109,10 +109,10 @@ impl<'a> Config<'a> {
                 });
             }
 
-            let writer = self.with_namespace(tree.namespace);
+            let config = self.with_namespace(tree.namespace);
 
             for ty in &tree.types {
-                tokens.combine(ty.write(&writer));
+                tokens.combine(ty.write(&config));
             }
 
             let output = format!("{directory}/mod.rs");

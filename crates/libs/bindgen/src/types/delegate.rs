@@ -11,38 +11,38 @@ impl Delegate {
         self.def.type_name()
     }
 
-    pub fn write_cfg(&self, writer: &Config<'_>) -> TokenStream {
-        if !writer.package {
+    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
-        Cfg::new(self.def, &self.dependencies(), writer).write(writer, false)
+        Cfg::new(self.def, &self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
-        let name = self.write_name(writer);
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+        let name = self.write_name(config);
         let vtbl_name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let boxed: TokenStream = format!("{}Box", self.def.name()).into();
-        let generic_names = self.generics.iter().map(|ty| ty.write_name(writer));
+        let generic_names = self.generics.iter().map(|ty| ty.write_name(config));
         let generic_names = quote! { #(#generic_names,)* };
 
-        let constraints = writer.write_generic_constraints(&self.generics);
-        let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
+        let constraints = config.write_generic_constraints(&self.generics);
+        let named_phantoms = config.write_generic_named_phantoms(&self.generics);
         let method = self.method();
-        let cfg = self.write_cfg(writer);
+        let cfg = self.write_cfg(config);
 
         let invoke = method.write(
-            writer,
+            config,
             None,
             InterfaceKind::Default,
             &mut MethodNames::new(),
             &mut MethodNames::new(),
         );
 
-        let invoke_vtbl = method.write_abi(writer, true);
+        let invoke_vtbl = method.write_abi(config, true);
 
         let definition = if self.generics.is_empty() {
-            let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
+            let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
 
             quote! {
                 #cfg
@@ -53,13 +53,13 @@ impl Delegate {
                 }
             }
         } else {
-            let phantoms = writer.write_generic_phantoms(&self.generics);
+            let phantoms = config.write_generic_phantoms(&self.generics);
 
             let guid = self.def.guid_attribute().unwrap();
             let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
 
             let generics = self.generics.iter().map(|generic| {
-                let name = generic.write_name(writer);
+                let name = generic.write_name(config);
                 quote! {
                     .push_slice(b";").push_other(#name::SIGNATURE)
                 }
@@ -83,7 +83,7 @@ impl Delegate {
         };
 
         let fn_constraint = {
-            let signature = method.write_impl_signature(writer, false, false);
+            let signature = method.write_impl_signature(config, false, false);
 
             quote! { F: FnMut #signature + Send + 'static }
         };
@@ -202,8 +202,8 @@ impl Delegate {
         }
     }
 
-    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
-        self.type_name().write(writer, &self.generics)
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &self.generics)
     }
 }
 

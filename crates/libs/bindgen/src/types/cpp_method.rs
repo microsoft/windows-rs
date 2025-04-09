@@ -206,14 +206,14 @@ impl CppMethod {
         }
     }
 
-    pub fn write_cfg(&self, writer: &Config<'_>, parent: &Cfg, not: bool) -> TokenStream {
-        if !writer.package {
+    pub fn write_cfg(&self, config: &Config<'_>, parent: &Cfg, not: bool) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
         parent
-            .difference(self.def, &self.dependencies, writer)
-            .write(writer, not)
+            .difference(self.def, &self.dependencies, config)
+            .write(config, not)
     }
 
     pub fn write_generics(&self) -> TokenStream {
@@ -229,13 +229,13 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_where(&self, writer: &Config<'_>, query: bool) -> TokenStream {
+    pub fn write_where(&self, config: &Config<'_>, query: bool) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
             if self.param_hints[position] == ParamHint::IntoParam {
                 let name: TokenStream = format!("P{position}").into();
-                let into = param.write_name(writer);
+                let into = param.write_name(config);
                 tokens.combine(quote! { #name: windows_core::Param<#into>, })
             }
         }
@@ -253,7 +253,7 @@ impl CppMethod {
 
     pub fn write(
         &self,
-        writer: &Config<'_>,
+        config: &Config<'_>,
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
     ) -> TokenStream {
@@ -261,13 +261,13 @@ impl CppMethod {
         let vname = virtual_names.add(self.def);
 
         let args = self.write_args();
-        let params = self.write_params(writer);
+        let params = self.write_params(config);
         let generics = self.write_generics();
-        let abi_return_type = self.write_return(writer);
+        let abi_return_type = self.write_return(config);
 
         match self.return_hint {
             ReturnHint::Query(..) => {
-                let where_clause = self.write_where(writer, true);
+                let where_clause = self.write_where(config, true);
 
                 quote! {
                     pub unsafe fn #name<#generics T>(&self, #params) -> windows_core::Result<T> #where_clause {
@@ -277,7 +277,7 @@ impl CppMethod {
                 }
             }
             ReturnHint::QueryOptional(..) => {
-                let where_clause = self.write_where(writer, true);
+                let where_clause = self.write_where(config, true);
 
                 quote! {
                     pub unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> windows_core::Result<()> #where_clause {
@@ -286,12 +286,12 @@ impl CppMethod {
                 }
             }
             ReturnHint::ResultValue => {
-                let where_clause = self.write_where(writer, false);
+                let where_clause = self.write_where(config, false);
 
                 let return_type = self.signature.params[self.signature.params.len() - 1].deref();
 
                 let map = return_type.write_result_map();
-                let return_type = return_type.write_name(writer);
+                let return_type = return_type.write_name(config);
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
@@ -303,7 +303,7 @@ impl CppMethod {
                 }
             }
             ReturnHint::ResultVoid => {
-                let where_clause = self.write_where(writer, false);
+                let where_clause = self.write_where(config, false);
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<()> #where_clause {
@@ -312,12 +312,12 @@ impl CppMethod {
                 }
             }
             ReturnHint::ReturnValue => {
-                let where_clause = self.write_where(writer, false);
+                let where_clause = self.write_where(config, false);
 
                 let return_type = self.signature.params[self.signature.params.len() - 1].deref();
 
                 if return_type.is_interface() {
-                    let return_type = return_type.write_name(writer);
+                    let return_type = return_type.write_name(config);
 
                     quote! {
                         pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
@@ -335,8 +335,8 @@ impl CppMethod {
                         quote! { core::mem::transmute(result__) }
                     };
 
-                    let return_type = return_type.write_name(writer);
-                    let where_clause = self.write_where(writer, false);
+                    let return_type = return_type.write_name(config);
+                    let where_clause = self.write_where(config, false);
 
                     quote! {
                         pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
@@ -350,8 +350,8 @@ impl CppMethod {
                 }
             }
             ReturnHint::ReturnStruct => {
-                let return_type = self.signature.return_type.write_name(writer);
-                let where_clause = self.write_where(writer, false);
+                let return_type = self.signature.return_type.write_name(config);
+                let where_clause = self.write_where(config, false);
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
@@ -364,7 +364,7 @@ impl CppMethod {
                 }
             }
             ReturnHint::None => {
-                let where_clause = self.write_where(writer, false);
+                let where_clause = self.write_where(config, false);
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
@@ -419,7 +419,7 @@ impl CppMethod {
         }
     }
 
-    pub fn write_impl_signature(&self, writer: &Config<'_>, _named_params: bool) -> TokenStream {
+    pub fn write_impl_signature(&self, config: &Config<'_>, _named_params: bool) -> TokenStream {
         let mut params = quote! {};
 
         if self.return_hint == ReturnHint::ResultValue {
@@ -428,7 +428,7 @@ impl CppMethod {
                 .enumerate()
             {
                 params.combine(write_produce_type(
-                    writer,
+                    config,
                     param,
                     self.param_hints[position],
                 ));
@@ -436,7 +436,7 @@ impl CppMethod {
         } else {
             for (position, param) in self.signature.params.iter().enumerate() {
                 params.combine(write_produce_type(
-                    writer,
+                    config,
                     param,
                     self.param_hints[position],
                 ));
@@ -449,23 +449,23 @@ impl CppMethod {
             }
             ReturnHint::ResultValue => {
                 let return_type = self.signature.params[self.signature.params.len() - 1].deref();
-                let return_type = return_type.write_name(writer);
+                let return_type = return_type.write_name(config);
 
                 quote! { -> windows_core::Result<#return_type> }
             }
-            _ => self.write_return(writer),
+            _ => self.write_return(config),
         };
 
         quote! { (&self, #params) #return_type }
     }
 
-    pub fn write_abi(&self, writer: &Config<'_>, named_params: bool) -> TokenStream {
+    pub fn write_abi(&self, config: &Config<'_>, named_params: bool) -> TokenStream {
         let mut params: Vec<_> = self
             .signature
             .params
             .iter()
             .map(|param| {
-                let ty = param.write_abi(writer);
+                let ty = param.write_abi(config);
 
                 if named_params {
                     let name = param.write_ident();
@@ -480,7 +480,7 @@ impl CppMethod {
 
         match self.return_hint {
             ReturnHint::ReturnStruct => {
-                let return_type = self.signature.return_type.write_abi(writer);
+                let return_type = self.signature.return_type.write_abi(config);
 
                 if named_params {
                     params.insert(0, quote! { result__: *mut #return_type });
@@ -489,7 +489,7 @@ impl CppMethod {
                 }
             }
             _ => {
-                return_sig = writer.write_return_sig(self.def, &self.signature, false);
+                return_sig = config.write_return_sig(self.def, &self.signature, false);
             }
         }
 
@@ -502,7 +502,7 @@ impl CppMethod {
         quote! { (#this, #(#params),*) #return_sig }
     }
 
-    pub fn write_params(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write_params(&self, config: &Config<'_>) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
@@ -525,7 +525,7 @@ impl CppMethod {
             match self.param_hints[position] {
                 ParamHint::ArrayFixed(fixed) => {
                     let ty = param.deref();
-                    let ty = ty.write_default(writer);
+                    let ty = ty.write_default(config);
                     let len = Literal::u32_unsuffixed(fixed as u32);
                     let ty = if param.is_input() {
                         quote! { &[#ty; #len] }
@@ -540,7 +540,7 @@ impl CppMethod {
                 }
                 ParamHint::ArrayRelativeLen(_) => {
                     let ty = param.deref();
-                    let ty = ty.write_default(writer);
+                    let ty = ty.write_default(config);
                     let ty = if param.is_input() {
                         quote! { &[#ty] }
                     } else {
@@ -571,10 +571,10 @@ impl CppMethod {
                 }
                 ParamHint::Optional => {
                     if matches!(param.ty, Type::CppDelegate(..)) {
-                        let kind = param.write_name(writer);
+                        let kind = param.write_name(config);
                         tokens.combine(&quote! { #name: #kind, });
                     } else {
-                        let kind = param.write_name(writer);
+                        let kind = param.write_name(config);
                         tokens.combine(&quote! { #name: Option<#kind>, });
                     }
                 }
@@ -582,11 +582,11 @@ impl CppMethod {
                     tokens.combine(&quote! { #name: bool, });
                 }
                 ParamHint::ValueType | ParamHint::Blittable => {
-                    let kind = param.write_default(writer);
+                    let kind = param.write_default(config);
                     tokens.combine(&quote! { #name: #kind, });
                 }
                 ParamHint::None => {
-                    let kind = param.write_default(writer);
+                    let kind = param.write_default(config);
                     tokens.combine(&quote! { #name: &#kind, });
                 }
             }
@@ -677,12 +677,12 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_return(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write_return(&self, config: &Config<'_>) -> TokenStream {
         match &self.signature.return_type {
             Type::Void if self.def.has_attribute("DoesNotReturnAttribute") => quote! {  -> ! },
             Type::Void => quote! {},
             ty => {
-                let ty = ty.write_default(writer);
+                let ty = ty.write_default(config);
                 quote! { -> #ty }
             }
         }
@@ -711,15 +711,15 @@ impl CppMethod {
     }
 }
 
-fn write_produce_type(writer: &Config<'_>, param: &Param, hint: ParamHint) -> TokenStream {
+fn write_produce_type(config: &Config<'_>, param: &Param, hint: ParamHint) -> TokenStream {
     let name = param.write_ident();
-    let kind = param.write_default(writer);
+    let kind = param.write_default(config);
 
     if param.is_input() && param.is_interface() {
-        let type_name = param.write_name(writer);
+        let type_name = param.write_name(config);
         quote! { #name: windows_core::Ref<'_, #type_name>, }
     } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
-        let type_name = param.deref().write_name(writer);
+        let type_name = param.deref().write_name(config);
         quote! { #name: windows_core::OutRef<'_, #type_name>, }
     } else if param.is_input() {
         if param.is_primitive() {

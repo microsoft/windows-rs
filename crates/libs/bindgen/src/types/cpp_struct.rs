@@ -38,39 +38,39 @@ impl CppStruct {
         TypeName(self.def.namespace(), self.name)
     }
 
-    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
     pub fn is_handle(&self) -> bool {
         self.def.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn write_cfg(&self, writer: &Config<'_>) -> TokenStream {
-        if !writer.package {
+    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
-        Cfg::new(self.def, &self.dependencies(), writer).write(writer, false)
+        Cfg::new(self.def, &self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         if self.is_handle() {
-            return writer.write_cpp_handle(self.def);
+            return config.write_cpp_handle(self.def);
         }
 
         if self.def.fields().next().is_none() {
             if let Some(guid) = self.def.guid_attribute() {
-                return writer.write_cpp_const_guid(to_ident(self.name), &guid);
+                return config.write_cpp_const_guid(to_ident(self.name), &guid);
             }
         }
 
         let arches = write_arches(self.def);
-        let cfg = self.write_cfg(writer);
-        self.write_with_cfg(writer, &quote! { #arches #cfg })
+        let cfg = self.write_cfg(config);
+        self.write_with_cfg(config, &quote! { #arches #cfg })
     }
 
-    fn write_with_cfg(&self, writer: &Config<'_>, cfg: &TokenStream) -> TokenStream {
+    fn write_with_cfg(&self, config: &Config<'_>, cfg: &TokenStream) -> TokenStream {
         let name = to_ident(self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
@@ -90,20 +90,20 @@ impl CppStruct {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
 
-                let ty = if !writer.sys && is_union && !ty.is_copyable() {
-                    let ty = ty.write_default(writer);
+                let ty = if !config.sys && is_union && !ty.is_copyable() {
+                    let ty = ty.write_default(config);
                     quote! { core::mem::ManuallyDrop<#ty> }
-                } else if !writer.sys && ty.is_dropped() {
+                } else if !config.sys && ty.is_dropped() {
                     if let Type::ArrayFixed(ty, len) = ty {
-                        let ty = ty.write_default(writer);
+                        let ty = ty.write_default(config);
                         let len = Literal::usize_unsuffixed(*len);
                         quote! { [core::mem::ManuallyDrop<#ty>; #len] }
                     } else {
-                        let ty = ty.write_default(writer);
+                        let ty = ty.write_default(config);
                         quote! { core::mem::ManuallyDrop<#ty> }
                     }
                 } else {
-                    ty.write_default(writer)
+                    ty.write_default(config)
                 };
 
                 quote! { pub #name: #ty, }
@@ -122,10 +122,10 @@ impl CppStruct {
             }
         };
 
-        let mut derive = DeriveWriter::new(writer, self.type_name());
+        let mut derive = DeriveWriter::new(config, self.type_name());
         let mut manual_clone = None;
 
-        if writer.sys || is_copyable {
+        if config.sys || is_copyable {
             derive.extend(["Clone", "Copy"]);
         } else if !matches!(
             TypeName(self.def.namespace(), self.def.name()),
@@ -145,11 +145,11 @@ impl CppStruct {
             }
         }
 
-        if !writer.sys && !has_explicit_layout && !has_packing {
+        if !config.sys && !has_explicit_layout && !has_packing {
             derive.extend(["Debug", "PartialEq"]);
         }
 
-        let default = if self.can_derive_default(writer) {
+        let default = if self.can_derive_default(config) {
             derive.extend(["Default"]);
             quote! {}
         } else {
@@ -181,7 +181,7 @@ impl CppStruct {
                 if f.flags().contains(FieldAttributes::Literal) {
                     if let Some(constant) = f.constant() {
                         let name = to_ident(f.name());
-                        let ty = constant.ty().write_name(writer);
+                        let ty = constant.ty().write_name(config);
                         let value = constant.value().write();
 
                         return Some(quote! {
@@ -219,7 +219,7 @@ impl CppStruct {
         };
 
         for nested in self.nested.values() {
-            tokens.combine(nested.write_with_cfg(writer, cfg));
+            tokens.combine(nested.write_with_cfg(config, cfg));
         }
 
         tokens

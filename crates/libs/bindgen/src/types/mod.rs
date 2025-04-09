@@ -388,8 +388,8 @@ impl Type {
         )
     }
 
-    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
-        if writer.sys && self.is_interface() {
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        if config.sys && self.is_interface() {
             return quote! { *mut core::ffi::c_void };
         }
 
@@ -410,99 +410,99 @@ impl Type {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::BSTR => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name BSTR }
             }
             Self::IUnknown => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name IUnknown }
             }
             Self::GUID => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name GUID }
             }
             Self::HRESULT => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name HRESULT }
             }
             Self::BOOL => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name BOOL }
             }
             Self::String => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name HSTRING }
             }
             Self::Object => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name IInspectable }
             }
             Self::PSTR => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name PSTR }
             }
             Self::PCSTR => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name PCSTR }
             }
             Self::PWSTR => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name PWSTR }
             }
             Self::PCWSTR => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name PCWSTR }
             }
-            Self::CppInterface(ty) => ty.write_name(writer),
-            Self::Struct(ty) => ty.write_name(writer),
-            Self::Enum(ty) => ty.write_name(writer),
-            Self::Interface(ty) => ty.write_name(writer),
-            Self::CppStruct(ty) => ty.write_name(writer),
-            Self::CppEnum(ty) => ty.write_name(writer),
-            Self::CppFn(ty) => ty.write_name(writer),
-            Self::CppConst(ty) => ty.write_name(writer),
-            Self::CppDelegate(ty) => ty.write_name(writer),
-            Self::Delegate(ty) => ty.write_name(writer),
-            Self::Class(ty) => ty.write_name(writer),
+            Self::CppInterface(ty) => ty.write_name(config),
+            Self::Struct(ty) => ty.write_name(config),
+            Self::Enum(ty) => ty.write_name(config),
+            Self::Interface(ty) => ty.write_name(config),
+            Self::CppStruct(ty) => ty.write_name(config),
+            Self::CppEnum(ty) => ty.write_name(config),
+            Self::CppFn(ty) => ty.write_name(config),
+            Self::CppConst(ty) => ty.write_name(config),
+            Self::CppDelegate(ty) => ty.write_name(config),
+            Self::Delegate(ty) => ty.write_name(config),
+            Self::Class(ty) => ty.write_name(config),
             Self::Generic(param) => to_ident(param.name()),
             Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
-                let ty = ty.write_default(writer);
+                let ty = ty.write_default(config);
                 quote! { #pointers #ty }
             }
             Self::PtrConst(ty, pointers) => {
                 let pointers = write_ptr_const(*pointers);
-                let ty = ty.write_default(writer);
+                let ty = ty.write_default(config);
                 quote! { #pointers #ty }
             }
             Self::ArrayFixed(ty, len) => {
-                let name = ty.write_default(writer);
+                let name = ty.write_default(config);
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Self::Array(ty) => ty.write_name(writer),
-            Self::ArrayRef(ty) => ty.write_name(writer),
-            Self::ConstRef(ty) => ty.write_name(writer),
+            Self::Array(ty) => ty.write_name(config),
+            Self::ArrayRef(ty) => ty.write_name(config),
+            Self::ConstRef(ty) => ty.write_name(config),
             Self::PrimitiveOrEnum(primitive, ty) => {
-                if writer.sys {
-                    primitive.write_name(writer)
+                if config.sys {
+                    primitive.write_name(config)
                 } else {
-                    ty.write_name(writer)
+                    ty.write_name(config)
                 }
             }
             rest => panic!("{rest:?}"),
         }
     }
 
-    pub fn write_default(&self, writer: &Config<'_>) -> TokenStream {
-        if writer.sys {
-            return self.write_name(writer);
+    pub fn write_default(&self, config: &Config<'_>) -> TokenStream {
+        if config.sys {
+            return self.write_name(config);
         }
 
         if let Self::Array(ty) = self {
-            ty.write_default(writer)
+            ty.write_default(config)
         } else {
-            let tokens = self.write_name(writer);
+            let tokens = self.write_name(config);
 
             if matches!(self, Self::Generic(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
@@ -514,21 +514,21 @@ impl Type {
         }
     }
 
-    pub fn write_impl_name(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write_impl_name(&self, config: &Config<'_>) -> TokenStream {
         match self {
             Self::IUnknown | Self::Object => {
-                let name = writer.write_core();
+                let name = config.write_core();
                 quote! { #name IUnknownImpl }
             }
-            Self::CppInterface(ty) => ty.write_impl_name(writer),
-            Self::Interface(ty) => ty.write_impl_name(writer),
+            Self::CppInterface(ty) => ty.write_impl_name(config),
+            Self::Interface(ty) => ty.write_impl_name(config),
             rest => panic!("{rest:?}"),
         }
     }
 
-    pub fn write_abi(&self, writer: &Config<'_>) -> TokenStream {
-        if writer.sys {
-            return self.write_name(writer);
+    pub fn write_abi(&self, config: &Config<'_>) -> TokenStream {
+        if config.sys {
+            return self.write_name(config);
         }
 
         match self {
@@ -541,7 +541,7 @@ impl Type {
             | Self::String
             | Self::BSTR => quote! { *mut core::ffi::c_void },
             Self::ArrayFixed(ty, len) => {
-                let name = ty.write_abi(writer);
+                let name = ty.write_abi(config);
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
@@ -550,7 +550,7 @@ impl Type {
                 quote! { windows_core::AbiType<#name> }
             }
             Self::Struct(ty) => {
-                let name = self.write_name(writer);
+                let name = self.write_name(config);
                 if ty.is_copyable() {
                     name
                 } else {
@@ -558,17 +558,17 @@ impl Type {
                 }
             }
             Self::PtrMut(ty, pointers) => {
-                let ty = ty.write_abi(writer);
+                let ty = ty.write_abi(config);
                 let pointers = write_ptr_mut(*pointers);
                 quote! { #pointers #ty }
             }
             Self::PtrConst(ty, pointers) => {
-                let ty = ty.write_abi(writer);
+                let ty = ty.write_abi(config);
                 let pointers = write_ptr_const(*pointers);
                 quote! { #pointers #ty }
             }
-            Self::PrimitiveOrEnum(ty, _) => ty.write_name(writer),
-            ty => ty.write_name(writer),
+            Self::PrimitiveOrEnum(ty, _) => ty.write_name(config),
+            ty => ty.write_name(config),
         }
     }
 
@@ -797,8 +797,8 @@ impl Type {
         }
     }
 
-    fn write_no_deps(&self, writer: &Config<'_>) -> TokenStream {
-        if !writer.no_deps || !writer.sys {
+    fn write_no_deps(&self, config: &Config<'_>) -> TokenStream {
+        if !config.no_deps || !config.sys {
             return quote! {};
         }
 
@@ -853,21 +853,21 @@ impl Type {
         }
     }
 
-    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         match self {
-            Self::Struct(ty) => ty.write(writer),
-            Self::Enum(ty) => ty.write(writer),
-            Self::Interface(ty) => ty.write(writer),
-            Self::CppStruct(ty) => ty.write(writer),
-            Self::CppEnum(ty) => ty.write(writer),
-            Self::CppFn(ty) => ty.write(writer),
-            Self::CppConst(ty) => ty.write(writer),
-            Self::CppDelegate(ty) => ty.write(writer),
-            Self::Delegate(ty) => ty.write(writer),
-            Self::Class(ty) => ty.write(writer),
-            Self::CppInterface(ty) => ty.write(writer),
+            Self::Struct(ty) => ty.write(config),
+            Self::Enum(ty) => ty.write(config),
+            Self::Interface(ty) => ty.write(config),
+            Self::CppStruct(ty) => ty.write(config),
+            Self::CppEnum(ty) => ty.write(config),
+            Self::CppFn(ty) => ty.write(config),
+            Self::CppConst(ty) => ty.write(config),
+            Self::CppDelegate(ty) => ty.write(config),
+            Self::Delegate(ty) => ty.write(config),
+            Self::Class(ty) => ty.write(config),
+            Self::CppInterface(ty) => ty.write(config),
 
-            _ => self.write_no_deps(writer),
+            _ => self.write_no_deps(config),
         }
     }
 

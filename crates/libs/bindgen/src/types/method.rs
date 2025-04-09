@@ -20,14 +20,14 @@ impl Method {
         }
     }
 
-    pub fn write_cfg(&self, writer: &Config<'_>, parent: &Cfg, not: bool) -> TokenStream {
-        if !writer.package {
+    pub fn write_cfg(&self, config: &Config<'_>, parent: &Cfg, not: bool) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
         parent
-            .difference(self.def, &self.dependencies, writer)
-            .write(writer, not)
+            .difference(self.def, &self.dependencies, config)
+            .write(config, not)
     }
 
     pub fn write_upcall(&self, inner: TokenStream, this: bool) -> TokenStream {
@@ -136,14 +136,14 @@ impl Method {
 
     pub fn write_impl_signature(
         &self,
-        writer: &Config<'_>,
+        config: &Config<'_>,
         named_params: bool,
         has_this: bool,
     ) -> TokenStream {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
         let params = self.signature.params.iter().map(|p| {
-            let default_type = p.write_default(writer);
+            let default_type = p.write_default(config);
 
             let sig = if p.is_input() {
                 if p.is_winrt_array() {
@@ -151,7 +151,7 @@ impl Method {
                 } else if p.is_primitive() {
                     quote! { #default_type }
                 } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
-                    let type_name = p.write_name(writer);
+                    let type_name = p.write_name(config);
                     quote! { windows_core::Ref<'_, #type_name> }
                 } else {
                     quote! { &#default_type }
@@ -159,10 +159,10 @@ impl Method {
             } else if p.is_winrt_array() {
                 quote! { &mut [#default_type] }
             } else if p.is_winrt_array_ref() {
-                let kind = p.write_name(writer);
+                let kind = p.write_name(config);
                 quote! { &mut windows_core::Array<#kind> }
             } else if p.is_interface() {
-                let type_name = p.write_name(writer);
+                let type_name = p.write_name(config);
                 quote! { windows_core::OutRef<'_, #type_name> }
             } else {
                 quote! { &mut #default_type }
@@ -179,7 +179,7 @@ impl Method {
         let return_type_tokens = if self.signature.return_type == Type::Void {
             quote! { () }
         } else {
-            let tokens = self.signature.return_type.write_name(writer);
+            let tokens = self.signature.return_type.write_name(config);
 
             if self.signature.return_type.is_winrt_array() {
                 quote! { windows_core::Array<#tokens> }
@@ -211,10 +211,10 @@ impl Method {
         }
     }
 
-    pub fn write_abi(&self, writer: &Config<'_>, named_params: bool) -> TokenStream {
+    pub fn write_abi(&self, config: &Config<'_>, named_params: bool) -> TokenStream {
         let args = self.signature.params.iter().map(|param| {
             let name = param.write_ident();
-            let abi = param.write_abi(writer);
+            let abi = param.write_abi(config);
             let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
 
             if param.is_input() {
@@ -257,7 +257,7 @@ impl Method {
         let return_arg = match &self.signature.return_type {
             Type::Void => quote! {},
             Type::Array(ty) => {
-                let ty = ty.write_abi(writer);
+                let ty = ty.write_abi(config);
                 if named_params {
                     quote! { result_size__: *mut u32, result__: *mut *mut #ty }
                 } else {
@@ -265,7 +265,7 @@ impl Method {
                 }
             }
             ty => {
-                let ty = ty.write_abi(writer);
+                let ty = ty.write_abi(config);
                 if named_params {
                     quote! { result__: *mut #ty }
                 } else {
@@ -287,7 +287,7 @@ impl Method {
 
     pub fn write(
         &self,
-        writer: &Config<'_>,
+        config: &Config<'_>,
         interface: Option<&Interface>,
         kind: InterfaceKind,
         method_names: &mut MethodNames,
@@ -346,7 +346,7 @@ impl Method {
                 Type::Void => quote! {},
                 ty => {
                     if ty.is_winrt_array() {
-                        let ty = ty.write_name(writer);
+                        let ty = ty.write_name(config);
                         quote! { windows_core::Array::<#ty>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
                     } else {
                         quote! { &mut result__ }
@@ -381,7 +381,7 @@ impl Method {
                 .filter_map(|(position, param)| {
                     if param.is_convertible() {
                         let name: TokenStream = format!("P{position}").into();
-                        let ty = param.write_name(writer);
+                        let ty = param.write_name(config);
 
                         Some(quote! { #name: windows_core::Param<#ty>, })
                     } else {
@@ -399,8 +399,8 @@ impl Method {
 
         let params = params.iter().enumerate().map(|(position, param)| {
             let name = param.write_ident();
-            let kind = param.write_name(writer);
-            let default_type = param.write_default(writer);
+            let kind = param.write_name(config);
+            let default_type = param.write_default(config);
 
             if param.is_input() {
                 if param.is_winrt_array() {
@@ -425,7 +425,7 @@ impl Method {
         let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
             _ => {
-                let tokens = self.signature.return_type.write_name(writer);
+                let tokens = self.signature.return_type.write_name(config);
                 if self.signature.return_type.is_winrt_array() {
                     quote! { windows_core::Array<#tokens> }
                 } else {
@@ -524,7 +524,7 @@ impl Method {
                     quote! { ? }
                 };
 
-                let interface_name = interface.unwrap().write_name(writer);
+                let interface_name = interface.unwrap().write_name(config);
 
                 quote! {
                     pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {

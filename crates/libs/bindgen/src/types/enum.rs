@@ -10,18 +10,18 @@ impl Enum {
         self.def.type_name()
     }
 
-    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
-    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let name = to_ident(self.def.name());
         let underlying_type = self.def.underlying_type();
 
-        let mut derive = DeriveWriter::new(writer, self.type_name());
+        let mut derive = DeriveWriter::new(config, self.type_name());
         derive.extend(["Copy", "Clone"]);
 
-        if !writer.sys {
+        if !config.sys {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
@@ -38,7 +38,7 @@ impl Enum {
                 }
             });
 
-        let flags = if writer.sys || underlying_type != Type::U32 {
+        let flags = if config.sys || underlying_type != Type::U32 {
             quote! {}
         } else {
             quote! {
@@ -79,9 +79,9 @@ impl Enum {
             }
         };
 
-        let underlying_type = underlying_type.write_name(writer);
+        let underlying_type = underlying_type.write_name(config);
 
-        let win_traits = if writer.sys {
+        let win_traits = if config.sys {
             quote! {}
         } else {
             let signature = Literal::byte_string(&self.runtime_signature());

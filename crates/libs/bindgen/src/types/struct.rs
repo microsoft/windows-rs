@@ -10,11 +10,11 @@ impl Struct {
         self.def.type_name()
     }
 
-    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
-    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let name = to_ident(self.def.name());
 
         let fields: Vec<_> = self
@@ -25,24 +25,24 @@ impl Struct {
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
-        let mut derive = DeriveWriter::new(writer, self.type_name());
+        let mut derive = DeriveWriter::new(config, self.type_name());
         derive.extend(["Clone"]);
 
         if is_copyable {
             derive.extend(["Copy"]);
         }
 
-        if !writer.sys {
+        if !config.sys {
             derive.extend(["Default", "Debug", "PartialEq"]);
         }
 
         let fields = fields.iter().map(|(name, ty)| {
             let name = to_ident(name);
-            let ty = ty.write_default(writer);
+            let ty = ty.write_default(config);
             quote! { pub #name: #ty, }
         });
 
-        let win_traits = if writer.sys {
+        let win_traits = if config.sys {
             quote! {}
         } else {
             let type_kind = if is_copyable {

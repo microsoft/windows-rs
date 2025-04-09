@@ -22,25 +22,25 @@ impl CppEnum {
         self.def.type_name()
     }
 
-    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
-    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let tn = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        if !is_scoped && writer.sys {
-            return writer.write_cpp_handle(self.def);
+        if !is_scoped && config.sys {
+            return config.write_cpp_handle(self.def);
         }
 
         let name = to_ident(tn.name());
-        let underlying_type = self.def.underlying_type().write_name(writer);
+        let underlying_type = self.def.underlying_type().write_name(config);
 
-        let mut derive = DeriveWriter::new(writer, tn);
+        let mut derive = DeriveWriter::new(config, tn);
         derive.extend(["Copy", "Clone"]);
 
-        if !writer.sys {
+        if !config.sys {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
@@ -67,7 +67,7 @@ impl CppEnum {
             quote! {}
         };
 
-        let flags = if writer.sys || !self.def.has_attribute("FlagsAttribute") {
+        let flags = if config.sys || !self.def.has_attribute("FlagsAttribute") {
             quote! {}
         } else {
             quote! {

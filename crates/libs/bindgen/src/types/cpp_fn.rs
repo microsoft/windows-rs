@@ -23,11 +23,11 @@ impl CppFn {
         TypeName(self.namespace, self.method.name())
     }
 
-    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
-    pub fn write_link(&self, writer: &Config<'_>, underlying_types: bool) -> TokenStream {
+    pub fn write_link(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
         let library = self.method.module_name().to_lowercase();
         let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
@@ -37,48 +37,48 @@ impl CppFn {
         let params = signature.params.iter().map(|param| {
             let name = param.write_ident();
             let ty = if underlying_types {
-                param.underlying_type().write_abi(writer)
+                param.underlying_type().write_abi(config)
             } else {
-                param.write_abi(writer)
+                param.write_abi(config)
             };
             quote! { #name: #ty }
         });
 
-        let return_sig = writer.write_return_sig(self.method, &signature, underlying_types);
+        let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
 
         let vararg =
-            if writer.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+            if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
                 quote! { , ... }
             } else {
                 quote! {}
             };
 
-        let link = to_ident(&writer.link);
+        let link = to_ident(&config.link);
 
         link_fmt(quote! {
             #link::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
         })
     }
 
-    pub fn write_cfg(&self, writer: &Config<'_>) -> TokenStream {
-        if !writer.package {
+    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
-        Cfg::new(self.method, &self.dependencies(), writer).write(writer, false)
+        Cfg::new(self.method, &self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
 
-        let link = self.write_link(writer, false);
+        let link = self.write_link(config, false);
         let arches = write_arches(self.method);
-        let cfg = self.write_cfg(writer);
+        let cfg = self.write_cfg(config);
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 
-        if writer.sys {
+        if config.sys {
             return quote! {
                 #cfg
                 #link
@@ -88,13 +88,13 @@ impl CppFn {
 
         let method = CppMethod::new(self.method, self.namespace);
         let args = method.write_args();
-        let params = method.write_params(writer);
+        let params = method.write_params(config);
         let generics = method.write_generics();
-        let abi_return_type = method.write_return(writer);
+        let abi_return_type = method.write_return(config);
 
         let wrapper = match method.return_hint {
             ReturnHint::Query(..) => {
-                let where_clause = method.write_where(writer, true);
+                let where_clause = method.write_where(config, true);
 
                 quote! {
                     #cfg
@@ -107,7 +107,7 @@ impl CppFn {
                 }
             }
             ReturnHint::QueryOptional(..) => {
-                let where_clause = method.write_where(writer, true);
+                let where_clause = method.write_where(config, true);
 
                 quote! {
                     #cfg
@@ -119,10 +119,10 @@ impl CppFn {
                 }
             }
             ReturnHint::ResultValue => {
-                let where_clause = method.write_where(writer, false);
+                let where_clause = method.write_where(config, false);
                 let return_type = signature.params[signature.params.len() - 1].deref();
                 let map = return_type.write_result_map();
-                let return_type = return_type.write_name(writer);
+                let return_type = return_type.write_name(config);
 
                 quote! {
                     #cfg
@@ -137,7 +137,7 @@ impl CppFn {
                 }
             }
             ReturnHint::ResultVoid => {
-                let where_clause = method.write_where(writer, false);
+                let where_clause = method.write_where(config, false);
 
                 quote! {
                     #cfg
@@ -149,13 +149,13 @@ impl CppFn {
                 }
             }
             ReturnHint::ReturnValue => {
-                let where_clause = method.write_where(writer, false);
+                let where_clause = method.write_where(config, false);
 
                 let return_type =
                     method.signature.params[method.signature.params.len() - 1].deref();
 
                 if return_type.is_interface() {
-                    let return_type = return_type.write_name(writer);
+                    let return_type = return_type.write_name(config);
 
                     quote! {
                         #cfg
@@ -176,8 +176,8 @@ impl CppFn {
                         quote! { core::mem::transmute(result__) }
                     };
 
-                    let where_clause = method.write_where(writer, false);
-                    let return_type = return_type.write_name(writer);
+                    let where_clause = method.write_where(config, false);
+                    let return_type = return_type.write_name(config);
 
                     quote! {
                         #cfg
@@ -194,10 +194,10 @@ impl CppFn {
                 }
             }
             ReturnHint::ReturnStruct | ReturnHint::None => {
-                let where_clause = method.write_where(writer, false);
+                let where_clause = method.write_where(config, false);
 
                 if method.handle_last_error() {
-                    let return_type = signature.return_type.write_name(writer);
+                    let return_type = signature.return_type.write_name(config);
 
                     quote! {
                         #cfg
