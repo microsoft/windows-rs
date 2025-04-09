@@ -11,10 +11,25 @@ use rayon::prelude::*;
 #[derive(Clone)]
 pub struct Writer<'a> {
     pub config: &'a Config,
-    pub namespace: &'static str,
+    namespace: &'static str,
 }
 
-impl Writer<'_> {
+impl std::ops::Deref for Writer<'_> {
+    type Target = Config;
+
+    fn deref(&self) -> &Self::Target {
+        self.config
+    }
+}
+
+impl<'a> Writer<'a> {
+    pub fn new(config: &'a Config) -> Self {
+        Self {
+            config,
+            namespace: "",
+        }
+    }
+
     fn with_namespace(&self, namespace: &'static str) -> Self {
         let mut clone = self.clone();
         clone.namespace = namespace;

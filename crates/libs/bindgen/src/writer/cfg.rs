@@ -102,7 +102,6 @@ impl Cfg {
 
         for dependency in compact {
             if dependency.is_empty()
-                || namespace_starts_with(writer.namespace, dependency)
                 || dependency == "Windows.Foundation"
                 || dependency == "Windows.Win32.Foundation"
             {

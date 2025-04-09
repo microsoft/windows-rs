@@ -26,7 +26,9 @@ mod value;
 mod warnings;
 mod winmd;
 mod writer;
+mod config;
 
+use config::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
@@ -52,23 +54,6 @@ use writer::*;
 mod method_names;
 use method_names::*;
 
-struct Config {
-    pub types: TypeMap,
-    pub references: References,
-    pub output: String,
-    pub flat: bool,
-    pub no_allow: bool,
-    pub no_comment: bool,
-    pub no_deps: bool,
-    pub no_toml: bool,
-    pub package: bool,
-    pub rustfmt: String,
-    pub sys: bool,
-    pub implement: bool,
-    pub derive: Derive,
-    pub link: String,
-    pub warnings: WarningBuilder,
-}
 
 /// The Windows code generator.
 #[track_caller]
@@ -212,10 +197,7 @@ where
 
     let tree = TypeTree::new(&config.types);
 
-    let writer = Writer {
-        config: &config,
-        namespace: "",
-    };
+    let writer = Writer::new(&config);
 
     writer.write(tree);
 
