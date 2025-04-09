@@ -30,7 +30,7 @@ impl Config<'_> {
 
         if !self.rustfmt.is_empty() {
             cmd.arg("--config");
-            cmd.arg(&self.rustfmt);
+            cmd.arg(self.rustfmt);
         }
 
         let Ok(mut child) = cmd.spawn() else {

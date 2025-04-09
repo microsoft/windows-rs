@@ -54,7 +54,7 @@ impl<'a> Config<'a> {
             self.write_modules(&tree)
         };
 
-        write_to_file(&self.output, self.format(&tokens.into_string()));
+        write_to_file(self.output, self.format(&tokens.into_string()));
     }
 
     fn write_flat(&self, tree: TypeTree) -> TokenStream {

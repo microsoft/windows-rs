@@ -52,7 +52,7 @@ impl CppFn {
             quote! {}
         };
 
-        let link = to_ident(&config.link);
+        let link = to_ident(config.link);
 
         link_fmt(quote! {
             #link::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
