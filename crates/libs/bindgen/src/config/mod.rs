@@ -9,36 +9,37 @@ pub use cfg::*;
 use rayon::prelude::*;
 
 #[derive(Clone)]
-pub struct Writer<'a> {
-    pub config: &'a Config<'a>,
-    namespace: &'static str,
+pub struct Config<'a> {
+    pub types: &'a TypeMap,
+    pub references: &'a References,
+    pub output: &'a str,
+    pub flat: bool,
+    pub no_allow: bool,
+    pub no_comment: bool,
+    pub no_deps: bool,
+    pub no_toml: bool,
+    pub package: bool,
+    pub rustfmt: &'a str,
+    pub sys: bool,
+    pub implement: bool,
+    pub derive: &'a Derive,
+    pub link: &'a str,
+    pub warnings: &'a WarningBuilder,
+    pub namespace: &'static str,
 }
 
-impl<'a> std::ops::Deref for Writer<'a> {
-    type Target = Config<'a>;
-
-    fn deref(&self) -> &Self::Target {
-        self.config
-    }
-}
-
-impl<'a> Writer<'a> {
-    pub fn new(config: &'a Config<'a>) -> Self {
-        Self {
-            config,
-            namespace: "",
-        }
-    }
-
-    fn with_namespace(&self, namespace: &'static str) -> Self {
+impl Config<'_> {
+    pub fn with_namespace(&self, namespace: &'static str) -> Self {
         let mut clone = self.clone();
         clone.namespace = namespace;
         clone
     }
+}
 
+impl<'a> Config<'a> {
     #[track_caller]
     pub fn write(&self, tree: TypeTree) {
-        if self.config.package {
+        if self.package {
             self.write_package(&tree);
         } else {
             self.write_file(tree);
@@ -47,13 +48,13 @@ impl<'a> Writer<'a> {
 
     #[track_caller]
     fn write_file(&self, tree: TypeTree) {
-        let tokens = if self.config.flat {
+        let tokens = if self.flat {
             self.write_flat(tree)
         } else {
             self.write_modules(&tree)
         };
 
-        write_to_file(&self.config.output, self.format(&tokens.into_string()));
+        write_to_file(&self.output, self.format(&tokens.into_string()));
     }
 
     fn write_flat(&self, tree: TypeTree) -> TokenStream {
@@ -84,7 +85,7 @@ impl<'a> Writer<'a> {
 
     fn write_package(&self, tree: &TypeTree) {
         for name in tree.nested.keys() {
-            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.config.output));
+            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.output));
         }
 
         let trees = tree.flatten_trees();
@@ -92,7 +93,7 @@ impl<'a> Writer<'a> {
         trees.par_iter().for_each(|tree| {
             let directory = format!(
                 "{}/src/{}",
-                &self.config.output,
+                &self.output,
                 tree.namespace.replace('.', "/")
             );
 
@@ -118,11 +119,11 @@ impl<'a> Writer<'a> {
             write_to_file(&output, self.format(&tokens.into_string()));
         });
 
-        if self.config.no_toml {
+        if self.no_toml {
             return;
         }
 
-        let toml_path = format!("{}/Cargo.toml", &self.config.output);
+        let toml_path = format!("{}/Cargo.toml", &self.output);
         let mut toml = String::new();
 
         for line in read_file_lines(&toml_path) {

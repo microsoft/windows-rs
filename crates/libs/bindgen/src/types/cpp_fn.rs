@@ -23,11 +23,11 @@ impl CppFn {
         TypeName(self.namespace, self.method.name())
     }
 
-    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
-    pub fn write_link(&self, writer: &Writer<'_>, underlying_types: bool) -> TokenStream {
+    pub fn write_link(&self, writer: &Config<'_>, underlying_types: bool) -> TokenStream {
         let library = self.method.module_name().to_lowercase();
         let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
@@ -60,7 +60,7 @@ impl CppFn {
         })
     }
 
-    pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write_cfg(&self, writer: &Config<'_>) -> TokenStream {
         if !writer.package {
             return quote! {};
         }
@@ -68,7 +68,7 @@ impl CppFn {
         Cfg::new(self.method, &self.dependencies(), writer).write(writer, false)
     }
 
-    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
 
@@ -273,7 +273,7 @@ impl Dependencies for CppFn {
     }
 }
 
-impl Writer<'_> {
+impl Config<'_> {
     pub fn write_return_sig(
         &self,
         method: MethodDef,

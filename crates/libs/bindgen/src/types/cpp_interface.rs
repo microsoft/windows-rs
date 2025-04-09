@@ -28,20 +28,20 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer: &Writer<'_>) -> Vec<CppMethodOrName> {
+    pub fn get_methods(&self, writer: &Config<'_>) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
         self.def
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace);
-                if method.dependencies.included(writer.config) {
+                if method.dependencies.included(writer) {
                     CppMethodOrName::Method(method)
                 } else {
                     writer.warnings.skip_method(
                         method.def,
                         &method.dependencies,
-                        writer.config,
+                        writer,
                     );
                     CppMethodOrName::Name(method.def)
                 }
@@ -49,7 +49,7 @@ impl CppInterface {
             .collect()
     }
 
-    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, writer: &Config<'_>) -> (Cfg, TokenStream) {
         if !writer.package {
             return (Cfg::default(), quote! {});
         }
@@ -59,7 +59,7 @@ impl CppInterface {
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write(&self, writer: &Config<'_>) -> TokenStream {
         let methods = self.get_methods(writer);
 
         let base_interfaces = self.base_interfaces();
@@ -236,7 +236,7 @@ impl CppInterface {
                 fn combine(
                     interface: &CppInterface,
                     dependencies: &mut TypeMap,
-                    writer: &Writer<'_>,
+                    writer: &Config<'_>,
                 ) {
                     for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
@@ -414,17 +414,17 @@ impl CppInterface {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write_name(&self, writer: &Config<'_>) -> TokenStream {
         self.type_name().write(writer, &[])
     }
 
-    fn write_vtbl_name(&self, writer: &Writer<'_>) -> TokenStream {
+    fn write_vtbl_name(&self, writer: &Config<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 
-    pub fn write_impl_name(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write_impl_name(&self, writer: &Config<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }

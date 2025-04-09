@@ -1,13 +1,13 @@
 use super::*;
 
-impl Writer<'_> {
+impl Config<'_> {
     pub fn write_cpp_handle(&self, def: TypeDef) -> TokenStream {
         let tn = def.type_name();
         let name = to_ident(def.name());
         let ty = def.underlying_type();
         let ty_name = ty.write_name(self);
 
-        if self.config.sys {
+        if self.sys {
             quote! {
                 pub type #name = #ty_name;
             }

@@ -38,7 +38,7 @@ pub struct Cfg {
 }
 
 impl Cfg {
-    pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap, writer: &Writer<'_>) -> Self {
+    pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap, writer: &Config<'_>) -> Self {
         let features: BTreeSet<&'static str> = dependencies
             .keys()
             .filter_map(|tn| {
@@ -60,7 +60,7 @@ impl Cfg {
         &self,
         row: R,
         dependencies: &TypeMap,
-        writer: &Writer<'_>,
+        writer: &Config<'_>,
     ) -> Self {
         let mut difference = Self::new(row, dependencies, writer);
 
@@ -72,7 +72,7 @@ impl Cfg {
         difference
     }
 
-    pub fn write(&self, writer: &Writer<'_>, not: bool) -> TokenStream {
+    pub fn write(&self, writer: &Config<'_>, not: bool) -> TokenStream {
         if !writer.package {
             return quote! {};
         }

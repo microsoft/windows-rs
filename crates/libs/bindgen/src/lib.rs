@@ -25,7 +25,6 @@ mod types;
 mod value;
 mod warnings;
 mod winmd;
-mod writer;
 mod config;
 
 use config::*;
@@ -50,7 +49,6 @@ use types::*;
 use value::*;
 pub use warnings::*;
 use winmd::*;
-use writer::*;
 mod method_names;
 use method_names::*;
 
@@ -199,9 +197,7 @@ where
 
     let tree = TypeTree::new(&types);
 
-    let writer = Writer::new(&config);
-
-    writer.write(tree);
+    config.write(tree);
 
     if index {
         index::write(&types, &format!("{}/features.json", output));

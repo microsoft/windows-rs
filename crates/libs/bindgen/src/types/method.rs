@@ -20,7 +20,7 @@ impl Method {
         }
     }
 
-    pub fn write_cfg(&self, writer: &Writer<'_>, parent: &Cfg, not: bool) -> TokenStream {
+    pub fn write_cfg(&self, writer: &Config<'_>, parent: &Cfg, not: bool) -> TokenStream {
         if !writer.package {
             return quote! {};
         }
@@ -136,7 +136,7 @@ impl Method {
 
     pub fn write_impl_signature(
         &self,
-        writer: &Writer<'_>,
+        writer: &Config<'_>,
         named_params: bool,
         has_this: bool,
     ) -> TokenStream {
@@ -211,7 +211,7 @@ impl Method {
         }
     }
 
-    pub fn write_abi(&self, writer: &Writer<'_>, named_params: bool) -> TokenStream {
+    pub fn write_abi(&self, writer: &Config<'_>, named_params: bool) -> TokenStream {
         let args = self.signature.params.iter().map(|param| {
             let name = param.write_ident();
             let abi = param.write_abi(writer);
@@ -287,7 +287,7 @@ impl Method {
 
     pub fn write(
         &self,
-        writer: &Writer<'_>,
+        writer: &Config<'_>,
         interface: Option<&Interface>,
         kind: InterfaceKind,
         method_names: &mut MethodNames,
