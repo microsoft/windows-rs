@@ -225,7 +225,7 @@ impl CppStruct {
         tokens
     }
 
-    fn can_derive_default(&self, config: &Config) -> bool {
+    fn can_derive_default(&self, config: &Config<'_>) -> bool {
         !self.has_explicit_layout()
             && !self.def.fields().any(|field| {
                 let ty = field.ty(Some(self));

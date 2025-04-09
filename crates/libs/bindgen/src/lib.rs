@@ -176,36 +176,38 @@ where
     let references = References::new(&reader, references);
     let types = TypeMap::filter(&reader, &filter, &references);
     let derive = Derive::new(&reader, &types, &derive);
+    let warnings = WarningBuilder::default();
 
     let config = Config {
-        types,
+        types: &types,
         flat,
-        references,
-        derive,
+        references: &references,
+        derive: &derive,
         no_allow,
         no_comment,
         no_deps,
         no_toml,
         package,
-        rustfmt,
-        output,
+        rustfmt: &rustfmt,
+        output: &output,
         sys,
         implement,
-        link,
-        warnings: WarningBuilder::default(),
+        link: &link,
+        warnings: &warnings,
+        namespace: "",
     };
 
-    let tree = TypeTree::new(&config.types);
+    let tree = TypeTree::new(&types);
 
     let writer = Writer::new(&config);
 
     writer.write(tree);
 
     if index {
-        index::write(&config.types, &format!("{}/features.json", config.output));
+        index::write(&types, &format!("{}/features.json", output));
     }
 
-    config.warnings.build()
+    warnings.build()
 }
 
 enum ArgKind {

@@ -10,12 +10,12 @@ use rayon::prelude::*;
 
 #[derive(Clone)]
 pub struct Writer<'a> {
-    pub config: &'a Config,
+    pub config: &'a Config<'a>,
     namespace: &'static str,
 }
 
-impl std::ops::Deref for Writer<'_> {
-    type Target = Config;
+impl<'a> std::ops::Deref for Writer<'a> {
+    type Target = Config<'a>;
 
     fn deref(&self) -> &Self::Target {
         self.config
@@ -23,7 +23,7 @@ impl std::ops::Deref for Writer<'_> {
 }
 
 impl<'a> Writer<'a> {
-    pub fn new(config: &'a Config) -> Self {
+    pub fn new(config: &'a Config<'a>) -> Self {
         Self {
             config,
             namespace: "",
