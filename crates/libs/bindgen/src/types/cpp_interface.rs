@@ -28,47 +28,45 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer: &Writer<'_>) -> Vec<CppMethodOrName> {
+    pub fn get_methods(&self, config: &Config<'_>) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
         self.def
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace);
-                if method.dependencies.included(writer.config) {
+                if method.dependencies.included(config) {
                     CppMethodOrName::Method(method)
                 } else {
-                    writer.config.warnings.skip_method(
-                        method.def,
-                        &method.dependencies,
-                        writer.config,
-                    );
+                    config
+                        .warnings
+                        .skip_method(method.def, &method.dependencies, config);
                     CppMethodOrName::Name(method.def)
                 }
             })
             .collect()
     }
 
-    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
-        if !writer.config.package {
+    fn write_cfg(&self, config: &Config<'_>) -> (Cfg, TokenStream) {
+        if !config.package {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies(), writer);
-        let tokens = cfg.write(writer, false);
+        let cfg = Cfg::new(self.def, &self.dependencies(), config);
+        let tokens = cfg.write(config, false);
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
-        let methods = self.get_methods(writer);
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+        let methods = self.get_methods(config);
 
         let base_interfaces = self.base_interfaces();
         let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
-        let (class_cfg, cfg) = self.write_cfg(writer);
-        let vtbl_name = self.write_vtbl_name(writer);
+        let (class_cfg, cfg) = self.write_cfg(config);
+        let vtbl_name = self.write_vtbl_name(config);
 
         let vtbl = {
-            let core = writer.write_core();
+            let core = config.write_core();
 
             let base = match base_interfaces.last() {
                 Some(Type::IUnknown) => {
@@ -78,7 +76,7 @@ impl CppInterface {
                     quote! { pub base__: #core IInspectable_Vtbl, }
                 }
                 Some(Type::CppInterface(ty)) => {
-                    let name = ty.write_vtbl_name(writer);
+                    let name = ty.write_vtbl_name(config);
                     quote! { pub base__: #name, }
                 }
                 _ => quote! {},
@@ -88,18 +86,18 @@ impl CppInterface {
 
             let methods = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
-                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, writer);
-                    let yes = method_cfg.write(writer, false);
+                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, config);
+                    let yes = method_cfg.write(config, false);
 
                     let name = names.add(method.def);
-                    let abi = method.write_abi(writer, false);
+                    let abi = method.write_abi(config, false);
 
                     if yes.is_empty() {
                         quote! {
                             pub #name: unsafe extern "system" fn #abi,
                         }
                     } else {
-                        let no = method_cfg.write(writer, true);
+                        let no = method_cfg.write(config, true);
 
                         quote! {
                             #yes
@@ -115,7 +113,7 @@ impl CppInterface {
                 }
             });
 
-            let hide_vtbl = if writer.config.sys {
+            let hide_vtbl = if config.sys {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -132,14 +130,14 @@ impl CppInterface {
             }
         };
 
-        if writer.config.sys {
+        if config.sys {
             let mut result = quote! {};
 
-            if !writer.config.package {
+            if !config.package {
                 if has_unknown_base {
                     if let Some(guid) = self.def.guid_attribute() {
                         let name: TokenStream = format!("IID_{}", self.def.name()).into();
-                        result.combine(writer.write_cpp_const_guid(name, &guid));
+                        result.combine(config.write_cpp_const_guid(name, &guid));
                     }
                 }
 
@@ -152,7 +150,7 @@ impl CppInterface {
 
             let mut result = if has_unknown_base {
                 if let Some(guid) = self.def.guid_attribute() {
-                    let guid = writer.write_guid_u128(&guid);
+                    let guid = config.write_guid_u128(&guid);
 
                     quote! {
                         #cfg
@@ -172,7 +170,7 @@ impl CppInterface {
             };
 
             if let Some(Type::CppInterface(base)) = base_interfaces.last() {
-                let base = base.write_name(writer);
+                let base = base.write_name(config);
 
                 result.combine(quote! {
                     #cfg
@@ -186,7 +184,7 @@ impl CppInterface {
             }
 
             if !base_interfaces.is_empty() {
-                let bases = base_interfaces.iter().map(|ty| ty.write_name(writer));
+                let bases = base_interfaces.iter().map(|ty| ty.write_name(config));
                 result.combine(quote! {
                     #cfg
                     windows_core::imp::interface_hierarchy!(#name, #(#bases),*);
@@ -201,8 +199,8 @@ impl CppInterface {
                 CppMethodOrName::Method(method) => Some(method),
                 _ => None,
             }) {
-                let cfg = method.write_cfg(writer, &class_cfg, false);
-                let method = method.write(writer, method_names, virtual_names);
+                let cfg = method.write_cfg(config, &class_cfg, false);
+                let method = method.write(config, method_names, virtual_names);
 
                 methods_tokens.combine(quote! {
                     #cfg
@@ -232,13 +230,13 @@ impl CppInterface {
 
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
-            let cfg = if writer.config.package {
+            let cfg = if config.package {
                 fn combine(
                     interface: &CppInterface,
                     dependencies: &mut TypeMap,
-                    writer: &Writer<'_>,
+                    config: &Config<'_>,
                 ) {
-                    for method in interface.get_methods(writer).iter() {
+                    for method in interface.get_methods(config).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
                         }
@@ -246,15 +244,15 @@ impl CppInterface {
                 }
 
                 let mut dependencies = self.dependencies();
-                combine(self, &mut dependencies, writer);
+                combine(self, &mut dependencies, config);
 
                 base_interfaces.iter().for_each(|interface| {
                     if let Type::CppInterface(ty) = interface {
-                        combine(ty, &mut dependencies, writer);
+                        combine(ty, &mut dependencies, config);
                     }
                 });
 
-                Cfg::new(self.def, &dependencies, writer).write(writer, false)
+                Cfg::new(self.def, &dependencies, config).write(config, false)
             } else {
                 quote! {}
             };
@@ -284,7 +282,7 @@ impl CppInterface {
             let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
                     let name = names.add(method.def);
-                    let signature = method.write_abi(writer, true);
+                    let signature = method.write_abi(config, true);
                     let upcall = method.write_upcall(&impl_name, &name);
 
                     if has_unknown_base {
@@ -318,21 +316,21 @@ impl CppInterface {
                 .map(|method| match method {
                     CppMethodOrName::Method(method) => {
                         let name = names.add(method.def);
-                        let signature = method.write_impl_signature(writer, true);
+                        let signature = method.write_impl_signature(config, true);
                         quote! { fn #name #signature; }
                     }
                     _ => quote! {},
                 })
                 .collect();
 
-            let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(writer));
+            let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(config));
 
             let field_base = base_interfaces.last().map(|ty|{
                 match ty {
                     Type::IUnknown => quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), },
                     Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(), },
                     Type::CppInterface(ty) => {
-                        let ty = ty.write_vtbl_name(writer);
+                        let ty = ty.write_vtbl_name(config);
                         if has_unknown_base {
                             quote! { base__: #ty::new::<Identity, OFFSET>(), }
                         } else {
@@ -347,7 +345,7 @@ impl CppInterface {
                 let matches = base_interfaces.iter().filter_map(|ty|{
                     match ty {
                         Type::CppInterface(ty) => {
-                            let name = ty.write_name(writer);
+                            let name = ty.write_name(config);
                             Some(quote! { || iid == &<#name as windows_core::Interface>::IID })
                         }
                         _ => None,
@@ -414,19 +412,19 @@ impl CppInterface {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
-    fn write_vtbl_name(&self, writer: &Writer<'_>) -> TokenStream {
+    fn write_vtbl_name(&self, config: &Config<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
-        let namespace = writer.write_namespace(self.def.type_name());
+        let namespace = config.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 
-    pub fn write_impl_name(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write_impl_name(&self, config: &Config<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
-        let namespace = writer.write_namespace(self.def.type_name());
+        let namespace = config.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 

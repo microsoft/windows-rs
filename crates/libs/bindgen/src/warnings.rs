@@ -13,7 +13,7 @@ impl WarningBuilder {
         self.0.write().unwrap().push(message);
     }
 
-    pub fn skip_method(&self, method: MethodDef, dependencies: &TypeMap, config: &Config) {
+    pub fn skip_method(&self, method: MethodDef, dependencies: &TypeMap, config: &Config<'_>) {
         let mut message = String::new();
         writeln!(
             &mut message,

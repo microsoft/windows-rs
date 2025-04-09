@@ -52,14 +52,14 @@ impl TypeName {
         self.1
     }
 
-    pub fn write(&self, writer: &Writer<'_>, generics: &[Type]) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>, generics: &[Type]) -> TokenStream {
         let name = to_ident(self.name());
-        let namespace = writer.write_namespace(*self);
+        let namespace = config.write_namespace(*self);
 
         if generics.is_empty() {
             quote! { #namespace #name }
         } else {
-            let generics = generics.iter().map(|ty| ty.write_name(writer));
+            let generics = generics.iter().map(|ty| ty.write_name(config));
             quote! { #namespace #name < #(#generics),* > }
         }
     }

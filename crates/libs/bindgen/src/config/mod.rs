@@ -9,21 +9,37 @@ pub use cfg::*;
 use rayon::prelude::*;
 
 #[derive(Clone)]
-pub struct Writer<'a> {
-    pub config: &'a Config,
+pub struct Config<'a> {
+    pub types: &'a TypeMap,
+    pub references: &'a References,
+    pub output: &'a str,
+    pub flat: bool,
+    pub no_allow: bool,
+    pub no_comment: bool,
+    pub no_deps: bool,
+    pub no_toml: bool,
+    pub package: bool,
+    pub rustfmt: &'a str,
+    pub sys: bool,
+    pub implement: bool,
+    pub derive: &'a Derive,
+    pub link: &'a str,
+    pub warnings: &'a WarningBuilder,
     pub namespace: &'static str,
 }
 
-impl Writer<'_> {
-    fn with_namespace(&self, namespace: &'static str) -> Self {
+impl Config<'_> {
+    pub fn with_namespace(&self, namespace: &'static str) -> Self {
         let mut clone = self.clone();
         clone.namespace = namespace;
         clone
     }
+}
 
+impl<'a> Config<'a> {
     #[track_caller]
     pub fn write(&self, tree: TypeTree) {
-        if self.config.package {
+        if self.package {
             self.write_package(&tree);
         } else {
             self.write_file(tree);
@@ -32,13 +48,13 @@ impl Writer<'_> {
 
     #[track_caller]
     fn write_file(&self, tree: TypeTree) {
-        let tokens = if self.config.flat {
+        let tokens = if self.flat {
             self.write_flat(tree)
         } else {
             self.write_modules(&tree)
         };
 
-        write_to_file(&self.config.output, self.format(&tokens.into_string()));
+        write_to_file(self.output, self.format(&tokens.into_string()));
     }
 
     fn write_flat(&self, tree: TypeTree) -> TokenStream {
@@ -69,17 +85,13 @@ impl Writer<'_> {
 
     fn write_package(&self, tree: &TypeTree) {
         for name in tree.nested.keys() {
-            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.config.output));
+            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.output));
         }
 
         let trees = tree.flatten_trees();
 
         trees.par_iter().for_each(|tree| {
-            let directory = format!(
-                "{}/src/{}",
-                &self.config.output,
-                tree.namespace.replace('.', "/")
-            );
+            let directory = format!("{}/src/{}", &self.output, tree.namespace.replace('.', "/"));
 
             let mut tokens = TokenStream::new();
 
@@ -93,21 +105,21 @@ impl Writer<'_> {
                 });
             }
 
-            let writer = self.with_namespace(tree.namespace);
+            let config = self.with_namespace(tree.namespace);
 
             for ty in &tree.types {
-                tokens.combine(ty.write(&writer));
+                tokens.combine(ty.write(&config));
             }
 
             let output = format!("{directory}/mod.rs");
             write_to_file(&output, self.format(&tokens.into_string()));
         });
 
-        if self.config.no_toml {
+        if self.no_toml {
             return;
         }
 
-        let toml_path = format!("{}/Cargo.toml", &self.config.output);
+        let toml_path = format!("{}/Cargo.toml", &self.output);
         let mut toml = String::new();
 
         for line in read_file_lines(&toml_path) {

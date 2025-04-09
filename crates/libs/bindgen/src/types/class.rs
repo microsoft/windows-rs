@@ -10,21 +10,21 @@ impl Class {
         self.def.type_name()
     }
 
-    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
-        if !writer.config.package {
+    fn write_cfg(&self, config: &Config<'_>) -> (Cfg, TokenStream) {
+        if !config.package {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies(), writer);
-        let tokens = cfg.write(writer, false);
+        let cfg = Cfg::new(self.def, &self.dependencies(), config);
+        let tokens = cfg.write(config, false);
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let required_interfaces = self.required_interfaces();
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
-        let (class_cfg, cfg) = self.write_cfg(writer);
+        let (class_cfg, cfg) = self.write_cfg(config);
         let runtime_name = format!("{type_name}");
 
         let runtime_name = quote! {
@@ -41,17 +41,17 @@ impl Class {
             let mut virtual_names = MethodNames::new();
 
             for method in interface
-                .get_methods(writer)
+                .get_methods(config)
                 .iter()
                 .filter_map(|method| match &method {
                     MethodOrName::Method(method) => Some(method),
                     _ => None,
                 })
             {
-                let cfg = method.write_cfg(writer, &class_cfg, false);
+                let cfg = method.write_cfg(config, &class_cfg, false);
 
                 let method = method.write(
-                    writer,
+                    config,
                     Some(interface),
                     interface.kind,
                     &mut method_names,
@@ -86,10 +86,10 @@ impl Class {
                     None
                 } else {
                         let method_name = to_ident(interface.def.name());
-                        let interface_type = interface.write_name(writer);
+                        let interface_type = interface.write_name(config);
 
-                        let cfg = if writer.config.package {
-                            class_cfg.difference(interface.def, &interface.dependencies(), writer).write(writer, false)
+                        let cfg = if config.package {
+                            class_cfg.difference(interface.def, &interface.dependencies(), config).write(config, false)
                         } else {
                             quote! {}
                         };
@@ -111,7 +111,7 @@ impl Class {
 
         if let Some(default_interface) = self.default_interface() {
             if default_interface.is_async() {
-                let default_interface = default_interface.write_name(writer);
+                let default_interface = default_interface.write_name(config);
 
                 return quote! {
                     #cfg
@@ -120,7 +120,7 @@ impl Class {
             }
 
             let is_exclusive = default_interface.is_exclusive();
-            let default_interface = default_interface.write_name(writer);
+            let default_interface = default_interface.write_name(config);
 
             let interface_hierarchy = if is_exclusive {
                 quote! { windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable); }
@@ -132,10 +132,10 @@ impl Class {
                 let mut interfaces: Vec<_> = required_interfaces
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
-                    .map(|ty| ty.write_name(writer))
+                    .map(|ty| ty.write_name(config))
                     .collect();
 
-                interfaces.extend(self.bases().iter().map(|ty| ty.write_name(writer)));
+                interfaces.extend(self.bases().iter().map(|ty| ty.write_name(config)));
 
                 if interfaces.is_empty() {
                     quote! {}
@@ -160,8 +160,8 @@ impl Class {
                 .iter()
                 .find(|interface| interface.def.type_name() == TypeName::IIterable)
                 .map(|interface| {
-                    let ty = interface.generics[0].write_name(writer);
-                    let namespace = writer.write_namespace(TypeName::IIterator);
+                    let ty = interface.generics[0].write_name(config);
+                    let namespace = config.write_namespace(TypeName::IIterator);
 
                     quote! {
                         #cfg
@@ -227,8 +227,8 @@ impl Class {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
     fn default_interface(&self) -> Option<Type> {

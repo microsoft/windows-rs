@@ -22,8 +22,8 @@ impl CppDelegate {
         self.def.type_name()
     }
 
-    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
     pub fn method(&self) -> MethodDef {
@@ -33,15 +33,15 @@ impl CppDelegate {
             .unwrap()
     }
 
-    pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
-        if !writer.config.package {
+    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
-        Cfg::new(self.def, &self.dependencies(), writer).write(writer, false)
+        Cfg::new(self.def, &self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let method = self.method();
@@ -50,12 +50,12 @@ impl CppDelegate {
         let mut params = quote! {};
 
         for param in &signature.params {
-            params.combine(write_param(writer, param));
+            params.combine(write_param(config, param));
         }
 
-        let return_sig = writer.write_return_sig(method, &signature, false);
+        let return_sig = config.write_return_sig(method, &signature, false);
         let arches = write_arches(self.def);
-        let cfg = self.write_cfg(writer);
+        let cfg = self.write_cfg(config);
 
         quote! {
             #arches
@@ -73,11 +73,11 @@ impl Dependencies for CppDelegate {
     }
 }
 
-fn write_param(writer: &Writer<'_>, param: &Param) -> TokenStream {
+fn write_param(config: &Config<'_>, param: &Param) -> TokenStream {
     let name = param.write_ident();
-    let type_name = param.write_name(writer);
+    let type_name = param.write_name(config);
 
-    if writer.config.sys {
+    if config.sys {
         return quote! { #name: #type_name, };
     }
 
@@ -92,7 +92,7 @@ fn write_param(writer: &Writer<'_>, param: &Param) -> TokenStream {
     let deref = param.deref();
 
     if deref.is_interface() {
-        let type_name = deref.write_name(writer);
+        let type_name = deref.write_name(config);
         quote! { #name: windows_core::OutRef<'_, #type_name>, }
     } else {
         quote! { #name: #type_name, }

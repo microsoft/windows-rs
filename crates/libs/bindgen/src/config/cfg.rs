@@ -38,11 +38,11 @@ pub struct Cfg {
 }
 
 impl Cfg {
-    pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap, writer: &Writer<'_>) -> Self {
+    pub fn new<R: HasAttributes>(row: R, dependencies: &TypeMap, config: &Config<'_>) -> Self {
         let features: BTreeSet<&'static str> = dependencies
             .keys()
             .filter_map(|tn| {
-                if writer.config.types.contains_key(tn) {
+                if config.types.contains_key(tn) {
                     Some(tn.namespace())
                 } else {
                     None
@@ -60,9 +60,9 @@ impl Cfg {
         &self,
         row: R,
         dependencies: &TypeMap,
-        writer: &Writer<'_>,
+        config: &Config<'_>,
     ) -> Self {
-        let mut difference = Self::new(row, dependencies, writer);
+        let mut difference = Self::new(row, dependencies, config);
 
         for feature in &self.features {
             difference.features.remove(feature);
@@ -72,8 +72,8 @@ impl Cfg {
         difference
     }
 
-    pub fn write(&self, writer: &Writer<'_>, not: bool) -> TokenStream {
-        if !writer.config.package {
+    pub fn write(&self, config: &Config<'_>, not: bool) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
@@ -102,7 +102,7 @@ impl Cfg {
 
         for dependency in compact {
             if dependency.is_empty()
-                || namespace_starts_with(writer.namespace, dependency)
+                || namespace_starts_with(config.namespace, dependency)
                 || dependency == "Windows.Foundation"
                 || dependency == "Windows.Win32.Foundation"
             {

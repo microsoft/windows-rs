@@ -53,67 +53,65 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer: &Writer<'_>) -> Vec<MethodOrName> {
+    pub fn get_methods(&self, config: &Config<'_>) -> Vec<MethodOrName> {
         self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics);
-                if method.dependencies.included(writer.config) {
+                if method.dependencies.included(config) {
                     MethodOrName::Method(method)
                 } else {
-                    writer.config.warnings.skip_method(
-                        method.def,
-                        &method.dependencies,
-                        writer.config,
-                    );
+                    config
+                        .warnings
+                        .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
                 }
             })
             .collect()
     }
 
-    fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
-        if !writer.config.package {
+    fn write_cfg(&self, config: &Config<'_>) -> (Cfg, TokenStream) {
+        if !config.package {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies(), writer);
-        let tokens = cfg.write(writer, false);
+        let cfg = Cfg::new(self.def, &self.dependencies(), config);
+        let tokens = cfg.write(config, false);
         (cfg, tokens)
     }
 
-    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let type_name = self.def.type_name();
-        let methods = self.get_methods(writer);
+        let methods = self.get_methods(config);
 
         let required_interfaces = self.required_interfaces();
-        let name = self.write_name(writer);
+        let name = self.write_name(config);
 
-        let vtbl_name = self.write_vtbl_name(writer);
+        let vtbl_name = self.write_vtbl_name(config);
         let is_exclusive = self.is_exclusive();
-        let constraints = writer.write_generic_constraints(&self.generics);
-        let phantoms = writer.write_generic_phantoms(&self.generics);
-        let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
-        let (class_cfg, cfg) = self.write_cfg(writer);
+        let constraints = config.write_generic_constraints(&self.generics);
+        let phantoms = config.write_generic_phantoms(&self.generics);
+        let named_phantoms = config.write_generic_named_phantoms(&self.generics);
+        let (class_cfg, cfg) = self.write_cfg(config);
 
         let vtbl = {
             let virtual_names = &mut MethodNames::new();
-            let core = writer.write_core();
+            let core = config.write_core();
 
             let vtbl_methods = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
                     let name = virtual_names.add(method.def);
-                    let vtbl = method.write_abi(writer, false);
+                    let vtbl = method.write_abi(config, false);
 
-                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, writer);
-                    let yes = method_cfg.write(writer, false);
+                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, config);
+                    let yes = method_cfg.write(config, false);
 
                     if yes.is_empty() {
                         quote! {
                             pub #name: unsafe extern "system" fn(#vtbl) -> #core HRESULT,
                         }
                     } else {
-                        let no = method_cfg.write(writer, true);
+                        let no = method_cfg.write(config, true);
 
                         quote! {
                             #yes
@@ -129,7 +127,7 @@ impl Interface {
                 }
             });
 
-            let hide_vtbl = if writer.config.sys {
+            let hide_vtbl = if config.sys {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -147,13 +145,13 @@ impl Interface {
             }
         };
 
-        if writer.config.sys {
+        if config.sys {
             let mut result = quote! {};
 
-            if !writer.config.package {
+            if !config.package {
                 if let Some(guid) = self.def.guid_attribute() {
                     let name: TokenStream = format!("IID_{}", self.def.name()).into();
-                    result.combine(writer.write_cpp_const_guid(name, &guid));
+                    result.combine(config.write_cpp_const_guid(name, &guid));
                 }
 
                 result.combine(vtbl);
@@ -162,7 +160,7 @@ impl Interface {
             result
         } else {
             let mut result = if self.generics.is_empty() {
-                let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
+                let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
 
                 quote! {
                     #cfg
@@ -177,7 +175,7 @@ impl Interface {
                 let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
 
                 let generics = self.generics.iter().map(|generic| {
-                    let name = generic.write_name(writer);
+                    let name = generic.write_name(config);
 
                     quote! {
                         .push_slice(b";").push_other(#name::SIGNATURE)
@@ -209,7 +207,7 @@ impl Interface {
 
             if !is_exclusive && !required_interfaces.is_empty() {
                 if self.generics.is_empty() {
-                    let interfaces = required_interfaces.iter().map(|ty| ty.write_name(writer));
+                    let interfaces = required_interfaces.iter().map(|ty| ty.write_name(config));
 
                     result.combine(quote! {
                         #cfg
@@ -217,7 +215,7 @@ impl Interface {
                     });
                 } else {
                     let interfaces = required_interfaces.iter().map(|ty| {
-                    let ty = ty.write_name(writer);
+                    let ty = ty.write_name(config);
                     quote!{
                         impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
                     }
@@ -238,10 +236,10 @@ impl Interface {
                     MethodOrName::Method(method) => Some(method),
                     _ => None,
                 }) {
-                    let cfg = method.write_cfg(writer, &class_cfg, false);
+                    let cfg = method.write_cfg(config, &class_cfg, false);
 
                     let method = method.write(
-                        writer,
+                        config,
                         Some(self),
                         InterfaceKind::Default,
                         method_names,
@@ -259,17 +257,17 @@ impl Interface {
 
                     for method in
                         interface
-                            .get_methods(writer)
+                            .get_methods(config)
                             .iter()
                             .filter_map(|method| match &method {
                                 MethodOrName::Method(method) => Some(method),
                                 _ => None,
                             })
                     {
-                        let cfg = method.write_cfg(writer, &class_cfg, false);
+                        let cfg = method.write_cfg(config, &class_cfg, false);
 
                         let method = method.write(
-                            writer,
+                            config,
                             Some(interface),
                             interface.kind,
                             method_names,
@@ -305,8 +303,8 @@ impl Interface {
                     .iter()
                     .find(|interface| interface.type_name() == TypeName::IIterable)
                     .map(|interface| {
-                        let ty = interface.generics[0].write_name(writer);
-                        let namespace = writer.write_namespace(TypeName::IIterator);
+                        let ty = interface.generics[0].write_name(config);
+                        let namespace = config.write_namespace(TypeName::IIterator);
 
                         quote! {
                             #cfg
@@ -335,24 +333,24 @@ impl Interface {
                 }
             }
 
-            if writer.config.implement || !is_exclusive {
+            if config.implement || !is_exclusive {
                 let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
                 let generics: Vec<_> = self
                     .generics
                     .iter()
-                    .map(|ty| ty.write_name(writer))
+                    .map(|ty| ty.write_name(config))
                     .collect();
 
                 let runtime_name = format!("{type_name}");
 
-                let cfg = if writer.config.package {
+                let cfg = if config.package {
                     fn combine(
                         interface: &Interface,
                         dependencies: &mut TypeMap,
-                        writer: &Writer<'_>,
+                        config: &Config<'_>,
                     ) {
-                        for method in interface.get_methods(writer).iter() {
+                        for method in interface.get_methods(config).iter() {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);
                             }
@@ -360,13 +358,13 @@ impl Interface {
                     }
 
                     let mut dependencies = self.dependencies();
-                    combine(self, &mut dependencies, writer);
+                    combine(self, &mut dependencies, config);
 
                     required_interfaces
                         .iter()
-                        .for_each(|interface| combine(interface, &mut dependencies, writer));
+                        .for_each(|interface| combine(interface, &mut dependencies, config));
 
-                    Cfg::new(self.def, &dependencies, writer).write(writer, false)
+                    Cfg::new(self.def, &dependencies, config).write(config, false)
                 } else {
                     quote! {}
                 };
@@ -399,7 +397,7 @@ impl Interface {
                 let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
                     let name = names.add(method.def);
-                    let signature = method.write_abi(writer, true);
+                    let signature = method.write_abi(config, true);
                     let call = quote! { #impl_name::#name };
                     let upcall = method.write_upcall(call, true);
 
@@ -422,7 +420,7 @@ impl Interface {
                     .map(|method| match method {
                         MethodOrName::Method(method) => {
                             let name = names.add(method.def);
-                            let signature = method.write_impl_signature(writer, true, true);
+                            let signature = method.write_impl_signature(config, true, true);
                             quote! { fn #name #signature; }
                         }
                         _ => quote! {},
@@ -434,7 +432,7 @@ impl Interface {
                 } else {
                     let interfaces = required_interfaces
                         .iter()
-                        .map(|ty| ty.write_impl_name(writer));
+                        .map(|ty| ty.write_impl_name(config));
 
                     quote! {  #(#interfaces)+* }
                 };
@@ -515,29 +513,29 @@ impl Interface {
         }
     }
 
-    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
-        self.type_name().write(writer, &self.generics)
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &self.generics)
     }
 
-    fn write_vtbl_name(&self, writer: &Writer<'_>) -> TokenStream {
+    fn write_vtbl_name(&self, config: &Config<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
 
         if self.generics.is_empty() {
             name
         } else {
-            let generics = self.generics.iter().map(|ty| ty.write_name(writer));
+            let generics = self.generics.iter().map(|ty| ty.write_name(config));
             quote! { #name < #(#generics,)* > }
         }
     }
 
-    pub fn write_impl_name(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write_impl_name(&self, config: &Config<'_>) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
-        let namespace = writer.write_namespace(self.def.type_name());
+        let namespace = config.write_namespace(self.def.type_name());
 
         if self.generics.is_empty() {
             quote! { #namespace #name }
         } else {
-            let generics = self.generics.iter().map(|ty| ty.write_name(writer));
+            let generics = self.generics.iter().map(|ty| ty.write_name(config));
             quote! { #namespace #name < #(#generics),* > }
         }
     }

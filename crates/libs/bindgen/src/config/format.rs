@@ -1,9 +1,9 @@
 use super::*;
 use std::io::Write;
 
-impl Writer<'_> {
+impl Config<'_> {
     pub fn format(&self, tokens: &str) -> String {
-        let preamble = if self.config.no_comment {
+        let preamble = if self.no_comment {
             String::new()
         } else {
             let version = std::env!("CARGO_PKG_VERSION");
@@ -16,7 +16,7 @@ impl Writer<'_> {
             )
         };
 
-        let allow = if self.config.no_allow {
+        let allow = if self.no_allow {
             ""
         } else {
             "#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]\n\n"
@@ -28,9 +28,9 @@ impl Writer<'_> {
         cmd.stdout(std::process::Stdio::piped());
         cmd.stderr(std::process::Stdio::null());
 
-        if !self.config.rustfmt.is_empty() {
+        if !self.rustfmt.is_empty() {
             cmd.arg("--config");
-            cmd.arg(&self.config.rustfmt);
+            cmd.arg(self.rustfmt);
         }
 
         let Ok(mut child) = cmd.spawn() else {

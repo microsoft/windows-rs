@@ -81,7 +81,7 @@ impl TypeMap {
         }
     }
 
-    pub fn included(&self, config: &Config) -> bool {
+    pub fn included(&self, config: &Config<'_>) -> bool {
         self.0.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
             // that depend on core types that aren't explicitly included in the filter.

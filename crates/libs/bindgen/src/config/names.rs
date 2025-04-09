@@ -1,11 +1,11 @@
 use super::*;
 
-impl Writer<'_> {
+impl Config<'_> {
     pub fn write_core(&self) -> TokenStream {
-        if self.config.sys {
-            if self.config.package || !self.config.no_deps {
+        if self.sys {
+            if self.package || !self.no_deps {
                 quote! { windows_sys::core:: }
-            } else if self.config.flat {
+            } else if self.flat {
                 quote! {}
             } else {
                 let mut tokens = TokenStream::new();
@@ -56,10 +56,10 @@ impl Writer<'_> {
         }
 
         if let Some(reference) = {
-            if self.config.types.contains_key(&type_name) {
+            if self.types.contains_key(&type_name) {
                 None
             } else {
-                self.config.references.contains(type_name)
+                self.references.contains(type_name)
             }
         } {
             tokens.push_str(&reference.name);
@@ -82,7 +82,7 @@ impl Writer<'_> {
 
             tokens
         } else {
-            if self.config.flat || type_name.namespace() == self.namespace {
+            if self.flat || type_name.namespace() == self.namespace {
                 return tokens;
             }
 

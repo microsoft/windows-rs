@@ -6,6 +6,7 @@
     clippy::needless_doctest_main
 )]
 
+mod config;
 mod derive;
 mod derive_writer;
 mod filter;
@@ -25,8 +26,8 @@ mod types;
 mod value;
 mod warnings;
 mod winmd;
-mod writer;
 
+use config::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
@@ -48,27 +49,8 @@ use types::*;
 use value::*;
 pub use warnings::*;
 use winmd::*;
-use writer::*;
 mod method_names;
 use method_names::*;
-
-struct Config {
-    pub types: TypeMap,
-    pub references: References,
-    pub output: String,
-    pub flat: bool,
-    pub no_allow: bool,
-    pub no_comment: bool,
-    pub no_deps: bool,
-    pub no_toml: bool,
-    pub package: bool,
-    pub rustfmt: String,
-    pub sys: bool,
-    pub implement: bool,
-    pub derive: Derive,
-    pub link: String,
-    pub warnings: WarningBuilder,
-}
 
 /// The Windows code generator.
 #[track_caller]
@@ -191,39 +173,36 @@ where
     let references = References::new(&reader, references);
     let types = TypeMap::filter(&reader, &filter, &references);
     let derive = Derive::new(&reader, &types, &derive);
+    let warnings = WarningBuilder::default();
 
     let config = Config {
-        types,
+        types: &types,
         flat,
-        references,
-        derive,
+        references: &references,
+        derive: &derive,
         no_allow,
         no_comment,
         no_deps,
         no_toml,
         package,
-        rustfmt,
-        output,
+        rustfmt: &rustfmt,
+        output: &output,
         sys,
         implement,
-        link,
-        warnings: WarningBuilder::default(),
-    };
-
-    let tree = TypeTree::new(&config.types);
-
-    let writer = Writer {
-        config: &config,
+        link: &link,
+        warnings: &warnings,
         namespace: "",
     };
 
-    writer.write(tree);
+    let tree = TypeTree::new(&types);
+
+    config.write(tree);
 
     if index {
-        index::write(&config.types, &format!("{}/features.json", config.output));
+        index::write(&types, &format!("{}/features.json", output));
     }
 
-    config.warnings.build()
+    warnings.build()
 }
 
 enum ArgKind {

@@ -23,37 +23,37 @@ impl CppConst {
         TypeName(self.namespace, self.field.name())
     }
 
-    pub fn write_name(&self, writer: &Writer<'_>) -> TokenStream {
-        self.type_name().write(writer, &[])
+    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+        self.type_name().write(config, &[])
     }
 
-    pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
-        if !writer.config.package {
+    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+        if !config.package {
             return quote! {};
         }
 
-        Cfg::new(self.field, &self.dependencies(), writer).write(writer, false)
+        Cfg::new(self.field, &self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, writer: &Writer<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config<'_>) -> TokenStream {
         let name = to_ident(self.field.name());
 
         if let Some(guid) = self.field.guid_attribute() {
-            return writer.write_cpp_const_guid(name, &guid);
+            return config.write_cpp_const_guid(name, &guid);
         }
 
         let field_ty = self.field.ty(None).to_const_type();
-        let cfg = self.write_cfg(writer);
+        let cfg = self.write_cfg(config);
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.ty();
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
-                    let crate_name = writer.write_core();
+                    let crate_name = config.write_core();
                     let value = constant.value().write();
 
-                    // TODO: if writer.config.no_core then write these literals out as byte strings?
+                    // TODO: if config.no_core then write these literals out as byte strings?
                     if is_ansi_encoding(self.field) {
                         quote! {
                             #cfg
@@ -66,7 +66,7 @@ impl CppConst {
                         }
                     }
                 } else {
-                    let ty = field_ty.write_name(writer);
+                    let ty = field_ty.write_name(config);
                     let value = constant.value().write();
 
                     quote! {
@@ -76,7 +76,7 @@ impl CppConst {
                 }
             } else {
                 let underlying_ty = field_ty.underlying_type();
-                let ty = field_ty.write_name(writer);
+                let ty = field_ty.write_name(config);
                 let mut value = constant.value().write();
 
                 if underlying_ty == constant_ty {
@@ -95,7 +95,7 @@ impl CppConst {
                     value = quote! { #value as _ };
                 }
 
-                if writer.config.sys || field_ty == Type::Bool {
+                if config.sys || field_ty == Type::Bool {
                     quote! {
                         #cfg
                         pub const #name: #ty = #value;
@@ -120,12 +120,12 @@ impl CppConst {
             let mut tokens = quote! {};
 
             for field in ty.def.fields() {
-                let (value, rest) = writer.field_initializer(field, input);
+                let (value, rest) = config.field_initializer(field, input);
                 input = rest;
                 tokens.combine(value);
             }
 
-            let ty = field_ty.write_name(writer);
+            let ty = field_ty.write_name(config);
 
             quote! {
                 #cfg
