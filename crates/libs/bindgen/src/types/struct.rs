@@ -32,7 +32,7 @@ impl Struct {
             derive.extend(["Copy"]);
         }
 
-        if !writer.config.sys {
+        if !writer.sys {
             derive.extend(["Default", "Debug", "PartialEq"]);
         }
 
@@ -42,7 +42,7 @@ impl Struct {
             quote! { pub #name: #ty, }
         });
 
-        let win_traits = if writer.config.sys {
+        let win_traits = if writer.sys {
             quote! {}
         } else {
             let type_kind = if is_copyable {

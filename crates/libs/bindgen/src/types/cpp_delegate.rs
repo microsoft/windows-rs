@@ -34,7 +34,7 @@ impl CppDelegate {
     }
 
     pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
-        if !writer.config.package {
+        if !writer.package {
             return quote! {};
         }
 
@@ -77,7 +77,7 @@ fn write_param(writer: &Writer<'_>, param: &Param) -> TokenStream {
     let name = param.write_ident();
     let type_name = param.write_name(writer);
 
-    if writer.config.sys {
+    if writer.sys {
         return quote! { #name: #type_name, };
     }
 

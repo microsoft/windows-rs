@@ -61,7 +61,7 @@ impl Interface {
                 if method.dependencies.included(writer.config) {
                     MethodOrName::Method(method)
                 } else {
-                    writer.config.warnings.skip_method(
+                    writer.warnings.skip_method(
                         method.def,
                         &method.dependencies,
                         writer.config,
@@ -73,7 +73,7 @@ impl Interface {
     }
 
     fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
-        if !writer.config.package {
+        if !writer.package {
             return (Cfg::default(), quote! {});
         }
 
@@ -129,7 +129,7 @@ impl Interface {
                 }
             });
 
-            let hide_vtbl = if writer.config.sys {
+            let hide_vtbl = if writer.sys {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -147,10 +147,10 @@ impl Interface {
             }
         };
 
-        if writer.config.sys {
+        if writer.sys {
             let mut result = quote! {};
 
-            if !writer.config.package {
+            if !writer.package {
                 if let Some(guid) = self.def.guid_attribute() {
                     let name: TokenStream = format!("IID_{}", self.def.name()).into();
                     result.combine(writer.write_cpp_const_guid(name, &guid));
@@ -335,7 +335,7 @@ impl Interface {
                 }
             }
 
-            if writer.config.implement || !is_exclusive {
+            if writer.implement || !is_exclusive {
                 let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
                 let generics: Vec<_> = self
@@ -346,7 +346,7 @@ impl Interface {
 
                 let runtime_name = format!("{type_name}");
 
-                let cfg = if writer.config.package {
+                let cfg = if writer.package {
                     fn combine(
                         interface: &Interface,
                         dependencies: &mut TypeMap,

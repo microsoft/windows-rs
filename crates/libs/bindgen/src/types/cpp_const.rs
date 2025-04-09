@@ -28,7 +28,7 @@ impl CppConst {
     }
 
     pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
-        if !writer.config.package {
+        if !writer.package {
             return quote! {};
         }
 
@@ -53,7 +53,7 @@ impl CppConst {
                     let crate_name = writer.write_core();
                     let value = constant.value().write();
 
-                    // TODO: if writer.config.no_core then write these literals out as byte strings?
+                    // TODO: if writer.no_core then write these literals out as byte strings?
                     if is_ansi_encoding(self.field) {
                         quote! {
                             #cfg
@@ -95,7 +95,7 @@ impl CppConst {
                     value = quote! { #value as _ };
                 }
 
-                if writer.config.sys || field_ty == Type::Bool {
+                if writer.sys || field_ty == Type::Bool {
                     quote! {
                         #cfg
                         pub const #name: #ty = #value;

@@ -47,13 +47,13 @@ impl CppFn {
         let return_sig = writer.write_return_sig(self.method, &signature, underlying_types);
 
         let vararg =
-            if writer.config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+            if writer.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
                 quote! { , ... }
             } else {
                 quote! {}
             };
 
-        let link = to_ident(&writer.config.link);
+        let link = to_ident(&writer.link);
 
         link_fmt(quote! {
             #link::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
@@ -61,7 +61,7 @@ impl CppFn {
     }
 
     pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
-        if !writer.config.package {
+        if !writer.package {
             return quote! {};
         }
 
@@ -78,7 +78,7 @@ impl CppFn {
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 
-        if writer.config.sys {
+        if writer.sys {
             return quote! {
                 #cfg
                 #link

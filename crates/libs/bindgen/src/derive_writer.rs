@@ -5,7 +5,7 @@ pub struct DeriveWriter(BTreeSet<String>);
 impl DeriveWriter {
     pub fn new(writer: &Writer<'_>, type_name: TypeName) -> Self {
         let mut derive = BTreeSet::new();
-        derive.extend(writer.config.derive.get(type_name));
+        derive.extend(writer.derive.get(type_name));
         Self(derive)
     }
 

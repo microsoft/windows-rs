@@ -11,7 +11,7 @@ impl Class {
     }
 
     fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
-        if !writer.config.package {
+        if !writer.package {
             return (Cfg::default(), quote! {});
         }
 
@@ -88,7 +88,7 @@ impl Class {
                         let method_name = to_ident(interface.def.name());
                         let interface_type = interface.write_name(writer);
 
-                        let cfg = if writer.config.package {
+                        let cfg = if writer.package {
                             class_cfg.difference(interface.def, &interface.dependencies(), writer).write(writer, false)
                         } else {
                             quote! {}

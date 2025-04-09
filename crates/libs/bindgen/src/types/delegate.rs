@@ -12,7 +12,7 @@ impl Delegate {
     }
 
     pub fn write_cfg(&self, writer: &Writer<'_>) -> TokenStream {
-        if !writer.config.package {
+        if !writer.package {
             return quote! {};
         }
 

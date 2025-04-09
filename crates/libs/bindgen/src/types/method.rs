@@ -21,7 +21,7 @@ impl Method {
     }
 
     pub fn write_cfg(&self, writer: &Writer<'_>, parent: &Cfg, not: bool) -> TokenStream {
-        if !writer.config.package {
+        if !writer.package {
             return quote! {};
         }
 

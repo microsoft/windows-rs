@@ -42,7 +42,7 @@ impl Cfg {
         let features: BTreeSet<&'static str> = dependencies
             .keys()
             .filter_map(|tn| {
-                if writer.config.types.contains_key(tn) {
+                if writer.types.contains_key(tn) {
                     Some(tn.namespace())
                 } else {
                     None
@@ -73,7 +73,7 @@ impl Cfg {
     }
 
     pub fn write(&self, writer: &Writer<'_>, not: bool) -> TokenStream {
-        if !writer.config.package {
+        if !writer.package {
             return quote! {};
         }
 

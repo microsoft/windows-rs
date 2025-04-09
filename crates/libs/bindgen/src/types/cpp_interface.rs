@@ -38,7 +38,7 @@ impl CppInterface {
                 if method.dependencies.included(writer.config) {
                     CppMethodOrName::Method(method)
                 } else {
-                    writer.config.warnings.skip_method(
+                    writer.warnings.skip_method(
                         method.def,
                         &method.dependencies,
                         writer.config,
@@ -50,7 +50,7 @@ impl CppInterface {
     }
 
     fn write_cfg(&self, writer: &Writer<'_>) -> (Cfg, TokenStream) {
-        if !writer.config.package {
+        if !writer.package {
             return (Cfg::default(), quote! {});
         }
 
@@ -115,7 +115,7 @@ impl CppInterface {
                 }
             });
 
-            let hide_vtbl = if writer.config.sys {
+            let hide_vtbl = if writer.sys {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -132,10 +132,10 @@ impl CppInterface {
             }
         };
 
-        if writer.config.sys {
+        if writer.sys {
             let mut result = quote! {};
 
-            if !writer.config.package {
+            if !writer.package {
                 if has_unknown_base {
                     if let Some(guid) = self.def.guid_attribute() {
                         let name: TokenStream = format!("IID_{}", self.def.name()).into();
@@ -232,7 +232,7 @@ impl CppInterface {
 
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
-            let cfg = if writer.config.package {
+            let cfg = if writer.package {
                 fn combine(
                     interface: &CppInterface,
                     dependencies: &mut TypeMap,
