@@ -38,11 +38,9 @@ impl CppInterface {
                 if method.dependencies.included(config) {
                     CppMethodOrName::Method(method)
                 } else {
-                    config.warnings.skip_method(
-                        method.def,
-                        &method.dependencies,
-                        config,
-                    );
+                    config
+                        .warnings
+                        .skip_method(method.def, &method.dependencies, config);
                     CppMethodOrName::Name(method.def)
                 }
             })

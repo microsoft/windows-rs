@@ -6,6 +6,7 @@
     clippy::needless_doctest_main
 )]
 
+mod config;
 mod derive;
 mod derive_writer;
 mod filter;
@@ -25,7 +26,6 @@ mod types;
 mod value;
 mod warnings;
 mod winmd;
-mod config;
 
 use config::*;
 use derive::*;
@@ -51,7 +51,6 @@ pub use warnings::*;
 use winmd::*;
 mod method_names;
 use method_names::*;
-
 
 /// The Windows code generator.
 #[track_caller]

@@ -91,11 +91,7 @@ impl<'a> Config<'a> {
         let trees = tree.flatten_trees();
 
         trees.par_iter().for_each(|tree| {
-            let directory = format!(
-                "{}/src/{}",
-                &self.output,
-                tree.namespace.replace('.', "/")
-            );
+            let directory = format!("{}/src/{}", &self.output, tree.namespace.replace('.', "/"));
 
             let mut tokens = TokenStream::new();
 

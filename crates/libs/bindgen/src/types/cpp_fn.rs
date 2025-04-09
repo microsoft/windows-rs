@@ -46,12 +46,11 @@ impl CppFn {
 
         let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
 
-        let vararg =
-            if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
-                quote! { , ... }
-            } else {
-                quote! {}
-            };
+        let vararg = if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+            quote! { , ... }
+        } else {
+            quote! {}
+        };
 
         let link = to_ident(&config.link);
 

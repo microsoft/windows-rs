@@ -61,11 +61,9 @@ impl Interface {
                 if method.dependencies.included(config) {
                     MethodOrName::Method(method)
                 } else {
-                    config.warnings.skip_method(
-                        method.def,
-                        &method.dependencies,
-                        config,
-                    );
+                    config
+                        .warnings
+                        .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
                 }
             })
