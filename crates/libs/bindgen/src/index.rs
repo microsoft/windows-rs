@@ -83,11 +83,7 @@ pub fn write(types: &TypeMap, output: &str) {
     let mut feature_index = Index::new();
     let mut all_types: Vec<_> = types.values().flatten().collect();
 
-    all_types.sort_by(|a, b| {
-        let a_name = a.type_name();
-        let b_name = b.type_name();
-        (a_name.namespace(), a_name.name()).cmp(&(b_name.namespace(), b_name.name()))
-    });
+    all_types.sort_by(|a, b| a.type_name().cmp(&b.type_name()));
 
     for ty in all_types {
         let type_deps = ty.dependencies();

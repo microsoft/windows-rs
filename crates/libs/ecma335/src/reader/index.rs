@@ -52,7 +52,21 @@ impl Index {
         &self.files[pos]
     }
 
-    pub fn all(&self) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef)> + '_ {
+        self.types
+            .iter()
+            .flat_map(|(namespace, types)| {
+                types
+                    .iter()
+                    .map(move |(name, types)| (namespace.as_str(), name.as_str(), types))
+            })
+            .flat_map(|(namespace, name, types)| types.iter().map(move |ty| (namespace, name, ty)))
+            .map(|(namespace, name, (file, pos))| {
+                (namespace, name, TypeDef(Row::new(self, *file, *pos)))
+            })
+    }
+
+    pub fn types(&self) -> impl Iterator<Item = TypeDef> + '_ {
         self.types
             .values()
             .flat_map(|types| types.values())

@@ -101,7 +101,7 @@ pub enum Remap {
 }
 
 impl Type {
-    fn sort_key(&self) -> (bool, TypeName, i32, i32) {
+    fn sort_key(&self) -> (bool, &str, &str, i32, i32) {
         // This sorts types as follows:
         // 1. functions are placed first
         // 2. type name
@@ -131,7 +131,8 @@ impl Type {
             _ => 0,
         };
 
-        (kind != 0, self.type_name(), arches, kind)
+        let tn = self.type_name();
+        (kind != 0, tn.name(), tn.namespace(), arches, kind)
     }
 
     fn is_intrinsic(&self) -> bool {

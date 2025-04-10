@@ -6,7 +6,7 @@ impl std::fmt::Debug for TypeDef<'_> {
     }
 }
 
-impl TypeDef<'_> {
+impl<'a> TypeDef<'a> {
     pub fn flags(&self) -> TypeAttributes {
         TypeAttributes(self.usize(0).try_into().unwrap())
     }
@@ -27,11 +27,11 @@ impl TypeDef<'_> {
         Some(self.decode(3))
     }
 
-    pub fn fields(&self) -> RowIterator<Field> {
+    pub fn fields(&self) -> RowIterator<'a, Field<'a>> {
         self.list(4)
     }
 
-    pub fn methods(&self) -> RowIterator<MethodDef> {
+    pub fn methods(&self) -> RowIterator<'a, MethodDef<'a>> {
         self.list(5)
     }
 
