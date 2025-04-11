@@ -16,18 +16,20 @@ pub enum Member<'a> {
     Const(Field<'a>),
 }
 
+type HashType<'a> = HashMap<&'a str, HashMap<&'a str, Vec<Member<'a>>>>;
+
 pub struct MemberIndex<'a> {
-    pub members: HashMap<&'a str, HashMap<&'a str, Vec<Member<'a>>>>,
+    pub members: HashType<'a>,
 }
 
 impl<'a> MemberIndex<'a> {
     pub fn new(index: &'a Index) -> Self {
-        let mut members: HashMap<&str, HashMap<&str, Vec<Member>>> = HashMap::new();
+        let mut members: HashType = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
-            if ty.flags().contains(TypeAttributes::WindowsRuntime) {
-                insert(&mut members, namespace, name, Member::Type(ty));
-            } else {
+            insert(&mut members, namespace, name, Member::Type(ty));
+
+            if !ty.flags().contains(TypeAttributes::WindowsRuntime) {
                 match ty.category() {
                     TypeCategory::Class if name == "Apis" => {
                         for method in ty.methods() {
@@ -44,7 +46,7 @@ impl<'a> MemberIndex<'a> {
                             }
                         }
                     }
-                    _ => insert(&mut members, namespace, name, Member::Type(ty)),
+                    _ => {}
                 }
             }
         }
@@ -54,7 +56,7 @@ impl<'a> MemberIndex<'a> {
 }
 
 fn insert<'a>(
-    members: &mut HashMap<&'a str, HashMap<&'a str, Vec<Member<'a>>>>,
+    members: &mut HashType<'a>,
     namespace: &'a str,
     name: &'a str,
     member: Member<'a>,
