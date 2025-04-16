@@ -66,17 +66,12 @@ jobs:
           "$env:USERPROFILE\.cargo\bin" | Out-File -Append -Encoding ascii $env:GITHUB_PATH
           "CARGO_HOME=$env:USERPROFILE\.cargo" | Out-File -Append -Encoding ascii $env:GITHUB_ENV
         if: ${{ matrix.runner == 'windows-11-arm' }}
-      - name: Install Rust tools
-        shell: pwsh
-        run: |
-          rustup component add rustfmt clippy
-        if: ${{ matrix.runner == 'windows-11-arm' }}
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-      - name: Install fmt
-        run: rustup component add rustfmt
+      - name: Install fmt, clippy
+        run: rustup component add clippy rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment
       - name: Clean
