@@ -2,7 +2,7 @@ use super::*;
 
 pub fn yml() {
     let mut yml =
-        r"name: test
+        r#"name: test
 
 on:
   pull_request:
@@ -62,6 +62,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install Rustup
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://win.rustup.rs/aarch64" -OutFile rustup-init.exe
+           & .\rustup-init.exe --default-toolchain none --profile=minimal -y
+          "$env:USERPROFILE\.cargo\bin" | Out-File -Append -Encoding ascii $env:GITHUB_PATH
+          "CARGO_HOME=$env:USERPROFILE\.cargo" | Out-File -Append -Encoding ascii $env:GITHUB_ENV
+        if: ${{ matrix.runner == 'windows-11-arm' }}
+      - name: Install Rust tools
+        shell: pwsh
+        run: |
+          rustup component add rustfmt clippy
+        if: ${{ matrix.runner == 'windows-11-arm' }}
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target
@@ -69,7 +82,7 @@ jobs:
       - name: Install fmt
         run: rustup component add rustfmt
       - name: Fix environment
-        uses: ./.github/actions/fix-environment"
+        uses: ./.github/actions/fix-environment"#
     .to_string();
 
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
