@@ -2,7 +2,7 @@ use super::*;
 
 pub fn yml() {
     let mut yml =
-        r"name: test
+        r#"name: test
 
 on:
   pull_request:
@@ -18,47 +18,51 @@ on:
 
 jobs:
   check:
-    runs-on: windows-2022
-
     strategy:
       matrix:
         include:
           - version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
-            etc:
+            runner: windows-2022
           - version: nightly
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
-            etc:
+            runner: windows-2022
           - version: nightly
             host: x86_64-pc-windows-gnu
             target: x86_64-pc-windows-gnu
-            etc:
+            runner: windows-2022
           - version: stable
             host: x86_64-pc-windows-gnu
             target: i686-pc-windows-gnu
-            etc:
+            runner: windows-2022
           - version: stable
-            host: x86_64-pc-windows-msvc
+            host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
-            etc: --no-run
-          - version: nightly
-            host: x86_64-pc-windows-msvc
-            target: aarch64-pc-windows-msvc
-            etc: --no-run
+            runner: windows-11-arm
+
+    runs-on: ${{ matrix.runner }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install Rustup
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://win.rustup.rs/aarch64" -OutFile "$env:TEMP\rustup-init.exe"
+           & "$env:TEMP\rustup-init.exe" --default-toolchain none --profile=minimal -y
+          "$env:USERPROFILE\.cargo\bin" | Out-File -Append -Encoding ascii $env:GITHUB_PATH
+          "CARGO_HOME=$env:USERPROFILE\.cargo" | Out-File -Append -Encoding ascii $env:GITHUB_ENV
+        if: ${{ matrix.runner == 'windows-11-arm' }}
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-      - name: Install fmt
-        run: rustup component add rustfmt
+      - name: Install fmt, clippy
+        run: rustup component add clippy rustfmt
       - name: Fix environment
-        uses: ./.github/actions/fix-environment"
+        uses: ./.github/actions/fix-environment"#
     .to_string();
 
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
@@ -80,7 +84,7 @@ jobs:
             &mut yml,
             r"
       - name: Test {name}
-        run:  cargo test -p {name} --target ${{{{ matrix.target }}}} ${{{{ matrix.etc }}}}"
+        run:  cargo test -p {name} --target ${{{{ matrix.target }}}}"
         )
         .unwrap();
     }
