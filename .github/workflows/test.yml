@@ -53,7 +53,7 @@ jobs:
             runner: windows-11-arm
             etc:
             
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.runner }}
 
     steps:
       - name: Checkout
