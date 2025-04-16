@@ -18,40 +18,46 @@ on:
 
 jobs:
   check:
-    runs-on: windows-2022
-
     strategy:
       matrix:
         include:
           - version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
+            runner: windows-2022
             etc:
           - version: nightly
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
+            runner: windows-2022
             etc:
           - version: nightly
             host: x86_64-pc-windows-gnu
             target: x86_64-pc-windows-gnu
+            runner: windows-2022
             etc:
           - version: stable
             host: x86_64-pc-windows-gnu
             target: i686-pc-windows-gnu
+            runner: windows-2022
             etc:
           - version: stable
             host: x86_64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
+            runner: windows-2022
             etc: --no-run
           - version: nightly
             host: x86_64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
+            runner: windows-2022
             etc: --no-run
           - version: nightly
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
             etc:
+
+    runs-on: ${{ matrix.runner }}
 
     steps:
       - name: Checkout

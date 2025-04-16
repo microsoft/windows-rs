@@ -52,7 +52,7 @@ jobs:
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
             etc:
-            
+
     runs-on: ${{ matrix.runner }}
 
     steps:
