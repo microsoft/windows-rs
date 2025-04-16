@@ -47,6 +47,11 @@ jobs:
             host: x86_64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             etc: --no-run
+          - version: nightly
+            host: aarch64-pc-windows-msvc
+            target: aarch64-pc-windows-msvc
+            runner: windows-11-arm
+            etc:
 
     steps:
       - name: Checkout
