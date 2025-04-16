@@ -41,9 +41,16 @@ runs:
           }
           "aarch64*"
           {
-            "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.26100.0\arm64" >> $env:GITHUB_PATH
-            ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx64\arm64")
-              | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+            if ("${{ matrix.runner }}" -eq "windows-11-arm") {
+              "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.26100.0\arm64" >> $env:GITHUB_PATH
+              ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx64\arm64")
+                | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+            } else {
+              "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.26100.0\x64" >> $env:GITHUB_PATH
+              ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx64\x64")
+                | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+            }
+
           }
           "*"
           {
