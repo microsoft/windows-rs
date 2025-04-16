@@ -18,8 +18,14 @@ pub enum Member<'a> {
 
 type HashType<'a> = HashMap<&'a str, HashMap<&'a str, Vec<Member<'a>>>>;
 
-pub struct MemberIndex<'a> {
-    pub members: HashType<'a>,
+pub struct MemberIndex<'a>(HashType<'a>);
+
+impl<'a> std::ops::Deref for MemberIndex<'a> {
+    type Target = HashType<'a>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
 }
 
 impl<'a> MemberIndex<'a> {
@@ -51,16 +57,11 @@ impl<'a> MemberIndex<'a> {
             }
         }
 
-        Self { members }
+        Self(members)
     }
 }
 
-fn insert<'a>(
-    members: &mut HashType<'a>,
-    namespace: &'a str,
-    name: &'a str,
-    member: Member<'a>,
-) {
+fn insert<'a>(members: &mut HashType<'a>, namespace: &'a str, name: &'a str, member: Member<'a>) {
     members
         .entry(namespace)
         .or_default()

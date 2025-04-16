@@ -1,0 +1,12 @@
+[package]
+name = "test_riddle"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-riddle]
+path = "../../../libs/riddle"
+
+[dependencies.syn]
+workspace = true
+features = ["full", "parsing"]

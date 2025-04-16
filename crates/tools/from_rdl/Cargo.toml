@@ -1,0 +1,10 @@
+[package]
+name = "tool_from_rdl"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+windows-ecma335 = { workspace = true }
+syn = { workspace = true, features = ["parsing", "full", "printing", "extra-traits"] }
+proc-macro2 = { workspace = true, features = ["span-locations"]}
+regex = "1.7"

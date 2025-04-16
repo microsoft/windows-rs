@@ -1,11 +1,5 @@
 use super::*;
 
-impl std::fmt::Debug for TypeDef<'_> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "TypeDef({}.{})", self.namespace(), self.name())
-    }
-}
-
 impl<'a> TypeDef<'a> {
     pub fn flags(&self) -> TypeAttributes {
         TypeAttributes(self.usize(0).try_into().unwrap())
@@ -62,6 +56,52 @@ impl<'a> TypeDef<'a> {
             }
         } else {
             TypeCategory::Interface
+        }
+    }
+}
+
+impl std::fmt::Debug for TypeDef<'_> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "TypeDef({}.{})", self.namespace(), self.name())
+    }
+}
+
+impl std::fmt::Display for TypeDef<'_> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.category() {
+            TypeCategory::Struct => {
+                writeln!(f, "struct {} {{", self.name())?;
+
+                for field in self.fields() {
+                    writeln!(f, "    {}: {},", field.name(), field.ty())?;
+                }
+
+                writeln!(f, "}}")
+            }
+            TypeCategory::Enum => {
+                writeln!(f, "enum {} {{", self.name())?;
+
+                for field in self.fields() {
+                    if let Some(constant) = field.constant() {
+                        writeln!(f, "    {} = {},", field.name(), constant.value())?;
+                    }
+                }
+
+                writeln!(f, "}}")
+            }
+            TypeCategory::Interface => {
+                writeln!(f, "interface {} {{", trim_tick(self.name()))?;
+
+                for method in self.methods() {
+                    writeln!(f, "    fn {}();", method.name())?;
+                }
+
+                writeln!(f, "}}")
+            }
+            TypeCategory::Class => {
+                writeln!(f, "class {} {{}}", self.name())
+            }
+            _ => Ok(()),
         }
     }
 }
