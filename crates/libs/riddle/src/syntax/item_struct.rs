@@ -9,8 +9,8 @@ pub struct ItemStruct {
 impl syn::parse::Parse for ItemStruct {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let struct_token = input.parse::<syn::Token![struct]>()?;
-        let ident = input.parse::<syn::Ident>()?;
+        let struct_token = input.parse()?;
+        let ident = input.parse()?;
 
         let content;
         let brace_token = syn::braced!(content in input);

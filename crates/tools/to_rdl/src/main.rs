@@ -45,7 +45,7 @@ fn main() {
             continue;
         }
 
-    for ty in types.values().flatten() {
+        for ty in types.values().flatten() {
             if let reader::Member::Type(ty) = ty {
                 printer.write_namespace(ty.namespace());
 
