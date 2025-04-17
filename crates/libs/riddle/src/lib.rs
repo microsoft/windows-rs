@@ -10,12 +10,13 @@ pub fn parse(s: &str) -> syn::Result<syntax::File> {
     syn::parse_str(s)
 }
 
-pub fn fmt(s: &str) -> String {
-    let rx = regex::Regex::new(r"(?m)^(\s*)(class|interface)\s").unwrap();
+// TODO: add fmt module that includes a Format trait that all types implement
+// then the fmt function here can take any F: Format and format it using an indent-aware
+// printer... 
+// This avoids the windows-ecma335 crate from having to have any knowledge of riddle.
 
-    let result = rx.replace_all(&s, |caps: &regex::Captures| {
-        format!("{}#[{}]\n{}trait ", &caps[1], &caps[2], &caps[1])
-    });
+// pub fn fmt<F: Format>(f: F) -> String {
+    
+// }
 
-    return result.to_string()
-}
+pub fn 
