@@ -56,7 +56,7 @@ impl Printer {
     pub fn write_str(&mut self, text: &str) {
         for line in text.lines() {
             if !line.is_empty() {
-                write!(&mut self.output, "{}{}\n", "    ".repeat(self.indent), line).unwrap();
+                write!(&mut self.output, "{}{}\n", "".repeat(self.indent), line).unwrap();
             } else {
                 self.output.push('\n');
             }

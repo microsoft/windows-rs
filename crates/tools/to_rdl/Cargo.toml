@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 windows-ecma335 = { workspace = true }
+windows-fmt = { workspace = true }

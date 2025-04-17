@@ -9,3 +9,13 @@ pub mod syntax;
 pub fn parse(s: &str) -> syn::Result<syntax::File> {
     syn::parse_str(s)
 }
+
+pub fn fmt(s: &str) -> String {
+    let rx = regex::Regex::new(r"(?m)^(\s*)(class|interface)\s").unwrap();
+
+    let result = rx.replace_all(&s, |caps: &regex::Captures| {
+        format!("{}#[{}]\n{}trait ", &caps[1], &caps[2], &caps[1])
+    });
+
+    return result.to_string()
+}

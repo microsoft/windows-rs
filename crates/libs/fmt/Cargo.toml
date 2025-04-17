@@ -1,0 +1,12 @@
+[package]
+name = "windows-fmt"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT OR Apache-2.0"
+description = "Simple formatter for Rust and Riddle"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[dependencies]
+regex = { workspace = true, features = ["unicode-perl"] }

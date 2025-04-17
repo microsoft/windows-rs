@@ -54,7 +54,9 @@ fn main() {
         }
     }
 
-    std::fs::write("rdl.rs", printer.into_string()).unwrap();
+    let output = windows_fmt::riddle(printer.into_string(), "");
+
+    std::fs::write("rdl.rs", output).unwrap();
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
