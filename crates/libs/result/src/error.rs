@@ -224,7 +224,7 @@ impl core::fmt::Display for Error {
         if message.is_empty() {
             core::write!(fmt, "{}", self.code())
         } else {
-            core::write!(fmt, "{} ({})", self.message(), self.code())
+            core::write!(fmt, "{} ({})", message, self.code())
         }
     }
 }
