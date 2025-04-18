@@ -56,14 +56,6 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
-// fn trim_tick(name: &str) -> &str {
-//     if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-//         &name[..name.len() - 2]
-//     } else {
-//         name
-//     }
-// }
-
 // TODO: maybe we use a custom prettyplease/fmt that knows how to deal with the keywords directly
 
 // #[allow(dead_code, non_snake_case)]

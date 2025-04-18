@@ -6,6 +6,8 @@ mod ecma335;
 
 // TODO: or instead of formatting ecma335 we convert to riddle and then
 
+// TODO: use std::fmt::Result for simplicity?
+
 pub trait Format {
     fn format(&self, f: &mut Formatter);
 }
