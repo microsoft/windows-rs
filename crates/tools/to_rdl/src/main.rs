@@ -1,6 +1,5 @@
 use windows_ecma335::*;
-mod printer;
-use printer::*;
+use windows_riddle::*;
 
 // TODO: 1. tool that generates standalone *.rdl files from *.winmd files describing APIs like IDL
 //       2. tool that parses standalone *.rdl files and produces *.winmd files
@@ -36,9 +35,9 @@ fn main() {
     let time = std::time::Instant::now();
 
     let index = reader::Index::read("crates/libs/bindgen/default/Windows.winmd").unwrap();
-    let index = reader::MemberIndex::new(&index);
+    let index = reader::ItemIndex::new(&index);
 
-    let mut printer = Printer::new();
+    let mut formatter = Formatter::new();
 
     for (namespace, types) in &*index {
         if !namespace.starts_with("Windows.Foundation") {
@@ -46,17 +45,13 @@ fn main() {
         }
 
         for ty in types.values().flatten() {
-            if let reader::Member::Type(ty) = ty {
-                printer.write_namespace(ty.namespace());
+            formatter.write_namespace(namespace);
 
-                code!(printer, "{ty}");
-            }
+            ty.format(&mut formatter);
         }
     }
 
-    let output = windows_fmt::riddle(printer.into_string(), "");
-
-    std::fs::write("rdl.rs", output).unwrap();
+    std::fs::write("rdl.rs", formatter.into_string()).unwrap();
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

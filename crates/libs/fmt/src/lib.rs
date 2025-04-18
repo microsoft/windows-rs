@@ -1,7 +1,7 @@
 #![doc = include_str!("../readme.md")]
 
-use std::process::*;
 use std::io::Write;
+use std::process::*;
 
 pub fn rust(input: String, config: &str) -> String {
     let mut cmd = Command::new("rustfmt");
@@ -43,21 +43,25 @@ pub fn rust(input: String, config: &str) -> String {
     }
 }
 
+// TODO: remove this as the riddle formatter does pretty printing
 pub fn riddle(input: String, config: &str) -> String {
     let rx = regex::Regex::new(r"(?m)^(\s*)(class|interface)\s").unwrap();
 
-    let input = rx.replace_all(&input, |caps: &regex::Captures| {
-        format!("{}#[{}]\n{}trait ", &caps[1], &caps[2], &caps[1])
-    }).to_string();
+    let input = rx
+        .replace_all(&input, |caps: &regex::Captures| {
+            format!("{}#[{}]\n{}trait ", &caps[1], &caps[2], &caps[1])
+        })
+        .to_string();
 
     let input = rust(input, config);
 
     let rx = regex::Regex::new(r"(?m)^(\s*)#\[(class|interface)]\n\s+trait\s").unwrap();
 
-    let input = rx.replace_all(&input, |caps: &regex::Captures| {
-        format!("{}{} ", &caps[1], &caps[2])
-    }).to_string();
+    let input = rx
+        .replace_all(&input, |caps: &regex::Captures| {
+            format!("{}{} ", &caps[1], &caps[2])
+        })
+        .to_string();
 
     input
 }
-

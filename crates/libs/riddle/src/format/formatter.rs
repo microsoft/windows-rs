@@ -1,25 +1,29 @@
 use std::fmt::Write;
 
-#[macro_export]
-macro_rules! code {
-    ($printer:expr, $($args:tt)*) => {{
-        let formatted = format!($($args)*);
-        $printer.write_str(&formatted);
-    }};
-}
-
-pub struct Printer {
+#[derive(Default)]
+pub struct Formatter {
     output: String,
     indent: usize,
     namespace: String,
 }
 
-impl Printer {
+impl Formatter {
     pub fn new() -> Self {
         Self {
             output: String::new(),
             indent: 0,
             namespace: String::new(),
+        }
+    }
+
+    pub fn write_fmt(&mut self, f: std::fmt::Arguments<'_>) -> std::fmt::Result {
+        self.write_indent();
+        self.output.write_fmt(f)
+    }
+
+    pub fn write_indent(&mut self) {
+        for _ in 0..self.indent {
+            self.output.push_str("    ");
         }
     }
 
@@ -41,31 +45,23 @@ impl Printer {
 
         for _ in 0..current.count() {
             if self.dedent() {
-                self.write_str("}\n");
+                self.write_indent();
+                self.output.push_str("}\n");
             }
         }
 
         for name in next {
-            code!(self, "mod {name} {{");
+            writeln!(self, "mod {name} {{").unwrap();
             self.indent();
         }
 
         self.namespace = namespace.to_string();
     }
 
-    pub fn write_str(&mut self, text: &str) {
-        for line in text.lines() {
-            if !line.is_empty() {
-                write!(&mut self.output, "{}{}\n", "".repeat(self.indent), line).unwrap();
-            } else {
-                self.output.push('\n');
-            }
-        }
-    }
-
     pub fn into_string(mut self) -> String {
         while self.dedent() {
-            self.write_str("}\n");
+            self.write_indent();
+            self.output.push_str("}\n");
         }
 
         self.output
@@ -77,21 +73,10 @@ impl Printer {
 
     pub fn dedent(&mut self) -> bool {
         if self.indent > 0 {
-            self.indent = self.indent - 1;
+            self.indent -= 1;
             true
         } else {
             false
         }
     }
 }
-
-// Parenthesis ()
-// Brace {}
-// Bracket []
-
-// fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
-//     !starts_with.is_empty()
-//         && namespace.starts_with(starts_with)
-//         && (namespace.len() == starts_with.len()
-//             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
-// }

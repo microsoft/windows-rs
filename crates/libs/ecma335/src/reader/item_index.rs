@@ -1,26 +1,10 @@
 use super::*;
 
-// pub struct ConstDef<'a> {
-//     pub field: Field<'a>,
-//     pub namespace: &'a str,
-// }
+type HashType<'a> = HashMap<&'a str, HashMap<&'a str, Vec<Item<'a>>>>;
 
-// pub struct FnDef<'a> {
-//     pub method: MethodDef<'a>,
-//     pub namespace: &'a str,
-// }
+pub struct ItemIndex<'a>(HashType<'a>);
 
-pub enum Member<'a> {
-    Type(TypeDef<'a>),
-    Fn(MethodDef<'a>),
-    Const(Field<'a>),
-}
-
-type HashType<'a> = HashMap<&'a str, HashMap<&'a str, Vec<Member<'a>>>>;
-
-pub struct MemberIndex<'a>(HashType<'a>);
-
-impl<'a> std::ops::Deref for MemberIndex<'a> {
+impl<'a> std::ops::Deref for ItemIndex<'a> {
     type Target = HashType<'a>;
 
     fn deref(&self) -> &Self::Target {
@@ -28,27 +12,27 @@ impl<'a> std::ops::Deref for MemberIndex<'a> {
     }
 }
 
-impl<'a> MemberIndex<'a> {
+impl<'a> ItemIndex<'a> {
     pub fn new(index: &'a Index) -> Self {
         let mut members: HashType = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
-            insert(&mut members, namespace, name, Member::Type(ty));
+            insert(&mut members, namespace, name, Item::Type(ty));
 
             if !ty.flags().contains(TypeAttributes::WindowsRuntime) {
                 match ty.category() {
                     TypeCategory::Class if name == "Apis" => {
                         for method in ty.methods() {
-                            insert(&mut members, namespace, method.name(), Member::Fn(method));
+                            insert(&mut members, namespace, method.name(), Item::Fn(method));
                         }
                         for field in ty.fields() {
-                            insert(&mut members, namespace, field.name(), Member::Const(field));
+                            insert(&mut members, namespace, field.name(), Item::Const(field));
                         }
                     }
                     TypeCategory::Enum if !ty.has_attribute("ScopedEnumAttribute") => {
                         for field in ty.fields() {
                             if field.flags().contains(FieldAttributes::Literal) {
-                                insert(&mut members, namespace, field.name(), Member::Const(field));
+                                insert(&mut members, namespace, field.name(), Item::Const(field));
                             }
                         }
                     }
@@ -61,7 +45,7 @@ impl<'a> MemberIndex<'a> {
     }
 }
 
-fn insert<'a>(members: &mut HashType<'a>, namespace: &'a str, name: &'a str, member: Member<'a>) {
+fn insert<'a>(members: &mut HashType<'a>, namespace: &'a str, name: &'a str, member: Item<'a>) {
     members
         .entry(namespace)
         .or_default()

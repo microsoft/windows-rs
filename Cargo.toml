@@ -39,6 +39,7 @@ cppwinrt = { version = "0.2.2", path = "crates/libs/cppwinrt", default-features 
 windows = { version = "0.61.1", path = "crates/libs/windows", default-features = false }
 windows-bindgen = { version = "0.61.0", path = "crates/libs/bindgen", default-features = false }
 windows-fmt = { version = "0.0.0", path = "crates/libs/fmt", default-features = false }
+windows-riddle = { version = "0.0.0", path = "crates/libs/riddle", default-features = false }
 windows-collections = { version = "0.2.0", path = "crates/libs/collections", default-features = false }
 windows-core = { version = "0.61.0", path = "crates/libs/core", default-features = false }
 windows-ecma335 = { version = "0.0.0", path = "crates/libs/ecma335", default-features = false }
