@@ -88,6 +88,60 @@ impl GUID {
             ],
         )
     }
+
+    /// Attempts to parse a `GUID` from a string representation (e.g., `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`).
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use windows_core::GUID;
+    ///
+    /// let guid = GUID::try_from_str("aBcDeFaB-1234-5678-9012-1234567890ab").unwrap();
+    /// assert_eq!(format!("{guid:?}"), "ABCDEFAB-1234-5678-9012-1234567890AB");
+    ///
+    /// let invalid_guid = GUID::try_from_str("invalid-guid-string");
+    /// assert!(invalid_guid.is_none());
+    /// ```
+    pub const fn try_from_str(from: &str) -> Option<Self> {
+        if from.len() != 36 {
+            return None;
+        }
+
+        let mut bytes = from.as_bytes();
+
+        macro_rules! t {
+            ($e:expr) => {
+                match $e {
+                    Some((val, rest)) => {
+                        bytes = rest;
+                        val
+                    }
+                    None => {
+                        return None;
+                    }
+                }
+            };
+        }
+
+        let mut guid = GUID::zeroed();
+        guid.data1 = t!(try_u32(bytes, true));
+        guid.data2 = t!(try_u16(bytes, true));
+        guid.data3 = t!(try_u16(bytes, true));
+        guid.data4[0] = t!(try_u8(bytes, false));
+        guid.data4[1] = t!(try_u8(bytes, true));
+        guid.data4[2] = t!(try_u8(bytes, false));
+        guid.data4[3] = t!(try_u8(bytes, false));
+        guid.data4[4] = t!(try_u8(bytes, false));
+        guid.data4[5] = t!(try_u8(bytes, false));
+        guid.data4[6] = t!(try_u8(bytes, false));
+        guid.data4[7] = t!(try_u8(bytes, false));
+
+        if !bytes.is_empty() {
+            return None;
+        }
+
+        Some(guid)
+    }
 }
 
 impl RuntimeType for GUID {
@@ -98,7 +152,27 @@ impl TypeKind for GUID {
     type TypeKind = CopyType;
 }
 
-impl core::fmt::Debug for GUID {
+impl core::fmt::LowerHex for GUID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(
+            f,
+            "{:08x?}-{:04x?}-{:04x?}-{:02x?}{:02x?}-{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}",
+            self.data1,
+            self.data2,
+            self.data3,
+            self.data4[0],
+            self.data4[1],
+            self.data4[2],
+            self.data4[3],
+            self.data4[4],
+            self.data4[5],
+            self.data4[6],
+            self.data4[7]
+        )
+    }
+}
+
+impl core::fmt::UpperHex for GUID {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(
             f,
@@ -118,30 +192,25 @@ impl core::fmt::Debug for GUID {
     }
 }
 
+impl core::fmt::Debug for GUID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        core::fmt::UpperHex::fmt(self, f)
+    }
+}
+
 impl TryFrom<&str> for GUID {
     type Error = Error;
 
     fn try_from(from: &str) -> Result<Self> {
-        if from.len() != 36 {
-            return Err(invalid_guid());
-        }
+        Self::try_from_str(from).ok_or_else(invalid_guid)
+    }
+}
 
-        let bytes = &mut from.bytes();
-        let mut guid = Self::zeroed();
+impl core::str::FromStr for GUID {
+    type Err = Error;
 
-        guid.data1 = try_u32(bytes, true)?;
-        guid.data2 = try_u16(bytes, true)?;
-        guid.data3 = try_u16(bytes, true)?;
-        guid.data4[0] = try_u8(bytes, false)?;
-        guid.data4[1] = try_u8(bytes, true)?;
-        guid.data4[2] = try_u8(bytes, false)?;
-        guid.data4[3] = try_u8(bytes, false)?;
-        guid.data4[4] = try_u8(bytes, false)?;
-        guid.data4[5] = try_u8(bytes, false)?;
-        guid.data4[6] = try_u8(bytes, false)?;
-        guid.data4[7] = try_u8(bytes, false)?;
-
-        Ok(guid)
+    fn from_str(s: &str) -> Result<Self> {
+        Self::try_from_str(s).ok_or_else(invalid_guid)
     }
 }
 
@@ -161,39 +230,84 @@ fn invalid_guid() -> Error {
     Error::from_hresult(imp::E_INVALIDARG)
 }
 
-fn try_u32(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u32> {
-    next(bytes, 8, delimiter).ok_or_else(invalid_guid)
+const fn try_u32(bytes: &[u8], delimiter: bool) -> Option<(u32, &[u8])> {
+    next(bytes, 8, delimiter)
 }
 
-fn try_u16(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u16> {
-    next(bytes, 4, delimiter)
-        .map(|value| value as u16)
-        .ok_or_else(invalid_guid)
+const fn try_u16(bytes: &[u8], delimiter: bool) -> Option<(u16, &[u8])> {
+    if let Some((val, bytes)) = next(bytes, 4, delimiter) {
+        Some((val as u16, bytes))
+    } else {
+        None
+    }
 }
 
-fn try_u8(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u8> {
-    next(bytes, 2, delimiter)
-        .map(|value| value as u8)
-        .ok_or_else(invalid_guid)
+const fn try_u8(bytes: &[u8], delimiter: bool) -> Option<(u8, &[u8])> {
+    if let Some((val, bytes)) = next(bytes, 2, delimiter) {
+        Some((val as u8, bytes))
+    } else {
+        None
+    }
 }
 
-fn next(bytes: &mut core::str::Bytes<'_>, len: usize, delimiter: bool) -> Option<u32> {
+const fn next(mut bytes: &[u8], len: usize, delimiter: bool) -> Option<(u32, &[u8])> {
     let mut value: u32 = 0;
 
-    for _ in 0..len {
-        let digit = bytes.next()?;
-
+    let mut i = 0;
+    while i < len {
+        let digit = match bytes {
+            &[digit, ref rest @ ..] => {
+                bytes = rest;
+                digit
+            }
+            _ => return None,
+        };
         match digit {
             b'0'..=b'9' => value = (value << 4) + (digit - b'0') as u32,
             b'A'..=b'F' => value = (value << 4) + (digit - b'A' + 10) as u32,
             b'a'..=b'f' => value = (value << 4) + (digit - b'a' + 10) as u32,
             _ => return None,
         }
+
+        i += 1;
     }
 
-    if delimiter && bytes.next() != Some(b'-') {
-        None
-    } else {
-        Some(value)
+    if delimiter {
+        match bytes {
+            &[b'-', ref rest @ ..] => {
+                bytes = rest;
+            }
+            _ => return None,
+        }
     }
+
+    Some((value, bytes))
+}
+
+/// Creates a `GUID` constant from a string literal.
+///
+/// # Examples
+///
+/// ```
+/// use windows_core::guid;
+///
+/// const MY_GUID: windows_core::GUID = guid!("aBcDeFaB-1234-5678-9012-1234567890ab");
+/// assert_eq!(format!("{MY_GUID:?}"), "ABCDEFAB-1234-5678-9012-1234567890AB");
+/// ```
+///
+/// ```compile_fail
+/// use windows_core::guid;
+///
+/// // This will fail to compile because the GUID string is invalid.
+/// const INVALID_GUID: windows_core::GUID = guid!("invalid-guid-string");
+/// ```
+#[macro_export]
+macro_rules! guid {
+    ($guid:literal) => {{
+        const GUID: $crate::GUID = match $crate::GUID::try_from_str($guid) {
+            Some(guid) => guid,
+            None => panic!(concat!("Invalid GUID: ", $guid)),
+        };
+        GUID
+    }};
 }
