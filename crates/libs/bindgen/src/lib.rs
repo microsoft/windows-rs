@@ -199,7 +199,7 @@ where
     config.write(tree);
 
     if index {
-        index::write(&types, &format!("{}/features.json", output));
+        index::write(&types, &format!("{output}/features.json"));
     }
 
     warnings.build()
