@@ -149,7 +149,7 @@ EXPORTS
 
     path.pop();
     path.push(format!("{library}.exp"));
-    std::fs::remove_file(&path).unwrap_or_else(|_| panic!("{:?}", path));
+    std::fs::remove_file(&path).unwrap_or_else(|_| panic!("{path:?}"));
 
     path.pop();
     path.push(format!("{library}.obj"));
