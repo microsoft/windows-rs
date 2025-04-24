@@ -12,7 +12,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## BEFORE CONTRIBUTING
+## Before Contributing
 
 While this project welcomes contributions, that process begins by [opening a new issue](https://github.com/microsoft/windows-rs/issues/new/choose)
 or [commenting on an existing issue](https://github.com/microsoft/windows-rs/issues) to discuss a feature suggestion or bug fix.
