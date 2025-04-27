@@ -149,6 +149,6 @@ impl core::fmt::Display for HRESULT {
 
 impl core::fmt::Debug for HRESULT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.write_fmt(format_args!("HRESULT({})", self))
+        f.write_fmt(format_args!("HRESULT({self})"))
     }
 }

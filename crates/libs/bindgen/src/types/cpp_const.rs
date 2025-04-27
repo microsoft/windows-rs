@@ -82,7 +82,7 @@ impl CppConst {
                 if underlying_ty == constant_ty {
                     if is_signed_error(&field_ty) {
                         if let Value::I32(signed) = constant.value() {
-                            value = format!("0x{:X}_u32 as _", signed).into();
+                            value = format!("0x{signed:X}_u32 as _").into();
                         }
                     }
                 } else if field_ty == Type::Bool {
