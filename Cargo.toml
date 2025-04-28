@@ -22,7 +22,7 @@ opt-level = 2
 rust_2018_idioms = { level = "warn", priority = -1 }
 missing_docs = "warn"
 unsafe_op_in_unsafe_fn = "warn"
-unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_debugger_visualizer, windows_slim_errors)'] }
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_slim_errors)'] }
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }
