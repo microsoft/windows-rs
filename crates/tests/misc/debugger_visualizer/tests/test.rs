@@ -1,5 +1,3 @@
-#![cfg(windows_debugger_visualizer)]
-
 use debugger_test::*;
 use windows::core::*;
 use windows::Win32::Foundation::*;

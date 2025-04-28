@@ -1,10 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![allow(non_snake_case)]
-#![cfg_attr(
-    windows_debugger_visualizer,
-    debugger_visualizer(natvis_file = "../.natvis")
-)]
+#![debugger_visualizer(natvis_file = "../.natvis")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 extern crate alloc;
