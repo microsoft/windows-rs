@@ -1,3 +1,5 @@
+#![cfg(target_env = "msvc")]
+
 use debugger_test::*;
 use windows::core::*;
 use windows::Win32::Foundation::*;
