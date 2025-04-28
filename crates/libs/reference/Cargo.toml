@@ -1,0 +1,23 @@
+[package]
+name = "windows-reference"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT OR Apache-2.0"
+description = "Windows optional values"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[dependencies]
+windows-core = { workspace = true }
+
+[features]
+default = ["std"]
+std = []
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []

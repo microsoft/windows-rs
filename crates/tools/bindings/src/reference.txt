@@ -1,0 +1,13 @@
+--out crates/libs/reference/src/bindings.rs
+--flat
+--no-comment
+
+--filter
+    Windows.Foundation.IReference
+    Windows.Foundation.PropertyType
+    Windows.Foundation.DateTime
+    Windows.Foundation.Point
+    Windows.Foundation.Size
+    Windows.Foundation.Rect
+    Windows.Foundation.TimeSpan
+    E_NOTIMPL
