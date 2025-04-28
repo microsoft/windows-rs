@@ -1,4 +1,4 @@
-#![cfg(windows_debugger_visualizer)]
+#![cfg(target_env = "msvc")]
 
 use debugger_test::*;
 use windows::core::*;

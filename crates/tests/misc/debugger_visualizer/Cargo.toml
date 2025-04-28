@@ -8,9 +8,6 @@ publish = false
 doc = false
 doctest = false
 
-[lints.rust]
-unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_debugger_visualizer)'] }
-
 [dependencies.windows]
 workspace = true
 features = [
