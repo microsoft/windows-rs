@@ -25,7 +25,7 @@ impl HSTRING {
     }
 
     /// Get the contents of this `HSTRING` as a OsString.
-    #[cfg(feature = "std")]
+    #[cfg(all(windows, feature = "std"))]
     pub fn to_os_string(&self) -> std::ffi::OsString {
         std::os::windows::ffi::OsStringExt::from_wide(self)
     }
@@ -144,14 +144,14 @@ impl From<&String> for HSTRING {
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl From<&std::path::Path> for HSTRING {
     fn from(value: &std::path::Path) -> Self {
         value.as_os_str().into()
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl From<&std::ffi::OsStr> for HSTRING {
     fn from(value: &std::ffi::OsStr) -> Self {
         unsafe {
@@ -163,14 +163,14 @@ impl From<&std::ffi::OsStr> for HSTRING {
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl From<std::ffi::OsString> for HSTRING {
     fn from(value: std::ffi::OsString) -> Self {
         value.as_os_str().into()
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl From<&std::ffi::OsString> for HSTRING {
     fn from(value: &std::ffi::OsString) -> Self {
         value.as_os_str().into()
@@ -275,28 +275,28 @@ impl PartialEq<&HSTRING> for String {
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<std::ffi::OsString> for HSTRING {
     fn eq(&self, other: &std::ffi::OsString) -> bool {
         *self == **other
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<std::ffi::OsString> for &HSTRING {
     fn eq(&self, other: &std::ffi::OsString) -> bool {
         **self == **other
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<&std::ffi::OsString> for HSTRING {
     fn eq(&self, other: &&std::ffi::OsString) -> bool {
         *self == ***other
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<std::ffi::OsStr> for HSTRING {
     fn eq(&self, other: &std::ffi::OsStr) -> bool {
         self.iter()
@@ -305,56 +305,56 @@ impl PartialEq<std::ffi::OsStr> for HSTRING {
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<std::ffi::OsStr> for &HSTRING {
     fn eq(&self, other: &std::ffi::OsStr) -> bool {
         **self == *other
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<&std::ffi::OsStr> for HSTRING {
     fn eq(&self, other: &&std::ffi::OsStr) -> bool {
         *self == **other
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<HSTRING> for std::ffi::OsStr {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == *self
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<HSTRING> for &std::ffi::OsStr {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<&HSTRING> for std::ffi::OsStr {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == *self
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<HSTRING> for std::ffi::OsString {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == **self
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<HSTRING> for &std::ffi::OsString {
     fn eq(&self, other: &HSTRING) -> bool {
         *other == ***self
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl PartialEq<&HSTRING> for std::ffi::OsString {
     fn eq(&self, other: &&HSTRING) -> bool {
         **other == **self
@@ -377,14 +377,14 @@ impl TryFrom<HSTRING> for String {
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl From<&HSTRING> for std::ffi::OsString {
     fn from(hstring: &HSTRING) -> Self {
         hstring.to_os_string()
     }
 }
 
-#[cfg(feature = "std")]
+#[cfg(all(windows, feature = "std"))]
 impl From<HSTRING> for std::ffi::OsString {
     fn from(hstring: HSTRING) -> Self {
         Self::from(&hstring)

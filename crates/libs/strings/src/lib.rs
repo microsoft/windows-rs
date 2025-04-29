@@ -1,8 +1,10 @@
 #![doc = include_str!("../readme.md")]
-#![cfg(windows)]
 #![allow(non_snake_case)]
 #![debugger_visualizer(natvis_file = "../.natvis")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
+
+#[cfg(not(windows))]
+mod linux;
 
 extern crate alloc;
 use alloc::string::String;
