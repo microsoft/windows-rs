@@ -6,7 +6,6 @@ mod value;
 
 use super::*;
 pub use cfg::*;
-use rayon::prelude::*;
 
 #[derive(Clone)]
 pub struct Config<'a> {
@@ -90,7 +89,7 @@ impl<'a> Config<'a> {
 
         let trees = tree.flatten_trees();
 
-        trees.par_iter().for_each(|tree| {
+        for tree in &trees {
             let directory = format!("{}/src/{}", &self.output, tree.namespace.replace('.', "/"));
 
             let mut tokens = TokenStream::new();
@@ -113,7 +112,7 @@ impl<'a> Config<'a> {
 
             let output = format!("{directory}/mod.rs");
             write_to_file(&output, self.format(&tokens.into_string()));
-        });
+        }
 
         if self.no_toml {
             return;
