@@ -7,7 +7,7 @@ const LOG_FILE: PCWSTR = w!("D:\\service.txt");
 
 // The service spawns a thread and calls `service_thread` to do some actual work.
 fn service_thread() {
-    for i in 0.. {
+    for i in 0..10 {
         log(&format!("...{i}\n"));
 
         // Replace with whatever work the service needs to do.
@@ -70,6 +70,8 @@ fn main() {
             println!("Use Service Control Manager to start service.")
         }
     }
+
+    log("service exit\n");
 }
 
 extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
@@ -79,9 +81,7 @@ extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
 
     set_state(SERVICE_START_PENDING);
     log("service start pending\n");
-
     set_thread();
-
     set_state(SERVICE_RUNNING);
     log("service running\n");
 }
@@ -138,7 +138,17 @@ fn set_state(state: SERVICE_STATUS_CURRENT_STATE) {
 }
 
 fn set_thread() {
-    let thread = std::thread::spawn(service_thread);
+    let thread = std::thread::spawn(|| {
+        service_thread();
+
+        // The service thread returns without an external request then the service will signal that
+        // it has stopped and will cause the process to terminate normally.
+        if state() == SERVICE_RUNNING {
+            set_state(SERVICE_STOPPED);
+            log("service stopped\n");
+        }
+    });
+
     let mut writer = STATE.write().unwrap();
     debug_assert!(writer.thread.is_none());
     writer.thread = Some(thread);
