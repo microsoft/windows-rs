@@ -21,13 +21,13 @@ fn service_thread() {
 
 // Minimal state required to support the service sample.
 struct State {
-    // Service handle returned by `RegisterServiceCtrlHandlerW` use to update the service status.
+    // Service handle returned by `RegisterServiceCtrlHandlerW` and used to update the service status.
     handle: SERVICE_STATUS_HANDLE,
 
     // The join handle used to wait for the service thread to stop.
     thread: Option<std::thread::JoinHandle<()>>,
 
-    // The reported status and support service bevavior.
+    // The service status and supported service bevavior for `SetServiceStatus`.
     status: SERVICE_STATUS,
 }
 
@@ -88,21 +88,17 @@ extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
 
 extern "system" fn handler(control: u32) {
     match control {
-        SERVICE_CONTROL_CONTINUE => {
+        SERVICE_CONTROL_CONTINUE if state() == SERVICE_PAUSED => {
             set_state(SERVICE_CONTINUE_PENDING);
             log("service continue pending\n");
-
             set_thread();
-
             set_state(SERVICE_RUNNING);
             log("service running\n");
         }
-        SERVICE_CONTROL_PAUSE => {
+        SERVICE_CONTROL_PAUSE if state() == SERVICE_RUNNING => {
             set_state(SERVICE_PAUSE_PENDING);
             log("service pause pending\n");
-
             join_thread();
-
             set_state(SERVICE_PAUSED);
             log("service paused\n");
         }
@@ -110,7 +106,6 @@ extern "system" fn handler(control: u32) {
             if state() == SERVICE_RUNNING {
                 set_state(SERVICE_STOP_PENDING);
                 log("service stop pending\n");
-
                 join_thread();
             }
 
@@ -118,7 +113,7 @@ extern "system" fn handler(control: u32) {
             log("service stopped\n");
         }
         _ => {
-            log(&format!("unexpected request {control}\n"));
+            log(&format!("ignored control: {control}\n"));
         }
     }
 }
@@ -144,8 +139,8 @@ fn set_state(state: SERVICE_STATUS_CURRENT_STATE) {
 
 fn set_thread() {
     let thread = std::thread::spawn(service_thread);
-
     let mut writer = STATE.write().unwrap();
+    debug_assert!(writer.thread.is_none());
     writer.thread = Some(thread);
 }
 
