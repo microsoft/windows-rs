@@ -9,7 +9,6 @@ repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 
 [dependencies]
-rayon = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true, features = ["std"] }
 
