@@ -141,8 +141,8 @@ fn set_thread() {
     let thread = std::thread::spawn(|| {
         service_thread();
 
-        // The service thread returns without an external request then the service will signal that
-        // it has stopped and will cause the process to terminate normally.
+        // If the service thread returns without an external request, the service will signal that
+        // it has stopped and cause the process to terminate normally.
         if state() == SERVICE_RUNNING {
             set_state(SERVICE_STOPPED);
             log("service stopped\n");
