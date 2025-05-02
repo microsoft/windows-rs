@@ -46,3 +46,6 @@ fn try_submit<F: FnOnce() + Send + 'static>(environment: *const TP_CALLBACK_ENVI
         ));
     }
 }
+
+fn thread_id()
+fn thread_model()
