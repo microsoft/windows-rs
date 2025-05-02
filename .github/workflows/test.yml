@@ -131,6 +131,8 @@ jobs:
         run:  cargo test -p sample_privileges_sys --target ${{ matrix.target }}
       - name: Test sample_rss
         run:  cargo test -p sample_rss --target ${{ matrix.target }}
+      - name: Test sample_service_sys
+        run:  cargo test -p sample_service_sys --target ${{ matrix.target }}
       - name: Test sample_shell
         run:  cargo test -p sample_shell --target ${{ matrix.target }}
       - name: Test sample_simple
@@ -159,10 +161,10 @@ jobs:
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }}
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }}
-      - name: Test test_arch_feature
-        run:  cargo test -p test_arch_feature --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_arch_feature
+        run:  cargo test -p test_arch_feature --target ${{ matrix.target }}
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }}
       - name: Test test_bcrypt
@@ -261,10 +263,10 @@ jobs:
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
-      - name: Test test_numerics
-        run:  cargo test -p test_numerics --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_numerics
+        run:  cargo test -p test_numerics --target ${{ matrix.target }}
       - name: Test test_overloads
         run:  cargo test -p test_overloads --target ${{ matrix.target }}
       - name: Test test_overloads_client
@@ -363,10 +365,10 @@ jobs:
         run:  cargo test -p windows-core --target ${{ matrix.target }}
       - name: Test windows-ecma335
         run:  cargo test -p windows-ecma335 --target ${{ matrix.target }}
-      - name: Test windows-future
-        run:  cargo test -p windows-future --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows-future
+        run:  cargo test -p windows-future --target ${{ matrix.target }}
       - name: Test windows-implement
         run:  cargo test -p windows-implement --target ${{ matrix.target }}
       - name: Test windows-interface
