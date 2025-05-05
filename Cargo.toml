@@ -39,6 +39,7 @@ windows-bindgen = { version = "0.61.0", path = "crates/libs/bindgen", default-fe
 windows-collections = { version = "0.2.0", path = "crates/libs/collections", default-features = false }
 windows-core = { version = "0.61.0", path = "crates/libs/core", default-features = false }
 windows-ecma335 = { version = "0.0.0", path = "crates/libs/ecma335", default-features = false }
+windows-threading = { version = "0.0.0", path = "crates/libs/threading", default-features = false }
 windows-future = { version = "0.2.0", path = "crates/libs/future", default-features = false }
 windows-implement = { version = "0.60.0", path = "crates/libs/implement", default-features = false }
 windows-interface = { version = "0.59.1", path = "crates/libs/interface", default-features = false }

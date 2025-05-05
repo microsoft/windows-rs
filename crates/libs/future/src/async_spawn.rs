@@ -1,5 +1,4 @@
 use super::*;
-use std::ffi::c_void;
 use std::sync::Mutex;
 
 struct State<T: Async> {
@@ -265,7 +264,7 @@ impl IAsyncAction {
         let object = ComObject::new(Action(SyncState::new()));
         let interface = object.to_interface();
 
-        spawn(move || {
+        windows_threading::submit(move || {
             object.0.spawn(&object.as_interface(), f);
         });
 
@@ -282,7 +281,7 @@ impl<T: RuntimeType> IAsyncOperation<T> {
         let object = ComObject::new(Operation(SyncState::new()));
         let interface = object.to_interface();
 
-        spawn(move || {
+        windows_threading::submit(move || {
             object.0.spawn(&object.as_interface(), f);
         });
 
@@ -299,7 +298,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
         let object = ComObject::new(ActionWithProgress(SyncState::new()));
         let interface = object.to_interface();
 
-        spawn(move || {
+        windows_threading::submit(move || {
             object.0.spawn(&object.as_interface(), f);
         });
 
@@ -316,36 +315,10 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
         let object = ComObject::new(OperationWithProgress(SyncState::new()));
         let interface = object.to_interface();
 
-        spawn(move || {
+        windows_threading::submit(move || {
             object.0.spawn(&object.as_interface(), f);
         });
 
         interface
-    }
-}
-
-fn spawn<F: FnOnce() + Send + 'static>(f: F) {
-    type PTP_SIMPLE_CALLBACK =
-        unsafe extern "system" fn(instance: *const c_void, context: *const c_void);
-    windows_link::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(callback: PTP_SIMPLE_CALLBACK, context: *const c_void, environment: *const c_void) -> i32);
-
-    unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(
-        _: *const c_void,
-        callback: *const c_void,
-    ) {
-        unsafe {
-            Box::from_raw(callback as *mut F)();
-        }
-    }
-
-    unsafe {
-        if TrySubmitThreadpoolCallback(
-            callback::<F>,
-            Box::into_raw(Box::new(f)) as _,
-            core::ptr::null(),
-        ) == 0
-        {
-            panic!("allocation failed");
-        }
     }
 }

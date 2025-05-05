@@ -1,4 +1,9 @@
-#![allow(non_camel_case_types, dead_code, non_snake_case)]
+#![allow(
+    non_snake_case,
+    non_camel_case_types,
+    non_upper_case_globals,
+    clippy::all
+)]
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![no_std]
@@ -9,17 +14,45 @@ use bindings::*;
 mod pool;
 pub use pool::*;
 
-mod priority;
-pub use priority::*;
-
 extern crate alloc;
 use alloc::boxed::Box;
 use core::ffi::c_void;
 
+/// Submit the closure default thread pool.
+///
+/// * The closure must have `'static` lifetime as the thread may outlive the lifetime in which `submit` is called.
+/// * The closure must be `Send` as it will be sent to another thread for execution.
 pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
-    try_submit(core::ptr::null(), f)
+    // This is safe because the closure has `'static` lifetime.
+    unsafe {
+        try_submit(core::ptr::null(), f);
+    }
 }
 
+/// Calls the closure on each element of the iterator in parallel.
+///
+/// * The closure does not require `'static` lifetime since the `for_each` function bounds the lifetime of all submitted closures.
+/// * The closure must be `Sync` as multiple threads will refer to it.
+/// * The iterator items must be `Send` as they will be sent from one thread to another.
+pub fn for_each<I, F, T>(i: I, f: F)
+where
+    I: Iterator<Item = T>,
+    F: Fn(T) + Sync,
+    T: Send,
+{
+    let pool = Pool::new();
+
+    for item in i {
+        pool.submit(|| f(item));
+    }
+}
+
+/// The thread identifier of the calling thread.
+pub fn thread_id() -> u32 {
+    unsafe { GetCurrentThreadId() }
+}
+
+// When used correctly, the Windows thread pool APIs only fail when memory is exhausted. This function will cause such failures to `panic`.
 fn check<D: Default + PartialEq>(result: D) -> D {
     if result == D::default() {
         panic!("allocation failed");
@@ -28,10 +61,11 @@ fn check<D: Default + PartialEq>(result: D) -> D {
     result
 }
 
-fn try_submit<F: FnOnce() + Send + 'static>(environment: *const TP_CALLBACK_ENVIRON_V3, f: F) {
-    unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(
-        _: *const c_void,
-        callback: *const c_void,
+// This function is `unsafe` as it cannot ensure that the lifetime of the closure is sufficient.
+unsafe fn try_submit<F: FnOnce() + Send>(environment: *const TP_CALLBACK_ENVIRON_V3, f: F) {
+    unsafe extern "system" fn callback<F: FnOnce() + Send>(
+        _: PTP_CALLBACK_INSTANCE,
+        callback: *mut c_void,
     ) {
         unsafe {
             Box::from_raw(callback as *mut F)();
@@ -40,12 +74,9 @@ fn try_submit<F: FnOnce() + Send + 'static>(environment: *const TP_CALLBACK_ENVI
 
     unsafe {
         check(TrySubmitThreadpoolCallback(
-            callback::<F>,
+            Some(callback::<F>),
             Box::into_raw(Box::new(f)) as _,
             environment,
         ));
     }
 }
-
-fn thread_id()
-fn thread_model()

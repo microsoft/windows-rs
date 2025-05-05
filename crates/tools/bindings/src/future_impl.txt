@@ -10,4 +10,3 @@
     CreateEventW
     SetEvent
     WaitForSingleObject
-    TrySubmitThreadpoolCallback
