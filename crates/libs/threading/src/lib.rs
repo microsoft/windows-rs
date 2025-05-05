@@ -52,6 +52,13 @@ pub fn thread_id() -> u32 {
     unsafe { GetCurrentThreadId() }
 }
 
+/// Suspends the execution of the current thread until the time-out interval elapses.
+pub fn sleep(milliseconds: u32) {
+    unsafe {
+        Sleep(milliseconds);
+    }
+}
+
 // When used correctly, the Windows thread pool APIs only fail when memory is exhausted. This function will cause such failures to `panic`.
 fn check<D: Default + PartialEq>(result: D) -> D {
     if result == D::default() {

@@ -6,6 +6,7 @@ windows_link::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() ->
 windows_link::link!("kernel32.dll" "system" fn GetCurrentThreadId() -> u32);
 windows_link::link!("kernel32.dll" "system" fn SetThreadpoolThreadMaximum(ptpp : PTP_POOL, cthrdmost : u32));
 windows_link::link!("kernel32.dll" "system" fn SetThreadpoolThreadMinimum(ptpp : PTP_POOL, cthrdmic : u32) -> BOOL);
+windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
 windows_link::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(pfns : PTP_SIMPLE_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> BOOL);
 pub type BOOL = i32;
 pub type PTP_CALLBACK_INSTANCE = isize;

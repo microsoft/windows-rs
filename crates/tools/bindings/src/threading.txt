@@ -16,3 +16,4 @@
     CloseThreadpoolCleanupGroupMembers
     TP_CALLBACK_PRIORITY_NORMAL
     GetCurrentThreadId
+    Sleep
