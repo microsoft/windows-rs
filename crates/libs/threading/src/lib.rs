@@ -18,7 +18,7 @@ extern crate alloc;
 use alloc::boxed::Box;
 use core::ffi::c_void;
 
-/// Submit the closure default thread pool.
+/// Submit the closure to the default thread pool.
 ///
 /// * The closure must have `'static` lifetime as the thread may outlive the lifetime in which `submit` is called.
 /// * The closure must be `Send` as it will be sent to another thread for execution.
@@ -29,7 +29,7 @@ pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
     }
 }
 
-/// Calls the closure on each element of the iterator in parallel.
+/// Calls the closure on each element of the iterator in parallel, waiting for all closures to finish.
 ///
 /// * The closure does not require `'static` lifetime since the `for_each` function bounds the lifetime of all submitted closures.
 /// * The closure must be `Sync` as multiple threads will refer to it.
@@ -68,7 +68,8 @@ fn check<D: Default + PartialEq>(result: D) -> D {
     result
 }
 
-// This function is `unsafe` as it cannot ensure that the lifetime of the closure is sufficient.
+// This function is `unsafe` as it cannot ensure that the lifetime of the closure is sufficient or
+// whether the `environment` pointer is valid.
 unsafe fn try_submit<F: FnOnce() + Send>(environment: *const TP_CALLBACK_ENVIRON_V3, f: F) {
     unsafe extern "system" fn callback<F: FnOnce() + Send>(
         _: PTP_CALLBACK_INSTANCE,

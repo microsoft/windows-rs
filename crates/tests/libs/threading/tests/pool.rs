@@ -72,3 +72,12 @@ fn single() {
     pool.join();
     assert_eq!(set.read().unwrap().len(), 1);
 }
+
+#[test]
+fn send_sync() {
+    fn send<T: Send>(_: T) {}
+    fn sync<T: Sync>(_: T) {}
+
+    send(windows_threading::Pool::new());
+    sync(windows_threading::Pool::new());
+}
