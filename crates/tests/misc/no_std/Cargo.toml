@@ -49,6 +49,10 @@ default-features = false
 path = "../../../libs/version"
 default-features = false
 
+[dependencies.windows-threading]
+path = "../../../libs/threading"
+default-features = false
+
 [dependencies.windows]
 path = "../../../libs/windows"
 default-features = false
