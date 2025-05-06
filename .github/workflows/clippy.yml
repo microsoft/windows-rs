@@ -58,6 +58,8 @@ jobs:
         run:  cargo clippy -p windows-sys
       - name: Check windows-targets
         run:  cargo clippy -p windows-targets
+      - name: Check windows-threading
+        run:  cargo clippy -p windows-threading
       - name: Check windows-version
         run:  cargo clippy -p windows-version
       - name: Check helpers
