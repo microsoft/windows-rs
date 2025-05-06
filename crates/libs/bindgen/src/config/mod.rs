@@ -89,7 +89,7 @@ impl<'a> Config<'a> {
 
         let trees = tree.flatten_trees();
 
-        windows_threading::for_each(trees.iter(), |tree| {
+        for_each(trees.iter(), |tree| {
             let directory = format!("{}/src/{}", &self.output, tree.namespace.replace('.', "/"));
 
             let mut tokens = TokenStream::new();
@@ -149,5 +149,20 @@ impl<'a> Config<'a> {
         }
 
         write_to_file(&toml_path, toml);
+    }
+}
+
+fn for_each<I, F, T>(i: I, f: F)
+where
+    I: Iterator<Item = T>,
+    F: Fn(T) + Sync,
+    T: Send,
+{
+    #[cfg(windows)]
+    windows_threading::for_each(i, f);
+
+    #[cfg(not(windows))]
+    for item in i {
+        f(item);
     }
 }
