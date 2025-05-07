@@ -1,3 +1,11 @@
+#![allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    dead_code,
+    clippy::all
+)]
+
 windows_link::link!("kernel32.dll" "system" fn CloseThreadpool(ptpp : PTP_POOL));
 windows_link::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : PTP_CLEANUP_GROUP));
 windows_link::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : PTP_CLEANUP_GROUP, fcancelpendingcallbacks : BOOL, pvcleanupcontext : *mut core::ffi::c_void));
