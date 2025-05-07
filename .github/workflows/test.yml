@@ -317,6 +317,8 @@ jobs:
         run:  cargo test -p test_sys --target ${{ matrix.target }}
       - name: Test test_targets
         run:  cargo test -p test_targets --target ${{ matrix.target }}
+      - name: Test test_threading
+        run:  cargo test -p test_threading --target ${{ matrix.target }}
       - name: Test test_unions
         run:  cargo test -p test_unions --target ${{ matrix.target }}
       - name: Test test_variant
@@ -363,10 +365,10 @@ jobs:
         run:  cargo test -p windows-collections --target ${{ matrix.target }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }}
-      - name: Test windows-ecma335
-        run:  cargo test -p windows-ecma335 --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test windows-ecma335
+        run:  cargo test -p windows-ecma335 --target ${{ matrix.target }}
       - name: Test windows-future
         run:  cargo test -p windows-future --target ${{ matrix.target }}
       - name: Test windows-implement
@@ -387,6 +389,8 @@ jobs:
         run:  cargo test -p windows-sys --target ${{ matrix.target }}
       - name: Test windows-targets
         run:  cargo test -p windows-targets --target ${{ matrix.target }}
+      - name: Test windows-threading
+        run:  cargo test -p windows-threading --target ${{ matrix.target }}
       - name: Test windows-version
         run:  cargo test -p windows-version --target ${{ matrix.target }}
       - name: Test windows_aarch64_gnullvm

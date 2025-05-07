@@ -1,0 +1,12 @@
+[package]
+name = "test_threading"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-threading]
+workspace = true

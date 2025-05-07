@@ -56,5 +56,7 @@ jobs:
         run:  cargo check -p windows-sys --no-default-features
       - name: Check windows-targets
         run:  cargo check -p windows-targets --no-default-features
+      - name: Check windows-threading
+        run:  cargo check -p windows-threading --no-default-features
       - name: Check windows-version
         run:  cargo check -p windows-version --no-default-features
