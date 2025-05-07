@@ -48,7 +48,7 @@ impl Pool {
     /// Dropping the `Pool` will also wait for all submissions to finish.
     pub fn join(&self) {
         unsafe {
-            CloseThreadpoolCleanupGroupMembers(self.0.CleanupGroup, 0, core::mem::zeroed());
+            CloseThreadpoolCleanupGroupMembers(self.0.CleanupGroup, 0, core::ptr::null_mut());
         }
     }
 }
