@@ -1,0 +1,14 @@
+## Windows services
+
+The [windows-services](https://crates.io/crates/windows-services) crate provides a simple and safe way to implement Windows services in Rust.
+
+* [Getting started](https://kennykerr.ca/rust-getting-started/)
+* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
+* [Releases](https://github.com/microsoft/windows-rs/releases)
+
+Start by adding the following to your Cargo.toml file:
+
+```toml
+[dependencies.windows-services]
+version = "0.0"
+```

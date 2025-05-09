@@ -1,0 +1,20 @@
+[package]
+name = "sample_service"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-services]
+workspace = true
+
+[dependencies.windows-threading]
+workspace = true
+
+[dependencies.windows-sys]
+workspace = true
+features = [
+    "Win32_System_Services",
+    "Win32_Storage_FileSystem",
+    "Win32_Security",
+    "Win32_System_IO",
+]

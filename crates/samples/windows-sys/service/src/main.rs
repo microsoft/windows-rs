@@ -67,7 +67,26 @@ fn main() {
 
     unsafe {
         if StartServiceCtrlDispatcherW(table.as_ptr()) == 0 {
-            println!("Use Service Control Manager to start service.")
+            println!(
+                r#"Use Service Control Manager to start service.
+
+Install:
+  > sc create rust binPath= "{}"
+
+Start:
+  > sc start rust
+
+Query status:
+  > sc query rust
+
+Stop:
+  > sc stop rust
+
+Delete (uninstall):
+  > sc delete rust
+"#,
+                std::env::current_exe().unwrap().display()
+            );
         }
     }
 
