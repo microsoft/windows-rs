@@ -47,9 +47,9 @@ windows-link = { version = "0.1.1", path = "crates/libs/link", default-features 
 windows-numerics = { version = "0.2.0", path = "crates/libs/numerics", default-features = false }
 windows-registry = { version = "0.5.1", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.3.2", path = "crates/libs/result", default-features = false }
+windows-services = { version = "0.0.0", path = "crates/libs/services", default-features = false }
 windows-strings = { version = "0.4.0", path = "crates/libs/strings", default-features = false }
 windows-sys = { version = "0.59.0", path = "crates/libs/sys", default-features = false }
 windows-targets = { version = "0.53.0", path = "crates/libs/targets", default-features = false }
 windows-threading = { version = "0.0.0", path = "crates/libs/threading", default-features = false }
-windows-services = { version = "0.0.0", path = "crates/libs/services", default-features = false }
 windows-version = { version = "0.1.4", path = "crates/libs/version", default-features = false }
