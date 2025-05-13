@@ -5,7 +5,7 @@ members = [
     "crates/samples/windows-sys/*",
     "crates/samples/windows/*",
     "crates/samples/components/*",
-    "crates/samples/libs/*",
+    "crates/samples/services/*",
     "crates/targets/*",
     "crates/tests/misc/*",
     "crates/tests/winrt/*",

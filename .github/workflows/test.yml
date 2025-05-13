@@ -131,8 +131,12 @@ jobs:
         run:  cargo test -p sample_privileges_sys --target ${{ matrix.target }}
       - name: Test sample_rss
         run:  cargo test -p sample_rss --target ${{ matrix.target }}
+      - name: Test sample_service_simple
+        run:  cargo test -p sample_service_simple --target ${{ matrix.target }}
       - name: Test sample_service_sys
         run:  cargo test -p sample_service_sys --target ${{ matrix.target }}
+      - name: Test sample_service_thread
+        run:  cargo test -p sample_service_thread --target ${{ matrix.target }}
       - name: Test sample_shell
         run:  cargo test -p sample_shell --target ${{ matrix.target }}
       - name: Test sample_simple
@@ -157,12 +161,12 @@ jobs:
         run:  cargo test -p test_agile --target ${{ matrix.target }}
       - name: Test test_agile_reference
         run:  cargo test -p test_agile_reference --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_alternate_success_code
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }}
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_arch_feature
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }}
       - name: Test test_array
@@ -259,12 +263,12 @@ jobs:
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_numerics
         run:  cargo test -p test_numerics --target ${{ matrix.target }}
       - name: Test test_overloads
@@ -361,12 +365,12 @@ jobs:
         run:  cargo test -p windows --target ${{ matrix.target }}
       - name: Test windows-bindgen
         run:  cargo test -p windows-bindgen --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows-collections
         run:  cargo test -p windows-collections --target ${{ matrix.target }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows-ecma335
         run:  cargo test -p windows-ecma335 --target ${{ matrix.target }}
       - name: Test windows-future
@@ -383,6 +387,8 @@ jobs:
         run:  cargo test -p windows-registry --target ${{ matrix.target }}
       - name: Test windows-result
         run:  cargo test -p windows-result --target ${{ matrix.target }}
+      - name: Test windows-services
+        run:  cargo test -p windows-services --target ${{ matrix.target }}
       - name: Test windows-strings
         run:  cargo test -p windows-strings --target ${{ matrix.target }}
       - name: Test windows-sys

@@ -12,3 +12,16 @@ Start by adding the following to your Cargo.toml file:
 [dependencies.windows-services]
 version = "0.0"
 ```
+
+Use the Windows services support as needed. Here is how you might write a simple Windows services process:
+
+```rust,no_run
+fn main() {
+    windows_services::Service::new()
+        .can_pause()
+        .can_stop()
+        .run(|command| {
+            // Respond to service commands...
+        })
+}
+```

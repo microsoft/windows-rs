@@ -72,6 +72,10 @@ jobs:
         run:  cargo check -p windows-result --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.74 && rustup default 1.74
+      - name: Check windows-services
+        run:  cargo check -p windows-services --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.74 && rustup default 1.74
       - name: Check windows-strings
         run:  cargo check -p windows-strings --all-features
       - name: Rust version
