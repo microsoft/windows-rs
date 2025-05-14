@@ -2,7 +2,7 @@ use super::*;
 
 /// A `Pool` object represents a private thread pool with its own thread limits.
 ///
-/// This is in constrast to the default, or shared, thread pool used by the crate's `submit` function
+/// This is in contrast to the default, or shared, thread pool used by the crate's `submit` function
 /// as well as other code within the same process.
 pub struct Pool(Box<TP_CALLBACK_ENVIRON_V3>);
 

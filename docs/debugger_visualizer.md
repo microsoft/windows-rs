@@ -18,7 +18,7 @@ The GNU debugger (GDB) supports defining custom debugger views using Pretty Prin
 Pretty printers are written as python scripts that describe how a type should be displayed
 when loaded up in GDB/LLDB. (See: https://sourceware.org/gdb/onlinedocs/gdb/Pretty-Printing.html#Pretty-Printing)
 The pretty printers provide patterns, which match type names, and for matching
-types, descibe how to display those types. (For writing a pretty printer, see: https://sourceware.org/gdb/onlinedocs/gdb/Writing-a-Pretty_002dPrinter.html#Writing-a-Pretty_002dPrinter).
+types, describe how to display those types. (For writing a pretty printer, see: https://sourceware.org/gdb/onlinedocs/gdb/Writing-a-Pretty_002dPrinter.html#Writing-a-Pretty_002dPrinter).
 
 ### Embedding Visualizers
 

@@ -66,7 +66,7 @@ fn to_object() {
 // This tests the behavior when dropping a StaticComObject. Since static variables are never
 // dropped, this isn't relevant to normal usage. However, if app code constructs a StaticComObject
 // in local variables (not statics) and them drops them, then we still need well-defined behavior.
-// Basically, we are testing that the refererence-count field does not panic when being dropped
+// Basically, we are testing that the reference-count field does not panic when being dropped
 // with a non-zero reference count.
 #[test]
 fn drop_half_constructed() {

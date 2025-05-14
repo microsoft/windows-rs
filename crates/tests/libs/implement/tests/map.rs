@@ -45,7 +45,7 @@ struct MapView();
 
 #[allow(non_snake_case)]
 impl IMapView_Impl<i32, f32> for MapView_Impl {
-    // TODO: shouldn't require & for primtiive
+    // TODO: shouldn't require `Ref` for primitive
     fn HasKey(&self, _key: Ref<i32>) -> Result<bool> {
         Ok(true)
     }

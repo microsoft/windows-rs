@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-// Note: this test purposefully does not use the `use` keyword to validate that hte implement macro
+// Note: this test purposefully does not use the `use` keyword to validate that the implement macro
 // doesn't rely on contextual names.
 
 #[windows::core::implement(windows::Foundation::{IStringable, IClosable})]
