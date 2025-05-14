@@ -24,7 +24,7 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows-services](https://crates.io/crates/windows-services) - Windows services.
 * [windows-strings](https://crates.io/crates/windows-strings) - Windows string types.
 * [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows (and the precursor to `windows-link` for older compilers).
-* [windows-threading](https://crates.io/crates/windows-threading) -Windows threading.
+* [windows-threading](https://crates.io/crates/windows-threading) - Windows threading.
 * [windows-version](https://crates.io/crates/windows-version) - Windows version information.
 
 * [cppwinrt](https://crates.io/crates/cppwinrt) - Bundles the C++/WinRT compiler for use in Rust.
