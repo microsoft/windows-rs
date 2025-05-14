@@ -15,13 +15,16 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows-bindgen](https://crates.io/crates/windows-bindgen) - Code generator for Windows metadata.
 * [windows-collections](https://crates.io/crates/windows-collections) - Windows collection types.
 * [windows-core](https://crates.io/crates/windows-core) - Core type support for COM and Windows.
+* [windows-metadata](https://crates.io/crates/windows-metadata) - Low-level metadata library for ECMA-335.
 * [windows-future](https://crates.io/crates/windows-future) - Windows async type support.
 * [windows-link](https://crates.io/crates/windows-link) - Linking for Windows.
 * [windows-numerics](https://crates.io/crates/windows-numerics) - Windows numeric types.
 * [windows-registry](https://crates.io/crates/windows-registry) - Windows registry.
 * [windows-result](https://crates.io/crates/windows-result) - Windows error handling.
+* [windows-services](https://crates.io/crates/windows-services) - Windows services.
 * [windows-strings](https://crates.io/crates/windows-strings) - Windows string types.
-* [windows-version](https://crates.io/crates/windows-version) - Windows version information.
 * [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows (and the precursor to `windows-link` for older compilers).
+* [windows-threading](https://crates.io/crates/windows-threading) -Windows threading.
+* [windows-version](https://crates.io/crates/windows-version) - Windows version information.
 
 * [cppwinrt](https://crates.io/crates/cppwinrt) - Bundles the C++/WinRT compiler for use in Rust.
