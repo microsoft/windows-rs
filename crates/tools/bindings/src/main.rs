@@ -15,6 +15,7 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/strings.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/version.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/threading.txt"]).unwrap();
+    bindgen(["--etc", "crates/tools/bindings/src/services.txt"]).unwrap();
 
     bindgen(["--etc", "crates/tools/bindings/src/sys.txt"]);
     bindgen(["--etc", "crates/tools/bindings/src/windows.txt"]);
