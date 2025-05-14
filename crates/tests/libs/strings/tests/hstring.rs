@@ -263,7 +263,7 @@ fn hstring_compat() -> Result<()> {
         // An HSTRING reference a.k.a. "fast pass" string is a kind of stack-based HSTRING used by C++ callers
         // to avoid the heap allocation in some cases. It's not used in Rust since it assumes a wide character
         // string literal, which is inconvenient to create in Rust. Here we again use raw bindings to make one
-        // and thereby excercise the windows::core::HSTRING support for HSTRING reference duplication.
+        // and thereby exercise the windows::core::HSTRING support for HSTRING reference duplication.
         let mut header: sys::HSTRING_HEADER = std::mem::zeroed();
         let mut stack_hstring: sys::HSTRING = std::mem::zeroed();
         let hresult = sys::WindowsCreateStringReference(
