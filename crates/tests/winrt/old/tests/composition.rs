@@ -87,7 +87,7 @@ fn composition() -> windows::core::Result<()> {
     visual.SetBrush(&brush)?;
 
     // Visual.brush returns a CompositionBrush but we know that it's actually a CompositionColorBrush
-    // and need to convert it excplicitly since Rust/WinRT doesn't know that.
+    // and need to convert it explicitly since Rust/WinRT doesn't know that.
     let brush: CompositionColorBrush = visual.Brush()?.cast()?;
     assert!(brush.Color()? == red);
 
