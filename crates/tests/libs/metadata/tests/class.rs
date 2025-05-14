@@ -1,4 +1,4 @@
-use windows_ecma335::*;
+use windows_metadata::*;
 
 #[test]
 fn test() {

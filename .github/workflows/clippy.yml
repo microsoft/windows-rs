@@ -36,8 +36,6 @@ jobs:
         run:  cargo clippy -p windows-collections
       - name: Check windows-core
         run:  cargo clippy -p windows-core
-      - name: Check windows-ecma335
-        run:  cargo clippy -p windows-ecma335
       - name: Check windows-future
         run:  cargo clippy -p windows-future
       - name: Check windows-implement
@@ -46,6 +44,8 @@ jobs:
         run:  cargo clippy -p windows-interface
       - name: Check windows-link
         run:  cargo clippy -p windows-link
+      - name: Check windows-metadata
+        run:  cargo clippy -p windows-metadata
       - name: Check windows-numerics
         run:  cargo clippy -p windows-numerics
       - name: Check windows-registry

@@ -1,8 +1,8 @@
 [package]
-name = "test_ecma335"
+name = "test_metadata"
 version = "0.0.0"
 edition = "2021"
 publish = false
 
-[dependencies.windows-ecma335]
+[dependencies.windows-metadata]
 workspace = true

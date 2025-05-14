@@ -34,8 +34,6 @@ jobs:
         run:  cargo check -p windows-collections --no-default-features
       - name: Check windows-core
         run:  cargo check -p windows-core --no-default-features
-      - name: Check windows-ecma335
-        run:  cargo check -p windows-ecma335 --no-default-features
       - name: Check windows-future
         run:  cargo check -p windows-future --no-default-features
       - name: Check windows-implement
@@ -44,6 +42,8 @@ jobs:
         run:  cargo check -p windows-interface --no-default-features
       - name: Check windows-link
         run:  cargo check -p windows-link --no-default-features
+      - name: Check windows-metadata
+        run:  cargo check -p windows-metadata --no-default-features
       - name: Check windows-numerics
         run:  cargo check -p windows-numerics --no-default-features
       - name: Check windows-registry
