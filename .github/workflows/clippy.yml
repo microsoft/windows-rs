@@ -52,6 +52,8 @@ jobs:
         run:  cargo clippy -p windows-registry
       - name: Check windows-result
         run:  cargo clippy -p windows-result
+      - name: Check windows-services
+        run:  cargo clippy -p windows-services
       - name: Check windows-strings
         run:  cargo clippy -p windows-strings
       - name: Check windows-sys
