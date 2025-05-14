@@ -1,5 +1,5 @@
 [package]
-name = "test_metadata"
+name = "test_struct_size"
 version = "0.0.0"
 edition = "2021"
 publish = false

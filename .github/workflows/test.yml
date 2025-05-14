@@ -215,8 +215,6 @@ jobs:
         run:  cargo test -p test_dispatch --target ${{ matrix.target }}
       - name: Test test_does_not_return
         run:  cargo test -p test_does_not_return --target ${{ matrix.target }}
-      - name: Test test_ecma335
-        run:  cargo test -p test_ecma335 --target ${{ matrix.target }}
       - name: Test test_enums
         run:  cargo test -p test_enums --target ${{ matrix.target }}
       - name: Test test_error
@@ -263,10 +261,10 @@ jobs:
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
       - name: Test test_numerics
@@ -315,6 +313,8 @@ jobs:
         run:  cargo test -p test_string_param --target ${{ matrix.target }}
       - name: Test test_strings
         run:  cargo test -p test_strings --target ${{ matrix.target }}
+      - name: Test test_struct_size
+        run:  cargo test -p test_struct_size --target ${{ matrix.target }}
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }}
       - name: Test test_sys
