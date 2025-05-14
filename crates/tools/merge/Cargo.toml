@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-windows-ecma335 = { workspace = true }
+windows-metadata = { workspace = true }

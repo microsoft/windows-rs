@@ -1,5 +1,5 @@
 [package]
-name = "windows-ecma335"
+name = "windows-metadata"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2021"

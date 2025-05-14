@@ -371,8 +371,6 @@ jobs:
         run:  cargo test -p windows-collections --target ${{ matrix.target }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }}
-      - name: Test windows-ecma335
-        run:  cargo test -p windows-ecma335 --target ${{ matrix.target }}
       - name: Test windows-future
         run:  cargo test -p windows-future --target ${{ matrix.target }}
       - name: Test windows-implement
@@ -381,6 +379,8 @@ jobs:
         run:  cargo test -p windows-interface --target ${{ matrix.target }}
       - name: Test windows-link
         run:  cargo test -p windows-link --target ${{ matrix.target }}
+      - name: Test windows-metadata
+        run:  cargo test -p windows-metadata --target ${{ matrix.target }}
       - name: Test windows-numerics
         run:  cargo test -p windows-numerics --target ${{ matrix.target }}
       - name: Test windows-registry
