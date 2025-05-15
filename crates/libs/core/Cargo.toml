@@ -1,6 +1,6 @@
 [package]
 name = "windows-core"
-version = "0.61.0"
+version = "0.61.1"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
