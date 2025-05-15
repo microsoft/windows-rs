@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-threading]
-version = "0.0"
+version = "0.1"
 ```
 
 Use the Windows threading support as needed. Here is how you might submit a closure to run on the default thread pool:
