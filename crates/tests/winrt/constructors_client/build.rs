@@ -16,7 +16,8 @@ fn main() {
         "test_constructors",
         "--no-comment",
         "--flat",
-    ]);
+    ])
+    .unwrap();
 
     let include = std::env::var("OUT_DIR").unwrap();
 

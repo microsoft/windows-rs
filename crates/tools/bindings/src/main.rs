@@ -17,8 +17,8 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/threading.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/services.txt"]).unwrap();
 
-    bindgen(["--etc", "crates/tools/bindings/src/sys.txt"]);
-    bindgen(["--etc", "crates/tools/bindings/src/windows.txt"]);
+    _ = bindgen(["--etc", "crates/tools/bindings/src/sys.txt"]);
+    _ = bindgen(["--etc", "crates/tools/bindings/src/windows.txt"]);
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

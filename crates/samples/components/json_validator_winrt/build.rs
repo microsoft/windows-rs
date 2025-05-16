@@ -31,5 +31,6 @@ fn main() {
         "Sample",
         "--flat",
         "--implement",
-    ]);
+    ])
+    .unwrap();
 }
