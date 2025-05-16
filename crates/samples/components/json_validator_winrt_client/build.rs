@@ -8,5 +8,6 @@ fn main() {
         "--filter",
         "Sample",
         "--flat",
-    ]);
+    ])
+    .unwrap();
 }

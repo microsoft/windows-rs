@@ -40,7 +40,8 @@ fn main() {
         "--no-comment",
         "--reference",
         "windows_collections,flat,Windows",
-    ]);
+    ])
+    .unwrap();
 
     let include = std::env::var("OUT_DIR").unwrap();
 

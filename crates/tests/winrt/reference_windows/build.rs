@@ -33,5 +33,6 @@ fn main() {
         "--no-comment",
         "--reference",
         "windows",
-    ]);
+    ])
+    .unwrap();
 }

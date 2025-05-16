@@ -38,7 +38,8 @@ fn main() {
         "--implement",
         "--flat",
         "--no-comment",
-    ]);
+    ])
+    .unwrap();
 
     let include = std::env::var("OUT_DIR").unwrap();
 

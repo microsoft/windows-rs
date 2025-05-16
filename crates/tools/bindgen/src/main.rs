@@ -6,11 +6,11 @@ use windows_bindgen::bindgen;
 fn test(args: &str) {
     let mut expand = vec!["--no-comment", "--in", "default", "--flat"];
     expand.extend(args.split_whitespace());
-    bindgen(expand);
+    _ = bindgen(expand);
 }
 
 fn test_raw(args: &str) {
-    bindgen(args.split_whitespace());
+    _ = bindgen(args.split_whitespace());
 }
 
 fn main() {

@@ -18,7 +18,7 @@ fn main() {
         panic!("Failed to run midlrt");
     }
 
-    windows_bindgen::bindgen([
+    _ = windows_bindgen::bindgen([
         "--in",
         "metadata.winmd",
         "../../../libs/bindgen/default",

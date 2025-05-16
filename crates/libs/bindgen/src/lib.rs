@@ -54,6 +54,7 @@ use method_names::*;
 
 /// The Windows code generator.
 #[track_caller]
+#[must_use]
 pub fn bindgen<I, S>(args: I) -> Warnings
 where
     I: IntoIterator<Item = S>,

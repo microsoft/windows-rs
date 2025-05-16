@@ -32,5 +32,6 @@ fn main() {
         "--implement",
         "--flat",
         "--no-comment",
-    ]);
+    ])
+    .unwrap();
 }

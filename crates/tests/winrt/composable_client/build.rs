@@ -16,7 +16,8 @@ fn main() {
         "test_composable",
         "--no-comment",
         "--flat",
-    ]);
+    ])
+    .unwrap();
 
     let include = std::env::var("OUT_DIR").unwrap();
 
