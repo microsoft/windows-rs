@@ -1,5 +1,5 @@
 #![doc = include_str!("../readme.md")]
-#![debugger_visualizer(natvis_file = "../.natvis")]
+#![debugger_visualizer(natvis_file = "../debug.natvis")]
 #![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
 #![cfg_attr(not(windows), allow(unused_imports))]
 
