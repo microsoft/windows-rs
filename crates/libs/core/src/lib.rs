@@ -1,7 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![doc(html_no_source)]
 #![allow(non_snake_case)]
-#![debugger_visualizer(natvis_file = "../.natvis")]
+#![debugger_visualizer(natvis_file = "../windows-core.natvis")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 #[cfg(windows)]
