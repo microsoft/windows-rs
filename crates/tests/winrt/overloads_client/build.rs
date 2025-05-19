@@ -9,5 +9,6 @@ fn main() {
         "test_overloads",
         "--no-comment",
         "--flat",
-    ]);
+    ])
+    .unwrap();
 }

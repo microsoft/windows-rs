@@ -228,7 +228,7 @@ fn write_win(output: &Path, filter: &[&str]) {
     args.extend_from_slice(&["--no-comment"]);
     args.extend_from_slice(&["--flat"]);
     println!("running: bindgen {}", args.join(" "));
-    windows_bindgen::bindgen(args);
+    _ = windows_bindgen::bindgen(args);
 }
 
 fn write_no_inner_attr(output: &Path, filter: &[&str]) {
@@ -246,5 +246,5 @@ fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
     args.extend_from_slice(&["--no-comment"]);
     args.extend_from_slice(config);
     println!("running: bindgen {}", args.join(" "));
-    windows_bindgen::bindgen(args);
+    _ = windows_bindgen::bindgen(args);
 }
