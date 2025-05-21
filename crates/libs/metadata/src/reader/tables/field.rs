@@ -6,12 +6,12 @@ impl std::fmt::Debug for Field<'_> {
     }
 }
 
-impl Field<'_> {
+impl<'a> Field<'a> {
     pub fn flags(&self) -> FieldAttributes {
         FieldAttributes(self.usize(0).try_into().unwrap())
     }
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'a str {
         self.str(1)
     }
 

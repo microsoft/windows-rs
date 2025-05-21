@@ -6,7 +6,7 @@ impl std::fmt::Debug for MethodDef<'_> {
     }
 }
 
-impl MethodDef<'_> {
+impl<'a> MethodDef<'a> {
     pub fn rva(&self) -> usize {
         self.usize(0)
     }
@@ -19,7 +19,7 @@ impl MethodDef<'_> {
         MethodAttributes(self.usize(2).try_into().unwrap())
     }
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'a str {
         self.str(3)
     }
 

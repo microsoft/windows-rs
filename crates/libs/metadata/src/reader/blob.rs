@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct Blob<'a> {
-    index: &'a Index,
+    index: &'a TypeIndex,
     file: usize,
     slice: &'a [u8],
 }
@@ -27,7 +27,7 @@ impl std::ops::Deref for Blob<'_> {
 }
 
 impl<'a> Blob<'a> {
-    pub fn new(index: &'a Index, file: usize, slice: &'a [u8]) -> Self {
+    pub fn new(index: &'a TypeIndex, file: usize, slice: &'a [u8]) -> Self {
         Self { index, file, slice }
     }
 

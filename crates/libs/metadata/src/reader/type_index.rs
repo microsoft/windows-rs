@@ -1,12 +1,12 @@
 use super::*;
 
-pub struct Index {
+pub struct TypeIndex {
     files: Vec<File>,
     types: HashMap<String, HashMap<String, Vec<(usize, usize)>>>,
     nested: HashMap<(usize, usize), Vec<usize>>,
 }
 
-impl Index {
+impl TypeIndex {
     pub fn read<P: AsRef<std::path::Path>>(path: P) -> Option<Self> {
         Some(Self::new(vec![File::read(path)?]))
     }
@@ -52,7 +52,21 @@ impl Index {
         &self.files[pos]
     }
 
-    pub fn all(&self) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef)> + '_ {
+        self.types
+            .iter()
+            .flat_map(|(namespace, types)| {
+                types
+                    .iter()
+                    .map(move |(name, types)| (namespace.as_str(), name.as_str(), types))
+            })
+            .flat_map(|(namespace, name, types)| types.iter().map(move |ty| (namespace, name, ty)))
+            .map(|(namespace, name, (file, pos))| {
+                (namespace, name, TypeDef(Row::new(self, *file, *pos)))
+            })
+    }
+
+    pub fn types(&self) -> impl Iterator<Item = TypeDef> + '_ {
         self.types
             .values()
             .flat_map(|types| types.values())
@@ -69,6 +83,7 @@ impl Index {
             .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
     }
 
+    #[track_caller]
     pub fn expect(&self, namespace: &str, name: &str) -> TypeDef {
         let mut iter = self.get(namespace, name);
 

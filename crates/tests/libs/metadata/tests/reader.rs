@@ -1,10 +1,10 @@
 use windows_metadata::*;
 
 #[test]
-fn test() {
-    let file = reader::Index::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
+fn type_index() {
+    let index = reader::TypeIndex::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
 
-    let def = file.expect("Windows.Foundation", "Point");
+    let def = index.expect("Windows.Foundation", "Point");
     assert_eq!(def.namespace(), "Windows.Foundation");
     assert_eq!(def.name(), "Point");
 
@@ -21,9 +21,49 @@ fn test() {
 }
 
 #[test]
+fn item_index() {
+    let index = reader::TypeIndex::new(vec![
+        reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
+        reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
+        reader::File::read("../../../libs/bindgen/default/Windows.Wdk.winmd").unwrap(),
+    ]);
+
+    let index = reader::ItemIndex::new(&index);
+
+    let reader::Item::Type(ty) = index.expect("Windows.Foundation", "Point") else {
+        panic!()
+    };
+    assert_eq!(ty.namespace(), "Windows.Foundation");
+    assert_eq!(ty.name(), "Point");
+
+    let reader::Item::Fn(function) = index.expect("Windows.Win32.Storage.FileSystem", "ReadFileEx")
+    else {
+        panic!()
+    };
+    assert_eq!(function.name(), "ReadFileEx");
+
+    let reader::Item::Const(constant) = index.expect("Windows.Win32.Foundation", "CONTROL_C_EXIT")
+    else {
+        panic!()
+    };
+    assert_eq!(constant.name(), "CONTROL_C_EXIT");
+
+    let reader::Item::Const(constant) =
+        index.expect("Windows.Win32.Foundation", "FACILITY_DEBUGGER")
+    else {
+        panic!()
+    };
+    assert_eq!(constant.name(), "FACILITY_DEBUGGER");
+}
+
+#[test]
 fn array() {
-    let file = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
-    let def = file.all().find(|def| def.name() == "VDMCONTEXT").unwrap();
+    let index =
+        reader::TypeIndex::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let def = index
+        .types()
+        .find(|def| def.name() == "VDMCONTEXT")
+        .unwrap();
 
     let field = def
         .fields()
