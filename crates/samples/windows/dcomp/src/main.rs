@@ -64,11 +64,11 @@ impl Window {
                 CoCreateInstance(&UIAnimationManager2, None, CLSCTX_INPROC_SERVER)?;
 
             use rand::{seq::*, *};
-            let mut rng = rand::thread_rng();
+            let mut rng = rand::rng();
             let mut values = [b'?'; CARD_ROWS * CARD_COLUMNS];
 
             for i in 0..values.len() / 2 {
-                let value = rng.gen_range(b'A'..=b'Z');
+                let value = rng.random_range(b'A'..=b'Z');
                 values[i * 2] = value;
                 values[i * 2 + 1] = value + b'a' - b'A';
             }
