@@ -19,7 +19,7 @@ Use the Windows metadata support as needed. Here is how you might use the reader
 ```rust,no_run
 use windows_metadata::*;
 
-let index = reader::Index::read("Windows.winmd").unwrap();
+let index = reader::TypeIndex::read("Windows.winmd").unwrap();
 
 let def = index.expect("Windows.Foundation", "Point");
 assert_eq!(def.namespace(), "Windows.Foundation");

@@ -1,7 +1,7 @@
 use super::*;
 
 pub trait Decode<'a> {
-    fn decode(index: &'a Index, file: usize, code: usize) -> Self;
+    fn decode(index: &'a TypeIndex, file: usize, code: usize) -> Self;
 }
 
 macro_rules! code {
@@ -11,7 +11,7 @@ macro_rules! code {
             $($table($table<'a>),)*
         }
         impl<'a> Decode<'a> for $name<'a> {
-            fn decode(index: &'a Index, file: usize, code: usize) -> Self {
+            fn decode(index: &'a TypeIndex, file: usize, code: usize) -> Self {
                 let (kind, row) = (code & ((1 << $size) - 1), (code >> $size) - 1);
                 match kind {
                     $($code => Self::$table($table(Row::new(index, file, row))),)*

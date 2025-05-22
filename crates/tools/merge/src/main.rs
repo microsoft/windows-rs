@@ -50,9 +50,9 @@ fn main() {
 
     let mut writer = writer::File::new(&name);
 
-    let index = reader::Index::new(input);
+    let index = reader::TypeIndex::new(input);
 
-    for ty in index.all() {
+    for ty in index.types() {
         write_type(&mut writer, &index, ty, None);
     }
 
@@ -102,7 +102,7 @@ fn expand_input(input: Vec<String>) -> Vec<reader::File> {
 
 fn write_type(
     writer: &mut writer::File,
-    index: &reader::Index,
+    index: &reader::TypeIndex,
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
 ) {
