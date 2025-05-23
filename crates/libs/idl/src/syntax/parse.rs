@@ -1,101 +1,129 @@
 use super::*;
 
-mod nom {
-    pub use ::nom::{
-        branch::*, bytes::complete::*, character::complete::*, combinator::*, multi::*,
-        sequence::*, *,
-    };
-}
+use nom::{
+    branch::*, bytes::complete::*, character::complete::*, combinator::*, multi::*, sequence::*, *,
+};
 
-use nom::Parser;
-
-fn parse_ident(input: &str) -> nom::IResult<&str, String> {
-    nom::map(
-        nom::recognize(nom::pair(
-            nom::alt((nom::alpha1, nom::tag("_"))),
-            nom::many0(nom::alt((nom::alphanumeric1, nom::tag("_")))),
-        )),
-        |s: &str| s.to_string(),
-    )
+fn parse_ident(input: &str) -> IResult<&str, String> {
+    recognize(pair(
+        alt((alpha1, tag("_"))),
+        many0(alt((alphanumeric1, tag("_")))),
+    ))
+    .map(|s: &str| s.to_string())
     .parse(input)
 }
 
-fn parse_type(input: &str) -> nom::IResult<&str, String> {
-    nom::recognize(nom::pair(
-        parse_ident,
-        nom::opt(nom::pair(nom::tag("*"), nom::multispace0)),
+fn parse_type(input: &str) -> IResult<&str, String> {
+    recognize(pair(parse_ident, opt(pair(tag("*"), multispace0))))
+        .map(|s: &str| s.replace(" ", "").to_string())
+        .parse(input)
+}
+
+fn parse_comment(input: &str) -> IResult<&str, String> {
+    alt((
+        // Single-line comment: // ... until newline or EOF
+        preceded(
+            tag("//"),
+            take_till(|c| c == '\n' || c == '\r').map(|s: &str| s.trim_end().to_string()),
+        ),
+        // Multi-line comment: /* ... */
+        delimited(
+            tag("/*"),
+            take_until("*/").map(|s: &str| s.to_string()),
+            tag("*/"),
+        ),
     ))
-    .map(|s: &str| s.replace(" ", "").to_string())
     .parse(input)
 }
 
 impl File {
-    pub fn parse(input: &str) -> nom::IResult<&str, Self> {
-        nom::map(
-            nom::many0(nom::preceded(nom::multispace0, Item::parse)),
-            |items| Self { items },
-        )
-        .parse(input)
+    pub fn parse(input: &str) -> IResult<&str, Self> {
+        many0(preceded(multispace0, Item::parse))
+            .map(|items| Self { items })
+            .parse(input)
     }
 }
 
 impl ItemEnum {
-    pub fn parse(input: &str) -> nom::IResult<&str, Self> {
-        todo!()
+    pub fn parse(input: &str) -> IResult<&str, Self> {
+        (
+            preceded(multispace0, tag("enum")),
+            preceded(multispace1, parse_ident),
+            delimited(
+                preceded(multispace0, tag("{")),
+                many0(preceded(
+                    multispace0,
+                    terminated(EnumVariant::parse, opt(preceded(multispace0, tag(",")))),
+                )),
+                preceded(multispace0, tag("}")),
+            ),
+        )
+            .map(|(_, name, variants)| Self { name, variants })
+            .parse(input)
+    }
+}
+
+impl EnumVariant {
+    pub fn parse(input: &str) -> IResult<&str, Self> {
+        (
+            preceded(multispace0, parse_ident),
+            opt(preceded(
+                preceded(multispace0, tag("=")),
+                preceded(multispace0, i64),
+            )),
+        )
+            .map(|(name, value)| Self { name, value })
+            .parse(input)
     }
 }
 
 impl ItemInterface {
-    pub fn parse(input: &str) -> nom::IResult<&str, Self> {
-        nom::map(
-            (
-                nom::preceded(nom::multispace0, nom::tag("interface")),
-                nom::preceded(nom::multispace1, parse_ident),
-                nom::delimited(
-                    nom::preceded(nom::multispace0, nom::tag("{")),
-                    nom::many0(Method::parse),
-                    nom::preceded(nom::multispace0, nom::tag("}")),
-                ),
+    fn parse(input: &str) -> IResult<&str, Self> {
+        (
+            preceded(multispace0, tag("interface")),
+            preceded(multispace1, parse_ident),
+            delimited(
+                preceded(multispace0, tag("{")),
+                many0(Method::parse),
+                preceded(multispace0, tag("}")),
             ),
-            |(_, name, methods)| Self { name, methods },
         )
-        .parse(input)
+            .map(|(_, name, methods)| Self { name, methods })
+            .parse(input)
     }
 }
 
-impl ItemStruct {
-    pub fn parse(input: &str) -> nom::IResult<&str, Self> {
-        todo!()
-    }
-}
+// impl ItemStruct {
+//     fn parse(_input: &str) -> IResult<&str, Self> {
+//         todo!()
+//     }
+// }
 
 impl Item {
-    pub fn parse(input: &str) -> nom::IResult<&str, Self> {
-        nom::alt((
-            nom::map(ItemInterface::parse, Self::Interface),
-            //    nom::map(ItemEnum::parse, Self::Enum),
+    fn parse(input: &str) -> IResult<&str, Self> {
+        alt((
+            map(ItemInterface::parse, Self::Interface),
+            map(ItemEnum::parse, Self::Enum),
+            map(parse_comment, Self::Comment),
         ))
         .parse(input)
     }
 }
 
 impl Method {
-    pub fn parse(input: &str) -> nom::IResult<&str, Self> {
+    fn parse(input: &str) -> IResult<&str, Self> {
         (
-            nom::preceded(nom::multispace0, parse_type),
-            nom::preceded(nom::multispace1, parse_ident),
-            nom::delimited(
-                nom::preceded(nom::multispace0, nom::tag("(")),
-                nom::many0(nom::preceded(
-                    nom::multispace0,
-                    nom::terminated(
-                        Param::parse,
-                        nom::opt(nom::preceded(nom::multispace0, nom::tag(","))),
-                    ),
+            preceded(multispace0, parse_type),
+            preceded(multispace1, parse_ident),
+            delimited(
+                preceded(multispace0, tag("(")),
+                many0(preceded(
+                    multispace0,
+                    terminated(Param::parse, opt(preceded(multispace0, tag(",")))),
                 )),
-                nom::preceded(nom::multispace0, nom::tag(")")),
+                preceded(multispace0, tag(")")),
             ),
-            nom::preceded(nom::multispace0, nom::tag(";")),
+            preceded(multispace0, tag(";")),
         )
             .map(|(return_type, name, params, _)| Self {
                 return_type,
@@ -107,10 +135,10 @@ impl Method {
 }
 
 impl Param {
-    pub fn parse(input: &str) -> nom::IResult<&str, Self> {
+    fn parse(input: &str) -> IResult<&str, Self> {
         (
-            nom::preceded(nom::multispace0, parse_type),
-            nom::preceded(nom::multispace1, parse_ident),
+            preceded(multispace0, parse_type),
+            preceded(multispace1, parse_ident),
         )
             .map(|(ty, name)| Self { ty, name })
             .parse(input)

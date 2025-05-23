@@ -1,3 +1,15 @@
 interface IStringable {
     String ToString();
 }
+
+enum Constants {
+    Zero,
+    One,
+    Thirteen = 13,
+    Fourteen,
+}
+
+// Comment
+
+/* Another comment */
+

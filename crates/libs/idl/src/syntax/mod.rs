@@ -5,7 +5,8 @@ pub struct File {
 }
 
 pub struct ItemEnum {
-    pub ident: String,
+    pub name: String,
+    pub variants: Vec<EnumVariant>,
 }
 
 pub struct ItemInterface {
@@ -14,13 +15,15 @@ pub struct ItemInterface {
 }
 
 pub struct ItemStruct {
-    pub ident: String,
+    pub name: String,
 }
 
 pub enum Item {
     Enum(ItemEnum),
     Interface(ItemInterface),
     Struct(ItemStruct),
+    Comment(String),
+    Import(ItemImport),
 }
 
 pub struct Method {
@@ -32,4 +35,13 @@ pub struct Method {
 pub struct Param {
     pub name: String,
     pub ty: String,
+}
+
+pub struct EnumVariant {
+    pub name: String,
+    pub value: Option<i64>,
+}
+
+pub struct ItemImport {
+    pub name: String,
 }
