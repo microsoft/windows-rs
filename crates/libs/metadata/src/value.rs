@@ -38,3 +38,24 @@ impl Value {
         }
     }
 }
+
+impl std::fmt::Display for Value {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Bool(value) => write!(f, "{value}"),
+            Self::U8(value) => write!(f, "{value}"),
+            Self::I8(value) => write!(f, "{value}"),
+            Self::U16(value) => write!(f, "{value}"),
+            Self::I16(value) => write!(f, "{value}"),
+            Self::U32(value) => write!(f, "{value}"),
+            Self::I32(value) => write!(f, "{value}"),
+            Self::U64(value) => write!(f, "{value}"),
+            Self::I64(value) => write!(f, "{value}"),
+            Self::F32(value) => write!(f, "{value}"),
+            Self::F64(value) => write!(f, "{value}"),
+            Self::Utf8(value) => write!(f, "{value}"),
+            Self::Utf16(value) => write!(f, "{value}"),
+            rest => panic!("{rest:?}"),
+        }
+    }
+}

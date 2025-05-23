@@ -1,0 +1,12 @@
+[package]
+name = "test_idl"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-idl]
+workspace = true

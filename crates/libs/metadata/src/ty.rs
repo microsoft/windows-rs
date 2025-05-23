@@ -55,3 +55,29 @@ impl Type {
         }
     }
 }
+
+impl std::fmt::Display for Type {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Void => write!(f, "c_void"),
+            Self::Bool => write!(f, "bool"),
+            Self::Char => write!(f, "u16"),
+            Self::I8 => write!(f, "i8"),
+            Self::U8 => write!(f, "u8"),
+            Self::I16 => write!(f, "i16"),
+            Self::U16 => write!(f, "u16"),
+            Self::I32 => write!(f, "i32"),
+            Self::U32 => write!(f, "u32"),
+            Self::I64 => write!(f, "i64"),
+            Self::U64 => write!(f, "u64"),
+            Self::F32 => write!(f, "f32"),
+            Self::F64 => write!(f, "f64"),
+            Self::ISize => write!(f, "isize"),
+            Self::USize => write!(f, "usize"),
+            Self::String => write!(f, "String"),
+            Self::Object => write!(f, "IInspectable"),
+            Self::Name(tn) => write!(f, "{tn}"),
+            rest => panic!("{rest:?}"),
+        }
+    }
+}

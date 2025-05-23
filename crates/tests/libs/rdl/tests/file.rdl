@@ -1,0 +1,16 @@
+struct Point {
+    X: f32,
+    Y: f32,
+}
+
+interface IStringable {
+    fn ToString() -> String;
+}
+
+#[repr(i32)]
+enum AsyncStatus {
+    Canceled = 2,
+    Completed = 1,
+    Error = 3,
+    Started = 0,
+}

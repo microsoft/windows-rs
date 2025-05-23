@@ -53,3 +53,6 @@ windows-sys = { version = "0.59.0", path = "crates/libs/sys", default-features =
 windows-targets = { version = "0.53.0", path = "crates/libs/targets", default-features = false }
 windows-threading = { version = "0.1.0", path = "crates/libs/threading", default-features = false }
 windows-version = { version = "0.1.4", path = "crates/libs/version", default-features = false }
+
+windows-idl = { version = "0.0.0", path = "crates/libs/idl", default-features = false }
+windows-rdl = { version = "0.0.0", path = "crates/libs/rdl", default-features = false }
