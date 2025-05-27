@@ -1,3 +1,7 @@
+
+import "EventToken.idl";
+
+[uuid]
 interface IStringable {
     String ToString();
 }

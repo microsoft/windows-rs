@@ -5,5 +5,6 @@ fn test() {
     let file = std::fs::read_to_string("tests/file.idl").unwrap();
     let file = idl::parse(&file).unwrap();
 
-    assert_eq!(file.1.items.len(), 4);
+    assert_eq!(file.0.trim(), "");
+    assert_eq!(file.1.items.len(), 5);
 }

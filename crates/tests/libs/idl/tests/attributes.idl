@@ -1,0 +1,30 @@
+
+[one]
+interface One {
+}
+
+[one(value)]
+interface Two {
+}
+
+[one, two]
+interface Three {
+}
+
+[one]
+[two]
+interface Four {
+}
+
+[one, two(value), three(name=value)]
+interface Five {
+}
+
+interface Six {
+
+}
+
+[uuid(41f3632b-5ef4-404f-ad82-2d606c5a9a21), object, pointer_default(unique)]
+interface Seven {
+
+}

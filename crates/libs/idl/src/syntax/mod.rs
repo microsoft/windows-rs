@@ -1,47 +1,69 @@
 mod parse;
 
+#[derive(Debug)]
 pub struct File {
     pub items: Vec<Item>,
 }
 
-pub struct ItemEnum {
+#[derive(Debug)]
+pub struct Enum {
     pub name: String,
     pub variants: Vec<EnumVariant>,
 }
 
-pub struct ItemInterface {
+#[derive(Debug)]
+pub struct Interface {
+    pub attributes: Vec<Attribute>,
     pub name: String,
     pub methods: Vec<Method>,
 }
 
-pub struct ItemStruct {
+#[derive(Debug)]
+pub struct Struct {
     pub name: String,
 }
 
+#[derive(Debug)]
 pub enum Item {
-    Enum(ItemEnum),
-    Interface(ItemInterface),
-    Struct(ItemStruct),
+    Enum(Enum),
+    Interface(Interface),
+    Struct(Struct),
     Comment(String),
-    Import(ItemImport),
+    Import(Import),
 }
 
+#[derive(Debug)]
 pub struct Method {
     pub name: String,
     pub return_type: String,
     pub params: Vec<Param>,
 }
 
+#[derive(Debug)]
 pub struct Param {
     pub name: String,
     pub ty: String,
 }
 
+#[derive(Debug)]
 pub struct EnumVariant {
     pub name: String,
     pub value: Option<i64>,
 }
 
-pub struct ItemImport {
+#[derive(Debug)]
+pub struct Import {
     pub name: String,
+}
+
+// #[derive(Debug)]
+// pub struct Library {
+//     pub name: String,
+//     pub attributes: Vec<Attribute>,
+// }
+
+#[derive(Debug)]
+pub struct Attribute {
+    pub name: String,
+    pub parameters: Vec<(String, String)>,
 }

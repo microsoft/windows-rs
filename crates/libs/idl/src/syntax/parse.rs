@@ -36,6 +36,16 @@ fn parse_comment(input: &str) -> IResult<&str, String> {
     .parse(input)
 }
 
+fn parse_value(input: &str) -> IResult<&str, String> {
+    alt((
+        // Quoted string (e.g., "1234-ABCD")
+        delimited(tag("\""), take_till(|c| c == '"'), tag("\"")).map(|s: &str| s.to_string()),
+        // General token (e.g., 41f3632b-5ef4-404f-ad82-2d606c5a9a21, unique, 1234)
+        take_while1(|c: char| !",()[]={}; \t\n\r".contains(c)).map(|s: &str| s.to_string()),
+    ))
+    .parse(input)
+}
+
 impl File {
     pub fn parse(input: &str) -> IResult<&str, Self> {
         many0(preceded(multispace0, Item::parse))
@@ -44,7 +54,7 @@ impl File {
     }
 }
 
-impl ItemEnum {
+impl Enum {
     pub fn parse(input: &str) -> IResult<&str, Self> {
         (
             preceded(multispace0, tag("enum")),
@@ -77,9 +87,10 @@ impl EnumVariant {
     }
 }
 
-impl ItemInterface {
+impl Interface {
     fn parse(input: &str) -> IResult<&str, Self> {
         (
+            Attribute::parse,
             preceded(multispace0, tag("interface")),
             preceded(multispace1, parse_ident),
             delimited(
@@ -88,23 +99,90 @@ impl ItemInterface {
                 preceded(multispace0, tag("}")),
             ),
         )
-            .map(|(_, name, methods)| Self { name, methods })
+            .map(|(attributes, _, name, methods)| Self {
+                attributes,
+                name,
+                methods,
+            })
             .parse(input)
     }
 }
 
-// impl ItemStruct {
+impl Import {
+    fn parse(input: &str) -> IResult<&str, Self> {
+        (
+            preceded(multispace0, tag("import")),
+            preceded(
+                multispace0,
+                delimited(
+                    tag("\""),
+                    take_till(|c| c == '"').map(|s: &str| s.to_string()),
+                    tag("\""),
+                ),
+            ),
+            preceded(multispace0, tag(";")),
+        )
+            .map(|(_, name, _)| Self { name })
+            .parse(input)
+    }
+}
+
+// impl Struct {
 //     fn parse(_input: &str) -> IResult<&str, Self> {
 //         todo!()
 //     }
 // }
 
+impl Attribute {
+    fn parse_one(input: &str) -> IResult<&str, Self> {
+        (
+            preceded(multispace0, parse_ident),
+            opt(delimited(
+                preceded(multispace0, tag("(")),
+                separated_list0(
+                    preceded(multispace0, tag(",")),
+                    preceded(
+                        multispace0,
+                        alt((
+                            // name=value
+                            (parse_ident, preceded(multispace0, tag("=")), parse_value)
+                                .map(|(name, _, value)| (name, value)),
+                            // Simple value
+                            parse_value.map(|value| ("".to_string(), value)),
+                        )),
+                    ),
+                ),
+                preceded(multispace0, tag(")")),
+            )),
+        )
+            .map(|(name, params_opt)| Attribute {
+                name,
+                parameters: params_opt.unwrap_or_default(),
+            })
+            .parse(input)
+    }
+
+    fn parse(input: &str) -> IResult<&str, Vec<Self>> {
+        many0(delimited(
+            preceded(multispace0, tag("[")),
+            separated_list0(
+                preceded(multispace0, tag(",")),
+                preceded(multispace0, Self::parse_one),
+            ),
+            preceded(multispace0, tag("]")),
+        ))
+        .map(|attr_lists| attr_lists.into_iter().flatten().collect())
+        .parse(input)
+    }
+}
+
 impl Item {
     fn parse(input: &str) -> IResult<&str, Self> {
         alt((
-            map(ItemInterface::parse, Self::Interface),
-            map(ItemEnum::parse, Self::Enum),
+            map(Interface::parse, Self::Interface),
+            map(Enum::parse, Self::Enum),
             map(parse_comment, Self::Comment),
+            map(Import::parse, Self::Import),
         ))
         .parse(input)
     }
