@@ -1,0 +1,13 @@
+interface Interface {
+    void One();
+    void Two();
+    void Three();
+
+  HRESULT CreateWebResourceRequest(
+      [in] LPCWSTR uri,
+      [in] LPCWSTR Method,
+      [in] IStream* postData,
+      [in] LPCWSTR Headers
+      , [out, retval] ICoreWebView2WebResourceRequest** value);
+
+}

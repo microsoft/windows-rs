@@ -1,7 +1,9 @@
 #![doc = include_str!("../readme.md")]
 
-pub mod syntax;
+mod syntax;
 
-pub fn parse(s: &str) -> nom::IResult<&str, syntax::File> {
-    syntax::File::parse(s)
+pub use syntax::*;
+
+pub fn parse(s: &str) -> nom::IResult<&str, File> {
+    File::parse(s)
 }

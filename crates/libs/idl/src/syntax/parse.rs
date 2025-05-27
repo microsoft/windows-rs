@@ -14,8 +14,8 @@ fn parse_ident(input: &str) -> IResult<&str, String> {
 }
 
 fn parse_type(input: &str) -> IResult<&str, String> {
-    recognize(pair(parse_ident, opt(pair(tag("*"), multispace0))))
-        .map(|s: &str| s.replace(" ", "").to_string())
+    recognize(pair(parse_ident, many0(tag("*"))))
+        .map(|s: &str| s.to_string())
         .parse(input)
 }
 
@@ -215,10 +215,15 @@ impl Method {
 impl Param {
     fn parse(input: &str) -> IResult<&str, Self> {
         (
+            Attribute::parse,
             preceded(multispace0, parse_type),
             preceded(multispace1, parse_ident),
         )
-            .map(|(ty, name)| Self { ty, name })
+            .map(|(attributes, ty, name)| Self {
+                attributes,
+                ty,
+                name,
+            })
             .parse(input)
     }
 }

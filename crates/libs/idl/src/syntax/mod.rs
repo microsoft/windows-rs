@@ -41,6 +41,7 @@ pub struct Method {
 
 #[derive(Debug)]
 pub struct Param {
+    pub attributes: Vec<Attribute>,
     pub name: String,
     pub ty: String,
 }
