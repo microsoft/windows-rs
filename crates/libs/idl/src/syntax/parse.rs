@@ -55,12 +55,12 @@ fn parse_value(input: &str) -> IResult<&str, String> {
 
 impl File {
     pub fn parse(input: &str) -> IResult<&str, Self> {
-terminated(
-        many0(preceded(parse_whitespace0, Item::parse)),
-        parse_whitespace0,
-    )
-    .map(|items| File { items })
-    .parse(input)
+        terminated(
+            many0(preceded(parse_whitespace0, Item::parse)),
+            parse_whitespace0,
+        )
+        .map(|items| File { items })
+        .parse(input)
     }
 }
 
@@ -73,7 +73,10 @@ impl Enum {
                 preceded(parse_whitespace0, tag("{")),
                 many0(preceded(
                     parse_whitespace0,
-                    terminated(EnumVariant::parse, opt(preceded(parse_whitespace0, tag(",")))),
+                    terminated(
+                        EnumVariant::parse,
+                        opt(preceded(parse_whitespace0, tag(","))),
+                    ),
                 )),
                 preceded(parse_whitespace0, tag("}")),
             ),
@@ -103,15 +106,27 @@ impl Interface {
             Attribute::parse,
             preceded(parse_whitespace0, tag("interface")),
             preceded(parse_whitespace1, parse_ident),
+            opt(preceded(
+                preceded(parse_whitespace0, tag(":")),
+                separated_list1(
+                    preceded(parse_whitespace0, tag(",")),
+                    preceded(
+                        parse_whitespace0,
+                        (Attribute::parse, parse_type)
+                            .map(|(attributes, name)| InterfaceImpl { attributes, name }),
+                    ),
+                ),
+            )),
             delimited(
                 preceded(parse_whitespace0, tag("{")),
                 many0(Method::parse),
                 preceded(parse_whitespace0, tag("}")),
             ),
         )
-            .map(|(attributes, _, name, methods)| Self {
+            .map(|(attributes, _, name, implements, methods)| Self {
                 attributes,
                 name,
+                implements: implements.unwrap_or_default(),
                 methods,
             })
             .parse(input)
@@ -155,7 +170,11 @@ impl Attribute {
                         parse_whitespace0,
                         alt((
                             // name=value
-                            (parse_ident, preceded(parse_whitespace0, tag("=")), parse_value)
+                            (
+                                parse_ident,
+                                preceded(parse_whitespace0, tag("=")),
+                                parse_value,
+                            )
                                 .map(|(name, _, value)| (name, value)),
                             // Simple value
                             parse_value.map(|value| ("".to_string(), value)),

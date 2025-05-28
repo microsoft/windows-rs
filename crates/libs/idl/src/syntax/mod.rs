@@ -15,7 +15,14 @@ pub struct Enum {
 pub struct Interface {
     pub attributes: Vec<Attribute>,
     pub name: String,
+    pub implements: Vec<InterfaceImpl>,
     pub methods: Vec<Method>,
+}
+
+#[derive(Debug)]
+pub struct InterfaceImpl {
+    pub attributes: Vec<Attribute>,
+    pub name: String,
 }
 
 #[derive(Debug)]

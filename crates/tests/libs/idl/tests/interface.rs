@@ -13,4 +13,7 @@ fn test() {
     };
 
     assert_eq!(ty.methods.len(), 1);
+
+    assert_eq!(ty.name, "ICoreWebView2Environment2");
+    assert_eq!(ty.implements[0].name, "ICoreWebView2Environment");
 }
