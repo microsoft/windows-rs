@@ -27,8 +27,17 @@ pub struct InterfaceImpl {
 }
 
 #[derive(Debug)]
-pub struct Struct {
+pub struct StructField {
+    pub attributes: Vec<Attribute>,
+    pub field_type: String,
     pub name: String,
+}
+
+#[derive(Debug)]
+pub struct Struct {
+pub attributes: Vec<Attribute>,
+    pub name: String,
+    pub fields: Vec<StructField>,
 }
 
 #[derive(Debug)]

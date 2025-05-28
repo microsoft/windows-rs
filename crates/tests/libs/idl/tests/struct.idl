@@ -1,0 +1,14 @@
+/// A value representing RGBA color (Red, Green, Blue, Alpha) for WebView2.
+/// Each component takes a value from 0 to 255, with 0 being no intensity
+/// and 255 being the highest intensity.
+typedef struct COREWEBVIEW2_COLOR {
+  /// Specifies the intensity of the Alpha ie. opacity value. 0 is transparent,
+  /// 255 is opaque.
+  BYTE A;
+  /// Specifies the intensity of the Red color.
+  BYTE R;
+  /// Specifies the intensity of the Green color.
+  BYTE G;
+  /// Specifies the intensity of the Blue color.
+  BYTE B;
+} COREWEBVIEW2_COLOR;

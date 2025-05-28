@@ -180,11 +180,79 @@ impl Import {
     }
 }
 
-// impl Struct {
-//     fn parse(_input: &str) -> IResult<&str, Self> {
-//         todo!()
-//     }
-// }
+impl Struct {
+    fn parse(input: &str) -> IResult<&str, Self> {
+            alt((
+        // Regular format: struct NAME { ... };
+        (
+            Attribute::parse,
+            preceded(parse_whitespace0, tag("struct")),
+            preceded(parse_whitespace1, parse_ident),
+            delimited(
+                preceded(parse_whitespace0, tag("{")),
+                many0(preceded(
+                    parse_whitespace0,
+                    terminated(
+                        (
+                            Attribute::parse,
+                            preceded(parse_whitespace0, parse_type),
+                            preceded(parse_whitespace1, parse_ident),
+                        )
+                        .map(|(attributes, field_type, name)| StructField {
+                            attributes,
+                            field_type,
+                            name,
+                        }),
+                        preceded(parse_whitespace0, tag(";")),
+                    ),
+                )),
+                preceded(parse_whitespace0, tag("}")),
+            ),
+            preceded(parse_whitespace0, tag(";")),
+        )
+            .map(|(attributes, _, name, fields, _)| Struct {
+                attributes,
+                name,
+                fields,
+            }),
+        // C-style format: typedef struct IGNORE { ... } NAME;
+        (
+            Attribute::parse,
+            preceded(parse_whitespace0, tag("typedef")),
+            preceded(parse_whitespace1, tag("struct")),
+            preceded(parse_whitespace1, parse_ident), // IGNORE (ignored)
+            delimited(
+                preceded(parse_whitespace0, tag("{")),
+                many0(preceded(
+                    parse_whitespace0,
+                    terminated(
+                        (
+                            Attribute::parse,
+                            preceded(parse_whitespace0, parse_type),
+                            preceded(parse_whitespace1, parse_ident),
+                        )
+                        .map(|(attributes, field_type, name)| StructField {
+                            attributes,
+                            field_type,
+                            name,
+                        }),
+                        preceded(parse_whitespace0, tag(";")),
+                    ),
+                )),
+                preceded(parse_whitespace0, tag("}")),
+            ),
+            preceded(parse_whitespace1, parse_ident), // NAME
+            preceded(parse_whitespace0, tag(";")),
+        )
+            .map(|(attributes, _, _, _, fields, name, _)| Struct {
+                attributes,
+                name,
+                fields,
+            }),
+    ))
+    .parse(input)
+    }
+}
 
 impl Attribute {
     fn parse_one(input: &str) -> IResult<&str, Self> {
@@ -239,6 +307,7 @@ impl Item {
             map(Interface::parse, Self::Interface),
             map(Enum::parse, Self::Enum),
             map(Import::parse, Self::Import),
+            map(Struct::parse, Self::Struct),
         ))
         .parse(input)
     }
