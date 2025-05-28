@@ -7,6 +7,7 @@ pub struct File {
 
 #[derive(Debug)]
 pub struct Enum {
+    pub attributes: Vec<Attribute>,
     pub name: String,
     pub variants: Vec<EnumVariant>,
 }

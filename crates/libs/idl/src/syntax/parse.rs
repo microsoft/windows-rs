@@ -66,23 +66,51 @@ impl File {
 
 impl Enum {
     pub fn parse(input: &str) -> IResult<&str, Self> {
+alt((
+        // Regular format: enum NAME { ... };
         (
+            Attribute::parse,
             preceded(parse_whitespace0, tag("enum")),
             preceded(parse_whitespace1, parse_ident),
             delimited(
                 preceded(parse_whitespace0, tag("{")),
                 many0(preceded(
                     parse_whitespace0,
-                    terminated(
-                        EnumVariant::parse,
-                        opt(preceded(parse_whitespace0, tag(","))),
-                    ),
+                    terminated(EnumVariant::parse, opt(preceded(parse_whitespace0, tag(",")))),
                 )),
                 preceded(parse_whitespace0, tag("}")),
             ),
+            preceded(parse_whitespace0, tag(";")),
         )
-            .map(|(_, name, variants)| Self { name, variants })
-            .parse(input)
+            .map(|(attributes, _, name, variants, _)| Enum {
+                attributes,
+                name,
+                variants,
+            }),
+        // C-style format: typedef enum IGNORE_THIS { ... } NAME;
+        (
+            Attribute::parse,
+            preceded(parse_whitespace0, tag("typedef")),
+            preceded(parse_whitespace1, tag("enum")),
+            preceded(parse_whitespace1, parse_ident), // IGNORE_THIS (ignored)
+            delimited(
+                preceded(parse_whitespace0, tag("{")),
+                many0(preceded(
+                    parse_whitespace0,
+                    terminated(EnumVariant::parse, opt(preceded(parse_whitespace0, tag(",")))),
+                )),
+                preceded(parse_whitespace0, tag("}")),
+            ),
+            preceded(parse_whitespace1, parse_ident), // NAME
+            preceded(parse_whitespace0, tag(";")),
+        )
+            .map(|(attributes, _, _, _, variants, name, _)| Enum {
+                attributes,
+                name,
+                variants,
+            }),
+    ))
+    .parse(input)
     }
 }
 

@@ -1,0 +1,13 @@
+/// Specifies the image format for the `ICoreWebView2::CapturePreview` method.
+[v1_enum]
+typedef enum COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT {
+  /// Indicates that the PNG image format is used.
+  COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_PNG,
+  /// Indicates the JPEG image format is used.
+  COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_JPEG,
+} COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT;
+
+enum FOO {
+    One = 1,
+    Two = 2,
+};
