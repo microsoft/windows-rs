@@ -1,0 +1,25 @@
+
+import "EventToken.idl";
+
+[uuid]
+interface IStringable {
+    String ToString();
+}
+
+
+[uuid(26d34152-879f-4065-bea2-3daa2cfadfb8), version(1.0)]
+library WebView2 {
+
+enum Constants {
+    Zero,
+    One,
+    Thirteen = 13,
+    Fourteen,
+};
+
+// Comment
+
+}
+
+/* Another comment */
+

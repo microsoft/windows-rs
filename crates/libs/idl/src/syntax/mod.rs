@@ -6,6 +6,13 @@ pub struct File {
 }
 
 #[derive(Debug)]
+pub struct Library {
+    pub attributes: Vec<Attribute>,
+    pub name: String,
+    pub items: Vec<Item>,
+}
+
+#[derive(Debug)]
 pub struct Enum {
     pub attributes: Vec<Attribute>,
     pub name: String,
@@ -46,6 +53,7 @@ pub enum Item {
     Interface(Interface),
     Struct(Struct),
     Import(Import),
+    Library(Library),
 }
 
 #[derive(Debug)]

@@ -64,6 +64,27 @@ impl File {
     }
 }
 
+impl Library {
+    pub fn parse(input: &str) -> IResult<&str, Self> {
+    (
+        Attribute::parse,
+        preceded(parse_whitespace0, tag("library")),
+        preceded(parse_whitespace1, parse_ident),
+        delimited(
+            preceded(parse_whitespace0, tag("{")),
+            many0(preceded(parse_whitespace0, Item::parse)),
+            preceded(parse_whitespace0, tag("}")),
+        ),
+    )
+    .map(|(attributes, _, name, items)| Library {
+        attributes,
+        name,
+        items,
+    })
+    .parse(input)
+    }
+}
+
 impl Enum {
     pub fn parse(input: &str) -> IResult<&str, Self> {
 alt((
@@ -308,6 +329,7 @@ impl Item {
             map(Enum::parse, Self::Enum),
             map(Import::parse, Self::Import),
             map(Struct::parse, Self::Struct),
+            map(Library::parse, Self::Library),
         ))
         .parse(input)
     }
