@@ -1,0 +1,22 @@
+/// A continuation of the ICoreWebView2Environment interface.
+[uuid(41f3632b-5ef4-404f-ad82-2d606c5a9a21), object, pointer_default(unique)]
+interface ICoreWebView2Environment2 : ICoreWebView2Environment {
+  /// Create a new web resource request object.
+  /// URI parameter must be absolute URI.
+  /// The headers string is the raw request header string delimited by CRLF
+  /// (optional in last header).
+  /// It's also possible to create this object with null headers string
+  /// and then use the ICoreWebView2HttpRequestHeaders to construct the headers
+  /// line by line.
+  /// For information on other parameters see ICoreWebView2WebResourceRequest.
+  /// 
+  /// \snippet ScenarioNavigateWithWebResourceRequest.cpp NavigateWithWebResourceRequest
+  HRESULT CreateWebResourceRequest(
+      [in] LPCWSTR uri,
+      [in] LPCWSTR Method,
+      [in] IStream* postData,
+      [in] LPCWSTR Headers
+      , [out, retval] ICoreWebView2WebResourceRequest** value);
+
+
+}

@@ -19,20 +19,27 @@ fn parse_type(input: &str) -> IResult<&str, String> {
         .parse(input)
 }
 
-fn parse_comment(input: &str) -> IResult<&str, String> {
-    alt((
-        // Single-line comment: // ... until newline or EOF
-        preceded(
-            tag("//"),
-            take_till(|c| c == '\n' || c == '\r').map(|s: &str| s.trim_end().to_string()),
-        ),
-        // Multi-line comment: /* ... */
-        delimited(
-            tag("/*"),
-            take_until("*/").map(|s: &str| s.to_string()),
-            tag("*/"),
-        ),
-    ))
+fn parse_whitespace0(input: &str) -> IResult<&str, ()> {
+    value(
+        (),
+        many0(alt((
+            multispace1,
+            delimited(tag("/*"), take_until("*/"), tag("*/")),
+            preceded(tag("//"), take_till(|c| c == '\n' || c == '\r')),
+        ))),
+    )
+    .parse(input)
+}
+
+fn parse_whitespace1(input: &str) -> IResult<&str, ()> {
+    value(
+        (),
+        many1(alt((
+            multispace1,
+            delimited(tag("/*"), take_until("*/"), tag("*/")),
+            preceded(tag("//"), take_till(|c| c == '\n' || c == '\r')),
+        ))),
+    )
     .parse(input)
 }
 
@@ -48,24 +55,27 @@ fn parse_value(input: &str) -> IResult<&str, String> {
 
 impl File {
     pub fn parse(input: &str) -> IResult<&str, Self> {
-        many0(preceded(multispace0, Item::parse))
-            .map(|items| Self { items })
-            .parse(input)
+terminated(
+        many0(preceded(parse_whitespace0, Item::parse)),
+        parse_whitespace0,
+    )
+    .map(|items| File { items })
+    .parse(input)
     }
 }
 
 impl Enum {
     pub fn parse(input: &str) -> IResult<&str, Self> {
         (
-            preceded(multispace0, tag("enum")),
-            preceded(multispace1, parse_ident),
+            preceded(parse_whitespace0, tag("enum")),
+            preceded(parse_whitespace1, parse_ident),
             delimited(
-                preceded(multispace0, tag("{")),
+                preceded(parse_whitespace0, tag("{")),
                 many0(preceded(
-                    multispace0,
-                    terminated(EnumVariant::parse, opt(preceded(multispace0, tag(",")))),
+                    parse_whitespace0,
+                    terminated(EnumVariant::parse, opt(preceded(parse_whitespace0, tag(",")))),
                 )),
-                preceded(multispace0, tag("}")),
+                preceded(parse_whitespace0, tag("}")),
             ),
         )
             .map(|(_, name, variants)| Self { name, variants })
@@ -76,10 +86,10 @@ impl Enum {
 impl EnumVariant {
     pub fn parse(input: &str) -> IResult<&str, Self> {
         (
-            preceded(multispace0, parse_ident),
+            preceded(parse_whitespace0, parse_ident),
             opt(preceded(
-                preceded(multispace0, tag("=")),
-                preceded(multispace0, i64),
+                preceded(parse_whitespace0, tag("=")),
+                preceded(parse_whitespace0, i64),
             )),
         )
             .map(|(name, value)| Self { name, value })
@@ -91,12 +101,12 @@ impl Interface {
     fn parse(input: &str) -> IResult<&str, Self> {
         (
             Attribute::parse,
-            preceded(multispace0, tag("interface")),
-            preceded(multispace1, parse_ident),
+            preceded(parse_whitespace0, tag("interface")),
+            preceded(parse_whitespace1, parse_ident),
             delimited(
-                preceded(multispace0, tag("{")),
+                preceded(parse_whitespace0, tag("{")),
                 many0(Method::parse),
-                preceded(multispace0, tag("}")),
+                preceded(parse_whitespace0, tag("}")),
             ),
         )
             .map(|(attributes, _, name, methods)| Self {
@@ -111,16 +121,16 @@ impl Interface {
 impl Import {
     fn parse(input: &str) -> IResult<&str, Self> {
         (
-            preceded(multispace0, tag("import")),
+            preceded(parse_whitespace0, tag("import")),
             preceded(
-                multispace0,
+                parse_whitespace0,
                 delimited(
                     tag("\""),
                     take_till(|c| c == '"').map(|s: &str| s.to_string()),
                     tag("\""),
                 ),
             ),
-            preceded(multispace0, tag(";")),
+            preceded(parse_whitespace0, tag(";")),
         )
             .map(|(_, name, _)| Self { name })
             .parse(input)
@@ -136,23 +146,23 @@ impl Import {
 impl Attribute {
     fn parse_one(input: &str) -> IResult<&str, Self> {
         (
-            preceded(multispace0, parse_ident),
+            preceded(parse_whitespace0, parse_ident),
             opt(delimited(
-                preceded(multispace0, tag("(")),
+                preceded(parse_whitespace0, tag("(")),
                 separated_list0(
-                    preceded(multispace0, tag(",")),
+                    preceded(parse_whitespace0, tag(",")),
                     preceded(
-                        multispace0,
+                        parse_whitespace0,
                         alt((
                             // name=value
-                            (parse_ident, preceded(multispace0, tag("=")), parse_value)
+                            (parse_ident, preceded(parse_whitespace0, tag("=")), parse_value)
                                 .map(|(name, _, value)| (name, value)),
                             // Simple value
                             parse_value.map(|value| ("".to_string(), value)),
                         )),
                     ),
                 ),
-                preceded(multispace0, tag(")")),
+                preceded(parse_whitespace0, tag(")")),
             )),
         )
             .map(|(name, params_opt)| Attribute {
@@ -164,12 +174,12 @@ impl Attribute {
 
     fn parse(input: &str) -> IResult<&str, Vec<Self>> {
         many0(delimited(
-            preceded(multispace0, tag("[")),
+            preceded(parse_whitespace0, tag("[")),
             separated_list0(
-                preceded(multispace0, tag(",")),
-                preceded(multispace0, Self::parse_one),
+                preceded(parse_whitespace0, tag(",")),
+                preceded(parse_whitespace0, Self::parse_one),
             ),
-            preceded(multispace0, tag("]")),
+            preceded(parse_whitespace0, tag("]")),
         ))
         .map(|attr_lists| attr_lists.into_iter().flatten().collect())
         .parse(input)
@@ -181,7 +191,6 @@ impl Item {
         alt((
             map(Interface::parse, Self::Interface),
             map(Enum::parse, Self::Enum),
-            map(parse_comment, Self::Comment),
             map(Import::parse, Self::Import),
         ))
         .parse(input)
@@ -191,17 +200,17 @@ impl Item {
 impl Method {
     fn parse(input: &str) -> IResult<&str, Self> {
         (
-            preceded(multispace0, parse_type),
-            preceded(multispace1, parse_ident),
+            preceded(parse_whitespace0, parse_type),
+            preceded(parse_whitespace1, parse_ident),
             delimited(
-                preceded(multispace0, tag("(")),
+                preceded(parse_whitespace0, tag("(")),
                 many0(preceded(
-                    multispace0,
-                    terminated(Param::parse, opt(preceded(multispace0, tag(",")))),
+                    parse_whitespace0,
+                    terminated(Param::parse, opt(preceded(parse_whitespace0, tag(",")))),
                 )),
-                preceded(multispace0, tag(")")),
+                preceded(parse_whitespace0, tag(")")),
             ),
-            preceded(multispace0, tag(";")),
+            preceded(parse_whitespace0, tag(";")),
         )
             .map(|(return_type, name, params, _)| Self {
                 return_type,
@@ -216,8 +225,8 @@ impl Param {
     fn parse(input: &str) -> IResult<&str, Self> {
         (
             Attribute::parse,
-            preceded(multispace0, parse_type),
-            preceded(multispace1, parse_ident),
+            preceded(parse_whitespace0, parse_type),
+            preceded(parse_whitespace1, parse_ident),
         )
             .map(|(attributes, ty, name)| Self {
                 attributes,

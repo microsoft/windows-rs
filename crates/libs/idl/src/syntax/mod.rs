@@ -28,7 +28,6 @@ pub enum Item {
     Enum(Enum),
     Interface(Interface),
     Struct(Struct),
-    Comment(String),
     Import(Import),
 }
 
