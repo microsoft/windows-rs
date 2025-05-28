@@ -53,6 +53,28 @@ fn parse_value(input: &str) -> IResult<&str, String> {
     .parse(input)
 }
 
+fn parse_cpp_quote(input: &str) -> IResult<&str, String> {
+map(
+        preceded(
+            parse_whitespace0,
+            delimited(
+                preceded(parse_whitespace0, tag("cpp_quote")),
+                delimited(
+                    preceded(parse_whitespace0, tag("(")),
+                    delimited(
+                        tag("\""),
+                        take_till(|c| c == '"'),
+                        tag("\""),
+                    ),
+                    preceded(parse_whitespace0, tag(")")),
+                ),
+                opt(preceded(parse_whitespace0, tag(";"))),
+            ),
+        ),
+        |s: &str| s.to_string(),
+    ).parse(input)
+}
+
 impl File {
     pub fn parse(input: &str) -> IResult<&str, Self> {
         terminated(
@@ -180,6 +202,35 @@ impl Interface {
             })
             .parse(input)
     }
+}
+
+fn parse_forward_interface(input: &str) -> IResult<&str, String> {
+    (
+        preceded(parse_whitespace0, tag("interface")),
+        preceded(parse_whitespace1, parse_ident),
+        preceded(parse_whitespace0, tag(";")),
+    )
+        .map(|(_, name, _)| name)
+        .parse(input)
+}
+
+fn parse_forward_struct(input: &str) -> IResult<&str, String> {
+    (
+        preceded(parse_whitespace0, tag("struct")),
+        preceded(parse_whitespace1, parse_ident),
+        preceded(parse_whitespace0, tag(";")),
+    )
+        .map(|(_, name, _)| name)
+        .parse(input)
+}
+fn parse_forward_enum(input: &str) -> IResult<&str, String> {
+    (
+        preceded(parse_whitespace0, tag("enum")),
+        preceded(parse_whitespace1, parse_ident),
+        preceded(parse_whitespace0, tag(";")),
+    )
+        .map(|(_, name, _)| name)
+        .parse(input)
 }
 
 impl Import {
@@ -330,6 +381,10 @@ impl Item {
             map(Import::parse, Self::Import),
             map(Struct::parse, Self::Struct),
             map(Library::parse, Self::Library),
+            map(parse_forward_interface, Self::ForwardInterface),
+            map(parse_forward_struct, Self::ForwardStruct),
+            map(parse_forward_enum, Self::ForwardEnum),
+            map(parse_cpp_quote, Self::CppQuote),
         ))
         .parse(input)
     }
@@ -338,6 +393,7 @@ impl Item {
 impl Method {
     fn parse(input: &str) -> IResult<&str, Self> {
         (
+            Attribute::parse,
             preceded(parse_whitespace0, parse_type),
             preceded(parse_whitespace1, parse_ident),
             delimited(
@@ -350,7 +406,8 @@ impl Method {
             ),
             preceded(parse_whitespace0, tag(";")),
         )
-            .map(|(return_type, name, params, _)| Self {
+            .map(|(attributes, return_type, name, params, _)| Self {
+                attributes,
                 return_type,
                 name,
                 params,

@@ -19,4 +19,14 @@ interface ICoreWebView2Environment2 : ICoreWebView2Environment {
       , [out, retval] ICoreWebView2WebResourceRequest** value);
 
 
+  /// The left margin in inches. The default is 1 cm, or ~0.4 inches.
+  [propget] HRESULT MarginLeft([out, retval] double* marginLeft);
+
+  /// Sets the `MarginLeft` property. A margin cannot be less than zero.
+  /// Returns `E_INVALIDARG` if an invalid value is provided, and the current
+  /// value is not changed.
+  [propput] HRESULT MarginLeft([in] double marginLeft);
+
+
+
 }

@@ -54,10 +54,15 @@ pub enum Item {
     Struct(Struct),
     Import(Import),
     Library(Library),
+    ForwardInterface(String),
+    ForwardStruct(String),
+    ForwardEnum(String),
+    CppQuote(String),
 }
 
 #[derive(Debug)]
 pub struct Method {
+    pub attributes: Vec<Attribute>,
     pub name: String,
     pub return_type: String,
     pub params: Vec<Param>,
@@ -80,12 +85,6 @@ pub struct EnumVariant {
 pub struct Import {
     pub name: String,
 }
-
-// #[derive(Debug)]
-// pub struct Library {
-//     pub name: String,
-//     pub attributes: Vec<Attribute>,
-// }
 
 #[derive(Debug)]
 pub struct Attribute {
