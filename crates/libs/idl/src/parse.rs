@@ -17,7 +17,7 @@ fn parse_ident(input: Input) -> ParseResult<String> {
         alt((alpha1, tag("_"))),
         many0(alt((alphanumeric1, tag("_")))),
     ))
-    .map(|s: &str| s.to_string())
+    .map(|s: Input| s.to_string())
     .parse(input)
 }
 
@@ -26,7 +26,7 @@ fn parse_type(input: Input) -> ParseResult<String> {
         parse_ident,
         many0(preceded(parse_whitespace0, tag("*"))),
     ))
-    .map(|s: &str| s.to_string())
+    .map(|s: Input| s.to_string())
     .parse(input)
 }
 
@@ -57,9 +57,9 @@ fn parse_whitespace1(input: Input) -> ParseResult<()> {
 fn parse_value(input: Input) -> ParseResult<String> {
     alt((
         // Quoted string (e.g., "1234-ABCD")
-        delimited(tag("\""), take_till(|c| c == '"'), tag("\"")).map(|s: &str| s.to_string()),
+        delimited(tag("\""), take_till(|c| c == '"'), tag("\"")).map(|s: Input| s.to_string()),
         // General token (e.g., 41f3632b-5ef4-404f-ad82-2d606c5a9a21, unique, 1234)
-        take_while1(|c: char| !",()[]={}; \t\n\r".contains(c)).map(|s: &str| s.to_string()),
+        take_while1(|c: char| !",()[]={}; \t\n\r".contains(c)).map(|s: Input| s.to_string()),
     ))
     .parse(input)
 }
@@ -78,7 +78,7 @@ fn parse_cpp_quote(input: Input) -> ParseResult<String> {
                 opt(preceded(parse_whitespace0, tag(";"))),
             ),
         ),
-        |s: &str| s.to_string(),
+        |s: Input| s.to_string(),
     )
     .parse(input)
 }
@@ -258,7 +258,7 @@ impl Import {
                 parse_whitespace0,
                 delimited(
                     tag("\""),
-                    take_till(|c| c == '"').map(|s: &str| s.to_string()),
+                    take_till(|c| c == '"').map(|s: Input| s.to_string()),
                     tag("\""),
                 ),
             ),
