@@ -42,7 +42,7 @@ pub struct StructField {
 
 #[derive(Debug)]
 pub struct Struct {
-pub attributes: Vec<Attribute>,
+    pub attributes: Vec<Attribute>,
     pub name: String,
     pub fields: Vec<StructField>,
 }

@@ -12,3 +12,4 @@ categories = ["os::windows-apis"]
 
 [dependencies]
 nom = "8"
+nom_locate = "5"

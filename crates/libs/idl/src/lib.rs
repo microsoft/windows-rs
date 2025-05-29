@@ -4,6 +4,6 @@ mod syntax;
 
 pub use syntax::*;
 
-pub fn parse(s: &str) -> nom::IResult<&str, File> {
-    File::parse(s)
+pub fn parse(input: &str) -> nom::IResult<&str, File> {
+    File::parse(input.into())
 }
