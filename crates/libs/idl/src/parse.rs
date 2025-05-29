@@ -7,6 +7,7 @@ use nom::{
     multi::{many1, many0, separated_list1, separated_list0},
     sequence::{delimited, terminated, preceded, pair},
     branch::alt,
+    error::context,
      IResult, Parser,
 };
 
@@ -99,6 +100,7 @@ impl File {
 
 impl Library {
     pub fn parse(input: Input) -> ParseResult<Self> {
+        context("library",
         (
             Attribute::parse,
             preceded(parse_whitespace0, tag("library")),
@@ -108,7 +110,7 @@ impl Library {
                 many0(preceded(parse_whitespace0, Item::parse)),
                 preceded(parse_whitespace0, tag("}")),
             ),
-        )
+        ))
             .map(|(attributes, _, name, items)| Library {
                 attributes,
                 name,

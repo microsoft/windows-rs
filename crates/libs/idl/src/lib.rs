@@ -4,7 +4,8 @@ mod parse;
 
 // TODO: this should be private with a more practical Error type and avoid exposing a direct dependency on nom and nom_locate
 pub type Input<'a> = nom_locate::LocatedSpan<&'a str>;
-pub type FileResult<'a, T> = Result<T, nom::Err<nom::error::Error<Input<'a>>>>;
+pub type Error<'a> = nom::Err<nom::error::Error<Input<'a>>>;
+pub type FileResult<'a, T> = Result<T, Error<'a>>;
 
 pub fn parse(input: &str) -> FileResult<File> {
     File::parse(input.into())

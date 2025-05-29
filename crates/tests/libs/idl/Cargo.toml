@@ -10,3 +10,7 @@ doctest = false
 
 [dependencies.windows-idl]
 workspace = true
+
+[dependencies]
+nom = "8"
+nom_locate = "5"
