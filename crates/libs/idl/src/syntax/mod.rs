@@ -1,5 +1,8 @@
 mod parse;
 
+pub type Input<'a> = &'a str;
+pub type FileResult<'a, T> = Result<T, nom::Err<nom::error::Error<Input<'a>>>>;
+
 #[derive(Debug)]
 pub struct File {
     pub items: Vec<Item>,

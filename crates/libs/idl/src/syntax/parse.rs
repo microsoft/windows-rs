@@ -1,24 +1,27 @@
 use super::*;
 
 use nom::{
-    branch::*, bytes::complete::*, character::complete::*, combinator::*, multi::*, sequence::*,  *,
+    bytes::complete::{tag, take_until, take_till, take_while1},
+    character::complete::{ alpha1, alphanumeric1, multispace1, i64},
+    combinator::{recognize, eof, opt, value, map},
+    multi::{many1, many0, separated_list1, separated_list0},
+    sequence::{delimited, terminated, preceded, pair},
+    branch::alt,
+     IResult, Parser,
 };
 
-pub type Span<'a> = &'a str;
-type ParseResult<'a, T> = IResult<Span<'a>, T>;
+type ParseResult<'a, T> = IResult<Input<'a>, T>;
 
-fn parse_ident(input: Span) -> ParseResult<String> {
+fn parse_ident(input: Input) -> ParseResult<String> {
     recognize(pair(
         alt((alpha1, tag("_"))),
         many0(alt((alphanumeric1, tag("_")))),
     ))
     .map(|s: &str| s.to_string())
-.parse(input)
-
-
+    .parse(input)
 }
 
-fn parse_type(input: Span) -> ParseResult<String> {
+fn parse_type(input: Input) -> ParseResult<String> {
     recognize(pair(
         parse_ident,
         many0(preceded(parse_whitespace0, tag("*"))),
@@ -27,7 +30,7 @@ fn parse_type(input: Span) -> ParseResult<String> {
     .parse(input)
 }
 
-fn parse_whitespace0(input: Span) -> ParseResult<()> {
+fn parse_whitespace0(input: Input) -> ParseResult<()> {
     value(
         (),
         many0(alt((
@@ -39,7 +42,7 @@ fn parse_whitespace0(input: Span) -> ParseResult<()> {
     .parse(input)
 }
 
-fn parse_whitespace1(input: Span) -> ParseResult<()> {
+fn parse_whitespace1(input: Input) -> ParseResult<()> {
     value(
         (),
         many1(alt((
@@ -51,7 +54,7 @@ fn parse_whitespace1(input: Span) -> ParseResult<()> {
     .parse(input)
 }
 
-fn parse_value(input: Span) -> ParseResult<String> {
+fn parse_value(input: Input) -> ParseResult<String> {
     alt((
         // Quoted string (e.g., "1234-ABCD")
         delimited(tag("\""), take_till(|c| c == '"'), tag("\"")).map(|s: &str| s.to_string()),
@@ -61,7 +64,7 @@ fn parse_value(input: Span) -> ParseResult<String> {
     .parse(input)
 }
 
-fn parse_cpp_quote(input: Span) -> ParseResult<String> {
+fn parse_cpp_quote(input: Input) -> ParseResult<String> {
     map(
         preceded(
             parse_whitespace0,
@@ -81,18 +84,21 @@ fn parse_cpp_quote(input: Span) -> ParseResult<String> {
 }
 
 impl File {
-    pub fn parse(input: Span) -> ParseResult<Self> {
+    pub fn parse(input: Input) -> FileResult<Self> {
+        terminated(
         terminated(
             many0(preceded(parse_whitespace0, Item::parse)),
             parse_whitespace0,
         )
+        ,eof)
         .map(|items| File { items })
         .parse(input)
+        .map(|(_, ok)|ok)
     }
 }
 
 impl Library {
-    pub fn parse(input: Span) -> ParseResult<Self> {
+    pub fn parse(input: Input) -> ParseResult<Self> {
         (
             Attribute::parse,
             preceded(parse_whitespace0, tag("library")),
@@ -113,7 +119,7 @@ impl Library {
 }
 
 impl Enum {
-    pub fn parse(input: Span) -> ParseResult<Self> {
+    pub fn parse(input: Input) -> ParseResult<Self> {
         alt((
             // Regular format: enum NAME { ... };
             (
@@ -169,7 +175,7 @@ impl Enum {
 }
 
 impl EnumVariant {
-    pub fn parse(input: Span) -> ParseResult<Self> {
+    pub fn parse(input: Input) -> ParseResult<Self> {
         (
             preceded(parse_whitespace0, parse_ident),
             opt(preceded(
@@ -183,7 +189,7 @@ impl EnumVariant {
 }
 
 impl Interface {
-    fn parse(input: Span) -> ParseResult<Self> {
+    fn parse(input: Input) -> ParseResult<Self> {
         (
             Attribute::parse,
             preceded(parse_whitespace0, tag("interface")),
@@ -215,7 +221,7 @@ impl Interface {
     }
 }
 
-fn parse_forward_interface(input: Span) -> ParseResult<String> {
+fn parse_forward_interface(input: Input) -> ParseResult<String> {
     (
         preceded(parse_whitespace0, tag("interface")),
         preceded(parse_whitespace1, parse_ident),
@@ -225,7 +231,7 @@ fn parse_forward_interface(input: Span) -> ParseResult<String> {
         .parse(input)
 }
 
-fn parse_forward_struct(input: Span) -> ParseResult<String> {
+fn parse_forward_struct(input: Input) -> ParseResult<String> {
     (
         preceded(parse_whitespace0, tag("struct")),
         preceded(parse_whitespace1, parse_ident),
@@ -234,7 +240,7 @@ fn parse_forward_struct(input: Span) -> ParseResult<String> {
         .map(|(_, name, _)| name)
         .parse(input)
 }
-fn parse_forward_enum(input: Span) -> ParseResult<String> {
+fn parse_forward_enum(input: Input) -> ParseResult<String> {
     (
         preceded(parse_whitespace0, tag("enum")),
         preceded(parse_whitespace1, parse_ident),
@@ -245,7 +251,7 @@ fn parse_forward_enum(input: Span) -> ParseResult<String> {
 }
 
 impl Import {
-    fn parse(input: Span) -> ParseResult<Self> {
+    fn parse(input: Input) -> ParseResult<Self> {
         (
             preceded(parse_whitespace0, tag("import")),
             preceded(
@@ -264,7 +270,7 @@ impl Import {
 }
 
 impl Struct {
-    fn parse(input: Span) -> ParseResult<Self> {
+    fn parse(input: Input) -> ParseResult<Self> {
         alt((
             // Regular format: struct NAME { ... };
             (
@@ -342,7 +348,7 @@ impl Struct {
 }
 
 impl Attribute {
-    fn parse_one(input: Span) -> ParseResult<Self> {
+    fn parse_one(input: Input) -> ParseResult<Self> {
         (
             preceded(parse_whitespace0, parse_ident),
             opt(delimited(
@@ -374,7 +380,7 @@ impl Attribute {
             .parse(input)
     }
 
-    fn parse(input: Span) -> ParseResult<Vec<Self>> {
+    fn parse(input: Input) -> ParseResult<Vec<Self>> {
         many0(delimited(
             preceded(parse_whitespace0, tag("[")),
             separated_list0(
@@ -389,7 +395,7 @@ impl Attribute {
 }
 
 impl Item {
-    fn parse(input: Span) -> ParseResult<Self> {
+    fn parse(input: Input) -> ParseResult<Self> {
         alt((
             map(Interface::parse, Self::Interface),
             map(Enum::parse, Self::Enum),
@@ -406,7 +412,7 @@ impl Item {
 }
 
 impl Method {
-    fn parse(input: Span) -> ParseResult<Self> {
+    fn parse(input: Input) -> ParseResult<Self> {
         (
             Attribute::parse,
             preceded(parse_whitespace0, parse_type),
@@ -432,7 +438,7 @@ impl Method {
 }
 
 impl Param {
-    fn parse(input: Span) -> ParseResult<Self> {
+    fn parse(input: Input) -> ParseResult<Self> {
         (
             Attribute::parse,
             preceded(parse_whitespace0, parse_type),
