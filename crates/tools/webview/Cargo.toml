@@ -1,0 +1,9 @@
+[package]
+name = "tool_webview"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+windows-idl = { workspace = true }
+windows-bindgen = { workspace = true }

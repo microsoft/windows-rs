@@ -36,10 +36,10 @@ pub use token_stream::*;
 #[doc(hidden)]
 macro_rules! quote {
     () => {
-        $crate::tokens::TokenStream::new()
+        $crate::TokenStream::new()
     };
     ($($tt:tt)*) => {{
-        let mut _s = $crate::tokens::TokenStream::new();
+        let mut _s = $crate::TokenStream::new();
         $crate::quote_each_token!(_s $($tt)*);
         _s
     }};
@@ -126,7 +126,7 @@ macro_rules! quote_bind_into_iter {
 macro_rules! quote_bind_next_or_break {
     ($var:ident) => {
         let $var = match $var.next() {
-            Some(_x) => $crate::tokens::runtime::RepInterp(_x),
+            Some(_x) => $crate::runtime::RepInterp(_x),
             None => break,
         };
     };
@@ -168,10 +168,10 @@ macro_rules! quote_token_with_context {
     ($tokens:ident $b3:tt $b2:tt $b1:tt @ $a1:tt $a2:tt $a3:tt) => {};
 
     ($tokens:ident $b3:tt $b2:tt $b1:tt (#) ( $($inner:tt)* ) * $a3:tt) => {{
-        use $crate::tokens::runtime::ext::*;
-        let has_iter = $crate::tokens::runtime::ThereIsNoIteratorInRepetition;
+        use $crate::runtime::ext::*;
+        let has_iter = $crate::runtime::ThereIsNoIteratorInRepetition;
         $crate::pounded_var_names!(quote_bind_into_iter!(has_iter) () $($inner)*);
-        let _: $crate::tokens::runtime::HasIterator = has_iter;
+        let _: $crate::runtime::HasIterator = has_iter;
         // This is `while true` instead of `loop` because if there are no
         // iterators used inside of this repetition then the body would not
         // contain any `break`, so the compiler would emit unreachable code
@@ -187,11 +187,11 @@ macro_rules! quote_token_with_context {
     ($tokens:ident $b3:tt # ( $($inner:tt)* ) (*) $a1:tt $a2:tt $a3:tt) => {};
 
     ($tokens:ident $b3:tt $b2:tt $b1:tt (#) ( $($inner:tt)* ) $sep:tt *) => {{
-        use $crate::tokens::runtime::ext::*;
+        use $crate::runtime::ext::*;
         let mut _i = 0usize;
-        let has_iter = $crate::tokens::runtime::ThereIsNoIteratorInRepetition;
+        let has_iter = $crate::runtime::ThereIsNoIteratorInRepetition;
         $crate::pounded_var_names!(quote_bind_into_iter!(has_iter) () $($inner)*);
-        let _: $crate::tokens::runtime::HasIterator = has_iter;
+        let _: $crate::runtime::HasIterator = has_iter;
         while true {
             $crate::pounded_var_names!(quote_bind_next_or_break!() () $($inner)*);
             if _i > 0 {
@@ -210,7 +210,7 @@ macro_rules! quote_token_with_context {
     ($tokens:ident # ( $($inner:tt)* ) $sep:tt (*) $a1:tt $a2:tt $a3:tt) => {};
 
     ($tokens:ident $b3:tt $b2:tt $b1:tt (#) $var:ident $a2:tt $a3:tt) => {
-        $crate::tokens::ToTokens::to_tokens(&$var, &mut $tokens);
+        $crate::ToTokens::to_tokens(&$var, &mut $tokens);
     };
     ($tokens:ident $b3:tt $b2:tt # ($var:ident) $a1:tt $a2:tt $a3:tt) => {};
     ($tokens:ident $b3:tt $b2:tt $b1:tt ($curr:tt) $a1:tt $a2:tt $a3:tt) => {
@@ -222,211 +222,211 @@ macro_rules! quote_token_with_context {
 #[doc(hidden)]
 macro_rules! quote_token {
     ($tokens:ident ( $($inner:tt)* )) => {
-        $crate::tokens::runtime::push_group(
+        $crate::runtime::push_group(
             &mut $tokens,
-            $crate::tokens::Delimiter::Parenthesis,
+            $crate::Delimiter::Parenthesis,
             $crate::quote!($($inner)*),
         );
     };
 
     ($tokens:ident [ $($inner:tt)* ]) => {
-        $crate::tokens::runtime::push_group(
+        $crate::runtime::push_group(
             &mut $tokens,
-            $crate::tokens::Delimiter::Bracket,
+            $crate::Delimiter::Bracket,
             $crate::quote!($($inner)*),
         );
     };
 
     ($tokens:ident { $($inner:tt)* }) => {
-        $crate::tokens::runtime::push_group(
+        $crate::runtime::push_group(
             &mut $tokens,
-            $crate::tokens::Delimiter::Brace,
+            $crate::Delimiter::Brace,
             $crate::quote!($($inner)*),
         );
     };
 
     ($tokens:ident +) => {
-        $crate::tokens::runtime::push_add(&mut $tokens);
+        $crate::runtime::push_add(&mut $tokens);
     };
 
     ($tokens:ident +=) => {
-        $crate::tokens::runtime::push_add_eq(&mut $tokens);
+        $crate::runtime::push_add_eq(&mut $tokens);
     };
 
     ($tokens:ident &) => {
-        $crate::tokens::runtime::push_and(&mut $tokens);
+        $crate::runtime::push_and(&mut $tokens);
     };
 
     ($tokens:ident &&) => {
-        $crate::tokens::runtime::push_and_and(&mut $tokens);
+        $crate::runtime::push_and_and(&mut $tokens);
     };
 
     ($tokens:ident &=) => {
-        $crate::tokens::runtime::push_and_eq(&mut $tokens);
+        $crate::runtime::push_and_eq(&mut $tokens);
     };
 
     ($tokens:ident @) => {
-        $crate::tokens::runtime::push_at(&mut $tokens);
+        $crate::runtime::push_at(&mut $tokens);
     };
 
     ($tokens:ident !) => {
-        $crate::tokens::runtime::push_bang(&mut $tokens);
+        $crate::runtime::push_bang(&mut $tokens);
     };
 
     ($tokens:ident ^) => {
-        $crate::tokens::runtime::push_caret(&mut $tokens);
+        $crate::runtime::push_caret(&mut $tokens);
     };
 
     ($tokens:ident ^=) => {
-        $crate::tokens::runtime::push_caret_eq(&mut $tokens);
+        $crate::runtime::push_caret_eq(&mut $tokens);
     };
 
     ($tokens:ident :) => {
-        $crate::tokens::runtime::push_colon(&mut $tokens);
+        $crate::runtime::push_colon(&mut $tokens);
     };
 
     ($tokens:ident ::) => {
-        $crate::tokens::runtime::push_colon2(&mut $tokens);
+        $crate::runtime::push_colon2(&mut $tokens);
     };
 
     ($tokens:ident ,) => {
-        $crate::tokens::runtime::push_comma(&mut $tokens);
+        $crate::runtime::push_comma(&mut $tokens);
     };
 
     ($tokens:ident /) => {
-        $crate::tokens::runtime::push_div(&mut $tokens);
+        $crate::runtime::push_div(&mut $tokens);
     };
 
     ($tokens:ident /=) => {
-        $crate::tokens::runtime::push_div_eq(&mut $tokens);
+        $crate::runtime::push_div_eq(&mut $tokens);
     };
 
     ($tokens:ident .) => {
-        $crate::tokens::runtime::push_dot(&mut $tokens);
+        $crate::runtime::push_dot(&mut $tokens);
     };
 
     ($tokens:ident ..) => {
-        $crate::tokens::runtime::push_dot2(&mut $tokens);
+        $crate::runtime::push_dot2(&mut $tokens);
     };
 
     ($tokens:ident ...) => {
-        $crate::tokens::runtime::push_dot3(&mut $tokens);
+        $crate::runtime::push_dot3(&mut $tokens);
     };
 
     ($tokens:ident ..=) => {
-        $crate::tokens::runtime::push_dot_dot_eq(&mut $tokens);
+        $crate::runtime::push_dot_dot_eq(&mut $tokens);
     };
 
     ($tokens:ident =) => {
-        $crate::tokens::runtime::push_eq(&mut $tokens);
+        $crate::runtime::push_eq(&mut $tokens);
     };
 
     ($tokens:ident ==) => {
-        $crate::tokens::runtime::push_eq_eq(&mut $tokens);
+        $crate::runtime::push_eq_eq(&mut $tokens);
     };
 
     ($tokens:ident >=) => {
-        $crate::tokens::runtime::push_ge(&mut $tokens);
+        $crate::runtime::push_ge(&mut $tokens);
     };
 
     ($tokens:ident >) => {
-        $crate::tokens::runtime::push_gt(&mut $tokens);
+        $crate::runtime::push_gt(&mut $tokens);
     };
 
     ($tokens:ident <=) => {
-        $crate::tokens::runtime::push_le(&mut $tokens);
+        $crate::runtime::push_le(&mut $tokens);
     };
 
     ($tokens:ident <) => {
-        $crate::tokens::runtime::push_lt(&mut $tokens);
+        $crate::runtime::push_lt(&mut $tokens);
     };
 
     ($tokens:ident *=) => {
-        $crate::tokens::runtime::push_mul_eq(&mut $tokens);
+        $crate::runtime::push_mul_eq(&mut $tokens);
     };
 
     ($tokens:ident !=) => {
-        $crate::tokens::runtime::push_ne(&mut $tokens);
+        $crate::runtime::push_ne(&mut $tokens);
     };
 
     ($tokens:ident |) => {
-        $crate::tokens::runtime::push_or(&mut $tokens);
+        $crate::runtime::push_or(&mut $tokens);
     };
 
     ($tokens:ident |=) => {
-        $crate::tokens::runtime::push_or_eq(&mut $tokens);
+        $crate::runtime::push_or_eq(&mut $tokens);
     };
 
     ($tokens:ident ||) => {
-        $crate::tokens::runtime::push_or_or(&mut $tokens);
+        $crate::runtime::push_or_or(&mut $tokens);
     };
 
     ($tokens:ident #) => {
-        $crate::tokens::runtime::push_pound(&mut $tokens);
+        $crate::runtime::push_pound(&mut $tokens);
     };
 
     ($tokens:ident ?) => {
-        $crate::tokens::runtime::push_question(&mut $tokens);
+        $crate::runtime::push_question(&mut $tokens);
     };
 
     ($tokens:ident ->) => {
-        $crate::tokens::runtime::push_rarrow(&mut $tokens);
+        $crate::runtime::push_rarrow(&mut $tokens);
     };
 
     ($tokens:ident <-) => {
-        $crate::tokens::runtime::push_larrow(&mut $tokens);
+        $crate::runtime::push_larrow(&mut $tokens);
     };
 
     ($tokens:ident %) => {
-        $crate::tokens::runtime::push_rem(&mut $tokens);
+        $crate::runtime::push_rem(&mut $tokens);
     };
 
     ($tokens:ident %=) => {
-        $crate::tokens::runtime::push_rem_eq(&mut $tokens);
+        $crate::runtime::push_rem_eq(&mut $tokens);
     };
 
     ($tokens:ident =>) => {
-        $crate::tokens::runtime::push_fat_arrow(&mut $tokens);
+        $crate::runtime::push_fat_arrow(&mut $tokens);
     };
 
     ($tokens:ident ;) => {
-        $crate::tokens::runtime::push_semi(&mut $tokens);
+        $crate::runtime::push_semi(&mut $tokens);
     };
 
     ($tokens:ident <<) => {
-        $crate::tokens::runtime::push_shl(&mut $tokens);
+        $crate::runtime::push_shl(&mut $tokens);
     };
 
     ($tokens:ident <<=) => {
-        $crate::tokens::runtime::push_shl_eq(&mut $tokens);
+        $crate::runtime::push_shl_eq(&mut $tokens);
     };
 
     ($tokens:ident >>) => {
-        $crate::tokens::runtime::push_shr(&mut $tokens);
+        $crate::runtime::push_shr(&mut $tokens);
     };
 
     ($tokens:ident >>=) => {
-        $crate::tokens::runtime::push_shr_eq(&mut $tokens);
+        $crate::runtime::push_shr_eq(&mut $tokens);
     };
 
     ($tokens:ident *) => {
-        $crate::tokens::runtime::push_star(&mut $tokens);
+        $crate::runtime::push_star(&mut $tokens);
     };
 
     ($tokens:ident -) => {
-        $crate::tokens::runtime::push_sub(&mut $tokens);
+        $crate::runtime::push_sub(&mut $tokens);
     };
 
     ($tokens:ident -=) => {
-        $crate::tokens::runtime::push_sub_eq(&mut $tokens);
+        $crate::runtime::push_sub_eq(&mut $tokens);
     };
 
     ($tokens:ident $ident:ident) => {
-        $crate::tokens::runtime::push_ident(&mut $tokens, stringify!($ident));
+        $crate::runtime::push_ident(&mut $tokens, stringify!($ident));
     };
 
     ($tokens:ident $other:tt) => {
-        $crate::tokens::runtime::parse(&mut $tokens, stringify!($other));
+        $crate::runtime::parse(&mut $tokens, stringify!($other));
     };
 }
 
