@@ -755,1906 +755,1906 @@ pub struct COREWEBVIEW2_PHYSICAL_KEY_STATUS {
 #[repr(transparent)]
 pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler(pub u32);
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ExecuteScriptCompletedHandler(pub u32);
 impl ICoreWebView2ExecuteScriptCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CapturePreviewCompletedHandler(pub u32);
 impl ICoreWebView2CapturePreviewCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler(pub u32);
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler(pub u32);
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContentLoadingEventHandler(pub u32);
 impl ICoreWebView2ContentLoadingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DocumentTitleChangedEventHandler(pub u32);
 impl ICoreWebView2DocumentTitleChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HistoryChangedEventHandler(pub u32);
 impl ICoreWebView2HistoryChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationCompletedEventHandler(pub u32);
 impl ICoreWebView2NavigationCompletedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventHandler(pub u32);
 impl ICoreWebView2NavigationStartingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventHandler(pub u32);
 impl ICoreWebView2NewWindowRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventHandler(pub u32);
 impl ICoreWebView2PermissionRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventHandler(pub u32);
 impl ICoreWebView2ProcessFailedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScriptDialogOpeningEventHandler(pub u32);
 impl ICoreWebView2ScriptDialogOpeningEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SourceChangedEventHandler(pub u32);
 impl ICoreWebView2SourceChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebMessageReceivedEventHandler(pub u32);
 impl ICoreWebView2WebMessageReceivedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequestedEventHandler(pub u32);
 impl ICoreWebView2WebResourceRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WindowCloseRequestedEventHandler(pub u32);
 impl ICoreWebView2WindowCloseRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DOMContentLoadedEventHandler(pub u32);
 impl ICoreWebView2DOMContentLoadedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventHandler(pub u32);
 impl ICoreWebView2WebResourceResponseReceivedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2TrySuspendCompletedHandler(pub u32);
 impl ICoreWebView2TrySuspendCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DownloadStartingEventHandler(pub u32);
 impl ICoreWebView2DownloadStartingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameCreatedEventHandler(pub u32);
 impl ICoreWebView2FrameCreatedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2IsDocumentPlayingAudioChangedEventHandler(pub u32);
 impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2IsMutedChangedEventHandler(pub u32);
 impl ICoreWebView2IsMutedChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler(pub u32);
 impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuRequestedEventHandler(pub u32);
 impl ICoreWebView2ContextMenuRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2StatusBarTextChangedEventHandler(pub u32);
 impl ICoreWebView2StatusBarTextChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetFaviconCompletedHandler(pub u32);
 impl ICoreWebView2GetFaviconCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FaviconChangedEventHandler(pub u32);
 impl ICoreWebView2FaviconChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintCompletedHandler(pub u32);
 impl ICoreWebView2PrintCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintToPdfStreamCompletedHandler(pub u32);
 impl ICoreWebView2PrintToPdfStreamCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CursorChangedEventHandler(pub u32);
 impl ICoreWebView2CursorChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NonClientRegionChangedEventHandler(pub u32);
 impl ICoreWebView2NonClientRegionChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2RegionRectCollectionView(pub u32);
 impl ICoreWebView2RegionRectCollectionView {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventHandler(pub u32);
 impl ICoreWebView2AcceleratorKeyPressedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FocusChangedEventHandler(pub u32);
 impl ICoreWebView2FocusChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2MoveFocusRequestedEventHandler(pub u32);
 impl ICoreWebView2MoveFocusRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ZoomFactorChangedEventHandler(pub u32);
 impl ICoreWebView2ZoomFactorChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2RasterizationScaleChangedEventHandler(pub u32);
 impl ICoreWebView2RasterizationScaleChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler(pub u32);
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewBrowserVersionAvailableEventHandler(pub u32);
 impl ICoreWebView2NewBrowserVersionAvailableEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtensionRemoveCompletedHandler(pub u32);
 impl ICoreWebView2BrowserExtensionRemoveCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtensionEnableCompletedHandler(pub u32);
 impl ICoreWebView2BrowserExtensionEnableCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2StringCollection(pub u32);
 impl ICoreWebView2StringCollection {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificateCollection(pub u32);
 impl ICoreWebView2ClientCertificateCollection {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CustomItemSelectedEventHandler(pub u32);
 impl ICoreWebView2CustomItemSelectedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetCookiesCompletedHandler(pub u32);
 impl ICoreWebView2GetCookiesCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CookieList(pub u32);
 impl ICoreWebView2CookieList {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BytesReceivedChangedEventHandler(pub u32);
 impl ICoreWebView2BytesReceivedChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EstimatedEndTimeChangedEventHandler(pub u32);
 impl ICoreWebView2EstimatedEndTimeChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2StateChangedEventHandler(pub u32);
 impl ICoreWebView2StateChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameDestroyedEventHandler(pub u32);
 impl ICoreWebView2FrameDestroyedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameNameChangedEventHandler(pub u32);
 impl ICoreWebView2FrameNameChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameContentLoadingEventHandler(pub u32);
 impl ICoreWebView2FrameContentLoadingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameDOMContentLoadedEventHandler(pub u32);
 impl ICoreWebView2FrameDOMContentLoadedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameNavigationCompletedEventHandler(pub u32);
 impl ICoreWebView2FrameNavigationCompletedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameNavigationStartingEventHandler(pub u32);
 impl ICoreWebView2FrameNavigationStartingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameWebMessageReceivedEventHandler(pub u32);
 impl ICoreWebView2FrameWebMessageReceivedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProfileDeletedEventHandler(pub u32);
 impl ICoreWebView2ProfileDeletedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandler(pub u32);
 impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NotificationCloseRequestedEventHandler(pub u32);
 impl ICoreWebView2NotificationCloseRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2(pub u32);
 impl ICoreWebView2 {
-    pub fn Settings();
-    pub fn Source();
-    pub fn Navigate();
-    pub fn NavigateToString();
-    pub fn add_NavigationStarting();
-    pub fn remove_NavigationStarting();
-    pub fn add_ContentLoading();
-    pub fn remove_ContentLoading();
-    pub fn add_SourceChanged();
-    pub fn remove_SourceChanged();
-    pub fn add_HistoryChanged();
-    pub fn remove_HistoryChanged();
-    pub fn add_NavigationCompleted();
-    pub fn remove_NavigationCompleted();
-    pub fn add_FrameNavigationStarting();
-    pub fn remove_FrameNavigationStarting();
-    pub fn add_FrameNavigationCompleted();
-    pub fn remove_FrameNavigationCompleted();
-    pub fn add_ScriptDialogOpening();
-    pub fn remove_ScriptDialogOpening();
-    pub fn add_PermissionRequested();
-    pub fn remove_PermissionRequested();
-    pub fn add_ProcessFailed();
-    pub fn remove_ProcessFailed();
-    pub fn AddScriptToExecuteOnDocumentCreated();
-    pub fn RemoveScriptToExecuteOnDocumentCreated();
-    pub fn ExecuteScript();
-    pub fn CapturePreview();
-    pub fn Reload();
-    pub fn PostWebMessageAsJson();
-    pub fn PostWebMessageAsString();
-    pub fn add_WebMessageReceived();
-    pub fn remove_WebMessageReceived();
-    pub fn CallDevToolsProtocolMethod();
-    pub fn BrowserProcessId();
-    pub fn CanGoBack();
-    pub fn CanGoForward();
-    pub fn GoBack();
-    pub fn GoForward();
-    pub fn GetDevToolsProtocolEventReceiver();
-    pub fn Stop();
-    pub fn add_NewWindowRequested();
-    pub fn remove_NewWindowRequested();
-    pub fn add_DocumentTitleChanged();
-    pub fn remove_DocumentTitleChanged();
-    pub fn DocumentTitle();
-    pub fn AddHostObjectToScript();
-    pub fn RemoveHostObjectFromScript();
-    pub fn OpenDevToolsWindow();
-    pub fn add_ContainsFullScreenElementChanged();
-    pub fn remove_ContainsFullScreenElementChanged();
-    pub fn ContainsFullScreenElement();
-    pub fn add_WebResourceRequested();
-    pub fn remove_WebResourceRequested();
-    pub fn AddWebResourceRequestedFilter();
-    pub fn RemoveWebResourceRequestedFilter();
-    pub fn add_WindowCloseRequested();
-    pub fn remove_WindowCloseRequested();
+    pub fn Settings() -> HRESULT;
+    pub fn Source() -> HRESULT;
+    pub fn Navigate() -> HRESULT;
+    pub fn NavigateToString() -> HRESULT;
+    pub fn add_NavigationStarting() -> HRESULT;
+    pub fn remove_NavigationStarting() -> HRESULT;
+    pub fn add_ContentLoading() -> HRESULT;
+    pub fn remove_ContentLoading() -> HRESULT;
+    pub fn add_SourceChanged() -> HRESULT;
+    pub fn remove_SourceChanged() -> HRESULT;
+    pub fn add_HistoryChanged() -> HRESULT;
+    pub fn remove_HistoryChanged() -> HRESULT;
+    pub fn add_NavigationCompleted() -> HRESULT;
+    pub fn remove_NavigationCompleted() -> HRESULT;
+    pub fn add_FrameNavigationStarting() -> HRESULT;
+    pub fn remove_FrameNavigationStarting() -> HRESULT;
+    pub fn add_FrameNavigationCompleted() -> HRESULT;
+    pub fn remove_FrameNavigationCompleted() -> HRESULT;
+    pub fn add_ScriptDialogOpening() -> HRESULT;
+    pub fn remove_ScriptDialogOpening() -> HRESULT;
+    pub fn add_PermissionRequested() -> HRESULT;
+    pub fn remove_PermissionRequested() -> HRESULT;
+    pub fn add_ProcessFailed() -> HRESULT;
+    pub fn remove_ProcessFailed() -> HRESULT;
+    pub fn AddScriptToExecuteOnDocumentCreated() -> HRESULT;
+    pub fn RemoveScriptToExecuteOnDocumentCreated() -> HRESULT;
+    pub fn ExecuteScript() -> HRESULT;
+    pub fn CapturePreview() -> HRESULT;
+    pub fn Reload() -> HRESULT;
+    pub fn PostWebMessageAsJson() -> HRESULT;
+    pub fn PostWebMessageAsString() -> HRESULT;
+    pub fn add_WebMessageReceived() -> HRESULT;
+    pub fn remove_WebMessageReceived() -> HRESULT;
+    pub fn CallDevToolsProtocolMethod() -> HRESULT;
+    pub fn BrowserProcessId() -> HRESULT;
+    pub fn CanGoBack() -> HRESULT;
+    pub fn CanGoForward() -> HRESULT;
+    pub fn GoBack() -> HRESULT;
+    pub fn GoForward() -> HRESULT;
+    pub fn GetDevToolsProtocolEventReceiver() -> HRESULT;
+    pub fn Stop() -> HRESULT;
+    pub fn add_NewWindowRequested() -> HRESULT;
+    pub fn remove_NewWindowRequested() -> HRESULT;
+    pub fn add_DocumentTitleChanged() -> HRESULT;
+    pub fn remove_DocumentTitleChanged() -> HRESULT;
+    pub fn DocumentTitle() -> HRESULT;
+    pub fn AddHostObjectToScript() -> HRESULT;
+    pub fn RemoveHostObjectFromScript() -> HRESULT;
+    pub fn OpenDevToolsWindow() -> HRESULT;
+    pub fn add_ContainsFullScreenElementChanged() -> HRESULT;
+    pub fn remove_ContainsFullScreenElementChanged() -> HRESULT;
+    pub fn ContainsFullScreenElement() -> HRESULT;
+    pub fn add_WebResourceRequested() -> HRESULT;
+    pub fn remove_WebResourceRequested() -> HRESULT;
+    pub fn AddWebResourceRequestedFilter() -> HRESULT;
+    pub fn RemoveWebResourceRequestedFilter() -> HRESULT;
+    pub fn add_WindowCloseRequested() -> HRESULT;
+    pub fn remove_WindowCloseRequested() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_2(pub u32);
 impl ICoreWebView2_2 {
-    pub fn add_WebResourceResponseReceived();
-    pub fn remove_WebResourceResponseReceived();
-    pub fn NavigateWithWebResourceRequest();
-    pub fn add_DOMContentLoaded();
-    pub fn remove_DOMContentLoaded();
-    pub fn CookieManager();
-    pub fn Environment();
+    pub fn add_WebResourceResponseReceived() -> HRESULT;
+    pub fn remove_WebResourceResponseReceived() -> HRESULT;
+    pub fn NavigateWithWebResourceRequest() -> HRESULT;
+    pub fn add_DOMContentLoaded() -> HRESULT;
+    pub fn remove_DOMContentLoaded() -> HRESULT;
+    pub fn CookieManager() -> HRESULT;
+    pub fn Environment() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_3(pub u32);
 impl ICoreWebView2_3 {
-    pub fn TrySuspend();
-    pub fn Resume();
-    pub fn IsSuspended();
-    pub fn SetVirtualHostNameToFolderMapping();
-    pub fn ClearVirtualHostNameToFolderMapping();
+    pub fn TrySuspend() -> HRESULT;
+    pub fn Resume() -> HRESULT;
+    pub fn IsSuspended() -> HRESULT;
+    pub fn SetVirtualHostNameToFolderMapping() -> HRESULT;
+    pub fn ClearVirtualHostNameToFolderMapping() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_4(pub u32);
 impl ICoreWebView2_4 {
-    pub fn add_FrameCreated();
-    pub fn remove_FrameCreated();
-    pub fn add_DownloadStarting();
-    pub fn remove_DownloadStarting();
+    pub fn add_FrameCreated() -> HRESULT;
+    pub fn remove_FrameCreated() -> HRESULT;
+    pub fn add_DownloadStarting() -> HRESULT;
+    pub fn remove_DownloadStarting() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_8(pub u32);
 impl ICoreWebView2_8 {
-    pub fn add_IsMutedChanged();
-    pub fn remove_IsMutedChanged();
-    pub fn IsMuted();
-    pub fn IsMuted();
-    pub fn add_IsDocumentPlayingAudioChanged();
-    pub fn remove_IsDocumentPlayingAudioChanged();
-    pub fn IsDocumentPlayingAudio();
+    pub fn add_IsMutedChanged() -> HRESULT;
+    pub fn remove_IsMutedChanged() -> HRESULT;
+    pub fn IsMuted() -> HRESULT;
+    pub fn IsMuted() -> HRESULT;
+    pub fn add_IsDocumentPlayingAudioChanged() -> HRESULT;
+    pub fn remove_IsDocumentPlayingAudioChanged() -> HRESULT;
+    pub fn IsDocumentPlayingAudio() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_9(pub u32);
 impl ICoreWebView2_9 {
-    pub fn add_IsDefaultDownloadDialogOpenChanged();
-    pub fn remove_IsDefaultDownloadDialogOpenChanged();
-    pub fn IsDefaultDownloadDialogOpen();
-    pub fn OpenDefaultDownloadDialog();
-    pub fn CloseDefaultDownloadDialog();
-    pub fn DefaultDownloadDialogCornerAlignment();
-    pub fn DefaultDownloadDialogCornerAlignment();
-    pub fn DefaultDownloadDialogMargin();
-    pub fn DefaultDownloadDialogMargin();
+    pub fn add_IsDefaultDownloadDialogOpenChanged() -> HRESULT;
+    pub fn remove_IsDefaultDownloadDialogOpenChanged() -> HRESULT;
+    pub fn IsDefaultDownloadDialogOpen() -> HRESULT;
+    pub fn OpenDefaultDownloadDialog() -> HRESULT;
+    pub fn CloseDefaultDownloadDialog() -> HRESULT;
+    pub fn DefaultDownloadDialogCornerAlignment() -> HRESULT;
+    pub fn DefaultDownloadDialogCornerAlignment() -> HRESULT;
+    pub fn DefaultDownloadDialogMargin() -> HRESULT;
+    pub fn DefaultDownloadDialogMargin() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_11(pub u32);
 impl ICoreWebView2_11 {
-    pub fn CallDevToolsProtocolMethodForSession();
-    pub fn add_ContextMenuRequested();
-    pub fn remove_ContextMenuRequested();
+    pub fn CallDevToolsProtocolMethodForSession() -> HRESULT;
+    pub fn add_ContextMenuRequested() -> HRESULT;
+    pub fn remove_ContextMenuRequested() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_12(pub u32);
 impl ICoreWebView2_12 {
-    pub fn add_StatusBarTextChanged();
-    pub fn remove_StatusBarTextChanged();
-    pub fn StatusBarText();
+    pub fn add_StatusBarTextChanged() -> HRESULT;
+    pub fn remove_StatusBarTextChanged() -> HRESULT;
+    pub fn StatusBarText() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_15(pub u32);
 impl ICoreWebView2_15 {
-    pub fn add_FaviconChanged();
-    pub fn remove_FaviconChanged();
-    pub fn FaviconUri();
-    pub fn GetFavicon();
+    pub fn add_FaviconChanged() -> HRESULT;
+    pub fn remove_FaviconChanged() -> HRESULT;
+    pub fn FaviconUri() -> HRESULT;
+    pub fn GetFavicon() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_16(pub u32);
 impl ICoreWebView2_16 {
-    pub fn Print();
-    pub fn ShowPrintUI();
-    pub fn PrintToPdfStream();
+    pub fn Print() -> HRESULT;
+    pub fn ShowPrintUI() -> HRESULT;
+    pub fn PrintToPdfStream() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings(pub u32);
 impl ICoreWebView2Settings {
-    pub fn IsScriptEnabled();
-    pub fn IsScriptEnabled();
-    pub fn IsWebMessageEnabled();
-    pub fn IsWebMessageEnabled();
-    pub fn AreDefaultScriptDialogsEnabled();
-    pub fn AreDefaultScriptDialogsEnabled();
-    pub fn IsStatusBarEnabled();
-    pub fn IsStatusBarEnabled();
-    pub fn AreDevToolsEnabled();
-    pub fn AreDevToolsEnabled();
-    pub fn AreDefaultContextMenusEnabled();
-    pub fn AreDefaultContextMenusEnabled();
-    pub fn AreHostObjectsAllowed();
-    pub fn AreHostObjectsAllowed();
-    pub fn IsZoomControlEnabled();
-    pub fn IsZoomControlEnabled();
-    pub fn IsBuiltInErrorPageEnabled();
-    pub fn IsBuiltInErrorPageEnabled();
+    pub fn IsScriptEnabled() -> HRESULT;
+    pub fn IsScriptEnabled() -> HRESULT;
+    pub fn IsWebMessageEnabled() -> HRESULT;
+    pub fn IsWebMessageEnabled() -> HRESULT;
+    pub fn AreDefaultScriptDialogsEnabled() -> HRESULT;
+    pub fn AreDefaultScriptDialogsEnabled() -> HRESULT;
+    pub fn IsStatusBarEnabled() -> HRESULT;
+    pub fn IsStatusBarEnabled() -> HRESULT;
+    pub fn AreDevToolsEnabled() -> HRESULT;
+    pub fn AreDevToolsEnabled() -> HRESULT;
+    pub fn AreDefaultContextMenusEnabled() -> HRESULT;
+    pub fn AreDefaultContextMenusEnabled() -> HRESULT;
+    pub fn AreHostObjectsAllowed() -> HRESULT;
+    pub fn AreHostObjectsAllowed() -> HRESULT;
+    pub fn IsZoomControlEnabled() -> HRESULT;
+    pub fn IsZoomControlEnabled() -> HRESULT;
+    pub fn IsBuiltInErrorPageEnabled() -> HRESULT;
+    pub fn IsBuiltInErrorPageEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings4(pub u32);
 impl ICoreWebView2Settings4 {
-    pub fn IsPasswordAutosaveEnabled();
-    pub fn IsPasswordAutosaveEnabled();
-    pub fn IsGeneralAutofillEnabled();
-    pub fn IsGeneralAutofillEnabled();
+    pub fn IsPasswordAutosaveEnabled() -> HRESULT;
+    pub fn IsPasswordAutosaveEnabled() -> HRESULT;
+    pub fn IsGeneralAutofillEnabled() -> HRESULT;
+    pub fn IsGeneralAutofillEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller(pub u32);
 impl ICoreWebView2Controller {
-    pub fn IsVisible();
-    pub fn IsVisible();
-    pub fn Bounds();
-    pub fn Bounds();
-    pub fn ZoomFactor();
-    pub fn ZoomFactor();
-    pub fn add_ZoomFactorChanged();
-    pub fn remove_ZoomFactorChanged();
-    pub fn SetBoundsAndZoomFactor();
-    pub fn MoveFocus();
-    pub fn add_MoveFocusRequested();
-    pub fn remove_MoveFocusRequested();
-    pub fn add_GotFocus();
-    pub fn remove_GotFocus();
-    pub fn add_LostFocus();
-    pub fn remove_LostFocus();
-    pub fn add_AcceleratorKeyPressed();
-    pub fn remove_AcceleratorKeyPressed();
-    pub fn ParentWindow();
-    pub fn ParentWindow();
-    pub fn NotifyParentWindowPositionChanged();
-    pub fn Close();
-    pub fn CoreWebView2();
+    pub fn IsVisible() -> HRESULT;
+    pub fn IsVisible() -> HRESULT;
+    pub fn Bounds() -> HRESULT;
+    pub fn Bounds() -> HRESULT;
+    pub fn ZoomFactor() -> HRESULT;
+    pub fn ZoomFactor() -> HRESULT;
+    pub fn add_ZoomFactorChanged() -> HRESULT;
+    pub fn remove_ZoomFactorChanged() -> HRESULT;
+    pub fn SetBoundsAndZoomFactor() -> HRESULT;
+    pub fn MoveFocus() -> HRESULT;
+    pub fn add_MoveFocusRequested() -> HRESULT;
+    pub fn remove_MoveFocusRequested() -> HRESULT;
+    pub fn add_GotFocus() -> HRESULT;
+    pub fn remove_GotFocus() -> HRESULT;
+    pub fn add_LostFocus() -> HRESULT;
+    pub fn remove_LostFocus() -> HRESULT;
+    pub fn add_AcceleratorKeyPressed() -> HRESULT;
+    pub fn remove_AcceleratorKeyPressed() -> HRESULT;
+    pub fn ParentWindow() -> HRESULT;
+    pub fn ParentWindow() -> HRESULT;
+    pub fn NotifyParentWindowPositionChanged() -> HRESULT;
+    pub fn Close() -> HRESULT;
+    pub fn CoreWebView2() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller3(pub u32);
 impl ICoreWebView2Controller3 {
-    pub fn RasterizationScale();
-    pub fn RasterizationScale();
-    pub fn ShouldDetectMonitorScaleChanges();
-    pub fn ShouldDetectMonitorScaleChanges();
-    pub fn add_RasterizationScaleChanged();
-    pub fn remove_RasterizationScaleChanged();
-    pub fn BoundsMode();
-    pub fn BoundsMode();
+    pub fn RasterizationScale() -> HRESULT;
+    pub fn RasterizationScale() -> HRESULT;
+    pub fn ShouldDetectMonitorScaleChanges() -> HRESULT;
+    pub fn ShouldDetectMonitorScaleChanges() -> HRESULT;
+    pub fn add_RasterizationScaleChanged() -> HRESULT;
+    pub fn remove_RasterizationScaleChanged() -> HRESULT;
+    pub fn BoundsMode() -> HRESULT;
+    pub fn BoundsMode() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment(pub u32);
 impl ICoreWebView2Environment {
-    pub fn CreateCoreWebView2Controller();
-    pub fn CreateWebResourceResponse();
-    pub fn BrowserVersionString();
-    pub fn add_NewBrowserVersionAvailable();
-    pub fn remove_NewBrowserVersionAvailable();
+    pub fn CreateCoreWebView2Controller() -> HRESULT;
+    pub fn CreateWebResourceResponse() -> HRESULT;
+    pub fn BrowserVersionString() -> HRESULT;
+    pub fn add_NewBrowserVersionAvailable() -> HRESULT;
+    pub fn remove_NewBrowserVersionAvailable() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions(pub u32);
 impl ICoreWebView2EnvironmentOptions {
-    pub fn AdditionalBrowserArguments();
-    pub fn AdditionalBrowserArguments();
-    pub fn Language();
-    pub fn Language();
-    pub fn TargetCompatibleBrowserVersion();
-    pub fn TargetCompatibleBrowserVersion();
-    pub fn AllowSingleSignOnUsingOSPrimaryAccount();
-    pub fn AllowSingleSignOnUsingOSPrimaryAccount();
+    pub fn AdditionalBrowserArguments() -> HRESULT;
+    pub fn AdditionalBrowserArguments() -> HRESULT;
+    pub fn Language() -> HRESULT;
+    pub fn Language() -> HRESULT;
+    pub fn TargetCompatibleBrowserVersion() -> HRESULT;
+    pub fn TargetCompatibleBrowserVersion() -> HRESULT;
+    pub fn AllowSingleSignOnUsingOSPrimaryAccount() -> HRESULT;
+    pub fn AllowSingleSignOnUsingOSPrimaryAccount() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventArgs(pub u32);
 impl ICoreWebView2AcceleratorKeyPressedEventArgs {
-    pub fn KeyEventKind();
-    pub fn VirtualKey();
-    pub fn KeyEventLParam();
-    pub fn PhysicalKeyStatus();
-    pub fn Handled();
-    pub fn Handled();
+    pub fn KeyEventKind() -> HRESULT;
+    pub fn VirtualKey() -> HRESULT;
+    pub fn KeyEventLParam() -> HRESULT;
+    pub fn PhysicalKeyStatus() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventArgs(pub u32);
 impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
-    pub fn Uri();
-    pub fn Challenge();
-    pub fn Response();
-    pub fn Cancel();
-    pub fn Cancel();
-    pub fn GetDeferral();
+    pub fn Uri() -> HRESULT;
+    pub fn Challenge() -> HRESULT;
+    pub fn Response() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BasicAuthenticationResponse(pub u32);
 impl ICoreWebView2BasicAuthenticationResponse {
-    pub fn UserName();
-    pub fn UserName();
-    pub fn Password();
-    pub fn Password();
+    pub fn UserName() -> HRESULT;
+    pub fn UserName() -> HRESULT;
+    pub fn Password() -> HRESULT;
+    pub fn Password() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtension(pub u32);
 impl ICoreWebView2BrowserExtension {
-    pub fn Id();
-    pub fn Name();
-    pub fn Remove();
-    pub fn IsEnabled();
-    pub fn Enable();
+    pub fn Id() -> HRESULT;
+    pub fn Name() -> HRESULT;
+    pub fn Remove() -> HRESULT;
+    pub fn IsEnabled() -> HRESULT;
+    pub fn Enable() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Certificate(pub u32);
 impl ICoreWebView2Certificate {
-    pub fn Subject();
-    pub fn Issuer();
-    pub fn ValidFrom();
-    pub fn ValidTo();
-    pub fn DerEncodedSerialNumber();
-    pub fn DisplayName();
-    pub fn ToPemEncoding();
-    pub fn PemEncodedIssuerCertificateChain();
+    pub fn Subject() -> HRESULT;
+    pub fn Issuer() -> HRESULT;
+    pub fn ValidFrom() -> HRESULT;
+    pub fn ValidTo() -> HRESULT;
+    pub fn DerEncodedSerialNumber() -> HRESULT;
+    pub fn DisplayName() -> HRESULT;
+    pub fn ToPemEncoding() -> HRESULT;
+    pub fn PemEncodedIssuerCertificateChain() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificate(pub u32);
 impl ICoreWebView2ClientCertificate {
-    pub fn Subject();
-    pub fn Issuer();
-    pub fn ValidFrom();
-    pub fn ValidTo();
-    pub fn DerEncodedSerialNumber();
-    pub fn DisplayName();
-    pub fn ToPemEncoding();
-    pub fn PemEncodedIssuerCertificateChain();
-    pub fn Kind();
+    pub fn Subject() -> HRESULT;
+    pub fn Issuer() -> HRESULT;
+    pub fn ValidFrom() -> HRESULT;
+    pub fn ValidTo() -> HRESULT;
+    pub fn DerEncodedSerialNumber() -> HRESULT;
+    pub fn DisplayName() -> HRESULT;
+    pub fn ToPemEncoding() -> HRESULT;
+    pub fn PemEncodedIssuerCertificateChain() -> HRESULT;
+    pub fn Kind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificateRequestedEventArgs(pub u32);
 impl ICoreWebView2ClientCertificateRequestedEventArgs {
-    pub fn Host();
-    pub fn Port();
-    pub fn IsProxy();
-    pub fn AllowedCertificateAuthorities();
-    pub fn MutuallyTrustedCertificates();
-    pub fn SelectedCertificate();
-    pub fn SelectedCertificate();
-    pub fn Cancel();
-    pub fn Cancel();
-    pub fn Handled();
-    pub fn Handled();
-    pub fn GetDeferral();
+    pub fn Host() -> HRESULT;
+    pub fn Port() -> HRESULT;
+    pub fn IsProxy() -> HRESULT;
+    pub fn AllowedCertificateAuthorities() -> HRESULT;
+    pub fn MutuallyTrustedCertificates() -> HRESULT;
+    pub fn SelectedCertificate() -> HRESULT;
+    pub fn SelectedCertificate() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController(pub u32);
 impl ICoreWebView2CompositionController {
-    pub fn RootVisualTarget();
-    pub fn RootVisualTarget();
-    pub fn SendMouseInput();
-    pub fn SendPointerInput();
-    pub fn Cursor();
-    pub fn SystemCursorId();
-    pub fn add_CursorChanged();
-    pub fn remove_CursorChanged();
+    pub fn RootVisualTarget() -> HRESULT;
+    pub fn RootVisualTarget() -> HRESULT;
+    pub fn SendMouseInput() -> HRESULT;
+    pub fn SendPointerInput() -> HRESULT;
+    pub fn Cursor() -> HRESULT;
+    pub fn SystemCursorId() -> HRESULT;
+    pub fn add_CursorChanged() -> HRESULT;
+    pub fn remove_CursorChanged() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController3(pub u32);
 impl ICoreWebView2CompositionController3 {
-    pub fn DragEnter();
-    pub fn DragLeave();
-    pub fn DragOver();
-    pub fn Drop();
+    pub fn DragEnter() -> HRESULT;
+    pub fn DragLeave() -> HRESULT;
+    pub fn DragOver() -> HRESULT;
+    pub fn Drop() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController4(pub u32);
 impl ICoreWebView2CompositionController4 {
-    pub fn GetNonClientRegionAtPoint();
-    pub fn QueryNonClientRegion();
-    pub fn add_NonClientRegionChanged();
-    pub fn remove_NonClientRegionChanged();
+    pub fn GetNonClientRegionAtPoint() -> HRESULT;
+    pub fn QueryNonClientRegion() -> HRESULT;
+    pub fn add_NonClientRegionChanged() -> HRESULT;
+    pub fn remove_NonClientRegionChanged() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuItem(pub u32);
 impl ICoreWebView2ContextMenuItem {
-    pub fn Name();
-    pub fn Label();
-    pub fn CommandId();
-    pub fn ShortcutKeyDescription();
-    pub fn Icon();
-    pub fn Kind();
-    pub fn IsEnabled();
-    pub fn IsEnabled();
-    pub fn IsChecked();
-    pub fn IsChecked();
-    pub fn Children();
-    pub fn add_CustomItemSelected();
-    pub fn remove_CustomItemSelected();
+    pub fn Name() -> HRESULT;
+    pub fn Label() -> HRESULT;
+    pub fn CommandId() -> HRESULT;
+    pub fn ShortcutKeyDescription() -> HRESULT;
+    pub fn Icon() -> HRESULT;
+    pub fn Kind() -> HRESULT;
+    pub fn IsEnabled() -> HRESULT;
+    pub fn IsEnabled() -> HRESULT;
+    pub fn IsChecked() -> HRESULT;
+    pub fn IsChecked() -> HRESULT;
+    pub fn Children() -> HRESULT;
+    pub fn add_CustomItemSelected() -> HRESULT;
+    pub fn remove_CustomItemSelected() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuTarget(pub u32);
 impl ICoreWebView2ContextMenuTarget {
-    pub fn Kind();
-    pub fn IsEditable();
-    pub fn IsRequestedForMainFrame();
-    pub fn PageUri();
-    pub fn FrameUri();
-    pub fn HasLinkUri();
-    pub fn LinkUri();
-    pub fn HasLinkText();
-    pub fn LinkText();
-    pub fn HasSourceUri();
-    pub fn SourceUri();
-    pub fn HasSelection();
-    pub fn SelectionText();
+    pub fn Kind() -> HRESULT;
+    pub fn IsEditable() -> HRESULT;
+    pub fn IsRequestedForMainFrame() -> HRESULT;
+    pub fn PageUri() -> HRESULT;
+    pub fn FrameUri() -> HRESULT;
+    pub fn HasLinkUri() -> HRESULT;
+    pub fn LinkUri() -> HRESULT;
+    pub fn HasLinkText() -> HRESULT;
+    pub fn LinkText() -> HRESULT;
+    pub fn HasSourceUri() -> HRESULT;
+    pub fn SourceUri() -> HRESULT;
+    pub fn HasSelection() -> HRESULT;
+    pub fn SelectionText() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuRequestedEventArgs(pub u32);
 impl ICoreWebView2ContextMenuRequestedEventArgs {
-    pub fn MenuItems();
-    pub fn ContextMenuTarget();
-    pub fn Location();
-    pub fn SelectedCommandId();
-    pub fn SelectedCommandId();
-    pub fn Handled();
-    pub fn Handled();
-    pub fn GetDeferral();
+    pub fn MenuItems() -> HRESULT;
+    pub fn ContextMenuTarget() -> HRESULT;
+    pub fn Location() -> HRESULT;
+    pub fn SelectedCommandId() -> HRESULT;
+    pub fn SelectedCommandId() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ControllerOptions(pub u32);
 impl ICoreWebView2ControllerOptions {
-    pub fn ProfileName();
-    pub fn ProfileName();
-    pub fn IsInPrivateModeEnabled();
-    pub fn IsInPrivateModeEnabled();
+    pub fn ProfileName() -> HRESULT;
+    pub fn ProfileName() -> HRESULT;
+    pub fn IsInPrivateModeEnabled() -> HRESULT;
+    pub fn IsInPrivateModeEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Cookie(pub u32);
 impl ICoreWebView2Cookie {
-    pub fn Name();
-    pub fn Value();
-    pub fn Value();
-    pub fn Domain();
-    pub fn Path();
-    pub fn Expires();
-    pub fn Expires();
-    pub fn IsHttpOnly();
-    pub fn IsHttpOnly();
-    pub fn SameSite();
-    pub fn SameSite();
-    pub fn IsSecure();
-    pub fn IsSecure();
-    pub fn IsSession();
+    pub fn Name() -> HRESULT;
+    pub fn Value() -> HRESULT;
+    pub fn Value() -> HRESULT;
+    pub fn Domain() -> HRESULT;
+    pub fn Path() -> HRESULT;
+    pub fn Expires() -> HRESULT;
+    pub fn Expires() -> HRESULT;
+    pub fn IsHttpOnly() -> HRESULT;
+    pub fn IsHttpOnly() -> HRESULT;
+    pub fn SameSite() -> HRESULT;
+    pub fn SameSite() -> HRESULT;
+    pub fn IsSecure() -> HRESULT;
+    pub fn IsSecure() -> HRESULT;
+    pub fn IsSession() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CookieManager(pub u32);
 impl ICoreWebView2CookieManager {
-    pub fn CreateCookie();
-    pub fn CopyCookie();
-    pub fn GetCookies();
-    pub fn AddOrUpdateCookie();
-    pub fn DeleteCookie();
-    pub fn DeleteCookies();
-    pub fn DeleteCookiesWithDomainAndPath();
-    pub fn DeleteAllCookies();
+    pub fn CreateCookie() -> HRESULT;
+    pub fn CopyCookie() -> HRESULT;
+    pub fn GetCookies() -> HRESULT;
+    pub fn AddOrUpdateCookie() -> HRESULT;
+    pub fn DeleteCookie() -> HRESULT;
+    pub fn DeleteCookies() -> HRESULT;
+    pub fn DeleteCookiesWithDomainAndPath() -> HRESULT;
+    pub fn DeleteAllCookies() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CustomSchemeRegistration(pub u32);
 impl ICoreWebView2CustomSchemeRegistration {
-    pub fn SchemeName();
-    pub fn TreatAsSecure();
-    pub fn TreatAsSecure();
-    pub fn GetAllowedOrigins();
-    pub fn SetAllowedOrigins();
-    pub fn HasAuthorityComponent();
-    pub fn HasAuthorityComponent();
+    pub fn SchemeName() -> HRESULT;
+    pub fn TreatAsSecure() -> HRESULT;
+    pub fn TreatAsSecure() -> HRESULT;
+    pub fn GetAllowedOrigins() -> HRESULT;
+    pub fn SetAllowedOrigins() -> HRESULT;
+    pub fn HasAuthorityComponent() -> HRESULT;
+    pub fn HasAuthorityComponent() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DownloadOperation(pub u32);
 impl ICoreWebView2DownloadOperation {
-    pub fn add_BytesReceivedChanged();
-    pub fn remove_BytesReceivedChanged();
-    pub fn add_EstimatedEndTimeChanged();
-    pub fn remove_EstimatedEndTimeChanged();
-    pub fn add_StateChanged();
-    pub fn remove_StateChanged();
-    pub fn Uri();
-    pub fn ContentDisposition();
-    pub fn MimeType();
-    pub fn TotalBytesToReceive();
-    pub fn BytesReceived();
-    pub fn EstimatedEndTime();
-    pub fn ResultFilePath();
-    pub fn State();
-    pub fn InterruptReason();
-    pub fn Cancel();
-    pub fn Pause();
-    pub fn Resume();
-    pub fn CanResume();
+    pub fn add_BytesReceivedChanged() -> HRESULT;
+    pub fn remove_BytesReceivedChanged() -> HRESULT;
+    pub fn add_EstimatedEndTimeChanged() -> HRESULT;
+    pub fn remove_EstimatedEndTimeChanged() -> HRESULT;
+    pub fn add_StateChanged() -> HRESULT;
+    pub fn remove_StateChanged() -> HRESULT;
+    pub fn Uri() -> HRESULT;
+    pub fn ContentDisposition() -> HRESULT;
+    pub fn MimeType() -> HRESULT;
+    pub fn TotalBytesToReceive() -> HRESULT;
+    pub fn BytesReceived() -> HRESULT;
+    pub fn EstimatedEndTime() -> HRESULT;
+    pub fn ResultFilePath() -> HRESULT;
+    pub fn State() -> HRESULT;
+    pub fn InterruptReason() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Pause() -> HRESULT;
+    pub fn Resume() -> HRESULT;
+    pub fn CanResume() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DownloadStartingEventArgs(pub u32);
 impl ICoreWebView2DownloadStartingEventArgs {
-    pub fn DownloadOperation();
-    pub fn Cancel();
-    pub fn Cancel();
-    pub fn ResultFilePath();
-    pub fn ResultFilePath();
-    pub fn Handled();
-    pub fn Handled();
-    pub fn GetDeferral();
+    pub fn DownloadOperation() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn ResultFilePath() -> HRESULT;
+    pub fn ResultFilePath() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ExecuteScriptResult(pub u32);
 impl ICoreWebView2ExecuteScriptResult {
-    pub fn Succeeded();
-    pub fn ResultAsJson();
-    pub fn TryGetResultAsString();
-    pub fn Exception();
+    pub fn Succeeded() -> HRESULT;
+    pub fn ResultAsJson() -> HRESULT;
+    pub fn TryGetResultAsString() -> HRESULT;
+    pub fn Exception() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame(pub u32);
 impl ICoreWebView2Frame {
-    pub fn Name();
-    pub fn add_NameChanged();
-    pub fn remove_NameChanged();
-    pub fn AddHostObjectToScriptWithOrigins();
-    pub fn RemoveHostObjectFromScript();
-    pub fn add_Destroyed();
-    pub fn remove_Destroyed();
-    pub fn IsDestroyed();
+    pub fn Name() -> HRESULT;
+    pub fn add_NameChanged() -> HRESULT;
+    pub fn remove_NameChanged() -> HRESULT;
+    pub fn AddHostObjectToScriptWithOrigins() -> HRESULT;
+    pub fn RemoveHostObjectFromScript() -> HRESULT;
+    pub fn add_Destroyed() -> HRESULT;
+    pub fn remove_Destroyed() -> HRESULT;
+    pub fn IsDestroyed() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame2(pub u32);
 impl ICoreWebView2Frame2 {
-    pub fn add_NavigationStarting();
-    pub fn remove_NavigationStarting();
-    pub fn add_ContentLoading();
-    pub fn remove_ContentLoading();
-    pub fn add_NavigationCompleted();
-    pub fn remove_NavigationCompleted();
-    pub fn add_DOMContentLoaded();
-    pub fn remove_DOMContentLoaded();
-    pub fn ExecuteScript();
-    pub fn PostWebMessageAsJson();
-    pub fn PostWebMessageAsString();
-    pub fn add_WebMessageReceived();
-    pub fn remove_WebMessageReceived();
+    pub fn add_NavigationStarting() -> HRESULT;
+    pub fn remove_NavigationStarting() -> HRESULT;
+    pub fn add_ContentLoading() -> HRESULT;
+    pub fn remove_ContentLoading() -> HRESULT;
+    pub fn add_NavigationCompleted() -> HRESULT;
+    pub fn remove_NavigationCompleted() -> HRESULT;
+    pub fn add_DOMContentLoaded() -> HRESULT;
+    pub fn remove_DOMContentLoaded() -> HRESULT;
+    pub fn ExecuteScript() -> HRESULT;
+    pub fn PostWebMessageAsJson() -> HRESULT;
+    pub fn PostWebMessageAsString() -> HRESULT;
+    pub fn add_WebMessageReceived() -> HRESULT;
+    pub fn remove_WebMessageReceived() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfo2(pub u32);
 impl ICoreWebView2FrameInfo2 {
-    pub fn ParentFrameInfo();
-    pub fn FrameId();
-    pub fn FrameKind();
+    pub fn ParentFrameInfo() -> HRESULT;
+    pub fn FrameId() -> HRESULT;
+    pub fn FrameKind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HttpHeadersCollectionIterator(pub u32);
 impl ICoreWebView2HttpHeadersCollectionIterator {
-    pub fn GetCurrentHeader();
-    pub fn HasCurrentHeader();
-    pub fn MoveNext();
+    pub fn GetCurrentHeader() -> HRESULT;
+    pub fn HasCurrentHeader() -> HRESULT;
+    pub fn MoveNext() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2LaunchingExternalUriSchemeEventArgs(pub u32);
 impl ICoreWebView2LaunchingExternalUriSchemeEventArgs {
-    pub fn Uri();
-    pub fn InitiatingOrigin();
-    pub fn IsUserInitiated();
-    pub fn Cancel();
-    pub fn Cancel();
-    pub fn GetDeferral();
+    pub fn Uri() -> HRESULT;
+    pub fn InitiatingOrigin() -> HRESULT;
+    pub fn IsUserInitiated() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2MoveFocusRequestedEventArgs(pub u32);
 impl ICoreWebView2MoveFocusRequestedEventArgs {
-    pub fn Reason();
-    pub fn Handled();
-    pub fn Handled();
+    pub fn Reason() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationCompletedEventArgs(pub u32);
 impl ICoreWebView2NavigationCompletedEventArgs {
-    pub fn IsSuccess();
-    pub fn WebErrorStatus();
-    pub fn NavigationId();
+    pub fn IsSuccess() -> HRESULT;
+    pub fn WebErrorStatus() -> HRESULT;
+    pub fn NavigationId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventArgs(pub u32);
 impl ICoreWebView2NavigationStartingEventArgs {
-    pub fn Uri();
-    pub fn IsUserInitiated();
-    pub fn IsRedirected();
-    pub fn RequestHeaders();
-    pub fn Cancel();
-    pub fn Cancel();
-    pub fn NavigationId();
+    pub fn Uri() -> HRESULT;
+    pub fn IsUserInitiated() -> HRESULT;
+    pub fn IsRedirected() -> HRESULT;
+    pub fn RequestHeaders() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn NavigationId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs(pub u32);
 impl ICoreWebView2NewWindowRequestedEventArgs {
-    pub fn Uri();
-    pub fn NewWindow();
-    pub fn NewWindow();
-    pub fn Handled();
-    pub fn Handled();
-    pub fn IsUserInitiated();
-    pub fn GetDeferral();
-    pub fn WindowFeatures();
+    pub fn Uri() -> HRESULT;
+    pub fn NewWindow() -> HRESULT;
+    pub fn NewWindow() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn IsUserInitiated() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
+    pub fn WindowFeatures() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventArgs(pub u32);
 impl ICoreWebView2PermissionRequestedEventArgs {
-    pub fn Uri();
-    pub fn PermissionKind();
-    pub fn IsUserInitiated();
-    pub fn State();
-    pub fn State();
-    pub fn GetDeferral();
+    pub fn Uri() -> HRESULT;
+    pub fn PermissionKind() -> HRESULT;
+    pub fn IsUserInitiated() -> HRESULT;
+    pub fn State() -> HRESULT;
+    pub fn State() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionSettingCollectionView(pub u32);
 impl ICoreWebView2PermissionSettingCollectionView {
-    pub fn GetValueAtIndex();
-    pub fn Count();
+    pub fn GetValueAtIndex() -> HRESULT;
+    pub fn Count() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PointerInfo(pub u32);
 impl ICoreWebView2PointerInfo {
-    pub fn PointerKind();
-    pub fn PointerKind();
-    pub fn PointerId();
-    pub fn PointerId();
-    pub fn FrameId();
-    pub fn FrameId();
-    pub fn PointerFlags();
-    pub fn PointerFlags();
-    pub fn PointerDeviceRect();
-    pub fn PointerDeviceRect();
-    pub fn DisplayRect();
-    pub fn DisplayRect();
-    pub fn PixelLocation();
-    pub fn PixelLocation();
-    pub fn HimetricLocation();
-    pub fn HimetricLocation();
-    pub fn PixelLocationRaw();
-    pub fn PixelLocationRaw();
-    pub fn HimetricLocationRaw();
-    pub fn HimetricLocationRaw();
-    pub fn Time();
-    pub fn Time();
-    pub fn HistoryCount();
-    pub fn HistoryCount();
-    pub fn InputData();
-    pub fn InputData();
-    pub fn KeyStates();
-    pub fn KeyStates();
-    pub fn PerformanceCount();
-    pub fn PerformanceCount();
-    pub fn ButtonChangeKind();
-    pub fn ButtonChangeKind();
-    pub fn PenFlags();
-    pub fn PenFlags();
-    pub fn PenMask();
-    pub fn PenMask();
-    pub fn PenPressure();
-    pub fn PenPressure();
-    pub fn PenRotation();
-    pub fn PenRotation();
-    pub fn PenTiltX();
-    pub fn PenTiltX();
-    pub fn PenTiltY();
-    pub fn PenTiltY();
-    pub fn TouchFlags();
-    pub fn TouchFlags();
-    pub fn TouchMask();
-    pub fn TouchMask();
-    pub fn TouchContact();
-    pub fn TouchContact();
-    pub fn TouchContactRaw();
-    pub fn TouchContactRaw();
-    pub fn TouchOrientation();
-    pub fn TouchOrientation();
-    pub fn TouchPressure();
-    pub fn TouchPressure();
+    pub fn PointerKind() -> HRESULT;
+    pub fn PointerKind() -> HRESULT;
+    pub fn PointerId() -> HRESULT;
+    pub fn PointerId() -> HRESULT;
+    pub fn FrameId() -> HRESULT;
+    pub fn FrameId() -> HRESULT;
+    pub fn PointerFlags() -> HRESULT;
+    pub fn PointerFlags() -> HRESULT;
+    pub fn PointerDeviceRect() -> HRESULT;
+    pub fn PointerDeviceRect() -> HRESULT;
+    pub fn DisplayRect() -> HRESULT;
+    pub fn DisplayRect() -> HRESULT;
+    pub fn PixelLocation() -> HRESULT;
+    pub fn PixelLocation() -> HRESULT;
+    pub fn HimetricLocation() -> HRESULT;
+    pub fn HimetricLocation() -> HRESULT;
+    pub fn PixelLocationRaw() -> HRESULT;
+    pub fn PixelLocationRaw() -> HRESULT;
+    pub fn HimetricLocationRaw() -> HRESULT;
+    pub fn HimetricLocationRaw() -> HRESULT;
+    pub fn Time() -> HRESULT;
+    pub fn Time() -> HRESULT;
+    pub fn HistoryCount() -> HRESULT;
+    pub fn HistoryCount() -> HRESULT;
+    pub fn InputData() -> HRESULT;
+    pub fn InputData() -> HRESULT;
+    pub fn KeyStates() -> HRESULT;
+    pub fn KeyStates() -> HRESULT;
+    pub fn PerformanceCount() -> HRESULT;
+    pub fn PerformanceCount() -> HRESULT;
+    pub fn ButtonChangeKind() -> HRESULT;
+    pub fn ButtonChangeKind() -> HRESULT;
+    pub fn PenFlags() -> HRESULT;
+    pub fn PenFlags() -> HRESULT;
+    pub fn PenMask() -> HRESULT;
+    pub fn PenMask() -> HRESULT;
+    pub fn PenPressure() -> HRESULT;
+    pub fn PenPressure() -> HRESULT;
+    pub fn PenRotation() -> HRESULT;
+    pub fn PenRotation() -> HRESULT;
+    pub fn PenTiltX() -> HRESULT;
+    pub fn PenTiltX() -> HRESULT;
+    pub fn PenTiltY() -> HRESULT;
+    pub fn PenTiltY() -> HRESULT;
+    pub fn TouchFlags() -> HRESULT;
+    pub fn TouchFlags() -> HRESULT;
+    pub fn TouchMask() -> HRESULT;
+    pub fn TouchMask() -> HRESULT;
+    pub fn TouchContact() -> HRESULT;
+    pub fn TouchContact() -> HRESULT;
+    pub fn TouchContactRaw() -> HRESULT;
+    pub fn TouchContactRaw() -> HRESULT;
+    pub fn TouchOrientation() -> HRESULT;
+    pub fn TouchOrientation() -> HRESULT;
+    pub fn TouchPressure() -> HRESULT;
+    pub fn TouchPressure() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintSettings(pub u32);
 impl ICoreWebView2PrintSettings {
-    pub fn Orientation();
-    pub fn Orientation();
-    pub fn ScaleFactor();
-    pub fn ScaleFactor();
-    pub fn PageWidth();
-    pub fn PageWidth();
-    pub fn PageHeight();
-    pub fn PageHeight();
-    pub fn MarginTop();
-    pub fn MarginTop();
-    pub fn MarginBottom();
-    pub fn MarginBottom();
-    pub fn MarginLeft();
-    pub fn MarginLeft();
-    pub fn MarginRight();
-    pub fn MarginRight();
-    pub fn ShouldPrintBackgrounds();
-    pub fn ShouldPrintBackgrounds();
-    pub fn ShouldPrintSelectionOnly();
-    pub fn ShouldPrintSelectionOnly();
-    pub fn ShouldPrintHeaderAndFooter();
-    pub fn ShouldPrintHeaderAndFooter();
-    pub fn HeaderTitle();
-    pub fn HeaderTitle();
-    pub fn FooterUri();
-    pub fn FooterUri();
+    pub fn Orientation() -> HRESULT;
+    pub fn Orientation() -> HRESULT;
+    pub fn ScaleFactor() -> HRESULT;
+    pub fn ScaleFactor() -> HRESULT;
+    pub fn PageWidth() -> HRESULT;
+    pub fn PageWidth() -> HRESULT;
+    pub fn PageHeight() -> HRESULT;
+    pub fn PageHeight() -> HRESULT;
+    pub fn MarginTop() -> HRESULT;
+    pub fn MarginTop() -> HRESULT;
+    pub fn MarginBottom() -> HRESULT;
+    pub fn MarginBottom() -> HRESULT;
+    pub fn MarginLeft() -> HRESULT;
+    pub fn MarginLeft() -> HRESULT;
+    pub fn MarginRight() -> HRESULT;
+    pub fn MarginRight() -> HRESULT;
+    pub fn ShouldPrintBackgrounds() -> HRESULT;
+    pub fn ShouldPrintBackgrounds() -> HRESULT;
+    pub fn ShouldPrintSelectionOnly() -> HRESULT;
+    pub fn ShouldPrintSelectionOnly() -> HRESULT;
+    pub fn ShouldPrintHeaderAndFooter() -> HRESULT;
+    pub fn ShouldPrintHeaderAndFooter() -> HRESULT;
+    pub fn HeaderTitle() -> HRESULT;
+    pub fn HeaderTitle() -> HRESULT;
+    pub fn FooterUri() -> HRESULT;
+    pub fn FooterUri() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintSettings2(pub u32);
 impl ICoreWebView2PrintSettings2 {
-    pub fn PageRanges();
-    pub fn PageRanges();
-    pub fn PagesPerSide();
-    pub fn PagesPerSide();
-    pub fn Copies();
-    pub fn Copies();
-    pub fn Collation();
-    pub fn Collation();
-    pub fn ColorMode();
-    pub fn ColorMode();
-    pub fn Duplex();
-    pub fn Duplex();
-    pub fn MediaSize();
-    pub fn MediaSize();
-    pub fn PrinterName();
-    pub fn PrinterName();
+    pub fn PageRanges() -> HRESULT;
+    pub fn PageRanges() -> HRESULT;
+    pub fn PagesPerSide() -> HRESULT;
+    pub fn PagesPerSide() -> HRESULT;
+    pub fn Copies() -> HRESULT;
+    pub fn Copies() -> HRESULT;
+    pub fn Collation() -> HRESULT;
+    pub fn Collation() -> HRESULT;
+    pub fn ColorMode() -> HRESULT;
+    pub fn ColorMode() -> HRESULT;
+    pub fn Duplex() -> HRESULT;
+    pub fn Duplex() -> HRESULT;
+    pub fn MediaSize() -> HRESULT;
+    pub fn MediaSize() -> HRESULT;
+    pub fn PrinterName() -> HRESULT;
+    pub fn PrinterName() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessExtendedInfo(pub u32);
 impl ICoreWebView2ProcessExtendedInfo {
-    pub fn ProcessInfo();
-    pub fn AssociatedFrameInfos();
+    pub fn ProcessInfo() -> HRESULT;
+    pub fn AssociatedFrameInfos() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventArgs2(pub u32);
 impl ICoreWebView2ProcessFailedEventArgs2 {
-    pub fn Reason();
-    pub fn ExitCode();
-    pub fn ProcessDescription();
-    pub fn FrameInfosForFailedProcess();
+    pub fn Reason() -> HRESULT;
+    pub fn ExitCode() -> HRESULT;
+    pub fn ProcessDescription() -> HRESULT;
+    pub fn FrameInfosForFailedProcess() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessInfo(pub u32);
 impl ICoreWebView2ProcessInfo {
-    pub fn ProcessId();
-    pub fn Kind();
+    pub fn ProcessId() -> HRESULT;
+    pub fn Kind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile(pub u32);
 impl ICoreWebView2Profile {
-    pub fn ProfileName();
-    pub fn IsInPrivateModeEnabled();
-    pub fn ProfilePath();
-    pub fn DefaultDownloadFolderPath();
-    pub fn DefaultDownloadFolderPath();
-    pub fn PreferredColorScheme();
-    pub fn PreferredColorScheme();
+    pub fn ProfileName() -> HRESULT;
+    pub fn IsInPrivateModeEnabled() -> HRESULT;
+    pub fn ProfilePath() -> HRESULT;
+    pub fn DefaultDownloadFolderPath() -> HRESULT;
+    pub fn DefaultDownloadFolderPath() -> HRESULT;
+    pub fn PreferredColorScheme() -> HRESULT;
+    pub fn PreferredColorScheme() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile6(pub u32);
 impl ICoreWebView2Profile6 {
-    pub fn IsPasswordAutosaveEnabled();
-    pub fn IsPasswordAutosaveEnabled();
-    pub fn IsGeneralAutofillEnabled();
-    pub fn IsGeneralAutofillEnabled();
+    pub fn IsPasswordAutosaveEnabled() -> HRESULT;
+    pub fn IsPasswordAutosaveEnabled() -> HRESULT;
+    pub fn IsGeneralAutofillEnabled() -> HRESULT;
+    pub fn IsGeneralAutofillEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile8(pub u32);
 impl ICoreWebView2Profile8 {
-    pub fn Delete();
-    pub fn add_Deleted();
-    pub fn remove_Deleted();
+    pub fn Delete() -> HRESULT;
+    pub fn add_Deleted() -> HRESULT;
+    pub fn remove_Deleted() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScriptDialogOpeningEventArgs(pub u32);
 impl ICoreWebView2ScriptDialogOpeningEventArgs {
-    pub fn Uri();
-    pub fn Kind();
-    pub fn Message();
-    pub fn Accept();
-    pub fn DefaultText();
-    pub fn ResultText();
-    pub fn ResultText();
-    pub fn GetDeferral();
+    pub fn Uri() -> HRESULT;
+    pub fn Kind() -> HRESULT;
+    pub fn Message() -> HRESULT;
+    pub fn Accept() -> HRESULT;
+    pub fn DefaultText() -> HRESULT;
+    pub fn ResultText() -> HRESULT;
+    pub fn ResultText() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScriptException(pub u32);
 impl ICoreWebView2ScriptException {
-    pub fn LineNumber();
-    pub fn ColumnNumber();
-    pub fn Name();
-    pub fn Message();
-    pub fn ToJson();
+    pub fn LineNumber() -> HRESULT;
+    pub fn ColumnNumber() -> HRESULT;
+    pub fn Name() -> HRESULT;
+    pub fn Message() -> HRESULT;
+    pub fn ToJson() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs(pub u32);
 impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
-    pub fn ErrorStatus();
-    pub fn RequestUri();
-    pub fn ServerCertificate();
-    pub fn Action();
-    pub fn Action();
-    pub fn GetDeferral();
+    pub fn ErrorStatus() -> HRESULT;
+    pub fn RequestUri() -> HRESULT;
+    pub fn ServerCertificate() -> HRESULT;
+    pub fn Action() -> HRESULT;
+    pub fn Action() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SharedBuffer(pub u32);
 impl ICoreWebView2SharedBuffer {
-    pub fn Size();
-    pub fn Buffer();
-    pub fn OpenStream();
-    pub fn FileMappingHandle();
-    pub fn Close();
+    pub fn Size() -> HRESULT;
+    pub fn Buffer() -> HRESULT;
+    pub fn OpenStream() -> HRESULT;
+    pub fn FileMappingHandle() -> HRESULT;
+    pub fn Close() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequest(pub u32);
 impl ICoreWebView2WebResourceRequest {
-    pub fn Uri();
-    pub fn Uri();
-    pub fn Method();
-    pub fn Method();
-    pub fn Content();
-    pub fn Content();
-    pub fn Headers();
+    pub fn Uri() -> HRESULT;
+    pub fn Uri() -> HRESULT;
+    pub fn Method() -> HRESULT;
+    pub fn Method() -> HRESULT;
+    pub fn Content() -> HRESULT;
+    pub fn Content() -> HRESULT;
+    pub fn Headers() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs(pub u32);
 impl ICoreWebView2WebResourceRequestedEventArgs {
-    pub fn Request();
-    pub fn Response();
-    pub fn Response();
-    pub fn GetDeferral();
-    pub fn ResourceContext();
+    pub fn Request() -> HRESULT;
+    pub fn Response() -> HRESULT;
+    pub fn Response() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
+    pub fn ResourceContext() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponse(pub u32);
 impl ICoreWebView2WebResourceResponse {
-    pub fn Content();
-    pub fn Content();
-    pub fn Headers();
-    pub fn StatusCode();
-    pub fn StatusCode();
-    pub fn ReasonPhrase();
-    pub fn ReasonPhrase();
+    pub fn Content() -> HRESULT;
+    pub fn Content() -> HRESULT;
+    pub fn Headers() -> HRESULT;
+    pub fn StatusCode() -> HRESULT;
+    pub fn StatusCode() -> HRESULT;
+    pub fn ReasonPhrase() -> HRESULT;
+    pub fn ReasonPhrase() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseView(pub u32);
 impl ICoreWebView2WebResourceResponseView {
-    pub fn Headers();
-    pub fn StatusCode();
-    pub fn ReasonPhrase();
-    pub fn GetContent();
+    pub fn Headers() -> HRESULT;
+    pub fn StatusCode() -> HRESULT;
+    pub fn ReasonPhrase() -> HRESULT;
+    pub fn GetContent() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WindowFeatures(pub u32);
 impl ICoreWebView2WindowFeatures {
-    pub fn HasPosition();
-    pub fn HasSize();
-    pub fn Left();
-    pub fn Top();
-    pub fn Height();
-    pub fn Width();
-    pub fn ShouldDisplayMenuBar();
-    pub fn ShouldDisplayStatus();
-    pub fn ShouldDisplayToolbar();
-    pub fn ShouldDisplayScrollBars();
+    pub fn HasPosition() -> HRESULT;
+    pub fn HasSize() -> HRESULT;
+    pub fn Left() -> HRESULT;
+    pub fn Top() -> HRESULT;
+    pub fn Height() -> HRESULT;
+    pub fn Width() -> HRESULT;
+    pub fn ShouldDisplayMenuBar() -> HRESULT;
+    pub fn ShouldDisplayStatus() -> HRESULT;
+    pub fn ShouldDisplayToolbar() -> HRESULT;
+    pub fn ShouldDisplayScrollBars() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ObjectCollection(pub u32);
 impl ICoreWebView2ObjectCollection {
-    pub fn RemoveValueAtIndex();
-    pub fn InsertValueAtIndex();
+    pub fn RemoveValueAtIndex() -> HRESULT;
+    pub fn InsertValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Notification(pub u32);
 impl ICoreWebView2Notification {
-    pub fn add_CloseRequested();
-    pub fn remove_CloseRequested();
-    pub fn ReportShown();
-    pub fn ReportClicked();
-    pub fn ReportClosed();
-    pub fn Body();
-    pub fn Direction();
-    pub fn Language();
-    pub fn Tag();
-    pub fn IconUri();
-    pub fn Title();
-    pub fn BadgeUri();
-    pub fn BodyImageUri();
-    pub fn ShouldRenotify();
-    pub fn RequiresInteraction();
-    pub fn IsSilent();
-    pub fn Timestamp();
-    pub fn GetVibrationPattern();
+    pub fn add_CloseRequested() -> HRESULT;
+    pub fn remove_CloseRequested() -> HRESULT;
+    pub fn ReportShown() -> HRESULT;
+    pub fn ReportClicked() -> HRESULT;
+    pub fn ReportClosed() -> HRESULT;
+    pub fn Body() -> HRESULT;
+    pub fn Direction() -> HRESULT;
+    pub fn Language() -> HRESULT;
+    pub fn Tag() -> HRESULT;
+    pub fn IconUri() -> HRESULT;
+    pub fn Title() -> HRESULT;
+    pub fn BadgeUri() -> HRESULT;
+    pub fn BodyImageUri() -> HRESULT;
+    pub fn ShouldRenotify() -> HRESULT;
+    pub fn RequiresInteraction() -> HRESULT;
+    pub fn IsSilent() -> HRESULT;
+    pub fn Timestamp() -> HRESULT;
+    pub fn GetVibrationPattern() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NotificationReceivedEventArgs(pub u32);
 impl ICoreWebView2NotificationReceivedEventArgs {
-    pub fn SenderOrigin();
-    pub fn Notification();
-    pub fn Handled();
-    pub fn Handled();
-    pub fn GetDeferral();
+    pub fn SenderOrigin() -> HRESULT;
+    pub fn Notification() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveAsUIShowingEventArgs(pub u32);
 impl ICoreWebView2SaveAsUIShowingEventArgs {
-    pub fn ContentMimeType();
-    pub fn Cancel();
-    pub fn Cancel();
-    pub fn SuppressDefaultDialog();
-    pub fn SuppressDefaultDialog();
-    pub fn GetDeferral();
-    pub fn SaveAsFilePath();
-    pub fn SaveAsFilePath();
-    pub fn AllowReplace();
-    pub fn AllowReplace();
-    pub fn Kind();
-    pub fn Kind();
+    pub fn ContentMimeType() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn SuppressDefaultDialog() -> HRESULT;
+    pub fn SuppressDefaultDialog() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
+    pub fn SaveAsFilePath() -> HRESULT;
+    pub fn SaveAsFilePath() -> HRESULT;
+    pub fn AllowReplace() -> HRESULT;
+    pub fn AllowReplace() -> HRESULT;
+    pub fn Kind() -> HRESULT;
+    pub fn Kind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventArgs2(pub u32);
 impl ICoreWebView2AcceleratorKeyPressedEventArgs2 {
-    pub fn IsBrowserAcceleratorKeyEnabled();
-    pub fn IsBrowserAcceleratorKeyEnabled();
+    pub fn IsBrowserAcceleratorKeyEnabled() -> HRESULT;
+    pub fn IsBrowserAcceleratorKeyEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserProcessExitedEventArgs(pub u32);
 impl ICoreWebView2BrowserProcessExitedEventArgs {
-    pub fn BrowserProcessExitKind();
-    pub fn BrowserProcessId();
+    pub fn BrowserProcessExitKind() -> HRESULT;
+    pub fn BrowserProcessId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController2(pub u32);
 impl ICoreWebView2CompositionController2 {
-    pub fn AutomationProvider();
+    pub fn AutomationProvider() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContentLoadingEventArgs(pub u32);
 impl ICoreWebView2ContentLoadingEventArgs {
-    pub fn IsErrorPage();
-    pub fn NavigationId();
+    pub fn IsErrorPage() -> HRESULT;
+    pub fn NavigationId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuItemCollection(pub u32);
 impl ICoreWebView2ContextMenuItemCollection {
-    pub fn Count();
-    pub fn GetValueAtIndex();
-    pub fn RemoveValueAtIndex();
-    pub fn InsertValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
+    pub fn RemoveValueAtIndex() -> HRESULT;
+    pub fn InsertValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller2(pub u32);
 impl ICoreWebView2Controller2 {
-    pub fn DefaultBackgroundColor();
-    pub fn DefaultBackgroundColor();
+    pub fn DefaultBackgroundColor() -> HRESULT;
+    pub fn DefaultBackgroundColor() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller4(pub u32);
 impl ICoreWebView2Controller4 {
-    pub fn AllowExternalDrop();
-    pub fn AllowExternalDrop();
+    pub fn AllowExternalDrop() -> HRESULT;
+    pub fn AllowExternalDrop() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ControllerOptions2(pub u32);
 impl ICoreWebView2ControllerOptions2 {
-    pub fn ScriptLocale();
-    pub fn ScriptLocale();
+    pub fn ScriptLocale() -> HRESULT;
+    pub fn ScriptLocale() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DOMContentLoadedEventArgs(pub u32);
 impl ICoreWebView2DOMContentLoadedEventArgs {
-    pub fn NavigationId();
+    pub fn NavigationId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Deferral(pub u32);
 impl ICoreWebView2Deferral {
-    pub fn Complete();
+    pub fn Complete() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs(pub u32);
 impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
-    pub fn ParameterObjectAsJson();
+    pub fn ParameterObjectAsJson() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs2(pub u32);
 impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {
-    pub fn SessionId();
+    pub fn SessionId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler(pub u32);
 impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceiver(pub u32);
 impl ICoreWebView2DevToolsProtocolEventReceiver {
-    pub fn add_DevToolsProtocolEventReceived();
-    pub fn remove_DevToolsProtocolEventReceived();
+    pub fn add_DevToolsProtocolEventReceived() -> HRESULT;
+    pub fn remove_DevToolsProtocolEventReceived() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment10(pub u32);
 impl ICoreWebView2Environment10 {
-    pub fn CreateCoreWebView2ControllerOptions();
-    pub fn CreateCoreWebView2ControllerWithOptions();
-    pub fn CreateCoreWebView2CompositionControllerWithOptions();
+    pub fn CreateCoreWebView2ControllerOptions() -> HRESULT;
+    pub fn CreateCoreWebView2ControllerWithOptions() -> HRESULT;
+    pub fn CreateCoreWebView2CompositionControllerWithOptions() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment11(pub u32);
 impl ICoreWebView2Environment11 {
-    pub fn FailureReportFolderPath();
+    pub fn FailureReportFolderPath() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment12(pub u32);
 impl ICoreWebView2Environment12 {
-    pub fn CreateSharedBuffer();
+    pub fn CreateSharedBuffer() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetProcessExtendedInfosCompletedHandler(pub u32);
 impl ICoreWebView2GetProcessExtendedInfosCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessExtendedInfoCollection(pub u32);
 impl ICoreWebView2ProcessExtendedInfoCollection {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment13(pub u32);
 impl ICoreWebView2Environment13 {
-    pub fn GetProcessExtendedInfos();
+    pub fn GetProcessExtendedInfos() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment14(pub u32);
 impl ICoreWebView2Environment14 {
-    pub fn CreateWebFileSystemFileHandle();
-    pub fn CreateWebFileSystemDirectoryHandle();
-    pub fn CreateObjectCollection();
+    pub fn CreateWebFileSystemFileHandle() -> HRESULT;
+    pub fn CreateWebFileSystemDirectoryHandle() -> HRESULT;
+    pub fn CreateObjectCollection() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment2(pub u32);
 impl ICoreWebView2Environment2 {
-    pub fn CreateWebResourceRequest();
+    pub fn CreateWebResourceRequest() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler(pub u32);
 impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment3(pub u32);
 impl ICoreWebView2Environment3 {
-    pub fn CreateCoreWebView2CompositionController();
-    pub fn CreateCoreWebView2PointerInfo();
+    pub fn CreateCoreWebView2CompositionController() -> HRESULT;
+    pub fn CreateCoreWebView2PointerInfo() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment4(pub u32);
 impl ICoreWebView2Environment4 {
-    pub fn GetAutomationProviderForWindow();
+    pub fn GetAutomationProviderForWindow() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserProcessExitedEventHandler(pub u32);
 impl ICoreWebView2BrowserProcessExitedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment5(pub u32);
 impl ICoreWebView2Environment5 {
-    pub fn add_BrowserProcessExited();
-    pub fn remove_BrowserProcessExited();
+    pub fn add_BrowserProcessExited() -> HRESULT;
+    pub fn remove_BrowserProcessExited() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment6(pub u32);
 impl ICoreWebView2Environment6 {
-    pub fn CreatePrintSettings();
+    pub fn CreatePrintSettings() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment7(pub u32);
 impl ICoreWebView2Environment7 {
-    pub fn UserDataFolder();
+    pub fn UserDataFolder() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessInfosChangedEventHandler(pub u32);
 impl ICoreWebView2ProcessInfosChangedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessInfoCollection(pub u32);
 impl ICoreWebView2ProcessInfoCollection {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment8(pub u32);
 impl ICoreWebView2Environment8 {
-    pub fn add_ProcessInfosChanged();
-    pub fn remove_ProcessInfosChanged();
-    pub fn GetProcessInfos();
+    pub fn add_ProcessInfosChanged() -> HRESULT;
+    pub fn remove_ProcessInfosChanged() -> HRESULT;
+    pub fn GetProcessInfos() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment9(pub u32);
 impl ICoreWebView2Environment9 {
-    pub fn CreateContextMenuItem();
+    pub fn CreateContextMenuItem() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions2(pub u32);
 impl ICoreWebView2EnvironmentOptions2 {
-    pub fn ExclusiveUserDataFolderAccess();
-    pub fn ExclusiveUserDataFolderAccess();
+    pub fn ExclusiveUserDataFolderAccess() -> HRESULT;
+    pub fn ExclusiveUserDataFolderAccess() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions3(pub u32);
 impl ICoreWebView2EnvironmentOptions3 {
-    pub fn IsCustomCrashReportingEnabled();
-    pub fn IsCustomCrashReportingEnabled();
+    pub fn IsCustomCrashReportingEnabled() -> HRESULT;
+    pub fn IsCustomCrashReportingEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions4(pub u32);
 impl ICoreWebView2EnvironmentOptions4 {
-    pub fn GetCustomSchemeRegistrations();
-    pub fn SetCustomSchemeRegistrations();
+    pub fn GetCustomSchemeRegistrations() -> HRESULT;
+    pub fn SetCustomSchemeRegistrations() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions5(pub u32);
 impl ICoreWebView2EnvironmentOptions5 {
-    pub fn EnableTrackingPrevention();
-    pub fn EnableTrackingPrevention();
+    pub fn EnableTrackingPrevention() -> HRESULT;
+    pub fn EnableTrackingPrevention() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions6(pub u32);
 impl ICoreWebView2EnvironmentOptions6 {
-    pub fn AreBrowserExtensionsEnabled();
-    pub fn AreBrowserExtensionsEnabled();
+    pub fn AreBrowserExtensionsEnabled() -> HRESULT;
+    pub fn AreBrowserExtensionsEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions8(pub u32);
 impl ICoreWebView2EnvironmentOptions8 {
-    pub fn ScrollBarStyle();
-    pub fn ScrollBarStyle();
+    pub fn ScrollBarStyle() -> HRESULT;
+    pub fn ScrollBarStyle() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions7(pub u32);
 impl ICoreWebView2EnvironmentOptions7 {
-    pub fn ChannelSearchKind();
-    pub fn ChannelSearchKind();
-    pub fn ReleaseChannels();
-    pub fn ReleaseChannels();
+    pub fn ChannelSearchKind() -> HRESULT;
+    pub fn ChannelSearchKind() -> HRESULT;
+    pub fn ReleaseChannels() -> HRESULT;
+    pub fn ReleaseChannels() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler(pub u32);
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2File(pub u32);
 impl ICoreWebView2File {
-    pub fn Path();
+    pub fn Path() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FileSystemHandle(pub u32);
 impl ICoreWebView2FileSystemHandle {
-    pub fn Kind();
-    pub fn Path();
-    pub fn Permission();
+    pub fn Kind() -> HRESULT;
+    pub fn Path() -> HRESULT;
+    pub fn Permission() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FramePermissionRequestedEventHandler(pub u32);
 impl ICoreWebView2FramePermissionRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame3(pub u32);
 impl ICoreWebView2Frame3 {
-    pub fn add_PermissionRequested();
-    pub fn remove_PermissionRequested();
+    pub fn add_PermissionRequested() -> HRESULT;
+    pub fn remove_PermissionRequested() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame4(pub u32);
 impl ICoreWebView2Frame4 {
-    pub fn PostSharedBufferToScript();
+    pub fn PostSharedBufferToScript() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame5(pub u32);
 impl ICoreWebView2Frame5 {
-    pub fn FrameId();
+    pub fn FrameId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameScreenCaptureStartingEventHandler(pub u32);
 impl ICoreWebView2FrameScreenCaptureStartingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame6(pub u32);
 impl ICoreWebView2Frame6 {
-    pub fn add_ScreenCaptureStarting();
-    pub fn remove_ScreenCaptureStarting();
+    pub fn add_ScreenCaptureStarting() -> HRESULT;
+    pub fn remove_ScreenCaptureStarting() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameChildFrameCreatedEventHandler(pub u32);
 impl ICoreWebView2FrameChildFrameCreatedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame7(pub u32);
 impl ICoreWebView2Frame7 {
-    pub fn add_FrameCreated();
-    pub fn remove_FrameCreated();
+    pub fn add_FrameCreated() -> HRESULT;
+    pub fn remove_FrameCreated() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameCreatedEventArgs(pub u32);
 impl ICoreWebView2FrameCreatedEventArgs {
-    pub fn Frame();
+    pub fn Frame() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfo(pub u32);
 impl ICoreWebView2FrameInfo {
-    pub fn Name();
-    pub fn Source();
+    pub fn Name() -> HRESULT;
+    pub fn Source() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfoCollection(pub u32);
 impl ICoreWebView2FrameInfoCollection {
-    pub fn GetIterator();
+    pub fn GetIterator() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfoCollectionIterator(pub u32);
 impl ICoreWebView2FrameInfoCollectionIterator {
-    pub fn HasCurrent();
-    pub fn GetCurrent();
-    pub fn MoveNext();
+    pub fn HasCurrent() -> HRESULT;
+    pub fn GetCurrent() -> HRESULT;
+    pub fn MoveNext() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HttpRequestHeaders(pub u32);
 impl ICoreWebView2HttpRequestHeaders {
-    pub fn GetHeader();
-    pub fn GetHeaders();
-    pub fn Contains();
-    pub fn SetHeader();
-    pub fn RemoveHeader();
-    pub fn GetIterator();
+    pub fn GetHeader() -> HRESULT;
+    pub fn GetHeaders() -> HRESULT;
+    pub fn Contains() -> HRESULT;
+    pub fn SetHeader() -> HRESULT;
+    pub fn RemoveHeader() -> HRESULT;
+    pub fn GetIterator() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HttpResponseHeaders(pub u32);
 impl ICoreWebView2HttpResponseHeaders {
-    pub fn AppendHeader();
-    pub fn Contains();
-    pub fn GetHeader();
-    pub fn GetHeaders();
-    pub fn GetIterator();
+    pub fn AppendHeader() -> HRESULT;
+    pub fn Contains() -> HRESULT;
+    pub fn GetHeader() -> HRESULT;
+    pub fn GetHeaders() -> HRESULT;
+    pub fn GetIterator() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationCompletedEventArgs2(pub u32);
 impl ICoreWebView2NavigationCompletedEventArgs2 {
-    pub fn HttpStatusCode();
+    pub fn HttpStatusCode() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventArgs2(pub u32);
 impl ICoreWebView2NavigationStartingEventArgs2 {
-    pub fn AdditionalAllowedFrameAncestors();
-    pub fn AdditionalAllowedFrameAncestors();
+    pub fn AdditionalAllowedFrameAncestors() -> HRESULT;
+    pub fn AdditionalAllowedFrameAncestors() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventArgs3(pub u32);
 impl ICoreWebView2NavigationStartingEventArgs3 {
-    pub fn NavigationKind();
+    pub fn NavigationKind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs2(pub u32);
 impl ICoreWebView2NewWindowRequestedEventArgs2 {
-    pub fn Name();
+    pub fn Name() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs3(pub u32);
 impl ICoreWebView2NewWindowRequestedEventArgs3 {
-    pub fn OriginalSourceFrameInfo();
+    pub fn OriginalSourceFrameInfo() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NonClientRegionChangedEventArgs(pub u32);
 impl ICoreWebView2NonClientRegionChangedEventArgs {
-    pub fn RegionKind();
+    pub fn RegionKind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ObjectCollectionView(pub u32);
 impl ICoreWebView2ObjectCollectionView {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventArgs2(pub u32);
 impl ICoreWebView2PermissionRequestedEventArgs2 {
-    pub fn Handled();
-    pub fn Handled();
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventArgs3(pub u32);
 impl ICoreWebView2PermissionRequestedEventArgs3 {
-    pub fn SavesInProfile();
-    pub fn SavesInProfile();
+    pub fn SavesInProfile() -> HRESULT;
+    pub fn SavesInProfile() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionSetting(pub u32);
 impl ICoreWebView2PermissionSetting {
-    pub fn PermissionKind();
-    pub fn PermissionOrigin();
-    pub fn PermissionState();
+    pub fn PermissionKind() -> HRESULT;
+    pub fn PermissionOrigin() -> HRESULT;
+    pub fn PermissionState() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventArgs(pub u32);
 impl ICoreWebView2ProcessFailedEventArgs {
-    pub fn ProcessFailedKind();
+    pub fn ProcessFailedKind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventArgs3(pub u32);
 impl ICoreWebView2ProcessFailedEventArgs3 {
-    pub fn FailureSourceModulePath();
+    pub fn FailureSourceModulePath() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClearBrowsingDataCompletedHandler(pub u32);
 impl ICoreWebView2ClearBrowsingDataCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile2(pub u32);
 impl ICoreWebView2Profile2 {
-    pub fn ClearBrowsingData();
-    pub fn ClearBrowsingDataInTimeRange();
-    pub fn ClearBrowsingDataAll();
+    pub fn ClearBrowsingData() -> HRESULT;
+    pub fn ClearBrowsingDataInTimeRange() -> HRESULT;
+    pub fn ClearBrowsingDataAll() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile3(pub u32);
 impl ICoreWebView2Profile3 {
-    pub fn PreferredTrackingPreventionLevel();
-    pub fn PreferredTrackingPreventionLevel();
+    pub fn PreferredTrackingPreventionLevel() -> HRESULT;
+    pub fn PreferredTrackingPreventionLevel() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SetPermissionStateCompletedHandler(pub u32);
 impl ICoreWebView2SetPermissionStateCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler(pub u32);
 impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile4(pub u32);
 impl ICoreWebView2Profile4 {
-    pub fn SetPermissionState();
-    pub fn GetNonDefaultPermissionSettings();
+    pub fn SetPermissionState() -> HRESULT;
+    pub fn GetNonDefaultPermissionSettings() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile5(pub u32);
 impl ICoreWebView2Profile5 {
-    pub fn CookieManager();
+    pub fn CookieManager() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProfileAddBrowserExtensionCompletedHandler(pub u32);
 impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler(pub u32);
 impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtensionList(pub u32);
 impl ICoreWebView2BrowserExtensionList {
-    pub fn Count();
-    pub fn GetValueAtIndex();
+    pub fn Count() -> HRESULT;
+    pub fn GetValueAtIndex() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile7(pub u32);
 impl ICoreWebView2Profile7 {
-    pub fn AddBrowserExtension();
-    pub fn GetBrowserExtensions();
+    pub fn AddBrowserExtension() -> HRESULT;
+    pub fn GetBrowserExtensions() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs(pub u32);
 impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
-    pub fn CancelSave();
-    pub fn CancelSave();
-    pub fn DocumentOriginUri();
-    pub fn FileExtension();
-    pub fn FilePath();
-    pub fn SuppressDefaultPolicy();
-    pub fn SuppressDefaultPolicy();
-    pub fn GetDeferral();
+    pub fn CancelSave() -> HRESULT;
+    pub fn CancelSave() -> HRESULT;
+    pub fn DocumentOriginUri() -> HRESULT;
+    pub fn FileExtension() -> HRESULT;
+    pub fn FilePath() -> HRESULT;
+    pub fn SuppressDefaultPolicy() -> HRESULT;
+    pub fn SuppressDefaultPolicy() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScreenCaptureStartingEventArgs(pub u32);
 impl ICoreWebView2ScreenCaptureStartingEventArgs {
-    pub fn Cancel();
-    pub fn Cancel();
-    pub fn Handled();
-    pub fn Handled();
-    pub fn OriginalSourceFrameInfo();
-    pub fn GetDeferral();
+    pub fn Cancel() -> HRESULT;
+    pub fn Cancel() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn Handled() -> HRESULT;
+    pub fn OriginalSourceFrameInfo() -> HRESULT;
+    pub fn GetDeferral() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings2(pub u32);
 impl ICoreWebView2Settings2 {
-    pub fn UserAgent();
-    pub fn UserAgent();
+    pub fn UserAgent() -> HRESULT;
+    pub fn UserAgent() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings3(pub u32);
 impl ICoreWebView2Settings3 {
-    pub fn AreBrowserAcceleratorKeysEnabled();
-    pub fn AreBrowserAcceleratorKeysEnabled();
+    pub fn AreBrowserAcceleratorKeysEnabled() -> HRESULT;
+    pub fn AreBrowserAcceleratorKeysEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings5(pub u32);
 impl ICoreWebView2Settings5 {
-    pub fn IsPinchZoomEnabled();
-    pub fn IsPinchZoomEnabled();
+    pub fn IsPinchZoomEnabled() -> HRESULT;
+    pub fn IsPinchZoomEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings6(pub u32);
 impl ICoreWebView2Settings6 {
-    pub fn IsSwipeNavigationEnabled();
-    pub fn IsSwipeNavigationEnabled();
+    pub fn IsSwipeNavigationEnabled() -> HRESULT;
+    pub fn IsSwipeNavigationEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings7(pub u32);
 impl ICoreWebView2Settings7 {
-    pub fn HiddenPdfToolbarItems();
-    pub fn HiddenPdfToolbarItems();
+    pub fn HiddenPdfToolbarItems() -> HRESULT;
+    pub fn HiddenPdfToolbarItems() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings8(pub u32);
 impl ICoreWebView2Settings8 {
-    pub fn IsReputationCheckingRequired();
-    pub fn IsReputationCheckingRequired();
+    pub fn IsReputationCheckingRequired() -> HRESULT;
+    pub fn IsReputationCheckingRequired() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings9(pub u32);
 impl ICoreWebView2Settings9 {
-    pub fn IsNonClientRegionSupportEnabled();
-    pub fn IsNonClientRegionSupportEnabled();
+    pub fn IsNonClientRegionSupportEnabled() -> HRESULT;
+    pub fn IsNonClientRegionSupportEnabled() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SourceChangedEventArgs(pub u32);
 impl ICoreWebView2SourceChangedEventArgs {
-    pub fn IsNewDocument();
+    pub fn IsNewDocument() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs(pub u32);
 impl ICoreWebView2WebMessageReceivedEventArgs {
-    pub fn Source();
-    pub fn WebMessageAsJson();
-    pub fn TryGetWebMessageAsString();
+    pub fn Source() -> HRESULT;
+    pub fn WebMessageAsJson() -> HRESULT;
+    pub fn TryGetWebMessageAsString() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs2(pub u32);
 impl ICoreWebView2WebMessageReceivedEventArgs2 {
-    pub fn AdditionalObjects();
+    pub fn AdditionalObjects() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs2(pub u32);
 impl ICoreWebView2WebResourceRequestedEventArgs2 {
-    pub fn RequestedSourceKind();
+    pub fn RequestedSourceKind() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventArgs(pub u32);
 impl ICoreWebView2WebResourceResponseReceivedEventArgs {
-    pub fn Request();
-    pub fn Response();
+    pub fn Request() -> HRESULT;
+    pub fn Response() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventHandler(pub u32);
 impl ICoreWebView2BasicAuthenticationRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_10(pub u32);
 impl ICoreWebView2_10 {
-    pub fn add_BasicAuthenticationRequested();
-    pub fn remove_BasicAuthenticationRequested();
+    pub fn add_BasicAuthenticationRequested() -> HRESULT;
+    pub fn remove_BasicAuthenticationRequested() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_13(pub u32);
 impl ICoreWebView2_13 {
-    pub fn Profile();
+    pub fn Profile() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler(pub u32);
 impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler(pub u32);
 impl ICoreWebView2ServerCertificateErrorDetectedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_14(pub u32);
 impl ICoreWebView2_14 {
-    pub fn add_ServerCertificateErrorDetected();
-    pub fn remove_ServerCertificateErrorDetected();
-    pub fn ClearServerCertificateErrorActions();
+    pub fn add_ServerCertificateErrorDetected() -> HRESULT;
+    pub fn remove_ServerCertificateErrorDetected() -> HRESULT;
+    pub fn ClearServerCertificateErrorActions() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_17(pub u32);
 impl ICoreWebView2_17 {
-    pub fn PostSharedBufferToScript();
+    pub fn PostSharedBufferToScript() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2LaunchingExternalUriSchemeEventHandler(pub u32);
 impl ICoreWebView2LaunchingExternalUriSchemeEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_18(pub u32);
 impl ICoreWebView2_18 {
-    pub fn add_LaunchingExternalUriScheme();
-    pub fn remove_LaunchingExternalUriScheme();
+    pub fn add_LaunchingExternalUriScheme() -> HRESULT;
+    pub fn remove_LaunchingExternalUriScheme() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_19(pub u32);
 impl ICoreWebView2_19 {
-    pub fn MemoryUsageTargetLevel();
-    pub fn MemoryUsageTargetLevel();
+    pub fn MemoryUsageTargetLevel() -> HRESULT;
+    pub fn MemoryUsageTargetLevel() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_20(pub u32);
 impl ICoreWebView2_20 {
-    pub fn FrameId();
+    pub fn FrameId() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ExecuteScriptWithResultCompletedHandler(pub u32);
 impl ICoreWebView2ExecuteScriptWithResultCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_21(pub u32);
 impl ICoreWebView2_21 {
-    pub fn ExecuteScriptWithResult();
+    pub fn ExecuteScriptWithResult() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_22(pub u32);
 impl ICoreWebView2_22 {
-    pub fn AddWebResourceRequestedFilterWithRequestSourceKinds();
-    pub fn RemoveWebResourceRequestedFilterWithRequestSourceKinds();
+    pub fn AddWebResourceRequestedFilterWithRequestSourceKinds() -> HRESULT;
+    pub fn RemoveWebResourceRequestedFilterWithRequestSourceKinds() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ShowSaveAsUICompletedHandler(pub u32);
 impl ICoreWebView2ShowSaveAsUICompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveAsUIShowingEventHandler(pub u32);
 impl ICoreWebView2SaveAsUIShowingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_25(pub u32);
 impl ICoreWebView2_25 {
-    pub fn add_SaveAsUIShowing();
-    pub fn remove_SaveAsUIShowing();
-    pub fn ShowSaveAsUI();
+    pub fn add_SaveAsUIShowing() -> HRESULT;
+    pub fn remove_SaveAsUIShowing() -> HRESULT;
+    pub fn ShowSaveAsUI() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_23(pub u32);
 impl ICoreWebView2_23 {
-    pub fn PostWebMessageAsJsonWithAdditionalObjects();
+    pub fn PostWebMessageAsJsonWithAdditionalObjects() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScreenCaptureStartingEventHandler(pub u32);
 impl ICoreWebView2ScreenCaptureStartingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_27(pub u32);
 impl ICoreWebView2_27 {
-    pub fn add_ScreenCaptureStarting();
-    pub fn remove_ScreenCaptureStarting();
+    pub fn add_ScreenCaptureStarting() -> HRESULT;
+    pub fn remove_ScreenCaptureStarting() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveFileSecurityCheckStartingEventHandler(pub u32);
 impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_26(pub u32);
 impl ICoreWebView2_26 {
-    pub fn add_SaveFileSecurityCheckStarting();
-    pub fn remove_SaveFileSecurityCheckStarting();
+    pub fn add_SaveFileSecurityCheckStarting() -> HRESULT;
+    pub fn remove_SaveFileSecurityCheckStarting() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NotificationReceivedEventHandler(pub u32);
 impl ICoreWebView2NotificationReceivedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_24(pub u32);
 impl ICoreWebView2_24 {
-    pub fn add_NotificationReceived();
-    pub fn remove_NotificationReceived();
+    pub fn add_NotificationReceived() -> HRESULT;
+    pub fn remove_NotificationReceived() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificateRequestedEventHandler(pub u32);
 impl ICoreWebView2ClientCertificateRequestedEventHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_5(pub u32);
 impl ICoreWebView2_5 {
-    pub fn add_ClientCertificateRequested();
-    pub fn remove_ClientCertificateRequested();
+    pub fn add_ClientCertificateRequested() -> HRESULT;
+    pub fn remove_ClientCertificateRequested() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_6(pub u32);
 impl ICoreWebView2_6 {
-    pub fn OpenTaskManagerWindow();
+    pub fn OpenTaskManagerWindow() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintToPdfCompletedHandler(pub u32);
 impl ICoreWebView2PrintToPdfCompletedHandler {
-    pub fn Invoke();
+    pub fn Invoke() -> HRESULT;
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_7(pub u32);
 impl ICoreWebView2_7 {
-    pub fn PrintToPdf();
+    pub fn PrintToPdf() -> HRESULT;
 }

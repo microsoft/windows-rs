@@ -56,8 +56,10 @@ fn write_interface(item: &idl::Interface) -> TokenStream {
     let methods = item.methods.iter().map(|method| {
         let name = to_ident(&method.name);
 
+        debug_assert_eq!(method.return_type, "HRESULT");
+
         quote! {
-            pub fn #name();
+            pub fn #name() -> HRESULT;
         }
     });
 
