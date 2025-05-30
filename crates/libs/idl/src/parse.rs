@@ -14,19 +14,31 @@ use nom::{
 type ParseResult<'a, T> = IResult<Input<'a>, T>;
 
 fn parse_ident(input: Input) -> ParseResult<String> {
-    recognize(pair(
-        alt((alpha1, tag("_"))),
-        many0(alt((alphanumeric1, tag("_")))),
-    ))
+    recognize(
+        pair(alt((alpha1, tag("_"))), many0(alt((alphanumeric1, tag("_")))))
+    )
     .map(|s: Input| s.to_string())
     .parse(input)
 }
 
 fn parse_type(input: Input) -> ParseResult<String> {
-    recognize(pair(
+    fn parse_type_impl(input: Input) -> ParseResult<Input> {
+        recognize((
         parse_ident,
         many0(preceded(parse_whitespace0, tag("*"))),
-    ))
+        opt(preceded(parse_whitespace0, tag("const"))),
+    )).parse(input)
+    }
+
+        recognize(alt((
+            // const Type [*] [const]
+            preceded(
+                preceded(parse_whitespace0, tag("const")),
+                preceded(parse_whitespace1, parse_type_impl),
+            ),
+            // Type [*] [const]
+            parse_type_impl,
+        )))
     .map(|s: Input| s.to_string())
     .parse(input)
 }
