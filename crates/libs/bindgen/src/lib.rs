@@ -52,8 +52,6 @@ use winmd::*;
 mod method_names;
 use method_names::*;
 
-/// The Windows code generator.
-///
 /// The conventional way of calling the `bindgen` function is as follows:
 ///
 /// ```rust,no_run
@@ -68,6 +66,24 @@ use method_names::*;
 ///     windows_bindgen::bindgen(args).unwrap();
 /// }
 /// ```
+///
+/// Here is a list of supported arguments.
+///
+/// | Argument | Description |
+/// |----------|-------------|
+/// | `--in` | .winmd files or directories to include. |
+/// | `--out` | File name where the generated bindings will be saved. |
+/// | `--filter` | APIs to include or exclude in the generated bindings. |
+/// | `--rustfmt` | Overrides the default Rust formatting. |
+/// | `--derive` | Extra traits for types to derive. |
+/// | `--flat` | Avoids the default namespace-to-module conversion. |
+/// | `--no-allow` | Avoids generating the default `allow` attribute. |
+/// | `--no-comment` | Avoids generating the code generation comment. |
+/// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
+/// | `--sys` | Generates raw or sys-style Rust bindings. |
+/// | `--implement` | Includes implementation traits for WinRT interfaces. |
+/// | `--link` | Overrides the default `windows-link` implementation for system calls. |
+///
 ///
 /// # `--out`
 ///
@@ -235,6 +251,7 @@ use method_names::*;
 ///
 /// You'll notice that the bindings are simpler as there's no wrapper functions and other
 /// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
+///
 #[track_caller]
 #[must_use]
 pub fn bindgen<I, S>(args: I) -> Warnings
