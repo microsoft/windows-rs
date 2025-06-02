@@ -53,6 +53,188 @@ mod method_names;
 use method_names::*;
 
 /// The Windows code generator.
+///
+/// The conventional way of calling the `bindgen` function is as follows:
+///
+/// ```rust,no_run
+/// fn main() {
+///     let args = [
+///         "--out",
+///         "src/bindings.rs",
+///         "--filter",
+///         "GetTickCount",
+///     ];
+///
+///     windows_bindgen::bindgen(args).unwrap();
+/// }
+/// ```
+///
+/// # `--out`
+///
+/// Exactly one `--out` argument is required and instructs the `bindgen` function where to write the bindings.
+///
+/// # `--filter`
+///
+/// At least one `--filter` is required and indicates what APIs to include in the generated bindings.
+/// The following will, for example, also include the `Sleep` function:
+///
+/// ```rust
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--filter",
+///     "GetTickCount",
+///     "Sleep",
+/// ];
+/// ```
+///
+/// The `--filter` argument can refer to the function or type name and nothing more. You can also refer
+/// to the namespace that the API metadata uses to group functions and types:
+///
+/// ```rust
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--filter",
+///     "Windows.Foundation.Numerics",
+///     "!Windows.Foundation.Numerics.Matrix3x2",
+/// ];
+/// ```
+///
+/// In this example, all types from the `Windows.Foundation.Numerics` namepace are included with the
+/// exception of `Matrix3x2` which is excluded due to the `!` preamble.
+///
+/// # `--in`
+///
+/// `--in` can indicate a .winmd file or directory containing .winmd files. Alternatively, the special
+/// "default" input can be used to include the particular .winmd files that ship with the `windows-bindgen`
+/// crate. This may used to combine the default metadata with specific .winmd files.
+///
+/// ```rust
+/// let args = [
+///     "--in",
+///     "default",
+///     "Sample.winmd",
+///     "--out",
+///     "src/bindings.rs",
+///     "--filter",
+///     "Sample",
+/// ];
+/// ```
+///
+/// # `--flat`
+///
+/// By default, the bindings include a mapping of namespaces to modules. Consider this example again:
+///
+/// ```rust
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--filter",
+///     "GetTickCount",
+///     "Sleep",
+/// ];
+/// ```
+///
+/// The resulting bindings might look something like this:
+///
+/// ```rust
+/// pub mod Windows {
+///     pub mod Win32 {
+///         pub mod System {
+///             pub mod SystemInformation {
+///                 #[inline]
+///                 pub unsafe fn GetTickCount() -> u32 {
+///                     windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
+///                     unsafe { GetTickCount() }
+///                 }
+///             }
+///             pub mod Threading {
+///                 #[inline]
+///                 pub unsafe fn Sleep(dwmilliseconds: u32) {
+///                     windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
+///                     unsafe { Sleep(dwmilliseconds) }
+///                 }
+///             }
+///         }
+///     }
+/// }
+/// ```
+///
+/// That's because the default metadata defines `GetTickCount` in the `Windows.Win32.System.SystemInformation`
+/// namespace while `Sleep` is defined in the `Windows.Win32.System.Threading` namespace. Fortunately, it's
+/// easy to turn that off by using the `--flat` argument:
+///
+/// ```rust
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--flat",
+///     "--filter",
+///     "GetTickCount",
+///     "Sleep",
+/// ];
+/// ```
+///
+/// The resulting bindings now look something like this:
+///
+/// ```rust
+/// #[inline]
+/// pub unsafe fn GetTickCount() -> u32 {
+///     windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
+///     unsafe { GetTickCount() }
+/// }
+/// #[inline]
+/// pub unsafe fn Sleep(dwmilliseconds: u32) {
+///     windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
+///     unsafe { Sleep(dwmilliseconds) }
+/// }
+/// ```
+///
+/// # `--no-allow`
+///
+/// The bindings also include an allow attribute that covers various common warnings inherent in
+/// generated bindings.
+///
+/// ```rust
+/// #![allow(
+///     non_snake_case,
+///     non_upper_case_globals,
+///     non_camel_case_types,
+///     dead_code,
+///     clippy::all
+/// )]
+/// ```
+///
+/// You can prevent this from being generated if you prefer to manage this yourself with the `--no-allow`
+/// argument.
+///
+/// # `--sys`
+///
+/// The `--sys` argument instruct the `bindgen` function to generate raw, sometimes called sys-style Rust
+/// bindings.
+///
+/// ```rust
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--flat",
+///     "--sys",
+///     "--filter",
+///     "GetTickCount",
+///     "Sleep",
+/// ];
+/// ```
+///
+/// The resulting bindings now look something like this:
+///
+/// ```rust
+/// windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
+/// windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
+/// ```
+///
+/// You'll notice that the bindings are simpler as there's no wrapper functions and other
+/// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
 #[track_caller]
 #[must_use]
 pub fn bindgen<I, S>(args: I) -> Warnings

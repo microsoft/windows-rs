@@ -13,6 +13,9 @@ windows-threading = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true, features = ["std"] }
 
+[dev-dependencies]
+windows-link = { workspace = true }
+
 [lints]
 workspace = true
 
