@@ -24,11 +24,12 @@ fn main() {
         "--out",
         "src/bindings.rs",
         "--flat",
+        "--sys",
         "--filter",
         "GetTickCount",
     ];
 
-    windows_bindgen::bindgen(args);
+    windows_bindgen::bindgen(args).unwrap();
 }
 ```
 
