@@ -23,4 +23,4 @@ Source:
 
 * <https://github.com/microsoft/cppwinrt>
 * <https://www.nuget.org/packages/microsoft.windows.cppwinrt>
-* Version 2.0.240405.15
+* Version 2.0.250303.1
