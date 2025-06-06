@@ -117,7 +117,7 @@ pub trait AsRow<'a>: Copy {
         )
     }
 
-    fn parent_row<P: AsRow<'a>>(&'a self, column: usize) -> P {
+    fn parent_row<P: AsRow<'a>>(&self, column: usize) -> P {
         let row = self.to_row();
 
         P::from_row(Row::new(

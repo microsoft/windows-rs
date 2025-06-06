@@ -52,7 +52,7 @@ impl TypeIndex {
         &self.files[pos]
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef)> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef<'_>)> + '_ {
         self.types
             .iter()
             .flat_map(|(namespace, types)| {
@@ -66,7 +66,7 @@ impl TypeIndex {
             })
     }
 
-    pub fn types(&self) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn types(&self) -> impl Iterator<Item = TypeDef<'_>> + '_ {
         self.types
             .values()
             .flat_map(|types| types.values())
@@ -74,7 +74,7 @@ impl TypeIndex {
             .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
     }
 
-    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = TypeDef<'_>> + '_ {
         self.types
             .get(namespace)
             .and_then(|types| types.get(name))
@@ -84,7 +84,7 @@ impl TypeIndex {
     }
 
     #[track_caller]
-    pub fn expect(&self, namespace: &str, name: &str) -> TypeDef {
+    pub fn expect(&self, namespace: &str, name: &str) -> TypeDef<'_> {
         let mut iter = self.get(namespace, name);
 
         if let Some(def) = iter.next() {
@@ -98,7 +98,7 @@ impl TypeIndex {
         }
     }
 
-    pub fn nested(&self, ty: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn nested(&self, ty: TypeDef) -> impl Iterator<Item = TypeDef<'_>> + '_ {
         self.nested
             .get(&(ty.0.file, ty.0.pos))
             .into_iter()

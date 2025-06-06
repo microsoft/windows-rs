@@ -8,12 +8,12 @@ impl std::fmt::Debug for Attribute<'_> {
     }
 }
 
-impl Attribute<'_> {
-    pub fn parent(&self) -> HasAttribute {
+impl<'a> Attribute<'a> {
+    pub fn parent(&self) -> HasAttribute<'a> {
         self.decode(0)
     }
 
-    pub fn ctor(&self) -> AttributeType {
+    pub fn ctor(&self) -> AttributeType<'a> {
         self.decode(1)
     }
 
