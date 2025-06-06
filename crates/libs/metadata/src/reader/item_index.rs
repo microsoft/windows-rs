@@ -42,7 +42,7 @@ impl<'a> ItemIndex<'a> {
         Self(members)
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, &Item)> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, &Item<'_>)> + '_ {
         self.0
             .iter()
             .flat_map(|(namespace, items)| {
@@ -55,11 +55,11 @@ impl<'a> ItemIndex<'a> {
             })
     }
 
-    pub fn items(&self) -> impl Iterator<Item = &Item> + '_ {
+    pub fn items(&self) -> impl Iterator<Item = &Item<'_>> + '_ {
         self.0.values().flat_map(|items| items.values()).flatten()
     }
 
-    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = &Item> + '_ {
+    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = &Item<'_>> + '_ {
         self.0
             .get(namespace)
             .and_then(|items| items.get(name))
@@ -68,7 +68,7 @@ impl<'a> ItemIndex<'a> {
     }
 
     #[track_caller]
-    pub fn expect(&self, namespace: &str, name: &str) -> &Item {
+    pub fn expect(&self, namespace: &str, name: &str) -> &Item<'_> {
         let mut iter = self.get(namespace, name);
 
         if let Some(item) = iter.next() {

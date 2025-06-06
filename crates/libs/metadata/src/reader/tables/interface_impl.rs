@@ -6,8 +6,8 @@ impl std::fmt::Debug for InterfaceImpl<'_> {
     }
 }
 
-impl InterfaceImpl<'_> {
-    pub fn class(&self) -> TypeDef {
+impl<'a> InterfaceImpl<'a> {
+    pub fn class(&self) -> TypeDef<'a> {
         self.row(0)
     }
 

@@ -42,8 +42,8 @@ code! { AttributeType(3)
     (MemberRef, 3)
 }
 
-impl AttributeType<'_> {
-    pub fn parent(&self) -> MemberRefParent {
+impl<'a> AttributeType<'a> {
+    pub fn parent(&self) -> MemberRefParent<'a> {
         match self {
             Self::MethodDef(row) => row.parent(),
             Self::MemberRef(row) => row.parent(),
