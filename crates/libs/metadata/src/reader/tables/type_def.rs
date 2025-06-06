@@ -19,7 +19,7 @@ impl<'a> TypeDef<'a> {
         self.str(2)
     }
 
-    pub fn extends(&self) -> Option<TypeDefOrRef> {
+    pub fn extends(&self) -> Option<TypeDefOrRef<'a>> {
         if self.usize(3) == 0 {
             return None;
         }
@@ -35,15 +35,15 @@ impl<'a> TypeDef<'a> {
         self.list(5)
     }
 
-    pub fn generic_params(&self) -> RowIterator<GenericParam> {
+    pub fn generic_params(&self) -> RowIterator<'a, GenericParam<'a>> {
         self.equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
     }
 
-    pub fn interface_impls(&self) -> RowIterator<InterfaceImpl> {
+    pub fn interface_impls(&self) -> RowIterator<'a, InterfaceImpl<'a>> {
         self.equal_range(0, self.pos() + 1)
     }
 
-    pub fn class_layout(&self) -> Option<ClassLayout> {
+    pub fn class_layout(&self) -> Option<ClassLayout<'a>> {
         self.equal_range(2, self.pos() + 1).next()
     }
 

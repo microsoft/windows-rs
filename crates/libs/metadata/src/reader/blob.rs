@@ -61,7 +61,7 @@ impl<'a> Blob<'a> {
         }
     }
 
-    pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
+    pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef<'a>> {
         let mut mods = vec![];
         loop {
             let (value, offset) = self.peek();

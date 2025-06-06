@@ -9,12 +9,12 @@ impl std::fmt::Debug for NestedClass<'_> {
     }
 }
 
-impl NestedClass<'_> {
-    pub fn inner(&self) -> TypeDef {
+impl<'a> NestedClass<'a> {
+    pub fn inner(&self) -> TypeDef<'a> {
         self.row(0)
     }
 
-    pub fn outer(&self) -> TypeDef {
+    pub fn outer(&self) -> TypeDef<'a> {
         self.row(1)
     }
 }
