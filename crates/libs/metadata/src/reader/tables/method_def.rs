@@ -47,7 +47,7 @@ impl<'a> MethodDef<'a> {
             if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
                 "system"
             } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
-                "cdecl"
+                "C"
             } else {
                 ""
             }

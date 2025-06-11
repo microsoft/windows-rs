@@ -32,7 +32,7 @@ macro_rules! link {
 #[macro_export]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? fn $($function:tt)*) => (
-        extern $abi {
+        extern "C" {
             pub fn $($function)*;
         }
     )
