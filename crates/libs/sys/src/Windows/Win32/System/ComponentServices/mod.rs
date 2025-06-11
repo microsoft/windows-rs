@@ -3,11 +3,11 @@ windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobj
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut core::ffi::c_void));
-windows_targets::link!("mtxdm.dll" "cdecl" fn GetDispenserManager(param0 : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("mtxdm.dll" "C" fn GetDispenserManager(param0 : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_sys::core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("comsvcs.dll" "cdecl" fn RecycleSurrogate(lreasoncode : i32) -> windows_sys::core::HRESULT);
-windows_targets::link!("comsvcs.dll" "cdecl" fn SafeRef(rid : *const windows_sys::core::GUID, punk : * mut core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_targets::link!("comsvcs.dll" "C" fn RecycleSurrogate(lreasoncode : i32) -> windows_sys::core::HRESULT);
+windows_targets::link!("comsvcs.dll" "C" fn SafeRef(rid : *const windows_sys::core::GUID, punk : * mut core::ffi::c_void) -> *mut core::ffi::c_void);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct APPDATA {

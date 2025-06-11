@@ -3795,7 +3795,7 @@ pub unsafe fn SetupWriteTextLog<P3>(logtoken: u64, category: u32, flags: u32, me
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("setupapi.dll" "cdecl" fn SetupWriteTextLog(logtoken : u64, category : u32, flags : u32, messagestr : windows_core::PCSTR));
+    windows_link::link!("setupapi.dll" "C" fn SetupWriteTextLog(logtoken : u64, category : u32, flags : u32, messagestr : windows_core::PCSTR));
     unsafe { SetupWriteTextLog(logtoken, category, flags, messagestr.param().abi()) }
 }
 #[inline]
@@ -3803,7 +3803,7 @@ pub unsafe fn SetupWriteTextLogError<P4>(logtoken: u64, category: u32, logflags:
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("setupapi.dll" "cdecl" fn SetupWriteTextLogError(logtoken : u64, category : u32, logflags : u32, error : u32, messagestr : windows_core::PCSTR));
+    windows_link::link!("setupapi.dll" "C" fn SetupWriteTextLogError(logtoken : u64, category : u32, logflags : u32, error : u32, messagestr : windows_core::PCSTR));
     unsafe { SetupWriteTextLogError(logtoken, category, logflags, error, messagestr.param().abi()) }
 }
 #[inline]

@@ -16,7 +16,7 @@ pub unsafe fn CreateAudioVolumeMeter() -> windows_core::Result<windows_core::IUn
 }
 #[inline]
 pub unsafe fn CreateFX(clsid: *const windows_core::GUID, peffect: *mut Option<windows_core::IUnknown>, pinitdat: Option<*const core::ffi::c_void>, initdatabytesize: u32) -> windows_core::Result<()> {
-    windows_link::link!("xaudio2_8.dll" "cdecl" fn CreateFX(clsid : *const windows_core::GUID, peffect : *mut * mut core::ffi::c_void, pinitdat : *const core::ffi::c_void, initdatabytesize : u32) -> windows_core::HRESULT);
+    windows_link::link!("xaudio2_8.dll" "C" fn CreateFX(clsid : *const windows_core::GUID, peffect : *mut * mut core::ffi::c_void, pinitdat : *const core::ffi::c_void, initdatabytesize : u32) -> windows_core::HRESULT);
     unsafe { CreateFX(clsid, core::mem::transmute(peffect), pinitdat.unwrap_or(core::mem::zeroed()) as _, initdatabytesize).ok() }
 }
 #[inline]

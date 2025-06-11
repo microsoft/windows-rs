@@ -331,7 +331,7 @@ pub unsafe fn SnmpUtilDbgPrint<P1>(nloglevel: SNMP_LOG, szformat: P1)
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_core::PCSTR));
+    windows_link::link!("snmpapi.dll" "C" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_core::PCSTR));
     unsafe { SnmpUtilDbgPrint(nloglevel, szformat.param().abi()) }
 }
 #[inline]
