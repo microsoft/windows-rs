@@ -414,7 +414,7 @@ pub unsafe fn DbgPrint<P0>(format: P0) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("ntdll.dll" "cdecl" fn DbgPrint(format : windows_core::PCSTR) -> u32);
+    windows_link::link!("ntdll.dll" "C" fn DbgPrint(format : windows_core::PCSTR) -> u32);
     unsafe { DbgPrint(format.param().abi()) }
 }
 #[inline]
@@ -422,7 +422,7 @@ pub unsafe fn DbgPrintEx<P2>(componentid: u32, level: u32, format: P2) -> u32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("ntdll.dll" "cdecl" fn DbgPrintEx(componentid : u32, level : u32, format : windows_core::PCSTR) -> u32);
+    windows_link::link!("ntdll.dll" "C" fn DbgPrintEx(componentid : u32, level : u32, format : windows_core::PCSTR) -> u32);
     unsafe { DbgPrintEx(componentid, level, format.param().abi()) }
 }
 #[inline]
@@ -430,7 +430,7 @@ pub unsafe fn DbgPrintReturnControlC<P0>(format: P0) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("ntdll.dll" "cdecl" fn DbgPrintReturnControlC(format : windows_core::PCSTR) -> u32);
+    windows_link::link!("ntdll.dll" "C" fn DbgPrintReturnControlC(format : windows_core::PCSTR) -> u32);
     unsafe { DbgPrintReturnControlC(format.param().abi()) }
 }
 #[inline]

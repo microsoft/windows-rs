@@ -37,7 +37,7 @@ fn main() {
     }
 }
 
-type ShellMessageBoxW = unsafe extern "cdecl" fn(
+type ShellMessageBoxW = unsafe extern "C" fn(
     happinst: usize,
     hwnd: usize,
     lpctext: PCWSTR,

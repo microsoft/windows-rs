@@ -2134,7 +2134,7 @@ pub unsafe fn alljoyn_message_parseargs<P1>(msg: alljoyn_message, signature: P1)
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_message_parseargs(msg : alljoyn_message, signature : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_message_parseargs(msg : alljoyn_message, signature : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_message_parseargs(msg, signature.param().abi()) }
 }
 #[inline]
@@ -2165,7 +2165,7 @@ pub unsafe fn alljoyn_msgarg_array_get<P2>(args: alljoyn_msgarg, numargs: usize,
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_array_get(args : alljoyn_msgarg, numargs : usize, signature : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_array_get(args : alljoyn_msgarg, numargs : usize, signature : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_msgarg_array_get(args, numargs, signature.param().abi()) }
 }
 #[inline]
@@ -2173,7 +2173,7 @@ pub unsafe fn alljoyn_msgarg_array_set<P2>(args: alljoyn_msgarg, numargs: *mut u
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_array_set(args : alljoyn_msgarg, numargs : *mut usize, signature : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_array_set(args : alljoyn_msgarg, numargs : *mut usize, signature : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_msgarg_array_set(args, numargs as _, signature.param().abi()) }
 }
 #[inline]
@@ -2181,7 +2181,7 @@ pub unsafe fn alljoyn_msgarg_array_set_offset<P3>(args: alljoyn_msgarg, argoffse
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_array_set_offset(args : alljoyn_msgarg, argoffset : usize, numargs : *mut usize, signature : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_array_set_offset(args : alljoyn_msgarg, argoffset : usize, numargs : *mut usize, signature : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_msgarg_array_set_offset(args, argoffset, numargs as _, signature.param().abi()) }
 }
 #[inline]
@@ -2225,7 +2225,7 @@ pub unsafe fn alljoyn_msgarg_create_and_set<P0>(signature: P0) -> alljoyn_msgarg
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_create_and_set(signature : windows_core::PCSTR) -> alljoyn_msgarg);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_create_and_set(signature : windows_core::PCSTR) -> alljoyn_msgarg);
     unsafe { alljoyn_msgarg_create_and_set(signature.param().abi()) }
 }
 #[inline]
@@ -2243,7 +2243,7 @@ pub unsafe fn alljoyn_msgarg_get<P1>(arg: alljoyn_msgarg, signature: P1) -> QSta
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_get(arg : alljoyn_msgarg, signature : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_get(arg : alljoyn_msgarg, signature : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_msgarg_get(arg, signature.param().abi()) }
 }
 #[inline]
@@ -2384,7 +2384,7 @@ pub unsafe fn alljoyn_msgarg_getdictelement<P1>(arg: alljoyn_msgarg, elemsig: P1
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_getdictelement(arg : alljoyn_msgarg, elemsig : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_getdictelement(arg : alljoyn_msgarg, elemsig : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_msgarg_getdictelement(arg, elemsig.param().abi()) }
 }
 #[inline]
@@ -2425,7 +2425,7 @@ pub unsafe fn alljoyn_msgarg_set<P1>(arg: alljoyn_msgarg, signature: P1) -> QSta
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_set(arg : alljoyn_msgarg, signature : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_set(arg : alljoyn_msgarg, signature : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_msgarg_set(arg, signature.param().abi()) }
 }
 #[inline]
@@ -2433,7 +2433,7 @@ pub unsafe fn alljoyn_msgarg_set_and_stabilize<P1>(arg: alljoyn_msgarg, signatur
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("msajapi.dll" "cdecl" fn alljoyn_msgarg_set_and_stabilize(arg : alljoyn_msgarg, signature : windows_core::PCSTR) -> QStatus);
+    windows_link::link!("msajapi.dll" "C" fn alljoyn_msgarg_set_and_stabilize(arg : alljoyn_msgarg, signature : windows_core::PCSTR) -> QStatus);
     unsafe { alljoyn_msgarg_set_and_stabilize(arg, signature.param().abi()) }
 }
 #[inline]

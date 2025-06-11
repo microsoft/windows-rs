@@ -120,7 +120,7 @@ windows_targets::link!("ndis.sys" "system" fn NdisUpdateSharedMemory(ndisadapter
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 windows_targets::link!("ndis.sys" "system" fn NdisWaitEvent(event : *const NDIS_EVENT, mstowait : u32) -> bool);
 windows_targets::link!("ndis.sys" "system" fn NdisWriteConfiguration(status : *mut i32, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametervalue : *const NDIS_CONFIGURATION_PARAMETER));
-windows_targets::link!("ndis.sys" "cdecl" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32, ...));
+windows_targets::link!("ndis.sys" "C" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32, ...));
 windows_targets::link!("ndis.sys" "system" fn NdisWriteEventLogEntry(loghandle : *const core::ffi::c_void, eventcode : i32, uniqueeventvalue : u32, numstrings : u16, stringslist : *const core::ffi::c_void, datasize : u32, data : *const core::ffi::c_void) -> i32);
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = 1i32;
 pub const BINARY_COMPATIBLE: u32 = 0u32;

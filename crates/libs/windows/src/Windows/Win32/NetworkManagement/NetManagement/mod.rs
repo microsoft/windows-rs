@@ -1222,7 +1222,7 @@ pub unsafe fn RouterLogEventExA<P4>(hloghandle: super::super::Foundation::HANDLE
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("rtutils.dll" "cdecl" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCSTR));
+    windows_link::link!("rtutils.dll" "C" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCSTR));
     unsafe { RouterLogEventExA(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat.param().abi()) }
 }
 #[inline]
@@ -1230,7 +1230,7 @@ pub unsafe fn RouterLogEventExW<P4>(hloghandle: super::super::Foundation::HANDLE
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("rtutils.dll" "cdecl" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCWSTR));
+    windows_link::link!("rtutils.dll" "C" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCWSTR));
     unsafe { RouterLogEventExW(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat.param().abi()) }
 }
 #[inline]
@@ -1341,7 +1341,7 @@ pub unsafe fn TracePrintfA<P1>(dwtraceid: u32, lpszformat: P1) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("rtutils.dll" "cdecl" fn TracePrintfA(dwtraceid : u32, lpszformat : windows_core::PCSTR) -> u32);
+    windows_link::link!("rtutils.dll" "C" fn TracePrintfA(dwtraceid : u32, lpszformat : windows_core::PCSTR) -> u32);
     unsafe { TracePrintfA(dwtraceid, lpszformat.param().abi()) }
 }
 #[inline]
@@ -1349,7 +1349,7 @@ pub unsafe fn TracePrintfExA<P2>(dwtraceid: u32, dwflags: u32, lpszformat: P2) -
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("rtutils.dll" "cdecl" fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : windows_core::PCSTR) -> u32);
+    windows_link::link!("rtutils.dll" "C" fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : windows_core::PCSTR) -> u32);
     unsafe { TracePrintfExA(dwtraceid, dwflags, lpszformat.param().abi()) }
 }
 #[inline]
@@ -1357,7 +1357,7 @@ pub unsafe fn TracePrintfExW<P2>(dwtraceid: u32, dwflags: u32, lpszformat: P2) -
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("rtutils.dll" "cdecl" fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : windows_core::PCWSTR) -> u32);
+    windows_link::link!("rtutils.dll" "C" fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : windows_core::PCWSTR) -> u32);
     unsafe { TracePrintfExW(dwtraceid, dwflags, lpszformat.param().abi()) }
 }
 #[inline]
@@ -1365,7 +1365,7 @@ pub unsafe fn TracePrintfW<P1>(dwtraceid: u32, lpszformat: P1) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("rtutils.dll" "cdecl" fn TracePrintfW(dwtraceid : u32, lpszformat : windows_core::PCWSTR) -> u32);
+    windows_link::link!("rtutils.dll" "C" fn TracePrintfW(dwtraceid : u32, lpszformat : windows_core::PCWSTR) -> u32);
     unsafe { TracePrintfW(dwtraceid, lpszformat.param().abi()) }
 }
 #[inline]
