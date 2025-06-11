@@ -34,22 +34,22 @@ syn = { version = "2.0", default-features = false }
 toml = { version = "0.8", features = ["parse"] }
 serde_json = {version = "1.0", default-features = false }
 # generated dependencies
-cppwinrt = { version = "0.2.2", path = "crates/libs/cppwinrt", default-features = false }
-windows = { version = "0.61.1", path = "crates/libs/windows", default-features = false }
-windows-bindgen = { version = "0.61.1", path = "crates/libs/bindgen", default-features = false }
+cppwinrt = { version = "0.3.0", path = "crates/libs/cppwinrt", default-features = false }
+windows = { version = "0.61.2", path = "crates/libs/windows", default-features = false }
+windows-bindgen = { version = "0.62.0", path = "crates/libs/bindgen", default-features = false }
 windows-collections = { version = "0.2.0", path = "crates/libs/collections", default-features = false }
 windows-core = { version = "0.61.2", path = "crates/libs/core", default-features = false }
 windows-future = { version = "0.2.1", path = "crates/libs/future", default-features = false }
 windows-implement = { version = "0.60.0", path = "crates/libs/implement", default-features = false }
 windows-interface = { version = "0.59.1", path = "crates/libs/interface", default-features = false }
-windows-link = { version = "0.1.1", path = "crates/libs/link", default-features = false }
+windows-link = { version = "0.1.2", path = "crates/libs/link", default-features = false }
 windows-metadata = { version = "0.59.0", path = "crates/libs/metadata", default-features = false }
 windows-numerics = { version = "0.2.0", path = "crates/libs/numerics", default-features = false }
 windows-registry = { version = "0.5.2", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.3.4", path = "crates/libs/result", default-features = false }
 windows-services = { version = "0.24.0", path = "crates/libs/services", default-features = false }
 windows-strings = { version = "0.4.2", path = "crates/libs/strings", default-features = false }
-windows-sys = { version = "0.59.0", path = "crates/libs/sys", default-features = false }
-windows-targets = { version = "0.53.0", path = "crates/libs/targets", default-features = false }
+windows-sys = { version = "0.60.0", path = "crates/libs/sys", default-features = false }
+windows-targets = { version = "0.53.1", path = "crates/libs/targets", default-features = false }
 windows-threading = { version = "0.1.0", path = "crates/libs/threading", default-features = false }
 windows-version = { version = "0.1.4", path = "crates/libs/version", default-features = false }
