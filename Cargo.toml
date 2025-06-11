@@ -35,7 +35,7 @@ toml = { version = "0.8", features = ["parse"] }
 serde_json = {version = "1.0", default-features = false }
 # generated dependencies
 cppwinrt = { version = "0.3.0", path = "crates/libs/cppwinrt", default-features = false }
-windows = { version = "0.62.0", path = "crates/libs/windows", default-features = false }
+windows = { version = "0.61.2", path = "crates/libs/windows", default-features = false }
 windows-bindgen = { version = "0.62.0", path = "crates/libs/bindgen", default-features = false }
 windows-collections = { version = "0.2.0", path = "crates/libs/collections", default-features = false }
 windows-core = { version = "0.61.2", path = "crates/libs/core", default-features = false }
