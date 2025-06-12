@@ -1,6 +1,6 @@
 [package]
 name = "cppwinrt"
-version = "0.3.1"
+version = "0.3.2"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
