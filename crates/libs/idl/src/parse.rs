@@ -1,22 +1,23 @@
 use super::*;
 
 use nom::{
-    bytes::complete::{tag, take_until, take_till, take_while1},
-    character::complete::{ alpha1, alphanumeric1, multispace1, i64},
-    combinator::{recognize, eof, opt, value, map},
-    multi::{many1, many0, separated_list1, separated_list0},
-    sequence::{delimited, terminated, preceded, pair},
     branch::alt,
+    bytes::complete::{tag, take_till, take_until, take_while1},
+    character::complete::{alpha1, alphanumeric1, i64, multispace1},
+    combinator::{eof, map, opt, recognize, value},
     error::context,
-     IResult, Parser,
+    multi::{many0, many1, separated_list0, separated_list1},
+    sequence::{delimited, pair, preceded, terminated},
+    IResult, Parser,
 };
 
 type ParseResult<'a, T> = IResult<Input<'a>, T>;
 
 fn parse_ident(input: Input) -> ParseResult<String> {
-    recognize(
-        pair(alt((alpha1, tag("_"))), many0(alt((alphanumeric1, tag("_")))))
-    )
+    recognize(pair(
+        alt((alpha1, tag("_"))),
+        many0(alt((alphanumeric1, tag("_")))),
+    ))
     .map(|s: Input| s.to_string())
     .parse(input)
 }
@@ -24,21 +25,22 @@ fn parse_ident(input: Input) -> ParseResult<String> {
 fn parse_type(input: Input) -> ParseResult<String> {
     fn parse_type_impl(input: Input) -> ParseResult<Input> {
         recognize((
-        parse_ident,
-        many0(preceded(parse_whitespace0, tag("*"))),
-        opt(preceded(parse_whitespace0, tag("const"))),
-    )).parse(input)
+            parse_ident,
+            many0(preceded(parse_whitespace0, tag("*"))),
+            opt(preceded(parse_whitespace0, tag("const"))),
+        ))
+        .parse(input)
     }
 
-        recognize(alt((
-            // const Type [*] [const]
-            preceded(
-                preceded(parse_whitespace0, tag("const")),
-                preceded(parse_whitespace1, parse_type_impl),
-            ),
-            // Type [*] [const]
-            parse_type_impl,
-        )))
+    recognize(alt((
+        // const Type [*] [const]
+        preceded(
+            preceded(parse_whitespace0, tag("const")),
+            preceded(parse_whitespace1, parse_type_impl),
+        ),
+        // Type [*] [const]
+        parse_type_impl,
+    )))
     .map(|s: Input| s.to_string())
     .parse(input)
 }
@@ -99,36 +101,39 @@ fn parse_cpp_quote(input: Input) -> ParseResult<String> {
 impl File {
     pub fn parse(input: Input) -> FileResult<Self> {
         terminated(
-        terminated(
-            many0(preceded(parse_whitespace0, Item::parse)),
-            parse_whitespace0,
+            terminated(
+                many0(preceded(parse_whitespace0, Item::parse)),
+                parse_whitespace0,
+            ),
+            eof,
         )
-        ,eof)
         .map(|items| File { items })
         .parse(input)
-        .map(|(_, ok)|ok)
+        .map(|(_, ok)| ok)
     }
 }
 
 impl Library {
     pub fn parse(input: Input) -> ParseResult<Self> {
-        context("library",
-        (
-            Attribute::parse,
-            preceded(parse_whitespace0, tag("library")),
-            preceded(parse_whitespace1, parse_ident),
-            delimited(
-                preceded(parse_whitespace0, tag("{")),
-                many0(preceded(parse_whitespace0, Item::parse)),
-                preceded(parse_whitespace0, tag("}")),
+        context(
+            "library",
+            (
+                Attribute::parse,
+                preceded(parse_whitespace0, tag("library")),
+                preceded(parse_whitespace1, parse_ident),
+                delimited(
+                    preceded(parse_whitespace0, tag("{")),
+                    many0(preceded(parse_whitespace0, Item::parse)),
+                    preceded(parse_whitespace0, tag("}")),
+                ),
             ),
-        ))
-            .map(|(attributes, _, name, items)| Library {
-                attributes,
-                name,
-                items,
-            })
-            .parse(input)
+        )
+        .map(|(attributes, _, name, items)| Library {
+            attributes,
+            name,
+            items,
+        })
+        .parse(input)
     }
 }
 
@@ -194,7 +199,19 @@ impl EnumVariant {
             preceded(parse_whitespace0, parse_ident),
             opt(preceded(
                 preceded(parse_whitespace0, tag("=")),
-                preceded(parse_whitespace0, i64),
+                preceded(
+                    parse_whitespace0,
+                    alt((
+                        map(
+                            recognize((tag("0x"), take_while1(|c: char| c.is_ascii_hexdigit()))),
+                            |input: Input| {
+                                i64::from_str_radix(input.fragment().trim_start_matches("0x"), 16)
+                                    .unwrap_or(0)
+                            },
+                        ),
+                        i64,
+                    )),
+                ),
             )),
         )
             .map(|(name, value)| Self { name, value })

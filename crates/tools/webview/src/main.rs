@@ -54,12 +54,20 @@ fn write_interface(item: &idl::Interface) -> TokenStream {
     let type_name = to_ident(&item.name);
 
     let methods = item.methods.iter().map(|method| {
-        let name = to_ident(&method.name);
+        let mut name = to_ident(&method.name);
+
+        if method.attributes.iter().any(|a| a.name == "propput") {
+            name = name.prefix("put_");
+        } else if method.attributes.iter().any(|a| a.name == "propget") {
+            name = name.prefix("get_");
+        }
 
         debug_assert_eq!(method.return_type, "HRESULT");
 
         quote! {
-            pub fn #name() -> HRESULT;
+            pub fn #name(&self) -> crate::HRESULT {
+                todo!()
+            }
         }
     });
 
