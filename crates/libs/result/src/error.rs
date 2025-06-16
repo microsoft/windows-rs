@@ -114,17 +114,10 @@ impl Error {
         }
     }
 
-    /// Creates a new `Error` from the Win32 error code returned by `GetLastError()`.
-    pub fn from_win32() -> Self {
-        #[cfg(windows)]
-        {
-            let error = unsafe { GetLastError() };
-            Self::from_hresult(HRESULT::from_win32(error))
-        }
-        #[cfg(not(windows))]
-        {
-            unimplemented!()
-        }
+    /// Creates a new `Error` from the thread's last-error code value.
+    #[cfg(windows)]
+    pub fn from_thread() -> Self {
+        Self::from_hresult(HRESULT::from_thread())
     }
 
     /// The error code describing the error.

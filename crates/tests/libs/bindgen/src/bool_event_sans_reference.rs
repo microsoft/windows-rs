@@ -27,7 +27,7 @@ where
     };
     (!result__.is_invalid())
         .then_some(result__)
-        .ok_or_else(windows_core::Error::from_win32)
+        .ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn NtWaitForSingleObject(

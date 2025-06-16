@@ -8,6 +8,13 @@ use super::*;
 pub struct HRESULT(pub i32);
 
 impl HRESULT {
+    /// Creates a new `HRESULT` from the thread's last-error code value.
+    #[cfg(windows)]
+    pub fn from_thread() -> Self {
+        let error = unsafe { GetLastError() };
+        Self::from_win32(error)
+    }
+
     /// Returns [`true`] if `self` is a success code.
     #[inline]
     pub const fn is_ok(self) -> bool {

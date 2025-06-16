@@ -204,7 +204,7 @@ impl CppFn {
                         pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                             #link
                             let result__ = unsafe { #name(#args) };
-                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
                         }
                     }
                 } else {
