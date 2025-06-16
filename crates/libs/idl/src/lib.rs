@@ -7,7 +7,7 @@ pub type Input<'a> = nom_locate::LocatedSpan<&'a str>;
 pub type Error<'a> = nom::Err<nom::error::Error<Input<'a>>>;
 pub type FileResult<'a, T> = Result<T, Error<'a>>;
 
-pub fn parse(input: &str) -> FileResult<File> {
+pub fn parse(input: &str) -> FileResult<'_, File> {
     File::parse(input.into())
 }
 

@@ -3,7 +3,7 @@ use windows_idl as idl;
 mod fmt;
 
 fn main() {
-    let file = std::fs::read_to_string("crates/tools/webview/src/WebView2.idl").unwrap();
+    let file = std::include_str!("WebView2.idl");
     let file = idl::parse(&file).unwrap();
 
     let mut tokens = quote! {};
