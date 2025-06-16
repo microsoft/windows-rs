@@ -1,9 +1,9 @@
 windows_targets::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_sys::core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
 windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : windows_sys::core::PCWSTR, pwszcmdtoken : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_targets::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut windows_sys::core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
-windows_targets::link!("netsh.dll" "cdecl" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32, ...) -> u32);
-windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : windows_sys::core::PCWSTR, ...) -> u32);
-windows_targets::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32, ...) -> u32);
+windows_targets::link!("netsh.dll" "C" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32, ...) -> u32);
+windows_targets::link!("netsh.dll" "C" fn PrintMessage(pwszformat : windows_sys::core::PCWSTR, ...) -> u32);
+windows_targets::link!("netsh.dll" "C" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32, ...) -> u32);
 windows_targets::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
 windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_sys::core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
 #[repr(C)]

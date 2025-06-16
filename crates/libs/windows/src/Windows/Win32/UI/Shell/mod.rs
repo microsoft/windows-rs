@@ -4382,7 +4382,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("shlwapi.dll" "cdecl" fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_core::PCSTR, lpctitle : windows_core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> i32);
+    windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_core::PCSTR, lpctitle : windows_core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> i32);
     unsafe { ShellMessageBoxA(happinst.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, lpctext.param().abi(), lpctitle.param().abi(), fustyle) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -4392,7 +4392,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("shlwapi.dll" "cdecl" fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_core::PCWSTR, lpctitle : windows_core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> i32);
+    windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_core::PCWSTR, lpctitle : windows_core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> i32);
     unsafe { ShellMessageBoxW(happinst.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, lpctext.param().abi(), lpctitle.param().abi(), fustyle) }
 }
 #[inline]
@@ -5354,7 +5354,7 @@ pub unsafe fn wnsprintfA<P2>(pszdest: &mut [u8], pszfmt: P2) -> i32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("shlwapi.dll" "cdecl" fn wnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR) -> i32);
+    windows_link::link!("shlwapi.dll" "C" fn wnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR) -> i32);
     unsafe { wnsprintfA(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi()) }
 }
 #[inline]
@@ -5362,7 +5362,7 @@ pub unsafe fn wnsprintfW<P2>(pszdest: &mut [u16], pszfmt: P2) -> i32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("shlwapi.dll" "cdecl" fn wnsprintfW(pszdest : windows_core::PWSTR, cchdest : i32, pszfmt : windows_core::PCWSTR) -> i32);
+    windows_link::link!("shlwapi.dll" "C" fn wnsprintfW(pszdest : windows_core::PWSTR, cchdest : i32, pszfmt : windows_core::PCWSTR) -> i32);
     unsafe { wnsprintfW(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi()) }
 }
 #[inline]

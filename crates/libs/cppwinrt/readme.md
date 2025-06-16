@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.cppwinrt]
-version = "0.2"
+version = "0.3"
 ```
 
 Use `cppwinrt` function as needed:
@@ -23,4 +23,4 @@ Source:
 
 * <https://github.com/microsoft/cppwinrt>
 * <https://www.nuget.org/packages/microsoft.windows.cppwinrt>
-* Version 2.0.240405.15
+* Version 2.0.250303.1

@@ -6,7 +6,7 @@ impl std::fmt::Debug for GenericParam<'_> {
     }
 }
 
-impl GenericParam<'_> {
+impl<'a> GenericParam<'a> {
     pub fn sequence(&self) -> u16 {
         self.usize(0).try_into().unwrap()
     }
@@ -15,7 +15,7 @@ impl GenericParam<'_> {
         GenericParamAttributes(self.usize(1).try_into().unwrap())
     }
 
-    pub fn owner(&self) -> TypeOrMethodDef {
+    pub fn owner(&self) -> TypeOrMethodDef<'a> {
         self.decode(2)
     }
 

@@ -159,7 +159,7 @@ pub unsafe fn PxeTrace<P2>(hprovider: super::super::Foundation::HANDLE, severity
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("wdspxe.dll" "cdecl" fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : windows_core::PCWSTR) -> u32);
+    windows_link::link!("wdspxe.dll" "C" fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : windows_core::PCWSTR) -> u32);
     unsafe { PxeTrace(hprovider, severity, pszformat.param().abi()) }
 }
 #[inline]
@@ -422,7 +422,7 @@ where
 }
 #[inline]
 pub unsafe fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> windows_core::Result<()> {
-    windows_link::link!("wdsclientapi.dll" "cdecl" fn WdsCliLog(hsession : super::super::Foundation:: HANDLE, ulloglevel : u32, ulmessagecode : u32) -> windows_core::HRESULT);
+    windows_link::link!("wdsclientapi.dll" "C" fn WdsCliLog(hsession : super::super::Foundation:: HANDLE, ulloglevel : u32, ulmessagecode : u32) -> windows_core::HRESULT);
     unsafe { WdsCliLog(hsession, ulloglevel, ulmessagecode).ok() }
 }
 #[inline]
@@ -568,7 +568,7 @@ pub unsafe fn WdsTransportServerTrace<P2>(hprovider: super::super::Foundation::H
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("wdsmc.dll" "cdecl" fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_link::link!("wdsmc.dll" "C" fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WdsTransportServerTrace(hprovider, severity, pwszformat.param().abi()).ok() }
 }
 #[inline]

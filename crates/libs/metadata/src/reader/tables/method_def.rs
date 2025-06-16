@@ -27,15 +27,15 @@ impl<'a> MethodDef<'a> {
         self.blob(4).read_method_signature(generics)
     }
 
-    pub fn params(&self) -> RowIterator<MethodParam> {
+    pub fn params(&self) -> RowIterator<'a, MethodParam<'a>> {
         self.list(5)
     }
 
-    pub fn parent(&self) -> MemberRefParent {
+    pub fn parent(&self) -> MemberRefParent<'a> {
         MemberRefParent::TypeDef(self.parent_row(5))
     }
 
-    pub fn impl_map(&self) -> Option<ImplMap> {
+    pub fn impl_map(&self) -> Option<ImplMap<'a>> {
         self.equal_range(1, MemberForwarded::MethodDef(*self).encode())
             .next()
     }
@@ -47,7 +47,7 @@ impl<'a> MethodDef<'a> {
             if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
                 "system"
             } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
-                "cdecl"
+                "C"
             } else {
                 ""
             }

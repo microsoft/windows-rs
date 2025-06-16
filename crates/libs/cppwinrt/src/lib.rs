@@ -71,6 +71,6 @@ mod tests {
     #[test]
     fn unexpected_version() {
         let ok = cppwinrt(["-help"]);
-        assert!(ok.contains("2.0.240405.15"), "unexpected version");
+        assert!(ok.contains("2.0.250303.1"), "unexpected version");
     }
 }

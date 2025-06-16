@@ -1,6 +1,6 @@
 [package]
 name = "windows-bindgen"
-version = "0.61.1"
+version = "0.62.1"
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
@@ -12,6 +12,9 @@ readme = "readme.md"
 windows-threading = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true, features = ["std"] }
+
+[dev-dependencies]
+windows-link = { workspace = true }
 
 [lints]
 workspace = true

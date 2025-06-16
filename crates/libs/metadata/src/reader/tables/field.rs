@@ -23,7 +23,7 @@ impl<'a> Field<'a> {
         blob.read_type_signature(&[])
     }
 
-    pub fn constant(&self) -> Option<Constant> {
+    pub fn constant(&self) -> Option<Constant<'a>> {
         self.equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }

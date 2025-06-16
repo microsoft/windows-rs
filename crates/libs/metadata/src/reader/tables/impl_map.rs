@@ -6,7 +6,7 @@ impl std::fmt::Debug for ImplMap<'_> {
     }
 }
 
-impl ImplMap<'_> {
+impl<'a> ImplMap<'a> {
     pub fn flags(&self) -> PInvokeAttributes {
         PInvokeAttributes(self.usize(0).try_into().unwrap())
     }
@@ -15,7 +15,7 @@ impl ImplMap<'_> {
         self.str(2)
     }
 
-    pub fn import_scope(&self) -> ModuleRef {
+    pub fn import_scope(&self) -> ModuleRef<'a> {
         self.row(3)
     }
 }

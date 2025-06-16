@@ -22,7 +22,7 @@ fn link_name() {
 
 #[test]
 fn cdecl() {
-    windows_targets::link!("wldap32.dll" "cdecl" fn LdapMapErrorToWin32(code : i32) -> u32);
+    windows_targets::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(code : i32) -> u32);
     const LDAP_BUSY: i32 = 51;
     const ERROR_BUSY: u32 = 170;
 

@@ -28,7 +28,7 @@ windows_targets::link!("wdspxe.dll" "system" fn PxeProviderSetAttribute(hprovide
 windows_targets::link!("wdspxe.dll" "system" fn PxeProviderUnRegister(pszprovidername : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("wdspxe.dll" "system" fn PxeRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbacktype : u32, pcallbackfunction : *const core::ffi::c_void, pcontext : *const core::ffi::c_void) -> u32);
 windows_targets::link!("wdspxe.dll" "system" fn PxeSendReply(hclientrequest : super::super::Foundation:: HANDLE, ppacket : *const core::ffi::c_void, upacketlen : u32, paddress : *const PXE_ADDRESS) -> u32);
-windows_targets::link!("wdspxe.dll" "cdecl" fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : windows_sys::core::PCWSTR, ...) -> u32);
+windows_targets::link!("wdspxe.dll" "C" fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : windows_sys::core::PCWSTR, ...) -> u32);
 windows_targets::link!("wdspxe.dll" "system" fn PxeTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : windows_sys::core::PCWSTR, params : *const i8) -> u32);
 windows_targets::link!("wdsbp.dll" "system" fn WdsBpAddOption(hhandle : super::super::Foundation:: HANDLE, uoption : u32, uvaluelen : u32, pvalue : *const core::ffi::c_void) -> u32);
 windows_targets::link!("wdsbp.dll" "system" fn WdsBpCloseHandle(hhandle : super::super::Foundation:: HANDLE) -> u32);
@@ -66,7 +66,7 @@ windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliGetImageType(hifh : 
 windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliGetImageVersion(hifh : super::super::Foundation:: HANDLE, ppwszvalue : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliGetTransferSize(hifh : super::super::Foundation:: HANDLE, pullvalue : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliInitializeLog(hsession : super::super::Foundation:: HANDLE, ulclientarchitecture : CPU_ARCHITECTURE, pwszclientid : windows_sys::core::PCWSTR, pwszclientaddress : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_targets::link!("wdsclientapi.dll" "cdecl" fn WdsCliLog(hsession : super::super::Foundation:: HANDLE, ulloglevel : u32, ulmessagecode : u32, ...) -> windows_sys::core::HRESULT);
+windows_targets::link!("wdsclientapi.dll" "C" fn WdsCliLog(hsession : super::super::Foundation:: HANDLE, ulloglevel : u32, ulmessagecode : u32, ...) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliObtainDriverPackages(himage : super::super::Foundation:: HANDLE, ppwszservername : *mut windows_sys::core::PWSTR, pppwszdriverpackages : *mut *mut windows_sys::core::PWSTR, pulcount : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliObtainDriverPackagesEx(hsession : super::super::Foundation:: HANDLE, pwszmachineinfo : windows_sys::core::PCWSTR, ppwszservername : *mut windows_sys::core::PWSTR, pppwszdriverpackages : *mut *mut windows_sys::core::PWSTR, pulcount : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliRegisterTrace(pfn : PFN_WdsCliTraceFunction) -> windows_sys::core::HRESULT);
@@ -91,7 +91,7 @@ windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerAllocateBuffer(
 windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerCompleteRead(hprovider : super::super::Foundation:: HANDLE, ulbytesread : u32, pvuserdata : *const core::ffi::c_void, hreadresult : windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerFreeBuffer(hprovider : super::super::Foundation:: HANDLE, pvbuffer : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbackid : TRANSPORTPROVIDER_CALLBACK_ID, pfncallback : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("wdsmc.dll" "cdecl" fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_sys::core::PCWSTR, ...) -> windows_sys::core::HRESULT);
+windows_targets::link!("wdsmc.dll" "C" fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_sys::core::PCWSTR, ...) -> windows_sys::core::HRESULT);
 windows_targets::link!("wdsmc.dll" "system" fn WdsTransportServerTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_sys::core::PCWSTR, params : *const i8) -> windows_sys::core::HRESULT);
 pub type CPU_ARCHITECTURE = u32;
 pub const CPU_ARCHITECTURE_AMD64: CPU_ARCHITECTURE = 9u32;

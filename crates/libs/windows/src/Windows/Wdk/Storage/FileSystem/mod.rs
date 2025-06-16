@@ -2860,7 +2860,7 @@ pub unsafe fn RtlInitializeSid(sid: super::super::super::Win32::Security::PSID, 
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RtlInitializeSidEx(sid: super::super::super::Win32::Security::PSID, identifierauthority: *const super::super::super::Win32::Security::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_link::link!("ntdll.dll" "cdecl" fn RtlInitializeSidEx(sid : super::super::super::Win32::Security:: PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_link::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::super::super::Win32::Security:: PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
     unsafe { RtlInitializeSidEx(sid as _, identifierauthority, subauthoritycount) }
 }
 #[cfg(feature = "Wdk_Foundation")]

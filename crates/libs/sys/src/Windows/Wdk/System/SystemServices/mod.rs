@@ -112,9 +112,9 @@ windows_targets::link!("ntoskrnl.exe" "system" fn CmRegisterCallbackEx(function 
 windows_targets::link!("ntoskrnl.exe" "system" fn CmSetCallbackObjectContext(object : *mut core::ffi::c_void, cookie : *const i64, newcontext : *const core::ffi::c_void, oldcontext : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntoskrnl.exe" "system" fn CmUnRegisterCallback(cookie : i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntoskrnl.exe" "system" fn DbgBreakPointWithStatus(status : u32));
-windows_targets::link!("ntdll.dll" "cdecl" fn DbgPrint(format : windows_sys::core::PCSTR, ...) -> u32);
-windows_targets::link!("ntdll.dll" "cdecl" fn DbgPrintEx(componentid : u32, level : u32, format : windows_sys::core::PCSTR, ...) -> u32);
-windows_targets::link!("ntdll.dll" "cdecl" fn DbgPrintReturnControlC(format : windows_sys::core::PCSTR, ...) -> u32);
+windows_targets::link!("ntdll.dll" "C" fn DbgPrint(format : windows_sys::core::PCSTR, ...) -> u32);
+windows_targets::link!("ntdll.dll" "C" fn DbgPrintEx(componentid : u32, level : u32, format : windows_sys::core::PCSTR, ...) -> u32);
+windows_targets::link!("ntdll.dll" "C" fn DbgPrintReturnControlC(format : windows_sys::core::PCSTR, ...) -> u32);
 windows_targets::link!("ntdll.dll" "system" fn DbgPrompt(prompt : windows_sys::core::PCSTR, response : windows_sys::core::PSTR, length : u32) -> u32);
 windows_targets::link!("ntdll.dll" "system" fn DbgQueryDebugFilterState(componentid : u32, level : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn DbgSetDebugFilterState(componentid : u32, level : u32, state : bool) -> super::super::super::Win32::Foundation:: NTSTATUS);

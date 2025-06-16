@@ -22,7 +22,7 @@ pub unsafe fn PreprocessCommand(hmodule: Option<super::super::Foundation::HANDLE
 }
 #[inline]
 pub unsafe fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32 {
-    windows_link::link!("netsh.dll" "cdecl" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
+    windows_link::link!("netsh.dll" "C" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
     unsafe { PrintError(hmodule, dwerrid) }
 }
 #[inline]
@@ -30,12 +30,12 @@ pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : windows_core::PCWSTR) -> u32);
+    windows_link::link!("netsh.dll" "C" fn PrintMessage(pwszformat : windows_core::PCWSTR) -> u32);
     unsafe { PrintMessage(pwszformat.param().abi()) }
 }
 #[inline]
 pub unsafe fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32 {
-    windows_link::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
+    windows_link::link!("netsh.dll" "C" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
     unsafe { PrintMessageFromModule(hmodule, dwmsgid) }
 }
 #[inline]

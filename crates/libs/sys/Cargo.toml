@@ -1,6 +1,6 @@
 [package]
 name = "windows-sys"
-version = "0.59.0"
+version = "0.60.2"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.60"

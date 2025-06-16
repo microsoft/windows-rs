@@ -554,7 +554,7 @@ pub unsafe fn NdisWriteConfiguration(status: *mut i32, configurationhandle: *con
 }
 #[inline]
 pub unsafe fn NdisWriteErrorLogEntry(ndisadapterhandle: *const core::ffi::c_void, errorcode: u32, numberoferrorvalues: u32) {
-    windows_link::link!("ndis.sys" "cdecl" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32));
+    windows_link::link!("ndis.sys" "C" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32));
     unsafe { NdisWriteErrorLogEntry(ndisadapterhandle, errorcode, numberoferrorvalues) }
 }
 #[inline]

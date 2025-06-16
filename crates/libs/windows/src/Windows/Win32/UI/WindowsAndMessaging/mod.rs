@@ -2466,7 +2466,7 @@ pub unsafe fn wsprintfA<P1>(param0: windows_core::PSTR, param1: P1) -> i32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("user32.dll" "cdecl" fn wsprintfA(param0 : windows_core::PSTR, param1 : windows_core::PCSTR) -> i32);
+    windows_link::link!("user32.dll" "C" fn wsprintfA(param0 : windows_core::PSTR, param1 : windows_core::PCSTR) -> i32);
     unsafe { wsprintfA(core::mem::transmute(param0), param1.param().abi()) }
 }
 #[inline]
@@ -2474,7 +2474,7 @@ pub unsafe fn wsprintfW<P1>(param0: windows_core::PWSTR, param1: P1) -> i32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("user32.dll" "cdecl" fn wsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR) -> i32);
+    windows_link::link!("user32.dll" "C" fn wsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR) -> i32);
     unsafe { wsprintfW(core::mem::transmute(param0), param1.param().abi()) }
 }
 #[inline]

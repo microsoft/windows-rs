@@ -149,8 +149,8 @@ windows_targets::link!("rtutils.dll" "system" fn RouterLogDeregisterW(hloghandle
 windows_targets::link!("rtutils.dll" "system" fn RouterLogEventA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_sys::core::PCSTR, dwerrorcode : u32));
 windows_targets::link!("rtutils.dll" "system" fn RouterLogEventDataA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_sys::core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
 windows_targets::link!("rtutils.dll" "system" fn RouterLogEventDataW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_sys::core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
-windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_sys::core::PCSTR, ...));
-windows_targets::link!("rtutils.dll" "cdecl" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_sys::core::PCWSTR, ...));
+windows_targets::link!("rtutils.dll" "C" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_sys::core::PCSTR, ...));
+windows_targets::link!("rtutils.dll" "C" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_sys::core::PCWSTR, ...));
 windows_targets::link!("rtutils.dll" "system" fn RouterLogEventStringA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_sys::core::PCSTR, dwerrorcode : u32, dwerrorindex : u32));
 windows_targets::link!("rtutils.dll" "system" fn RouterLogEventStringW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_sys::core::PCWSTR, dwerrorcode : u32, dwerrorindex : u32));
 windows_targets::link!("rtutils.dll" "system" fn RouterLogEventValistExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_sys::core::PCSTR, arglist : *mut i8));
@@ -167,10 +167,10 @@ windows_targets::link!("rtutils.dll" "system" fn TraceDumpExA(dwtraceid : u32, d
 windows_targets::link!("rtutils.dll" "system" fn TraceDumpExW(dwtraceid : u32, dwflags : u32, lpbbytes : *mut u8, dwbytecount : u32, dwgroupsize : u32, baddressprefix : windows_sys::core::BOOL, lpszprefix : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TraceGetConsoleA(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TraceGetConsoleW(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
-windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfA(dwtraceid : u32, lpszformat : windows_sys::core::PCSTR, ...) -> u32);
-windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : windows_sys::core::PCSTR, ...) -> u32);
-windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : windows_sys::core::PCWSTR, ...) -> u32);
-windows_targets::link!("rtutils.dll" "cdecl" fn TracePrintfW(dwtraceid : u32, lpszformat : windows_sys::core::PCWSTR, ...) -> u32);
+windows_targets::link!("rtutils.dll" "C" fn TracePrintfA(dwtraceid : u32, lpszformat : windows_sys::core::PCSTR, ...) -> u32);
+windows_targets::link!("rtutils.dll" "C" fn TracePrintfExA(dwtraceid : u32, dwflags : u32, lpszformat : windows_sys::core::PCSTR, ...) -> u32);
+windows_targets::link!("rtutils.dll" "C" fn TracePrintfExW(dwtraceid : u32, dwflags : u32, lpszformat : windows_sys::core::PCWSTR, ...) -> u32);
+windows_targets::link!("rtutils.dll" "C" fn TracePrintfW(dwtraceid : u32, lpszformat : windows_sys::core::PCWSTR, ...) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TracePutsExA(dwtraceid : u32, dwflags : u32, lpszstring : windows_sys::core::PCSTR) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TracePutsExW(dwtraceid : u32, dwflags : u32, lpszstring : windows_sys::core::PCWSTR) -> u32);
 windows_targets::link!("rtutils.dll" "system" fn TraceRegisterExA(lpszcallername : windows_sys::core::PCSTR, dwflags : u32) -> u32);

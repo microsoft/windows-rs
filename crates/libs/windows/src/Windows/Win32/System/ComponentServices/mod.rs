@@ -30,7 +30,7 @@ where
 }
 #[inline]
 pub unsafe fn GetDispenserManager() -> windows_core::Result<IDispenserManager> {
-    windows_link::link!("mtxdm.dll" "cdecl" fn GetDispenserManager(param0 : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_link::link!("mtxdm.dll" "C" fn GetDispenserManager(param0 : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetDispenserManager(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -48,7 +48,7 @@ pub unsafe fn MTSCreateActivity(riid: *const windows_core::GUID, ppobj: *mut *mu
 }
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> windows_core::Result<()> {
-    windows_link::link!("comsvcs.dll" "cdecl" fn RecycleSurrogate(lreasoncode : i32) -> windows_core::HRESULT);
+    windows_link::link!("comsvcs.dll" "C" fn RecycleSurrogate(lreasoncode : i32) -> windows_core::HRESULT);
     unsafe { RecycleSurrogate(lreasoncode).ok() }
 }
 #[inline]
@@ -56,7 +56,7 @@ pub unsafe fn SafeRef<P1>(rid: *const windows_core::GUID, punk: P1) -> *mut core
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("comsvcs.dll" "cdecl" fn SafeRef(rid : *const windows_core::GUID, punk : * mut core::ffi::c_void) -> *mut core::ffi::c_void);
+    windows_link::link!("comsvcs.dll" "C" fn SafeRef(rid : *const windows_core::GUID, punk : * mut core::ffi::c_void) -> *mut core::ffi::c_void);
     unsafe { SafeRef(rid, punk.param().abi()) }
 }
 #[repr(C)]
