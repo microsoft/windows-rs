@@ -46,6 +46,7 @@ fn write_enum(item: &idl::Enum) -> TokenStream {
         };
 
         next = value + 1;
+        let value = Literal::i64_unsuffixed(value);
 
         quote! {
             pub const #name: #type_name = #type_name(#value);
@@ -82,10 +83,19 @@ fn write_interface(item: &idl::Interface) -> TokenStream {
 
     quote! {
         #[repr(transparent)]
-        pub struct #type_name(pub u32);
+        pub struct #type_name(windows_core::IUnknown);
         impl #type_name {
             #(#methods)*
         }
+    }
+}
+
+fn write_type(ty: &str) -> TokenStream {
+    match ty {
+        "BOOL" => quote! { windows_core::BOOL },
+        "UINT32" => quote! { u32 },
+        "BYTE" => quote! { u8 },
+        _ => to_ident(ty),
     }
 }
 
@@ -94,9 +104,10 @@ fn write_struct(item: &idl::Struct) -> TokenStream {
 
     let fields = item.fields.iter().map(|field| {
         let name = to_ident(&field.name);
+        let ty = write_type(&field.field_type);
 
         quote! {
-            pub #name: u32,
+            pub #name: #ty,
         }
     });
 
