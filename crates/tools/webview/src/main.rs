@@ -4,7 +4,7 @@ mod fmt;
 
 fn main() {
     let file = std::include_str!("WebView2.idl");
-    let file = idl::parse(&file).unwrap();
+    let file = idl::parse(file).unwrap();
 
     let mut tokens = quote! {};
 
@@ -23,11 +23,11 @@ fn main() {
 
 fn write_item(item: &idl::Item) -> TokenStream {
     match item {
-        idl::Item::Enum(item) => write_enum(&item),
-        idl::Item::Interface(item) => write_interface(&item),
-        idl::Item::Struct(item) => write_struct(&item),
-        idl::Item::Library(item) => write_library(&item),
-        idl::Item::CppQuote(item) => write_cpp_quote(&item),
+        idl::Item::Enum(item) => write_enum(item),
+        idl::Item::Interface(item) => write_interface(item),
+        idl::Item::Struct(item) => write_struct(item),
+        idl::Item::Library(item) => write_library(item),
+        idl::Item::CppQuote(item) => write_cpp_quote(item),
         _ => quote! {},
     }
 }
@@ -112,7 +112,7 @@ fn write_library(item: &idl::Library) -> TokenStream {
     let mut tokens = quote! {};
 
     for item in &item.items {
-        tokens.combine(&write_item(item));
+        tokens.combine(write_item(item));
     }
 
     tokens
