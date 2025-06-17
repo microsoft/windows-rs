@@ -34,16 +34,18 @@ fn write_item(item: &idl::Item) -> TokenStream {
 
 fn write_enum(item: &idl::Enum) -> TokenStream {
     let type_name = to_ident(&item.name);
-    let mut value = 0;
+    let mut next = 0;
 
     let variants = item.variants.iter().map(|variant| {
         let name = to_ident(&variant.name);
 
-        if let Some(next) = variant.value {
-            value = next;
+        let value = if let Some(value) = variant.value {
+            value
         } else {
-            value += 1;
-        }
+            next
+        };
+
+        next = value + 1;
 
         quote! {
             pub const #name: #type_name = #type_name(#value);
