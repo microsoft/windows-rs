@@ -702,2748 +702,2748 @@ pub struct COREWEBVIEW2_PHYSICAL_KEY_STATUS {
 #[repr(transparent)]
 pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ExecuteScriptCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2ExecuteScriptCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CapturePreviewCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2CapturePreviewCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContentLoadingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ContentLoadingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DocumentTitleChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2DocumentTitleChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HistoryChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2HistoryChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationCompletedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2NavigationCompletedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2NavigationStartingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2NewWindowRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2PermissionRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ProcessFailedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScriptDialogOpeningEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ScriptDialogOpeningEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SourceChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2SourceChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebMessageReceivedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2WebMessageReceivedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2WebResourceRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WindowCloseRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2WindowCloseRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DOMContentLoadedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2DOMContentLoadedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2WebResourceResponseReceivedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2TrySuspendCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2TrySuspendCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DownloadStartingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2DownloadStartingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameCreatedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameCreatedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2IsDocumentPlayingAudioChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2IsMutedChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2IsMutedChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ContextMenuRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2StatusBarTextChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2StatusBarTextChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetFaviconCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2GetFaviconCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FaviconChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FaviconChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2PrintCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintToPdfStreamCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2PrintToPdfStreamCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CursorChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2CursorChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NonClientRegionChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2NonClientRegionChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2RegionRectCollectionView(windows_core::IUnknown);
 impl ICoreWebView2RegionRectCollectionView {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2AcceleratorKeyPressedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FocusChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FocusChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2MoveFocusRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2MoveFocusRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ZoomFactorChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ZoomFactorChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2RasterizationScaleChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2RasterizationScaleChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewBrowserVersionAvailableEventHandler(windows_core::IUnknown);
 impl ICoreWebView2NewBrowserVersionAvailableEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtensionRemoveCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2BrowserExtensionRemoveCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtensionEnableCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2BrowserExtensionEnableCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2StringCollection(windows_core::IUnknown);
 impl ICoreWebView2StringCollection {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificateCollection(windows_core::IUnknown);
 impl ICoreWebView2ClientCertificateCollection {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CustomItemSelectedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2CustomItemSelectedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetCookiesCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2GetCookiesCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CookieList(windows_core::IUnknown);
 impl ICoreWebView2CookieList {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BytesReceivedChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2BytesReceivedChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EstimatedEndTimeChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2EstimatedEndTimeChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2StateChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2StateChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameDestroyedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameDestroyedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameNameChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameNameChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameContentLoadingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameContentLoadingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameDOMContentLoadedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameDOMContentLoadedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameNavigationCompletedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameNavigationCompletedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameNavigationStartingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameNavigationStartingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameWebMessageReceivedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameWebMessageReceivedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProfileDeletedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ProfileDeletedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NotificationCloseRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2NotificationCloseRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2(windows_core::IUnknown);
 impl ICoreWebView2 {
-    pub fn get_Settings(&self) -> crate::HRESULT {
+    pub fn get_Settings(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Source(&self) -> crate::HRESULT {
+    pub fn get_Source(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Navigate(&self) -> crate::HRESULT {
+    pub fn Navigate(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn NavigateToString(&self) -> crate::HRESULT {
+    pub fn NavigateToString(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_NavigationStarting(&self) -> crate::HRESULT {
+    pub fn add_NavigationStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NavigationStarting(&self) -> crate::HRESULT {
+    pub fn remove_NavigationStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_ContentLoading(&self) -> crate::HRESULT {
+    pub fn add_ContentLoading(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ContentLoading(&self) -> crate::HRESULT {
+    pub fn remove_ContentLoading(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_SourceChanged(&self) -> crate::HRESULT {
+    pub fn add_SourceChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_SourceChanged(&self) -> crate::HRESULT {
+    pub fn remove_SourceChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_HistoryChanged(&self) -> crate::HRESULT {
+    pub fn add_HistoryChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_HistoryChanged(&self) -> crate::HRESULT {
+    pub fn remove_HistoryChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_NavigationCompleted(&self) -> crate::HRESULT {
+    pub fn add_NavigationCompleted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NavigationCompleted(&self) -> crate::HRESULT {
+    pub fn remove_NavigationCompleted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_FrameNavigationStarting(&self) -> crate::HRESULT {
+    pub fn add_FrameNavigationStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_FrameNavigationStarting(&self) -> crate::HRESULT {
+    pub fn remove_FrameNavigationStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_FrameNavigationCompleted(&self) -> crate::HRESULT {
+    pub fn add_FrameNavigationCompleted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_FrameNavigationCompleted(&self) -> crate::HRESULT {
+    pub fn remove_FrameNavigationCompleted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_ScriptDialogOpening(&self) -> crate::HRESULT {
+    pub fn add_ScriptDialogOpening(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ScriptDialogOpening(&self) -> crate::HRESULT {
+    pub fn remove_ScriptDialogOpening(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_PermissionRequested(&self) -> crate::HRESULT {
+    pub fn add_PermissionRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_PermissionRequested(&self) -> crate::HRESULT {
+    pub fn remove_PermissionRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_ProcessFailed(&self) -> crate::HRESULT {
+    pub fn add_ProcessFailed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ProcessFailed(&self) -> crate::HRESULT {
+    pub fn remove_ProcessFailed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn AddScriptToExecuteOnDocumentCreated(&self) -> crate::HRESULT {
+    pub fn AddScriptToExecuteOnDocumentCreated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn RemoveScriptToExecuteOnDocumentCreated(&self) -> crate::HRESULT {
+    pub fn RemoveScriptToExecuteOnDocumentCreated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ExecuteScript(&self) -> crate::HRESULT {
+    pub fn ExecuteScript(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CapturePreview(&self) -> crate::HRESULT {
+    pub fn CapturePreview(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Reload(&self) -> crate::HRESULT {
+    pub fn Reload(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn PostWebMessageAsJson(&self) -> crate::HRESULT {
+    pub fn PostWebMessageAsJson(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn PostWebMessageAsString(&self) -> crate::HRESULT {
+    pub fn PostWebMessageAsString(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_WebMessageReceived(&self) -> crate::HRESULT {
+    pub fn add_WebMessageReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_WebMessageReceived(&self) -> crate::HRESULT {
+    pub fn remove_WebMessageReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CallDevToolsProtocolMethod(&self) -> crate::HRESULT {
+    pub fn CallDevToolsProtocolMethod(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_BrowserProcessId(&self) -> crate::HRESULT {
+    pub fn get_BrowserProcessId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_CanGoBack(&self) -> crate::HRESULT {
+    pub fn get_CanGoBack(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_CanGoForward(&self) -> crate::HRESULT {
+    pub fn get_CanGoForward(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GoBack(&self) -> crate::HRESULT {
+    pub fn GoBack(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GoForward(&self) -> crate::HRESULT {
+    pub fn GoForward(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDevToolsProtocolEventReceiver(&self) -> crate::HRESULT {
+    pub fn GetDevToolsProtocolEventReceiver(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Stop(&self) -> crate::HRESULT {
+    pub fn Stop(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_NewWindowRequested(&self) -> crate::HRESULT {
+    pub fn add_NewWindowRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NewWindowRequested(&self) -> crate::HRESULT {
+    pub fn remove_NewWindowRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_DocumentTitleChanged(&self) -> crate::HRESULT {
+    pub fn add_DocumentTitleChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_DocumentTitleChanged(&self) -> crate::HRESULT {
+    pub fn remove_DocumentTitleChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DocumentTitle(&self) -> crate::HRESULT {
+    pub fn get_DocumentTitle(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn AddHostObjectToScript(&self) -> crate::HRESULT {
+    pub fn AddHostObjectToScript(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn RemoveHostObjectFromScript(&self) -> crate::HRESULT {
+    pub fn RemoveHostObjectFromScript(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn OpenDevToolsWindow(&self) -> crate::HRESULT {
+    pub fn OpenDevToolsWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_ContainsFullScreenElementChanged(&self) -> crate::HRESULT {
+    pub fn add_ContainsFullScreenElementChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ContainsFullScreenElementChanged(&self) -> crate::HRESULT {
+    pub fn remove_ContainsFullScreenElementChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ContainsFullScreenElement(&self) -> crate::HRESULT {
+    pub fn get_ContainsFullScreenElement(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_WebResourceRequested(&self) -> crate::HRESULT {
+    pub fn add_WebResourceRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_WebResourceRequested(&self) -> crate::HRESULT {
+    pub fn remove_WebResourceRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn AddWebResourceRequestedFilter(&self) -> crate::HRESULT {
+    pub fn AddWebResourceRequestedFilter(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn RemoveWebResourceRequestedFilter(&self) -> crate::HRESULT {
+    pub fn RemoveWebResourceRequestedFilter(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_WindowCloseRequested(&self) -> crate::HRESULT {
+    pub fn add_WindowCloseRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_WindowCloseRequested(&self) -> crate::HRESULT {
+    pub fn remove_WindowCloseRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_2(windows_core::IUnknown);
 impl ICoreWebView2_2 {
-    pub fn add_WebResourceResponseReceived(&self) -> crate::HRESULT {
+    pub fn add_WebResourceResponseReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_WebResourceResponseReceived(&self) -> crate::HRESULT {
+    pub fn remove_WebResourceResponseReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn NavigateWithWebResourceRequest(&self) -> crate::HRESULT {
+    pub fn NavigateWithWebResourceRequest(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_DOMContentLoaded(&self) -> crate::HRESULT {
+    pub fn add_DOMContentLoaded(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_DOMContentLoaded(&self) -> crate::HRESULT {
+    pub fn remove_DOMContentLoaded(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_CookieManager(&self) -> crate::HRESULT {
+    pub fn get_CookieManager(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Environment(&self) -> crate::HRESULT {
+    pub fn get_Environment(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_3(windows_core::IUnknown);
 impl ICoreWebView2_3 {
-    pub fn TrySuspend(&self) -> crate::HRESULT {
+    pub fn TrySuspend(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Resume(&self) -> crate::HRESULT {
+    pub fn Resume(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsSuspended(&self) -> crate::HRESULT {
+    pub fn get_IsSuspended(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn SetVirtualHostNameToFolderMapping(&self) -> crate::HRESULT {
+    pub fn SetVirtualHostNameToFolderMapping(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ClearVirtualHostNameToFolderMapping(&self) -> crate::HRESULT {
+    pub fn ClearVirtualHostNameToFolderMapping(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_4(windows_core::IUnknown);
 impl ICoreWebView2_4 {
-    pub fn add_FrameCreated(&self) -> crate::HRESULT {
+    pub fn add_FrameCreated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_FrameCreated(&self) -> crate::HRESULT {
+    pub fn remove_FrameCreated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_DownloadStarting(&self) -> crate::HRESULT {
+    pub fn add_DownloadStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_DownloadStarting(&self) -> crate::HRESULT {
+    pub fn remove_DownloadStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_8(windows_core::IUnknown);
 impl ICoreWebView2_8 {
-    pub fn add_IsMutedChanged(&self) -> crate::HRESULT {
+    pub fn add_IsMutedChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_IsMutedChanged(&self) -> crate::HRESULT {
+    pub fn remove_IsMutedChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsMuted(&self) -> crate::HRESULT {
+    pub fn get_IsMuted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsMuted(&self) -> crate::HRESULT {
+    pub fn put_IsMuted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_IsDocumentPlayingAudioChanged(&self) -> crate::HRESULT {
+    pub fn add_IsDocumentPlayingAudioChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_IsDocumentPlayingAudioChanged(&self) -> crate::HRESULT {
+    pub fn remove_IsDocumentPlayingAudioChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsDocumentPlayingAudio(&self) -> crate::HRESULT {
+    pub fn get_IsDocumentPlayingAudio(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_9(windows_core::IUnknown);
 impl ICoreWebView2_9 {
-    pub fn add_IsDefaultDownloadDialogOpenChanged(&self) -> crate::HRESULT {
+    pub fn add_IsDefaultDownloadDialogOpenChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_IsDefaultDownloadDialogOpenChanged(&self) -> crate::HRESULT {
+    pub fn remove_IsDefaultDownloadDialogOpenChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsDefaultDownloadDialogOpen(&self) -> crate::HRESULT {
+    pub fn get_IsDefaultDownloadDialogOpen(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn OpenDefaultDownloadDialog(&self) -> crate::HRESULT {
+    pub fn OpenDefaultDownloadDialog(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CloseDefaultDownloadDialog(&self) -> crate::HRESULT {
+    pub fn CloseDefaultDownloadDialog(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DefaultDownloadDialogCornerAlignment(&self) -> crate::HRESULT {
+    pub fn get_DefaultDownloadDialogCornerAlignment(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_DefaultDownloadDialogCornerAlignment(&self) -> crate::HRESULT {
+    pub fn put_DefaultDownloadDialogCornerAlignment(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DefaultDownloadDialogMargin(&self) -> crate::HRESULT {
+    pub fn get_DefaultDownloadDialogMargin(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_DefaultDownloadDialogMargin(&self) -> crate::HRESULT {
+    pub fn put_DefaultDownloadDialogMargin(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_11(windows_core::IUnknown);
 impl ICoreWebView2_11 {
-    pub fn CallDevToolsProtocolMethodForSession(&self) -> crate::HRESULT {
+    pub fn CallDevToolsProtocolMethodForSession(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_ContextMenuRequested(&self) -> crate::HRESULT {
+    pub fn add_ContextMenuRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ContextMenuRequested(&self) -> crate::HRESULT {
+    pub fn remove_ContextMenuRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_12(windows_core::IUnknown);
 impl ICoreWebView2_12 {
-    pub fn add_StatusBarTextChanged(&self) -> crate::HRESULT {
+    pub fn add_StatusBarTextChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_StatusBarTextChanged(&self) -> crate::HRESULT {
+    pub fn remove_StatusBarTextChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_StatusBarText(&self) -> crate::HRESULT {
+    pub fn get_StatusBarText(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_15(windows_core::IUnknown);
 impl ICoreWebView2_15 {
-    pub fn add_FaviconChanged(&self) -> crate::HRESULT {
+    pub fn add_FaviconChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_FaviconChanged(&self) -> crate::HRESULT {
+    pub fn remove_FaviconChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FaviconUri(&self) -> crate::HRESULT {
+    pub fn get_FaviconUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetFavicon(&self) -> crate::HRESULT {
+    pub fn GetFavicon(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_16(windows_core::IUnknown);
 impl ICoreWebView2_16 {
-    pub fn Print(&self) -> crate::HRESULT {
+    pub fn Print(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ShowPrintUI(&self) -> crate::HRESULT {
+    pub fn ShowPrintUI(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn PrintToPdfStream(&self) -> crate::HRESULT {
+    pub fn PrintToPdfStream(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings(windows_core::IUnknown);
 impl ICoreWebView2Settings {
-    pub fn get_IsScriptEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsScriptEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsScriptEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsScriptEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsWebMessageEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsWebMessageEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsWebMessageEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsWebMessageEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AreDefaultScriptDialogsEnabled(&self) -> crate::HRESULT {
+    pub fn get_AreDefaultScriptDialogsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AreDefaultScriptDialogsEnabled(&self) -> crate::HRESULT {
+    pub fn put_AreDefaultScriptDialogsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsStatusBarEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsStatusBarEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsStatusBarEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsStatusBarEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AreDevToolsEnabled(&self) -> crate::HRESULT {
+    pub fn get_AreDevToolsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AreDevToolsEnabled(&self) -> crate::HRESULT {
+    pub fn put_AreDevToolsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AreDefaultContextMenusEnabled(&self) -> crate::HRESULT {
+    pub fn get_AreDefaultContextMenusEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AreDefaultContextMenusEnabled(&self) -> crate::HRESULT {
+    pub fn put_AreDefaultContextMenusEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AreHostObjectsAllowed(&self) -> crate::HRESULT {
+    pub fn get_AreHostObjectsAllowed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AreHostObjectsAllowed(&self) -> crate::HRESULT {
+    pub fn put_AreHostObjectsAllowed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsZoomControlEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsZoomControlEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsZoomControlEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsZoomControlEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsBuiltInErrorPageEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsBuiltInErrorPageEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsBuiltInErrorPageEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsBuiltInErrorPageEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings4(windows_core::IUnknown);
 impl ICoreWebView2Settings4 {
-    pub fn get_IsPasswordAutosaveEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsPasswordAutosaveEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsPasswordAutosaveEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsPasswordAutosaveEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsGeneralAutofillEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsGeneralAutofillEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsGeneralAutofillEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsGeneralAutofillEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller(windows_core::IUnknown);
 impl ICoreWebView2Controller {
-    pub fn get_IsVisible(&self) -> crate::HRESULT {
+    pub fn get_IsVisible(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsVisible(&self) -> crate::HRESULT {
+    pub fn put_IsVisible(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Bounds(&self) -> crate::HRESULT {
+    pub fn get_Bounds(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Bounds(&self) -> crate::HRESULT {
+    pub fn put_Bounds(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ZoomFactor(&self) -> crate::HRESULT {
+    pub fn get_ZoomFactor(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ZoomFactor(&self) -> crate::HRESULT {
+    pub fn put_ZoomFactor(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_ZoomFactorChanged(&self) -> crate::HRESULT {
+    pub fn add_ZoomFactorChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ZoomFactorChanged(&self) -> crate::HRESULT {
+    pub fn remove_ZoomFactorChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn SetBoundsAndZoomFactor(&self) -> crate::HRESULT {
+    pub fn SetBoundsAndZoomFactor(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn MoveFocus(&self) -> crate::HRESULT {
+    pub fn MoveFocus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_MoveFocusRequested(&self) -> crate::HRESULT {
+    pub fn add_MoveFocusRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_MoveFocusRequested(&self) -> crate::HRESULT {
+    pub fn remove_MoveFocusRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_GotFocus(&self) -> crate::HRESULT {
+    pub fn add_GotFocus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_GotFocus(&self) -> crate::HRESULT {
+    pub fn remove_GotFocus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_LostFocus(&self) -> crate::HRESULT {
+    pub fn add_LostFocus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_LostFocus(&self) -> crate::HRESULT {
+    pub fn remove_LostFocus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_AcceleratorKeyPressed(&self) -> crate::HRESULT {
+    pub fn add_AcceleratorKeyPressed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_AcceleratorKeyPressed(&self) -> crate::HRESULT {
+    pub fn remove_AcceleratorKeyPressed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ParentWindow(&self) -> crate::HRESULT {
+    pub fn get_ParentWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ParentWindow(&self) -> crate::HRESULT {
+    pub fn put_ParentWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn NotifyParentWindowPositionChanged(&self) -> crate::HRESULT {
+    pub fn NotifyParentWindowPositionChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Close(&self) -> crate::HRESULT {
+    pub fn Close(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_CoreWebView2(&self) -> crate::HRESULT {
+    pub fn get_CoreWebView2(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller3(windows_core::IUnknown);
 impl ICoreWebView2Controller3 {
-    pub fn get_RasterizationScale(&self) -> crate::HRESULT {
+    pub fn get_RasterizationScale(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_RasterizationScale(&self) -> crate::HRESULT {
+    pub fn put_RasterizationScale(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldDetectMonitorScaleChanges(&self) -> crate::HRESULT {
+    pub fn get_ShouldDetectMonitorScaleChanges(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ShouldDetectMonitorScaleChanges(&self) -> crate::HRESULT {
+    pub fn put_ShouldDetectMonitorScaleChanges(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_RasterizationScaleChanged(&self) -> crate::HRESULT {
+    pub fn add_RasterizationScaleChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_RasterizationScaleChanged(&self) -> crate::HRESULT {
+    pub fn remove_RasterizationScaleChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_BoundsMode(&self) -> crate::HRESULT {
+    pub fn get_BoundsMode(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_BoundsMode(&self) -> crate::HRESULT {
+    pub fn put_BoundsMode(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment(windows_core::IUnknown);
 impl ICoreWebView2Environment {
-    pub fn CreateCoreWebView2Controller(&self) -> crate::HRESULT {
+    pub fn CreateCoreWebView2Controller(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CreateWebResourceResponse(&self) -> crate::HRESULT {
+    pub fn CreateWebResourceResponse(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_BrowserVersionString(&self) -> crate::HRESULT {
+    pub fn get_BrowserVersionString(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_NewBrowserVersionAvailable(&self) -> crate::HRESULT {
+    pub fn add_NewBrowserVersionAvailable(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NewBrowserVersionAvailable(&self) -> crate::HRESULT {
+    pub fn remove_NewBrowserVersionAvailable(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions {
-    pub fn get_AdditionalBrowserArguments(&self) -> crate::HRESULT {
+    pub fn get_AdditionalBrowserArguments(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AdditionalBrowserArguments(&self) -> crate::HRESULT {
+    pub fn put_AdditionalBrowserArguments(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Language(&self) -> crate::HRESULT {
+    pub fn get_Language(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Language(&self) -> crate::HRESULT {
+    pub fn put_Language(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TargetCompatibleBrowserVersion(&self) -> crate::HRESULT {
+    pub fn get_TargetCompatibleBrowserVersion(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TargetCompatibleBrowserVersion(&self) -> crate::HRESULT {
+    pub fn put_TargetCompatibleBrowserVersion(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AllowSingleSignOnUsingOSPrimaryAccount(&self) -> crate::HRESULT {
+    pub fn get_AllowSingleSignOnUsingOSPrimaryAccount(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AllowSingleSignOnUsingOSPrimaryAccount(&self) -> crate::HRESULT {
+    pub fn put_AllowSingleSignOnUsingOSPrimaryAccount(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2AcceleratorKeyPressedEventArgs {
-    pub fn get_KeyEventKind(&self) -> crate::HRESULT {
+    pub fn get_KeyEventKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_VirtualKey(&self) -> crate::HRESULT {
+    pub fn get_VirtualKey(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_KeyEventLParam(&self) -> crate::HRESULT {
+    pub fn get_KeyEventLParam(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PhysicalKeyStatus(&self) -> crate::HRESULT {
+    pub fn get_PhysicalKeyStatus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Challenge(&self) -> crate::HRESULT {
+    pub fn get_Challenge(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Response(&self) -> crate::HRESULT {
+    pub fn get_Response(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Cancel(&self) -> crate::HRESULT {
+    pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Cancel(&self) -> crate::HRESULT {
+    pub fn put_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BasicAuthenticationResponse(windows_core::IUnknown);
 impl ICoreWebView2BasicAuthenticationResponse {
-    pub fn get_UserName(&self) -> crate::HRESULT {
+    pub fn get_UserName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_UserName(&self) -> crate::HRESULT {
+    pub fn put_UserName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Password(&self) -> crate::HRESULT {
+    pub fn get_Password(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Password(&self) -> crate::HRESULT {
+    pub fn put_Password(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtension(windows_core::IUnknown);
 impl ICoreWebView2BrowserExtension {
-    pub fn get_Id(&self) -> crate::HRESULT {
+    pub fn get_Id(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Name(&self) -> crate::HRESULT {
+    pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Remove(&self) -> crate::HRESULT {
+    pub fn Remove(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Enable(&self) -> crate::HRESULT {
+    pub fn Enable(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Certificate(windows_core::IUnknown);
 impl ICoreWebView2Certificate {
-    pub fn get_Subject(&self) -> crate::HRESULT {
+    pub fn get_Subject(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Issuer(&self) -> crate::HRESULT {
+    pub fn get_Issuer(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ValidFrom(&self) -> crate::HRESULT {
+    pub fn get_ValidFrom(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ValidTo(&self) -> crate::HRESULT {
+    pub fn get_ValidTo(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DerEncodedSerialNumber(&self) -> crate::HRESULT {
+    pub fn get_DerEncodedSerialNumber(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DisplayName(&self) -> crate::HRESULT {
+    pub fn get_DisplayName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ToPemEncoding(&self) -> crate::HRESULT {
+    pub fn ToPemEncoding(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PemEncodedIssuerCertificateChain(&self) -> crate::HRESULT {
+    pub fn get_PemEncodedIssuerCertificateChain(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificate(windows_core::IUnknown);
 impl ICoreWebView2ClientCertificate {
-    pub fn get_Subject(&self) -> crate::HRESULT {
+    pub fn get_Subject(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Issuer(&self) -> crate::HRESULT {
+    pub fn get_Issuer(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ValidFrom(&self) -> crate::HRESULT {
+    pub fn get_ValidFrom(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ValidTo(&self) -> crate::HRESULT {
+    pub fn get_ValidTo(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DerEncodedSerialNumber(&self) -> crate::HRESULT {
+    pub fn get_DerEncodedSerialNumber(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DisplayName(&self) -> crate::HRESULT {
+    pub fn get_DisplayName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ToPemEncoding(&self) -> crate::HRESULT {
+    pub fn ToPemEncoding(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PemEncodedIssuerCertificateChain(&self) -> crate::HRESULT {
+    pub fn get_PemEncodedIssuerCertificateChain(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Kind(&self) -> crate::HRESULT {
+    pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificateRequestedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2ClientCertificateRequestedEventArgs {
-    pub fn get_Host(&self) -> crate::HRESULT {
+    pub fn get_Host(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Port(&self) -> crate::HRESULT {
+    pub fn get_Port(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsProxy(&self) -> crate::HRESULT {
+    pub fn get_IsProxy(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AllowedCertificateAuthorities(&self) -> crate::HRESULT {
+    pub fn get_AllowedCertificateAuthorities(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_MutuallyTrustedCertificates(&self) -> crate::HRESULT {
+    pub fn get_MutuallyTrustedCertificates(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SelectedCertificate(&self) -> crate::HRESULT {
+    pub fn get_SelectedCertificate(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_SelectedCertificate(&self) -> crate::HRESULT {
+    pub fn put_SelectedCertificate(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Cancel(&self) -> crate::HRESULT {
+    pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Cancel(&self) -> crate::HRESULT {
+    pub fn put_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController(windows_core::IUnknown);
 impl ICoreWebView2CompositionController {
-    pub fn get_RootVisualTarget(&self) -> crate::HRESULT {
+    pub fn get_RootVisualTarget(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_RootVisualTarget(&self) -> crate::HRESULT {
+    pub fn put_RootVisualTarget(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn SendMouseInput(&self) -> crate::HRESULT {
+    pub fn SendMouseInput(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn SendPointerInput(&self) -> crate::HRESULT {
+    pub fn SendPointerInput(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Cursor(&self) -> crate::HRESULT {
+    pub fn get_Cursor(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SystemCursorId(&self) -> crate::HRESULT {
+    pub fn get_SystemCursorId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_CursorChanged(&self) -> crate::HRESULT {
+    pub fn add_CursorChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_CursorChanged(&self) -> crate::HRESULT {
+    pub fn remove_CursorChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController3(windows_core::IUnknown);
 impl ICoreWebView2CompositionController3 {
-    pub fn DragEnter(&self) -> crate::HRESULT {
+    pub fn DragEnter(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn DragLeave(&self) -> crate::HRESULT {
+    pub fn DragLeave(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn DragOver(&self) -> crate::HRESULT {
+    pub fn DragOver(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Drop(&self) -> crate::HRESULT {
+    pub fn Drop(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController4(windows_core::IUnknown);
 impl ICoreWebView2CompositionController4 {
-    pub fn GetNonClientRegionAtPoint(&self) -> crate::HRESULT {
+    pub fn GetNonClientRegionAtPoint(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn QueryNonClientRegion(&self) -> crate::HRESULT {
+    pub fn QueryNonClientRegion(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_NonClientRegionChanged(&self) -> crate::HRESULT {
+    pub fn add_NonClientRegionChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NonClientRegionChanged(&self) -> crate::HRESULT {
+    pub fn remove_NonClientRegionChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuItem(windows_core::IUnknown);
 impl ICoreWebView2ContextMenuItem {
-    pub fn get_Name(&self) -> crate::HRESULT {
+    pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Label(&self) -> crate::HRESULT {
+    pub fn get_Label(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_CommandId(&self) -> crate::HRESULT {
+    pub fn get_CommandId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShortcutKeyDescription(&self) -> crate::HRESULT {
+    pub fn get_ShortcutKeyDescription(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Icon(&self) -> crate::HRESULT {
+    pub fn get_Icon(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Kind(&self) -> crate::HRESULT {
+    pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsChecked(&self) -> crate::HRESULT {
+    pub fn put_IsChecked(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsChecked(&self) -> crate::HRESULT {
+    pub fn get_IsChecked(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Children(&self) -> crate::HRESULT {
+    pub fn get_Children(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_CustomItemSelected(&self) -> crate::HRESULT {
+    pub fn add_CustomItemSelected(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_CustomItemSelected(&self) -> crate::HRESULT {
+    pub fn remove_CustomItemSelected(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuTarget(windows_core::IUnknown);
 impl ICoreWebView2ContextMenuTarget {
-    pub fn get_Kind(&self) -> crate::HRESULT {
+    pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsEditable(&self) -> crate::HRESULT {
+    pub fn get_IsEditable(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsRequestedForMainFrame(&self) -> crate::HRESULT {
+    pub fn get_IsRequestedForMainFrame(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PageUri(&self) -> crate::HRESULT {
+    pub fn get_PageUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FrameUri(&self) -> crate::HRESULT {
+    pub fn get_FrameUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HasLinkUri(&self) -> crate::HRESULT {
+    pub fn get_HasLinkUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_LinkUri(&self) -> crate::HRESULT {
+    pub fn get_LinkUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HasLinkText(&self) -> crate::HRESULT {
+    pub fn get_HasLinkText(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_LinkText(&self) -> crate::HRESULT {
+    pub fn get_LinkText(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HasSourceUri(&self) -> crate::HRESULT {
+    pub fn get_HasSourceUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SourceUri(&self) -> crate::HRESULT {
+    pub fn get_SourceUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HasSelection(&self) -> crate::HRESULT {
+    pub fn get_HasSelection(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SelectionText(&self) -> crate::HRESULT {
+    pub fn get_SelectionText(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuRequestedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2ContextMenuRequestedEventArgs {
-    pub fn get_MenuItems(&self) -> crate::HRESULT {
+    pub fn get_MenuItems(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ContextMenuTarget(&self) -> crate::HRESULT {
+    pub fn get_ContextMenuTarget(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Location(&self) -> crate::HRESULT {
+    pub fn get_Location(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_SelectedCommandId(&self) -> crate::HRESULT {
+    pub fn put_SelectedCommandId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SelectedCommandId(&self) -> crate::HRESULT {
+    pub fn get_SelectedCommandId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ControllerOptions(windows_core::IUnknown);
 impl ICoreWebView2ControllerOptions {
-    pub fn get_ProfileName(&self) -> crate::HRESULT {
+    pub fn get_ProfileName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ProfileName(&self) -> crate::HRESULT {
+    pub fn put_ProfileName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsInPrivateModeEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsInPrivateModeEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsInPrivateModeEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsInPrivateModeEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Cookie(windows_core::IUnknown);
 impl ICoreWebView2Cookie {
-    pub fn get_Name(&self) -> crate::HRESULT {
+    pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Value(&self) -> crate::HRESULT {
+    pub fn get_Value(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Value(&self) -> crate::HRESULT {
+    pub fn put_Value(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Domain(&self) -> crate::HRESULT {
+    pub fn get_Domain(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Path(&self) -> crate::HRESULT {
+    pub fn get_Path(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Expires(&self) -> crate::HRESULT {
+    pub fn get_Expires(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Expires(&self) -> crate::HRESULT {
+    pub fn put_Expires(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsHttpOnly(&self) -> crate::HRESULT {
+    pub fn get_IsHttpOnly(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsHttpOnly(&self) -> crate::HRESULT {
+    pub fn put_IsHttpOnly(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SameSite(&self) -> crate::HRESULT {
+    pub fn get_SameSite(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_SameSite(&self) -> crate::HRESULT {
+    pub fn put_SameSite(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsSecure(&self) -> crate::HRESULT {
+    pub fn get_IsSecure(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsSecure(&self) -> crate::HRESULT {
+    pub fn put_IsSecure(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsSession(&self) -> crate::HRESULT {
+    pub fn get_IsSession(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CookieManager(windows_core::IUnknown);
 impl ICoreWebView2CookieManager {
-    pub fn CreateCookie(&self) -> crate::HRESULT {
+    pub fn CreateCookie(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CopyCookie(&self) -> crate::HRESULT {
+    pub fn CopyCookie(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetCookies(&self) -> crate::HRESULT {
+    pub fn GetCookies(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn AddOrUpdateCookie(&self) -> crate::HRESULT {
+    pub fn AddOrUpdateCookie(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn DeleteCookie(&self) -> crate::HRESULT {
+    pub fn DeleteCookie(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn DeleteCookies(&self) -> crate::HRESULT {
+    pub fn DeleteCookies(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn DeleteCookiesWithDomainAndPath(&self) -> crate::HRESULT {
+    pub fn DeleteCookiesWithDomainAndPath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn DeleteAllCookies(&self) -> crate::HRESULT {
+    pub fn DeleteAllCookies(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CustomSchemeRegistration(windows_core::IUnknown);
 impl ICoreWebView2CustomSchemeRegistration {
-    pub fn get_SchemeName(&self) -> crate::HRESULT {
+    pub fn get_SchemeName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TreatAsSecure(&self) -> crate::HRESULT {
+    pub fn get_TreatAsSecure(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TreatAsSecure(&self) -> crate::HRESULT {
+    pub fn put_TreatAsSecure(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetAllowedOrigins(&self) -> crate::HRESULT {
+    pub fn GetAllowedOrigins(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn SetAllowedOrigins(&self) -> crate::HRESULT {
+    pub fn SetAllowedOrigins(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HasAuthorityComponent(&self) -> crate::HRESULT {
+    pub fn get_HasAuthorityComponent(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_HasAuthorityComponent(&self) -> crate::HRESULT {
+    pub fn put_HasAuthorityComponent(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DownloadOperation(windows_core::IUnknown);
 impl ICoreWebView2DownloadOperation {
-    pub fn add_BytesReceivedChanged(&self) -> crate::HRESULT {
+    pub fn add_BytesReceivedChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_BytesReceivedChanged(&self) -> crate::HRESULT {
+    pub fn remove_BytesReceivedChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_EstimatedEndTimeChanged(&self) -> crate::HRESULT {
+    pub fn add_EstimatedEndTimeChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_EstimatedEndTimeChanged(&self) -> crate::HRESULT {
+    pub fn remove_EstimatedEndTimeChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_StateChanged(&self) -> crate::HRESULT {
+    pub fn add_StateChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_StateChanged(&self) -> crate::HRESULT {
+    pub fn remove_StateChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ContentDisposition(&self) -> crate::HRESULT {
+    pub fn get_ContentDisposition(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_MimeType(&self) -> crate::HRESULT {
+    pub fn get_MimeType(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TotalBytesToReceive(&self) -> crate::HRESULT {
+    pub fn get_TotalBytesToReceive(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_BytesReceived(&self) -> crate::HRESULT {
+    pub fn get_BytesReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_EstimatedEndTime(&self) -> crate::HRESULT {
+    pub fn get_EstimatedEndTime(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ResultFilePath(&self) -> crate::HRESULT {
+    pub fn get_ResultFilePath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_State(&self) -> crate::HRESULT {
+    pub fn get_State(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_InterruptReason(&self) -> crate::HRESULT {
+    pub fn get_InterruptReason(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Cancel(&self) -> crate::HRESULT {
+    pub fn Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Pause(&self) -> crate::HRESULT {
+    pub fn Pause(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Resume(&self) -> crate::HRESULT {
+    pub fn Resume(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_CanResume(&self) -> crate::HRESULT {
+    pub fn get_CanResume(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DownloadStartingEventArgs(windows_core::IUnknown);
 impl ICoreWebView2DownloadStartingEventArgs {
-    pub fn get_DownloadOperation(&self) -> crate::HRESULT {
+    pub fn get_DownloadOperation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Cancel(&self) -> crate::HRESULT {
+    pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Cancel(&self) -> crate::HRESULT {
+    pub fn put_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ResultFilePath(&self) -> crate::HRESULT {
+    pub fn get_ResultFilePath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ResultFilePath(&self) -> crate::HRESULT {
+    pub fn put_ResultFilePath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ExecuteScriptResult(windows_core::IUnknown);
 impl ICoreWebView2ExecuteScriptResult {
-    pub fn get_Succeeded(&self) -> crate::HRESULT {
+    pub fn get_Succeeded(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ResultAsJson(&self) -> crate::HRESULT {
+    pub fn get_ResultAsJson(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn TryGetResultAsString(&self) -> crate::HRESULT {
+    pub fn TryGetResultAsString(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Exception(&self) -> crate::HRESULT {
+    pub fn get_Exception(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame(windows_core::IUnknown);
 impl ICoreWebView2Frame {
-    pub fn get_Name(&self) -> crate::HRESULT {
+    pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_NameChanged(&self) -> crate::HRESULT {
+    pub fn add_NameChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NameChanged(&self) -> crate::HRESULT {
+    pub fn remove_NameChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn AddHostObjectToScriptWithOrigins(&self) -> crate::HRESULT {
+    pub fn AddHostObjectToScriptWithOrigins(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn RemoveHostObjectFromScript(&self) -> crate::HRESULT {
+    pub fn RemoveHostObjectFromScript(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_Destroyed(&self) -> crate::HRESULT {
+    pub fn add_Destroyed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_Destroyed(&self) -> crate::HRESULT {
+    pub fn remove_Destroyed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn IsDestroyed(&self) -> crate::HRESULT {
+    pub fn IsDestroyed(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame2(windows_core::IUnknown);
 impl ICoreWebView2Frame2 {
-    pub fn add_NavigationStarting(&self) -> crate::HRESULT {
+    pub fn add_NavigationStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NavigationStarting(&self) -> crate::HRESULT {
+    pub fn remove_NavigationStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_ContentLoading(&self) -> crate::HRESULT {
+    pub fn add_ContentLoading(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ContentLoading(&self) -> crate::HRESULT {
+    pub fn remove_ContentLoading(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_NavigationCompleted(&self) -> crate::HRESULT {
+    pub fn add_NavigationCompleted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NavigationCompleted(&self) -> crate::HRESULT {
+    pub fn remove_NavigationCompleted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_DOMContentLoaded(&self) -> crate::HRESULT {
+    pub fn add_DOMContentLoaded(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_DOMContentLoaded(&self) -> crate::HRESULT {
+    pub fn remove_DOMContentLoaded(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ExecuteScript(&self) -> crate::HRESULT {
+    pub fn ExecuteScript(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn PostWebMessageAsJson(&self) -> crate::HRESULT {
+    pub fn PostWebMessageAsJson(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn PostWebMessageAsString(&self) -> crate::HRESULT {
+    pub fn PostWebMessageAsString(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_WebMessageReceived(&self) -> crate::HRESULT {
+    pub fn add_WebMessageReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_WebMessageReceived(&self) -> crate::HRESULT {
+    pub fn remove_WebMessageReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfo2(windows_core::IUnknown);
 impl ICoreWebView2FrameInfo2 {
-    pub fn get_ParentFrameInfo(&self) -> crate::HRESULT {
+    pub fn get_ParentFrameInfo(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FrameId(&self) -> crate::HRESULT {
+    pub fn get_FrameId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FrameKind(&self) -> crate::HRESULT {
+    pub fn get_FrameKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HttpHeadersCollectionIterator(windows_core::IUnknown);
 impl ICoreWebView2HttpHeadersCollectionIterator {
-    pub fn GetCurrentHeader(&self) -> crate::HRESULT {
+    pub fn GetCurrentHeader(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HasCurrentHeader(&self) -> crate::HRESULT {
+    pub fn get_HasCurrentHeader(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn MoveNext(&self) -> crate::HRESULT {
+    pub fn MoveNext(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2LaunchingExternalUriSchemeEventArgs(windows_core::IUnknown);
 impl ICoreWebView2LaunchingExternalUriSchemeEventArgs {
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_InitiatingOrigin(&self) -> crate::HRESULT {
+    pub fn get_InitiatingOrigin(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsUserInitiated(&self) -> crate::HRESULT {
+    pub fn get_IsUserInitiated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Cancel(&self) -> crate::HRESULT {
+    pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Cancel(&self) -> crate::HRESULT {
+    pub fn put_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2MoveFocusRequestedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2MoveFocusRequestedEventArgs {
-    pub fn get_Reason(&self) -> crate::HRESULT {
+    pub fn get_Reason(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationCompletedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2NavigationCompletedEventArgs {
-    pub fn get_IsSuccess(&self) -> crate::HRESULT {
+    pub fn get_IsSuccess(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_WebErrorStatus(&self) -> crate::HRESULT {
+    pub fn get_WebErrorStatus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_NavigationId(&self) -> crate::HRESULT {
+    pub fn get_NavigationId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventArgs(windows_core::IUnknown);
 impl ICoreWebView2NavigationStartingEventArgs {
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsUserInitiated(&self) -> crate::HRESULT {
+    pub fn get_IsUserInitiated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsRedirected(&self) -> crate::HRESULT {
+    pub fn get_IsRedirected(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_RequestHeaders(&self) -> crate::HRESULT {
+    pub fn get_RequestHeaders(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Cancel(&self) -> crate::HRESULT {
+    pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Cancel(&self) -> crate::HRESULT {
+    pub fn put_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_NavigationId(&self) -> crate::HRESULT {
+    pub fn get_NavigationId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2NewWindowRequestedEventArgs {
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_NewWindow(&self) -> crate::HRESULT {
+    pub fn put_NewWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_NewWindow(&self) -> crate::HRESULT {
+    pub fn get_NewWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsUserInitiated(&self) -> crate::HRESULT {
+    pub fn get_IsUserInitiated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_WindowFeatures(&self) -> crate::HRESULT {
+    pub fn get_WindowFeatures(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2PermissionRequestedEventArgs {
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PermissionKind(&self) -> crate::HRESULT {
+    pub fn get_PermissionKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsUserInitiated(&self) -> crate::HRESULT {
+    pub fn get_IsUserInitiated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_State(&self) -> crate::HRESULT {
+    pub fn get_State(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_State(&self) -> crate::HRESULT {
+    pub fn put_State(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionSettingCollectionView(windows_core::IUnknown);
 impl ICoreWebView2PermissionSettingCollectionView {
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PointerInfo(windows_core::IUnknown);
 impl ICoreWebView2PointerInfo {
-    pub fn get_PointerKind(&self) -> crate::HRESULT {
+    pub fn get_PointerKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PointerKind(&self) -> crate::HRESULT {
+    pub fn put_PointerKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PointerId(&self) -> crate::HRESULT {
+    pub fn get_PointerId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PointerId(&self) -> crate::HRESULT {
+    pub fn put_PointerId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FrameId(&self) -> crate::HRESULT {
+    pub fn get_FrameId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_FrameId(&self) -> crate::HRESULT {
+    pub fn put_FrameId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PointerFlags(&self) -> crate::HRESULT {
+    pub fn get_PointerFlags(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PointerFlags(&self) -> crate::HRESULT {
+    pub fn put_PointerFlags(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PointerDeviceRect(&self) -> crate::HRESULT {
+    pub fn get_PointerDeviceRect(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PointerDeviceRect(&self) -> crate::HRESULT {
+    pub fn put_PointerDeviceRect(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DisplayRect(&self) -> crate::HRESULT {
+    pub fn get_DisplayRect(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_DisplayRect(&self) -> crate::HRESULT {
+    pub fn put_DisplayRect(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PixelLocation(&self) -> crate::HRESULT {
+    pub fn get_PixelLocation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PixelLocation(&self) -> crate::HRESULT {
+    pub fn put_PixelLocation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HimetricLocation(&self) -> crate::HRESULT {
+    pub fn get_HimetricLocation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_HimetricLocation(&self) -> crate::HRESULT {
+    pub fn put_HimetricLocation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PixelLocationRaw(&self) -> crate::HRESULT {
+    pub fn get_PixelLocationRaw(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PixelLocationRaw(&self) -> crate::HRESULT {
+    pub fn put_PixelLocationRaw(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HimetricLocationRaw(&self) -> crate::HRESULT {
+    pub fn get_HimetricLocationRaw(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_HimetricLocationRaw(&self) -> crate::HRESULT {
+    pub fn put_HimetricLocationRaw(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Time(&self) -> crate::HRESULT {
+    pub fn get_Time(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Time(&self) -> crate::HRESULT {
+    pub fn put_Time(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HistoryCount(&self) -> crate::HRESULT {
+    pub fn get_HistoryCount(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_HistoryCount(&self) -> crate::HRESULT {
+    pub fn put_HistoryCount(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_InputData(&self) -> crate::HRESULT {
+    pub fn get_InputData(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_InputData(&self) -> crate::HRESULT {
+    pub fn put_InputData(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_KeyStates(&self) -> crate::HRESULT {
+    pub fn get_KeyStates(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_KeyStates(&self) -> crate::HRESULT {
+    pub fn put_KeyStates(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PerformanceCount(&self) -> crate::HRESULT {
+    pub fn get_PerformanceCount(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PerformanceCount(&self) -> crate::HRESULT {
+    pub fn put_PerformanceCount(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ButtonChangeKind(&self) -> crate::HRESULT {
+    pub fn get_ButtonChangeKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ButtonChangeKind(&self) -> crate::HRESULT {
+    pub fn put_ButtonChangeKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PenFlags(&self) -> crate::HRESULT {
+    pub fn get_PenFlags(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PenFlags(&self) -> crate::HRESULT {
+    pub fn put_PenFlags(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PenMask(&self) -> crate::HRESULT {
+    pub fn get_PenMask(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PenMask(&self) -> crate::HRESULT {
+    pub fn put_PenMask(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PenPressure(&self) -> crate::HRESULT {
+    pub fn get_PenPressure(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PenPressure(&self) -> crate::HRESULT {
+    pub fn put_PenPressure(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PenRotation(&self) -> crate::HRESULT {
+    pub fn get_PenRotation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PenRotation(&self) -> crate::HRESULT {
+    pub fn put_PenRotation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PenTiltX(&self) -> crate::HRESULT {
+    pub fn get_PenTiltX(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PenTiltX(&self) -> crate::HRESULT {
+    pub fn put_PenTiltX(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PenTiltY(&self) -> crate::HRESULT {
+    pub fn get_PenTiltY(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PenTiltY(&self) -> crate::HRESULT {
+    pub fn put_PenTiltY(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TouchFlags(&self) -> crate::HRESULT {
+    pub fn get_TouchFlags(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TouchFlags(&self) -> crate::HRESULT {
+    pub fn put_TouchFlags(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TouchMask(&self) -> crate::HRESULT {
+    pub fn get_TouchMask(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TouchMask(&self) -> crate::HRESULT {
+    pub fn put_TouchMask(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TouchContact(&self) -> crate::HRESULT {
+    pub fn get_TouchContact(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TouchContact(&self) -> crate::HRESULT {
+    pub fn put_TouchContact(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TouchContactRaw(&self) -> crate::HRESULT {
+    pub fn get_TouchContactRaw(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TouchContactRaw(&self) -> crate::HRESULT {
+    pub fn put_TouchContactRaw(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TouchOrientation(&self) -> crate::HRESULT {
+    pub fn get_TouchOrientation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TouchOrientation(&self) -> crate::HRESULT {
+    pub fn put_TouchOrientation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_TouchPressure(&self) -> crate::HRESULT {
+    pub fn get_TouchPressure(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_TouchPressure(&self) -> crate::HRESULT {
+    pub fn put_TouchPressure(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintSettings(windows_core::IUnknown);
 impl ICoreWebView2PrintSettings {
-    pub fn get_Orientation(&self) -> crate::HRESULT {
+    pub fn get_Orientation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Orientation(&self) -> crate::HRESULT {
+    pub fn put_Orientation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ScaleFactor(&self) -> crate::HRESULT {
+    pub fn get_ScaleFactor(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ScaleFactor(&self) -> crate::HRESULT {
+    pub fn put_ScaleFactor(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PageWidth(&self) -> crate::HRESULT {
+    pub fn get_PageWidth(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PageWidth(&self) -> crate::HRESULT {
+    pub fn put_PageWidth(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PageHeight(&self) -> crate::HRESULT {
+    pub fn get_PageHeight(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PageHeight(&self) -> crate::HRESULT {
+    pub fn put_PageHeight(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_MarginTop(&self) -> crate::HRESULT {
+    pub fn get_MarginTop(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_MarginTop(&self) -> crate::HRESULT {
+    pub fn put_MarginTop(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_MarginBottom(&self) -> crate::HRESULT {
+    pub fn get_MarginBottom(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_MarginBottom(&self) -> crate::HRESULT {
+    pub fn put_MarginBottom(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_MarginLeft(&self) -> crate::HRESULT {
+    pub fn get_MarginLeft(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_MarginLeft(&self) -> crate::HRESULT {
+    pub fn put_MarginLeft(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_MarginRight(&self) -> crate::HRESULT {
+    pub fn get_MarginRight(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_MarginRight(&self) -> crate::HRESULT {
+    pub fn put_MarginRight(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldPrintBackgrounds(&self) -> crate::HRESULT {
+    pub fn get_ShouldPrintBackgrounds(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ShouldPrintBackgrounds(&self) -> crate::HRESULT {
+    pub fn put_ShouldPrintBackgrounds(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldPrintSelectionOnly(&self) -> crate::HRESULT {
+    pub fn get_ShouldPrintSelectionOnly(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ShouldPrintSelectionOnly(&self) -> crate::HRESULT {
+    pub fn put_ShouldPrintSelectionOnly(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldPrintHeaderAndFooter(&self) -> crate::HRESULT {
+    pub fn get_ShouldPrintHeaderAndFooter(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ShouldPrintHeaderAndFooter(&self) -> crate::HRESULT {
+    pub fn put_ShouldPrintHeaderAndFooter(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HeaderTitle(&self) -> crate::HRESULT {
+    pub fn get_HeaderTitle(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_HeaderTitle(&self) -> crate::HRESULT {
+    pub fn put_HeaderTitle(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FooterUri(&self) -> crate::HRESULT {
+    pub fn get_FooterUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_FooterUri(&self) -> crate::HRESULT {
+    pub fn put_FooterUri(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintSettings2(windows_core::IUnknown);
 impl ICoreWebView2PrintSettings2 {
-    pub fn get_PageRanges(&self) -> crate::HRESULT {
+    pub fn get_PageRanges(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PageRanges(&self) -> crate::HRESULT {
+    pub fn put_PageRanges(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PagesPerSide(&self) -> crate::HRESULT {
+    pub fn get_PagesPerSide(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PagesPerSide(&self) -> crate::HRESULT {
+    pub fn put_PagesPerSide(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Copies(&self) -> crate::HRESULT {
+    pub fn get_Copies(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Copies(&self) -> crate::HRESULT {
+    pub fn put_Copies(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Collation(&self) -> crate::HRESULT {
+    pub fn get_Collation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Collation(&self) -> crate::HRESULT {
+    pub fn put_Collation(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ColorMode(&self) -> crate::HRESULT {
+    pub fn get_ColorMode(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ColorMode(&self) -> crate::HRESULT {
+    pub fn put_ColorMode(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Duplex(&self) -> crate::HRESULT {
+    pub fn get_Duplex(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Duplex(&self) -> crate::HRESULT {
+    pub fn put_Duplex(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_MediaSize(&self) -> crate::HRESULT {
+    pub fn get_MediaSize(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_MediaSize(&self) -> crate::HRESULT {
+    pub fn put_MediaSize(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PrinterName(&self) -> crate::HRESULT {
+    pub fn get_PrinterName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PrinterName(&self) -> crate::HRESULT {
+    pub fn put_PrinterName(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessExtendedInfo(windows_core::IUnknown);
 impl ICoreWebView2ProcessExtendedInfo {
-    pub fn get_ProcessInfo(&self) -> crate::HRESULT {
+    pub fn get_ProcessInfo(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AssociatedFrameInfos(&self) -> crate::HRESULT {
+    pub fn get_AssociatedFrameInfos(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2ProcessFailedEventArgs2 {
-    pub fn get_Reason(&self) -> crate::HRESULT {
+    pub fn get_Reason(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ExitCode(&self) -> crate::HRESULT {
+    pub fn get_ExitCode(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ProcessDescription(&self) -> crate::HRESULT {
+    pub fn get_ProcessDescription(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FrameInfosForFailedProcess(&self) -> crate::HRESULT {
+    pub fn get_FrameInfosForFailedProcess(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessInfo(windows_core::IUnknown);
 impl ICoreWebView2ProcessInfo {
-    pub fn get_ProcessId(&self) -> crate::HRESULT {
+    pub fn get_ProcessId(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Kind(&self) -> crate::HRESULT {
+    pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile(windows_core::IUnknown);
 impl ICoreWebView2Profile {
-    pub fn get_ProfileName(&self) -> crate::HRESULT {
+    pub fn get_ProfileName(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsInPrivateModeEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsInPrivateModeEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ProfilePath(&self) -> crate::HRESULT {
+    pub fn get_ProfilePath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DefaultDownloadFolderPath(&self) -> crate::HRESULT {
+    pub fn get_DefaultDownloadFolderPath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_DefaultDownloadFolderPath(&self) -> crate::HRESULT {
+    pub fn put_DefaultDownloadFolderPath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PreferredColorScheme(&self) -> crate::HRESULT {
+    pub fn get_PreferredColorScheme(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PreferredColorScheme(&self) -> crate::HRESULT {
+    pub fn put_PreferredColorScheme(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile6(windows_core::IUnknown);
 impl ICoreWebView2Profile6 {
-    pub fn get_IsPasswordAutosaveEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsPasswordAutosaveEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsPasswordAutosaveEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsPasswordAutosaveEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsGeneralAutofillEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsGeneralAutofillEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsGeneralAutofillEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsGeneralAutofillEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile8(windows_core::IUnknown);
 impl ICoreWebView2Profile8 {
-    pub fn Delete(&self) -> crate::HRESULT {
+    pub fn Delete(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn add_Deleted(&self) -> crate::HRESULT {
+    pub fn add_Deleted(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_Deleted(&self) -> crate::HRESULT {
+    pub fn remove_Deleted(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScriptDialogOpeningEventArgs(windows_core::IUnknown);
 impl ICoreWebView2ScriptDialogOpeningEventArgs {
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Kind(&self) -> crate::HRESULT {
+    pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Message(&self) -> crate::HRESULT {
+    pub fn get_Message(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Accept(&self) -> crate::HRESULT {
+    pub fn Accept(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DefaultText(&self) -> crate::HRESULT {
+    pub fn get_DefaultText(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ResultText(&self) -> crate::HRESULT {
+    pub fn get_ResultText(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ResultText(&self) -> crate::HRESULT {
+    pub fn put_ResultText(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScriptException(windows_core::IUnknown);
 impl ICoreWebView2ScriptException {
-    pub fn get_LineNumber(&self) -> crate::HRESULT {
+    pub fn get_LineNumber(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ColumnNumber(&self) -> crate::HRESULT {
+    pub fn get_ColumnNumber(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Name(&self) -> crate::HRESULT {
+    pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Message(&self) -> crate::HRESULT {
+    pub fn get_Message(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ToJson(&self) -> crate::HRESULT {
+    pub fn get_ToJson(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
-    pub fn get_ErrorStatus(&self) -> crate::HRESULT {
+    pub fn get_ErrorStatus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_RequestUri(&self) -> crate::HRESULT {
+    pub fn get_RequestUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ServerCertificate(&self) -> crate::HRESULT {
+    pub fn get_ServerCertificate(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Action(&self) -> crate::HRESULT {
+    pub fn get_Action(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Action(&self) -> crate::HRESULT {
+    pub fn put_Action(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SharedBuffer(windows_core::IUnknown);
 impl ICoreWebView2SharedBuffer {
-    pub fn get_Size(&self) -> crate::HRESULT {
+    pub fn get_Size(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Buffer(&self) -> crate::HRESULT {
+    pub fn get_Buffer(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn OpenStream(&self) -> crate::HRESULT {
+    pub fn OpenStream(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FileMappingHandle(&self) -> crate::HRESULT {
+    pub fn get_FileMappingHandle(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Close(&self) -> crate::HRESULT {
+    pub fn Close(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequest(windows_core::IUnknown);
 impl ICoreWebView2WebResourceRequest {
-    pub fn get_Uri(&self) -> crate::HRESULT {
+    pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Uri(&self) -> crate::HRESULT {
+    pub fn put_Uri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Method(&self) -> crate::HRESULT {
+    pub fn get_Method(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Method(&self) -> crate::HRESULT {
+    pub fn put_Method(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Content(&self) -> crate::HRESULT {
+    pub fn get_Content(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Content(&self) -> crate::HRESULT {
+    pub fn put_Content(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Headers(&self) -> crate::HRESULT {
+    pub fn get_Headers(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2WebResourceRequestedEventArgs {
-    pub fn get_Request(&self) -> crate::HRESULT {
+    pub fn get_Request(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Response(&self) -> crate::HRESULT {
+    pub fn get_Response(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Response(&self) -> crate::HRESULT {
+    pub fn put_Response(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ResourceContext(&self) -> crate::HRESULT {
+    pub fn get_ResourceContext(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponse(windows_core::IUnknown);
 impl ICoreWebView2WebResourceResponse {
-    pub fn get_Content(&self) -> crate::HRESULT {
+    pub fn get_Content(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Content(&self) -> crate::HRESULT {
+    pub fn put_Content(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Headers(&self) -> crate::HRESULT {
+    pub fn get_Headers(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_StatusCode(&self) -> crate::HRESULT {
+    pub fn get_StatusCode(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_StatusCode(&self) -> crate::HRESULT {
+    pub fn put_StatusCode(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ReasonPhrase(&self) -> crate::HRESULT {
+    pub fn get_ReasonPhrase(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ReasonPhrase(&self) -> crate::HRESULT {
+    pub fn put_ReasonPhrase(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseView(windows_core::IUnknown);
 impl ICoreWebView2WebResourceResponseView {
-    pub fn get_Headers(&self) -> crate::HRESULT {
+    pub fn get_Headers(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_StatusCode(&self) -> crate::HRESULT {
+    pub fn get_StatusCode(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ReasonPhrase(&self) -> crate::HRESULT {
+    pub fn get_ReasonPhrase(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetContent(&self) -> crate::HRESULT {
+    pub fn GetContent(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WindowFeatures(windows_core::IUnknown);
 impl ICoreWebView2WindowFeatures {
-    pub fn get_HasPosition(&self) -> crate::HRESULT {
+    pub fn get_HasPosition(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_HasSize(&self) -> crate::HRESULT {
+    pub fn get_HasSize(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Left(&self) -> crate::HRESULT {
+    pub fn get_Left(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Top(&self) -> crate::HRESULT {
+    pub fn get_Top(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Height(&self) -> crate::HRESULT {
+    pub fn get_Height(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Width(&self) -> crate::HRESULT {
+    pub fn get_Width(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldDisplayMenuBar(&self) -> crate::HRESULT {
+    pub fn get_ShouldDisplayMenuBar(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldDisplayStatus(&self) -> crate::HRESULT {
+    pub fn get_ShouldDisplayStatus(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldDisplayToolbar(&self) -> crate::HRESULT {
+    pub fn get_ShouldDisplayToolbar(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldDisplayScrollBars(&self) -> crate::HRESULT {
+    pub fn get_ShouldDisplayScrollBars(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ObjectCollection(windows_core::IUnknown);
 impl ICoreWebView2ObjectCollection {
-    pub fn RemoveValueAtIndex(&self) -> crate::HRESULT {
+    pub fn RemoveValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn InsertValueAtIndex(&self) -> crate::HRESULT {
+    pub fn InsertValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Notification(windows_core::IUnknown);
 impl ICoreWebView2Notification {
-    pub fn add_CloseRequested(&self) -> crate::HRESULT {
+    pub fn add_CloseRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_CloseRequested(&self) -> crate::HRESULT {
+    pub fn remove_CloseRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ReportShown(&self) -> crate::HRESULT {
+    pub fn ReportShown(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ReportClicked(&self) -> crate::HRESULT {
+    pub fn ReportClicked(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ReportClosed(&self) -> crate::HRESULT {
+    pub fn ReportClosed(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Body(&self) -> crate::HRESULT {
+    pub fn get_Body(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Direction(&self) -> crate::HRESULT {
+    pub fn get_Direction(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Language(&self) -> crate::HRESULT {
+    pub fn get_Language(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Tag(&self) -> crate::HRESULT {
+    pub fn get_Tag(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IconUri(&self) -> crate::HRESULT {
+    pub fn get_IconUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Title(&self) -> crate::HRESULT {
+    pub fn get_Title(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_BadgeUri(&self) -> crate::HRESULT {
+    pub fn get_BadgeUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_BodyImageUri(&self) -> crate::HRESULT {
+    pub fn get_BodyImageUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ShouldRenotify(&self) -> crate::HRESULT {
+    pub fn get_ShouldRenotify(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_RequiresInteraction(&self) -> crate::HRESULT {
+    pub fn get_RequiresInteraction(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_IsSilent(&self) -> crate::HRESULT {
+    pub fn get_IsSilent(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Timestamp(&self) -> crate::HRESULT {
+    pub fn get_Timestamp(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetVibrationPattern(&self) -> crate::HRESULT {
+    pub fn GetVibrationPattern(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NotificationReceivedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2NotificationReceivedEventArgs {
-    pub fn get_SenderOrigin(&self) -> crate::HRESULT {
+    pub fn get_SenderOrigin(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Notification(&self) -> crate::HRESULT {
+    pub fn get_Notification(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveAsUIShowingEventArgs(windows_core::IUnknown);
 impl ICoreWebView2SaveAsUIShowingEventArgs {
-    pub fn get_ContentMimeType(&self) -> crate::HRESULT {
+    pub fn get_ContentMimeType(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Cancel(&self) -> crate::HRESULT {
+    pub fn put_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Cancel(&self) -> crate::HRESULT {
+    pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_SuppressDefaultDialog(&self) -> crate::HRESULT {
+    pub fn put_SuppressDefaultDialog(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SuppressDefaultDialog(&self) -> crate::HRESULT {
+    pub fn get_SuppressDefaultDialog(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_SaveAsFilePath(&self) -> crate::HRESULT {
+    pub fn put_SaveAsFilePath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SaveAsFilePath(&self) -> crate::HRESULT {
+    pub fn get_SaveAsFilePath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AllowReplace(&self) -> crate::HRESULT {
+    pub fn put_AllowReplace(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_AllowReplace(&self) -> crate::HRESULT {
+    pub fn get_AllowReplace(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Kind(&self) -> crate::HRESULT {
+    pub fn put_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Kind(&self) -> crate::HRESULT {
+    pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2AcceleratorKeyPressedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2AcceleratorKeyPressedEventArgs2 {
-    pub fn get_IsBrowserAcceleratorKeyEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsBrowserAcceleratorKeyEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsBrowserAcceleratorKeyEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsBrowserAcceleratorKeyEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserProcessExitedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2BrowserProcessExitedEventArgs {
-    pub fn get_BrowserProcessExitKind(&self) -> crate::HRESULT {
+    pub fn get_BrowserProcessExitKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_BrowserProcessId(&self) -> crate::HRESULT {
+    pub fn get_BrowserProcessId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CompositionController2(windows_core::IUnknown);
 impl ICoreWebView2CompositionController2 {
-    pub fn get_AutomationProvider(&self) -> crate::HRESULT {
+    pub fn get_AutomationProvider(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContentLoadingEventArgs(windows_core::IUnknown);
 impl ICoreWebView2ContentLoadingEventArgs {
-    pub fn get_IsErrorPage(&self) -> crate::HRESULT {
+    pub fn get_IsErrorPage(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_NavigationId(&self) -> crate::HRESULT {
+    pub fn get_NavigationId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ContextMenuItemCollection(windows_core::IUnknown);
 impl ICoreWebView2ContextMenuItemCollection {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn RemoveValueAtIndex(&self) -> crate::HRESULT {
+    pub fn RemoveValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn InsertValueAtIndex(&self) -> crate::HRESULT {
+    pub fn InsertValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller2(windows_core::IUnknown);
 impl ICoreWebView2Controller2 {
-    pub fn get_DefaultBackgroundColor(&self) -> crate::HRESULT {
+    pub fn get_DefaultBackgroundColor(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_DefaultBackgroundColor(&self) -> crate::HRESULT {
+    pub fn put_DefaultBackgroundColor(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Controller4(windows_core::IUnknown);
 impl ICoreWebView2Controller4 {
-    pub fn get_AllowExternalDrop(&self) -> crate::HRESULT {
+    pub fn get_AllowExternalDrop(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AllowExternalDrop(&self) -> crate::HRESULT {
+    pub fn put_AllowExternalDrop(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ControllerOptions2(windows_core::IUnknown);
 impl ICoreWebView2ControllerOptions2 {
-    pub fn get_ScriptLocale(&self) -> crate::HRESULT {
+    pub fn get_ScriptLocale(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ScriptLocale(&self) -> crate::HRESULT {
+    pub fn put_ScriptLocale(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DOMContentLoadedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2DOMContentLoadedEventArgs {
-    pub fn get_NavigationId(&self) -> crate::HRESULT {
+    pub fn get_NavigationId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Deferral(windows_core::IUnknown);
 impl ICoreWebView2Deferral {
-    pub fn Complete(&self) -> crate::HRESULT {
+    pub fn Complete(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
-    pub fn get_ParameterObjectAsJson(&self) -> crate::HRESULT {
+    pub fn get_ParameterObjectAsJson(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {
-    pub fn get_SessionId(&self) -> crate::HRESULT {
+    pub fn get_SessionId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2DevToolsProtocolEventReceiver(windows_core::IUnknown);
 impl ICoreWebView2DevToolsProtocolEventReceiver {
-    pub fn add_DevToolsProtocolEventReceived(&self) -> crate::HRESULT {
+    pub fn add_DevToolsProtocolEventReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_DevToolsProtocolEventReceived(&self) -> crate::HRESULT {
+    pub fn remove_DevToolsProtocolEventReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment10(windows_core::IUnknown);
 impl ICoreWebView2Environment10 {
-    pub fn CreateCoreWebView2ControllerOptions(&self) -> crate::HRESULT {
+    pub fn CreateCoreWebView2ControllerOptions(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CreateCoreWebView2ControllerWithOptions(&self) -> crate::HRESULT {
+    pub fn CreateCoreWebView2ControllerWithOptions(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CreateCoreWebView2CompositionControllerWithOptions(&self) -> crate::HRESULT {
+    pub fn CreateCoreWebView2CompositionControllerWithOptions(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment11(windows_core::IUnknown);
 impl ICoreWebView2Environment11 {
-    pub fn get_FailureReportFolderPath(&self) -> crate::HRESULT {
+    pub fn get_FailureReportFolderPath(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment12(windows_core::IUnknown);
 impl ICoreWebView2Environment12 {
-    pub fn CreateSharedBuffer(&self) -> crate::HRESULT {
+    pub fn CreateSharedBuffer(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetProcessExtendedInfosCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2GetProcessExtendedInfosCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessExtendedInfoCollection(windows_core::IUnknown);
 impl ICoreWebView2ProcessExtendedInfoCollection {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment13(windows_core::IUnknown);
 impl ICoreWebView2Environment13 {
-    pub fn GetProcessExtendedInfos(&self) -> crate::HRESULT {
+    pub fn GetProcessExtendedInfos(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment14(windows_core::IUnknown);
 impl ICoreWebView2Environment14 {
-    pub fn CreateWebFileSystemFileHandle(&self) -> crate::HRESULT {
+    pub fn CreateWebFileSystemFileHandle(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CreateWebFileSystemDirectoryHandle(&self) -> crate::HRESULT {
+    pub fn CreateWebFileSystemDirectoryHandle(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CreateObjectCollection(&self) -> crate::HRESULT {
+    pub fn CreateObjectCollection(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment2(windows_core::IUnknown);
 impl ICoreWebView2Environment2 {
-    pub fn CreateWebResourceRequest(&self) -> crate::HRESULT {
+    pub fn CreateWebResourceRequest(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
@@ -3452,938 +3452,938 @@ pub struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler(
     windows_core::IUnknown,
 );
 impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment3(windows_core::IUnknown);
 impl ICoreWebView2Environment3 {
-    pub fn CreateCoreWebView2CompositionController(&self) -> crate::HRESULT {
+    pub fn CreateCoreWebView2CompositionController(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn CreateCoreWebView2PointerInfo(&self) -> crate::HRESULT {
+    pub fn CreateCoreWebView2PointerInfo(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment4(windows_core::IUnknown);
 impl ICoreWebView2Environment4 {
-    pub fn GetAutomationProviderForWindow(&self) -> crate::HRESULT {
+    pub fn GetAutomationProviderForWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserProcessExitedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2BrowserProcessExitedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment5(windows_core::IUnknown);
 impl ICoreWebView2Environment5 {
-    pub fn add_BrowserProcessExited(&self) -> crate::HRESULT {
+    pub fn add_BrowserProcessExited(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_BrowserProcessExited(&self) -> crate::HRESULT {
+    pub fn remove_BrowserProcessExited(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment6(windows_core::IUnknown);
 impl ICoreWebView2Environment6 {
-    pub fn CreatePrintSettings(&self) -> crate::HRESULT {
+    pub fn CreatePrintSettings(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment7(windows_core::IUnknown);
 impl ICoreWebView2Environment7 {
-    pub fn get_UserDataFolder(&self) -> crate::HRESULT {
+    pub fn get_UserDataFolder(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessInfosChangedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ProcessInfosChangedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessInfoCollection(windows_core::IUnknown);
 impl ICoreWebView2ProcessInfoCollection {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment8(windows_core::IUnknown);
 impl ICoreWebView2Environment8 {
-    pub fn add_ProcessInfosChanged(&self) -> crate::HRESULT {
+    pub fn add_ProcessInfosChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ProcessInfosChanged(&self) -> crate::HRESULT {
+    pub fn remove_ProcessInfosChanged(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetProcessInfos(&self) -> crate::HRESULT {
+    pub fn GetProcessInfos(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Environment9(windows_core::IUnknown);
 impl ICoreWebView2Environment9 {
-    pub fn CreateContextMenuItem(&self) -> crate::HRESULT {
+    pub fn CreateContextMenuItem(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions2(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions2 {
-    pub fn get_ExclusiveUserDataFolderAccess(&self) -> crate::HRESULT {
+    pub fn get_ExclusiveUserDataFolderAccess(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ExclusiveUserDataFolderAccess(&self) -> crate::HRESULT {
+    pub fn put_ExclusiveUserDataFolderAccess(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions3(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions3 {
-    pub fn get_IsCustomCrashReportingEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsCustomCrashReportingEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsCustomCrashReportingEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsCustomCrashReportingEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions4(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions4 {
-    pub fn GetCustomSchemeRegistrations(&self) -> crate::HRESULT {
+    pub fn GetCustomSchemeRegistrations(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn SetCustomSchemeRegistrations(&self) -> crate::HRESULT {
+    pub fn SetCustomSchemeRegistrations(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions5(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions5 {
-    pub fn get_EnableTrackingPrevention(&self) -> crate::HRESULT {
+    pub fn get_EnableTrackingPrevention(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_EnableTrackingPrevention(&self) -> crate::HRESULT {
+    pub fn put_EnableTrackingPrevention(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions6(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions6 {
-    pub fn get_AreBrowserExtensionsEnabled(&self) -> crate::HRESULT {
+    pub fn get_AreBrowserExtensionsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AreBrowserExtensionsEnabled(&self) -> crate::HRESULT {
+    pub fn put_AreBrowserExtensionsEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions8(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions8 {
-    pub fn get_ScrollBarStyle(&self) -> crate::HRESULT {
+    pub fn get_ScrollBarStyle(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ScrollBarStyle(&self) -> crate::HRESULT {
+    pub fn put_ScrollBarStyle(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2EnvironmentOptions7(windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions7 {
-    pub fn get_ChannelSearchKind(&self) -> crate::HRESULT {
+    pub fn get_ChannelSearchKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ChannelSearchKind(&self) -> crate::HRESULT {
+    pub fn put_ChannelSearchKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_ReleaseChannels(&self) -> crate::HRESULT {
+    pub fn get_ReleaseChannels(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_ReleaseChannels(&self) -> crate::HRESULT {
+    pub fn put_ReleaseChannels(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2File(windows_core::IUnknown);
 impl ICoreWebView2File {
-    pub fn get_Path(&self) -> crate::HRESULT {
+    pub fn get_Path(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FileSystemHandle(windows_core::IUnknown);
 impl ICoreWebView2FileSystemHandle {
-    pub fn get_Kind(&self) -> crate::HRESULT {
+    pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Path(&self) -> crate::HRESULT {
+    pub fn get_Path(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Permission(&self) -> crate::HRESULT {
+    pub fn get_Permission(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FramePermissionRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FramePermissionRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame3(windows_core::IUnknown);
 impl ICoreWebView2Frame3 {
-    pub fn add_PermissionRequested(&self) -> crate::HRESULT {
+    pub fn add_PermissionRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_PermissionRequested(&self) -> crate::HRESULT {
+    pub fn remove_PermissionRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame4(windows_core::IUnknown);
 impl ICoreWebView2Frame4 {
-    pub fn PostSharedBufferToScript(&self) -> crate::HRESULT {
+    pub fn PostSharedBufferToScript(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame5(windows_core::IUnknown);
 impl ICoreWebView2Frame5 {
-    pub fn get_FrameId(&self) -> crate::HRESULT {
+    pub fn get_FrameId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameScreenCaptureStartingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameScreenCaptureStartingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame6(windows_core::IUnknown);
 impl ICoreWebView2Frame6 {
-    pub fn add_ScreenCaptureStarting(&self) -> crate::HRESULT {
+    pub fn add_ScreenCaptureStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ScreenCaptureStarting(&self) -> crate::HRESULT {
+    pub fn remove_ScreenCaptureStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameChildFrameCreatedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2FrameChildFrameCreatedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Frame7(windows_core::IUnknown);
 impl ICoreWebView2Frame7 {
-    pub fn add_FrameCreated(&self) -> crate::HRESULT {
+    pub fn add_FrameCreated(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_FrameCreated(&self) -> crate::HRESULT {
+    pub fn remove_FrameCreated(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameCreatedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2FrameCreatedEventArgs {
-    pub fn get_Frame(&self) -> crate::HRESULT {
+    pub fn get_Frame(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfo(windows_core::IUnknown);
 impl ICoreWebView2FrameInfo {
-    pub fn get_Name(&self) -> crate::HRESULT {
+    pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Source(&self) -> crate::HRESULT {
+    pub fn get_Source(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfoCollection(windows_core::IUnknown);
 impl ICoreWebView2FrameInfoCollection {
-    pub fn GetIterator(&self) -> crate::HRESULT {
+    pub fn GetIterator(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2FrameInfoCollectionIterator(windows_core::IUnknown);
 impl ICoreWebView2FrameInfoCollectionIterator {
-    pub fn get_HasCurrent(&self) -> crate::HRESULT {
+    pub fn get_HasCurrent(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetCurrent(&self) -> crate::HRESULT {
+    pub fn GetCurrent(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn MoveNext(&self) -> crate::HRESULT {
+    pub fn MoveNext(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HttpRequestHeaders(windows_core::IUnknown);
 impl ICoreWebView2HttpRequestHeaders {
-    pub fn GetHeader(&self) -> crate::HRESULT {
+    pub fn GetHeader(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetHeaders(&self) -> crate::HRESULT {
+    pub fn GetHeaders(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Contains(&self) -> crate::HRESULT {
+    pub fn Contains(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn SetHeader(&self) -> crate::HRESULT {
+    pub fn SetHeader(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn RemoveHeader(&self) -> crate::HRESULT {
+    pub fn RemoveHeader(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetIterator(&self) -> crate::HRESULT {
+    pub fn GetIterator(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2HttpResponseHeaders(windows_core::IUnknown);
 impl ICoreWebView2HttpResponseHeaders {
-    pub fn AppendHeader(&self) -> crate::HRESULT {
+    pub fn AppendHeader(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn Contains(&self) -> crate::HRESULT {
+    pub fn Contains(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetHeader(&self) -> crate::HRESULT {
+    pub fn GetHeader(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetHeaders(&self) -> crate::HRESULT {
+    pub fn GetHeaders(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetIterator(&self) -> crate::HRESULT {
+    pub fn GetIterator(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationCompletedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2NavigationCompletedEventArgs2 {
-    pub fn get_HttpStatusCode(&self) -> crate::HRESULT {
+    pub fn get_HttpStatusCode(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2NavigationStartingEventArgs2 {
-    pub fn get_AdditionalAllowedFrameAncestors(&self) -> crate::HRESULT {
+    pub fn get_AdditionalAllowedFrameAncestors(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AdditionalAllowedFrameAncestors(&self) -> crate::HRESULT {
+    pub fn put_AdditionalAllowedFrameAncestors(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NavigationStartingEventArgs3(windows_core::IUnknown);
 impl ICoreWebView2NavigationStartingEventArgs3 {
-    pub fn get_NavigationKind(&self) -> crate::HRESULT {
+    pub fn get_NavigationKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2NewWindowRequestedEventArgs2 {
-    pub fn get_Name(&self) -> crate::HRESULT {
+    pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NewWindowRequestedEventArgs3(windows_core::IUnknown);
 impl ICoreWebView2NewWindowRequestedEventArgs3 {
-    pub fn get_OriginalSourceFrameInfo(&self) -> crate::HRESULT {
+    pub fn get_OriginalSourceFrameInfo(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NonClientRegionChangedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2NonClientRegionChangedEventArgs {
-    pub fn get_RegionKind(&self) -> crate::HRESULT {
+    pub fn get_RegionKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ObjectCollectionView(windows_core::IUnknown);
 impl ICoreWebView2ObjectCollectionView {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2PermissionRequestedEventArgs2 {
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionRequestedEventArgs3(windows_core::IUnknown);
 impl ICoreWebView2PermissionRequestedEventArgs3 {
-    pub fn get_SavesInProfile(&self) -> crate::HRESULT {
+    pub fn get_SavesInProfile(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_SavesInProfile(&self) -> crate::HRESULT {
+    pub fn put_SavesInProfile(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PermissionSetting(windows_core::IUnknown);
 impl ICoreWebView2PermissionSetting {
-    pub fn get_PermissionKind(&self) -> crate::HRESULT {
+    pub fn get_PermissionKind(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PermissionOrigin(&self) -> crate::HRESULT {
+    pub fn get_PermissionOrigin(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_PermissionState(&self) -> crate::HRESULT {
+    pub fn get_PermissionState(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2ProcessFailedEventArgs {
-    pub fn get_ProcessFailedKind(&self) -> crate::HRESULT {
+    pub fn get_ProcessFailedKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProcessFailedEventArgs3(windows_core::IUnknown);
 impl ICoreWebView2ProcessFailedEventArgs3 {
-    pub fn get_FailureSourceModulePath(&self) -> crate::HRESULT {
+    pub fn get_FailureSourceModulePath(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClearBrowsingDataCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2ClearBrowsingDataCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile2(windows_core::IUnknown);
 impl ICoreWebView2Profile2 {
-    pub fn ClearBrowsingData(&self) -> crate::HRESULT {
+    pub fn ClearBrowsingData(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ClearBrowsingDataInTimeRange(&self) -> crate::HRESULT {
+    pub fn ClearBrowsingDataInTimeRange(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ClearBrowsingDataAll(&self) -> crate::HRESULT {
+    pub fn ClearBrowsingDataAll(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile3(windows_core::IUnknown);
 impl ICoreWebView2Profile3 {
-    pub fn get_PreferredTrackingPreventionLevel(&self) -> crate::HRESULT {
+    pub fn get_PreferredTrackingPreventionLevel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_PreferredTrackingPreventionLevel(&self) -> crate::HRESULT {
+    pub fn put_PreferredTrackingPreventionLevel(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SetPermissionStateCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2SetPermissionStateCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile4(windows_core::IUnknown);
 impl ICoreWebView2Profile4 {
-    pub fn SetPermissionState(&self) -> crate::HRESULT {
+    pub fn SetPermissionState(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetNonDefaultPermissionSettings(&self) -> crate::HRESULT {
+    pub fn GetNonDefaultPermissionSettings(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile5(windows_core::IUnknown);
 impl ICoreWebView2Profile5 {
-    pub fn get_CookieManager(&self) -> crate::HRESULT {
+    pub fn get_CookieManager(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProfileAddBrowserExtensionCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BrowserExtensionList(windows_core::IUnknown);
 impl ICoreWebView2BrowserExtensionList {
-    pub fn get_Count(&self) -> crate::HRESULT {
+    pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetValueAtIndex(&self) -> crate::HRESULT {
+    pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Profile7(windows_core::IUnknown);
 impl ICoreWebView2Profile7 {
-    pub fn AddBrowserExtension(&self) -> crate::HRESULT {
+    pub fn AddBrowserExtension(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetBrowserExtensions(&self) -> crate::HRESULT {
+    pub fn GetBrowserExtensions(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs(windows_core::IUnknown);
 impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
-    pub fn get_CancelSave(&self) -> crate::HRESULT {
+    pub fn get_CancelSave(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_CancelSave(&self) -> crate::HRESULT {
+    pub fn put_CancelSave(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_DocumentOriginUri(&self) -> crate::HRESULT {
+    pub fn get_DocumentOriginUri(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FileExtension(&self) -> crate::HRESULT {
+    pub fn get_FileExtension(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_FilePath(&self) -> crate::HRESULT {
+    pub fn get_FilePath(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_SuppressDefaultPolicy(&self) -> crate::HRESULT {
+    pub fn get_SuppressDefaultPolicy(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_SuppressDefaultPolicy(&self) -> crate::HRESULT {
+    pub fn put_SuppressDefaultPolicy(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScreenCaptureStartingEventArgs(windows_core::IUnknown);
 impl ICoreWebView2ScreenCaptureStartingEventArgs {
-    pub fn get_Cancel(&self) -> crate::HRESULT {
+    pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Cancel(&self) -> crate::HRESULT {
+    pub fn put_Cancel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Handled(&self) -> crate::HRESULT {
+    pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_Handled(&self) -> crate::HRESULT {
+    pub fn put_Handled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_OriginalSourceFrameInfo(&self) -> crate::HRESULT {
+    pub fn get_OriginalSourceFrameInfo(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn GetDeferral(&self) -> crate::HRESULT {
+    pub fn GetDeferral(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings2(windows_core::IUnknown);
 impl ICoreWebView2Settings2 {
-    pub fn get_UserAgent(&self) -> crate::HRESULT {
+    pub fn get_UserAgent(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_UserAgent(&self) -> crate::HRESULT {
+    pub fn put_UserAgent(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings3(windows_core::IUnknown);
 impl ICoreWebView2Settings3 {
-    pub fn get_AreBrowserAcceleratorKeysEnabled(&self) -> crate::HRESULT {
+    pub fn get_AreBrowserAcceleratorKeysEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_AreBrowserAcceleratorKeysEnabled(&self) -> crate::HRESULT {
+    pub fn put_AreBrowserAcceleratorKeysEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings5(windows_core::IUnknown);
 impl ICoreWebView2Settings5 {
-    pub fn get_IsPinchZoomEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsPinchZoomEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsPinchZoomEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsPinchZoomEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings6(windows_core::IUnknown);
 impl ICoreWebView2Settings6 {
-    pub fn get_IsSwipeNavigationEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsSwipeNavigationEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsSwipeNavigationEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsSwipeNavigationEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings7(windows_core::IUnknown);
 impl ICoreWebView2Settings7 {
-    pub fn get_HiddenPdfToolbarItems(&self) -> crate::HRESULT {
+    pub fn get_HiddenPdfToolbarItems(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_HiddenPdfToolbarItems(&self) -> crate::HRESULT {
+    pub fn put_HiddenPdfToolbarItems(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings8(windows_core::IUnknown);
 impl ICoreWebView2Settings8 {
-    pub fn get_IsReputationCheckingRequired(&self) -> crate::HRESULT {
+    pub fn get_IsReputationCheckingRequired(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsReputationCheckingRequired(&self) -> crate::HRESULT {
+    pub fn put_IsReputationCheckingRequired(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2Settings9(windows_core::IUnknown);
 impl ICoreWebView2Settings9 {
-    pub fn get_IsNonClientRegionSupportEnabled(&self) -> crate::HRESULT {
+    pub fn get_IsNonClientRegionSupportEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_IsNonClientRegionSupportEnabled(&self) -> crate::HRESULT {
+    pub fn put_IsNonClientRegionSupportEnabled(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SourceChangedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2SourceChangedEventArgs {
-    pub fn get_IsNewDocument(&self) -> crate::HRESULT {
+    pub fn get_IsNewDocument(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2WebMessageReceivedEventArgs {
-    pub fn get_Source(&self) -> crate::HRESULT {
+    pub fn get_Source(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_WebMessageAsJson(&self) -> crate::HRESULT {
+    pub fn get_WebMessageAsJson(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn TryGetWebMessageAsString(&self) -> crate::HRESULT {
+    pub fn TryGetWebMessageAsString(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebMessageReceivedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2WebMessageReceivedEventArgs2 {
-    pub fn get_AdditionalObjects(&self) -> crate::HRESULT {
+    pub fn get_AdditionalObjects(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceRequestedEventArgs2(windows_core::IUnknown);
 impl ICoreWebView2WebResourceRequestedEventArgs2 {
-    pub fn get_RequestedSourceKind(&self) -> crate::HRESULT {
+    pub fn get_RequestedSourceKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2WebResourceResponseReceivedEventArgs(windows_core::IUnknown);
 impl ICoreWebView2WebResourceResponseReceivedEventArgs {
-    pub fn get_Request(&self) -> crate::HRESULT {
+    pub fn get_Request(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn get_Response(&self) -> crate::HRESULT {
+    pub fn get_Response(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2BasicAuthenticationRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2BasicAuthenticationRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_10(windows_core::IUnknown);
 impl ICoreWebView2_10 {
-    pub fn add_BasicAuthenticationRequested(&self) -> crate::HRESULT {
+    pub fn add_BasicAuthenticationRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_BasicAuthenticationRequested(&self) -> crate::HRESULT {
+    pub fn remove_BasicAuthenticationRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_13(windows_core::IUnknown);
 impl ICoreWebView2_13 {
-    pub fn get_Profile(&self) -> crate::HRESULT {
+    pub fn get_Profile(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ServerCertificateErrorDetectedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_14(windows_core::IUnknown);
 impl ICoreWebView2_14 {
-    pub fn add_ServerCertificateErrorDetected(&self) -> crate::HRESULT {
+    pub fn add_ServerCertificateErrorDetected(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ServerCertificateErrorDetected(&self) -> crate::HRESULT {
+    pub fn remove_ServerCertificateErrorDetected(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ClearServerCertificateErrorActions(&self) -> crate::HRESULT {
+    pub fn ClearServerCertificateErrorActions(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_17(windows_core::IUnknown);
 impl ICoreWebView2_17 {
-    pub fn PostSharedBufferToScript(&self) -> crate::HRESULT {
+    pub fn PostSharedBufferToScript(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2LaunchingExternalUriSchemeEventHandler(windows_core::IUnknown);
 impl ICoreWebView2LaunchingExternalUriSchemeEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_18(windows_core::IUnknown);
 impl ICoreWebView2_18 {
-    pub fn add_LaunchingExternalUriScheme(&self) -> crate::HRESULT {
+    pub fn add_LaunchingExternalUriScheme(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_LaunchingExternalUriScheme(&self) -> crate::HRESULT {
+    pub fn remove_LaunchingExternalUriScheme(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_19(windows_core::IUnknown);
 impl ICoreWebView2_19 {
-    pub fn get_MemoryUsageTargetLevel(&self) -> crate::HRESULT {
+    pub fn get_MemoryUsageTargetLevel(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn put_MemoryUsageTargetLevel(&self) -> crate::HRESULT {
+    pub fn put_MemoryUsageTargetLevel(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_20(windows_core::IUnknown);
 impl ICoreWebView2_20 {
-    pub fn get_FrameId(&self) -> crate::HRESULT {
+    pub fn get_FrameId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ExecuteScriptWithResultCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2ExecuteScriptWithResultCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_21(windows_core::IUnknown);
 impl ICoreWebView2_21 {
-    pub fn ExecuteScriptWithResult(&self) -> crate::HRESULT {
+    pub fn ExecuteScriptWithResult(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_22(windows_core::IUnknown);
 impl ICoreWebView2_22 {
-    pub fn AddWebResourceRequestedFilterWithRequestSourceKinds(&self) -> crate::HRESULT {
+    pub fn AddWebResourceRequestedFilterWithRequestSourceKinds(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn RemoveWebResourceRequestedFilterWithRequestSourceKinds(&self) -> crate::HRESULT {
+    pub fn RemoveWebResourceRequestedFilterWithRequestSourceKinds(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ShowSaveAsUICompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2ShowSaveAsUICompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveAsUIShowingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2SaveAsUIShowingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_25(windows_core::IUnknown);
 impl ICoreWebView2_25 {
-    pub fn add_SaveAsUIShowing(&self) -> crate::HRESULT {
+    pub fn add_SaveAsUIShowing(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_SaveAsUIShowing(&self) -> crate::HRESULT {
+    pub fn remove_SaveAsUIShowing(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn ShowSaveAsUI(&self) -> crate::HRESULT {
+    pub fn ShowSaveAsUI(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_23(windows_core::IUnknown);
 impl ICoreWebView2_23 {
-    pub fn PostWebMessageAsJsonWithAdditionalObjects(&self) -> crate::HRESULT {
+    pub fn PostWebMessageAsJsonWithAdditionalObjects(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ScreenCaptureStartingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ScreenCaptureStartingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_27(windows_core::IUnknown);
 impl ICoreWebView2_27 {
-    pub fn add_ScreenCaptureStarting(&self) -> crate::HRESULT {
+    pub fn add_ScreenCaptureStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ScreenCaptureStarting(&self) -> crate::HRESULT {
+    pub fn remove_ScreenCaptureStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2SaveFileSecurityCheckStartingEventHandler(windows_core::IUnknown);
 impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_26(windows_core::IUnknown);
 impl ICoreWebView2_26 {
-    pub fn add_SaveFileSecurityCheckStarting(&self) -> crate::HRESULT {
+    pub fn add_SaveFileSecurityCheckStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_SaveFileSecurityCheckStarting(&self) -> crate::HRESULT {
+    pub fn remove_SaveFileSecurityCheckStarting(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2NotificationReceivedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2NotificationReceivedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_24(windows_core::IUnknown);
 impl ICoreWebView2_24 {
-    pub fn add_NotificationReceived(&self) -> crate::HRESULT {
+    pub fn add_NotificationReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_NotificationReceived(&self) -> crate::HRESULT {
+    pub fn remove_NotificationReceived(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2ClientCertificateRequestedEventHandler(windows_core::IUnknown);
 impl ICoreWebView2ClientCertificateRequestedEventHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_5(windows_core::IUnknown);
 impl ICoreWebView2_5 {
-    pub fn add_ClientCertificateRequested(&self) -> crate::HRESULT {
+    pub fn add_ClientCertificateRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
-    pub fn remove_ClientCertificateRequested(&self) -> crate::HRESULT {
+    pub fn remove_ClientCertificateRequested(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_6(windows_core::IUnknown);
 impl ICoreWebView2_6 {
-    pub fn OpenTaskManagerWindow(&self) -> crate::HRESULT {
+    pub fn OpenTaskManagerWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2PrintToPdfCompletedHandler(windows_core::IUnknown);
 impl ICoreWebView2PrintToPdfCompletedHandler {
-    pub fn Invoke(&self) -> crate::HRESULT {
+    pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
 #[repr(transparent)]
 pub struct ICoreWebView2_7(windows_core::IUnknown);
 impl ICoreWebView2_7 {
-    pub fn PrintToPdf(&self) -> crate::HRESULT {
+    pub fn PrintToPdf(&self) -> windows_core::HRESULT {
         todo!()
     }
 }

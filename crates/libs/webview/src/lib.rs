@@ -4,5 +4,3 @@
 
 mod bindings;
 //use bindings::*;
-
-type HRESULT = i32;

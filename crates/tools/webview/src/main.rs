@@ -75,7 +75,7 @@ fn write_interface(item: &idl::Interface) -> TokenStream {
         debug_assert_eq!(method.return_type, "HRESULT");
 
         quote! {
-            pub fn #name(&self) -> crate::HRESULT {
+            pub fn #name(&self) -> windows_core::HRESULT {
                 todo!()
             }
         }
