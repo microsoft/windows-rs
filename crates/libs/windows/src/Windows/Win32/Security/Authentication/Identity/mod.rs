@@ -3123,7 +3123,7 @@ impl Default for LSA_AUTH_INFORMATION {
 pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct LSA_DISPATCH_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
     pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
@@ -3343,7 +3343,7 @@ pub const LSA_SCANNER_INFO_ADMIN_ALL_FLAGS: i32 = 1i32;
 pub const LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION: i32 = 1i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
     pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
@@ -5220,7 +5220,7 @@ pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = SECPKG_CRED(2u32);
 pub const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32u32;
 pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_DLL_FUNCTIONS {
     pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
     pub FreeHeap: PLSA_FREE_LSA_HEAP,
@@ -5322,7 +5322,7 @@ pub const SECPKG_FLAG_STREAM: u32 = 1024u32;
 pub const SECPKG_FLAG_TOKEN_ONLY: u32 = 4u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_FUNCTION_TABLE {
     pub InitializePackage: PLSA_AP_INITIALIZE_PACKAGE,
     pub LogonUserA: PLSA_AP_LOGON_USER,
@@ -5393,7 +5393,7 @@ pub const SECPKG_INTERFACE_VERSION_8: u32 = 8388608u32;
 pub const SECPKG_INTERFACE_VERSION_9: u32 = 16777216u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_KERNEL_FUNCTIONS {
     pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
     pub FreeHeap: PLSA_FREE_LSA_HEAP,
@@ -5407,7 +5407,7 @@ pub struct SECPKG_KERNEL_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_KERNEL_FUNCTION_TABLE {
     pub Initialize: KspInitPackageFn,
     pub DeleteContext: KspDeleteContextFn,
@@ -5535,7 +5535,7 @@ pub struct SECPKG_PRIMARY_CRED_EX {
 }
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: windows_core::GUID,
     pub RedirectedLogonHandle: super::super::super::Foundation::HANDLE,
@@ -5642,7 +5642,7 @@ pub struct SECPKG_TARGETINFO {
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
 pub const SECPKG_USERMODEINIT_NAME: windows_core::PCSTR = windows_core::s!("SpUserModeInitialize");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SECPKG_USER_FUNCTION_TABLE {
     pub InstanceInit: SpInstanceInitFn,
     pub InitUserModeContext: SpInitUserModeContextFn,
@@ -7798,7 +7798,7 @@ pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_I
 pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(4i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SecurityFunctionTableA {
     pub dwVersion: u32,
     pub EnumerateSecurityPackagesA: ENUMERATE_SECURITY_PACKAGES_FN_A,
@@ -7841,7 +7841,7 @@ impl Default for SecurityFunctionTableA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SecurityFunctionTableW {
     pub dwVersion: u32,
     pub EnumerateSecurityPackagesW: ENUMERATE_SECURITY_PACKAGES_FN_W,

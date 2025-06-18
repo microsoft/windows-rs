@@ -3119,7 +3119,7 @@ impl From<BCRYPT_ALG_HANDLE> for BCRYPT_HANDLE {
 }
 pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(8u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -3181,7 +3181,7 @@ pub const BCRYPT_CHAIN_MODE_ECB: windows_core::PCWSTR = windows_core::w!("Chaini
 pub const BCRYPT_CHAIN_MODE_GCM: windows_core::PCWSTR = windows_core::w!("ChainingModeGCM");
 pub const BCRYPT_CHAIN_MODE_NA: windows_core::PCWSTR = windows_core::w!("ChainingModeN/A");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BCRYPT_CIPHER_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -3493,7 +3493,7 @@ impl Default for BCRYPT_HANDLE {
 }
 pub const BCRYPT_HASH_BLOCK_LENGTH: windows_core::PCWSTR = windows_core::w!("HashBlockLength");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BCRYPT_HASH_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -3596,7 +3596,7 @@ pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
 pub const BCRYPT_KEY_DATA_BLOB_MAGIC: u32 = 1296188491u32;
 pub const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BCRYPT_KEY_DERIVATION_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -3884,7 +3884,7 @@ pub const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(129u32 as
 pub const BCRYPT_RNG_DUAL_EC_ALGORITHM: windows_core::PCWSTR = windows_core::w!("DUALECRNG");
 pub const BCRYPT_RNG_FIPS186_DSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("FIPS186DSARNG");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BCRYPT_RNG_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -3920,7 +3920,7 @@ pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(225u32 as
 pub const BCRYPT_RSA_SIGN_ALGORITHM: windows_core::PCWSTR = windows_core::w!("RSA_SIGN");
 pub const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(785u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -3977,7 +3977,7 @@ pub const BCRYPT_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(81u32 
 pub const BCRYPT_SHA512_ALGORITHM: windows_core::PCWSTR = windows_core::w!("SHA512");
 pub const BCRYPT_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(97u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct BCRYPT_SIGNATURE_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -4214,7 +4214,7 @@ pub const CARD_CIPHER_OPERATION: u32 = 1u32;
 pub const CARD_CREATE_CONTAINER_KEY_GEN: u32 = 1u32;
 pub const CARD_CREATE_CONTAINER_KEY_IMPORT: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CARD_DATA {
     pub dwVersion: u32,
     pub pbAtr: *mut u8,
@@ -4792,7 +4792,7 @@ pub const CERT_CHAIN_FIND_BY_ISSUER_COMPLEX_CHAIN_FLAG: CERT_FIND_CHAIN_IN_STORE
 pub const CERT_CHAIN_FIND_BY_ISSUER_LOCAL_MACHINE_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(8u32);
 pub const CERT_CHAIN_FIND_BY_ISSUER_NO_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(16384u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub cbSize: u32,
     pub pszUsageIdentifier: windows_core::PCSTR,
@@ -5033,7 +5033,7 @@ pub const CERT_CREATE_CONTEXT_NOCOPY_FLAG: u32 = 1u32;
 pub const CERT_CREATE_CONTEXT_NO_ENTRY_FLAG: u32 = 8u32;
 pub const CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG: u32 = 4u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
     pub pfnFree: PFN_CRYPT_FREE,
@@ -6351,7 +6351,7 @@ impl Default for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -7175,7 +7175,7 @@ impl Default for CMSG_CMS_SIGNER_INFO {
 }
 pub const CMSG_CMS_SIGNER_INFO_PARAM: u32 = 39u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -7851,7 +7851,7 @@ pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
 }
 pub const CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG: u32 = 2147483648u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
     pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
@@ -8372,7 +8372,7 @@ pub const CRYPT_ARCHIVE: u32 = 256u32;
 pub const CRYPT_ASN_ENCODING: u32 = 1u32;
 pub const CRYPT_ASYNC_RETRIEVAL: u32 = 16u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: *mut core::ffi::c_void,
@@ -8565,7 +8565,7 @@ pub const CRYPT_DECODE_ENABLE_UTF8PERCENT_FLAG: u32 = 67108864u32;
 pub const CRYPT_DECODE_NOCOPY_FLAG: u32 = 1u32;
 pub const CRYPT_DECODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG: u32 = 8u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CRYPT_DECODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
@@ -8731,7 +8731,7 @@ impl core::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CRYPT_ENCODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
@@ -9172,7 +9172,7 @@ pub const CRYPT_OBJECT_LOCATOR_FIRST_RESERVED_USER_NAME_TYPE: u32 = 33u32;
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE: u32 = 32u32;
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: u32 = 65535u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
     pub pfnGet: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET,
@@ -9325,7 +9325,7 @@ pub struct CRYPT_PKCS12_PBE_PARAMS {
     pub cbSalt: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: usize,
     pub dwKeySpec: u32,
@@ -9339,7 +9339,7 @@ impl Default for CRYPT_PKCS8_EXPORT_PARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
@@ -9811,7 +9811,7 @@ pub const CRYPT_VERIFY_DATA_HASH: u32 = 64u32;
 pub type CRYPT_VERIFY_IMAGE_A = Option<unsafe extern "system" fn(szimage: windows_core::PCSTR, pbsigdata: *const u8) -> windows_core::BOOL>;
 pub type CRYPT_VERIFY_IMAGE_W = Option<unsafe extern "system" fn(szimage: windows_core::PCWSTR, pbsigdata: *const u8) -> windows_core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -9894,7 +9894,7 @@ pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(3i32)
 pub const CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(2i32);
 pub const CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
     pub fpCryptXmlEncodeAlgorithm: CryptXmlDllEncodeAlgorithm,
@@ -9918,7 +9918,7 @@ impl Default for CRYPT_XML_DATA_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut core::ffi::c_void,
     pub cbBufferSize: u32,
@@ -10293,7 +10293,7 @@ impl core::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CRYPT_XML_TRANSFORM_INFO {
     pub cbSize: u32,
     pub wszAlgorithm: windows_core::PCWSTR,
@@ -12372,7 +12372,7 @@ pub const NCRYPT_ALGORITHM_GROUP_PROPERTY: windows_core::PCWSTR = windows_core::
 pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
 pub const NCRYPT_ALGORITHM_PROPERTY: windows_core::PCWSTR = windows_core::w!("Algorithm Name");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NCRYPT_ALLOC_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_NCRYPT_ALLOC,
@@ -12639,7 +12639,7 @@ pub const NCRYPT_KEY_PROTECTION_LOCAL_MACHINE: windows_core::PCWSTR = windows_co
 pub const NCRYPT_KEY_PROTECTION_LOCAL_USER: windows_core::PCWSTR = windows_core::w!("user");
 pub const NCRYPT_KEY_STORAGE_ALGORITHM: windows_core::PCWSTR = windows_core::w!("KEY_STORAGE");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NCRYPT_KEY_STORAGE_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenProvider: NCryptOpenStorageProviderFn,
@@ -12861,7 +12861,7 @@ pub const NCRYPT_PROTECTED_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("Pr
 pub const NCRYPT_PROTECTED_KEY_BLOB_MAGIC: u32 = 1263817296u32;
 pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
@@ -12872,7 +12872,7 @@ impl Default for NCRYPT_PROTECT_STREAM_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
@@ -13031,7 +13031,7 @@ impl Default for NCRYPT_SSL_ECC_CURVE {
 }
 pub const NCRYPT_SSL_EXTERNAL_PSK_FLAG: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NCRYPT_SSL_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub ComputeClientAuthHash: SslComputeClientAuthHashFn,
@@ -14020,7 +14020,7 @@ impl Default for SIGNER_DIGEST_SIGN_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V1 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
@@ -14032,7 +14032,7 @@ impl Default for SIGNER_DIGEST_SIGN_INFO_V1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V2 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
@@ -14428,7 +14428,7 @@ pub const UserCreateDeleteDirAc: CARD_DIRECTORY_ACCESS_CONDITION = CARD_DIRECTOR
 pub const UserReadWriteAc: CARD_FILE_ACCESS_CONDITION = CARD_FILE_ACCESS_CONDITION(5i32);
 pub const UserWriteExecuteAc: CARD_FILE_ACCESS_CONDITION = CARD_FILE_ACCESS_CONDITION(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct VTableProvStruc {
     pub Version: u32,
     pub FuncVerifyImage: CRYPT_VERIFY_IMAGE_A,
@@ -14444,7 +14444,7 @@ impl Default for VTableProvStruc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct VTableProvStrucW {
     pub Version: u32,
     pub FuncVerifyImage: CRYPT_VERIFY_IMAGE_W,

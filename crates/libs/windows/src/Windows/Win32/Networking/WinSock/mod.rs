@@ -4261,7 +4261,7 @@ pub const NSPROTO_SPX: u32 = 1256u32;
 pub const NSPROTO_SPXII: u32 = 1257u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NSPV2_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -4281,7 +4281,7 @@ pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(0i32);
 pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(3i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NSP_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -4644,7 +4644,7 @@ pub const RIO_CORRUPT_CQ: u32 = 4294967295u32;
 pub struct RIO_CQ(pub isize);
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct RIO_EXTENSION_FUNCTION_TABLE {
     pub cbSize: u32,
     pub RIOReceive: LPFN_RIORECEIVE,
@@ -4951,7 +4951,7 @@ pub const SERVICE_ADDRESS_FLAG_RPC_DG: u32 = 2u32;
 pub const SERVICE_ADDRESS_FLAG_RPC_NB: u32 = 4u32;
 pub const SERVICE_ADD_TYPE: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(4u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SERVICE_ASYNC_INFO {
     pub lpServiceCallbackProc: LPSERVICE_CALLBACK_PROC,
     pub lParam: super::super::Foundation::LPARAM,
@@ -6223,7 +6223,7 @@ impl Default for WSACOMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
@@ -6721,7 +6721,7 @@ impl Default for WSAQUERYSETW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSASENDMSG {
     pub lpMsg: *mut WSAMSG,
     pub dwFlags: u32,
@@ -6874,7 +6874,7 @@ impl Default for WSPDATA {
 pub const WSPDESCRIPTION_LEN: u32 = 255u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WSPPROC_TABLE {
     pub lpWSPAccept: LPWSPACCEPT,
     pub lpWSPAddressToString: LPWSPADDRESSTOSTRING,
@@ -6908,7 +6908,7 @@ pub struct WSPPROC_TABLE {
     pub lpWSPStringToAddress: LPWSPSTRINGTOADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WSPUPCALLTABLE {
     pub lpWPUCloseEvent: LPWPUCLOSEEVENT,
     pub lpWPUCloseSocketHandle: LPWPUCLOSESOCKETHANDLE,

@@ -164,7 +164,7 @@ pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,

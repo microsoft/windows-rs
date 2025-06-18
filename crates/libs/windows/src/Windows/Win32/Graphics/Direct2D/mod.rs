@@ -1599,7 +1599,7 @@ pub const D2D1_PRINT_FONT_SUBSET_MODE_NONE: D2D1_PRINT_FONT_SUBSET_MODE = D2D1_P
 pub struct D2D1_PROPERTY(pub i32);
 pub const D2D1_PROPERTY_AUTHOR: D2D1_PROPERTY = D2D1_PROPERTY(-2147483646i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct D2D1_PROPERTY_BINDING {
     pub propertyName: windows_core::PCWSTR,
     pub setFunction: PD2D1_PROPERTY_SET_FUNCTION,

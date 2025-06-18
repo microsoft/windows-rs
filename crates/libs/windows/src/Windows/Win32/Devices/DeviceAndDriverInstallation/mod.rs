@@ -7675,7 +7675,7 @@ impl Default for SP_DEVINSTALL_PARAMS_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -7717,7 +7717,7 @@ impl Default for SP_DEVINSTALL_PARAMS_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,

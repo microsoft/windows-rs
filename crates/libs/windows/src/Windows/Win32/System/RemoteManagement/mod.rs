@@ -3027,7 +3027,7 @@ impl Default for WSMAN_SENDER_DETAILS {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WSMAN_SESSION_HANDLE(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut core::ffi::c_void,
     pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,

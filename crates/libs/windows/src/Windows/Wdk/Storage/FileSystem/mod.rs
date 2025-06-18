@@ -4133,7 +4133,7 @@ pub struct BOOT_AREA_INFO_0 {
     pub Offset: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACKS {
     pub AcquireForLazyWrite: PACQUIRE_FOR_LAZY_WRITE,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
@@ -4141,7 +4141,7 @@ pub struct CACHE_MANAGER_CALLBACKS {
     pub ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACKS_EX {
     pub Version: u16,
     pub Size: u16,
@@ -4149,7 +4149,7 @@ pub struct CACHE_MANAGER_CALLBACKS_EX {
 }
 pub const CACHE_MANAGER_CALLBACKS_EX_V1: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
     pub AcquireForLazyWriteEx: PACQUIRE_FOR_LAZY_WRITE_EX,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
@@ -4176,7 +4176,7 @@ pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: u32 = 1u32;
 pub const CC_AGGRESSIVE_UNMAP_BEHIND: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CC_ASYNC_READ_CONTEXT {
     pub CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK,
     pub Context: *mut core::ffi::c_void,
@@ -4967,7 +4967,7 @@ pub const FILE_LINK_REPLACE_IF_EXISTS: u32 = 1u32;
 pub const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8u32;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct FILE_LOCK {
     pub CompleteLockIrpRoutine: PCOMPLETE_LOCK_IRP_ROUTINE,
     pub UnlockRoutine: PUNLOCK_ROUTINE,
@@ -5755,7 +5755,7 @@ impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct FSRTL_PER_FILE_CONTEXT {
     pub Links: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
@@ -5770,7 +5770,7 @@ impl Default for FSRTL_PER_FILE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct FSRTL_PER_STREAM_CONTEXT {
     pub Links: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
@@ -5881,7 +5881,7 @@ pub const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u16 = 65533u16;
 pub const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u16 = 65535u16;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct FS_FILTER_CALLBACKS {
     pub SizeOfFsFilterCallbacks: u32,
     pub Reserved: u32,
@@ -7644,7 +7644,7 @@ pub struct RTL_HEAP_MEMORY_LIMIT_INFO {
     pub Data: RTL_HEAP_MEMORY_LIMIT_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct RTL_HEAP_PARAMETERS {
     pub Length: u32,
     pub SegmentReserve: usize,
@@ -7725,7 +7725,7 @@ impl Default for RTL_SEGMENT_HEAP_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
     pub CallbackContext: super::super::super::Win32::Foundation::HANDLE,
     pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,

@@ -4182,7 +4182,7 @@ pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
 pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionStart: PFN_WdsTransportClientSessionStart,
     pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,

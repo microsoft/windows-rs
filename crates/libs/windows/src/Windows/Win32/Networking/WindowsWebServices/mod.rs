@@ -1665,7 +1665,7 @@ pub const WS_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(9i32
 pub const WS_ANY_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(4i32);
 pub type WS_ASYNC_CALLBACK = Option<unsafe extern "system" fn(errorcode: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_ASYNC_CONTEXT {
     pub callback: WS_ASYNC_CALLBACK,
     pub callbackState: *mut core::ffi::c_void,
@@ -1677,7 +1677,7 @@ impl Default for WS_ASYNC_CONTEXT {
 }
 pub type WS_ASYNC_FUNCTION = Option<unsafe extern "system" fn(hr: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_ASYNC_OPERATION {
     pub function: WS_ASYNC_FUNCTION,
 }
@@ -1793,7 +1793,7 @@ pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TY
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
     pub state: *mut core::ffi::c_void,
@@ -1835,7 +1835,7 @@ pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
 pub const WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(7i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub authenticator: WS_SAML_AUTHENTICATOR,
     pub trustedIssuerCerts: *const *const super::super::Security::Cryptography::CERT_CONTEXT,
@@ -1858,7 +1858,7 @@ pub struct WS_CHANNEL(pub isize);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_CHANNEL_BINDING(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_CHANNEL_DECODER {
     pub createContext: *mut core::ffi::c_void,
     pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
@@ -1874,7 +1874,7 @@ impl Default for WS_CHANNEL_DECODER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_CHANNEL_ENCODER {
     pub createContext: *mut core::ffi::c_void,
     pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
@@ -2042,7 +2042,7 @@ pub type WS_CREATE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(createcon
 pub type WS_CREATE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_CUSTOM_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
     pub getCertCallback: WS_GET_CERT_CALLBACK,
@@ -2059,7 +2059,7 @@ impl Default for WS_CUSTOM_CERT_CREDENTIAL {
 pub const WS_CUSTOM_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(3i32);
 pub const WS_CUSTOM_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(3i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
     pub createChannelCallback: WS_CREATE_CHANNEL_CALLBACK,
     pub freeChannelCallback: WS_FREE_CHANNEL_CALLBACK,
@@ -2083,7 +2083,7 @@ pub struct WS_CUSTOM_HTTP_PROXY {
     pub bypass: WS_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_CUSTOM_LISTENER_CALLBACKS {
     pub createListenerCallback: WS_CREATE_LISTENER_CALLBACK,
     pub freeListenerCallback: WS_FREE_LISTENER_CALLBACK,
@@ -2098,7 +2098,7 @@ pub struct WS_CUSTOM_LISTENER_CALLBACKS {
 }
 pub const WS_CUSTOM_TYPE: WS_TYPE = WS_TYPE(27i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_CUSTOM_TYPE_DESCRIPTION {
     pub size: u32,
     pub alignment: u32,
@@ -2209,7 +2209,7 @@ pub struct WS_DURATION {
 }
 pub type WS_DURATION_COMPARISON_CALLBACK = Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_DURATION_DESCRIPTION {
     pub minValue: WS_DURATION,
     pub maxValue: WS_DURATION,
@@ -2652,7 +2652,7 @@ pub const WS_HTTP_PROXY_SETTING_MODE_CUSTOM: WS_HTTP_PROXY_SETTING_MODE = WS_HTT
 pub const WS_HTTP_PROXY_SETTING_MODE_NONE: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(2i32);
 pub type WS_HTTP_REDIRECT_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     pub callback: WS_HTTP_REDIRECT_CALLBACK,
     pub state: *mut core::ffi::c_void,
@@ -2734,7 +2734,7 @@ pub struct WS_HTTP_SSL_POLICY_DESCRIPTION {
     pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
@@ -2751,7 +2751,7 @@ pub struct WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
     pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
@@ -3196,7 +3196,7 @@ pub const WS_OPERATION_CONTEXT_PROPERTY_INPUT_MESSAGE: WS_OPERATION_CONTEXT_PROP
 pub const WS_OPERATION_CONTEXT_PROPERTY_LISTENER: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(7i32);
 pub const WS_OPERATION_CONTEXT_PROPERTY_OUTPUT_MESSAGE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(5i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_OPERATION_DESCRIPTION {
     pub versionInfo: u32,
     pub inputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
@@ -3301,7 +3301,7 @@ pub const WS_PROTECTION_LEVEL_SIGN_AND_ENCRYPT: WS_PROTECTION_LEVEL = WS_PROTECT
 pub const WS_PROXY_FAULT_LANG_ID: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(6i32);
 pub type WS_PROXY_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     pub callback: WS_PROXY_MESSAGE_CALLBACK,
     pub state: *mut core::ffi::c_void,
@@ -3864,7 +3864,7 @@ pub struct WS_SERVICE_CANCEL_REASON(pub i32);
 pub const WS_SERVICE_CHANNEL_FAULTED: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(1i32);
 pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_SERVICE_CONTRACT {
     pub contractDescription: *const WS_CONTRACT_DESCRIPTION,
     pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
@@ -3876,7 +3876,7 @@ impl Default for WS_SERVICE_CONTRACT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_SERVICE_ENDPOINT {
     pub address: WS_ENDPOINT_ADDRESS,
     pub channelBinding: WS_CHANNEL_BINDING,
@@ -3987,12 +3987,12 @@ impl Default for WS_SERVICE_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     pub callback: WS_SERVICE_ACCEPT_CHANNEL_CALLBACK,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     pub callback: WS_SERVICE_CLOSE_CHANNEL_CALLBACK,
 }
@@ -4257,7 +4257,7 @@ impl Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
 }
 pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(2i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
@@ -4274,7 +4274,7 @@ pub struct WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
     pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
@@ -4643,7 +4643,7 @@ pub struct WS_USERNAME_CREDENTIAL {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
@@ -4670,7 +4670,7 @@ pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
@@ -5079,7 +5079,7 @@ pub struct WS_XML_READER_RAW_ENCODING {
     pub encoding: WS_XML_READER_ENCODING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_XML_READER_STREAM_INPUT {
     pub input: WS_XML_READER_INPUT,
     pub readCallback: WS_READ_CALLBACK,
@@ -5223,7 +5223,7 @@ pub struct WS_XML_UTF8_TEXT {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WS_XML_WRITER(pub isize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_XML_WRITER_BINARY_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub staticDictionary: *mut WS_XML_DICTIONARY,
@@ -5329,7 +5329,7 @@ pub struct WS_XML_WRITER_RAW_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WS_XML_WRITER_STREAM_OUTPUT {
     pub output: WS_XML_WRITER_OUTPUT,
     pub writeCallback: WS_WRITE_CALLBACK,

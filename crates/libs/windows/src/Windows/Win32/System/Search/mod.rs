@@ -22006,7 +22006,7 @@ pub const SUCCEED_ABORT: u32 = 2u32;
 pub const SUCCEED_ASYNC: u32 = 3u32;
 pub const SubscriptionMgr: windows_core::GUID = windows_core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct TEXT_SOURCE {
     pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
     pub awcBuffer: windows_core::PCWSTR,

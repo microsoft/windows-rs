@@ -949,7 +949,7 @@ pub struct HDV_PCI_BAR_SELECTOR(pub i32);
 pub type HDV_PCI_DEVICE_GET_DETAILS = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> windows_core::HRESULT>;
 pub type HDV_PCI_DEVICE_INITIALIZE = Option<unsafe extern "system" fn(devicecontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
     pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
@@ -1396,7 +1396,7 @@ pub struct WHV_DOORBELL_MATCH_DATA {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,

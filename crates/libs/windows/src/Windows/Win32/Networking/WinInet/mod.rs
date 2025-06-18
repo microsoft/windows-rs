@@ -3235,7 +3235,7 @@ pub struct INTERNET_ASYNC_RESULT {
     pub dwError: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,

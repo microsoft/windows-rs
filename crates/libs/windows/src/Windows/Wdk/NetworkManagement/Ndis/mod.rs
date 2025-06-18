@@ -3484,7 +3484,7 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub TcpOptionsSupported: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct NDIS_WORK_ITEM {
     pub Context: *mut core::ffi::c_void,
     pub Routine: NDIS_PROC,

@@ -369,7 +369,7 @@ pub type DRIVER_DISPATCH = Option<unsafe extern "system" fn(deviceobject: *const
 pub type DRIVER_DISPATCH_PAGED = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, irp: *mut IRP) -> super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DRIVER_EXTENSION {
     pub DriverObject: *mut DRIVER_OBJECT,
     pub AddDevice: DRIVER_ADD_DEVICE,
@@ -389,7 +389,7 @@ pub type DRIVER_INITIALIZE = Option<unsafe extern "system" fn(driverobject: *con
 pub type DRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(notificationstructure: *const core::ffi::c_void, context: *mut core::ffi::c_void) -> super::super::Win32::Foundation::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DRIVER_OBJECT {
     pub Type: i16,
     pub Size: i16,
@@ -498,7 +498,7 @@ pub type FAST_IO_DETACH_DEVICE = Option<unsafe extern "system" fn(sourcedevice: 
 pub type FAST_IO_DEVICE_CONTROL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: bool, inputbuffer: *const core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut core::ffi::c_void, outputbufferlength: u32, iocontrolcode: u32, iostatus: *mut super::super::Win32::System::IO::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct FAST_IO_DISPATCH {
     pub SizeOfFastIoDispatch: u32,
     pub FastIoCheckIfPossible: FAST_IO_CHECK_IF_POSSIBLE,
@@ -1910,7 +1910,7 @@ impl Default for VPB {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WORK_QUEUE_ITEM {
     pub List: super::super::Win32::System::Kernel::LIST_ENTRY,
     pub WorkerRoutine: PWORKER_THREAD_ROUTINE,
