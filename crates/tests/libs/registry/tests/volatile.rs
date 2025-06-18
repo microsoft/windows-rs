@@ -1,7 +1,7 @@
 use windows_registry::*;
 
 #[test]
-fn volatile() {
+fn volatile_key() {
     let test_key = "software\\windows-rs\\tests\\volatile";
     _ = CURRENT_USER.remove_tree(test_key);
 
