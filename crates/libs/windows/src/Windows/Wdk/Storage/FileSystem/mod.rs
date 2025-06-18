@@ -4141,7 +4141,7 @@ pub struct CACHE_MANAGER_CALLBACKS {
     pub ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACKS_EX {
     pub Version: u16,
     pub Size: u16,

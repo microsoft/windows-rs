@@ -4167,7 +4167,7 @@ impl Default for WSD_ENDPOINT_REFERENCE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub struct WSD_EVENT {
     pub Hr: windows_core::HRESULT,
     pub EventType: u32,

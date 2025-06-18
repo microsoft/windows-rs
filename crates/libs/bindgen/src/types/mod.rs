@@ -376,6 +376,14 @@ impl Type {
         }
     }
 
+    pub fn has_cpp_delegate(&self) -> bool {
+        match self {
+            Self::CppDelegate(..) => true,
+            Self::CppStruct(ty) => ty.has_cpp_delegate(),
+            _ => false,
+        }
+    }
+
     pub fn is_interface(&self) -> bool {
         matches!(
             self,
