@@ -15,7 +15,7 @@ version = "0.5"
 
 Read and write registry keys and values as needed:
 
-```rust,ignore
+```rust,no_run
 use windows_registry::*;
 
 fn main() -> Result<()> {
@@ -33,7 +33,7 @@ fn main() -> Result<()> {
 
 Use the `options()` method for even more control:
 
-```rust,ignore
+```rust,no_run
 use windows_registry::*;
 
 fn main() -> Result<()> {
