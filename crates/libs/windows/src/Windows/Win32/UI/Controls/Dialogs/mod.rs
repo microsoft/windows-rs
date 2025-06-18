@@ -215,7 +215,7 @@ impl Default for CHOOSECOLORA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CHOOSECOLORA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -255,7 +255,7 @@ impl Default for CHOOSECOLORW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CHOOSECOLORW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -341,7 +341,7 @@ impl Default for CHOOSEFONTA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CHOOSEFONTA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -399,7 +399,7 @@ impl Default for CHOOSEFONTW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CHOOSEFONTW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -577,7 +577,7 @@ pub struct FINDREPLACEA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -609,7 +609,7 @@ pub struct FINDREPLACEW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1016,7 +1016,7 @@ impl Default for OPENFILENAMEA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1084,7 +1084,7 @@ impl Default for OPENFILENAMEW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1143,7 +1143,7 @@ pub struct OPENFILENAME_NT4A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1193,7 +1193,7 @@ pub struct OPENFILENAME_NT4W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1309,7 +1309,7 @@ pub struct PAGESETUPDLGA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1347,7 +1347,7 @@ pub struct PAGESETUPDLGW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1472,7 +1472,7 @@ pub struct PRINTDLGA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PRINTDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1692,7 +1692,7 @@ pub struct PRINTDLGW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PRINTDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,

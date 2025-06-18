@@ -2173,7 +2173,7 @@ pub const LDAP_PORT: u32 = 389u32;
 pub const LDAP_PROTOCOL_ERROR: LDAP_RETCODE = LDAP_RETCODE(2i32);
 pub const LDAP_REFERRAL: LDAP_RETCODE = LDAP_RETCODE(10i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
     pub QueryForConnection: QUERYFORCONNECTION,

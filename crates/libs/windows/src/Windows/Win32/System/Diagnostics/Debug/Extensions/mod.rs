@@ -52752,7 +52752,7 @@ pub struct WDBGEXTS_THREAD_OS_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -52769,7 +52769,7 @@ pub struct WINDBG_EXTENSION_APIS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -52786,7 +52786,7 @@ pub struct WINDBG_EXTENSION_APIS32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -52802,7 +52802,7 @@ pub struct WINDBG_EXTENSION_APIS64 {
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -52816,7 +52816,7 @@ pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,

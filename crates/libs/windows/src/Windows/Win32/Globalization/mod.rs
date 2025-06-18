@@ -11098,7 +11098,7 @@ impl Default for MAPPING_ENUM_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct MAPPING_OPTIONS {
     pub Size: usize,
     pub pszInputLanguage: windows_core::PWSTR,
@@ -12518,7 +12518,7 @@ pub struct UCharCategory(pub i32);
 pub struct UCharDirection(pub i32);
 pub type UCharEnumTypeRange = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct UCharIterator {
     pub context: *const core::ffi::c_void,
     pub length: i32,
@@ -14019,7 +14019,7 @@ pub type UTextClose = Option<unsafe extern "system" fn(ut: *mut UText)>;
 pub type UTextCopy = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
 pub type UTextExtract = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,

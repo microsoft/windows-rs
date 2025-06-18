@@ -386,7 +386,7 @@ pub const ECO_VERTICAL: u32 = 4194304u32;
 pub const ECO_WANTRETURN: u32 = 4096u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,

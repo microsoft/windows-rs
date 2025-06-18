@@ -690,7 +690,7 @@ impl Default for DUMP_POINTERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
     pub DumpData: *mut core::ffi::c_void,

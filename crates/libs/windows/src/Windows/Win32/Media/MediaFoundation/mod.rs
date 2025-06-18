@@ -7766,7 +7766,7 @@ pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DXVAHDSW_CALLBACKS {
     pub CreateDevice: PDXVAHDSW_CreateDevice,
     pub ProposeVideoPrivateFormat: PDXVAHDSW_ProposeVideoPrivateFormat,

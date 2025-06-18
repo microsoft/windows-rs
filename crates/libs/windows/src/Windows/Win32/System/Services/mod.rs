@@ -790,7 +790,7 @@ impl core::ops::Not for SERVICE_NOTIFY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -804,7 +804,7 @@ impl Default for SERVICE_NOTIFY_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -820,7 +820,7 @@ impl Default for SERVICE_NOTIFY_2A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1002,13 +1002,13 @@ pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
 pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = SERVICE_START_TYPE(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: windows_core::PSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,

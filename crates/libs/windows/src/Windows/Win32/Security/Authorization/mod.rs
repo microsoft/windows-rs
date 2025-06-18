@@ -1105,7 +1105,7 @@ pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: windows_core::PCWSTR,

@@ -1866,7 +1866,7 @@ pub const CLSID_XPSRASTERIZER_FACTORY: windows_core::GUID = windows_core::GUID::
 pub const COLOR_OPTIMIZATION: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
@@ -11644,7 +11644,7 @@ pub struct MESSAGEBOX_PARAMS {
 pub const MIN_PRIORITY: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct MONITOR {
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
     pub pfnOpenPort: PFN_PRINTING_OPENPORT,
@@ -11666,7 +11666,7 @@ pub struct MONITOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct MONITOR2 {
     pub cbSize: u32,
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
@@ -11895,7 +11895,7 @@ pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS =
 pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(2i32);
 pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct NOTIFICATION_CONFIG_1 {
     pub cbSize: u32,
     pub fdwFlags: u32,
@@ -11924,7 +11924,7 @@ pub const NO_PRIORITY: u32 = 0u32;
 pub type OEMCUIPCALLBACK = Option<unsafe extern "system" fn(param0: *mut CPSUICBPARAM, param1: *mut OEMCUIPPARAM) -> i32>;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct OEMCUIPPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -12025,7 +12025,7 @@ impl Default for OEMUIOBJ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct OEMUIPROCS {
     pub DrvGetDriverSetting: PFN_DrvGetDriverSetting,
     pub DrvUpdateUISetting: PFN_DrvUpdateUISetting,
@@ -13259,7 +13259,7 @@ pub struct PROPSHEETUI_GETICON_INFO {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PROPSHEETUI_INFO {
     pub cbSize: u16,
     pub Version: u16,
@@ -13347,7 +13347,7 @@ impl Default for PSCRIPT5_PRIVATE_DEVMODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PSPINFO {
     pub cbSize: u16,
     pub wReserved: u16,

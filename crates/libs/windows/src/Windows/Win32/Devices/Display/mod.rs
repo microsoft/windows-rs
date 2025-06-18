@@ -1737,7 +1737,7 @@ impl Default for DRH_APIBITMAPDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DRIVEROBJ {
     pub pvObj: *mut core::ffi::c_void,
     pub pFreeProc: FREEOBJPROC,
@@ -1762,7 +1762,7 @@ impl Default for DRVENABLEDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DRVFN {
     pub iFunc: u32,
     pub pfn: PFN,
@@ -4650,7 +4650,7 @@ pub struct VIDEO_VDM {
     pub ProcessHandle: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct VIDEO_WIN32K_CALLBACKS {
     pub PhysDisp: *mut core::ffi::c_void,
     pub Callout: PVIDEO_WIN32K_CALLOUT,

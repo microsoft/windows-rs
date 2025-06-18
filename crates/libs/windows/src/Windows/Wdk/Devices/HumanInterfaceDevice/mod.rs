@@ -39,7 +39,7 @@ impl Default for HID_XFER_PACKET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct VHF_CONFIG {
     pub Size: u32,
     pub VhfClientContext: *mut core::ffi::c_void,

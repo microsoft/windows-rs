@@ -2223,7 +2223,7 @@ pub const MGM_MFE_STATS_0: u32 = 1u32;
 pub const MGM_MFE_STATS_1: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
     pub lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
@@ -4150,7 +4150,7 @@ pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -4182,7 +4182,7 @@ pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1:
 pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_core::PCWSTR, param3: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -4952,7 +4952,7 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROUTER_INTERFACE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
     pub pfnRpfCallback: PMGM_RPF_CALLBACK,

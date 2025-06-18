@@ -3091,7 +3091,7 @@ impl Default for FULL_PTR_XLAT_TABLES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut core::ffi::c_void,
     pub Size: u32,
@@ -3105,7 +3105,7 @@ impl Default for GENERIC_BINDING_INFO {
 }
 pub type GENERIC_BINDING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
@@ -3124,7 +3124,7 @@ pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 pub type I_RpcFreeCalloutStateFn = Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
 pub type I_RpcPerformCalloutFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct I_RpcProxyCallbackInterface {
     pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
     pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
@@ -3303,7 +3303,7 @@ impl Default for MIDL_STUB_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: *mut RPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -4066,7 +4066,7 @@ impl Default for NDR_CS_ROUTINES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
     pub pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
@@ -4247,7 +4247,7 @@ impl Default for RPC_ASYNC_NOTIFICATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::super::Foundation::HANDLE,
@@ -4904,7 +4904,7 @@ pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
 pub const RPC_C_VERS_UPTO: u32 = 5u32;
 pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: RPC_DISPATCH_FUNCTION,
@@ -5159,7 +5159,7 @@ impl Default for RPC_IMPORT_CONTEXT_P {
 pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = Option<unsafe extern "system" fn(ifgroup: *const core::ffi::c_void, idlecallbackcontext: *const core::ffi::c_void, isgroupidle: u32)>;
 pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
     pub IfSpec: *mut core::ffi::c_void,
@@ -5179,7 +5179,7 @@ impl Default for RPC_INTERFACE_TEMPLATEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
     pub IfSpec: *mut core::ffi::c_void,
@@ -5884,7 +5884,7 @@ pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
 pub type USER_MARSHAL_FREEING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut core::ffi::c_void)>;
 pub type USER_MARSHAL_MARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
     pub pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
@@ -5913,7 +5913,7 @@ pub struct XLAT_SIDE(pub i32);
 pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
     pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,

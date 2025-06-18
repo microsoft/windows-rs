@@ -832,7 +832,7 @@ pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864u32;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut core::ffi::c_void,

@@ -2466,7 +2466,7 @@ pub struct OVERRIDE_PREFETCH_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct PEB {
     pub Reserved1: [u8; 2],
     pub BeingDebugged: u8,
@@ -3532,7 +3532,7 @@ pub const ThreadMemoryPriority: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CL
 pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(3i32);
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: u32,
     pub CompletionList: *mut core::ffi::c_void,

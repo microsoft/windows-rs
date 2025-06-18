@@ -1038,7 +1038,7 @@ pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINBIO_ENGINE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1503,7 +1503,7 @@ pub struct WINBIO_FP_BU_STATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1803,7 +1803,7 @@ impl Default for WINBIO_SENSOR_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINBIO_SENSOR_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1856,7 +1856,7 @@ pub struct WINBIO_SET_INDICATOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WINBIO_STORAGE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,

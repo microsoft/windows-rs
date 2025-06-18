@@ -2269,7 +2269,7 @@ pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTI
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,

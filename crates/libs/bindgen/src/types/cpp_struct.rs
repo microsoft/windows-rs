@@ -146,7 +146,11 @@ impl CppStruct {
         }
 
         if !config.sys && !has_explicit_layout && !has_packing {
-            derive.extend(["Debug", "PartialEq"]);
+            derive.extend(["Debug"]);
+
+            if self.can_derive_partial_eq() {
+                derive.extend(["PartialEq"]);
+            }
         }
 
         let default = if self.can_derive_default(config) {
@@ -261,6 +265,14 @@ impl CppStruct {
                     )
                 }
             })
+    }
+
+    fn can_derive_partial_eq(&self) -> bool {
+        !self.def.fields().any(|field| {
+            let ty = field.ty(Some(self));
+
+            matches!(&ty, Type::CppDelegate(..))
+        })
     }
 
     pub fn is_copyable(&self) -> bool {

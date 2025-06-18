@@ -139,7 +139,7 @@ where
     unsafe { PrjWritePlaceholderInfo2(namespacevirtualizationcontext, destinationfilename.param().abi(), placeholderinfo, placeholderinfosize, extendedinfo.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PRJ_CALLBACKS {
     pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
     pub EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,

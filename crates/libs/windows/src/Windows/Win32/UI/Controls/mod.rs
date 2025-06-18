@@ -1658,7 +1658,7 @@ pub const CCHCCDESC: u32 = 32u32;
 pub const CCHCCTEXT: u32 = 256u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CCINFOA {
     pub szClass: [i8; 32],
     pub flOptions: u32,
@@ -1684,7 +1684,7 @@ impl Default for CCINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CCINFOW {
     pub szClass: [u16; 32],
     pub flOptions: u32,
@@ -2356,7 +2356,7 @@ pub const DTS_TIMEFORMAT: u32 = 9u32;
 pub const DTS_UPDOWN: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DTTOPTS {
     pub dwSize: u32,
     pub dwFlags: DTTOPTS_FLAGS,
@@ -5254,7 +5254,7 @@ pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(8u32);
 pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(1u32);
 pub const LVIM_AFTER: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
     pub pvData: *mut core::ffi::c_void,
@@ -11234,7 +11234,7 @@ pub const TVSIL_NORMAL: u32 = 0u32;
 pub const TVSIL_STATE: u32 = 2u32;
 pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
     pub lpfnCompare: PFNTVCOMPARE,
