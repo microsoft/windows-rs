@@ -21,11 +21,7 @@ fn volatile() {
     assert_eq!(key.get_u64("test_value").unwrap(), 12345u64);
 
     // Verify the key was created (can be opened without create)
-    let read_key = CURRENT_USER
-        .options()
-        .read()
-        .open(test_key)
-        .unwrap();
+    let read_key = CURRENT_USER.options().read().open(test_key).unwrap();
 
     assert_eq!(read_key.get_u64("test_value").unwrap(), 12345u64);
 
