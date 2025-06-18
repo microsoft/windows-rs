@@ -7,6 +7,7 @@ pub struct OpenOptions<'a> {
     access: u32,
     create: bool,
     transaction: Option<&'a Transaction>,
+    options: u32,
 }
 
 impl<'a> OpenOptions<'a> {
@@ -16,6 +17,7 @@ impl<'a> OpenOptions<'a> {
             access: 0,
             create: false,
             transaction: None,
+            options: REG_OPTION_NON_VOLATILE,
         }
     }
 
@@ -49,6 +51,12 @@ impl<'a> OpenOptions<'a> {
         self
     }
 
+    /// Sets the option to create a volatile registry key that is not preserved when the system restarts.
+    pub fn volatile(&mut self) -> &mut Self {
+        self.options |= REG_OPTION_VOLATILE;
+        self
+    }
+
     /// Opens a registry key with the options provided by `self`.
     pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Key> {
         let mut handle = null_mut();
@@ -61,7 +69,7 @@ impl<'a> OpenOptions<'a> {
                         pcwstr(path).as_ptr(),
                         0,
                         null(),
-                        REG_OPTION_NON_VOLATILE,
+                        self.options,
                         self.access,
                         null(),
                         &mut handle,
@@ -86,7 +94,7 @@ impl<'a> OpenOptions<'a> {
                     pcwstr(path).as_ptr(),
                     0,
                     null(),
-                    REG_OPTION_NON_VOLATILE,
+                    self.options,
                     self.access,
                     null(),
                     &mut handle,
