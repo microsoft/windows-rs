@@ -506,7 +506,7 @@ pub unsafe fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, 
 pub struct HCS_CREATE_OPTIONS(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
     pub UserToken: super::super::Foundation::HANDLE,

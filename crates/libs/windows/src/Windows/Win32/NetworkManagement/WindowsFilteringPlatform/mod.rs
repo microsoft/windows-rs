@@ -5239,7 +5239,7 @@ pub struct IPSEC_KEY_MANAGER0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: windows_core::GUID,
     pub flags: u32,

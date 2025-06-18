@@ -4167,7 +4167,7 @@ impl Default for WSD_ENDPOINT_REFERENCE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub struct WSD_EVENT {
     pub Hr: windows_core::HRESULT,
     pub EventType: u32,
@@ -4238,7 +4238,7 @@ impl Default for WSD_EVENTING_FILTER_ACTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut core::ffi::c_void,
@@ -4341,7 +4341,7 @@ impl Default for WSD_NAME_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,

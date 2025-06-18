@@ -3318,7 +3318,7 @@ pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPYFILE2_COPY_PHASE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: COPYFILE_FLAGS,
@@ -3332,7 +3332,7 @@ impl Default for COPYFILE2_EXTENDED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
     pub dwCopyFlags: COPYFILE_FLAGS,
@@ -3963,7 +3963,7 @@ pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
 pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
 pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut windows_core::BOOL, pfisstuffed: *mut windows_core::BOOL, pfstoredwithdots: *mut windows_core::BOOL, pfstoredwithterminatingdot: *mut windows_core::BOOL) -> super::super::Foundation::HANDLE>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct FH_OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
@@ -5999,7 +5999,7 @@ impl core::ops::Not for LOCK_FILE_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut core::ffi::c_void,
     pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,

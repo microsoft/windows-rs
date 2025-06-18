@@ -1705,7 +1705,7 @@ pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS
 pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(1u32);
 pub const REG_PROCESS_APPKEY: u32 = 1u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,

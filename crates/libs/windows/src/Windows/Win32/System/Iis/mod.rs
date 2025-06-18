@@ -540,7 +540,7 @@ pub const DWN_RAWIMAGE: u32 = 256u32;
 pub const DWORD_METADATA: METADATATYPES = METADATATYPES(1i32);
 pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -763,7 +763,7 @@ pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
 pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
 pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: *mut core::ffi::c_void,

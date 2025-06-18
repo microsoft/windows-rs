@@ -9466,7 +9466,7 @@ pub const PDH_ACCESS_DENIED: u32 = 3221228507u32;
 pub const PDH_ASYNC_QUERY_TIMEOUT: u32 = 2147485659u32;
 pub const PDH_BINARY_LOG_CORRUPT: u32 = 3221228535u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -9480,7 +9480,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub szDialogBoxCaption: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -9494,7 +9494,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub szDialogBoxCaption: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -9508,7 +9508,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub szDialogBoxCaption: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -10340,7 +10340,7 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfFreq: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: u32,
     pub Reserved: u32,

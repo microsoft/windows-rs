@@ -6186,7 +6186,7 @@ pub const BNS_NAVIGATE: BNSTATE = BNSTATE(2i32);
 pub const BNS_NORMAL: BNSTATE = BNSTATE(0i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
@@ -6205,7 +6205,7 @@ impl Default for BROWSEINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
@@ -7157,7 +7157,7 @@ pub const CSC_NAVIGATEFORWARD: CommandStateChangeConstants = CommandStateChangeC
 pub const CSC_UPDATECOMMANDS: CommandStateChangeConstants = CommandStateChangeConstants(-1i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub struct CSFV {
     pub cbSize: u32,
     pub pshf: core::mem::ManuallyDrop<Option<IShellFolder>>,
@@ -53697,7 +53697,7 @@ pub const SFVM_MERGEMENU: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(1i32);
 pub struct SFVM_MESSAGE_ID(pub i32);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
     pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,

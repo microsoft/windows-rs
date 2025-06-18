@@ -2144,7 +2144,7 @@ pub const DHCP_CALLOUT_ENTRY_POINT: windows_core::PCSTR = windows_core::s!("Dhcp
 pub const DHCP_CALLOUT_LIST_KEY: windows_core::PCWSTR = windows_core::w!("System\\CurrentControlSet\\Services\\DHCPServer\\Parameters");
 pub const DHCP_CALLOUT_LIST_VALUE: windows_core::PCWSTR = windows_core::w!("CalloutDlls");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DHCP_CALLOUT_TABLE {
     pub DhcpControlHook: LPDHCP_CONTROL,
     pub DhcpNewPktHook: LPDHCP_NEWPKT,

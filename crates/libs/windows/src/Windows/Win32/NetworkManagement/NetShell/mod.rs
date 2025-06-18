@@ -49,7 +49,7 @@ pub unsafe fn RegisterHelper(pguidparentcontext: *const windows_core::GUID, pfnr
     unsafe { RegisterHelper(pguidparentcontext, pfnregistersubcontext) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: windows_core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -67,7 +67,7 @@ pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = NS_CMD_FLAGS(16i32);
 pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = NS_CMD_FLAGS(-2147483648i32);
 pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: windows_core::PCWSTR,
     pub dwShortCmdHelpToken: u32,

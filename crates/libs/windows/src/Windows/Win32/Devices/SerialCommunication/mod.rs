@@ -132,7 +132,7 @@ impl Default for SERENUM_PORT_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERENUM_PORT_PARAMETERS {
     pub Size: u32,
     pub ReadAccessor: PSERENUM_READPORT,

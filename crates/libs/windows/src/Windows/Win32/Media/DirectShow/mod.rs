@@ -3033,7 +3033,7 @@ pub const DVRESOLUTION_QUARTER: _DVRESOLUTION = _DVRESOLUTION(1002i32);
 pub const DWORD_ALLPARAMS: i32 = -1i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct DXVA2SW_CALLBACKS {
     pub Size: u32,
     pub GetVideoProcessorRenderTargetCount: PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT,
