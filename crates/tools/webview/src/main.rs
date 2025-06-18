@@ -1,137 +1,89 @@
 use windows_bindgen::*;
 use windows_idl as idl;
 mod fmt;
+use windows_metadata::*;
 
 fn main() {
-    let file = std::include_str!("WebView2.idl");
-    let file = idl::parse(file).unwrap();
-
-    let mut tokens = quote! {};
-
-    for item in &file.items {
-        let item = write_item(item);
-
-        tokens = quote! {
-            #tokens
-            #item
-        };
-    }
-
-    let tokens = fmt::fmt(tokens.as_str());
-    write_to_file("crates/libs/webview/src/bindings.rs", tokens);
+    metadata_to_bindings();
 }
 
-fn write_item(item: &idl::Item) -> TokenStream {
+fn metadata_to_bindings() {
+    let input = std::include_str!("../WebView2.idl");
+    let input = idl::parse(input).unwrap();
+
+    let mut output = writer::File::new("WebView2");
+
+    for item in &input.items {
+        write_item(item, &mut output);
+    }
+
+    let output = output.into_stream();
+    std::fs::write("crates/tools/webview/WebView2.winmd", output).unwrap();
+
+    bindgen([
+        "--in",
+        "crates/tools/webview/WebView2.winmd",
+        "--out",
+        "crates/libs/webview/src/bindings.rs",
+        "--filter",
+        "WebView2",
+        "--no-deps",
+    ])
+    .unwrap();
+}
+
+fn write_item(item: &idl::Item, output: &mut writer::File) {
     match item {
-        idl::Item::Enum(item) => write_enum(item),
-        idl::Item::Interface(item) => write_interface(item),
-        idl::Item::Struct(item) => write_struct(item),
-        idl::Item::Library(item) => write_library(item),
-        idl::Item::CppQuote(item) => write_cpp_quote(item),
-        _ => quote! {},
+        idl::Item::Enum(item) => write_enum(item, output),
+        idl::Item::Interface(item) => write_interface(item, output),
+        idl::Item::Struct(item) => write_struct(item, output),
+        idl::Item::Library(item) => write_library(item, output),
+        // idl::Item::CppQuote(item) => write_cpp_quote(item, output),
+        _ => {}
     }
 }
 
-fn write_enum(item: &idl::Enum) -> TokenStream {
-    let type_name = to_ident(&item.name);
-    let mut next = 0;
+fn write_enum(item: &idl::Enum, output: &mut writer::File) {
 
-    let variants = item.variants.iter().map(|variant| {
-        let name = to_ident(&variant.name);
+    // let value_type = output.TypeRef("System", "Enum");
 
-        let value = if let Some(value) = variant.value {
-            value
-        } else {
-            next
-        };
-
-        next = value + 1;
-        let value = Literal::i64_unsuffixed(value);
-
-        quote! {
-            pub const #name: #type_name = #type_name(#value);
-        }
-    });
-
-    quote! {
-        #[repr(transparent)]
-        pub struct #type_name(pub u32);
-        #(#variants)*
-    }
+    // output.TypeDef(
+    //     "WebView2",
+    //     &item.name,
+    //     writer::TypeDefOrRef::TypeRef(value_type),
+    //     TypeAttributes::Public
+    //         | TypeAttributes::SequentialLayout
+    //         | TypeAttributes::Sealed
+    //         | TypeAttributes::WindowsRuntime,
+    // );
 }
 
-fn write_interface(item: &idl::Interface) -> TokenStream {
-    let type_name = to_ident(&item.name);
-    let vtbl_name = type_name.join("_Vtbl");
+fn write_struct(item: &idl::Struct, output: &mut writer::File) {
+    let value_type = output.TypeRef("System", "ValueType");
 
-    let methods = item.methods.iter().map(|method| {
-        let mut name = to_ident(&method.name);
-
-        if method.attributes.iter().any(|a| a.name == "propput") {
-            name = name.prefix("put_");
-        } else if method.attributes.iter().any(|a| a.name == "propget") {
-            name = name.prefix("get_");
-        }
-
-        debug_assert_eq!(method.return_type, "HRESULT");
-
-        quote! {
-            pub fn #name(&self) -> windows_core::HRESULT {
-                todo!()
-            }
-        }
-    });
-
-    quote! {
-        //#[repr(transparent)]
-        //pub struct #type_name(windows_core::IUnknown);
-        windows_core::imp::define_interface!(#type_name, #vtbl_name);
-        pub struct #vtbl_name {}
-        impl #type_name {
-            #(#methods)*
-        }
-    }
+    output.TypeDef(
+        "WebView2",
+        &item.name,
+        writer::TypeDefOrRef::TypeRef(value_type),
+        TypeAttributes::Public
+            | TypeAttributes::SequentialLayout
+            | TypeAttributes::Sealed,
+    );
 }
 
-fn write_type(ty: &str) -> TokenStream {
-    match ty {
-        "BOOL" => quote! { windows_core::BOOL },
-        "UINT32" => quote! { u32 },
-        "BYTE" => quote! { u8 },
-        _ => to_ident(ty),
-    }
+fn write_interface(item: &idl::Interface, output: &mut writer::File) {
+    output.TypeDef(
+        "WebView2",
+        &item.name,
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public
+            | TypeAttributes::Interface
+            | TypeAttributes::Abstract,
+    );
 }
 
-fn write_struct(item: &idl::Struct) -> TokenStream {
-    let type_name = to_ident(&item.name);
-
-    let fields = item.fields.iter().map(|field| {
-        let name = to_ident(&field.name);
-        let ty = write_type(&field.field_type);
-
-        quote! {
-            pub #name: #ty,
-        }
-    });
-
-    quote! {
-        #[repr(C)]
-        pub struct #type_name {
-            #(#fields)*
-        }
-    }
-}
-
-fn write_library(item: &idl::Library) -> TokenStream {
-    let mut tokens = quote! {};
-
+fn write_library(item: &idl::Library, output: &mut writer::File) {
     for item in &item.items {
-        tokens.combine(write_item(item));
+        write_item(item, output);
     }
-
-    tokens
-}
-
-fn write_cpp_quote(_item: &str) -> TokenStream {
-    quote! {}
 }
