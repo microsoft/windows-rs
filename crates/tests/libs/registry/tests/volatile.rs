@@ -10,6 +10,7 @@ fn volatile_key() {
         .options()
         .create()
         .volatile()
+        .read()
         .write()
         .open(test_key)
         .unwrap();
