@@ -62,6 +62,7 @@ fn write_enum(item: &idl::Enum) -> TokenStream {
 
 fn write_interface(item: &idl::Interface) -> TokenStream {
     let type_name = to_ident(&item.name);
+    let vtbl_name = type_name.join("_Vtbl");
 
     let methods = item.methods.iter().map(|method| {
         let mut name = to_ident(&method.name);
@@ -82,8 +83,10 @@ fn write_interface(item: &idl::Interface) -> TokenStream {
     });
 
     quote! {
-        #[repr(transparent)]
-        pub struct #type_name(windows_core::IUnknown);
+        //#[repr(transparent)]
+        //pub struct #type_name(windows_core::IUnknown);
+        windows_core::imp::define_interface!(#type_name, #vtbl_name);
+        pub struct #vtbl_name {}
         impl #type_name {
             #(#methods)*
         }

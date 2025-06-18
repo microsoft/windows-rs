@@ -699,246 +699,351 @@ pub struct COREWEBVIEW2_PHYSICAL_KEY_STATUS {
     pub WasKeyDown: windows_core::BOOL,
     pub IsKeyReleased: windows_core::BOOL,
 }
-#[repr(transparent)]
-pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
+    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {}
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ExecuteScriptCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ExecuteScriptCompletedHandler,
+    ICoreWebView2ExecuteScriptCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {}
 impl ICoreWebView2ExecuteScriptCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CapturePreviewCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CapturePreviewCompletedHandler,
+    ICoreWebView2CapturePreviewCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2CapturePreviewCompletedHandler_Vtbl {}
 impl ICoreWebView2CapturePreviewCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CallDevToolsProtocolMethodCompletedHandler,
+    ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {}
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContainsFullScreenElementChangedEventHandler,
+    ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {}
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContentLoadingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContentLoadingEventHandler,
+    ICoreWebView2ContentLoadingEventHandler_Vtbl
+);
+pub struct ICoreWebView2ContentLoadingEventHandler_Vtbl {}
 impl ICoreWebView2ContentLoadingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DocumentTitleChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DocumentTitleChangedEventHandler,
+    ICoreWebView2DocumentTitleChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {}
 impl ICoreWebView2DocumentTitleChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2HistoryChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2HistoryChangedEventHandler,
+    ICoreWebView2HistoryChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2HistoryChangedEventHandler_Vtbl {}
 impl ICoreWebView2HistoryChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NavigationCompletedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationCompletedEventHandler,
+    ICoreWebView2NavigationCompletedEventHandler_Vtbl
+);
+pub struct ICoreWebView2NavigationCompletedEventHandler_Vtbl {}
 impl ICoreWebView2NavigationCompletedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NavigationStartingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationStartingEventHandler,
+    ICoreWebView2NavigationStartingEventHandler_Vtbl
+);
+pub struct ICoreWebView2NavigationStartingEventHandler_Vtbl {}
 impl ICoreWebView2NavigationStartingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NewWindowRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NewWindowRequestedEventHandler,
+    ICoreWebView2NewWindowRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2NewWindowRequestedEventHandler_Vtbl {}
 impl ICoreWebView2NewWindowRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PermissionRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PermissionRequestedEventHandler,
+    ICoreWebView2PermissionRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2PermissionRequestedEventHandler_Vtbl {}
 impl ICoreWebView2PermissionRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessFailedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessFailedEventHandler,
+    ICoreWebView2ProcessFailedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ProcessFailedEventHandler_Vtbl {}
 impl ICoreWebView2ProcessFailedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ScriptDialogOpeningEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ScriptDialogOpeningEventHandler,
+    ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl
+);
+pub struct ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {}
 impl ICoreWebView2ScriptDialogOpeningEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SourceChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2SourceChangedEventHandler,
+    ICoreWebView2SourceChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2SourceChangedEventHandler_Vtbl {}
 impl ICoreWebView2SourceChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebMessageReceivedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebMessageReceivedEventHandler,
+    ICoreWebView2WebMessageReceivedEventHandler_Vtbl
+);
+pub struct ICoreWebView2WebMessageReceivedEventHandler_Vtbl {}
 impl ICoreWebView2WebMessageReceivedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceRequestedEventHandler,
+    ICoreWebView2WebResourceRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2WebResourceRequestedEventHandler_Vtbl {}
 impl ICoreWebView2WebResourceRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WindowCloseRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WindowCloseRequestedEventHandler,
+    ICoreWebView2WindowCloseRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {}
 impl ICoreWebView2WindowCloseRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DOMContentLoadedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DOMContentLoadedEventHandler,
+    ICoreWebView2DOMContentLoadedEventHandler_Vtbl
+);
+pub struct ICoreWebView2DOMContentLoadedEventHandler_Vtbl {}
 impl ICoreWebView2DOMContentLoadedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceResponseReceivedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceResponseReceivedEventHandler,
+    ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl
+);
+pub struct ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {}
 impl ICoreWebView2WebResourceResponseReceivedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2TrySuspendCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2TrySuspendCompletedHandler,
+    ICoreWebView2TrySuspendCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2TrySuspendCompletedHandler_Vtbl {}
 impl ICoreWebView2TrySuspendCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DownloadStartingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DownloadStartingEventHandler,
+    ICoreWebView2DownloadStartingEventHandler_Vtbl
+);
+pub struct ICoreWebView2DownloadStartingEventHandler_Vtbl {}
 impl ICoreWebView2DownloadStartingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameCreatedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameCreatedEventHandler,
+    ICoreWebView2FrameCreatedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameCreatedEventHandler_Vtbl {}
 impl ICoreWebView2FrameCreatedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2IsDocumentPlayingAudioChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2IsDocumentPlayingAudioChangedEventHandler,
+    ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {}
 impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2IsMutedChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2IsMutedChangedEventHandler,
+    ICoreWebView2IsMutedChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2IsMutedChangedEventHandler_Vtbl {}
 impl ICoreWebView2IsMutedChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler,
+    ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {}
 impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContextMenuRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContextMenuRequestedEventHandler,
+    ICoreWebView2ContextMenuRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {}
 impl ICoreWebView2ContextMenuRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2StatusBarTextChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2StatusBarTextChangedEventHandler,
+    ICoreWebView2StatusBarTextChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {}
 impl ICoreWebView2StatusBarTextChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2GetFaviconCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2GetFaviconCompletedHandler,
+    ICoreWebView2GetFaviconCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2GetFaviconCompletedHandler_Vtbl {}
 impl ICoreWebView2GetFaviconCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FaviconChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FaviconChangedEventHandler,
+    ICoreWebView2FaviconChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FaviconChangedEventHandler_Vtbl {}
 impl ICoreWebView2FaviconChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PrintCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PrintCompletedHandler,
+    ICoreWebView2PrintCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2PrintCompletedHandler_Vtbl {}
 impl ICoreWebView2PrintCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PrintToPdfStreamCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PrintToPdfStreamCompletedHandler,
+    ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {}
 impl ICoreWebView2PrintToPdfStreamCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CursorChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CursorChangedEventHandler,
+    ICoreWebView2CursorChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2CursorChangedEventHandler_Vtbl {}
 impl ICoreWebView2CursorChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NonClientRegionChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NonClientRegionChangedEventHandler,
+    ICoreWebView2NonClientRegionChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2NonClientRegionChangedEventHandler_Vtbl {}
 impl ICoreWebView2NonClientRegionChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2RegionRectCollectionView(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2RegionRectCollectionView,
+    ICoreWebView2RegionRectCollectionView_Vtbl
+);
+pub struct ICoreWebView2RegionRectCollectionView_Vtbl {}
 impl ICoreWebView2RegionRectCollectionView {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -947,71 +1052,101 @@ impl ICoreWebView2RegionRectCollectionView {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2AcceleratorKeyPressedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2AcceleratorKeyPressedEventHandler,
+    ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl
+);
+pub struct ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {}
 impl ICoreWebView2AcceleratorKeyPressedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FocusChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FocusChangedEventHandler,
+    ICoreWebView2FocusChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FocusChangedEventHandler_Vtbl {}
 impl ICoreWebView2FocusChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2MoveFocusRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2MoveFocusRequestedEventHandler,
+    ICoreWebView2MoveFocusRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {}
 impl ICoreWebView2MoveFocusRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ZoomFactorChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ZoomFactorChangedEventHandler,
+    ICoreWebView2ZoomFactorChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {}
 impl ICoreWebView2ZoomFactorChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2RasterizationScaleChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2RasterizationScaleChangedEventHandler,
+    ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {}
 impl ICoreWebView2RasterizationScaleChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
+    ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {}
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NewBrowserVersionAvailableEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NewBrowserVersionAvailableEventHandler,
+    ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl
+);
+pub struct ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {}
 impl ICoreWebView2NewBrowserVersionAvailableEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BrowserExtensionRemoveCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BrowserExtensionRemoveCompletedHandler,
+    ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl {}
 impl ICoreWebView2BrowserExtensionRemoveCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BrowserExtensionEnableCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BrowserExtensionEnableCompletedHandler,
+    ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl {}
 impl ICoreWebView2BrowserExtensionEnableCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2StringCollection(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2StringCollection,
+    ICoreWebView2StringCollection_Vtbl
+);
+pub struct ICoreWebView2StringCollection_Vtbl {}
 impl ICoreWebView2StringCollection {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -1020,8 +1155,11 @@ impl ICoreWebView2StringCollection {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ClientCertificateCollection(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ClientCertificateCollection,
+    ICoreWebView2ClientCertificateCollection_Vtbl
+);
+pub struct ICoreWebView2ClientCertificateCollection_Vtbl {}
 impl ICoreWebView2ClientCertificateCollection {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -1030,22 +1168,28 @@ impl ICoreWebView2ClientCertificateCollection {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CustomItemSelectedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CustomItemSelectedEventHandler,
+    ICoreWebView2CustomItemSelectedEventHandler_Vtbl
+);
+pub struct ICoreWebView2CustomItemSelectedEventHandler_Vtbl {}
 impl ICoreWebView2CustomItemSelectedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2GetCookiesCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2GetCookiesCompletedHandler,
+    ICoreWebView2GetCookiesCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2GetCookiesCompletedHandler_Vtbl {}
 impl ICoreWebView2GetCookiesCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CookieList(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2CookieList, ICoreWebView2CookieList_Vtbl);
+pub struct ICoreWebView2CookieList_Vtbl {}
 impl ICoreWebView2CookieList {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -1054,99 +1198,138 @@ impl ICoreWebView2CookieList {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BytesReceivedChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BytesReceivedChangedEventHandler,
+    ICoreWebView2BytesReceivedChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {}
 impl ICoreWebView2BytesReceivedChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EstimatedEndTimeChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EstimatedEndTimeChangedEventHandler,
+    ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {}
 impl ICoreWebView2EstimatedEndTimeChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2StateChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2StateChangedEventHandler,
+    ICoreWebView2StateChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2StateChangedEventHandler_Vtbl {}
 impl ICoreWebView2StateChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameDestroyedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameDestroyedEventHandler,
+    ICoreWebView2FrameDestroyedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameDestroyedEventHandler_Vtbl {}
 impl ICoreWebView2FrameDestroyedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameNameChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameNameChangedEventHandler,
+    ICoreWebView2FrameNameChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameNameChangedEventHandler_Vtbl {}
 impl ICoreWebView2FrameNameChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameContentLoadingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameContentLoadingEventHandler,
+    ICoreWebView2FrameContentLoadingEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameContentLoadingEventHandler_Vtbl {}
 impl ICoreWebView2FrameContentLoadingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameDOMContentLoadedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameDOMContentLoadedEventHandler,
+    ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {}
 impl ICoreWebView2FrameDOMContentLoadedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameNavigationCompletedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameNavigationCompletedEventHandler,
+    ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {}
 impl ICoreWebView2FrameNavigationCompletedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameNavigationStartingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameNavigationStartingEventHandler,
+    ICoreWebView2FrameNavigationStartingEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {}
 impl ICoreWebView2FrameNavigationStartingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameWebMessageReceivedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameWebMessageReceivedEventHandler,
+    ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {}
 impl ICoreWebView2FrameWebMessageReceivedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProfileDeletedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProfileDeletedEventHandler,
+    ICoreWebView2ProfileDeletedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ProfileDeletedEventHandler_Vtbl {}
 impl ICoreWebView2ProfileDeletedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceResponseViewGetContentCompletedHandler,
+    ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {}
 impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NotificationCloseRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NotificationCloseRequestedEventHandler,
+    ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {}
 impl ICoreWebView2NotificationCloseRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2, ICoreWebView2_Vtbl);
+pub struct ICoreWebView2_Vtbl {}
 impl ICoreWebView2 {
     pub fn get_Settings(&self) -> windows_core::HRESULT {
         todo!()
@@ -1323,8 +1506,8 @@ impl ICoreWebView2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_2, ICoreWebView2_2_Vtbl);
+pub struct ICoreWebView2_2_Vtbl {}
 impl ICoreWebView2_2 {
     pub fn add_WebResourceResponseReceived(&self) -> windows_core::HRESULT {
         todo!()
@@ -1348,8 +1531,8 @@ impl ICoreWebView2_2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_3(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_3, ICoreWebView2_3_Vtbl);
+pub struct ICoreWebView2_3_Vtbl {}
 impl ICoreWebView2_3 {
     pub fn TrySuspend(&self) -> windows_core::HRESULT {
         todo!()
@@ -1367,8 +1550,8 @@ impl ICoreWebView2_3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_4(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_4, ICoreWebView2_4_Vtbl);
+pub struct ICoreWebView2_4_Vtbl {}
 impl ICoreWebView2_4 {
     pub fn add_FrameCreated(&self) -> windows_core::HRESULT {
         todo!()
@@ -1383,8 +1566,8 @@ impl ICoreWebView2_4 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_8(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_8, ICoreWebView2_8_Vtbl);
+pub struct ICoreWebView2_8_Vtbl {}
 impl ICoreWebView2_8 {
     pub fn add_IsMutedChanged(&self) -> windows_core::HRESULT {
         todo!()
@@ -1408,8 +1591,8 @@ impl ICoreWebView2_8 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_9(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_9, ICoreWebView2_9_Vtbl);
+pub struct ICoreWebView2_9_Vtbl {}
 impl ICoreWebView2_9 {
     pub fn add_IsDefaultDownloadDialogOpenChanged(&self) -> windows_core::HRESULT {
         todo!()
@@ -1439,8 +1622,8 @@ impl ICoreWebView2_9 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_11(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_11, ICoreWebView2_11_Vtbl);
+pub struct ICoreWebView2_11_Vtbl {}
 impl ICoreWebView2_11 {
     pub fn CallDevToolsProtocolMethodForSession(&self) -> windows_core::HRESULT {
         todo!()
@@ -1452,8 +1635,8 @@ impl ICoreWebView2_11 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_12(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_12, ICoreWebView2_12_Vtbl);
+pub struct ICoreWebView2_12_Vtbl {}
 impl ICoreWebView2_12 {
     pub fn add_StatusBarTextChanged(&self) -> windows_core::HRESULT {
         todo!()
@@ -1465,8 +1648,8 @@ impl ICoreWebView2_12 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_15(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_15, ICoreWebView2_15_Vtbl);
+pub struct ICoreWebView2_15_Vtbl {}
 impl ICoreWebView2_15 {
     pub fn add_FaviconChanged(&self) -> windows_core::HRESULT {
         todo!()
@@ -1481,8 +1664,8 @@ impl ICoreWebView2_15 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_16(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_16, ICoreWebView2_16_Vtbl);
+pub struct ICoreWebView2_16_Vtbl {}
 impl ICoreWebView2_16 {
     pub fn Print(&self) -> windows_core::HRESULT {
         todo!()
@@ -1494,8 +1677,8 @@ impl ICoreWebView2_16 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings, ICoreWebView2Settings_Vtbl);
+pub struct ICoreWebView2Settings_Vtbl {}
 impl ICoreWebView2Settings {
     pub fn get_IsScriptEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -1552,8 +1735,8 @@ impl ICoreWebView2Settings {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings4(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings4, ICoreWebView2Settings4_Vtbl);
+pub struct ICoreWebView2Settings4_Vtbl {}
 impl ICoreWebView2Settings4 {
     pub fn get_IsPasswordAutosaveEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -1568,8 +1751,8 @@ impl ICoreWebView2Settings4 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Controller(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Controller, ICoreWebView2Controller_Vtbl);
+pub struct ICoreWebView2Controller_Vtbl {}
 impl ICoreWebView2Controller {
     pub fn get_IsVisible(&self) -> windows_core::HRESULT {
         todo!()
@@ -1641,8 +1824,8 @@ impl ICoreWebView2Controller {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Controller3(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Controller3, ICoreWebView2Controller3_Vtbl);
+pub struct ICoreWebView2Controller3_Vtbl {}
 impl ICoreWebView2Controller3 {
     pub fn get_RasterizationScale(&self) -> windows_core::HRESULT {
         todo!()
@@ -1669,8 +1852,8 @@ impl ICoreWebView2Controller3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment, ICoreWebView2Environment_Vtbl);
+pub struct ICoreWebView2Environment_Vtbl {}
 impl ICoreWebView2Environment {
     pub fn CreateCoreWebView2Controller(&self) -> windows_core::HRESULT {
         todo!()
@@ -1688,8 +1871,11 @@ impl ICoreWebView2Environment {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions,
+    ICoreWebView2EnvironmentOptions_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions_Vtbl {}
 impl ICoreWebView2EnvironmentOptions {
     pub fn get_AdditionalBrowserArguments(&self) -> windows_core::HRESULT {
         todo!()
@@ -1716,8 +1902,11 @@ impl ICoreWebView2EnvironmentOptions {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2AcceleratorKeyPressedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2AcceleratorKeyPressedEventArgs,
+    ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl
+);
+pub struct ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {}
 impl ICoreWebView2AcceleratorKeyPressedEventArgs {
     pub fn get_KeyEventKind(&self) -> windows_core::HRESULT {
         todo!()
@@ -1738,8 +1927,11 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BasicAuthenticationRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BasicAuthenticationRequestedEventArgs,
+    ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl
+);
+pub struct ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {}
 impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
     pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
@@ -1760,8 +1952,11 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BasicAuthenticationResponse(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BasicAuthenticationResponse,
+    ICoreWebView2BasicAuthenticationResponse_Vtbl
+);
+pub struct ICoreWebView2BasicAuthenticationResponse_Vtbl {}
 impl ICoreWebView2BasicAuthenticationResponse {
     pub fn get_UserName(&self) -> windows_core::HRESULT {
         todo!()
@@ -1776,8 +1971,11 @@ impl ICoreWebView2BasicAuthenticationResponse {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BrowserExtension(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BrowserExtension,
+    ICoreWebView2BrowserExtension_Vtbl
+);
+pub struct ICoreWebView2BrowserExtension_Vtbl {}
 impl ICoreWebView2BrowserExtension {
     pub fn get_Id(&self) -> windows_core::HRESULT {
         todo!()
@@ -1795,8 +1993,8 @@ impl ICoreWebView2BrowserExtension {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Certificate(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Certificate, ICoreWebView2Certificate_Vtbl);
+pub struct ICoreWebView2Certificate_Vtbl {}
 impl ICoreWebView2Certificate {
     pub fn get_Subject(&self) -> windows_core::HRESULT {
         todo!()
@@ -1823,8 +2021,11 @@ impl ICoreWebView2Certificate {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ClientCertificate(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ClientCertificate,
+    ICoreWebView2ClientCertificate_Vtbl
+);
+pub struct ICoreWebView2ClientCertificate_Vtbl {}
 impl ICoreWebView2ClientCertificate {
     pub fn get_Subject(&self) -> windows_core::HRESULT {
         todo!()
@@ -1854,8 +2055,11 @@ impl ICoreWebView2ClientCertificate {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ClientCertificateRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ClientCertificateRequestedEventArgs,
+    ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl
+);
+pub struct ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {}
 impl ICoreWebView2ClientCertificateRequestedEventArgs {
     pub fn get_Host(&self) -> windows_core::HRESULT {
         todo!()
@@ -1894,8 +2098,11 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CompositionController(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CompositionController,
+    ICoreWebView2CompositionController_Vtbl
+);
+pub struct ICoreWebView2CompositionController_Vtbl {}
 impl ICoreWebView2CompositionController {
     pub fn get_RootVisualTarget(&self) -> windows_core::HRESULT {
         todo!()
@@ -1922,8 +2129,11 @@ impl ICoreWebView2CompositionController {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CompositionController3(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CompositionController3,
+    ICoreWebView2CompositionController3_Vtbl
+);
+pub struct ICoreWebView2CompositionController3_Vtbl {}
 impl ICoreWebView2CompositionController3 {
     pub fn DragEnter(&self) -> windows_core::HRESULT {
         todo!()
@@ -1938,8 +2148,11 @@ impl ICoreWebView2CompositionController3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CompositionController4(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CompositionController4,
+    ICoreWebView2CompositionController4_Vtbl
+);
+pub struct ICoreWebView2CompositionController4_Vtbl {}
 impl ICoreWebView2CompositionController4 {
     pub fn GetNonClientRegionAtPoint(&self) -> windows_core::HRESULT {
         todo!()
@@ -1954,8 +2167,11 @@ impl ICoreWebView2CompositionController4 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContextMenuItem(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContextMenuItem,
+    ICoreWebView2ContextMenuItem_Vtbl
+);
+pub struct ICoreWebView2ContextMenuItem_Vtbl {}
 impl ICoreWebView2ContextMenuItem {
     pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
@@ -1997,8 +2213,11 @@ impl ICoreWebView2ContextMenuItem {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContextMenuTarget(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContextMenuTarget,
+    ICoreWebView2ContextMenuTarget_Vtbl
+);
+pub struct ICoreWebView2ContextMenuTarget_Vtbl {}
 impl ICoreWebView2ContextMenuTarget {
     pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
@@ -2040,8 +2259,11 @@ impl ICoreWebView2ContextMenuTarget {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContextMenuRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContextMenuRequestedEventArgs,
+    ICoreWebView2ContextMenuRequestedEventArgs_Vtbl
+);
+pub struct ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {}
 impl ICoreWebView2ContextMenuRequestedEventArgs {
     pub fn get_MenuItems(&self) -> windows_core::HRESULT {
         todo!()
@@ -2068,8 +2290,11 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ControllerOptions(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ControllerOptions,
+    ICoreWebView2ControllerOptions_Vtbl
+);
+pub struct ICoreWebView2ControllerOptions_Vtbl {}
 impl ICoreWebView2ControllerOptions {
     pub fn get_ProfileName(&self) -> windows_core::HRESULT {
         todo!()
@@ -2084,8 +2309,8 @@ impl ICoreWebView2ControllerOptions {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Cookie(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Cookie, ICoreWebView2Cookie_Vtbl);
+pub struct ICoreWebView2Cookie_Vtbl {}
 impl ICoreWebView2Cookie {
     pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
@@ -2130,8 +2355,8 @@ impl ICoreWebView2Cookie {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CookieManager(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2CookieManager, ICoreWebView2CookieManager_Vtbl);
+pub struct ICoreWebView2CookieManager_Vtbl {}
 impl ICoreWebView2CookieManager {
     pub fn CreateCookie(&self) -> windows_core::HRESULT {
         todo!()
@@ -2158,8 +2383,11 @@ impl ICoreWebView2CookieManager {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CustomSchemeRegistration(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CustomSchemeRegistration,
+    ICoreWebView2CustomSchemeRegistration_Vtbl
+);
+pub struct ICoreWebView2CustomSchemeRegistration_Vtbl {}
 impl ICoreWebView2CustomSchemeRegistration {
     pub fn get_SchemeName(&self) -> windows_core::HRESULT {
         todo!()
@@ -2183,8 +2411,11 @@ impl ICoreWebView2CustomSchemeRegistration {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DownloadOperation(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DownloadOperation,
+    ICoreWebView2DownloadOperation_Vtbl
+);
+pub struct ICoreWebView2DownloadOperation_Vtbl {}
 impl ICoreWebView2DownloadOperation {
     pub fn add_BytesReceivedChanged(&self) -> windows_core::HRESULT {
         todo!()
@@ -2244,8 +2475,11 @@ impl ICoreWebView2DownloadOperation {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DownloadStartingEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DownloadStartingEventArgs,
+    ICoreWebView2DownloadStartingEventArgs_Vtbl
+);
+pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {}
 impl ICoreWebView2DownloadStartingEventArgs {
     pub fn get_DownloadOperation(&self) -> windows_core::HRESULT {
         todo!()
@@ -2272,8 +2506,11 @@ impl ICoreWebView2DownloadStartingEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ExecuteScriptResult(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ExecuteScriptResult,
+    ICoreWebView2ExecuteScriptResult_Vtbl
+);
+pub struct ICoreWebView2ExecuteScriptResult_Vtbl {}
 impl ICoreWebView2ExecuteScriptResult {
     pub fn get_Succeeded(&self) -> windows_core::HRESULT {
         todo!()
@@ -2288,8 +2525,8 @@ impl ICoreWebView2ExecuteScriptResult {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Frame(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Frame, ICoreWebView2Frame_Vtbl);
+pub struct ICoreWebView2Frame_Vtbl {}
 impl ICoreWebView2Frame {
     pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
@@ -2316,8 +2553,8 @@ impl ICoreWebView2Frame {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Frame2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Frame2, ICoreWebView2Frame2_Vtbl);
+pub struct ICoreWebView2Frame2_Vtbl {}
 impl ICoreWebView2Frame2 {
     pub fn add_NavigationStarting(&self) -> windows_core::HRESULT {
         todo!()
@@ -2359,8 +2596,8 @@ impl ICoreWebView2Frame2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameInfo2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2FrameInfo2, ICoreWebView2FrameInfo2_Vtbl);
+pub struct ICoreWebView2FrameInfo2_Vtbl {}
 impl ICoreWebView2FrameInfo2 {
     pub fn get_ParentFrameInfo(&self) -> windows_core::HRESULT {
         todo!()
@@ -2372,8 +2609,11 @@ impl ICoreWebView2FrameInfo2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2HttpHeadersCollectionIterator(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2HttpHeadersCollectionIterator,
+    ICoreWebView2HttpHeadersCollectionIterator_Vtbl
+);
+pub struct ICoreWebView2HttpHeadersCollectionIterator_Vtbl {}
 impl ICoreWebView2HttpHeadersCollectionIterator {
     pub fn GetCurrentHeader(&self) -> windows_core::HRESULT {
         todo!()
@@ -2385,8 +2625,11 @@ impl ICoreWebView2HttpHeadersCollectionIterator {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2LaunchingExternalUriSchemeEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2LaunchingExternalUriSchemeEventArgs,
+    ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl
+);
+pub struct ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {}
 impl ICoreWebView2LaunchingExternalUriSchemeEventArgs {
     pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
@@ -2407,8 +2650,11 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2MoveFocusRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2MoveFocusRequestedEventArgs,
+    ICoreWebView2MoveFocusRequestedEventArgs_Vtbl
+);
+pub struct ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {}
 impl ICoreWebView2MoveFocusRequestedEventArgs {
     pub fn get_Reason(&self) -> windows_core::HRESULT {
         todo!()
@@ -2420,8 +2666,11 @@ impl ICoreWebView2MoveFocusRequestedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NavigationCompletedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationCompletedEventArgs,
+    ICoreWebView2NavigationCompletedEventArgs_Vtbl
+);
+pub struct ICoreWebView2NavigationCompletedEventArgs_Vtbl {}
 impl ICoreWebView2NavigationCompletedEventArgs {
     pub fn get_IsSuccess(&self) -> windows_core::HRESULT {
         todo!()
@@ -2433,8 +2682,11 @@ impl ICoreWebView2NavigationCompletedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NavigationStartingEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationStartingEventArgs,
+    ICoreWebView2NavigationStartingEventArgs_Vtbl
+);
+pub struct ICoreWebView2NavigationStartingEventArgs_Vtbl {}
 impl ICoreWebView2NavigationStartingEventArgs {
     pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
@@ -2458,8 +2710,11 @@ impl ICoreWebView2NavigationStartingEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NewWindowRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NewWindowRequestedEventArgs,
+    ICoreWebView2NewWindowRequestedEventArgs_Vtbl
+);
+pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {}
 impl ICoreWebView2NewWindowRequestedEventArgs {
     pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
@@ -2486,8 +2741,11 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PermissionRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PermissionRequestedEventArgs,
+    ICoreWebView2PermissionRequestedEventArgs_Vtbl
+);
+pub struct ICoreWebView2PermissionRequestedEventArgs_Vtbl {}
 impl ICoreWebView2PermissionRequestedEventArgs {
     pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
@@ -2508,8 +2766,11 @@ impl ICoreWebView2PermissionRequestedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PermissionSettingCollectionView(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PermissionSettingCollectionView,
+    ICoreWebView2PermissionSettingCollectionView_Vtbl
+);
+pub struct ICoreWebView2PermissionSettingCollectionView_Vtbl {}
 impl ICoreWebView2PermissionSettingCollectionView {
     pub fn GetValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
@@ -2518,8 +2779,8 @@ impl ICoreWebView2PermissionSettingCollectionView {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PointerInfo(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2PointerInfo, ICoreWebView2PointerInfo_Vtbl);
+pub struct ICoreWebView2PointerInfo_Vtbl {}
 impl ICoreWebView2PointerInfo {
     pub fn get_PointerKind(&self) -> windows_core::HRESULT {
         todo!()
@@ -2690,8 +2951,8 @@ impl ICoreWebView2PointerInfo {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PrintSettings(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2PrintSettings, ICoreWebView2PrintSettings_Vtbl);
+pub struct ICoreWebView2PrintSettings_Vtbl {}
 impl ICoreWebView2PrintSettings {
     pub fn get_Orientation(&self) -> windows_core::HRESULT {
         todo!()
@@ -2772,8 +3033,11 @@ impl ICoreWebView2PrintSettings {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PrintSettings2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PrintSettings2,
+    ICoreWebView2PrintSettings2_Vtbl
+);
+pub struct ICoreWebView2PrintSettings2_Vtbl {}
 impl ICoreWebView2PrintSettings2 {
     pub fn get_PageRanges(&self) -> windows_core::HRESULT {
         todo!()
@@ -2824,8 +3088,11 @@ impl ICoreWebView2PrintSettings2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessExtendedInfo(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessExtendedInfo,
+    ICoreWebView2ProcessExtendedInfo_Vtbl
+);
+pub struct ICoreWebView2ProcessExtendedInfo_Vtbl {}
 impl ICoreWebView2ProcessExtendedInfo {
     pub fn get_ProcessInfo(&self) -> windows_core::HRESULT {
         todo!()
@@ -2834,8 +3101,11 @@ impl ICoreWebView2ProcessExtendedInfo {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessFailedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessFailedEventArgs2,
+    ICoreWebView2ProcessFailedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2ProcessFailedEventArgs2_Vtbl {}
 impl ICoreWebView2ProcessFailedEventArgs2 {
     pub fn get_Reason(&self) -> windows_core::HRESULT {
         todo!()
@@ -2850,8 +3120,8 @@ impl ICoreWebView2ProcessFailedEventArgs2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessInfo(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2ProcessInfo, ICoreWebView2ProcessInfo_Vtbl);
+pub struct ICoreWebView2ProcessInfo_Vtbl {}
 impl ICoreWebView2ProcessInfo {
     pub fn get_ProcessId(&self) -> windows_core::HRESULT {
         todo!()
@@ -2860,8 +3130,8 @@ impl ICoreWebView2ProcessInfo {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile, ICoreWebView2Profile_Vtbl);
+pub struct ICoreWebView2Profile_Vtbl {}
 impl ICoreWebView2Profile {
     pub fn get_ProfileName(&self) -> windows_core::HRESULT {
         todo!()
@@ -2885,8 +3155,8 @@ impl ICoreWebView2Profile {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile6(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile6, ICoreWebView2Profile6_Vtbl);
+pub struct ICoreWebView2Profile6_Vtbl {}
 impl ICoreWebView2Profile6 {
     pub fn get_IsPasswordAutosaveEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -2901,8 +3171,8 @@ impl ICoreWebView2Profile6 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile8(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile8, ICoreWebView2Profile8_Vtbl);
+pub struct ICoreWebView2Profile8_Vtbl {}
 impl ICoreWebView2Profile8 {
     pub fn Delete(&self) -> windows_core::HRESULT {
         todo!()
@@ -2914,8 +3184,11 @@ impl ICoreWebView2Profile8 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ScriptDialogOpeningEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ScriptDialogOpeningEventArgs,
+    ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl
+);
+pub struct ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {}
 impl ICoreWebView2ScriptDialogOpeningEventArgs {
     pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
@@ -2942,8 +3215,11 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ScriptException(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ScriptException,
+    ICoreWebView2ScriptException_Vtbl
+);
+pub struct ICoreWebView2ScriptException_Vtbl {}
 impl ICoreWebView2ScriptException {
     pub fn get_LineNumber(&self) -> windows_core::HRESULT {
         todo!()
@@ -2961,8 +3237,11 @@ impl ICoreWebView2ScriptException {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ServerCertificateErrorDetectedEventArgs,
+    ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl
+);
+pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {}
 impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
     pub fn get_ErrorStatus(&self) -> windows_core::HRESULT {
         todo!()
@@ -2983,8 +3262,8 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SharedBuffer(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2SharedBuffer, ICoreWebView2SharedBuffer_Vtbl);
+pub struct ICoreWebView2SharedBuffer_Vtbl {}
 impl ICoreWebView2SharedBuffer {
     pub fn get_Size(&self) -> windows_core::HRESULT {
         todo!()
@@ -3002,8 +3281,11 @@ impl ICoreWebView2SharedBuffer {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceRequest(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceRequest,
+    ICoreWebView2WebResourceRequest_Vtbl
+);
+pub struct ICoreWebView2WebResourceRequest_Vtbl {}
 impl ICoreWebView2WebResourceRequest {
     pub fn get_Uri(&self) -> windows_core::HRESULT {
         todo!()
@@ -3027,8 +3309,11 @@ impl ICoreWebView2WebResourceRequest {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceRequestedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceRequestedEventArgs,
+    ICoreWebView2WebResourceRequestedEventArgs_Vtbl
+);
+pub struct ICoreWebView2WebResourceRequestedEventArgs_Vtbl {}
 impl ICoreWebView2WebResourceRequestedEventArgs {
     pub fn get_Request(&self) -> windows_core::HRESULT {
         todo!()
@@ -3046,8 +3331,11 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceResponse(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceResponse,
+    ICoreWebView2WebResourceResponse_Vtbl
+);
+pub struct ICoreWebView2WebResourceResponse_Vtbl {}
 impl ICoreWebView2WebResourceResponse {
     pub fn get_Content(&self) -> windows_core::HRESULT {
         todo!()
@@ -3071,8 +3359,11 @@ impl ICoreWebView2WebResourceResponse {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceResponseView(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceResponseView,
+    ICoreWebView2WebResourceResponseView_Vtbl
+);
+pub struct ICoreWebView2WebResourceResponseView_Vtbl {}
 impl ICoreWebView2WebResourceResponseView {
     pub fn get_Headers(&self) -> windows_core::HRESULT {
         todo!()
@@ -3087,8 +3378,11 @@ impl ICoreWebView2WebResourceResponseView {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WindowFeatures(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WindowFeatures,
+    ICoreWebView2WindowFeatures_Vtbl
+);
+pub struct ICoreWebView2WindowFeatures_Vtbl {}
 impl ICoreWebView2WindowFeatures {
     pub fn get_HasPosition(&self) -> windows_core::HRESULT {
         todo!()
@@ -3121,8 +3415,11 @@ impl ICoreWebView2WindowFeatures {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ObjectCollection(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ObjectCollection,
+    ICoreWebView2ObjectCollection_Vtbl
+);
+pub struct ICoreWebView2ObjectCollection_Vtbl {}
 impl ICoreWebView2ObjectCollection {
     pub fn RemoveValueAtIndex(&self) -> windows_core::HRESULT {
         todo!()
@@ -3131,8 +3428,8 @@ impl ICoreWebView2ObjectCollection {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Notification(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Notification, ICoreWebView2Notification_Vtbl);
+pub struct ICoreWebView2Notification_Vtbl {}
 impl ICoreWebView2Notification {
     pub fn add_CloseRequested(&self) -> windows_core::HRESULT {
         todo!()
@@ -3189,8 +3486,11 @@ impl ICoreWebView2Notification {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NotificationReceivedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NotificationReceivedEventArgs,
+    ICoreWebView2NotificationReceivedEventArgs_Vtbl
+);
+pub struct ICoreWebView2NotificationReceivedEventArgs_Vtbl {}
 impl ICoreWebView2NotificationReceivedEventArgs {
     pub fn get_SenderOrigin(&self) -> windows_core::HRESULT {
         todo!()
@@ -3208,8 +3508,11 @@ impl ICoreWebView2NotificationReceivedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SaveAsUIShowingEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2SaveAsUIShowingEventArgs,
+    ICoreWebView2SaveAsUIShowingEventArgs_Vtbl
+);
+pub struct ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {}
 impl ICoreWebView2SaveAsUIShowingEventArgs {
     pub fn get_ContentMimeType(&self) -> windows_core::HRESULT {
         todo!()
@@ -3248,8 +3551,11 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2AcceleratorKeyPressedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2AcceleratorKeyPressedEventArgs2,
+    ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {}
 impl ICoreWebView2AcceleratorKeyPressedEventArgs2 {
     pub fn get_IsBrowserAcceleratorKeyEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -3258,8 +3564,11 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BrowserProcessExitedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BrowserProcessExitedEventArgs,
+    ICoreWebView2BrowserProcessExitedEventArgs_Vtbl
+);
+pub struct ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {}
 impl ICoreWebView2BrowserProcessExitedEventArgs {
     pub fn get_BrowserProcessExitKind(&self) -> windows_core::HRESULT {
         todo!()
@@ -3268,15 +3577,21 @@ impl ICoreWebView2BrowserProcessExitedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CompositionController2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CompositionController2,
+    ICoreWebView2CompositionController2_Vtbl
+);
+pub struct ICoreWebView2CompositionController2_Vtbl {}
 impl ICoreWebView2CompositionController2 {
     pub fn get_AutomationProvider(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContentLoadingEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContentLoadingEventArgs,
+    ICoreWebView2ContentLoadingEventArgs_Vtbl
+);
+pub struct ICoreWebView2ContentLoadingEventArgs_Vtbl {}
 impl ICoreWebView2ContentLoadingEventArgs {
     pub fn get_IsErrorPage(&self) -> windows_core::HRESULT {
         todo!()
@@ -3285,8 +3600,11 @@ impl ICoreWebView2ContentLoadingEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ContextMenuItemCollection(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ContextMenuItemCollection,
+    ICoreWebView2ContextMenuItemCollection_Vtbl
+);
+pub struct ICoreWebView2ContextMenuItemCollection_Vtbl {}
 impl ICoreWebView2ContextMenuItemCollection {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -3301,8 +3619,8 @@ impl ICoreWebView2ContextMenuItemCollection {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Controller2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Controller2, ICoreWebView2Controller2_Vtbl);
+pub struct ICoreWebView2Controller2_Vtbl {}
 impl ICoreWebView2Controller2 {
     pub fn get_DefaultBackgroundColor(&self) -> windows_core::HRESULT {
         todo!()
@@ -3311,8 +3629,8 @@ impl ICoreWebView2Controller2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Controller4(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Controller4, ICoreWebView2Controller4_Vtbl);
+pub struct ICoreWebView2Controller4_Vtbl {}
 impl ICoreWebView2Controller4 {
     pub fn get_AllowExternalDrop(&self) -> windows_core::HRESULT {
         todo!()
@@ -3321,8 +3639,11 @@ impl ICoreWebView2Controller4 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ControllerOptions2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ControllerOptions2,
+    ICoreWebView2ControllerOptions2_Vtbl
+);
+pub struct ICoreWebView2ControllerOptions2_Vtbl {}
 impl ICoreWebView2ControllerOptions2 {
     pub fn get_ScriptLocale(&self) -> windows_core::HRESULT {
         todo!()
@@ -3331,43 +3652,58 @@ impl ICoreWebView2ControllerOptions2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DOMContentLoadedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DOMContentLoadedEventArgs,
+    ICoreWebView2DOMContentLoadedEventArgs_Vtbl
+);
+pub struct ICoreWebView2DOMContentLoadedEventArgs_Vtbl {}
 impl ICoreWebView2DOMContentLoadedEventArgs {
     pub fn get_NavigationId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Deferral(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Deferral, ICoreWebView2Deferral_Vtbl);
+pub struct ICoreWebView2Deferral_Vtbl {}
 impl ICoreWebView2Deferral {
     pub fn Complete(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DevToolsProtocolEventReceivedEventArgs,
+    ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl
+);
+pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {}
 impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
     pub fn get_ParameterObjectAsJson(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DevToolsProtocolEventReceivedEventArgs2,
+    ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {}
 impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {
     pub fn get_SessionId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DevToolsProtocolEventReceivedEventHandler,
+    ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl
+);
+pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {}
 impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2DevToolsProtocolEventReceiver(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2DevToolsProtocolEventReceiver,
+    ICoreWebView2DevToolsProtocolEventReceiver_Vtbl
+);
+pub struct ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {}
 impl ICoreWebView2DevToolsProtocolEventReceiver {
     pub fn add_DevToolsProtocolEventReceived(&self) -> windows_core::HRESULT {
         todo!()
@@ -3376,8 +3712,8 @@ impl ICoreWebView2DevToolsProtocolEventReceiver {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment10(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment10, ICoreWebView2Environment10_Vtbl);
+pub struct ICoreWebView2Environment10_Vtbl {}
 impl ICoreWebView2Environment10 {
     pub fn CreateCoreWebView2ControllerOptions(&self) -> windows_core::HRESULT {
         todo!()
@@ -3389,29 +3725,35 @@ impl ICoreWebView2Environment10 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment11(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment11, ICoreWebView2Environment11_Vtbl);
+pub struct ICoreWebView2Environment11_Vtbl {}
 impl ICoreWebView2Environment11 {
     pub fn get_FailureReportFolderPath(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment12(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment12, ICoreWebView2Environment12_Vtbl);
+pub struct ICoreWebView2Environment12_Vtbl {}
 impl ICoreWebView2Environment12 {
     pub fn CreateSharedBuffer(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2GetProcessExtendedInfosCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2GetProcessExtendedInfosCompletedHandler,
+    ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {}
 impl ICoreWebView2GetProcessExtendedInfosCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessExtendedInfoCollection(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessExtendedInfoCollection,
+    ICoreWebView2ProcessExtendedInfoCollection_Vtbl
+);
+pub struct ICoreWebView2ProcessExtendedInfoCollection_Vtbl {}
 impl ICoreWebView2ProcessExtendedInfoCollection {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -3420,15 +3762,15 @@ impl ICoreWebView2ProcessExtendedInfoCollection {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment13(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment13, ICoreWebView2Environment13_Vtbl);
+pub struct ICoreWebView2Environment13_Vtbl {}
 impl ICoreWebView2Environment13 {
     pub fn GetProcessExtendedInfos(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment14(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment14, ICoreWebView2Environment14_Vtbl);
+pub struct ICoreWebView2Environment14_Vtbl {}
 impl ICoreWebView2Environment14 {
     pub fn CreateWebFileSystemFileHandle(&self) -> windows_core::HRESULT {
         todo!()
@@ -3440,24 +3782,25 @@ impl ICoreWebView2Environment14 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment2, ICoreWebView2Environment2_Vtbl);
+pub struct ICoreWebView2Environment2_Vtbl {}
 impl ICoreWebView2Environment2 {
     pub fn CreateWebResourceRequest(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler(
-    windows_core::IUnknown,
+windows_core::imp::define_interface!(
+    ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
+    ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl
 );
+pub struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {}
 impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment3(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment3, ICoreWebView2Environment3_Vtbl);
+pub struct ICoreWebView2Environment3_Vtbl {}
 impl ICoreWebView2Environment3 {
     pub fn CreateCoreWebView2CompositionController(&self) -> windows_core::HRESULT {
         todo!()
@@ -3466,22 +3809,25 @@ impl ICoreWebView2Environment3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment4(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment4, ICoreWebView2Environment4_Vtbl);
+pub struct ICoreWebView2Environment4_Vtbl {}
 impl ICoreWebView2Environment4 {
     pub fn GetAutomationProviderForWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BrowserProcessExitedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BrowserProcessExitedEventHandler,
+    ICoreWebView2BrowserProcessExitedEventHandler_Vtbl
+);
+pub struct ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {}
 impl ICoreWebView2BrowserProcessExitedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment5(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment5, ICoreWebView2Environment5_Vtbl);
+pub struct ICoreWebView2Environment5_Vtbl {}
 impl ICoreWebView2Environment5 {
     pub fn add_BrowserProcessExited(&self) -> windows_core::HRESULT {
         todo!()
@@ -3490,29 +3836,35 @@ impl ICoreWebView2Environment5 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment6(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment6, ICoreWebView2Environment6_Vtbl);
+pub struct ICoreWebView2Environment6_Vtbl {}
 impl ICoreWebView2Environment6 {
     pub fn CreatePrintSettings(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment7(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment7, ICoreWebView2Environment7_Vtbl);
+pub struct ICoreWebView2Environment7_Vtbl {}
 impl ICoreWebView2Environment7 {
     pub fn get_UserDataFolder(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessInfosChangedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessInfosChangedEventHandler,
+    ICoreWebView2ProcessInfosChangedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {}
 impl ICoreWebView2ProcessInfosChangedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessInfoCollection(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessInfoCollection,
+    ICoreWebView2ProcessInfoCollection_Vtbl
+);
+pub struct ICoreWebView2ProcessInfoCollection_Vtbl {}
 impl ICoreWebView2ProcessInfoCollection {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -3521,8 +3873,8 @@ impl ICoreWebView2ProcessInfoCollection {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment8(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment8, ICoreWebView2Environment8_Vtbl);
+pub struct ICoreWebView2Environment8_Vtbl {}
 impl ICoreWebView2Environment8 {
     pub fn add_ProcessInfosChanged(&self) -> windows_core::HRESULT {
         todo!()
@@ -3534,15 +3886,18 @@ impl ICoreWebView2Environment8 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Environment9(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Environment9, ICoreWebView2Environment9_Vtbl);
+pub struct ICoreWebView2Environment9_Vtbl {}
 impl ICoreWebView2Environment9 {
     pub fn CreateContextMenuItem(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions2,
+    ICoreWebView2EnvironmentOptions2_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions2_Vtbl {}
 impl ICoreWebView2EnvironmentOptions2 {
     pub fn get_ExclusiveUserDataFolderAccess(&self) -> windows_core::HRESULT {
         todo!()
@@ -3551,8 +3906,11 @@ impl ICoreWebView2EnvironmentOptions2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions3(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions3,
+    ICoreWebView2EnvironmentOptions3_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions3_Vtbl {}
 impl ICoreWebView2EnvironmentOptions3 {
     pub fn get_IsCustomCrashReportingEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -3561,8 +3919,11 @@ impl ICoreWebView2EnvironmentOptions3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions4(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions4,
+    ICoreWebView2EnvironmentOptions4_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions4_Vtbl {}
 impl ICoreWebView2EnvironmentOptions4 {
     pub fn GetCustomSchemeRegistrations(&self) -> windows_core::HRESULT {
         todo!()
@@ -3571,8 +3932,11 @@ impl ICoreWebView2EnvironmentOptions4 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions5(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions5,
+    ICoreWebView2EnvironmentOptions5_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions5_Vtbl {}
 impl ICoreWebView2EnvironmentOptions5 {
     pub fn get_EnableTrackingPrevention(&self) -> windows_core::HRESULT {
         todo!()
@@ -3581,8 +3945,11 @@ impl ICoreWebView2EnvironmentOptions5 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions6(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions6,
+    ICoreWebView2EnvironmentOptions6_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions6_Vtbl {}
 impl ICoreWebView2EnvironmentOptions6 {
     pub fn get_AreBrowserExtensionsEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -3591,8 +3958,11 @@ impl ICoreWebView2EnvironmentOptions6 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions8(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions8,
+    ICoreWebView2EnvironmentOptions8_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions8_Vtbl {}
 impl ICoreWebView2EnvironmentOptions8 {
     pub fn get_ScrollBarStyle(&self) -> windows_core::HRESULT {
         todo!()
@@ -3601,8 +3971,11 @@ impl ICoreWebView2EnvironmentOptions8 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2EnvironmentOptions7(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2EnvironmentOptions7,
+    ICoreWebView2EnvironmentOptions7_Vtbl
+);
+pub struct ICoreWebView2EnvironmentOptions7_Vtbl {}
 impl ICoreWebView2EnvironmentOptions7 {
     pub fn get_ChannelSearchKind(&self) -> windows_core::HRESULT {
         todo!()
@@ -3617,22 +3990,28 @@ impl ICoreWebView2EnvironmentOptions7 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
+    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {}
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2File(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2File, ICoreWebView2File_Vtbl);
+pub struct ICoreWebView2File_Vtbl {}
 impl ICoreWebView2File {
     pub fn get_Path(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FileSystemHandle(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FileSystemHandle,
+    ICoreWebView2FileSystemHandle_Vtbl
+);
+pub struct ICoreWebView2FileSystemHandle_Vtbl {}
 impl ICoreWebView2FileSystemHandle {
     pub fn get_Kind(&self) -> windows_core::HRESULT {
         todo!()
@@ -3644,15 +4023,18 @@ impl ICoreWebView2FileSystemHandle {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FramePermissionRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FramePermissionRequestedEventHandler,
+    ICoreWebView2FramePermissionRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {}
 impl ICoreWebView2FramePermissionRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Frame3(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Frame3, ICoreWebView2Frame3_Vtbl);
+pub struct ICoreWebView2Frame3_Vtbl {}
 impl ICoreWebView2Frame3 {
     pub fn add_PermissionRequested(&self) -> windows_core::HRESULT {
         todo!()
@@ -3661,29 +4043,32 @@ impl ICoreWebView2Frame3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Frame4(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Frame4, ICoreWebView2Frame4_Vtbl);
+pub struct ICoreWebView2Frame4_Vtbl {}
 impl ICoreWebView2Frame4 {
     pub fn PostSharedBufferToScript(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Frame5(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Frame5, ICoreWebView2Frame5_Vtbl);
+pub struct ICoreWebView2Frame5_Vtbl {}
 impl ICoreWebView2Frame5 {
     pub fn get_FrameId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameScreenCaptureStartingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameScreenCaptureStartingEventHandler,
+    ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {}
 impl ICoreWebView2FrameScreenCaptureStartingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Frame6(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Frame6, ICoreWebView2Frame6_Vtbl);
+pub struct ICoreWebView2Frame6_Vtbl {}
 impl ICoreWebView2Frame6 {
     pub fn add_ScreenCaptureStarting(&self) -> windows_core::HRESULT {
         todo!()
@@ -3692,15 +4077,18 @@ impl ICoreWebView2Frame6 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameChildFrameCreatedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameChildFrameCreatedEventHandler,
+    ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl
+);
+pub struct ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl {}
 impl ICoreWebView2FrameChildFrameCreatedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Frame7(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Frame7, ICoreWebView2Frame7_Vtbl);
+pub struct ICoreWebView2Frame7_Vtbl {}
 impl ICoreWebView2Frame7 {
     pub fn add_FrameCreated(&self) -> windows_core::HRESULT {
         todo!()
@@ -3709,15 +4097,18 @@ impl ICoreWebView2Frame7 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameCreatedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameCreatedEventArgs,
+    ICoreWebView2FrameCreatedEventArgs_Vtbl
+);
+pub struct ICoreWebView2FrameCreatedEventArgs_Vtbl {}
 impl ICoreWebView2FrameCreatedEventArgs {
     pub fn get_Frame(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameInfo(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2FrameInfo, ICoreWebView2FrameInfo_Vtbl);
+pub struct ICoreWebView2FrameInfo_Vtbl {}
 impl ICoreWebView2FrameInfo {
     pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
@@ -3726,15 +4117,21 @@ impl ICoreWebView2FrameInfo {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameInfoCollection(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameInfoCollection,
+    ICoreWebView2FrameInfoCollection_Vtbl
+);
+pub struct ICoreWebView2FrameInfoCollection_Vtbl {}
 impl ICoreWebView2FrameInfoCollection {
     pub fn GetIterator(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2FrameInfoCollectionIterator(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2FrameInfoCollectionIterator,
+    ICoreWebView2FrameInfoCollectionIterator_Vtbl
+);
+pub struct ICoreWebView2FrameInfoCollectionIterator_Vtbl {}
 impl ICoreWebView2FrameInfoCollectionIterator {
     pub fn get_HasCurrent(&self) -> windows_core::HRESULT {
         todo!()
@@ -3746,8 +4143,11 @@ impl ICoreWebView2FrameInfoCollectionIterator {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2HttpRequestHeaders(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2HttpRequestHeaders,
+    ICoreWebView2HttpRequestHeaders_Vtbl
+);
+pub struct ICoreWebView2HttpRequestHeaders_Vtbl {}
 impl ICoreWebView2HttpRequestHeaders {
     pub fn GetHeader(&self) -> windows_core::HRESULT {
         todo!()
@@ -3768,8 +4168,11 @@ impl ICoreWebView2HttpRequestHeaders {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2HttpResponseHeaders(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2HttpResponseHeaders,
+    ICoreWebView2HttpResponseHeaders_Vtbl
+);
+pub struct ICoreWebView2HttpResponseHeaders_Vtbl {}
 impl ICoreWebView2HttpResponseHeaders {
     pub fn AppendHeader(&self) -> windows_core::HRESULT {
         todo!()
@@ -3787,15 +4190,21 @@ impl ICoreWebView2HttpResponseHeaders {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NavigationCompletedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationCompletedEventArgs2,
+    ICoreWebView2NavigationCompletedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2NavigationCompletedEventArgs2_Vtbl {}
 impl ICoreWebView2NavigationCompletedEventArgs2 {
     pub fn get_HttpStatusCode(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NavigationStartingEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationStartingEventArgs2,
+    ICoreWebView2NavigationStartingEventArgs2_Vtbl
+);
+pub struct ICoreWebView2NavigationStartingEventArgs2_Vtbl {}
 impl ICoreWebView2NavigationStartingEventArgs2 {
     pub fn get_AdditionalAllowedFrameAncestors(&self) -> windows_core::HRESULT {
         todo!()
@@ -3804,36 +4213,51 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NavigationStartingEventArgs3(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NavigationStartingEventArgs3,
+    ICoreWebView2NavigationStartingEventArgs3_Vtbl
+);
+pub struct ICoreWebView2NavigationStartingEventArgs3_Vtbl {}
 impl ICoreWebView2NavigationStartingEventArgs3 {
     pub fn get_NavigationKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NewWindowRequestedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NewWindowRequestedEventArgs2,
+    ICoreWebView2NewWindowRequestedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2NewWindowRequestedEventArgs2_Vtbl {}
 impl ICoreWebView2NewWindowRequestedEventArgs2 {
     pub fn get_Name(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NewWindowRequestedEventArgs3(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NewWindowRequestedEventArgs3,
+    ICoreWebView2NewWindowRequestedEventArgs3_Vtbl
+);
+pub struct ICoreWebView2NewWindowRequestedEventArgs3_Vtbl {}
 impl ICoreWebView2NewWindowRequestedEventArgs3 {
     pub fn get_OriginalSourceFrameInfo(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NonClientRegionChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NonClientRegionChangedEventArgs,
+    ICoreWebView2NonClientRegionChangedEventArgs_Vtbl
+);
+pub struct ICoreWebView2NonClientRegionChangedEventArgs_Vtbl {}
 impl ICoreWebView2NonClientRegionChangedEventArgs {
     pub fn get_RegionKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ObjectCollectionView(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ObjectCollectionView,
+    ICoreWebView2ObjectCollectionView_Vtbl
+);
+pub struct ICoreWebView2ObjectCollectionView_Vtbl {}
 impl ICoreWebView2ObjectCollectionView {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -3842,8 +4266,11 @@ impl ICoreWebView2ObjectCollectionView {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PermissionRequestedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PermissionRequestedEventArgs2,
+    ICoreWebView2PermissionRequestedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2PermissionRequestedEventArgs2_Vtbl {}
 impl ICoreWebView2PermissionRequestedEventArgs2 {
     pub fn get_Handled(&self) -> windows_core::HRESULT {
         todo!()
@@ -3852,8 +4279,11 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PermissionRequestedEventArgs3(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PermissionRequestedEventArgs3,
+    ICoreWebView2PermissionRequestedEventArgs3_Vtbl
+);
+pub struct ICoreWebView2PermissionRequestedEventArgs3_Vtbl {}
 impl ICoreWebView2PermissionRequestedEventArgs3 {
     pub fn get_SavesInProfile(&self) -> windows_core::HRESULT {
         todo!()
@@ -3862,8 +4292,11 @@ impl ICoreWebView2PermissionRequestedEventArgs3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PermissionSetting(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PermissionSetting,
+    ICoreWebView2PermissionSetting_Vtbl
+);
+pub struct ICoreWebView2PermissionSetting_Vtbl {}
 impl ICoreWebView2PermissionSetting {
     pub fn get_PermissionKind(&self) -> windows_core::HRESULT {
         todo!()
@@ -3875,29 +4308,38 @@ impl ICoreWebView2PermissionSetting {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessFailedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessFailedEventArgs,
+    ICoreWebView2ProcessFailedEventArgs_Vtbl
+);
+pub struct ICoreWebView2ProcessFailedEventArgs_Vtbl {}
 impl ICoreWebView2ProcessFailedEventArgs {
     pub fn get_ProcessFailedKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProcessFailedEventArgs3(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProcessFailedEventArgs3,
+    ICoreWebView2ProcessFailedEventArgs3_Vtbl
+);
+pub struct ICoreWebView2ProcessFailedEventArgs3_Vtbl {}
 impl ICoreWebView2ProcessFailedEventArgs3 {
     pub fn get_FailureSourceModulePath(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ClearBrowsingDataCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ClearBrowsingDataCompletedHandler,
+    ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {}
 impl ICoreWebView2ClearBrowsingDataCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile2, ICoreWebView2Profile2_Vtbl);
+pub struct ICoreWebView2Profile2_Vtbl {}
 impl ICoreWebView2Profile2 {
     pub fn ClearBrowsingData(&self) -> windows_core::HRESULT {
         todo!()
@@ -3909,8 +4351,8 @@ impl ICoreWebView2Profile2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile3(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile3, ICoreWebView2Profile3_Vtbl);
+pub struct ICoreWebView2Profile3_Vtbl {}
 impl ICoreWebView2Profile3 {
     pub fn get_PreferredTrackingPreventionLevel(&self) -> windows_core::HRESULT {
         todo!()
@@ -3919,22 +4361,28 @@ impl ICoreWebView2Profile3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SetPermissionStateCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2SetPermissionStateCompletedHandler,
+    ICoreWebView2SetPermissionStateCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2SetPermissionStateCompletedHandler_Vtbl {}
 impl ICoreWebView2SetPermissionStateCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler,
+    ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {}
 impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile4(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile4, ICoreWebView2Profile4_Vtbl);
+pub struct ICoreWebView2Profile4_Vtbl {}
 impl ICoreWebView2Profile4 {
     pub fn SetPermissionState(&self) -> windows_core::HRESULT {
         todo!()
@@ -3943,29 +4391,38 @@ impl ICoreWebView2Profile4 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile5(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile5, ICoreWebView2Profile5_Vtbl);
+pub struct ICoreWebView2Profile5_Vtbl {}
 impl ICoreWebView2Profile5 {
     pub fn get_CookieManager(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProfileAddBrowserExtensionCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProfileAddBrowserExtensionCompletedHandler,
+    ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {}
 impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler,
+    ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {}
 impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BrowserExtensionList(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BrowserExtensionList,
+    ICoreWebView2BrowserExtensionList_Vtbl
+);
+pub struct ICoreWebView2BrowserExtensionList_Vtbl {}
 impl ICoreWebView2BrowserExtensionList {
     pub fn get_Count(&self) -> windows_core::HRESULT {
         todo!()
@@ -3974,8 +4431,8 @@ impl ICoreWebView2BrowserExtensionList {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Profile7(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Profile7, ICoreWebView2Profile7_Vtbl);
+pub struct ICoreWebView2Profile7_Vtbl {}
 impl ICoreWebView2Profile7 {
     pub fn AddBrowserExtension(&self) -> windows_core::HRESULT {
         todo!()
@@ -3984,8 +4441,11 @@ impl ICoreWebView2Profile7 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2SaveFileSecurityCheckStartingEventArgs,
+    ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl
+);
+pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {}
 impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
     pub fn get_CancelSave(&self) -> windows_core::HRESULT {
         todo!()
@@ -4012,8 +4472,11 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ScreenCaptureStartingEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ScreenCaptureStartingEventArgs,
+    ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl
+);
+pub struct ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {}
 impl ICoreWebView2ScreenCaptureStartingEventArgs {
     pub fn get_Cancel(&self) -> windows_core::HRESULT {
         todo!()
@@ -4034,8 +4497,8 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings2(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings2, ICoreWebView2Settings2_Vtbl);
+pub struct ICoreWebView2Settings2_Vtbl {}
 impl ICoreWebView2Settings2 {
     pub fn get_UserAgent(&self) -> windows_core::HRESULT {
         todo!()
@@ -4044,8 +4507,8 @@ impl ICoreWebView2Settings2 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings3(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings3, ICoreWebView2Settings3_Vtbl);
+pub struct ICoreWebView2Settings3_Vtbl {}
 impl ICoreWebView2Settings3 {
     pub fn get_AreBrowserAcceleratorKeysEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -4054,8 +4517,8 @@ impl ICoreWebView2Settings3 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings5(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings5, ICoreWebView2Settings5_Vtbl);
+pub struct ICoreWebView2Settings5_Vtbl {}
 impl ICoreWebView2Settings5 {
     pub fn get_IsPinchZoomEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -4064,8 +4527,8 @@ impl ICoreWebView2Settings5 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings6(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings6, ICoreWebView2Settings6_Vtbl);
+pub struct ICoreWebView2Settings6_Vtbl {}
 impl ICoreWebView2Settings6 {
     pub fn get_IsSwipeNavigationEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -4074,8 +4537,8 @@ impl ICoreWebView2Settings6 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings7(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings7, ICoreWebView2Settings7_Vtbl);
+pub struct ICoreWebView2Settings7_Vtbl {}
 impl ICoreWebView2Settings7 {
     pub fn get_HiddenPdfToolbarItems(&self) -> windows_core::HRESULT {
         todo!()
@@ -4084,8 +4547,8 @@ impl ICoreWebView2Settings7 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings8(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings8, ICoreWebView2Settings8_Vtbl);
+pub struct ICoreWebView2Settings8_Vtbl {}
 impl ICoreWebView2Settings8 {
     pub fn get_IsReputationCheckingRequired(&self) -> windows_core::HRESULT {
         todo!()
@@ -4094,8 +4557,8 @@ impl ICoreWebView2Settings8 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2Settings9(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2Settings9, ICoreWebView2Settings9_Vtbl);
+pub struct ICoreWebView2Settings9_Vtbl {}
 impl ICoreWebView2Settings9 {
     pub fn get_IsNonClientRegionSupportEnabled(&self) -> windows_core::HRESULT {
         todo!()
@@ -4104,15 +4567,21 @@ impl ICoreWebView2Settings9 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SourceChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2SourceChangedEventArgs,
+    ICoreWebView2SourceChangedEventArgs_Vtbl
+);
+pub struct ICoreWebView2SourceChangedEventArgs_Vtbl {}
 impl ICoreWebView2SourceChangedEventArgs {
     pub fn get_IsNewDocument(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebMessageReceivedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebMessageReceivedEventArgs,
+    ICoreWebView2WebMessageReceivedEventArgs_Vtbl
+);
+pub struct ICoreWebView2WebMessageReceivedEventArgs_Vtbl {}
 impl ICoreWebView2WebMessageReceivedEventArgs {
     pub fn get_Source(&self) -> windows_core::HRESULT {
         todo!()
@@ -4124,22 +4593,31 @@ impl ICoreWebView2WebMessageReceivedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebMessageReceivedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebMessageReceivedEventArgs2,
+    ICoreWebView2WebMessageReceivedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2WebMessageReceivedEventArgs2_Vtbl {}
 impl ICoreWebView2WebMessageReceivedEventArgs2 {
     pub fn get_AdditionalObjects(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceRequestedEventArgs2(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceRequestedEventArgs2,
+    ICoreWebView2WebResourceRequestedEventArgs2_Vtbl
+);
+pub struct ICoreWebView2WebResourceRequestedEventArgs2_Vtbl {}
 impl ICoreWebView2WebResourceRequestedEventArgs2 {
     pub fn get_RequestedSourceKind(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2WebResourceResponseReceivedEventArgs(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2WebResourceResponseReceivedEventArgs,
+    ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl
+);
+pub struct ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {}
 impl ICoreWebView2WebResourceResponseReceivedEventArgs {
     pub fn get_Request(&self) -> windows_core::HRESULT {
         todo!()
@@ -4148,15 +4626,18 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2BasicAuthenticationRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2BasicAuthenticationRequestedEventHandler,
+    ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {}
 impl ICoreWebView2BasicAuthenticationRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_10(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_10, ICoreWebView2_10_Vtbl);
+pub struct ICoreWebView2_10_Vtbl {}
 impl ICoreWebView2_10 {
     pub fn add_BasicAuthenticationRequested(&self) -> windows_core::HRESULT {
         todo!()
@@ -4165,29 +4646,35 @@ impl ICoreWebView2_10 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_13(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_13, ICoreWebView2_13_Vtbl);
+pub struct ICoreWebView2_13_Vtbl {}
 impl ICoreWebView2_13 {
     pub fn get_Profile(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
+    ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {}
 impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ServerCertificateErrorDetectedEventHandler,
+    ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {}
 impl ICoreWebView2ServerCertificateErrorDetectedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_14(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_14, ICoreWebView2_14_Vtbl);
+pub struct ICoreWebView2_14_Vtbl {}
 impl ICoreWebView2_14 {
     pub fn add_ServerCertificateErrorDetected(&self) -> windows_core::HRESULT {
         todo!()
@@ -4199,22 +4686,25 @@ impl ICoreWebView2_14 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_17(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_17, ICoreWebView2_17_Vtbl);
+pub struct ICoreWebView2_17_Vtbl {}
 impl ICoreWebView2_17 {
     pub fn PostSharedBufferToScript(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2LaunchingExternalUriSchemeEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2LaunchingExternalUriSchemeEventHandler,
+    ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl
+);
+pub struct ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl {}
 impl ICoreWebView2LaunchingExternalUriSchemeEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_18(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_18, ICoreWebView2_18_Vtbl);
+pub struct ICoreWebView2_18_Vtbl {}
 impl ICoreWebView2_18 {
     pub fn add_LaunchingExternalUriScheme(&self) -> windows_core::HRESULT {
         todo!()
@@ -4223,8 +4713,8 @@ impl ICoreWebView2_18 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_19(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_19, ICoreWebView2_19_Vtbl);
+pub struct ICoreWebView2_19_Vtbl {}
 impl ICoreWebView2_19 {
     pub fn get_MemoryUsageTargetLevel(&self) -> windows_core::HRESULT {
         todo!()
@@ -4233,29 +4723,32 @@ impl ICoreWebView2_19 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_20(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_20, ICoreWebView2_20_Vtbl);
+pub struct ICoreWebView2_20_Vtbl {}
 impl ICoreWebView2_20 {
     pub fn get_FrameId(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ExecuteScriptWithResultCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ExecuteScriptWithResultCompletedHandler,
+    ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {}
 impl ICoreWebView2ExecuteScriptWithResultCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_21(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_21, ICoreWebView2_21_Vtbl);
+pub struct ICoreWebView2_21_Vtbl {}
 impl ICoreWebView2_21 {
     pub fn ExecuteScriptWithResult(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_22(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_22, ICoreWebView2_22_Vtbl);
+pub struct ICoreWebView2_22_Vtbl {}
 impl ICoreWebView2_22 {
     pub fn AddWebResourceRequestedFilterWithRequestSourceKinds(&self) -> windows_core::HRESULT {
         todo!()
@@ -4264,22 +4757,28 @@ impl ICoreWebView2_22 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ShowSaveAsUICompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ShowSaveAsUICompletedHandler,
+    ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl
+);
+pub struct ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {}
 impl ICoreWebView2ShowSaveAsUICompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SaveAsUIShowingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2SaveAsUIShowingEventHandler,
+    ICoreWebView2SaveAsUIShowingEventHandler_Vtbl
+);
+pub struct ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {}
 impl ICoreWebView2SaveAsUIShowingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_25(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_25, ICoreWebView2_25_Vtbl);
+pub struct ICoreWebView2_25_Vtbl {}
 impl ICoreWebView2_25 {
     pub fn add_SaveAsUIShowing(&self) -> windows_core::HRESULT {
         todo!()
@@ -4291,22 +4790,25 @@ impl ICoreWebView2_25 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_23(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_23, ICoreWebView2_23_Vtbl);
+pub struct ICoreWebView2_23_Vtbl {}
 impl ICoreWebView2_23 {
     pub fn PostWebMessageAsJsonWithAdditionalObjects(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ScreenCaptureStartingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ScreenCaptureStartingEventHandler,
+    ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl
+);
+pub struct ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {}
 impl ICoreWebView2ScreenCaptureStartingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_27(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_27, ICoreWebView2_27_Vtbl);
+pub struct ICoreWebView2_27_Vtbl {}
 impl ICoreWebView2_27 {
     pub fn add_ScreenCaptureStarting(&self) -> windows_core::HRESULT {
         todo!()
@@ -4315,15 +4817,18 @@ impl ICoreWebView2_27 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2SaveFileSecurityCheckStartingEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2SaveFileSecurityCheckStartingEventHandler,
+    ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl
+);
+pub struct ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {}
 impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_26(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_26, ICoreWebView2_26_Vtbl);
+pub struct ICoreWebView2_26_Vtbl {}
 impl ICoreWebView2_26 {
     pub fn add_SaveFileSecurityCheckStarting(&self) -> windows_core::HRESULT {
         todo!()
@@ -4332,15 +4837,18 @@ impl ICoreWebView2_26 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2NotificationReceivedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2NotificationReceivedEventHandler,
+    ICoreWebView2NotificationReceivedEventHandler_Vtbl
+);
+pub struct ICoreWebView2NotificationReceivedEventHandler_Vtbl {}
 impl ICoreWebView2NotificationReceivedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_24(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_24, ICoreWebView2_24_Vtbl);
+pub struct ICoreWebView2_24_Vtbl {}
 impl ICoreWebView2_24 {
     pub fn add_NotificationReceived(&self) -> windows_core::HRESULT {
         todo!()
@@ -4349,15 +4857,18 @@ impl ICoreWebView2_24 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2ClientCertificateRequestedEventHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2ClientCertificateRequestedEventHandler,
+    ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl
+);
+pub struct ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {}
 impl ICoreWebView2ClientCertificateRequestedEventHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_5(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_5, ICoreWebView2_5_Vtbl);
+pub struct ICoreWebView2_5_Vtbl {}
 impl ICoreWebView2_5 {
     pub fn add_ClientCertificateRequested(&self) -> windows_core::HRESULT {
         todo!()
@@ -4366,22 +4877,25 @@ impl ICoreWebView2_5 {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_6(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_6, ICoreWebView2_6_Vtbl);
+pub struct ICoreWebView2_6_Vtbl {}
 impl ICoreWebView2_6 {
     pub fn OpenTaskManagerWindow(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2PrintToPdfCompletedHandler(windows_core::IUnknown);
+windows_core::imp::define_interface!(
+    ICoreWebView2PrintToPdfCompletedHandler,
+    ICoreWebView2PrintToPdfCompletedHandler_Vtbl
+);
+pub struct ICoreWebView2PrintToPdfCompletedHandler_Vtbl {}
 impl ICoreWebView2PrintToPdfCompletedHandler {
     pub fn Invoke(&self) -> windows_core::HRESULT {
         todo!()
     }
 }
-#[repr(transparent)]
-pub struct ICoreWebView2_7(windows_core::IUnknown);
+windows_core::imp::define_interface!(ICoreWebView2_7, ICoreWebView2_7_Vtbl);
+pub struct ICoreWebView2_7_Vtbl {}
 impl ICoreWebView2_7 {
     pub fn PrintToPdf(&self) -> windows_core::HRESULT {
         todo!()
