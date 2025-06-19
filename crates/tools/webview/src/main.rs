@@ -44,18 +44,43 @@ fn write_item(item: &idl::Item, output: &mut writer::File) {
 }
 
 fn write_enum(item: &idl::Enum, output: &mut writer::File) {
+    let value_type = output.TypeRef("System", "Enum");
 
-    // let value_type = output.TypeRef("System", "Enum");
+    output.TypeDef(
+        "WebView2",
+        &item.name,
+        writer::TypeDefOrRef::TypeRef(value_type),
+        TypeAttributes::Public | TypeAttributes::Sealed,
+    );
 
-    // output.TypeDef(
-    //     "WebView2",
-    //     &item.name,
-    //     writer::TypeDefOrRef::TypeRef(value_type),
-    //     TypeAttributes::Public
-    //         | TypeAttributes::SequentialLayout
-    //         | TypeAttributes::Sealed
-    //         | TypeAttributes::WindowsRuntime,
-    // );
+    output.Field(
+        "value__",
+        &Type::U32,
+        FieldAttributes::Private | FieldAttributes::SpecialName | FieldAttributes::RTSpecialName,
+    );
+
+    let mut next = 0;
+
+    for variant in &item.variants {
+        let field = output.Field(
+            &variant.name,
+            &Type::named("WebView2", &item.name),
+            FieldAttributes::Public | FieldAttributes::Static | FieldAttributes::Literal,
+        );
+
+        let value = if let Some(value) = variant.value {
+            value
+        } else {
+            next
+        };
+
+        next = value + 1;
+
+        output.Constant(
+            writer::HasConstant::Field(field),
+            &Value::U32(value.try_into().unwrap()),
+        );
+    }
 }
 
 fn write_struct(item: &idl::Struct, output: &mut writer::File) {
@@ -65,9 +90,7 @@ fn write_struct(item: &idl::Struct, output: &mut writer::File) {
         "WebView2",
         &item.name,
         writer::TypeDefOrRef::TypeRef(value_type),
-        TypeAttributes::Public
-            | TypeAttributes::SequentialLayout
-            | TypeAttributes::Sealed,
+        TypeAttributes::Public | TypeAttributes::SequentialLayout | TypeAttributes::Sealed,
     );
 }
 
@@ -76,9 +99,7 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
         "WebView2",
         &item.name,
         writer::TypeDefOrRef::default(),
-        TypeAttributes::Public
-            | TypeAttributes::Interface
-            | TypeAttributes::Abstract,
+        TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
     );
 }
 
