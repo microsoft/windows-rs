@@ -1,6 +1,5 @@
 use windows_bindgen::*;
 use windows_idl as idl;
-mod fmt;
 use windows_metadata::*;
 
 fn main() {
