@@ -21,6 +21,7 @@ fn metadata_to_bindings() {
 
     bindgen([
         "--in",
+        "default",
         "crates/tools/webview/WebView2.winmd",
         "--out",
         "crates/libs/webview/src/bindings.rs",
@@ -100,10 +101,72 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
         writer::TypeDefOrRef::default(),
         TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
     );
+
+    for method in &item.methods {
+        let flags = MethodAttributes::Public
+            | MethodAttributes::HideBySig
+            | MethodAttributes::Abstract
+            | MethodAttributes::NewSlot
+            | MethodAttributes::Virtual;
+
+        let signature = Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            return_type: to_type(&method.return_type),
+            types: method
+                .params
+                .iter()
+                .map(|param| to_type(&param.ty))
+                .collect(),
+        };
+
+        output.MethodDef(&method.name, &signature, flags, Default::default());
+
+        for (sequence, param) in method.params.iter().enumerate() {
+            output.Param(
+                &param.name,
+                (sequence + 1).try_into().unwrap(),
+                ParamAttributes::In,
+            );
+        }
+    }
 }
 
 fn write_library(item: &idl::Library, output: &mut writer::File) {
     for item in &item.items {
         write_item(item, output);
+    }
+}
+
+// Just a hack to get this to compile - need to provide actual type resolution
+fn to_type(name: &str) -> Type {
+    match name {
+        "DWORD" | "UINT" | "UINT32" => Type::U32,
+        "int" | "INT32" | "INT" => Type::I32,
+        "BYTE" => Type::U8,
+        "HRESULT" => Type::named("Windows.Foundation", "HResult"),
+        "LPWSTR" => Type::named("Windows.Win32.Foundation", "PWSTR"),
+        "HANDLE" => Type::named("Windows.Win32.Foundation", "HANDLE"),
+        "LPCWSTR" => Type::named("Windows.Win32.Foundation", "PWSTR"),
+        "BOOL" => Type::named("Windows.Win32.Foundation", "BOOL"),
+        "IStream" => Type::named("Windows.Win32.System.Com", "IStream"),
+        "IDataObject" => Type::named("Windows.Win32.System.Com", "IDataObject"),
+        "HWND" => Type::named("Windows.Win32.Foundation", "HWND"),
+        "IUnknown" => Type::named("Windows.Win32.System.Com", "IUnknown"),
+        "RECT" => Type::named("Windows.Win32.Foundation", "RECT"),
+        "POINT" => Type::named("Windows.Win32.Foundation", "POINT"),
+        "HCURSOR" => Type::named("Windows.Win32.UI.WindowsAndMessaging", "HCURSOR"),
+        "VARIANT" => Type::named("Windows.Win32.System.Variant", "VARIANT"),
+        "double" => Type::F64,
+        "EventRegistrationToken" | "INT64" => Type::I64,
+        "UINT64" => Type::U64,
+        _ => {
+            let trim = name.trim_end_matches('*').trim_end_matches("const").trim();
+
+            if trim.len() != name.len() {
+                to_type(trim)
+            } else {
+                Type::named("WebView2", name)
+            }
+        }
     }
 }
