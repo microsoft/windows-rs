@@ -11,7 +11,6 @@ impl CurrencyFormatter {
             (windows_core::Interface::vtable(this).Currency)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetCurrency(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCurrency)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
@@ -488,10 +487,7 @@ impl windows_core::RuntimeType for ICurrencyFormatter {
 pub struct ICurrencyFormatter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Currency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub SetCurrency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetCurrency: usize,
 }
 windows_core::imp::define_interface!(ICurrencyFormatter2, ICurrencyFormatter2_Vtbl, 0x072c2f1d_e7ba_4197_920e_247c92f7dea6);
 impl windows_core::RuntimeType for ICurrencyFormatter2 {

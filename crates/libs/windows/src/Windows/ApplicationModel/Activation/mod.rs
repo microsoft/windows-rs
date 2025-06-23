@@ -1523,15 +1523,11 @@ impl windows_core::RuntimeName for FileOpenPickerActivatedEventArgs {
 }
 unsafe impl Send for FileOpenPickerActivatedEventArgs {}
 unsafe impl Sync for FileOpenPickerActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileOpenPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, IFileOpenPickerContinuationEventArgs);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(FileOpenPickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl FileOpenPickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -1579,22 +1575,17 @@ impl FileOpenPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for FileOpenPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerContinuationEventArgs>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileOpenPickerContinuationEventArgs {
     type Vtable = <IFileOpenPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for FileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for FileOpenPickerContinuationEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1666,15 +1657,11 @@ impl windows_core::RuntimeName for FileSavePickerActivatedEventArgs {
 }
 unsafe impl Send for FileSavePickerActivatedEventArgs {}
 unsafe impl Sync for FileSavePickerActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileSavePickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, IFileSavePickerContinuationEventArgs);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(FileSavePickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl FileSavePickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -1722,32 +1709,23 @@ impl FileSavePickerContinuationEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for FileSavePickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerContinuationEventArgs>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileSavePickerContinuationEventArgs {
     type Vtable = <IFileSavePickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FolderPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, IFolderPickerContinuationEventArgs);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(FolderPickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl FolderPickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -1795,22 +1773,17 @@ impl FolderPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for FolderPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFolderPickerContinuationEventArgs>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FolderPickerContinuationEventArgs {
     type Vtable = <IFolderPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFolderPickerContinuationEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for FolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for FolderPickerContinuationEventArgs {}
 windows_core::imp::define_interface!(IActivatedEventArgs, IActivatedEventArgs_Vtbl, 0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 impl windows_core::RuntimeType for IActivatedEventArgs {
@@ -4666,17 +4639,12 @@ pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileOpenPickerContinuationEventArgs, IFileOpenPickerContinuationEventArgs_Vtbl, 0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IFileOpenPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IFileOpenPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl IFileOpenPickerContinuationEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::StorageFile>> {
@@ -4716,15 +4684,15 @@ impl IFileOpenPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IFileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileOpenPickerContinuationEventArgs";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IFileOpenPickerContinuationEventArgs_Impl: IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
     fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::StorageFile>>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IFileOpenPickerContinuationEventArgs_Vtbl {
     pub const fn new<Identity: IFileOpenPickerContinuationEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Files<Identity: IFileOpenPickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4746,7 +4714,6 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
         iid == &<IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
@@ -4908,17 +4875,12 @@ pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileSavePickerContinuationEventArgs, IFileSavePickerContinuationEventArgs_Vtbl, 0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IFileSavePickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IFileSavePickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl IFileSavePickerContinuationEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
@@ -4958,15 +4920,15 @@ impl IFileSavePickerContinuationEventArgs {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl windows_core::RuntimeName for IFileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileSavePickerContinuationEventArgs";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IFileSavePickerContinuationEventArgs_Impl: IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
     fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IFileSavePickerContinuationEventArgs_Vtbl {
     pub const fn new<Identity: IFileSavePickerContinuationEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn File<Identity: IFileSavePickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4988,7 +4950,6 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
         iid == &<IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePickerContinuationEventArgs_Vtbl {
@@ -4998,17 +4959,12 @@ pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     File: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFolderPickerContinuationEventArgs, IFolderPickerContinuationEventArgs_Vtbl, 0x51882366_9f4b_498f_beb0_42684f6e1c29);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IFolderPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IFolderPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl IFolderPickerContinuationEventArgs {
     #[cfg(feature = "Storage_Search")]
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
@@ -5048,15 +5004,15 @@ impl IFolderPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 impl windows_core::RuntimeName for IFolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFolderPickerContinuationEventArgs";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 pub trait IFolderPickerContinuationEventArgs_Impl: IActivatedEventArgs_Impl + IContinuationActivatedEventArgs_Impl {
     fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 impl IFolderPickerContinuationEventArgs_Vtbl {
     pub const fn new<Identity: IFolderPickerContinuationEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Folder<Identity: IFolderPickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5078,7 +5034,6 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
         iid == &<IFolderPickerContinuationEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderPickerContinuationEventArgs_Vtbl {
@@ -6774,17 +6729,12 @@ pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Media_SpeechRecognition"))]
     Result: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IWalletActionActivatedEventArgs, IWalletActionActivatedEventArgs_Vtbl, 0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IWalletActionActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IWalletActionActivatedEventArgs, IActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl IWalletActionActivatedEventArgs {
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -6830,17 +6780,17 @@ impl IWalletActionActivatedEventArgs {
         }
     }
 }
-#[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Wallet")]
 impl windows_core::RuntimeName for IWalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs";
 }
-#[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Wallet")]
 pub trait IWalletActionActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ActionKind(&self) -> windows_core::Result<super::Wallet::WalletActionKind>;
     fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
-#[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Wallet")]
 impl IWalletActionActivatedEventArgs_Vtbl {
     pub const fn new<Identity: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ItemId<Identity: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6892,7 +6842,6 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         iid == &<IWalletActionActivatedEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletActionActivatedEventArgs_Vtbl {
@@ -8196,15 +8145,11 @@ impl windows_core::RuntimeName for VoiceCommandActivatedEventArgs {
 }
 unsafe impl Send for VoiceCommandActivatedEventArgs {}
 unsafe impl Sync for VoiceCommandActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WalletActionActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(WalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, IWalletActionActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(WalletActionActivatedEventArgs, IActivatedEventArgs);
-#[cfg(feature = "deprecated")]
 impl WalletActionActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<ActivationKind> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -8250,22 +8195,17 @@ impl WalletActionActivatedEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletActionActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletActionActivatedEventArgs>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletActionActivatedEventArgs {
     type Vtable = <IWalletActionActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletActionActivatedEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for WalletActionActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for WalletActionActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

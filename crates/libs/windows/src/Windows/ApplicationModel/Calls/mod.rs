@@ -916,10 +916,7 @@ impl windows_core::RuntimeType for IPhoneLine2 {
 #[doc(hidden)]
 pub struct IPhoneLine2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub EnableTextReply: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    EnableTextReply: usize,
     pub TransportDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLine3, IPhoneLine3_Vtbl, 0xe2e33cf7_2406_57f3_826a_e5a5f40d6fb5);
@@ -3114,7 +3111,6 @@ impl PhoneLine {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DialWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn EnableTextReply(&self, value: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPhoneLine2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).EnableTextReply)(windows_core::Interface::as_raw(this), value).ok() }

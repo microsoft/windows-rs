@@ -1,10 +1,7 @@
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOrigin, IPhoneCallOrigin_Vtbl, 0x20613479_0ef9_4454_871c_afb66a14b6a5);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IPhoneCallOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOrigin_Vtbl {
@@ -16,13 +13,10 @@ pub struct IPhoneCallOrigin_Vtbl {
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOrigin2, IPhoneCallOrigin2_Vtbl, 0x04c7e980_9ac2_4768_b536_b68da4957d02);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IPhoneCallOrigin2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOrigin2_Vtbl {
@@ -30,13 +24,10 @@ pub struct IPhoneCallOrigin2_Vtbl {
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOrigin3, IPhoneCallOrigin3_Vtbl, 0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IPhoneCallOrigin3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOrigin3_Vtbl {
@@ -50,13 +41,10 @@ pub struct IPhoneCallOrigin3_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetDisplayPicture: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics, IPhoneCallOriginManagerStatics_Vtbl, 0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginManagerStatics_Vtbl {
@@ -65,39 +53,30 @@ pub struct IPhoneCallOriginManagerStatics_Vtbl {
     pub ShowPhoneCallOriginSettingsUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCallOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics2, IPhoneCallOriginManagerStatics2_Vtbl, 0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestSetAsActiveCallOriginAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics3, IPhoneCallOriginManagerStatics3_Vtbl, 0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhoneCallOrigin(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PhoneCallOrigin, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl PhoneCallOrigin {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -167,26 +146,19 @@ impl PhoneCallOrigin {
         unsafe { (windows_core::Interface::vtable(this).SetDisplayPicture)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PhoneCallOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallOrigin>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PhoneCallOrigin {
     type Vtable = <IPhoneCallOrigin as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallOrigin as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for PhoneCallOrigin {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for PhoneCallOrigin {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for PhoneCallOrigin {}
-#[cfg(feature = "deprecated")]
 pub struct PhoneCallOriginManager;
-#[cfg(feature = "deprecated")]
 impl PhoneCallOriginManager {
     pub fn IsCurrentAppActiveCallOriginApp() -> windows_core::Result<bool> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe {
@@ -228,7 +200,6 @@ impl PhoneCallOriginManager {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for PhoneCallOriginManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOriginManager";
 }

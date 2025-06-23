@@ -110,13 +110,10 @@ pub struct ISpatialAnchorStore_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISpatialAnchorTransferManagerStatics, ISpatialAnchorTransferManagerStatics_Vtbl, 0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISpatialAnchorTransferManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAnchorTransferManagerStatics_Vtbl {
@@ -289,13 +286,13 @@ pub struct ISpatialLocation_Vtbl {
     Orientation: usize,
     pub AbsoluteLinearVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub AbsoluteLinearAcceleration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub AbsoluteAngularVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     AbsoluteAngularVelocity: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub AbsoluteAngularAcceleration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Numerics::Quaternion) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     AbsoluteAngularAcceleration: usize,
 }
 windows_core::imp::define_interface!(ISpatialLocation2, ISpatialLocation2_Vtbl, 0x117f2416_38a7_4a18_b404_ab8fabe1d78b);
@@ -701,9 +698,7 @@ impl windows_core::RuntimeName for SpatialAnchorStore {
 }
 unsafe impl Send for SpatialAnchorStore {}
 unsafe impl Sync for SpatialAnchorStore {}
-#[cfg(feature = "deprecated")]
 pub struct SpatialAnchorTransferManager;
-#[cfg(feature = "deprecated")]
 impl SpatialAnchorTransferManager {
     #[cfg(feature = "Storage_Streams")]
     pub fn TryImportAnchorsAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, SpatialAnchor>>>
@@ -737,7 +732,6 @@ impl SpatialAnchorTransferManager {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SpatialAnchorTransferManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorTransferManager";
 }
@@ -1242,7 +1236,7 @@ impl SpatialLocation {
             (windows_core::Interface::vtable(this).AbsoluteLinearAcceleration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteAngularVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
@@ -1250,7 +1244,7 @@ impl SpatialLocation {
             (windows_core::Interface::vtable(this).AbsoluteAngularVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn AbsoluteAngularAcceleration(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {

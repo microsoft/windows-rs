@@ -78,68 +78,26 @@ pub struct ISecondaryTile_Vtbl {
     pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub SetShortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetShortName: usize,
-    #[cfg(feature = "deprecated")]
     pub ShortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ShortName: usize,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub SetLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetLogo: usize,
-    #[cfg(feature = "deprecated")]
     pub Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Logo: usize,
-    #[cfg(feature = "deprecated")]
     pub SetSmallLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetSmallLogo: usize,
-    #[cfg(feature = "deprecated")]
     pub SmallLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SmallLogo: usize,
-    #[cfg(feature = "deprecated")]
     pub SetWideLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetWideLogo: usize,
-    #[cfg(feature = "deprecated")]
     pub WideLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    WideLogo: usize,
     pub SetLockScreenBadgeLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LockScreenBadgeLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLockScreenDisplayBadgeAndTileText: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub LockScreenDisplayBadgeAndTileText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub SetTileOptions: unsafe extern "system" fn(*mut core::ffi::c_void, TileOptions) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetTileOptions: usize,
-    #[cfg(feature = "deprecated")]
     pub TileOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TileOptions) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    TileOptions: usize,
-    #[cfg(feature = "deprecated")]
     pub SetForegroundText: unsafe extern "system" fn(*mut core::ffi::c_void, ForegroundText) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetForegroundText: usize,
-    #[cfg(feature = "deprecated")]
     pub ForegroundText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ForegroundText) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ForegroundText: usize,
-    #[cfg(feature = "deprecated")]
     pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetBackgroundColor: usize,
-    #[cfg(feature = "deprecated")]
     pub BackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    BackgroundColor: usize,
     pub RequestCreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestCreateAsyncWithPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestCreateAsyncWithRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -180,14 +138,8 @@ impl windows_core::RuntimeType for ISecondaryTileFactory {
 #[doc(hidden)]
 pub struct ISecondaryTileFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub CreateTile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, TileOptions, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CreateTile: usize,
-    #[cfg(feature = "deprecated")]
     pub CreateWideTile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, TileOptions, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CreateWideTile: usize,
     pub CreateWithId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISecondaryTileFactory2, ISecondaryTileFactory2_Vtbl, 0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
@@ -221,22 +173,10 @@ impl windows_core::RuntimeType for ISecondaryTileVisualElements {
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub SetSquare30x30Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetSquare30x30Logo: usize,
-    #[cfg(feature = "deprecated")]
     pub Square30x30Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Square30x30Logo: usize,
-    #[cfg(feature = "deprecated")]
     pub SetSquare70x70Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetSquare70x70Logo: usize,
-    #[cfg(feature = "deprecated")]
     pub Square70x70Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Square70x70Logo: usize,
     pub SetSquare150x150Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Square150x150Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetWide310x150Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -621,12 +561,10 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetShortName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetShortName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ShortName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -645,7 +583,6 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -653,7 +590,6 @@ impl SecondaryTile {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -661,7 +597,6 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).Logo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetSmallLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -669,7 +604,6 @@ impl SecondaryTile {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSmallLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SmallLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -677,7 +611,6 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).SmallLogo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetWideLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -685,7 +618,6 @@ impl SecondaryTile {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWideLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn WideLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -718,12 +650,10 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).LockScreenDisplayBadgeAndTileText)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetTileOptions(&self, value: TileOptions) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTileOptions)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn TileOptions(&self) -> windows_core::Result<TileOptions> {
         let this = self;
         unsafe {
@@ -731,12 +661,10 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).TileOptions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetForegroundText(&self, value: ForegroundText) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForegroundText)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ForegroundText(&self) -> windows_core::Result<ForegroundText> {
         let this = self;
         unsafe {
@@ -744,12 +672,10 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).ForegroundText)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetBackgroundColor(&self, value: super::Color) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn BackgroundColor(&self) -> windows_core::Result<super::Color> {
         let this = self;
         unsafe {
@@ -865,7 +791,6 @@ impl SecondaryTile {
         let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveVisualElementsRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn CreateTile<P5>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5) -> windows_core::Result<SecondaryTile>
     where
         P5: windows_core::Param<super::super::Foundation::Uri>,
@@ -875,7 +800,6 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).CreateTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn CreateWideTile<P5, P6>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5, widelogoreference: P6) -> windows_core::Result<SecondaryTile>
     where
         P5: windows_core::Param<super::super::Foundation::Uri>,
@@ -955,7 +879,6 @@ unsafe impl Sync for SecondaryTile {}
 pub struct SecondaryTileVisualElements(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SecondaryTileVisualElements, windows_core::IUnknown, windows_core::IInspectable);
 impl SecondaryTileVisualElements {
-    #[cfg(feature = "deprecated")]
     pub fn SetSquare30x30Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -963,7 +886,6 @@ impl SecondaryTileVisualElements {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Square30x30Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -971,7 +893,6 @@ impl SecondaryTileVisualElements {
             (windows_core::Interface::vtable(this).Square30x30Logo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetSquare70x70Logo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -979,7 +900,6 @@ impl SecondaryTileVisualElements {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSquare70x70Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Square70x70Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {

@@ -1689,15 +1689,11 @@ impl windows_core::RuntimeName for DeviceConnectionChangeTrigger {
 }
 unsafe impl Send for DeviceConnectionChangeTrigger {}
 unsafe impl Sync for DeviceConnectionChangeTrigger {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceManufacturerNotificationTrigger(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DeviceManufacturerNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(DeviceManufacturerNotificationTrigger, IBackgroundTrigger);
-#[cfg(feature = "deprecated")]
 impl DeviceManufacturerNotificationTrigger {
     pub fn TriggerQualifier(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1724,16 +1720,13 @@ impl DeviceManufacturerNotificationTrigger {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for DeviceManufacturerNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceManufacturerNotificationTrigger>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for DeviceManufacturerNotificationTrigger {
     type Vtable = <IDeviceManufacturerNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceManufacturerNotificationTrigger as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
 }
@@ -3503,13 +3496,10 @@ pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IDeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTrigger_Vtbl, 0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IDeviceManufacturerNotificationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
@@ -3517,13 +3507,10 @@ pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
     pub TriggerQualifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OneShot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IDeviceManufacturerNotificationTriggerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTriggerFactory_Vtbl {
@@ -3850,13 +3837,10 @@ pub struct IRfcommConnectionTrigger_Vtbl {
     #[cfg(not(feature = "Networking"))]
     SetRemoteHostName: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISecondaryAuthenticationFactorAuthenticationTrigger, ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl, 0xf237f327_5181_4f24_96a7_700a4e5fac62);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISecondaryAuthenticationFactorAuthenticationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl {
@@ -4634,15 +4618,11 @@ impl windows_core::RuntimeName for RfcommConnectionTrigger {
 }
 unsafe impl Send for RfcommConnectionTrigger {}
 unsafe impl Sync for RfcommConnectionTrigger {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SecondaryAuthenticationFactorAuthenticationTrigger(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, IBackgroundTrigger);
-#[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4652,16 +4632,13 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryAuthenticationFactorAuthenticationTrigger>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
 }

@@ -322,13 +322,10 @@ pub struct IImageDisplayProperties_Vtbl {
     pub Subtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSubtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IMediaControl, IMediaControl_Vtbl, 0x98f1fbe1_7a8d_42cb_b6fe_8fe698264f13);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IMediaControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaControl_Vtbl {
@@ -1296,9 +1293,7 @@ impl windows_core::RuntimeName for ImageDisplayProperties {
 }
 unsafe impl Send for ImageDisplayProperties {}
 unsafe impl Sync for ImageDisplayProperties {}
-#[cfg(feature = "deprecated")]
 pub struct MediaControl;
-#[cfg(feature = "deprecated")]
 impl MediaControl {
     pub fn SoundLevelChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
@@ -1494,7 +1489,6 @@ impl MediaControl {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for MediaControl {
     const NAME: &'static str = "Windows.Media.MediaControl";
 }

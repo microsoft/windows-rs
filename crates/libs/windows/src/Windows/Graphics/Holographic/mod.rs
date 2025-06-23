@@ -642,15 +642,11 @@ impl windows_core::TypeKind for HolographicFramePresentWaitBehavior {
 impl windows_core::RuntimeType for HolographicFramePresentWaitBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFramePresentationMonitor(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationMonitor, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(HolographicFramePresentationMonitor, super::super::Foundation::IClosable);
-#[cfg(feature = "deprecated")]
 impl HolographicFramePresentationMonitor {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -664,30 +660,22 @@ impl HolographicFramePresentationMonitor {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for HolographicFramePresentationMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePresentationMonitor>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicFramePresentationMonitor {
     type Vtable = <IHolographicFramePresentationMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePresentationMonitor as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for HolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for HolographicFramePresentationMonitor {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for HolographicFramePresentationMonitor {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFramePresentationReport(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationReport, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl HolographicFramePresentationReport {
     pub fn CompositorGpuDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -725,22 +713,17 @@ impl HolographicFramePresentationReport {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for HolographicFramePresentationReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePresentationReport>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicFramePresentationReport {
     type Vtable = <IHolographicFramePresentationReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePresentationReport as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for HolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationReport";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for HolographicFramePresentationReport {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for HolographicFramePresentationReport {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1097,7 +1080,6 @@ impl HolographicSpace {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).WaitForNextFrameReadyWithHeadStart)(windows_core::Interface::as_raw(this), requestedheadstartduration).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn CreateFramePresentationMonitor(&self, maxqueuedreports: u32) -> windows_core::Result<HolographicFramePresentationMonitor> {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
@@ -1670,26 +1652,20 @@ pub struct IHolographicFramePrediction_Vtbl {
     #[cfg(not(feature = "Perception"))]
     Timestamp: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IHolographicFramePresentationMonitor, IHolographicFramePresentationMonitor_Vtbl, 0xca87256c_6fae_428e_bb83_25dfee51136b);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IHolographicFramePresentationMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadReports: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IHolographicFramePresentationReport, IHolographicFramePresentationReport_Vtbl, 0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IHolographicFramePresentationReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationReport_Vtbl {
@@ -1836,10 +1812,7 @@ pub struct IHolographicSpace2_Vtbl {
     pub RemoveUserPresenceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub WaitForNextFrameReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WaitForNextFrameReadyWithHeadStart: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub CreateFramePresentationMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CreateFramePresentationMonitor: usize,
 }
 windows_core::imp::define_interface!(IHolographicSpace3, IHolographicSpace3_Vtbl, 0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
 impl windows_core::RuntimeType for IHolographicSpace3 {
