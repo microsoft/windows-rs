@@ -75,7 +75,7 @@ impl Interface {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(self.def, &self.dependencies(), config);
+        let cfg = Cfg::new(&self.dependencies(), config);
         let tokens = cfg.write(config, false);
         (cfg, tokens)
     }
@@ -103,7 +103,7 @@ impl Interface {
                     let name = virtual_names.add(method.def);
                     let vtbl = method.write_abi(config, false);
 
-                    let method_cfg = class_cfg.difference(method.def, &method.dependencies, config);
+                    let method_cfg = class_cfg.difference(&method.dependencies, config);
                     let yes = method_cfg.write(config, false);
 
                     if yes.is_empty() {
@@ -364,7 +364,7 @@ impl Interface {
                         .iter()
                         .for_each(|interface| combine(interface, &mut dependencies, config));
 
-                    Cfg::new(self.def, &dependencies, config).write(config, false)
+                    Cfg::new(&dependencies, config).write(config, false)
                 } else {
                     quote! {}
                 };
