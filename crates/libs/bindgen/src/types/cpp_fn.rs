@@ -64,7 +64,7 @@ impl CppFn {
             return quote! {};
         }
 
-        Cfg::new(self.method, &self.dependencies(), config).write(config, false)
+        Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
     pub fn write(&self, config: &Config<'_>) -> TokenStream {

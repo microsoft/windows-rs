@@ -379,9 +379,7 @@ impl windows_core::TypeKind for FileProtectionStatus {
 impl windows_core::RuntimeType for FileProtectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
 }
-#[cfg(feature = "deprecated")]
 pub struct FileRevocationManager;
-#[cfg(feature = "deprecated")]
 impl FileRevocationManager {
     #[cfg(feature = "Storage")]
     pub fn ProtectAsync<P0>(storageitem: P0, enterpriseidentity: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<FileProtectionStatus>>
@@ -422,7 +420,6 @@ impl FileRevocationManager {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for FileRevocationManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileRevocationManager";
 }
@@ -620,13 +617,10 @@ pub struct IFileProtectionManagerStatics3_Vtbl {
     #[cfg(not(feature = "Storage"))]
     UnprotectWithOptionsAsync: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IFileRevocationManagerStatics, IFileRevocationManagerStatics_Vtbl, 0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IFileRevocationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileRevocationManagerStatics_Vtbl {

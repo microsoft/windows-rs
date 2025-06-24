@@ -35,7 +35,6 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["std"]
 docs = []
-deprecated = []
 std = ["windows-core/std"]
 # generated features
 AI = ["Foundation"]

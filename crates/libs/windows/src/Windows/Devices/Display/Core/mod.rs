@@ -1970,7 +1970,6 @@ impl DisplayTaskPool {
             (windows_core::Interface::vtable(this).CreateTask)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ExecuteTask<P0>(&self, task: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<DisplayTask>,
@@ -2795,10 +2794,7 @@ impl windows_core::RuntimeType for IDisplayTaskPool {
 pub struct IDisplayTaskPool_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub ExecuteTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ExecuteTask: usize,
 }
 windows_core::imp::define_interface!(IDisplayTaskPool2, IDisplayTaskPool2_Vtbl, 0x46b879b6_5d17_5955_a872_eb38003db586);
 impl windows_core::RuntimeType for IDisplayTaskPool2 {

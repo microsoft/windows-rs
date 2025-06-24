@@ -51,7 +51,7 @@ impl CppStruct {
             return quote! {};
         }
 
-        Cfg::new(self.def, &self.dependencies(), config).write(config, false)
+        Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
     pub fn write(&self, config: &Config<'_>) -> TokenStream {
