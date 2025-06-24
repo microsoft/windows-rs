@@ -10085,7 +10085,7 @@ pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
 pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
 pub type MI_MainFunction = Option<unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct MI_MethodDecl {
     pub flags: u32,
     pub code: u32,
@@ -10108,7 +10108,7 @@ impl Default for MI_MethodDecl {
 }
 pub type MI_MethodDecl_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct MI_Module {
     pub version: u32,
     pub generatorVersion: u32,
@@ -10185,7 +10185,7 @@ pub type MI_OperationCallback_WriteError = Option<unsafe extern "system" fn(oper
 pub type MI_OperationCallback_WriteMessage = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, channel: u32, message: *const u16)>;
 pub type MI_OperationCallback_WriteProgress = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub promptUser: MI_OperationCallback_PromptUser,
@@ -10334,7 +10334,7 @@ pub struct MI_PropertySetFT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_ProviderArchitecture(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct MI_ProviderFT {
     pub Load: MI_ProviderFT_Load,
     pub Unload: MI_ProviderFT_Unload,

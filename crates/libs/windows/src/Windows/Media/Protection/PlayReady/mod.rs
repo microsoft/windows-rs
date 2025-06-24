@@ -1,10 +1,7 @@
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDClient, INDClient_Vtbl, 0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClient_Vtbl {
@@ -24,28 +21,21 @@ pub struct INDClient_Vtbl {
     pub ReRegistrationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDClientFactory, INDClientFactory_Vtbl, 0x3e53dd62_fee8_451f_b0d4_f706cca3e037);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDClientFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClientFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDClosedCaptionDataReceivedEventArgs, INDClosedCaptionDataReceivedEventArgs_Vtbl, 0x4738d29f_c345_4649_8468_b8c5fc357190);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDClosedCaptionDataReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDClosedCaptionDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDClosedCaptionDataReceivedEventArgs {
     pub fn ClosedCaptionDataFormat(&self) -> windows_core::Result<NDClosedCaptionFormat> {
         let this = self;
@@ -69,17 +59,14 @@ impl INDClosedCaptionDataReceivedEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDClosedCaptionDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDClosedCaptionDataReceivedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ClosedCaptionDataFormat(&self) -> windows_core::Result<NDClosedCaptionFormat>;
     fn PresentationTimestamp(&self) -> windows_core::Result<i64>;
     fn ClosedCaptionData(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
-#[cfg(feature = "deprecated")]
 impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
     pub const fn new<Identity: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ClosedCaptionDataFormat<Identity: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDClosedCaptionFormat) -> windows_core::HRESULT {
@@ -131,7 +118,6 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         iid == &<INDClosedCaptionDataReceivedEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClosedCaptionDataReceivedEventArgs_Vtbl {
@@ -140,15 +126,11 @@ pub struct INDClosedCaptionDataReceivedEventArgs_Vtbl {
     pub PresentationTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub ClosedCaptionData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDCustomData, INDCustomData_Vtbl, 0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDCustomData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDCustomData, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDCustomData {
     pub fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>> {
         let this = self;
@@ -165,16 +147,13 @@ impl INDCustomData {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDCustomData";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDCustomData_Impl: windows_core::IUnknownImpl {
     fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
-#[cfg(feature = "deprecated")]
 impl INDCustomData_Vtbl {
     pub const fn new<Identity: INDCustomData_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CustomDataTypeID<Identity: INDCustomData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
@@ -215,7 +194,6 @@ impl INDCustomData_Vtbl {
         iid == &<INDCustomData as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDCustomData_Vtbl {
@@ -223,28 +201,21 @@ pub struct INDCustomData_Vtbl {
     pub CustomDataTypeID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub CustomData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDCustomDataFactory, INDCustomDataFactory_Vtbl, 0xd65405ab_3424_4833_8c9a_af5fdeb22872);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDCustomDataFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDCustomDataFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDDownloadEngine, INDDownloadEngine_Vtbl, 0x2d223d65_c4b6_4438_8d46_b96e6d0fb21f);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDDownloadEngine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDDownloadEngine, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDDownloadEngine {
     pub fn Open<P0>(&self, uri: P0, sessionidbytes: &[u8]) -> windows_core::Result<()>
     where
@@ -298,11 +269,9 @@ impl INDDownloadEngine {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDDownloadEngine {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngine";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
     fn Open(&self, uri: windows_core::Ref<'_, super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -314,7 +283,6 @@ pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
     fn BufferFullMaxThresholdInSamples(&self) -> windows_core::Result<u32>;
     fn Notifier(&self) -> windows_core::Result<NDDownloadEngineNotifier>;
 }
-#[cfg(feature = "deprecated")]
 impl INDDownloadEngine_Vtbl {
     pub const fn new<Identity: INDDownloadEngine_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8) -> windows_core::HRESULT {
@@ -413,7 +381,6 @@ impl INDDownloadEngine_Vtbl {
         iid == &<INDDownloadEngine as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngine_Vtbl {
@@ -428,15 +395,11 @@ pub struct INDDownloadEngine_Vtbl {
     pub BufferFullMaxThresholdInSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Notifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDDownloadEngineNotifier, INDDownloadEngineNotifier_Vtbl, 0xd720b4d4_f4b8_4530_a809_9193a571e7fc);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDDownloadEngineNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDDownloadEngineNotifier {
     pub fn OnStreamOpened(&self) -> windows_core::Result<()> {
         let this = self;
@@ -466,11 +429,9 @@ impl INDDownloadEngineNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnNetworkError)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
     fn OnStreamOpened(&self) -> windows_core::Result<()>;
     fn OnPlayReadyObjectReceived(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
@@ -479,7 +440,6 @@ pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
     fn OnEndOfStream(&self) -> windows_core::Result<()>;
     fn OnNetworkError(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "deprecated")]
 impl INDDownloadEngineNotifier_Vtbl {
     pub const fn new<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStreamOpened<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -532,7 +492,6 @@ impl INDDownloadEngineNotifier_Vtbl {
         iid == &<INDDownloadEngineNotifier as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngineNotifier_Vtbl {
@@ -544,15 +503,11 @@ pub struct INDDownloadEngineNotifier_Vtbl {
     pub OnEndOfStream: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnNetworkError: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchCompletedEventArgs, INDLicenseFetchCompletedEventArgs_Vtbl, 0x1ee30a1a_11b2_4558_8865_e3a516922517);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDLicenseFetchCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDLicenseFetchCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDLicenseFetchCompletedEventArgs {
     pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
         let this = self;
@@ -562,15 +517,12 @@ impl INDLicenseFetchCompletedEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDLicenseFetchCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
 }
-#[cfg(feature = "deprecated")]
 impl INDLicenseFetchCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResponseCustomData<Identity: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -595,22 +547,17 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
         iid == &<INDLicenseFetchCompletedEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResponseCustomData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchDescriptor, INDLicenseFetchDescriptor_Vtbl, 0x5498d33a_e686_4935_a567_7ca77ad20fa4);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDLicenseFetchDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDLicenseFetchDescriptor {
     pub fn ContentIDType(&self) -> windows_core::Result<NDContentIDType> {
         let this = self;
@@ -641,18 +588,15 @@ impl INDLicenseFetchDescriptor {
         unsafe { (windows_core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), licensefetchchallengecustomdata.param().abi()).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
     fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
     fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
     fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<'_, INDCustomData>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "deprecated")]
 impl INDLicenseFetchDescriptor_Vtbl {
     pub const fn new<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ContentIDType<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDContentIDType) -> windows_core::HRESULT {
@@ -712,7 +656,6 @@ impl INDLicenseFetchDescriptor_Vtbl {
         iid == &<INDLicenseFetchDescriptor as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchDescriptor_Vtbl {
@@ -722,28 +665,21 @@ pub struct INDLicenseFetchDescriptor_Vtbl {
     pub LicenseFetchChallengeCustomData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLicenseFetchChallengeCustomData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchDescriptorFactory, INDLicenseFetchDescriptorFactory_Vtbl, 0xd0031202_cfac_4f00_ae6a_97af80b848f2);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDLicenseFetchDescriptorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchDescriptorFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, NDContentIDType, u32, *const u8, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDLicenseFetchResult, INDLicenseFetchResult_Vtbl, 0x21d39698_aa62_45ff_a5ff_8037e5433825);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDLicenseFetchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDLicenseFetchResult, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDLicenseFetchResult {
     pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
         let this = self;
@@ -753,15 +689,12 @@ impl INDLicenseFetchResult {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDLicenseFetchResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchResult";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchResult_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
 }
-#[cfg(feature = "deprecated")]
 impl INDLicenseFetchResult_Vtbl {
     pub const fn new<Identity: INDLicenseFetchResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResponseCustomData<Identity: INDLicenseFetchResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -786,22 +719,17 @@ impl INDLicenseFetchResult_Vtbl {
         iid == &<INDLicenseFetchResult as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ResponseCustomData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDMessenger, INDMessenger_Vtbl, 0xd42df95d_a75b_47bf_8249_bc83820da38a);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDMessenger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDMessenger, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDMessenger {
     pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -832,18 +760,15 @@ impl INDMessenger {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDMessenger";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDMessenger_Impl: windows_core::IUnknownImpl {
     fn SendRegistrationRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], responseDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
     fn SendLicenseFetchRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
 }
-#[cfg(feature = "deprecated")]
 impl INDMessenger_Vtbl {
     pub const fn new<Identity: INDMessenger_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendRegistrationRequestAsync<Identity: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8, challengedatabytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -910,7 +835,6 @@ impl INDMessenger_Vtbl {
         iid == &<INDMessenger as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDMessenger_Vtbl {
@@ -920,15 +844,11 @@ pub struct INDMessenger_Vtbl {
     pub SendProximityDetectionResponseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, NDProximityDetectionType, u32, *const u8, u32, *const u8, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendLicenseFetchRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDProximityDetectionCompletedEventArgs, INDProximityDetectionCompletedEventArgs_Vtbl, 0x2a706328_da25_4f8c_9eb7_5d0fc3658bca);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDProximityDetectionCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDProximityDetectionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDProximityDetectionCompletedEventArgs {
     pub fn ProximityDetectionRetryCount(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -938,15 +858,12 @@ impl INDProximityDetectionCompletedEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDProximityDetectionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDProximityDetectionCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ProximityDetectionRetryCount(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "deprecated")]
 impl INDProximityDetectionCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDProximityDetectionCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProximityDetectionRetryCount<Identity: INDProximityDetectionCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
@@ -970,22 +887,17 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
         iid == &<INDProximityDetectionCompletedEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDProximityDetectionCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProximityDetectionRetryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDRegistrationCompletedEventArgs, INDRegistrationCompletedEventArgs_Vtbl, 0x9e39b64d_ab5b_4905_acdc_787a77c6374d);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDRegistrationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDRegistrationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDRegistrationCompletedEventArgs {
     pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
         let this = self;
@@ -1013,18 +925,15 @@ impl INDRegistrationCompletedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetTransmitterCertificateAccepted)(windows_core::Interface::as_raw(this), accept).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDRegistrationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDRegistrationCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
     fn TransmitterProperties(&self) -> windows_core::Result<INDTransmitterProperties>;
     fn TransmitterCertificateAccepted(&self) -> windows_core::Result<bool>;
     fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()>;
 }
-#[cfg(feature = "deprecated")]
 impl INDRegistrationCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResponseCustomData<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1083,7 +992,6 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         iid == &<INDRegistrationCompletedEventArgs as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDRegistrationCompletedEventArgs_Vtbl {
@@ -1093,15 +1001,11 @@ pub struct INDRegistrationCompletedEventArgs_Vtbl {
     pub TransmitterCertificateAccepted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetTransmitterCertificateAccepted: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDSendResult, INDSendResult_Vtbl, 0xe3685517_a584_479d_90b7_d689c7bf7c80);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDSendResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDSendResult, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDSendResult {
     pub fn Response(&self) -> windows_core::Result<windows_core::Array<u8>> {
         let this = self;
@@ -1111,15 +1015,12 @@ impl INDSendResult {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDSendResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDSendResult";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDSendResult_Impl: windows_core::IUnknownImpl {
     fn Response(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
-#[cfg(feature = "deprecated")]
 impl INDSendResult_Vtbl {
     pub const fn new<Identity: INDSendResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Response<Identity: INDSendResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
@@ -1142,22 +1043,17 @@ impl INDSendResult_Vtbl {
         iid == &<INDSendResult as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDSendResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Response: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStartResult, INDStartResult_Vtbl, 0x79f6e96e_f50f_4015_8ba4_c2bc344ebd4e);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDStartResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStartResult, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDStartResult {
     #[cfg(feature = "Media_Core")]
     pub fn MediaStreamSource(&self) -> windows_core::Result<super::super::Core::MediaStreamSource> {
@@ -1168,15 +1064,15 @@ impl INDStartResult {
         }
     }
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeName for INDStartResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStartResult";
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 pub trait INDStartResult_Impl: windows_core::IUnknownImpl {
     fn MediaStreamSource(&self) -> windows_core::Result<super::super::Core::MediaStreamSource>;
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 impl INDStartResult_Vtbl {
     pub const fn new<Identity: INDStartResult_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MediaStreamSource<Identity: INDStartResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1198,7 +1094,6 @@ impl INDStartResult_Vtbl {
         iid == &<INDStartResult as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStartResult_Vtbl {
@@ -1208,15 +1103,11 @@ pub struct INDStartResult_Vtbl {
     #[cfg(not(feature = "Media_Core"))]
     MediaStreamSource: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStorageFileHelper, INDStorageFileHelper_Vtbl, 0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDStorageFileHelper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDStorageFileHelper {
     #[cfg(feature = "Storage_Streams")]
     pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>
@@ -1230,15 +1121,15 @@ impl INDStorageFileHelper {
         }
     }
 }
-#[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeName for INDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStorageFileHelper";
 }
-#[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(feature = "Storage_Streams")]
 pub trait INDStorageFileHelper_Impl: windows_core::IUnknownImpl {
     fn GetFileURLs(&self, file: windows_core::Ref<'_, super::super::super::Storage::IStorageFile>) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
 }
-#[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
+#[cfg(feature = "Storage_Streams")]
 impl INDStorageFileHelper_Vtbl {
     pub const fn new<Identity: INDStorageFileHelper_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFileURLs<Identity: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1260,7 +1151,6 @@ impl INDStorageFileHelper_Vtbl {
         iid == &<INDStorageFileHelper as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStorageFileHelper_Vtbl {
@@ -1270,15 +1160,11 @@ pub struct INDStorageFileHelper_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetFileURLs: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStreamParser, INDStreamParser_Vtbl, 0xe0baa198_9796_41c9_8695_59437e67e66a);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDStreamParser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStreamParser, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDStreamParser {
     pub fn ParseData(&self, databytes: &[u8]) -> windows_core::Result<()> {
         let this = self;
@@ -1311,11 +1197,11 @@ impl INDStreamParser {
         }
     }
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeName for INDStreamParser {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStreamParser";
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
     fn ParseData(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
     fn GetStreamInformation(&self, descriptor: windows_core::Ref<'_, super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
@@ -1323,7 +1209,7 @@ pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
     fn EndOfStream(&self) -> windows_core::Result<()>;
     fn Notifier(&self) -> windows_core::Result<NDStreamParserNotifier>;
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 impl INDStreamParser_Vtbl {
     pub const fn new<Identity: INDStreamParser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ParseData<Identity: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8) -> windows_core::HRESULT {
@@ -1382,7 +1268,6 @@ impl INDStreamParser_Vtbl {
         iid == &<INDStreamParser as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStreamParser_Vtbl {
@@ -1396,15 +1281,11 @@ pub struct INDStreamParser_Vtbl {
     pub EndOfStream: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Notifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDStreamParserNotifier, INDStreamParserNotifier_Vtbl, 0xc167acd0_2ce6_426c_ace5_5e9275fea715);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDStreamParserNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDStreamParserNotifier {
     pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<()>
     where
@@ -1439,18 +1320,18 @@ impl INDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(windows_core::Interface::as_raw(this), descriptor.param().abi(), keyid, probytes.len().try_into().unwrap(), probytes.as_ptr()).ok() }
     }
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 impl windows_core::RuntimeName for INDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStreamParserNotifier";
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
     fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<'_, INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
     fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<'_, windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<'_, windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
     fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<'_, super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
     fn OnBeginSetupDecryptor(&self, descriptor: windows_core::Ref<'_, super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Media_Core", feature = "deprecated"))]
+#[cfg(feature = "Media_Core")]
 impl INDStreamParserNotifier_Vtbl {
     pub const fn new<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnContentIDReceived<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1489,7 +1370,6 @@ impl INDStreamParserNotifier_Vtbl {
         iid == &<INDStreamParserNotifier as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStreamParserNotifier_Vtbl {
@@ -1508,28 +1388,21 @@ pub struct INDStreamParserNotifier_Vtbl {
     #[cfg(not(feature = "Media_Core"))]
     OnBeginSetupDecryptor: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDTCPMessengerFactory, INDTCPMessengerFactory_Vtbl, 0x7dd85cfe_1b99_4f68_8f82_8177f7cedf2b);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDTCPMessengerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDTCPMessengerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(INDTransmitterProperties, INDTransmitterProperties_Vtbl, 0xe536af23_ac4f_4adc_8c66_4ff7c2702dd6);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for INDTransmitterProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDTransmitterProperties, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl INDTransmitterProperties {
     pub fn CertificateType(&self) -> windows_core::Result<NDCertificateType> {
         let this = self;
@@ -1609,11 +1482,9 @@ impl INDTransmitterProperties {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for INDTransmitterProperties {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDTransmitterProperties";
 }
-#[cfg(feature = "deprecated")]
 pub trait INDTransmitterProperties_Impl: windows_core::IUnknownImpl {
     fn CertificateType(&self) -> windows_core::Result<NDCertificateType>;
     fn PlatformIdentifier(&self) -> windows_core::Result<NDCertificatePlatformID>;
@@ -1627,7 +1498,6 @@ pub trait INDTransmitterProperties_Impl: windows_core::IUnknownImpl {
     fn ModelName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ModelNumber(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
-#[cfg(feature = "deprecated")]
 impl INDTransmitterProperties_Vtbl {
     pub const fn new<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CertificateType<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDCertificateType) -> windows_core::HRESULT {
@@ -1790,7 +1660,6 @@ impl INDTransmitterProperties_Vtbl {
         iid == &<INDTransmitterProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDTransmitterProperties_Vtbl {
@@ -3253,13 +3122,10 @@ impl windows_core::TypeKind for NDCertificateType {
 impl windows_core::RuntimeType for NDCertificateType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDClient(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDClient, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl NDClient {
     pub fn RegistrationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -3383,16 +3249,13 @@ impl NDClient {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDClient>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDClient {
     type Vtable = <INDClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDClient as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for NDClient {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDClient";
 }
@@ -3424,13 +3287,10 @@ impl windows_core::TypeKind for NDContentIDType {
 impl windows_core::RuntimeType for NDContentIDType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDCustomData(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDCustomData, windows_core::IUnknown, windows_core::IInspectable, INDCustomData);
-#[cfg(feature = "deprecated")]
 impl NDCustomData {
     pub fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>> {
         let this = self;
@@ -3457,26 +3317,20 @@ impl NDCustomData {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDCustomData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDCustomData>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDCustomData {
     type Vtable = <INDCustomData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDCustomData as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for NDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDCustomData";
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDDownloadEngineNotifier(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable, INDDownloadEngineNotifier);
-#[cfg(feature = "deprecated")]
 impl NDDownloadEngineNotifier {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3513,26 +3367,20 @@ impl NDDownloadEngineNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnNetworkError)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDDownloadEngineNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDDownloadEngineNotifier>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDDownloadEngineNotifier {
     type Vtable = <INDDownloadEngineNotifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDDownloadEngineNotifier as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for NDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier";
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDLicenseFetchDescriptor(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable, INDLicenseFetchDescriptor);
-#[cfg(feature = "deprecated")]
 impl NDLicenseFetchDescriptor {
     pub fn ContentIDType(&self) -> windows_core::Result<NDContentIDType> {
         let this = self;
@@ -3576,16 +3424,13 @@ impl NDLicenseFetchDescriptor {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDLicenseFetchDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDLicenseFetchDescriptor>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDLicenseFetchDescriptor {
     type Vtable = <INDLicenseFetchDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDLicenseFetchDescriptor as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for NDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor";
 }
@@ -3629,13 +3474,10 @@ impl windows_core::TypeKind for NDStartAsyncOptions {
 impl windows_core::RuntimeType for NDStartAsyncOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDStartAsyncOptions;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDStorageFileHelper(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable, INDStorageFileHelper);
-#[cfg(feature = "deprecated")]
 impl NDStorageFileHelper {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3656,26 +3498,20 @@ impl NDStorageFileHelper {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDStorageFileHelper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStorageFileHelper>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDStorageFileHelper {
     type Vtable = <INDStorageFileHelper as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDStorageFileHelper as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for NDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStorageFileHelper";
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDStreamParserNotifier(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable, INDStreamParserNotifier);
-#[cfg(feature = "deprecated")]
 impl NDStreamParserNotifier {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3717,26 +3553,20 @@ impl NDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(windows_core::Interface::as_raw(this), descriptor.param().abi(), keyid, probytes.len().try_into().unwrap(), probytes.as_ptr()).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDStreamParserNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStreamParserNotifier>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDStreamParserNotifier {
     type Vtable = <INDStreamParserNotifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDStreamParserNotifier as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for NDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStreamParserNotifier";
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDTCPMessenger(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDTCPMessenger, windows_core::IUnknown, windows_core::IInspectable, INDMessenger);
-#[cfg(feature = "deprecated")]
 impl NDTCPMessenger {
     pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -3777,16 +3607,13 @@ impl NDTCPMessenger {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for NDTCPMessenger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDMessenger>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDTCPMessenger {
     type Vtable = <INDMessenger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDMessenger as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for NDTCPMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDTCPMessenger";
 }

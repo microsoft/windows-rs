@@ -111,7 +111,7 @@ pub const WLX_DESKTOP_NAME: u32 = 1u32;
 pub const WLX_DIRECTORY_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -129,7 +129,7 @@ pub struct WLX_DISPATCH_VERSION_1_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -151,7 +151,7 @@ pub struct WLX_DISPATCH_VERSION_1_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -174,7 +174,7 @@ pub struct WLX_DISPATCH_VERSION_1_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -204,7 +204,7 @@ pub struct WLX_DISPATCH_VERSION_1_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -249,7 +249,7 @@ pub struct WLX_MPR_NOTIFY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct WLX_NOTIFICATION_INFO {
     pub Size: u32,
     pub Flags: u32,

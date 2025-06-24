@@ -51,7 +51,7 @@ impl CppStruct {
             return quote! {};
         }
 
-        Cfg::new(self.def, &self.dependencies(), config).write(config, false)
+        Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
     pub fn write(&self, config: &Config<'_>) -> TokenStream {
@@ -146,7 +146,11 @@ impl CppStruct {
         }
 
         if !config.sys && !has_explicit_layout && !has_packing {
-            derive.extend(["Debug", "PartialEq"]);
+            derive.extend(["Debug"]);
+
+            if !self.has_cpp_delegate() {
+                derive.extend(["PartialEq"]);
+            }
         }
 
         let default = if self.can_derive_default(config) {
@@ -261,6 +265,13 @@ impl CppStruct {
                     )
                 }
             })
+    }
+
+    pub fn has_cpp_delegate(&self) -> bool {
+        self.def.fields().any(|field| {
+            let ty = field.ty(Some(self));
+            ty.has_cpp_delegate()
+        })
     }
 
     pub fn is_copyable(&self) -> bool {

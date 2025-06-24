@@ -293,7 +293,6 @@ unsafe impl Sync for Geocircle {}
 pub struct Geocoordinate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geocoordinate, windows_core::IUnknown, windows_core::IInspectable);
 impl Geocoordinate {
-    #[cfg(feature = "deprecated")]
     pub fn Latitude(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
@@ -301,7 +300,6 @@ impl Geocoordinate {
             (windows_core::Interface::vtable(this).Latitude)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Longitude(&self) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
@@ -309,7 +307,6 @@ impl Geocoordinate {
             (windows_core::Interface::vtable(this).Longitude)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Altitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -1073,18 +1070,9 @@ impl windows_core::RuntimeType for IGeocoordinate {
 #[doc(hidden)]
 pub struct IGeocoordinate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub Latitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Latitude: usize,
-    #[cfg(feature = "deprecated")]
     pub Longitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Longitude: usize,
-    #[cfg(feature = "deprecated")]
     pub Altitude: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Altitude: usize,
     pub Accuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub AltitudeAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Heading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

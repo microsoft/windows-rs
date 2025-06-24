@@ -664,7 +664,7 @@ pub const ETW_NULL_TYPE_VALUE: u32 = 0u32;
 pub const ETW_OBJECT_TYPE_VALUE: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
     pub EventCallback: PEVENT_RECORD_CALLBACK,

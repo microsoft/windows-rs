@@ -3238,15 +3238,15 @@ unsafe impl windows_core::Interface for WebUIFileOpenPickerActivatedEventArgs {
 impl windows_core::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs";
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3301,16 +3301,16 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>();
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileOpenPickerContinuationEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs";
 }
@@ -3396,15 +3396,15 @@ unsafe impl windows_core::Interface for WebUIFileSavePickerActivatedEventArgs {
 impl windows_core::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs";
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFileSavePickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(WebUIFileSavePickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3459,28 +3459,28 @@ impl WebUIFileSavePickerContinuationEventArgs {
         }
     }
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>();
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileSavePickerContinuationEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs";
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFolderPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(WebUIFolderPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFolderPickerContinuationEventArgs {
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3535,16 +3535,16 @@ impl WebUIFolderPickerContinuationEventArgs {
         }
     }
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>();
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFolderPickerContinuationEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for WebUIFolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs";
 }
@@ -5318,15 +5318,15 @@ unsafe impl windows_core::Interface for WebUIVoiceCommandActivatedEventArgs {
 impl windows_core::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs";
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIWalletActionActivatedEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(WebUIWalletActionActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWalletActionActivatedEventArgs {
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5379,16 +5379,16 @@ impl WebUIWalletActionActivatedEventArgs {
         }
     }
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for WebUIWalletActionActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>();
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIWalletActionActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for WebUIWalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs";
 }

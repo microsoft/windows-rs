@@ -12,15 +12,10 @@ impl windows_core::TypeKind for CellularClass {
 impl windows_core::RuntimeType for CellularClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
 }
-#[cfg(feature = "deprecated")]
 pub type DeleteSmsMessageOperation = windows_future::IAsyncAction;
-#[cfg(feature = "deprecated")]
 pub type DeleteSmsMessagesOperation = windows_future::IAsyncAction;
-#[cfg(feature = "deprecated")]
 pub type GetSmsDeviceOperation = windows_future::IAsyncOperation<SmsDevice>;
-#[cfg(feature = "deprecated")]
 pub type GetSmsMessageOperation = windows_future::IAsyncOperation<ISmsMessage>;
-#[cfg(feature = "deprecated")]
 pub type GetSmsMessagesOperation = windows_future::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>;
 windows_core::imp::define_interface!(ISmsAppMessage, ISmsAppMessage_Vtbl, 0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 impl windows_core::RuntimeType for ISmsAppMessage {
@@ -59,17 +54,12 @@ pub struct ISmsAppMessage_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetBinaryBody: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsBinaryMessage, ISmsBinaryMessage_Vtbl, 0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsBinaryMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(ISmsBinaryMessage, ISmsMessage);
-#[cfg(feature = "deprecated")]
 impl ISmsBinaryMessage {
     pub fn Format(&self) -> windows_core::Result<SmsDataFormat> {
         let this = self;
@@ -108,18 +98,15 @@ impl ISmsBinaryMessage {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ISmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsBinaryMessage";
 }
-#[cfg(feature = "deprecated")]
 pub trait ISmsBinaryMessage_Impl: ISmsMessage_Impl {
     fn Format(&self) -> windows_core::Result<SmsDataFormat>;
     fn SetFormat(&self, value: SmsDataFormat) -> windows_core::Result<()>;
     fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn SetData(&self, value: &[u8]) -> windows_core::Result<()>;
 }
-#[cfg(feature = "deprecated")]
 impl ISmsBinaryMessage_Vtbl {
     pub const fn new<Identity: ISmsBinaryMessage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Format<Identity: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SmsDataFormat) -> windows_core::HRESULT {
@@ -172,7 +159,6 @@ impl ISmsBinaryMessage_Vtbl {
         iid == &<ISmsBinaryMessage as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsBinaryMessage_Vtbl {
@@ -201,15 +187,11 @@ pub struct ISmsBroadcastMessage_Vtbl {
     pub IsEmergencyAlert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsUserPopupRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDevice, ISmsDevice_Vtbl, 0x091791ed_872b_4eec_9c72_ab11627b34ec);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISmsDevice, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl ISmsDevice {
     pub fn SendMessageAsync<P0>(&self, message: P0) -> windows_core::Result<SendSmsMessageOperation>
     where
@@ -288,11 +270,9 @@ impl ISmsDevice {
         unsafe { (windows_core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ISmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDevice";
 }
-#[cfg(feature = "deprecated")]
 pub trait ISmsDevice_Impl: windows_core::IUnknownImpl {
     fn SendMessageAsync(&self, message: windows_core::Ref<'_, ISmsMessage>) -> windows_core::Result<SendSmsMessageOperation>;
     fn CalculateLength(&self, message: windows_core::Ref<'_, SmsTextMessage>) -> windows_core::Result<SmsEncodedLength>;
@@ -305,7 +285,6 @@ pub trait ISmsDevice_Impl: windows_core::IUnknownImpl {
     fn SmsDeviceStatusChanged(&self, eventHandler: windows_core::Ref<'_, SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveSmsDeviceStatusChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "deprecated")]
 impl ISmsDevice_Vtbl {
     pub const fn new<Identity: ISmsDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendMessageAsync<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -437,7 +416,6 @@ impl ISmsDevice_Vtbl {
         iid == &<ISmsDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDevice_Vtbl {
@@ -486,13 +464,10 @@ pub struct ISmsDevice2Statics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromParentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDeviceMessageStore, ISmsDeviceMessageStore_Vtbl, 0x9889f253_f188_4427_8d54_ce0c2423c5c1);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsDeviceMessageStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDeviceMessageStore_Vtbl {
@@ -503,13 +478,10 @@ pub struct ISmsDeviceMessageStore_Vtbl {
     pub GetMessagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SmsMessageFilter, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxMessages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDeviceStatics, ISmsDeviceStatics_Vtbl, 0xf88d07ea_d815_4dd1_a234_4520ce4604a4);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDeviceStatics_Vtbl {
@@ -518,13 +490,10 @@ pub struct ISmsDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsDeviceStatics2, ISmsDeviceStatics2_Vtbl, 0x2ca11c87_0873_4caf_8a7d_bd471e8586d1);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsDeviceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsDeviceStatics2_Vtbl {
@@ -795,13 +764,10 @@ pub struct ISmsMessageBase_Vtbl {
     pub MessageClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageClass) -> windows_core::HRESULT,
     pub SimIccId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsMessageReceivedEventArgs, ISmsMessageReceivedEventArgs_Vtbl, 0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsMessageReceivedEventArgs_Vtbl {
@@ -851,13 +817,10 @@ pub struct ISmsMessageRegistrationStatics_Vtbl {
     pub AllRegistrations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsReceivedEventDetails, ISmsReceivedEventDetails_Vtbl, 0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsReceivedEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsReceivedEventDetails_Vtbl {
@@ -865,13 +828,10 @@ pub struct ISmsReceivedEventDetails_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MessageIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsReceivedEventDetails2, ISmsReceivedEventDetails2_Vtbl, 0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsReceivedEventDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsReceivedEventDetails2_Vtbl {
@@ -911,17 +871,12 @@ pub struct ISmsStatusMessage_Vtbl {
     pub ServiceCenterTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub DischargeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsTextMessage, ISmsTextMessage_Vtbl, 0xd61c904c_a495_487f_9a6f_971548c5bc9f);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsTextMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISmsTextMessage, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(ISmsTextMessage, ISmsMessage);
-#[cfg(feature = "deprecated")]
 impl ISmsTextMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1017,11 +972,9 @@ impl ISmsTextMessage {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ISmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsTextMessage";
 }
-#[cfg(feature = "deprecated")]
 pub trait ISmsTextMessage_Impl: ISmsMessage_Impl {
     fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime>;
     fn PartReferenceId(&self) -> windows_core::Result<u32>;
@@ -1037,7 +990,6 @@ pub trait ISmsTextMessage_Impl: ISmsMessage_Impl {
     fn SetEncoding(&self, value: SmsEncoding) -> windows_core::Result<()>;
     fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<windows_collections::IVectorView<ISmsBinaryMessage>>;
 }
-#[cfg(feature = "deprecated")]
 impl ISmsTextMessage_Vtbl {
     pub const fn new<Identity: ISmsTextMessage_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Timestamp<Identity: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> windows_core::HRESULT {
@@ -1197,7 +1149,6 @@ impl ISmsTextMessage_Vtbl {
         iid == &<ISmsTextMessage as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsTextMessage_Vtbl {
@@ -1241,13 +1192,10 @@ pub struct ISmsTextMessage2_Vtbl {
     pub TeleserviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ProtocolId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISmsTextMessageStatics, ISmsTextMessageStatics_Vtbl, 0x7f68c5ed_3ccc_47a3_8c55_380d3b010892);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for ISmsTextMessageStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmsTextMessageStatics_Vtbl {
@@ -1287,7 +1235,6 @@ pub struct ISmsWapMessage_Vtbl {
     BinaryBody: usize,
     pub Headers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 pub type SendSmsMessageOperation = windows_future::IAsyncAction;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1479,15 +1426,11 @@ impl windows_core::RuntimeName for SmsAppMessage {
 }
 unsafe impl Send for SmsAppMessage {}
 unsafe impl Sync for SmsAppMessage {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsBinaryMessage(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable, ISmsBinaryMessage);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(SmsBinaryMessage, ISmsMessage);
-#[cfg(feature = "deprecated")]
 impl SmsBinaryMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1533,22 +1476,17 @@ impl SmsBinaryMessage {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsBinaryMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsBinaryMessage>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsBinaryMessage {
     type Vtable = <ISmsBinaryMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmsBinaryMessage as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBinaryMessage";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for SmsBinaryMessage {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsBinaryMessage {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1716,13 +1654,10 @@ impl windows_core::TypeKind for SmsDataFormat {
 impl windows_core::RuntimeType for SmsDataFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDataFormat;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsDevice(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsDevice, windows_core::IUnknown, windows_core::IInspectable, ISmsDevice);
-#[cfg(feature = "deprecated")]
 impl SmsDevice {
     pub fn SendMessageAsync<P0>(&self, message: P0) -> windows_core::Result<SendSmsMessageOperation>
     where
@@ -1833,16 +1768,13 @@ impl SmsDevice {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsDevice>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsDevice {
     type Vtable = <ISmsDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmsDevice as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice";
 }
@@ -1970,13 +1902,10 @@ unsafe impl windows_core::Interface for SmsDevice2 {
 impl windows_core::RuntimeName for SmsDevice2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice2";
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsDeviceMessageStore(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsDeviceMessageStore, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl SmsDeviceMessageStore {
     pub fn DeleteMessageAsync(&self, messageid: u32) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
@@ -2014,16 +1943,13 @@ impl SmsDeviceMessageStore {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsDeviceMessageStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsDeviceMessageStore>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsDeviceMessageStore {
     type Vtable = <ISmsDeviceMessageStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmsDeviceMessageStore as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SmsDeviceMessageStore {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDeviceMessageStore";
 }
@@ -2046,13 +1972,10 @@ impl windows_core::TypeKind for SmsDeviceStatus {
 impl windows_core::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(SmsDeviceStatusChangedEventHandler, SmsDeviceStatusChangedEventHandler_Vtbl, 0x982b1162_3dd7_4618_af89_0c272d5d06d8);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 impl SmsDeviceStatusChangedEventHandler {
     pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsDeviceStatusChangedEventHandlerBox { vtable: &SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -2066,21 +1989,18 @@ impl SmsDeviceStatusChangedEventHandler {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 struct SmsDeviceStatusChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SmsDeviceStatusChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-#[cfg(feature = "deprecated")]
 impl<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
     const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2393,13 +2313,10 @@ impl windows_core::TypeKind for SmsMessageFilter {
 impl windows_core::RuntimeType for SmsMessageFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsMessageReceivedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl SmsMessageReceivedEventArgs {
     pub fn TextMessage(&self) -> windows_core::Result<SmsTextMessage> {
         let this = self;
@@ -2416,26 +2333,20 @@ impl SmsMessageReceivedEventArgs {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsMessageReceivedEventArgs>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsMessageReceivedEventArgs {
     type Vtable = <ISmsMessageReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmsMessageReceivedEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SmsMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedEventArgs";
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(SmsMessageReceivedEventHandler, SmsMessageReceivedEventHandler_Vtbl, 0x0b7ad409_ec2d_47ce_a253_732beeebcacd);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 impl SmsMessageReceivedEventHandler {
     pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsMessageReceivedEventHandlerBox { vtable: &SmsMessageReceivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
@@ -2450,21 +2361,18 @@ impl SmsMessageReceivedEventHandler {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct SmsMessageReceivedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 struct SmsMessageReceivedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SmsMessageReceivedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-#[cfg(feature = "deprecated")]
 impl<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
     const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2688,13 +2596,10 @@ impl windows_core::TypeKind for SmsModemErrorCode {
 impl windows_core::RuntimeType for SmsModemErrorCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsModemErrorCode;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsReceivedEventDetails(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsReceivedEventDetails, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl SmsReceivedEventDetails {
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2725,22 +2630,17 @@ impl SmsReceivedEventDetails {
         }
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsReceivedEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsReceivedEventDetails>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsReceivedEventDetails {
     type Vtable = <ISmsReceivedEventDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmsReceivedEventDetails as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SmsReceivedEventDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsReceivedEventDetails";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for SmsReceivedEventDetails {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsReceivedEventDetails {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2912,15 +2812,11 @@ impl windows_core::RuntimeName for SmsStatusMessage {
 }
 unsafe impl Send for SmsStatusMessage {}
 unsafe impl Sync for SmsStatusMessage {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsTextMessage(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsTextMessage, windows_core::IUnknown, windows_core::IInspectable, ISmsTextMessage);
-#[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(SmsTextMessage, ISmsMessage);
-#[cfg(feature = "deprecated")]
 impl SmsTextMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3042,22 +2938,17 @@ impl SmsTextMessage {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for SmsTextMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmsTextMessage>();
 }
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SmsTextMessage {
     type Vtable = <ISmsTextMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmsTextMessage as windows_core::Interface>::IID;
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage";
 }
-#[cfg(feature = "deprecated")]
 unsafe impl Send for SmsTextMessage {}
-#[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsTextMessage {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

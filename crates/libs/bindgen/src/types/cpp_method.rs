@@ -212,7 +212,7 @@ impl CppMethod {
         }
 
         parent
-            .difference(self.def, &self.dependencies, config)
+            .difference(&self.dependencies, config)
             .write(config, not)
     }
 

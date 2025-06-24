@@ -1171,7 +1171,7 @@ impl Default for DNS_QUERY_RAW_RESULT_0 {
 }
 pub const DNS_QUERY_RAW_RESULTS_VERSION1: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(1u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -1188,7 +1188,7 @@ impl Default for DNS_QUERY_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -1687,7 +1687,7 @@ impl Default for DNS_SERVICE_INSTANCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -1703,7 +1703,7 @@ impl Default for DNS_SERVICE_REGISTER_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -2294,7 +2294,7 @@ impl Default for MDNS_QUERY_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
     pub ulRefCount: u32,

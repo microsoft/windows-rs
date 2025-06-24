@@ -590,13 +590,10 @@ pub struct ILockScreenStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetImageStreamAsync: usize,
 }
-#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IUserInformationStatics, IUserInformationStatics_Vtbl, 0x77f3a910_48fa_489c_934e_2ae85ba8f772);
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IUserInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserInformationStatics_Vtbl {
@@ -753,9 +750,7 @@ impl windows_core::TypeKind for SetImageFeedResult {
 impl windows_core::RuntimeType for SetImageFeedResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
 }
-#[cfg(feature = "deprecated")]
 pub struct UserInformation;
-#[cfg(feature = "deprecated")]
 impl UserInformation {
     pub fn AccountPictureChangeEnabled() -> windows_core::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
@@ -873,7 +868,6 @@ impl UserInformation {
         SHARED.call(callback)
     }
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for UserInformation {
     const NAME: &'static str = "Windows.System.UserProfile.UserInformation";
 }
