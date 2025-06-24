@@ -19,17 +19,27 @@ fn metadata_to_bindings() {
     let output = output.into_stream();
     std::fs::write("crates/tools/webview/WebView2.winmd", output).unwrap();
 
-    bindgen([
+    _ = bindgen([
         "--in",
         "default",
         "crates/tools/webview/WebView2.winmd",
         "--out",
         "crates/libs/webview/src/bindings.rs",
+        "--flat",
         "--filter",
         "WebView2",
+        "IStream",
+        "VARIANT",
+        "POINT",
+        "HCURSOR",
+        "HICON",
+        "IDataObject",
+        "POINT",
+        "RECT",
+        "HANDLE",
+        "HWND",
         "--no-deps",
-    ])
-    .unwrap();
+    ]);
 }
 
 fn write_item(item: &idl::Item, output: &mut writer::File) {
@@ -143,7 +153,7 @@ fn to_type(name: &str) -> Type {
         "DWORD" | "UINT" | "UINT32" => Type::U32,
         "int" | "INT32" | "INT" => Type::I32,
         "BYTE" => Type::U8,
-        "HRESULT" => Type::named("Windows.Foundation", "HResult"),
+        "HRESULT" => Type::named("Windows.Win32.Foundation", "HRESULT"),
         "LPWSTR" => Type::named("Windows.Win32.Foundation", "PWSTR"),
         "HANDLE" => Type::named("Windows.Win32.Foundation", "HANDLE"),
         "LPCWSTR" => Type::named("Windows.Win32.Foundation", "PWSTR"),
@@ -160,6 +170,8 @@ fn to_type(name: &str) -> Type {
         "EventRegistrationToken" | "INT64" => Type::I64,
         "UINT64" => Type::U64,
         _ => {
+            // TODO: need to count `*` and into PtrMut or PtrConst depending on `const`
+            // and possibly other attributes?
             let trim = name.trim_end_matches('*').trim_end_matches("const").trim();
 
             if trim.len() != name.len() {
