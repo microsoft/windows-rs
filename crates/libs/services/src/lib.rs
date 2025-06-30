@@ -87,25 +87,37 @@ pub fn set_state(state: State) {
 
 /// A service builder, providing control over what commands the service supports before the service begins to run.
 #[derive(Default)]
-pub struct Service(u32);
+pub struct Service {
+    api_flags: u32,
+    can_run_without_scm: bool,
+}
 
 impl Service {
     /// Creates a new `Service` object.
     ///
     /// By default, the service does not accept any service commands other than start.
     pub fn new() -> Self {
-        Self(0)
+        Self {
+            api_flags: 0,
+            can_run_without_scm: false,
+        }
     }
 
     /// The service accepts stop and shutdown commands.
     pub fn can_stop(&mut self) -> &mut Self {
-        self.0 |= SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_SHUTDOWN;
+        self.api_flags |= SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_SHUTDOWN;
         self
     }
 
     /// The service accepts pause and resume commands.
     pub fn can_pause(&mut self) -> &mut Self {
-        self.0 |= SERVICE_ACCEPT_PAUSE_CONTINUE;
+        self.api_flags |= SERVICE_ACCEPT_PAUSE_CONTINUE;
+        self
+    }
+
+    /// The service can be run manually without the service control manager.
+    pub fn can_run_without_scm(&mut self) -> &mut Self {
+        self.can_run_without_scm = true;
         self
     }
 
@@ -115,8 +127,13 @@ impl Service {
     /// This method will block for the life of the service. It will never return and immediately
     /// terminate the current process after indicating to the service control manager that the
     /// service has stopped.
-    pub fn run<F: FnMut(Command) + Send + Sync>(&self, callback: F) -> ! {
-        STATUS.write().unwrap().dwControlsAccepted = self.0;
+    ///
+    /// If `can_run_without_scm()` has been called, then it may return if the process was run
+    /// on the command line instead of the service control manager. If `can_run_without_sem()`
+    /// has not been called, it will print some information about how to register with the
+    /// service control manager and start the service.
+    pub fn run<F: FnMut(Command) + Send + Sync>(&self, callback: F) {
+        STATUS.write().unwrap().dwControlsAccepted = self.api_flags;
         CALLBACK
             .set(Callback(Box::into_raw(Box::new(callback)) as *mut _))
             .unwrap();
@@ -130,6 +147,9 @@ impl Service {
         ];
 
         if unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) } == 0 {
+            if self.can_run_without_scm {
+                return;
+            }
             println!(
                 r#"Use service control manager to start service.
     
