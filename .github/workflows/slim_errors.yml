@@ -15,6 +15,9 @@ on:
 env:
   RUSTFLAGS: --cfg windows_slim_errors
 
+permissions:
+  contents: read
+
 jobs:
   check:
     strategy:

@@ -15,6 +15,9 @@ on:
 env:
   LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220906-ucrt-ubuntu-18.04-x86_64
 
+permissions:
+  contents: read
+
 jobs:
   check:
     strategy:
