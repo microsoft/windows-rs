@@ -15,6 +15,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: windows-2022

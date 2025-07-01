@@ -16,6 +16,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   check:
     strategy:
