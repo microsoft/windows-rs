@@ -5,7 +5,7 @@
 --no-deps
 
 --filter
-    RegisterServiceCtrlHandlerW
+    RegisterServiceCtrlHandlerExW
     SetServiceStatus
     StartServiceCtrlDispatcherW
     SERVICE_ACCEPT_PAUSE_CONTINUE

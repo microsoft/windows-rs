@@ -5,14 +5,22 @@ fn main() {
     let pool = Pool::new();
     pool.set_thread_limits(1, 1);
 
-    Service::new().can_pause().can_stop().run(|command| {
-        log(&format!("Command: {command:?}\n"));
+    Service::new()
+        .can_pause()
+        .can_stop()
+        .can_fallback(|| {
+            println!("Press Enter to stop service.");
+            use std::io::Read;
+            _ = std::io::stdin().read(&mut [0]);
+        })
+        .run(|command| {
+            log(&format!("Command: {command:?}\n"));
 
-        match command {
-            Command::Start | Command::Resume => pool.submit(service_thread),
-            Command::Pause | Command::Stop => pool.join(),
-        }
-    })
+            match command {
+                Command::Start | Command::Resume => pool.submit(service_thread),
+                Command::Pause | Command::Stop => pool.join(),
+            }
+        })
 }
 
 fn service_thread() {
@@ -34,6 +42,7 @@ fn service_thread() {
 
 // Simple log function can be used to observe service behavior.
 fn log(message: &str) {
+    print!("{message}");
     use windows_sys::{core::*, Win32::Foundation::*, Win32::Storage::FileSystem::*};
 
     unsafe {

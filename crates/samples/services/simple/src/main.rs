@@ -9,5 +9,5 @@ fn main() {
         .can_stop()
         .run(|command| {
             writeln!(log, "Command: {command:?}").unwrap();
-        })
+        });
 }
