@@ -70,7 +70,7 @@ jobs:
 
     for (count, package) in helpers::crates("crates").iter().enumerate() {
         let name = &package.name;
-        if count % 50 == 0 {
+        if count.is_multiple_of(50) {
             write!(
                 &mut yml,
                 r"
