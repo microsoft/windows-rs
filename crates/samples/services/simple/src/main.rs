@@ -7,7 +7,7 @@ fn main() {
     windows_services::Service::new()
         .can_pause()
         .can_stop()
-        .run(|command| {
+        .run(|_service, command| {
             writeln!(log, "Command: {command:?}").unwrap();
         })
 }
