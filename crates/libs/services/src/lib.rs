@@ -131,16 +131,16 @@ impl<'a> Service<'a> {
             SERVICE_TABLE_ENTRYW::default(),
         ];
 
-        SERVICES.lock().unwrap().0.push_back(&self as *const _ as _);
+        SERVICES.lock().unwrap().0.push_back(self as *const _ as _);
 
         let fallback = unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) == 0 };
 
         if fallback {
-            let fallback = self.fallback.take().unwrap();
-            service_main(0, std::ptr::null_mut());
-            fallback();
-            self.set_state(State::StopPending);
-            self.callback(Command::Stop);
+            if let Some(fallback) = self.fallback.take() {
+                service_main(0, std::ptr::null_mut());
+                fallback();
+                self.set_state(State::StopPending);
+                self.callback(Command::Stop);
             } else {
                 println!(
                     r#"Use service control manager to start service.
@@ -163,6 +163,7 @@ Delete (uninstall):
                     std::env::current_exe().unwrap().display()
                 );
             }
+        }
 
         std::process::exit(0);
     }
@@ -225,14 +226,13 @@ extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
         let service: &Service =
             &*(SERVICES.lock().unwrap().0.pop_front().unwrap() as *const Service);
 
-        service
-            .handle
-            .set(RegisterServiceCtrlHandlerExW(
-                std::ptr::null(),
-                Some(handler),
-                service as *const _ as _,
-            ))
-            .unwrap();
+        let handle = RegisterServiceCtrlHandlerExW(
+            std::ptr::null(),
+            Some(handler),
+            service as *const _ as _,
+        );
+
+        service.handle.set(handle).unwrap();
 
         service.set_state(State::StartPending);
         service.callback(Command::Start);

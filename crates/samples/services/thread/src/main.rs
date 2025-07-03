@@ -36,13 +36,12 @@ fn service_thread(service: &Service) {
         }
     }
 
-    // Services can use the `set_state` function to update thye service state.
+    // Services can use the `set_state` function to update the service state.
     service.set_state(State::Stopped);
 }
 
 // Simple log function can be used to observe service behavior.
 fn log(message: &str) {
-    print!("{message}");
     use windows_sys::{core::*, Win32::Foundation::*, Win32::Storage::FileSystem::*};
 
     unsafe {
