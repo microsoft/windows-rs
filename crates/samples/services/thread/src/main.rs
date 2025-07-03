@@ -14,13 +14,13 @@ fn main() {
             service.set_state(State::PausePending);
             service.command(Command::Pause);
             service.set_state(State::Paused);
-            
+
             sleep(1000);
             println!("resuming");
             service.set_state(State::ContinuePending);
             service.command(Command::Resume);
             service.set_state(State::Running);
-            
+
             println!("Press Enter to stop service.");
             use std::io::Read;
             _ = std::io::stdin().read(&mut [0]);

@@ -52,15 +52,12 @@ pub enum State {
     StopPending,
 }
 
-#[derive(Debug)]
-struct Callback(*mut (dyn FnMut(&Service, Command) + Send + Sync));
-
 /// A service builder, providing control over what commands the service supports before the service begins to run.
 pub struct Service<'a> {
     accept: u32,
     fallback: Option<Box<dyn FnOnce(&Service) + 'a>>,
     handle: OnceLock<SERVICE_STATUS_HANDLE>,
-    callback: OnceLock<Callback>,
+    callback: RwLock<Option<Box<dyn FnMut(&Service, Command) + Send + Sync + 'a>>>,
     status: RwLock<SERVICE_STATUS>,
 }
 
@@ -82,7 +79,7 @@ impl<'a> Service<'a> {
             accept: 0,
             fallback: None,
             handle: OnceLock::new(),
-            callback: OnceLock::new(),
+            callback: RwLock::new(None),
             status: RwLock::new(SERVICE_STATUS {
                 dwServiceType: SERVICE_WIN32_OWN_PROCESS,
                 dwCurrentState: SERVICE_STOPPED,
@@ -107,6 +104,7 @@ impl<'a> Service<'a> {
         self
     }
 
+    /// Runs the fallback closure if the service is not started by the Service Control Manager.
     pub fn can_fallback<F: FnOnce(&Service) + Send + 'a>(&mut self, f: F) -> &mut Self {
         self.fallback = Some(Box::new(f));
         self
@@ -118,13 +116,19 @@ impl<'a> Service<'a> {
     /// This method will block for the life of the service. It will never return and immediately
     /// terminate the current process after indicating to the service control manager that the
     /// service has stopped.
-    pub fn run<F: FnMut(&Service, Command) + Send + Sync>(&mut self, callback: F) {
+    pub fn run<F: FnMut(&Service, Command) + Send + Sync + 'a>(&mut self, callback: F) {
         debug_assert!(self.status.read().unwrap().dwCurrentState == SERVICE_STOPPED);
         self.status.write().unwrap().dwControlsAccepted = self.accept;
 
-        self.callback
-            .set(Callback(Box::into_raw(Box::new(callback)) as *mut _))
-            .unwrap();
+        {
+            let mut write = self.callback.write().unwrap();
+
+            if write.is_some() {
+                panic!("`run` was already called")
+            }
+
+            *write = Some(Box::new(callback));
+        }
 
         let table = [
             SERVICE_TABLE_ENTRYW {
@@ -167,8 +171,6 @@ Delete (uninstall):
                 );
             }
         }
-
-        std::process::exit(0);
     }
 
     /// Sets the current state of the service.
@@ -213,35 +215,24 @@ Delete (uninstall):
 
     /// Sends the command to the service callback.
     pub fn command(&self, command: Command) {
-        unsafe {
-            (*self.callback.get().unwrap().0)(self, command);
-        }
+        let mut write = self.callback.write().unwrap();
+        (write.as_deref_mut().unwrap())(self, command);
     }
 }
 
-#[derive(Debug)]
-struct ServiceDeque(VecDeque<*const c_void>);
-static SERVICES: Mutex<ServiceDeque> = Mutex::new(ServiceDeque(VecDeque::new()));
-unsafe impl Send for ServiceDeque {}
-unsafe impl Sync for ServiceDeque {}
-
 extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
-    unsafe {
-        let service: &Service =
-            &*(SERVICES.lock().unwrap().0.pop_front().unwrap() as *const Service);
+    let service: &Service =
+        unsafe { &*(SERVICES.lock().unwrap().0.pop_front().unwrap() as *const Service) };
 
-        let handle = RegisterServiceCtrlHandlerExW(
-            std::ptr::null(),
-            Some(handler),
-            service as *const _ as _,
-        );
+    let handle = unsafe {
+        RegisterServiceCtrlHandlerExW(std::ptr::null(), Some(handler), service as *const _ as _)
+    };
 
-        service.handle.set(handle).unwrap();
+    service.handle.set(handle).unwrap();
 
-        service.set_state(State::StartPending);
-        service.command(Command::Start);
-        service.set_state(State::Running);
-    }
+    service.set_state(State::StartPending);
+    service.command(Command::Start);
+    service.set_state(State::Running);
 }
 
 extern "system" fn handler(
@@ -273,3 +264,12 @@ extern "system" fn handler(
 
     NO_ERROR
 }
+
+// A queue of services to allow `Service::run` to push itself and `service_main` to pop the service. This solves two problems:
+// * Unlike `RegisterServiceCtrlHandlerExW`, `StartServiceCtrlDispatcherW` has no user-defined "context" parameter.
+// * A queue allows Rust tests for the `windows-services` crate to run in parallel, which is the default.
+#[derive(Debug)]
+struct Services(VecDeque<*const c_void>);
+static SERVICES: Mutex<Services> = Mutex::new(Services(VecDeque::new()));
+unsafe impl Send for Services {}
+unsafe impl Sync for Services {}
