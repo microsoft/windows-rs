@@ -136,11 +136,11 @@ impl<'a> Service<'a> {
         let fallback = unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) == 0 };
 
         if fallback {
-            if let Some(fallback) = self.fallback.take() {
-                service_main(0, std::ptr::null_mut());
-                fallback();
-                self.set_state(State::StopPending);
-                self.callback(Command::Stop);
+            let fallback = self.fallback.take().unwrap();
+            service_main(0, std::ptr::null_mut());
+            fallback();
+            self.set_state(State::StopPending);
+            self.callback(Command::Stop);
             } else {
                 println!(
                     r#"Use service control manager to start service.
@@ -163,7 +163,6 @@ Delete (uninstall):
                     std::env::current_exe().unwrap().display()
                 );
             }
-        }
 
         std::process::exit(0);
     }
