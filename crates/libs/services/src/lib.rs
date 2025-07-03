@@ -58,7 +58,7 @@ struct Callback(*mut (dyn FnMut(&Service, Command) + Send + Sync));
 /// A service builder, providing control over what commands the service supports before the service begins to run.
 pub struct Service<'a> {
     accept: u32,
-    fallback: Option<Box<dyn FnOnce() + 'a>>,
+    fallback: Option<Box<dyn FnOnce(&Service) + 'a>>,
     handle: OnceLock<SERVICE_STATUS_HANDLE>,
     callback: OnceLock<Callback>,
     status: RwLock<SERVICE_STATUS>,
@@ -107,7 +107,7 @@ impl<'a> Service<'a> {
         self
     }
 
-    pub fn can_fallback<F: FnOnce() + Send + 'a>(&mut self, f: F) -> &mut Self {
+    pub fn can_fallback<F: FnOnce(&Service) + Send + 'a>(&mut self, f: F) -> &mut Self {
         self.fallback = Some(Box::new(f));
         self
     }
@@ -141,9 +141,9 @@ impl<'a> Service<'a> {
         if fallback {
             if let Some(fallback) = self.fallback.take() {
                 service_main(0, std::ptr::null_mut());
-                fallback();
+                fallback(self);
                 self.set_state(State::StopPending);
-                self.callback(Command::Stop);
+                self.command(Command::Stop);
             } else {
                 println!(
                     r#"Use service control manager to start service.
@@ -211,7 +211,8 @@ Delete (uninstall):
         }
     }
 
-    fn callback(&self, command: Command) {
+    /// Sends the command to the service callback.
+    pub fn command(&self, command: Command) {
         unsafe {
             (*self.callback.get().unwrap().0)(self, command);
         }
@@ -238,7 +239,7 @@ extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
         service.handle.set(handle).unwrap();
 
         service.set_state(State::StartPending);
-        service.callback(Command::Start);
+        service.command(Command::Start);
         service.set_state(State::Running);
     }
 }
@@ -254,17 +255,17 @@ extern "system" fn handler(
     match control {
         SERVICE_CONTROL_CONTINUE if service.state() == State::Paused => {
             service.set_state(State::ContinuePending);
-            service.callback(Command::Resume);
+            service.command(Command::Resume);
             service.set_state(State::Running);
         }
         SERVICE_CONTROL_PAUSE if service.state() == State::Running => {
             service.set_state(State::PausePending);
-            service.callback(Command::Pause);
+            service.command(Command::Pause);
             service.set_state(State::Paused);
         }
         SERVICE_CONTROL_SHUTDOWN | SERVICE_CONTROL_STOP => {
             service.set_state(State::StopPending);
-            service.callback(Command::Stop);
+            service.command(Command::Stop);
             service.set_state(State::Stopped);
         }
         _ => {}
