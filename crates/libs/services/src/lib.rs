@@ -52,12 +52,15 @@ pub enum State {
     StopPending,
 }
 
+#[derive(Debug)]
+struct Callback(*mut (dyn FnMut(&Service, Command) + Send + Sync));
+
 /// A service builder, providing control over what commands the service supports before the service begins to run.
 pub struct Service<'a> {
     accept: u32,
     fallback: Option<Box<dyn FnOnce() + 'a>>,
     handle: OnceLock<SERVICE_STATUS_HANDLE>,
-    callback: OnceLock<*mut (dyn FnMut(&Service, Command) + Send + Sync)>,
+    callback: OnceLock<Callback>,
     status: RwLock<SERVICE_STATUS>,
 }
 
@@ -120,7 +123,7 @@ impl<'a> Service<'a> {
         self.status.write().unwrap().dwControlsAccepted = self.accept;
 
         self.callback
-            .set(Box::into_raw(Box::new(callback)) as *mut _)
+            .set(Callback(Box::into_raw(Box::new(callback)) as *mut _))
             .unwrap();
 
         let table = [
@@ -210,7 +213,7 @@ Delete (uninstall):
 
     fn callback(&self, command: Command) {
         unsafe {
-            (**self.callback.get().unwrap())(self, command);
+            (*self.callback.get().unwrap().0)(self, command);
         }
     }
 }
