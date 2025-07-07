@@ -51,5 +51,5 @@ fn panic_fallback() {
 #[test]
 fn recover_fallback() {
     let error = Service::new().run(|_, _| {}).unwrap_err();
-    assert!(error.starts_with("Use service control manager to start service"));
+    assert_eq!(error, "Use service control manager to start service");
 }
