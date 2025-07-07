@@ -8,19 +8,7 @@ fn main() {
     Service::new()
         .can_pause()
         .can_stop()
-        .can_fallback(|service| {
-            sleep(1000);
-            println!("pausing");
-            service.set_state(State::PausePending);
-            service.command(Command::Pause);
-            service.set_state(State::Paused);
-
-            sleep(1000);
-            println!("resuming");
-            service.set_state(State::ContinuePending);
-            service.command(Command::Resume);
-            service.set_state(State::Running);
-
+        .can_fallback(|_| {
             println!("Press Enter to stop service.");
             use std::io::Read;
             _ = std::io::stdin().read(&mut [0]);
@@ -32,7 +20,8 @@ fn main() {
                 Command::Start | Command::Resume => pool.submit(|| service_thread(service)),
                 Command::Pause | Command::Stop => pool.join(),
             }
-        });
+        })
+        .unwrap();
 }
 
 fn service_thread(service: &Service) {

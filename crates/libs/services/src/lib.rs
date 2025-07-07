@@ -4,15 +4,15 @@
     non_camel_case_types,
     non_snake_case,
     clippy::needless_doctest_main,
-    clippy::upper_case_acronyms
+    clippy::upper_case_acronyms,
+    clippy::type_complexity
 )]
 
 mod bindings;
 use bindings::*;
 use std::boxed::Box;
-use std::collections::VecDeque;
 use std::ffi::c_void;
-use std::sync::{Mutex, OnceLock, RwLock};
+use std::sync::RwLock;
 
 /// The commands are sent by the service control manager to the service through the closure or callback
 /// passed to the service `run` method.
@@ -56,7 +56,7 @@ pub enum State {
 pub struct Service<'a> {
     accept: u32,
     fallback: Option<Box<dyn FnOnce(&Service) + 'a>>,
-    handle: OnceLock<SERVICE_STATUS_HANDLE>,
+    handle: RwLock<SERVICE_STATUS_HANDLE>,
     callback: RwLock<Option<Box<dyn FnMut(&Service, Command) + Send + Sync + 'a>>>,
     status: RwLock<SERVICE_STATUS>,
 }
@@ -78,7 +78,7 @@ impl<'a> Service<'a> {
         Self {
             accept: 0,
             fallback: None,
-            handle: OnceLock::new(),
+            handle: RwLock::new(std::ptr::null_mut()),
             callback: RwLock::new(None),
             status: RwLock::new(SERVICE_STATUS {
                 dwServiceType: SERVICE_WIN32_OWN_PROCESS,
@@ -116,7 +116,10 @@ impl<'a> Service<'a> {
     /// This method will block for the life of the service. It will never return and immediately
     /// terminate the current process after indicating to the service control manager that the
     /// service has stopped.
-    pub fn run<F: FnMut(&Service, Command) + Send + Sync + 'a>(&mut self, callback: F) {
+    pub fn run<F: FnMut(&Service, Command) + Send + Sync + 'a>(
+        &mut self,
+        callback: F,
+    ) -> Result<(), &'static str> {
         debug_assert!(self.status.read().unwrap().dwCurrentState == SERVICE_STOPPED);
         self.status.write().unwrap().dwControlsAccepted = self.accept;
 
@@ -138,39 +141,24 @@ impl<'a> Service<'a> {
             SERVICE_TABLE_ENTRYW::default(),
         ];
 
-        SERVICES.lock().unwrap().0.push_back(self as *const _ as _);
+        SERVICE_CONTEXT.write().unwrap().0 = self as *const _ as _;
 
         let fallback = unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) == 0 };
 
         if fallback {
             if let Some(fallback) = self.fallback.take() {
-                service_main(0, std::ptr::null_mut());
+                self.set_state(State::StartPending);
+                self.command(Command::Start);
+                self.set_state(State::Running);
                 fallback(self);
                 self.set_state(State::StopPending);
                 self.command(Command::Stop);
             } else {
-                println!(
-                    r#"Use service control manager to start service.
-    
-Install:
-    > sc create ServiceName binPath= "{}"
-
-Start:
-    > sc start ServiceName
-
-Query status:
-    > sc query ServiceName
-
-Stop:
-    > sc stop ServiceName
-
-Delete (uninstall):
-    > sc delete ServiceName
-"#,
-                    std::env::current_exe().unwrap().display()
-                );
+                return Err("Use service control manager to start service");
             }
         }
+
+        Ok(())
     }
 
     /// Sets the current state of the service.
@@ -193,7 +181,7 @@ Delete (uninstall):
         drop(writer);
 
         unsafe {
-            SetServiceStatus(*self.handle.get().unwrap(), &status);
+            SetServiceStatus(*self.handle.read().unwrap(), &status);
         }
     }
 
@@ -218,17 +206,18 @@ Delete (uninstall):
         let mut write = self.callback.write().unwrap();
         (write.as_deref_mut().unwrap())(self, command);
     }
+
+    pub fn handler(&self, control: u32, event_type: u32, event_data: *mut c_void) -> u32 {
+        handler(control, event_type, event_data, self as *const _ as _)
+    }
 }
 
 extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
-    let service: &Service =
-        unsafe { &*(SERVICES.lock().unwrap().0.pop_front().unwrap() as *const Service) };
+    let service: &Service = unsafe { &*(SERVICE_CONTEXT.read().unwrap().0 as *const Service) };
 
-    let handle = unsafe {
+    *service.handle.write().unwrap() = unsafe {
         RegisterServiceCtrlHandlerExW(std::ptr::null(), Some(handler), service as *const _ as _)
     };
-
-    service.handle.set(handle).unwrap();
 
     service.set_state(State::StartPending);
     service.command(Command::Start);
@@ -269,7 +258,7 @@ extern "system" fn handler(
 // * Unlike `RegisterServiceCtrlHandlerExW`, `StartServiceCtrlDispatcherW` has no user-defined "context" parameter.
 // * A queue allows Rust tests for the `windows-services` crate to run in parallel, which is the default.
 #[derive(Debug)]
-struct Services(VecDeque<*const c_void>);
-static SERVICES: Mutex<Services> = Mutex::new(Services(VecDeque::new()));
-unsafe impl Send for Services {}
-unsafe impl Sync for Services {}
+struct ServiceContext(*const c_void);
+static SERVICE_CONTEXT: RwLock<ServiceContext> = RwLock::new(ServiceContext(std::ptr::null()));
+unsafe impl Send for ServiceContext {}
+unsafe impl Sync for ServiceContext {}
