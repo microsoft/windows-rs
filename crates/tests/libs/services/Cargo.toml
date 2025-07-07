@@ -10,4 +10,4 @@ doctest = false
 
 [dependencies]
 windows-services = { workspace = true }
-windows-threading = { workspace = true }
+windows-sys = { workspace = true, features = ["Win32_System_Services"] }

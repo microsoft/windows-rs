@@ -19,6 +19,7 @@ fn main() {
             match command {
                 Command::Start | Command::Resume => pool.submit(|| service_thread(service)),
                 Command::Pause | Command::Stop => pool.join(),
+                _ => {}
             }
         })
         .unwrap();

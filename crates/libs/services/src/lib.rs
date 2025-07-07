@@ -35,7 +35,23 @@ pub enum Command {
     ///
     /// This command will only be sent if the `can_pause` method is called as part of construction.
     Resume,
+
+    /// An extended command.
+    ///
+    /// Specific commands will only be received if the `can_accept` methods is called to specify those
+    /// commands the service accepts.
+    Extended(ExtendedCommand),
 }
+
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+pub struct ExtendedCommand {
+    pub control: u32,
+    pub ty: u32,
+    pub data: *mut c_void,
+}
+
+unsafe impl Send for ExtendedCommand {}
+unsafe impl Sync for ExtendedCommand {}
 
 /// Possible service states including transitional states.
 ///
@@ -101,6 +117,12 @@ impl<'a> Service<'a> {
     /// The service accepts pause and resume commands.
     pub fn can_pause(&mut self) -> &mut Self {
         self.accept |= SERVICE_ACCEPT_PAUSE_CONTINUE;
+        self
+    }
+
+    /// The service accepts other specified commands.
+    pub fn can_accept(&mut self, accept: u32) -> &mut Self {
+        self.accept |= accept;
         self
     }
 
@@ -226,8 +248,8 @@ extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
 
 extern "system" fn handler(
     control: u32,
-    _event_type: u32,
-    _event_data: *mut c_void,
+    ty: u32,
+    data: *mut c_void,
     context: *mut c_void,
 ) -> u32 {
     let service = unsafe { &*(context as *const Service) };
@@ -248,7 +270,9 @@ extern "system" fn handler(
             service.command(Command::Stop);
             service.set_state(State::Stopped);
         }
-        _ => {}
+        _ => service.command(Command::Extended(ExtendedCommand {
+            control, ty, data,
+        })),
     }
 
     NO_ERROR

@@ -1,7 +1,5 @@
 use windows_services::*;
-
-pub const SERVICE_CONTROL_PAUSE: u32 = 2u32;
-pub const SERVICE_CONTROL_CONTINUE: u32 = 3u32;
+use windows_sys::Win32::System::Services::*;
 
 #[test]
 fn start_stop() {
@@ -41,6 +39,30 @@ fn pause_resume() {
         ]
     );
 }
+
+// #[test]
+// fn extended() {
+//         let mut log = vec![];
+
+//     Service::new()
+//         .can_fallback(|service| {
+//             service.handler(SERVICE_CONTROL_TIMECHANGE, 0, std::ptr::null_mut());
+//         })
+//         .run(|_, command| {
+//             log.push(command);
+//         })
+//         .unwrap();
+
+//     assert_eq!(
+//         log,
+//         [
+//             Command::Start,
+//             Command::Pause,
+//             Command::Resume,
+//             Command::Stop,
+//         ]
+//     );
+// }
 
 #[test]
 #[should_panic(expected = "Use service control manager to start service")]
