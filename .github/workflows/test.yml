@@ -33,9 +33,18 @@ jobs:
             host: x86_64-pc-windows-gnu
             target: i686-pc-windows-gnu
             runner: windows-2022
+          - version: nightly
+            host: x86_64-pc-windows-gnullvm
+            target: x86_64-pc-windows-gnullvm
+            runner: windows-2022
           - version: stable
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
+            runner: windows-11-arm
+            # TODO: turn it into stable once it's published
+          - version: nightly
+            host: aarch64-pc-windows-gnullvm
+            target: aarch64-pc-windows-gnullvm
             runner: windows-11-arm
 
     runs-on: ${{ matrix.runner }}
