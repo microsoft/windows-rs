@@ -14,3 +14,4 @@
     LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
     LoadLibraryExA
     RoGetActivationFactory
+    UuidCreate
