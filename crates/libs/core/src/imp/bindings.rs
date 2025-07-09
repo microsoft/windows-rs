@@ -14,6 +14,7 @@ windows_link::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE)
 windows_link::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : PCSTR) -> FARPROC);
 windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : HSTRING, iid : *const GUID, factory : *mut *mut core::ffi::c_void) -> HRESULT);
+windows_link::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut GUID) -> RPC_STATUS);
 pub type BOOL = i32;
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
@@ -42,4 +43,6 @@ pub type HRESULT = i32;
 pub type LOAD_LIBRARY_FLAGS = u32;
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
 pub type PCSTR = *const u8;
+pub type RPC_STATUS = i32;
+pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824i32;
 pub type HSTRING = *mut core::ffi::c_void;
