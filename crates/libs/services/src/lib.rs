@@ -47,7 +47,7 @@ pub enum Command {
 pub struct ExtendedCommand {
     pub control: u32,
     pub ty: u32,
-    pub data: *mut c_void,
+    pub data: *const c_void,
 }
 
 unsafe impl Send for ExtendedCommand {}
@@ -229,8 +229,8 @@ impl<'a> Service<'a> {
         (write.as_deref_mut().unwrap())(self, command);
     }
 
-    pub fn handler(&self, control: u32, event_type: u32, event_data: *mut c_void) -> u32 {
-        handler(control, event_type, event_data, self as *const _ as _)
+    pub fn handler(&self, control: u32, event_type: u32, event_data: *const c_void) -> u32 {
+        handler(control, event_type, event_data as *mut _, self as *const _ as _)
     }
 }
 
