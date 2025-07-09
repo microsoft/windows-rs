@@ -44,4 +44,5 @@ pub type LOAD_LIBRARY_FLAGS = u32;
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
 pub type PCSTR = *const u8;
 pub type RPC_STATUS = i32;
+pub const RPC_S_UUID_LOCAL_ONLY: RPC_STATUS = 1824i32;
 pub type HSTRING = *mut core::ffi::c_void;

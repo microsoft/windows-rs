@@ -24,7 +24,7 @@ impl GUID {
         let mut guid = Self::zeroed();
         let result = unsafe { imp::UuidCreate(&mut guid as *mut _ as _) };
 
-        if result == 0 {
+        if matches!(result, 0 | imp::RPC_S_UUID_LOCAL_ONLY) {
             Ok(guid)
         } else {
             Err(Error::from_hresult(HRESULT::from_win32(result as u32)))
