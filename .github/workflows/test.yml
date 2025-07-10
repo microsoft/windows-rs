@@ -63,6 +63,10 @@ jobs:
         run:  cargo clean
       - name: Test cppwinrt
         run:  cargo test -p cppwinrt --target ${{ matrix.target }}
+      - name: Test csharp_client
+        run:  cargo test -p csharp_client --target ${{ matrix.target }}
+      - name: Test csharp_component
+        run:  cargo test -p csharp_component --target ${{ matrix.target }}
       - name: Test helpers
         run:  cargo test -p helpers --target ${{ matrix.target }}
       - name: Test sample_bits
@@ -157,12 +161,12 @@ jobs:
         run:  cargo test -p sample_wmi --target ${{ matrix.target }}
       - name: Test sample_xml
         run:  cargo test -p sample_xml --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_agile
         run:  cargo test -p test_agile --target ${{ matrix.target }}
       - name: Test test_agile_reference
         run:  cargo test -p test_agile_reference --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_alternate_success_code
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }}
       - name: Test test_arch
@@ -259,12 +263,12 @@ jobs:
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_std
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
       - name: Test test_numerics
@@ -361,12 +365,12 @@ jobs:
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
       - name: Test tool_yml
         run:  cargo test -p tool_yml --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }}
       - name: Test windows-bindgen
         run:  cargo test -p windows-bindgen --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows-collections
         run:  cargo test -p windows-collections --target ${{ matrix.target }}
       - name: Test windows-core
