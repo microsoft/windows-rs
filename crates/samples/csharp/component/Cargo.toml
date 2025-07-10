@@ -5,3 +5,6 @@ edition = "2021"
 
 [lib]
 crate-type = ["cdylib"]
+
+[dependencies]
+windows-core = { workspace = true }

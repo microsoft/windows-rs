@@ -12,6 +12,8 @@ fn test() {
         panic!("{}", String::from_utf8_lossy(&output.stderr));
     }
 
-    let result = String::from_utf8_lossy(&output.stdout).to_string();
-    assert_eq!(result.trim(), "result = 9");
+    let result = String::from_utf8_lossy(&output.stdout);
+    let result: Vec<&str> = result.lines().collect();
+
+    assert_eq!(result, ["Add: 9", "Concat: hello world"]);
 }
