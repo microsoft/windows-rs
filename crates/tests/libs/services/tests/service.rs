@@ -42,18 +42,17 @@ fn pause_resume() {
 
 #[test]
 fn extended() {
-        let mut log = vec![];
+    #[repr(C)]
+    #[derive(Copy, Clone, PartialEq, Debug)]
+    struct Data {
+        a: u8,
+        b: u8,
+        c: u8,
+    }
+    static DATA: Data = Data { a: 7, b: 8, c: 9 };
+    const DATA_PTR: *const std::ffi::c_void = &DATA as *const Data as *const std::ffi::c_void;
 
-        #[repr(C)]
-        #[derive(PartialEq, Debug)]
-        struct Data {
-            a: u8,
-            b: u8,
-            c: u8,
-        }
-
-        const DATA: Data = Data { a:7, b:8, c: 9 };
-        const DATA_PTR: *const std::ffi::c_void = &DATA as *const Data as *const std::ffi::c_void;
+    let mut log = vec![];
 
     Service::new()
         .can_fallback(|service| {
@@ -64,8 +63,8 @@ fn extended() {
 
             if let Command::Extended(command) = command {
                 unsafe {
-                let data: &Data = &*(command.data as *const Data);
-                assert_eq!(data, &DATA);
+                    let data = *(command.data as *const Data);
+                    assert_eq!(data, Data { a: 7, b: 8, c: 9 });
                 }
             }
         })
@@ -75,7 +74,11 @@ fn extended() {
         log,
         [
             Command::Start,
-            Command::Extended(ExtendedCommand { control: 123, ty: 456, data: DATA_PTR}),
+            Command::Extended(ExtendedCommand {
+                control: 123,
+                ty: 456,
+                data: DATA_PTR
+            }),
             Command::Stop,
         ]
     );

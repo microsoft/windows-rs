@@ -17,8 +17,7 @@ fn main() {
                 && command.control == SERVICE_CONTROL_TIMECHANGE
             {
                 unsafe {
-                    let data =
-                        &*(command.data as *const SERVICE_TIMECHANGE_INFO);
+                    let data = &*(command.data as *const SERVICE_TIMECHANGE_INFO);
 
                     writeln!(log, "{data:#?}").unwrap();
 
@@ -28,7 +27,8 @@ fn main() {
                     writeln!(log, "{old:#?}\n{new:#?}").unwrap();
                 }
             }
-        }).unwrap();
+        })
+        .unwrap();
 }
 
 fn convert(time: i64) -> SYSTEMTIME {

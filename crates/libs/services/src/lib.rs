@@ -230,7 +230,12 @@ impl<'a> Service<'a> {
     }
 
     pub fn handler(&self, control: u32, event_type: u32, event_data: *const c_void) -> u32 {
-        handler(control, event_type, event_data as *mut _, self as *const _ as _)
+        handler(
+            control,
+            event_type,
+            event_data as *mut _,
+            self as *const _ as _,
+        )
     }
 }
 
@@ -246,12 +251,7 @@ extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
     service.set_state(State::Running);
 }
 
-extern "system" fn handler(
-    control: u32,
-    ty: u32,
-    data: *mut c_void,
-    context: *mut c_void,
-) -> u32 {
+extern "system" fn handler(control: u32, ty: u32, data: *mut c_void, context: *mut c_void) -> u32 {
     let service = unsafe { &*(context as *const Service) };
 
     match control {
@@ -270,9 +270,7 @@ extern "system" fn handler(
             service.command(Command::Stop);
             service.set_state(State::Stopped);
         }
-        _ => service.command(Command::Extended(ExtendedCommand {
-            control, ty, data,
-        })),
+        _ => service.command(Command::Extended(ExtendedCommand { control, ty, data })),
     }
 
     NO_ERROR
