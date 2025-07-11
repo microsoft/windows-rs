@@ -1,12 +1,14 @@
 #[cfg(windows)]
 include!("windows.rs");
 
+mod bindings;
 mod can_into;
 mod com_bindings;
 mod ref_count;
 mod sha1;
 mod weak_ref_count;
 
+pub use bindings::*;
 pub use can_into::*;
 pub use com_bindings::*;
 pub use ref_count::*;

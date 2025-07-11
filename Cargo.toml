@@ -5,6 +5,7 @@ members = [
     "crates/samples/windows-sys/*",
     "crates/samples/windows/*",
     "crates/samples/components/*",
+    "crates/samples/csharp/*",
     "crates/samples/services/*",
     "crates/targets/*",
     "crates/tests/misc/*",
@@ -31,7 +32,6 @@ proc-macro2 = { version = "1.0", default-features = false }
 quote = { version = "1.0", default-features = false }
 serde = { version = "1.0", default-features = false }
 syn = { version = "2.0", default-features = false }
-toml = { version = "0.8", features = ["parse"] }
 serde_json = {version = "1.0", default-features = false }
 # generated dependencies
 cppwinrt = { version = "0.3.2", path = "crates/libs/cppwinrt", default-features = false }

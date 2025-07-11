@@ -3,3 +3,5 @@
 /target
 *.lock
 *.winmd
+obj
+bin

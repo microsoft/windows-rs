@@ -21,7 +21,14 @@ pub struct GUID {
 impl GUID {
     /// Creates a unique `GUID` value.
     pub fn new() -> Result<Self> {
-        unsafe { imp::CoCreateGuid() }
+        let mut guid = Self::zeroed();
+        let result = unsafe { imp::UuidCreate(&mut guid as *mut _ as _) };
+
+        if matches!(result, 0 | imp::RPC_S_UUID_LOCAL_ONLY) {
+            Ok(guid)
+        } else {
+            Err(Error::from_hresult(HRESULT::from_win32(result as u32)))
+        }
     }
 
     /// Creates a `GUID` represented by the all-zero byte-pattern.
