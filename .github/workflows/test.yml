@@ -40,6 +40,10 @@ jobs:
 
     runs-on: ${{ matrix.runner }}
 
+    env:
+      RUSTFLAGS: -Zhint-mostly-unused
+    if: ${{ matrix.version == 'nightly' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
