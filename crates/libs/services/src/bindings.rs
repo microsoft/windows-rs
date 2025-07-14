@@ -1,19 +1,19 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
-windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerW(lpservicename : PCWSTR, lphandlerproc : LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE);
+windows_link::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
 windows_link::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *const SERVICE_STATUS) -> BOOL);
 windows_link::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherW(lpservicestarttable : *const SERVICE_TABLE_ENTRYW) -> BOOL);
 pub type BOOL = i32;
 pub type ENUM_SERVICE_TYPE = u32;
-pub type LPHANDLER_FUNCTION = Option<unsafe extern "system" fn(dwcontrol: u32)>;
+pub type LPHANDLER_FUNCTION_EX = Option<
+    unsafe extern "system" fn(
+        dwcontrol: u32,
+        dweventtype: u32,
+        lpeventdata: *mut core::ffi::c_void,
+        lpcontext: *mut core::ffi::c_void,
+    ) -> u32,
+>;
 pub type LPSERVICE_MAIN_FUNCTIONW =
     Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut PWSTR)>;
+pub const NO_ERROR: WIN32_ERROR = 0u32;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
 pub const SERVICE_ACCEPT_PAUSE_CONTINUE: u32 = 2u32;
@@ -55,3 +55,4 @@ impl Default for SERVICE_TABLE_ENTRYW {
     }
 }
 pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = 16u32;
+pub type WIN32_ERROR = u32;
