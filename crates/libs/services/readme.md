@@ -20,8 +20,9 @@ fn main() {
     windows_services::Service::new()
         .can_pause()
         .can_stop()
-        .run(|command| {
+        .run(|service, command| {
             // Respond to service commands...
         })
+        .unwrap();
 }
 ```
