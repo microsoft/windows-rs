@@ -13,18 +13,18 @@ fn main() {
         .run(|_service, command| {
             writeln!(log, "Command: {command:?}").unwrap();
 
-            if let Command::Extended(command) = command
-                && command.control == SERVICE_CONTROL_TIMECHANGE
-            {
-                unsafe {
-                    let data = &*(command.data as *const SERVICE_TIMECHANGE_INFO);
+            if let Command::Extended(command) = command {
+                if command.control == SERVICE_CONTROL_TIMECHANGE {
+                    unsafe {
+                        let data = &*(command.data as *const SERVICE_TIMECHANGE_INFO);
 
-                    writeln!(log, "{data:#?}").unwrap();
+                        writeln!(log, "{data:#?}").unwrap();
 
-                    let old = convert(data.liOldTime);
-                    let new = convert(data.liNewTime);
+                        let old = convert(data.liOldTime);
+                        let new = convert(data.liNewTime);
 
-                    writeln!(log, "{old:#?}\n{new:#?}").unwrap();
+                        writeln!(log, "{old:#?}\n{new:#?}").unwrap();
+                    }
                 }
             }
         })
