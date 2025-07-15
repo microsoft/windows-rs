@@ -41,7 +41,7 @@ jobs:
     runs-on: ${{ matrix.runner }}
 
     env:
-      RUSTFLAGS: ${{ matrix.version == 'nightly' && '-Zhint-mostly-unused' || '' }}
+      RUSTFLAGS: ${{ matrix.version == 'nightly' && '-Zprofile-hint-mostly-unused' || '' }}
 
     steps:
       - name: Checkout
