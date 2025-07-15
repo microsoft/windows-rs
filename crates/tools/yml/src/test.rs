@@ -25,22 +25,27 @@ jobs:
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
             runner: windows-2022
+            etc:
           - version: nightly
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
             runner: windows-2022
+            etc: -Zprofile-hint-mostly-unused
           - version: nightly
             host: x86_64-pc-windows-gnu
             target: x86_64-pc-windows-gnu
             runner: windows-2022
+            etc: -Zprofile-hint-mostly-unused
           - version: stable
             host: x86_64-pc-windows-gnu
             target: i686-pc-windows-gnu
             runner: windows-2022
+            etc:
           - version: stable
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
+            etc:
 
     runs-on: ${{ matrix.runner }}
 
@@ -84,7 +89,7 @@ jobs:
             &mut yml,
             r"
       - name: Test {name}
-        run:  cargo test -p {name} --target ${{{{ matrix.target }}}} -Zprofile-hint-mostly-unused"
+        run:  cargo test -p {name} --target ${{{{ matrix.target }}}} ${{{{ matrix.etc }}}}"
         )
         .unwrap();
     }
