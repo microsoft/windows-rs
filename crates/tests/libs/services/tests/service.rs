@@ -7,7 +7,8 @@ fn start_stop() {
 
     Service::new()
         .can_fallback(|_| {})
-        .run(|_, command| {
+        .run(|service, command| {
+            assert!(service.handle().is_null());
             log.push(command);
         })
         .unwrap();

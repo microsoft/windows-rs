@@ -209,8 +209,13 @@ impl<'a> Service<'a> {
         drop(writer);
 
         unsafe {
-            SetServiceStatus(*self.handle.read().unwrap(), &status);
+            SetServiceStatus(self.handle(), &status);
         }
+    }
+
+    /// The raw handle representing the service.
+    pub fn handle(&self) -> *mut core::ffi::c_void {
+        *self.handle.read().unwrap()
     }
 
     /// The current state the service.
