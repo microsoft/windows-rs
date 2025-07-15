@@ -44,9 +44,6 @@ jobs:
 
     runs-on: ${{ matrix.runner }}
 
-    env:
-      RUSTFLAGS: ${{ matrix.version == 'nightly' && '-Zprofile-hint-mostly-unused' || '' }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -87,7 +84,7 @@ jobs:
             &mut yml,
             r"
       - name: Test {name}
-        run:  cargo test -p {name} --target ${{{{ matrix.target }}}}"
+        run:  cargo test -p {name} --target ${{{{ matrix.target }}}} -Zprofile-hint-mostly-unused"
         )
         .unwrap();
     }
