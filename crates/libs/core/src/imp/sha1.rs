@@ -16,6 +16,12 @@ pub struct ConstBuffer {
     head: usize,
 }
 
+impl Default for ConstBuffer {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl ConstBuffer {
     pub const fn for_class<C: crate::RuntimeName, I: crate::RuntimeType>() -> Self {
         Self::new()
