@@ -315,9 +315,10 @@ fn sanitized_value() {
             )
         );
         let sanitized = std::slice::from_raw_parts(sanitized_alloc, sanitized_len);
-        let sanitized = String::from_utf8_lossy(sanitized);
-        assert_eq!(sanitized, r#"{"age":21,"name":"Kenny"}"#);
+        
+        let sanitized = String::from_utf8_lossy(sanitized).into_owned();
         CoTaskMemFree(Some(sanitized_alloc as _));
+        assert_eq!(sanitized, r#"{"age":21,"name":"Kenny"}"#);
 
         // Close the validator with the given handle.
         CloseJsonValidator(handle);
