@@ -17,7 +17,7 @@ windows-strings = { workspace = true }
 
 [features]
 default = ["std"]
-std = []
+std = ["windows-core/std"]
 
 [lints]
 workspace = true

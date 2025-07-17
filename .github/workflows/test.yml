@@ -343,6 +343,8 @@ jobs:
         run:  cargo test -p test_win32_arrays --target ${{ matrix.target }}
       - name: Test test_window_long
         run:  cargo test -p test_window_long --target ${{ matrix.target }}
+      - name: Test test_windows_std
+        run:  cargo test -p test_windows_std --target ${{ matrix.target }}
       - name: Test test_winrt
         run:  cargo test -p test_winrt --target ${{ matrix.target }}
       - name: Test tool_bindgen
@@ -363,10 +365,10 @@ jobs:
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
-      - name: Test tool_yml
-        run:  cargo test -p tool_yml --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test tool_yml
+        run:  cargo test -p tool_yml --target ${{ matrix.target }}
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }}
       - name: Test windows-bindgen
