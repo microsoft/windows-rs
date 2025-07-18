@@ -13,6 +13,9 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 exclude = ["features.json"]
 
+[hints]
+mostly-unused = true
+
 [dependencies]
 windows-collections = { workspace = true }
 windows-core = { workspace = true }
