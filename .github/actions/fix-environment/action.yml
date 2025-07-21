@@ -57,11 +57,52 @@ runs:
     # - Old mingw-w64-* binutils that prevent deterministic builds.
     # - Missing llvm-dlltool in the native Windows LLVM package.
     # - Missing mingw-w64 compiler packages.
+    - name: Get week number
+      id: week
+      run: |
+        $week = Get-Date -UFormat "%U"
+        echo "week=$week" >> $env:GITHUB_OUTPUT
+      shell: pwsh
+      if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
+
+    - name: Temporarily disable Defender
+      shell: pwsh
+      run: |
+        Add-MpPreference -ExclusionPath "C:\msys64"
+      if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
+
+    - name: Setup MSYS2 package cache
+      id: cache
+      uses: actions/cache@v4
+      with:
+        path: |
+          C:\msys64\var\cache\pacman\pkg
+        key: mingw-msys-pkg-snapshot-week-${{ steps.week.outputs.week }}
+      if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
+
+    - name: Configure pacman
+      shell: pwsh
+      run: |
+        @"
+
+        [options]
+        NoExtract = usr/share/doc/* usr/share/man/*
+        "@ | Out-File -FilePath "C:\msys64\etc\pacman.conf" -Append -Encoding ASCII
+      if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
+
     - name: Update packages
       shell: pwsh
       run: |
-        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-binutils
-        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-llvm
-        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-i686-gcc
-        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-gcc
+        C:\msys64\usr\bin\pacman.exe --sync --noconfirm `
+          mingw-w64-x86_64-binutils `
+          mingw-w64-x86_64-llvm `
+          mingw-w64-i686-gcc `
+          mingw-w64-x86_64-gcc
       if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
+
+    - name: Restore Defender
+      shell: pwsh
+      run: |
+        Remove-MpPreference -ExclusionPath "C:\msys64"
+      if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
+
