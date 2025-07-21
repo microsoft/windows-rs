@@ -105,4 +105,3 @@ runs:
       run: |
         Remove-MpPreference -ExclusionPath "C:\msys64"
       if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
-
