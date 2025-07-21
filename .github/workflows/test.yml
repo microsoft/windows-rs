@@ -141,6 +141,8 @@ jobs:
         run:  cargo test -p sample_service_sys --target ${{ matrix.target }}
       - name: Test sample_service_thread
         run:  cargo test -p sample_service_thread --target ${{ matrix.target }}
+      - name: Test sample_service_time
+        run:  cargo test -p sample_service_time --target ${{ matrix.target }}
       - name: Test sample_shell
         run:  cargo test -p sample_shell --target ${{ matrix.target }}
       - name: Test sample_simple
@@ -159,10 +161,10 @@ jobs:
         run:  cargo test -p sample_uiautomation --target ${{ matrix.target }}
       - name: Test sample_wmi
         run:  cargo test -p sample_wmi --target ${{ matrix.target }}
-      - name: Test sample_xml
-        run:  cargo test -p sample_xml --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test sample_xml
+        run:  cargo test -p sample_xml --target ${{ matrix.target }}
       - name: Test test_agile
         run:  cargo test -p test_agile --target ${{ matrix.target }}
       - name: Test test_agile_reference
@@ -261,10 +263,10 @@ jobs:
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
-      - name: Test test_no_std
-        run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_no_std
+        run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
       - name: Test test_noexcept
@@ -311,6 +313,8 @@ jobs:
         run:  cargo test -p test_return_handle --target ${{ matrix.target }}
       - name: Test test_return_struct
         run:  cargo test -p test_return_struct --target ${{ matrix.target }}
+      - name: Test test_services
+        run:  cargo test -p test_services --target ${{ matrix.target }}
       - name: Test test_standalone
         run:  cargo test -p test_standalone --target ${{ matrix.target }}
       - name: Test test_string_param
@@ -361,12 +365,12 @@ jobs:
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_yml
         run:  cargo test -p tool_yml --target ${{ matrix.target }}
       - name: Test windows
