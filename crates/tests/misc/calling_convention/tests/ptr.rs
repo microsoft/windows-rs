@@ -7,7 +7,7 @@ windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
 #[cfg(target_arch = "x86")]
 type GetTickCountType = unsafe extern "system" fn() -> u32;
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(not(target_arch = "x86"))]
 type GetTickCountType = unsafe extern "C" fn() -> u32;
 
 static GET_TICK_COUNT: GetTickCountType = GetTickCount;
