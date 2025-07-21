@@ -35,7 +35,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["std"]
 docs = []
-std = ["windows-core/std"]
+std = ["windows-collections/std", "windows-core/std", "windows-future/std", "windows-numerics/std"]
 # generated features
 AI = ["Foundation"]
 AI_MachineLearning = ["AI"]
