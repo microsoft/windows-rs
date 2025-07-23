@@ -22,7 +22,7 @@ impl ITest_Impl for Test_Impl {
         this.2 = test.cloned();
         Ok(())
     }
-    fn String(&self) -> Result<HSTRING> {
+    fn String(&self) -> Result<HSTRING, HRESULT> {
         let this = self.0.read().unwrap();
         Ok(this.0.clone())
     }
@@ -31,7 +31,7 @@ impl ITest_Impl for Test_Impl {
         this.0 = value.clone();
         Ok(())
     }
-    fn Int32(&self) -> Result<i32> {
+    fn Int32(&self) -> Result<i32, HRESULT> {
         let this = self.0.read().unwrap();
         Ok(this.1)
     }
@@ -40,9 +40,9 @@ impl ITest_Impl for Test_Impl {
         this.1 = value;
         Ok(())
     }
-    fn Test(&self) -> Result<ITest> {
+    fn Test(&self) -> Result<ITest, HRESULT> {
         let this = self.0.read().unwrap();
-        this.2.clone().ok_or_else(Error::empty)
+        this.2.clone().ok_or_else(S_OK)
     }
     fn SetTest(&self, value: Ref<ITest>) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();

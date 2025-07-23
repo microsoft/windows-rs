@@ -607,10 +607,8 @@ impl InterfaceMethod {
                 if let Some(segment) = path.path.segments.last() {
                     let ident = segment.ident.to_string();
                     if ident == "Result" {
-                        if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
-                            if args.args.len() == 1 {
+                        if let syn::PathArguments::AngleBracketed(_) = &segment.arguments {
                                 return true;
-                            }
                         }
                     }
                 }

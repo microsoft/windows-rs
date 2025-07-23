@@ -35,6 +35,7 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "Test",
+        "S_OK",
         "--implement",
         "--flat",
         "--no-comment",

@@ -12,7 +12,7 @@ pub fn consume(test: &ITest) -> Result<(), HRESULT> {
     unsafe { consume(std::mem::transmute_copy(test)).ok() }
 }
 
-pub fn produce() -> Result<ITest> {
+pub fn produce() -> Result<ITest, HRESULT> {
     extern "system" {
         fn produce(test: *mut *mut std::ffi::c_void) -> HRESULT;
     }

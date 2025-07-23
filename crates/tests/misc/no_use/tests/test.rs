@@ -7,19 +7,19 @@
 struct Test(&'static str);
 
 impl windows::Foundation::IStringable_Impl for Test_Impl {
-    fn ToString(&self) -> Result<windows::core::HSTRING> {
+    fn ToString(&self) -> Result<windows::core::HSTRING, windows::core::HRESULT> {
         Ok(self.0.into())
     }
 }
 
 impl windows::Foundation::IClosable_Impl for Test_Impl {
-    fn Close(&self) -> Result<(), HRESULT> {
+    fn Close(&self) -> Result<(), windows::core::HRESULT> {
         Ok(())
     }
 }
 
 #[test]
-fn test() -> Result<(), HRESULT> {
+fn test() -> Result<(), windows::core::HRESULT> {
     let a: windows::Foundation::IStringable = Test("test").into();
     assert!(a.ToString()? == "test");
 
