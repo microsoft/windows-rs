@@ -5,17 +5,27 @@ fn main() {
     let pool = Pool::new();
     pool.set_thread_limits(1, 1);
 
-    Service::new().can_pause().can_stop().run(|command| {
-        log(&format!("Command: {command:?}\n"));
+    Service::new()
+        .can_pause()
+        .can_stop()
+        .can_fallback(|_| {
+            println!("Press Enter to stop service.");
+            use std::io::Read;
+            _ = std::io::stdin().read(&mut [0]);
+        })
+        .run(|service, command| {
+            log(&format!("Command: {command:?}\n"));
 
-        match command {
-            Command::Start | Command::Resume => pool.submit(service_thread),
-            Command::Pause | Command::Stop => pool.join(),
-        }
-    })
+            match command {
+                Command::Start | Command::Resume => pool.submit(|| service_thread(service)),
+                Command::Pause | Command::Stop => pool.join(),
+                _ => {}
+            }
+        })
+        .unwrap();
 }
 
-fn service_thread() {
+fn service_thread(service: &Service) {
     for i in 0..10 {
         log(&format!("Thread:{}... iteration:{i}\n", thread_id()));
 
@@ -23,13 +33,13 @@ fn service_thread() {
         sleep(1000);
 
         // Services can use the `state` function to query the current service state.
-        if matches!(state(), State::StopPending | State::PausePending) {
+        if matches!(service.state(), State::StopPending | State::PausePending) {
             return;
         }
     }
 
-    // Services can use the `set_state` function to update thye service state.
-    set_state(State::Stopped);
+    // Services can use the `set_state` function to update the service state.
+    service.set_state(State::Stopped);
 }
 
 // Simple log function can be used to observe service behavior.
