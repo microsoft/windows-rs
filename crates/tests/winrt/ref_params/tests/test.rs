@@ -10,19 +10,19 @@ impl ITest_Impl for Test_Impl {
     fn Input(&self, input: Ref<ITest>) -> Result<i32> {
         input.ok()?.Current()
     }
-    fn Output(&self, value: i32, output: OutRef<ITest>) -> Result<()> {
+    fn Output(&self, value: i32, output: OutRef<ITest>) -> Result<(), HRESULT> {
         output.write(Some(Test(value.into()).into()))
     }
     fn Current(&self) -> Result<i32> {
         Ok(self.0.load(Ordering::Relaxed))
     }
-    fn SetCurrent(&self, value: i32) -> Result<()> {
+    fn SetCurrent(&self, value: i32) -> Result<(), HRESULT> {
         self.0.store(value, Ordering::Relaxed);
         Ok(())
     }
 }
 
-fn test_interface(test: &ITest) -> Result<()> {
+fn test_interface(test: &ITest) -> Result<(), HRESULT> {
     assert_eq!(test.Current()?, 0);
     test.SetCurrent(-321)?;
     assert_eq!(test.Current()?, -321);
@@ -42,13 +42,13 @@ fn test_interface(test: &ITest) -> Result<()> {
 }
 
 #[test]
-fn test_rust() -> Result<()> {
+fn test_rust() -> Result<(), HRESULT> {
     let test: ITest = Test(0.into()).into();
     test_interface(&test)
 }
 
 #[test]
-fn test_cpp() -> Result<()> {
+fn test_cpp() -> Result<(), HRESULT> {
     let test: ITest = Test(0.into()).into();
     consume(&test)?;
 

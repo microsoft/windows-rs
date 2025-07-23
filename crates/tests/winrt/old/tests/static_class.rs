@@ -5,7 +5,7 @@ use windows::core::RuntimeName;
 use windows::Foundation::PropertyValue;
 
 #[test]
-fn static_class() -> windows::core::Result<()> {
+fn static_class() -> Result<(), HRESULT> {
     assert_eq!(PropertyValue::NAME, "Windows.Foundation.PropertyValue");
 
     // TODO: test PropertyValue's methods here

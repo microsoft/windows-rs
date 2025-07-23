@@ -4,7 +4,7 @@ use windows::{
 };
 
 #[test]
-fn linker() -> Result<()> {
+fn linker() -> Result<(), HRESULT> {
     unsafe {
         D3DCreateLinker()?;
         Ok(())
@@ -38,7 +38,7 @@ fn wait_on_address() {
 }
 
 #[test]
-fn clr() -> Result<()> {
+fn clr() -> Result<(), HRESULT> {
     unsafe {
         let mut version = vec![0; 20];
         let mut len = 0;

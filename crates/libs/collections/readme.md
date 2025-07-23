@@ -32,7 +32,7 @@ use windows_collections::*;
 use windows_result::*;
 use windows_strings::*;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     let greetings =
         IVectorView::<HSTRING>::from(vec![HSTRING::from("hello"), HSTRING::from("world")]);
 

@@ -19,7 +19,7 @@ Use the Windows async types as needed:
 use windows_future::*;
 use windows_result::*;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     // This result will be available immediately.
     let ready = IAsyncOperation::ready(Ok(123));
     assert_eq!(ready.get()?, 123);

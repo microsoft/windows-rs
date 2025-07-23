@@ -6,7 +6,7 @@ use windows::{
 /// These tests ensure `MAKEINTRESOURCEW` style constants an in particular negative constants like TD_ERROR_ICON
 /// work as expected.
 #[test]
-fn win() -> Result<()> {
+fn win() -> Result<(), HRESULT> {
     unsafe {
         assert_eq!(IDI_APPLICATION.0 as u16, 32512);
         LoadIconW(None, IDI_APPLICATION)?;

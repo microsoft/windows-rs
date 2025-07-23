@@ -1,7 +1,7 @@
 use windows::Foundation::GuidHelper;
 
 #[test]
-fn guid_helper() -> windows::core::Result<()> {
+fn guid_helper() -> Result<(), HRESULT> {
     let a = GuidHelper::CreateNewGuid()?;
     let b = GuidHelper::CreateNewGuid()?;
 

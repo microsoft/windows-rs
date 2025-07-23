@@ -1,5 +1,5 @@
 #[test]
-fn async_get() -> windows::core::Result<()> {
+fn async_get() -> Result<(), HRESULT> {
     use windows::Storage::Streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;

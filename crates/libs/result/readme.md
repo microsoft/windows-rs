@@ -22,7 +22,7 @@ const S_OK: HRESULT = HRESULT(0);
 const ERROR_CANCELLED: u32 = 1223;
 const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     S_OK.ok()?;
     let e = Error::new(E_CANCELLED, "test message");
     assert_eq!(e.code(), E_CANCELLED);

@@ -2,7 +2,7 @@ use windows::core::{Interface, Result};
 use windows::Foundation::{IClosable, IStringable, Uri};
 
 #[test]
-fn try_into() -> Result<()> {
+fn try_into() -> Result<(), HRESULT> {
     let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
 
     // Implicit cast to IStringable should work.

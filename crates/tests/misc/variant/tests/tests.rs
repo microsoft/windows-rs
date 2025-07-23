@@ -6,7 +6,7 @@ use windows::Win32::System::Variant::*;
 use windows_core::*;
 
 #[test]
-fn test_variant() -> Result<()> {
+fn test_variant() -> Result<(), HRESULT> {
     unsafe { Com::CoIncrementMTAUsage()? };
 
     let empty: VARIANT = VARIANT::default();
@@ -132,7 +132,7 @@ fn test_variant() -> Result<()> {
 }
 
 #[test]
-fn test_propvariant() -> Result<()> {
+fn test_propvariant() -> Result<(), HRESULT> {
     unsafe { Com::CoIncrementMTAUsage()? };
 
     let empty: PROPVARIANT = PROPVARIANT::default();

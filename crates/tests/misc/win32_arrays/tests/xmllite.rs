@@ -4,7 +4,7 @@ use windows::{
 };
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
@@ -108,7 +108,7 @@ fn test() -> Result<()> {
 }
 
 #[test]
-fn lite() -> Result<()> {
+fn lite() -> Result<(), HRESULT> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 

@@ -7,17 +7,17 @@ use test_noexcept::*;
 struct Test(std::sync::RwLock<(HSTRING, i32, Option<ITest>)>);
 
 impl ITest_Impl for Test_Impl {
-    fn MethodString(&self, test: &HSTRING) -> Result<()> {
+    fn MethodString(&self, test: &HSTRING) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
         this.0 = test.clone();
         Ok(())
     }
-    fn MethodInt32(&self, test: i32) -> Result<()> {
+    fn MethodInt32(&self, test: i32) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
         this.1 = test;
         Ok(())
     }
-    fn MethodTest(&self, test: Ref<ITest>) -> Result<()> {
+    fn MethodTest(&self, test: Ref<ITest>) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
         this.2 = test.cloned();
         Ok(())
@@ -26,7 +26,7 @@ impl ITest_Impl for Test_Impl {
         let this = self.0.read().unwrap();
         Ok(this.0.clone())
     }
-    fn SetString(&self, value: &HSTRING) -> Result<()> {
+    fn SetString(&self, value: &HSTRING) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
         this.0 = value.clone();
         Ok(())
@@ -35,7 +35,7 @@ impl ITest_Impl for Test_Impl {
         let this = self.0.read().unwrap();
         Ok(this.1)
     }
-    fn SetInt32(&self, value: i32) -> Result<()> {
+    fn SetInt32(&self, value: i32) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
         this.1 = value;
         Ok(())
@@ -44,7 +44,7 @@ impl ITest_Impl for Test_Impl {
         let this = self.0.read().unwrap();
         this.2.clone().ok_or_else(Error::empty)
     }
-    fn SetTest(&self, value: Ref<ITest>) -> Result<()> {
+    fn SetTest(&self, value: Ref<ITest>) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
         this.2 = value.cloned();
         Ok(())
@@ -88,7 +88,7 @@ impl ITest_Impl for Test_Impl {
     }
 }
 
-fn test_except(test: &ITest) -> Result<()> {
+fn test_except(test: &ITest) -> Result<(), HRESULT> {
     test.MethodString(h!("abc"))?;
     assert_eq!(test.String()?, "abc");
 
@@ -113,14 +113,14 @@ fn test_noexcept(test: &ITest) {
 }
 
 #[test]
-fn test_rust() -> Result<()> {
+fn test_rust() -> Result<(), HRESULT> {
     let test: ITest = Test::default().into();
     test_noexcept(&test);
     test_except(&test)
 }
 
 #[test]
-fn test_cpp() -> Result<()> {
+fn test_cpp() -> Result<(), HRESULT> {
     let test: ITest = Test::default().into();
     consume(&test)?;
 

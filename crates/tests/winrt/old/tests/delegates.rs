@@ -5,7 +5,7 @@ use windows::{Foundation::Collections::*, Foundation::*};
 use windows_future::*;
 
 #[test]
-fn non_generic() -> windows::core::Result<()> {
+fn non_generic() -> Result<(), HRESULT> {
     type Handler = AsyncActionCompletedHandler;
 
     assert_eq!(
@@ -32,7 +32,7 @@ fn non_generic() -> windows::core::Result<()> {
 }
 
 #[test]
-fn generic() -> windows::core::Result<()> {
+fn generic() -> Result<(), HRESULT> {
     type Handler = TypedEventHandler<Uri, i32>;
 
     assert_eq!(
@@ -60,7 +60,7 @@ fn generic() -> windows::core::Result<()> {
 }
 
 #[test]
-fn event() -> windows::core::Result<()> {
+fn event() -> Result<(), HRESULT> {
     let set = PropertySet::new()?;
     let (tx, rx) = std::sync::mpsc::channel();
 

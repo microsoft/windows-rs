@@ -18,7 +18,7 @@ Read and write registry keys and values as needed:
 ```rust,no_run
 use windows_registry::*;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     let key = CURRENT_USER.create("software\\windows-rs")?;
 
     key.set_u32("number", 123)?;
@@ -36,7 +36,7 @@ Use the `options()` method for even more control:
 ```rust,no_run
 use windows_registry::*;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     let tx = Transaction::new()?;
 
     let key = CURRENT_USER

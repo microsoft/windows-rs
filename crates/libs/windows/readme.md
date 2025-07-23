@@ -28,7 +28,7 @@ use windows::{
     Win32::UI::WindowsAndMessaging::*,
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     let doc = XmlDocument::new()?;
     doc.LoadXml(h!("<html>hello world</html>"))?;
 

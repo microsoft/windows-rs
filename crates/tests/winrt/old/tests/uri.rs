@@ -3,7 +3,7 @@ use windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::Win32::System::Com::IAgileObject;
 
 #[test]
-fn uri() -> windows::core::Result<()> {
+fn uri() -> Result<(), HRESULT> {
     assert_eq!(Uri::NAME, "Windows.Foundation.Uri");
 
     assert_eq!(
@@ -27,7 +27,7 @@ fn uri() -> windows::core::Result<()> {
 }
 
 #[test]
-fn interface_conversion() -> windows::core::Result<()> {
+fn interface_conversion() -> Result<(), HRESULT> {
     // TODO: Find an example where the default constructor is not exclusive.
 
     // TODO: Convert from ??? class to (non-exclusive) default interface by value (dropping the class).

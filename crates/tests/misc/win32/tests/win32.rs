@@ -114,7 +114,7 @@ fn constant() {
 }
 
 #[test]
-fn function() -> windows::core::Result<()> {
+fn function() -> Result<(), HRESULT> {
     unsafe {
         let event = CreateEventW(None, true, false, None)?;
         SetEvent(event)?;
@@ -139,7 +139,7 @@ fn bool_as_error() {
 }
 
 #[test]
-fn com() -> windows::core::Result<()> {
+fn com() -> Result<(), HRESULT> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
         let values = [1u8, 2u8, 3u8, 4u8];
@@ -202,7 +202,7 @@ fn com_inheritance() {
 
 // Tests for https://github.com/microsoft/windows-rs/issues/463
 #[test]
-fn onecore_imports() -> windows::core::Result<()> {
+fn onecore_imports() -> Result<(), HRESULT> {
     unsafe {
         _ = HasExpandedResources()?;
 
@@ -229,7 +229,7 @@ fn onecore_imports() -> windows::core::Result<()> {
 }
 
 #[test]
-fn interface() -> windows::core::Result<()> {
+fn interface() -> Result<(), HRESULT> {
     unsafe {
         let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 

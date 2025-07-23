@@ -2,9 +2,7 @@ use windows::{
     core::*, Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*,
 };
 
-type Result<T> = std::result::Result<T, HRESULT>;
-
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
@@ -41,7 +39,7 @@ fn main() -> Result<()> {
 struct Callback;
 
 impl IBackgroundCopyCallback_Impl for Callback_Impl {
-    fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> Result<()> {
+    fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> Result<(), HRESULT> {
         let job = job.unwrap();
         unsafe { job.Complete()? };
         println!("done");
@@ -52,7 +50,7 @@ impl IBackgroundCopyCallback_Impl for Callback_Impl {
         &self,
         job: Ref<IBackgroundCopyJob>,
         error: Ref<IBackgroundCopyError>,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         let job = job.unwrap();
         let error = error.unwrap();
         unsafe {
@@ -62,7 +60,7 @@ impl IBackgroundCopyCallback_Impl for Callback_Impl {
         std::process::exit(0);
     }
 
-    fn JobModification(&self, _: Ref<IBackgroundCopyJob>, _: u32) -> Result<()> {
+    fn JobModification(&self, _: Ref<IBackgroundCopyJob>, _: u32) -> Result<(), HRESULT> {
         Ok(())
     }
 }

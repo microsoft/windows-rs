@@ -4,7 +4,7 @@ mod bindings;
 pub use bindings::*;
 pub use windows_core::*;
 
-pub fn consume(test: &ITest) -> Result<()> {
+pub fn consume(test: &ITest) -> Result<(), HRESULT> {
     extern "system" {
         fn consume(test: Ref<ITest>) -> HRESULT;
     }

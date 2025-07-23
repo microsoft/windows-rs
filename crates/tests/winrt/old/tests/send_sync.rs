@@ -7,7 +7,7 @@ use windows_future::*;
 // Simple test to validate that types with MarshalingType.Agile are marked Send and Sync
 // (if this compiles it worked)
 #[test]
-fn send_sync() -> windows::core::Result<()> {
+fn send_sync() -> Result<(), HRESULT> {
     let url = Uri::CreateUri(&HSTRING::from("http://kennykerr.ca"))?;
 
     thread::spawn(move || {
