@@ -63,7 +63,7 @@ fn test() -> Result<(), HRESULT> {
         let task = one_two_three.cast::<IBackgroundTask>()?;
         let instance = one_two_three.cast::<IBackgroundTaskInstance>()?;
 
-        assert_eq!(task.Run(None).unwrap_err().code(), E_POINTER);
+        assert_eq!(task.Run(None).unwrap_err(), E_POINTER);
         task.Run(&instance)?;
 
         let handler = BackgroundTaskCanceledEventHandler::new(|instance, reason| {

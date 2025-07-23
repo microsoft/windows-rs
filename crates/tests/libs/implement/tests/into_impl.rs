@@ -24,7 +24,7 @@ where
             if owner.0.len() > (*this).1 {
                 Ok(owner.0[(*this).1].clone())
             } else {
-                Err(Error::new(E_BOUNDS, ""))
+                Err(E_BOUNDS)
             }
         }
     }
@@ -65,7 +65,7 @@ where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,
 {
-    fn First(&self) -> Result<IIterator<T>> {
+    fn First(&self) -> Result<IIterator<T>, HRESULT> {
         Ok(Iterator::<T>((self.to_interface::<IIterable<T>>(), 0).into()).into())
     }
 }

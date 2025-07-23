@@ -22,14 +22,14 @@ impl IServiceProvider_Impl for Borrowed_Impl {
         _service: *const GUID,
         iid: *const GUID,
         object: *mut *mut std::ffi::c_void,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         let unknown = self.as_interface::<IUnknown>();
         unsafe { unknown.query(iid, object).ok() }
     }
 }
 
 impl IProfferService_Impl for Borrowed_Impl {
-    fn ProfferService(&self, _: *const GUID, provider: Ref<IServiceProvider>) -> Result<u32> {
+    fn ProfferService(&self, _: *const GUID, provider: Ref<IServiceProvider>) -> Result<u32, HRESULT> {
         unsafe {
             if let Ok(provider) = provider.ok() {
                 Ok(provider.cast::<IBorrowed>()?.Call())
@@ -39,13 +39,13 @@ impl IProfferService_Impl for Borrowed_Impl {
         }
     }
 
-    fn RevokeService(&self, _: u32) -> Result<()> {
+    fn RevokeService(&self, _: u32) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let one_two_three: IBorrowed = Borrowed(123).into();
         assert_eq!(one_two_three.Call(), 123);

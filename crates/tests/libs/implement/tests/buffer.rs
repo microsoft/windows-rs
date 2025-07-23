@@ -7,13 +7,13 @@ struct TestBuffer(std::cell::UnsafeCell<Vec<u8>>);
 
 #[allow(non_snake_case)]
 impl IBufferByteAccess_Impl for TestBuffer_Impl {
-    fn Buffer(&self) -> Result<*mut u8> {
+    fn Buffer(&self) -> Result<*mut u8, HRESULT> {
         unsafe { Ok((*self.0.get()).as_mut_ptr()) }
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let object: IBufferByteAccess = TestBuffer(vec![0xAA, 0xBB, 0xCC].into()).into();
 
     let bytes: *const u8 = unsafe { object.Buffer()? };

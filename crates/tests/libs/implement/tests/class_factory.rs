@@ -8,13 +8,13 @@ use windows::Win32::System::Com::*;
 struct Object();
 
 impl IStringable_Impl for Object_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok("Object".into())
     }
 }
 
 impl IClosable_Impl for Object_Impl {
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 }
@@ -28,20 +28,20 @@ impl IClassFactory_Impl for Factory_Impl {
         outer: Ref<IUnknown>,
         iid: *const GUID,
         object: *mut *mut core::ffi::c_void,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         assert!(outer.is_null());
         let unknown: IInspectable = Object().into();
         unsafe { unknown.query(iid, object).ok() }
     }
 
-    fn LockServer(&self, lock: BOOL) -> Result<()> {
+    fn LockServer(&self, lock: BOOL) -> Result<(), HRESULT> {
         assert!(lock.as_bool());
         Ok(())
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let factory: IClassFactory = Factory().into();
         factory.LockServer(true)?;

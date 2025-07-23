@@ -79,7 +79,7 @@ impl IDataObject_Impl for Test_Impl {
     fn EnumDAdvise(&self) -> Result<IEnumSTATDATA, HRESULT> {
         unsafe {
             (*self.0.get()).EnumDAdvise = true;
-            Err(Error::empty())
+            Err(S_OK)
         }
     }
 }
@@ -99,8 +99,7 @@ fn test() -> Result<(), HRESULT> {
         let r = d.EnumFormatEtc(0);
         assert!(r.is_err());
         let e = r.unwrap_err();
-        assert!(e.code() == S_OK);
-        assert!(e.as_ptr().is_null());
+        assert!(e == S_OK);
 
         d.DAdvise(&Default::default(), 0, None)?;
 

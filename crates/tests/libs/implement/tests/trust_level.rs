@@ -7,7 +7,7 @@ use windows::Foundation::*;
 struct BaseTrust;
 
 impl IStringable_Impl for BaseTrust_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok("BaseTrust".into())
     }
 }
@@ -16,13 +16,13 @@ impl IStringable_Impl for BaseTrust_Impl {
 struct PartialTrust;
 
 impl IStringable_Impl for PartialTrust_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok("PartialTrust".into())
     }
 }
 
 impl IClosable_Impl for PartialTrust_Impl {
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 }
@@ -31,13 +31,13 @@ impl IClosable_Impl for PartialTrust_Impl {
 struct FullTrust;
 
 impl IStringable_Impl for FullTrust_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok("FullTrust".into())
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let base: IStringable = BaseTrust.into();
     assert_eq!(base.ToString()?, "BaseTrust");
     assert_eq!(base.cast::<IInspectable>()?.GetTrustLevel()?, 0);
