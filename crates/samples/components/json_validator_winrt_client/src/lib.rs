@@ -5,7 +5,7 @@ use bindings::*;
 use windows::{core::*, Win32::Foundation::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     // Create a validator with the given schema.
     let validator = JsonValidator::CreateInstance(h!(r#"{"maxLength": 5}"#))?;
 
@@ -13,7 +13,7 @@ fn test() -> Result<()> {
     validator.Validate(h!(r#""Hello""#))?;
 
     // Check validation failure provides reasonable error information.
-    let error = validator.Validate(h!(r#""Hello World""#)).unwrap_err();
+    let error: Error = validator.Validate(h!(r#""Hello World""#)).unwrap_err().into();
     assert_eq!(error.code(), E_INVALIDARG);
     assert_eq!(
         error.message(),
@@ -21,7 +21,7 @@ fn test() -> Result<()> {
     );
 
     // Check schema parsing failure provides reasonable error information.
-    let error = JsonValidator::CreateInstance(h!(r#"{ "invalid"#)).unwrap_err();
+    let error: Error = JsonValidator::CreateInstance(h!(r#"{ "invalid"#)).unwrap_err().into();
     assert_eq!(error.code(), E_INVALIDARG);
     assert_eq!(
         error.message(),
@@ -29,7 +29,7 @@ fn test() -> Result<()> {
     );
 
     // Check that JSON parsing failure provides reasonable error information.
-    let error = validator.Validate(h!(r#""Hello"#)).unwrap_err();
+    let error: Error = validator.Validate(h!(r#""Hello"#)).unwrap_err().into();
     assert_eq!(error.code(), E_INVALIDARG);
     assert_eq!(
         error.message(),
@@ -40,7 +40,7 @@ fn test() -> Result<()> {
 }
 
 #[test]
-fn sanitized_value() -> Result<()> {
+fn sanitized_value() -> Result<(), HRESULT> {
     let schema = h!(r#"
     {
         "properties": {

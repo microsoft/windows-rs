@@ -5,21 +5,21 @@ pub mod Core;
 pub struct AdvancedPhotoCaptureSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedPhotoCaptureSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedPhotoCaptureSettings {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AdvancedPhotoCaptureSettings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Mode(&self) -> windows_core::Result<AdvancedPhotoMode> {
+    pub fn Mode(&self) -> Result<AdvancedPhotoMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMode(&self, value: AdvancedPhotoMode) -> windows_core::Result<()> {
+    pub fn SetMode(&self, value: AdvancedPhotoMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -41,28 +41,28 @@ unsafe impl Sync for AdvancedPhotoCaptureSettings {}
 pub struct AdvancedPhotoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedPhotoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedPhotoControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<AdvancedPhotoMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_collections::IVectorView<AdvancedPhotoMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Mode(&self) -> windows_core::Result<AdvancedPhotoMode> {
+    pub fn Mode(&self) -> Result<AdvancedPhotoMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Configure<P0>(&self, settings: P0) -> windows_core::Result<()>
+    pub fn Configure<P0>(&self, settings: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<AdvancedPhotoCaptureSettings>,
     {
@@ -103,22 +103,22 @@ pub struct AudioDeviceController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioDeviceController, IMediaDeviceController);
 impl AudioDeviceController {
-    pub fn SetMuted(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetMuted(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMuted)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Muted(&self) -> windows_core::Result<bool> {
+    pub fn Muted(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Muted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetVolumePercent(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetVolumePercent(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVolumePercent)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn VolumePercent(&self) -> windows_core::Result<f32> {
+    pub fn VolumePercent(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -126,7 +126,7 @@ impl AudioDeviceController {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn AudioCaptureEffectsManager(&self) -> windows_core::Result<super::Effects::AudioCaptureEffectsManager> {
+    pub fn AudioCaptureEffectsManager(&self) -> Result<super::Effects::AudioCaptureEffectsManager, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAudioDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -134,7 +134,7 @@ impl AudioDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -142,7 +142,7 @@ impl AudioDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
+    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> Result<super::MediaProperties::IMediaEncodingProperties, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -150,7 +150,7 @@ impl AudioDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -176,35 +176,35 @@ impl windows_core::RuntimeName for AudioDeviceController {
 pub struct AudioDeviceModule(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceModule, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioDeviceModule {
-    pub fn ClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ClassId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClassId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstanceId(&self) -> windows_core::Result<u32> {
+    pub fn InstanceId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MajorVersion(&self) -> windows_core::Result<u32> {
+    pub fn MajorVersion(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MajorVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinorVersion(&self) -> windows_core::Result<u32> {
+    pub fn MinorVersion(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -212,7 +212,7 @@ impl AudioDeviceModule {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendCommandAsync<P0>(&self, command: P0) -> windows_core::Result<windows_future::IAsyncOperation<ModuleCommandResult>>
+    pub fn SendCommandAsync<P0>(&self, command: P0) -> Result<windows_future::IAsyncOperation<ModuleCommandResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -238,7 +238,7 @@ impl windows_core::RuntimeName for AudioDeviceModule {
 pub struct AudioDeviceModuleNotificationEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceModuleNotificationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioDeviceModuleNotificationEventArgs {
-    pub fn Module(&self) -> windows_core::Result<AudioDeviceModule> {
+    pub fn Module(&self) -> Result<AudioDeviceModule, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -246,7 +246,7 @@ impl AudioDeviceModuleNotificationEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn NotificationData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn NotificationData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -271,7 +271,7 @@ unsafe impl Sync for AudioDeviceModuleNotificationEventArgs {}
 pub struct AudioDeviceModulesManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioDeviceModulesManager {
-    pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>,
     {
@@ -281,31 +281,31 @@ impl AudioDeviceModulesManager {
             (windows_core::Interface::vtable(this).ModuleNotificationReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveModuleNotificationReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveModuleNotificationReceived(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveModuleNotificationReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FindAllById(&self, moduleid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<AudioDeviceModule>> {
+    pub fn FindAllById(&self, moduleid: &windows_core::HSTRING) -> Result<windows_collections::IVectorView<AudioDeviceModule>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(moduleid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAll(&self) -> windows_core::Result<windows_collections::IVectorView<AudioDeviceModule>> {
+    pub fn FindAll(&self) -> Result<windows_collections::IVectorView<AudioDeviceModule>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(deviceid: &windows_core::HSTRING) -> windows_core::Result<AudioDeviceModulesManager> {
+    pub fn Create(deviceid: &windows_core::HSTRING) -> Result<AudioDeviceModulesManager, windows_result::HRESULT> {
         Self::IAudioDeviceModulesManagerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAudioDeviceModulesManagerFactory<R, F: FnOnce(&IAudioDeviceModulesManagerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioDeviceModulesManagerFactory<R, F: FnOnce(&IAudioDeviceModulesManagerFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AudioDeviceModulesManager, IAudioDeviceModulesManagerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -354,36 +354,36 @@ impl windows_core::RuntimeType for AutoFocusRange {
 pub struct CallControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CallControl, windows_core::IUnknown, windows_core::IInspectable);
 impl CallControl {
-    pub fn IndicateNewIncomingCall(&self, enableringer: bool, callerid: &windows_core::HSTRING) -> windows_core::Result<u64> {
+    pub fn IndicateNewIncomingCall(&self, enableringer: bool, callerid: &windows_core::HSTRING) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndicateNewIncomingCall)(windows_core::Interface::as_raw(this), enableringer, core::mem::transmute_copy(callerid), &mut result__).map(|| result__)
         }
     }
-    pub fn IndicateNewOutgoingCall(&self) -> windows_core::Result<u64> {
+    pub fn IndicateNewOutgoingCall(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndicateNewOutgoingCall)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IndicateActiveCall(&self, calltoken: u64) -> windows_core::Result<()> {
+    pub fn IndicateActiveCall(&self, calltoken: u64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).IndicateActiveCall)(windows_core::Interface::as_raw(this), calltoken).ok() }
     }
-    pub fn EndCall(&self, calltoken: u64) -> windows_core::Result<()> {
+    pub fn EndCall(&self, calltoken: u64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).EndCall)(windows_core::Interface::as_raw(this), calltoken).ok() }
     }
-    pub fn HasRinger(&self) -> windows_core::Result<bool> {
+    pub fn HasRinger(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasRinger)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AnswerRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AnswerRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<CallControlEventHandler>,
     {
@@ -393,11 +393,11 @@ impl CallControl {
             (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAnswerRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAnswerRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAnswerRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn HangUpRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn HangUpRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<CallControlEventHandler>,
     {
@@ -407,11 +407,11 @@ impl CallControl {
             (windows_core::Interface::vtable(this).HangUpRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveHangUpRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveHangUpRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveHangUpRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DialRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DialRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<DialRequestedEventHandler>,
     {
@@ -421,11 +421,11 @@ impl CallControl {
             (windows_core::Interface::vtable(this).DialRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDialRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDialRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDialRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RedialRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RedialRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<RedialRequestedEventHandler>,
     {
@@ -435,11 +435,11 @@ impl CallControl {
             (windows_core::Interface::vtable(this).RedialRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRedialRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRedialRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRedialRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn KeypadPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeypadPressed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<KeypadPressedEventHandler>,
     {
@@ -449,11 +449,11 @@ impl CallControl {
             (windows_core::Interface::vtable(this).KeypadPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveKeypadPressed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveKeypadPressed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveKeypadPressed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AudioTransferRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AudioTransferRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<CallControlEventHandler>,
     {
@@ -463,23 +463,23 @@ impl CallControl {
             (windows_core::Interface::vtable(this).AudioTransferRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAudioTransferRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAudioTransferRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioTransferRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<CallControl> {
+    pub fn GetDefault() -> Result<CallControl, windows_result::HRESULT> {
         Self::ICallControlStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<CallControl> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> Result<CallControl, windows_result::HRESULT> {
         Self::ICallControlStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ICallControlStatics<R, F: FnOnce(&ICallControlStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICallControlStatics<R, F: FnOnce(&ICallControlStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CallControl, ICallControlStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -501,11 +501,11 @@ impl windows_core::RuntimeType for CallControlEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl CallControlEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = CallControlEventHandlerBox { vtable: &CallControlEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<CallControl>,
     {
@@ -520,12 +520,12 @@ pub struct CallControlEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct CallControlEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>) -> windows_core::Result<()> + Send + 'static> {
+struct CallControlEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const CallControlEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, CallControl>) -> windows_core::Result<()> + Send + 'static> CallControlEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, CallControl>) -> Result<(), windows_result::HRESULT> + Send + 'static> CallControlEventHandlerBox<F> {
     const VTABLE: CallControlEventHandler_Vtbl = CallControlEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -577,21 +577,21 @@ impl<F: FnMut(windows_core::Ref<'_, CallControl>) -> windows_core::Result<()> + 
 pub struct CameraOcclusionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraOcclusionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraOcclusionInfo {
-    pub fn GetState(&self) -> windows_core::Result<CameraOcclusionState> {
+    pub fn GetState(&self) -> Result<CameraOcclusionState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsOcclusionKindSupported(&self, occlusionkind: CameraOcclusionKind) -> windows_core::Result<bool> {
+    pub fn IsOcclusionKindSupported(&self, occlusionkind: CameraOcclusionKind) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOcclusionKindSupported)(windows_core::Interface::as_raw(this), occlusionkind, &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>,
     {
@@ -601,7 +601,7 @@ impl CameraOcclusionInfo {
             (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStateChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -636,14 +636,14 @@ impl windows_core::RuntimeType for CameraOcclusionKind {
 pub struct CameraOcclusionState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraOcclusionState, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraOcclusionState {
-    pub fn IsOccluded(&self) -> windows_core::Result<bool> {
+    pub fn IsOccluded(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOccluded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsOcclusionKind(&self, occlusionkind: CameraOcclusionKind) -> windows_core::Result<bool> {
+    pub fn IsOcclusionKind(&self, occlusionkind: CameraOcclusionKind) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -668,7 +668,7 @@ unsafe impl Sync for CameraOcclusionState {}
 pub struct CameraOcclusionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraOcclusionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraOcclusionStateChangedEventArgs {
-    pub fn State(&self) -> windows_core::Result<CameraOcclusionState> {
+    pub fn State(&self) -> Result<CameraOcclusionState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -765,14 +765,14 @@ impl windows_core::RuntimeType for ColorTemperaturePreset {
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DefaultAudioCaptureDeviceChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable, IDefaultAudioDeviceChangedEventArgs);
 impl DefaultAudioCaptureDeviceChangedEventArgs {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Role(&self) -> windows_core::Result<AudioDeviceRole> {
+    pub fn Role(&self) -> Result<AudioDeviceRole, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -797,14 +797,14 @@ unsafe impl Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
 pub struct DefaultAudioRenderDeviceChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DefaultAudioRenderDeviceChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable, IDefaultAudioDeviceChangedEventArgs);
 impl DefaultAudioRenderDeviceChangedEventArgs {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Role(&self) -> windows_core::Result<AudioDeviceRole> {
+    pub fn Role(&self) -> Result<AudioDeviceRole, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -829,11 +829,11 @@ unsafe impl Sync for DefaultAudioRenderDeviceChangedEventArgs {}
 pub struct DialRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DialRequestedEventArgs {
-    pub fn Handled(&self) -> windows_core::Result<()> {
+    pub fn Handled(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Contact(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Contact(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -858,11 +858,11 @@ impl windows_core::RuntimeType for DialRequestedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DialRequestedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, DialRequestedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = DialRequestedEventHandlerBox { vtable: &DialRequestedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<CallControl>,
         P1: windows_core::Param<DialRequestedEventArgs>,
@@ -878,12 +878,12 @@ pub struct DialRequestedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DialRequestedEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct DialRequestedEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, DialRequestedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const DialRequestedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> DialRequestedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, DialRequestedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> DialRequestedEventHandlerBox<F> {
     const VTABLE: DialRequestedEventHandler_Vtbl = DialRequestedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -935,43 +935,43 @@ impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, DialRequ
 pub struct DigitalWindowBounds(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DigitalWindowBounds, windows_core::IUnknown, windows_core::IInspectable);
 impl DigitalWindowBounds {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DigitalWindowBounds, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn NormalizedOriginTop(&self) -> windows_core::Result<f64> {
+    pub fn NormalizedOriginTop(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NormalizedOriginTop)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetNormalizedOriginTop(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetNormalizedOriginTop(&self, value: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNormalizedOriginTop)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn NormalizedOriginLeft(&self) -> windows_core::Result<f64> {
+    pub fn NormalizedOriginLeft(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NormalizedOriginLeft)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetNormalizedOriginLeft(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetNormalizedOriginLeft(&self, value: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNormalizedOriginLeft)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Scale(&self) -> windows_core::Result<f64> {
+    pub fn Scale(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetScale(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetScale(&self, value: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -993,42 +993,42 @@ unsafe impl Sync for DigitalWindowBounds {}
 pub struct DigitalWindowCapability(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DigitalWindowCapability, windows_core::IUnknown, windows_core::IInspectable);
 impl DigitalWindowCapability {
-    pub fn Width(&self) -> windows_core::Result<i32> {
+    pub fn Width(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Width)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Height(&self) -> windows_core::Result<i32> {
+    pub fn Height(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Height)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinScaleValue(&self) -> windows_core::Result<f64> {
+    pub fn MinScaleValue(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinScaleValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxScaleValue(&self) -> windows_core::Result<f64> {
+    pub fn MaxScaleValue(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxScaleValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinScaleValueWithoutUpsampling(&self) -> windows_core::Result<f64> {
+    pub fn MinScaleValueWithoutUpsampling(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinScaleValueWithoutUpsampling)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NormalizedFieldOfViewLimit(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn NormalizedFieldOfViewLimit(&self) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1053,53 +1053,53 @@ unsafe impl Sync for DigitalWindowCapability {}
 pub struct DigitalWindowControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DigitalWindowControl, windows_core::IUnknown, windows_core::IInspectable);
 impl DigitalWindowControl {
-    pub fn IsSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_core::Array<DigitalWindowMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_core::Array<DigitalWindowMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), windows_core::Array::<DigitalWindowMode>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CurrentMode(&self) -> windows_core::Result<DigitalWindowMode> {
+    pub fn CurrentMode(&self) -> Result<DigitalWindowMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetBounds(&self) -> windows_core::Result<DigitalWindowBounds> {
+    pub fn GetBounds(&self) -> Result<DigitalWindowBounds, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBounds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Configure(&self, digitalwindowmode: DigitalWindowMode) -> windows_core::Result<()> {
+    pub fn Configure(&self, digitalwindowmode: DigitalWindowMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), digitalwindowmode).ok() }
     }
-    pub fn ConfigureWithBounds<P1>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: P1) -> windows_core::Result<()>
+    pub fn ConfigureWithBounds<P1>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<DigitalWindowBounds>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigureWithBounds)(windows_core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.param().abi()).ok() }
     }
-    pub fn SupportedCapabilities(&self) -> windows_core::Result<windows_collections::IVectorView<DigitalWindowCapability>> {
+    pub fn SupportedCapabilities(&self) -> Result<windows_collections::IVectorView<DigitalWindowCapability>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedCapabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCapabilityForSize(&self, width: i32, height: i32) -> windows_core::Result<DigitalWindowCapability> {
+    pub fn GetCapabilityForSize(&self, width: i32, height: i32) -> Result<DigitalWindowCapability, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1138,42 +1138,42 @@ impl windows_core::RuntimeType for DigitalWindowMode {
 pub struct ExposureCompensationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExposureCompensationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ExposureCompensationControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Min(&self) -> windows_core::Result<f32> {
+    pub fn Min(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<f32> {
+    pub fn Max(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<f32> {
+    pub fn Step(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<f32> {
+    pub fn Value(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, value: f32) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetValueAsync(&self, value: f32) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1196,56 +1196,56 @@ impl windows_core::RuntimeName for ExposureCompensationControl {
 pub struct ExposureControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExposureControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ExposureControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Auto(&self) -> windows_core::Result<bool> {
+    pub fn Auto(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Auto)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoAsync(&self, value: bool) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetAutoAsync(&self, value: bool) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetAutoAsync)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Min(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Min(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Max(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Step(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Value(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1268,21 +1268,21 @@ impl windows_core::RuntimeName for ExposureControl {
 pub struct ExposurePriorityVideoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExposurePriorityVideoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ExposurePriorityVideoControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1304,86 +1304,86 @@ unsafe impl Sync for ExposurePriorityVideoControl {}
 pub struct FlashControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FlashControl, windows_core::IUnknown, windows_core::IInspectable);
 impl FlashControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PowerSupported(&self) -> windows_core::Result<bool> {
+    pub fn PowerSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RedEyeReductionSupported(&self) -> windows_core::Result<bool> {
+    pub fn RedEyeReductionSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RedEyeReductionSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Auto(&self) -> windows_core::Result<bool> {
+    pub fn Auto(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Auto)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAuto(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAuto(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAuto)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RedEyeReduction(&self) -> windows_core::Result<bool> {
+    pub fn RedEyeReduction(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RedEyeReduction)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRedEyeReduction(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRedEyeReduction(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRedEyeReduction)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PowerPercent(&self) -> windows_core::Result<f32> {
+    pub fn PowerPercent(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerPercent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPowerPercent(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetPowerPercent(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPowerPercent)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AssistantLightSupported(&self) -> windows_core::Result<bool> {
+    pub fn AssistantLightSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFlashControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AssistantLightSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AssistantLightEnabled(&self) -> windows_core::Result<bool> {
+    pub fn AssistantLightEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFlashControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AssistantLightEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAssistantLightEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAssistantLightEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFlashControl2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAssistantLightEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1403,147 +1403,147 @@ impl windows_core::RuntimeName for FlashControl {
 pub struct FocusControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusControl, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedPresets(&self) -> windows_core::Result<windows_collections::IVectorView<FocusPreset>> {
+    pub fn SupportedPresets(&self) -> Result<windows_collections::IVectorView<FocusPreset>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedPresets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Preset(&self) -> windows_core::Result<FocusPreset> {
+    pub fn Preset(&self) -> Result<FocusPreset, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Preset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPresetAsync(&self, preset: FocusPreset) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: FocusPreset) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetPresetAsync)(windows_core::Interface::as_raw(this), preset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetPresetWithCompletionOptionAsync)(windows_core::Interface::as_raw(this), preset, completebeforefocus, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Min(&self) -> windows_core::Result<u32> {
+    pub fn Min(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<u32> {
+    pub fn Max(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<u32> {
+    pub fn Step(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<u32> {
+    pub fn Value(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, focus: u32) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetValueAsync(&self, focus: u32) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetValueAsync)(windows_core::Interface::as_raw(this), focus, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn FocusAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusChangedSupported(&self) -> windows_core::Result<bool> {
+    pub fn FocusChangedSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusChangedSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WaitForFocusSupported(&self) -> windows_core::Result<bool> {
+    pub fn WaitForFocusSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WaitForFocusSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedFocusModes(&self) -> windows_core::Result<windows_collections::IVectorView<FocusMode>> {
+    pub fn SupportedFocusModes(&self) -> Result<windows_collections::IVectorView<FocusMode>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedFocusModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SupportedFocusDistances(&self) -> windows_core::Result<windows_collections::IVectorView<ManualFocusDistance>> {
+    pub fn SupportedFocusDistances(&self) -> Result<windows_collections::IVectorView<ManualFocusDistance>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedFocusDistances)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SupportedFocusRanges(&self) -> windows_core::Result<windows_collections::IVectorView<AutoFocusRange>> {
+    pub fn SupportedFocusRanges(&self) -> Result<windows_collections::IVectorView<AutoFocusRange>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedFocusRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Mode(&self) -> windows_core::Result<FocusMode> {
+    pub fn Mode(&self) -> Result<FocusMode, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FocusState(&self) -> windows_core::Result<MediaCaptureFocusState> {
+    pub fn FocusState(&self) -> Result<MediaCaptureFocusState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UnlockAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn UnlockAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnlockAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LockAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn LockAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LockAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Configure<P0>(&self, settings: P0) -> windows_core::Result<()>
+    pub fn Configure<P0>(&self, settings: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<FocusSettings>,
     {
@@ -1598,82 +1598,82 @@ impl windows_core::RuntimeType for FocusPreset {
 pub struct FocusSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusSettings {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FocusSettings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Mode(&self) -> windows_core::Result<FocusMode> {
+    pub fn Mode(&self) -> Result<FocusMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMode(&self, value: FocusMode) -> windows_core::Result<()> {
+    pub fn SetMode(&self, value: FocusMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AutoFocusRange(&self) -> windows_core::Result<AutoFocusRange> {
+    pub fn AutoFocusRange(&self) -> Result<AutoFocusRange, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoFocusRange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoFocusRange(&self, value: AutoFocusRange) -> windows_core::Result<()> {
+    pub fn SetAutoFocusRange(&self, value: AutoFocusRange) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoFocusRange)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Value(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Value(&self) -> Result<super::super::Foundation::IReference<u32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetValue<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Distance(&self) -> windows_core::Result<super::super::Foundation::IReference<ManualFocusDistance>> {
+    pub fn Distance(&self) -> Result<super::super::Foundation::IReference<ManualFocusDistance>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Distance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDistance<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetDistance<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<ManualFocusDistance>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDistance)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn WaitForFocus(&self) -> windows_core::Result<bool> {
+    pub fn WaitForFocus(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WaitForFocus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWaitForFocus(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetWaitForFocus(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWaitForFocus)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DisableDriverFallback(&self) -> windows_core::Result<bool> {
+    pub fn DisableDriverFallback(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisableDriverFallback)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDisableDriverFallback(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDisableDriverFallback(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisableDriverFallback)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1695,28 +1695,28 @@ unsafe impl Sync for FocusSettings {}
 pub struct HdrVideoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HdrVideoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl HdrVideoControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<HdrVideoMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_collections::IVectorView<HdrVideoMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Mode(&self) -> windows_core::Result<HdrVideoMode> {
+    pub fn Mode(&self) -> Result<HdrVideoMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMode(&self, value: HdrVideoMode) -> windows_core::Result<()> {
+    pub fn SetMode(&self, value: HdrVideoMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2069,14 +2069,14 @@ impl windows_core::RuntimeType for IDefaultAudioDeviceChangedEventArgs {
 }
 windows_core::imp::interface_hierarchy!(IDefaultAudioDeviceChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IDefaultAudioDeviceChangedEventArgs {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Role(&self) -> windows_core::Result<AudioDeviceRole> {
+    pub fn Role(&self) -> Result<AudioDeviceRole, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2088,8 +2088,8 @@ impl windows_core::RuntimeName for IDefaultAudioDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs";
 }
 pub trait IDefaultAudioDeviceChangedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn Id(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Role(&self) -> windows_core::Result<AudioDeviceRole>;
+    fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn Role(&self) -> Result<AudioDeviceRole, windows_result::HRESULT>;
 }
 impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
     pub const fn new<Identity: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -2502,7 +2502,7 @@ impl windows_core::RuntimeType for IMediaDeviceController {
 windows_core::imp::interface_hierarchy!(IMediaDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaDeviceController {
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2510,7 +2510,7 @@ impl IMediaDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
+    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> Result<super::MediaProperties::IMediaEncodingProperties, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2518,7 +2518,7 @@ impl IMediaDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -2535,9 +2535,9 @@ impl windows_core::RuntimeName for IMediaDeviceController {
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
 pub trait IMediaDeviceController_Impl: windows_core::IUnknownImpl {
-    fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
-    fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties>;
-    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: windows_core::Ref<'_, super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>, windows_result::HRESULT>;
+    fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> Result<super::MediaProperties::IMediaEncodingProperties, windows_result::HRESULT>;
+    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: windows_core::Ref<'_, super::MediaProperties::IMediaEncodingProperties>) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl IMediaDeviceController_Vtbl {
@@ -2891,60 +2891,60 @@ pub struct IZoomSettings_Vtbl {
 pub struct InfraredTorchControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InfraredTorchControl, windows_core::IUnknown, windows_core::IInspectable);
 impl InfraredTorchControl {
-    pub fn IsSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<InfraredTorchMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_collections::IVectorView<InfraredTorchMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentMode(&self) -> windows_core::Result<InfraredTorchMode> {
+    pub fn CurrentMode(&self) -> Result<InfraredTorchMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCurrentMode(&self, value: InfraredTorchMode) -> windows_core::Result<()> {
+    pub fn SetCurrentMode(&self, value: InfraredTorchMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCurrentMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MinPower(&self) -> windows_core::Result<i32> {
+    pub fn MinPower(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxPower(&self) -> windows_core::Result<i32> {
+    pub fn MaxPower(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PowerStep(&self) -> windows_core::Result<i32> {
+    pub fn PowerStep(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerStep)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Power(&self) -> windows_core::Result<i32> {
+    pub fn Power(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Power)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPower(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetPower(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPower)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2980,77 +2980,77 @@ impl windows_core::RuntimeType for InfraredTorchMode {
 pub struct IsoSpeedControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsoSpeedControl, windows_core::IUnknown, windows_core::IInspectable);
 impl IsoSpeedControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedPresets(&self) -> windows_core::Result<windows_collections::IVectorView<IsoSpeedPreset>> {
+    pub fn SupportedPresets(&self) -> Result<windows_collections::IVectorView<IsoSpeedPreset>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedPresets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Preset(&self) -> windows_core::Result<IsoSpeedPreset> {
+    pub fn Preset(&self) -> Result<IsoSpeedPreset, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Preset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetPresetAsync)(windows_core::Interface::as_raw(this), preset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Min(&self) -> windows_core::Result<u32> {
+    pub fn Min(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<u32> {
+    pub fn Max(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<u32> {
+    pub fn Step(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<u32> {
+    pub fn Value(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, isospeed: u32) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetValueAsync(&self, isospeed: u32) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetValueAsync)(windows_core::Interface::as_raw(this), isospeed, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Auto(&self) -> windows_core::Result<bool> {
+    pub fn Auto(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Auto)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetAutoAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3096,7 +3096,7 @@ impl windows_core::RuntimeType for IsoSpeedPreset {
 pub struct KeypadPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeypadPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl KeypadPressedEventArgs {
-    pub fn TelephonyKey(&self) -> windows_core::Result<TelephonyKey> {
+    pub fn TelephonyKey(&self) -> Result<TelephonyKey, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3121,11 +3121,11 @@ impl windows_core::RuntimeType for KeypadPressedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl KeypadPressedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, KeypadPressedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = KeypadPressedEventHandlerBox { vtable: &KeypadPressedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<CallControl>,
         P1: windows_core::Param<KeypadPressedEventArgs>,
@@ -3141,12 +3141,12 @@ pub struct KeypadPressedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct KeypadPressedEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct KeypadPressedEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, KeypadPressedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const KeypadPressedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static> KeypadPressedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, KeypadPressedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> KeypadPressedEventHandlerBox<F> {
     const VTABLE: KeypadPressedEventHandler_Vtbl = KeypadPressedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -3199,7 +3199,7 @@ pub struct LowLagPhotoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoControl {
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> windows_core::Result<super::MediaProperties::MediaRatio>
+    pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> Result<super::MediaProperties::MediaRatio, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -3210,26 +3210,26 @@ impl LowLagPhotoControl {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetCurrentFrameRate(&self) -> windows_core::Result<super::MediaProperties::MediaRatio> {
+    pub fn GetCurrentFrameRate(&self) -> Result<super::MediaProperties::MediaRatio, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentFrameRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ThumbnailEnabled(&self) -> windows_core::Result<bool> {
+    pub fn ThumbnailEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ThumbnailEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetThumbnailEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetThumbnailEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnailEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn ThumbnailFormat(&self) -> windows_core::Result<super::MediaProperties::MediaThumbnailFormat> {
+    pub fn ThumbnailFormat(&self) -> Result<super::MediaProperties::MediaThumbnailFormat, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3237,22 +3237,22 @@ impl LowLagPhotoControl {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> windows_core::Result<()> {
+    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnailFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DesiredThumbnailSize(&self) -> windows_core::Result<u32> {
+    pub fn DesiredThumbnailSize(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredThumbnailSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredThumbnailSize(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetDesiredThumbnailSize(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredThumbnailSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HardwareAcceleratedThumbnailSupported(&self) -> windows_core::Result<u32> {
+    pub fn HardwareAcceleratedThumbnailSupported(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3275,51 +3275,51 @@ impl windows_core::RuntimeName for LowLagPhotoControl {
 pub struct LowLagPhotoSequenceControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoSequenceControl, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoSequenceControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxPastPhotos(&self) -> windows_core::Result<u32> {
+    pub fn MaxPastPhotos(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPastPhotos)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxPhotosPerSecond(&self) -> windows_core::Result<f32> {
+    pub fn MaxPhotosPerSecond(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPhotosPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PastPhotoLimit(&self) -> windows_core::Result<u32> {
+    pub fn PastPhotoLimit(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PastPhotoLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPastPhotoLimit(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetPastPhotoLimit(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPastPhotoLimit)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PhotosPerSecondLimit(&self) -> windows_core::Result<f32> {
+    pub fn PhotosPerSecondLimit(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotosPerSecondLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPhotosPerSecondLimit(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetPhotosPerSecondLimit(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPhotosPerSecondLimit)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> windows_core::Result<super::MediaProperties::MediaRatio>
+    pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> Result<super::MediaProperties::MediaRatio, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -3330,26 +3330,26 @@ impl LowLagPhotoSequenceControl {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetCurrentFrameRate(&self) -> windows_core::Result<super::MediaProperties::MediaRatio> {
+    pub fn GetCurrentFrameRate(&self) -> Result<super::MediaProperties::MediaRatio, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentFrameRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ThumbnailEnabled(&self) -> windows_core::Result<bool> {
+    pub fn ThumbnailEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ThumbnailEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetThumbnailEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetThumbnailEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnailEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn ThumbnailFormat(&self) -> windows_core::Result<super::MediaProperties::MediaThumbnailFormat> {
+    pub fn ThumbnailFormat(&self) -> Result<super::MediaProperties::MediaThumbnailFormat, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3357,22 +3357,22 @@ impl LowLagPhotoSequenceControl {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> windows_core::Result<()> {
+    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnailFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DesiredThumbnailSize(&self) -> windows_core::Result<u32> {
+    pub fn DesiredThumbnailSize(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredThumbnailSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredThumbnailSize(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetDesiredThumbnailSize(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredThumbnailSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HardwareAcceleratedThumbnailSupported(&self) -> windows_core::Result<u32> {
+    pub fn HardwareAcceleratedThumbnailSupported(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3453,37 +3453,37 @@ impl windows_core::RuntimeType for MediaCapturePauseBehavior {
 }
 pub struct MediaDevice;
 impl MediaDevice {
-    pub fn GetAudioCaptureSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetAudioCaptureSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAudioCaptureSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetAudioRenderSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetAudioRenderSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAudioRenderSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetVideoCaptureSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetVideoCaptureSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetVideoCaptureSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDefaultAudioCaptureId(role: AudioDeviceRole) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDefaultAudioCaptureId(role: AudioDeviceRole) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAudioCaptureId)(windows_core::Interface::as_raw(this), role, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDefaultAudioRenderId(role: AudioDeviceRole) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDefaultAudioRenderId(role: AudioDeviceRole) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAudioRenderId)(windows_core::Interface::as_raw(this), role, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DefaultAudioCaptureDeviceChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn DefaultAudioCaptureDeviceChanged<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>,
     {
@@ -3492,10 +3492,10 @@ impl MediaDevice {
             (windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveDefaultAudioCaptureDeviceChanged(cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveDefaultAudioCaptureDeviceChanged(cookie: i64) -> Result<(), windows_result::HRESULT> {
         Self::IMediaDeviceStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    pub fn DefaultAudioRenderDeviceChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn DefaultAudioRenderDeviceChanged<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>,
     {
@@ -3504,10 +3504,10 @@ impl MediaDevice {
             (windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: i64) -> Result<(), windows_result::HRESULT> {
         Self::IMediaDeviceStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    fn IMediaDeviceStatics<R, F: FnOnce(&IMediaDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaDeviceStatics<R, F: FnOnce(&IMediaDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MediaDevice, IMediaDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3520,35 +3520,35 @@ impl windows_core::RuntimeName for MediaDevice {
 pub struct MediaDeviceControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaDeviceControl, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaDeviceControl {
-    pub fn Capabilities(&self) -> windows_core::Result<MediaDeviceControlCapabilities> {
+    pub fn Capabilities(&self) -> Result<MediaDeviceControlCapabilities, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Capabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetValue(&self, value: &mut f64) -> windows_core::Result<bool> {
+    pub fn TryGetValue(&self, value: &mut f64) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetValue)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
         }
     }
-    pub fn TrySetValue(&self, value: f64) -> windows_core::Result<bool> {
+    pub fn TrySetValue(&self, value: f64) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
         }
     }
-    pub fn TryGetAuto(&self, value: &mut bool) -> windows_core::Result<bool> {
+    pub fn TryGetAuto(&self, value: &mut bool) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetAuto)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
         }
     }
-    pub fn TrySetAuto(&self, value: bool) -> windows_core::Result<bool> {
+    pub fn TrySetAuto(&self, value: bool) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3571,42 +3571,42 @@ impl windows_core::RuntimeName for MediaDeviceControl {
 pub struct MediaDeviceControlCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaDeviceControlCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaDeviceControlCapabilities {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Min(&self) -> windows_core::Result<f64> {
+    pub fn Min(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<f64> {
+    pub fn Max(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<f64> {
+    pub fn Step(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Default(&self) -> windows_core::Result<f64> {
+    pub fn Default(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Default)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AutoModeSupported(&self) -> windows_core::Result<bool> {
+    pub fn AutoModeSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3629,7 +3629,7 @@ impl windows_core::RuntimeName for MediaDeviceControlCapabilities {
 pub struct ModuleCommandResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ModuleCommandResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ModuleCommandResult {
-    pub fn Status(&self) -> windows_core::Result<SendCommandStatus> {
+    pub fn Status(&self) -> Result<SendCommandStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3637,7 +3637,7 @@ impl ModuleCommandResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Result(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Result(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3660,28 +3660,28 @@ impl windows_core::RuntimeName for ModuleCommandResult {
 pub struct OpticalImageStabilizationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OpticalImageStabilizationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl OpticalImageStabilizationControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<OpticalImageStabilizationMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_collections::IVectorView<OpticalImageStabilizationMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Mode(&self) -> windows_core::Result<OpticalImageStabilizationMode> {
+    pub fn Mode(&self) -> Result<OpticalImageStabilizationMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMode(&self, value: OpticalImageStabilizationMode) -> windows_core::Result<()> {
+    pub fn SetMode(&self, value: OpticalImageStabilizationMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -3717,7 +3717,7 @@ impl windows_core::RuntimeType for OpticalImageStabilizationMode {
 pub struct PanelBasedOptimizationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PanelBasedOptimizationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl PanelBasedOptimizationControl {
-    pub fn IsSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3725,7 +3725,7 @@ impl PanelBasedOptimizationControl {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn Panel(&self) -> windows_core::Result<super::super::Devices::Enumeration::Panel> {
+    pub fn Panel(&self) -> Result<super::super::Devices::Enumeration::Panel, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3733,7 +3733,7 @@ impl PanelBasedOptimizationControl {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn SetPanel(&self, value: super::super::Devices::Enumeration::Panel) -> windows_core::Result<()> {
+    pub fn SetPanel(&self, value: super::super::Devices::Enumeration::Panel) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPanel)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -3755,26 +3755,26 @@ unsafe impl Sync for PanelBasedOptimizationControl {}
 pub struct PhotoConfirmationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoConfirmationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoConfirmationControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn PixelFormat(&self) -> windows_core::Result<super::MediaProperties::MediaPixelFormat> {
+    pub fn PixelFormat(&self) -> Result<super::MediaProperties::MediaPixelFormat, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3782,7 +3782,7 @@ impl PhotoConfirmationControl {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetPixelFormat(&self, format: super::MediaProperties::MediaPixelFormat) -> windows_core::Result<()> {
+    pub fn SetPixelFormat(&self, format: super::MediaProperties::MediaPixelFormat) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPixelFormat)(windows_core::Interface::as_raw(this), format).ok() }
     }
@@ -3802,7 +3802,7 @@ impl windows_core::RuntimeName for PhotoConfirmationControl {
 pub struct RedialRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RedialRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RedialRequestedEventArgs {
-    pub fn Handled(&self) -> windows_core::Result<()> {
+    pub fn Handled(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -3824,11 +3824,11 @@ impl windows_core::RuntimeType for RedialRequestedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl RedialRequestedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, RedialRequestedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = RedialRequestedEventHandlerBox { vtable: &RedialRequestedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<CallControl>,
         P1: windows_core::Param<RedialRequestedEventArgs>,
@@ -3844,12 +3844,12 @@ pub struct RedialRequestedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct RedialRequestedEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct RedialRequestedEventHandlerBox<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, RedialRequestedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const RedialRequestedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> RedialRequestedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, RedialRequestedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> RedialRequestedEventHandlerBox<F> {
     const VTABLE: RedialRequestedEventHandler_Vtbl = RedialRequestedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -3901,87 +3901,87 @@ impl<F: FnMut(windows_core::Ref<'_, CallControl>, windows_core::Ref<'_, RedialRe
 pub struct RegionOfInterest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RegionOfInterest, windows_core::IUnknown, windows_core::IInspectable);
 impl RegionOfInterest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RegionOfInterest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn AutoFocusEnabled(&self) -> windows_core::Result<bool> {
+    pub fn AutoFocusEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoFocusEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoFocusEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAutoFocusEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoFocusEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AutoWhiteBalanceEnabled(&self) -> windows_core::Result<bool> {
+    pub fn AutoWhiteBalanceEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoWhiteBalanceEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoWhiteBalanceEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAutoWhiteBalanceEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoWhiteBalanceEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AutoExposureEnabled(&self) -> windows_core::Result<bool> {
+    pub fn AutoExposureEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoExposureEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoExposureEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAutoExposureEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoExposureEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Bounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn Bounds(&self) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBounds(&self, value: super::super::Foundation::Rect) -> windows_core::Result<()> {
+    pub fn SetBounds(&self, value: super::super::Foundation::Rect) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBounds)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Type(&self) -> windows_core::Result<RegionOfInterestType> {
+    pub fn Type(&self) -> Result<RegionOfInterestType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetType(&self, value: RegionOfInterestType) -> windows_core::Result<()> {
+    pub fn SetType(&self, value: RegionOfInterestType) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetType)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BoundsNormalized(&self) -> windows_core::Result<bool> {
+    pub fn BoundsNormalized(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundsNormalized)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBoundsNormalized(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetBoundsNormalized(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBoundsNormalized)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Weight(&self) -> windows_core::Result<u32> {
+    pub fn Weight(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Weight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWeight(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetWeight(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetWeight)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4016,14 +4016,14 @@ impl windows_core::RuntimeType for RegionOfInterestType {
 pub struct RegionsOfInterestControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RegionsOfInterestControl, windows_core::IUnknown, windows_core::IInspectable);
 impl RegionsOfInterestControl {
-    pub fn MaxRegions(&self) -> windows_core::Result<u32> {
+    pub fn MaxRegions(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxRegions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRegionsAsync<P0>(&self, regions: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetRegionsAsync<P0>(&self, regions: P0) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<RegionOfInterest>>,
     {
@@ -4033,7 +4033,7 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).SetRegionsAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<RegionOfInterest>>,
     {
@@ -4043,28 +4043,28 @@ impl RegionsOfInterestControl {
             (windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), lockvalues, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearRegionsAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ClearRegionsAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClearRegionsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AutoFocusSupported(&self) -> windows_core::Result<bool> {
+    pub fn AutoFocusSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoFocusSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AutoWhiteBalanceSupported(&self) -> windows_core::Result<bool> {
+    pub fn AutoWhiteBalanceSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoWhiteBalanceSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AutoExposureSupported(&self) -> windows_core::Result<bool> {
+    pub fn AutoExposureSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4087,21 +4087,21 @@ impl windows_core::RuntimeName for RegionsOfInterestControl {
 pub struct SceneModeControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneModeControl, windows_core::IUnknown, windows_core::IInspectable);
 impl SceneModeControl {
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<CaptureSceneMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_collections::IVectorView<CaptureSceneMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Value(&self) -> windows_core::Result<CaptureSceneMode> {
+    pub fn Value(&self) -> Result<CaptureSceneMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4164,39 +4164,39 @@ impl windows_core::RuntimeType for TelephonyKey {
 pub struct TorchControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TorchControl, windows_core::IUnknown, windows_core::IInspectable);
 impl TorchControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PowerSupported(&self) -> windows_core::Result<bool> {
+    pub fn PowerSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PowerPercent(&self) -> windows_core::Result<f32> {
+    pub fn PowerPercent(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerPercent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPowerPercent(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetPowerPercent(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPowerPercent)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4217,21 +4217,21 @@ pub struct VideoDeviceController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoDeviceController, IMediaDeviceController);
 impl VideoDeviceController {
-    pub fn SetDeviceProperty<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> windows_core::Result<()>
+    pub fn SetDeviceProperty<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDeviceProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi()).ok() }
     }
-    pub fn GetDeviceProperty(&self, propertyid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn GetDeviceProperty(&self, propertyid: &windows_core::HSTRING) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CameraOcclusionInfo(&self) -> windows_core::Result<CameraOcclusionInfo> {
+    pub fn CameraOcclusionInfo(&self) -> Result<CameraOcclusionInfo, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController10>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4239,170 +4239,170 @@ impl VideoDeviceController {
         }
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn TryAcquireExclusiveControl(&self, deviceid: &windows_core::HSTRING, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> windows_core::Result<bool> {
+    pub fn TryAcquireExclusiveControl(&self, deviceid: &windows_core::HSTRING, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController11>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryAcquireExclusiveControl)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), mode, &mut result__).map(|| result__)
         }
     }
-    pub fn LowLagPhotoSequence(&self) -> windows_core::Result<LowLagPhotoSequenceControl> {
+    pub fn LowLagPhotoSequence(&self) -> Result<LowLagPhotoSequenceControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LowLagPhotoSequence)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LowLagPhoto(&self) -> windows_core::Result<LowLagPhotoControl> {
+    pub fn LowLagPhoto(&self) -> Result<LowLagPhotoControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LowLagPhoto)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SceneModeControl(&self) -> windows_core::Result<SceneModeControl> {
+    pub fn SceneModeControl(&self) -> Result<SceneModeControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SceneModeControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TorchControl(&self) -> windows_core::Result<TorchControl> {
+    pub fn TorchControl(&self) -> Result<TorchControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TorchControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlashControl(&self) -> windows_core::Result<FlashControl> {
+    pub fn FlashControl(&self) -> Result<FlashControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FlashControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WhiteBalanceControl(&self) -> windows_core::Result<WhiteBalanceControl> {
+    pub fn WhiteBalanceControl(&self) -> Result<WhiteBalanceControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WhiteBalanceControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExposureControl(&self) -> windows_core::Result<ExposureControl> {
+    pub fn ExposureControl(&self) -> Result<ExposureControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExposureControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusControl(&self) -> windows_core::Result<FocusControl> {
+    pub fn FocusControl(&self) -> Result<FocusControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExposureCompensationControl(&self) -> windows_core::Result<ExposureCompensationControl> {
+    pub fn ExposureCompensationControl(&self) -> Result<ExposureCompensationControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExposureCompensationControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsoSpeedControl(&self) -> windows_core::Result<IsoSpeedControl> {
+    pub fn IsoSpeedControl(&self) -> Result<IsoSpeedControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsoSpeedControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RegionsOfInterestControl(&self) -> windows_core::Result<RegionsOfInterestControl> {
+    pub fn RegionsOfInterestControl(&self) -> Result<RegionsOfInterestControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegionsOfInterestControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrimaryUse(&self) -> windows_core::Result<CaptureUse> {
+    pub fn PrimaryUse(&self) -> Result<CaptureUse, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrimaryUse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPrimaryUse(&self, value: CaptureUse) -> windows_core::Result<()> {
+    pub fn SetPrimaryUse(&self, value: CaptureUse) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPrimaryUse)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_Devices_Core")]
-    pub fn VariablePhotoSequenceController(&self) -> windows_core::Result<Core::VariablePhotoSequenceController> {
+    pub fn VariablePhotoSequenceController(&self) -> Result<Core::VariablePhotoSequenceController, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VariablePhotoSequenceController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PhotoConfirmationControl(&self) -> windows_core::Result<PhotoConfirmationControl> {
+    pub fn PhotoConfirmationControl(&self) -> Result<PhotoConfirmationControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotoConfirmationControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ZoomControl(&self) -> windows_core::Result<ZoomControl> {
+    pub fn ZoomControl(&self) -> Result<ZoomControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZoomControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExposurePriorityVideoControl(&self) -> windows_core::Result<ExposurePriorityVideoControl> {
+    pub fn ExposurePriorityVideoControl(&self) -> Result<ExposurePriorityVideoControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExposurePriorityVideoControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DesiredOptimization(&self) -> windows_core::Result<MediaCaptureOptimization> {
+    pub fn DesiredOptimization(&self) -> Result<MediaCaptureOptimization, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredOptimization)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredOptimization(&self, value: MediaCaptureOptimization) -> windows_core::Result<()> {
+    pub fn SetDesiredOptimization(&self, value: MediaCaptureOptimization) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredOptimization)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HdrVideoControl(&self) -> windows_core::Result<HdrVideoControl> {
+    pub fn HdrVideoControl(&self) -> Result<HdrVideoControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HdrVideoControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpticalImageStabilizationControl(&self) -> windows_core::Result<OpticalImageStabilizationControl> {
+    pub fn OpticalImageStabilizationControl(&self) -> Result<OpticalImageStabilizationControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpticalImageStabilizationControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AdvancedPhotoControl(&self) -> windows_core::Result<AdvancedPhotoControl> {
+    pub fn AdvancedPhotoControl(&self) -> Result<AdvancedPhotoControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AdvancedPhotoControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDevicePropertyById<P1>(&self, propertyid: &windows_core::HSTRING, maxpropertyvaluesize: P1) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
+    pub fn GetDevicePropertyById<P1>(&self, propertyid: &windows_core::HSTRING, maxpropertyvaluesize: P1) -> Result<VideoDeviceControllerGetDevicePropertyResult, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
@@ -4412,7 +4412,7 @@ impl VideoDeviceController {
             (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDevicePropertyById<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus>
+    pub fn SetDevicePropertyById<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> Result<VideoDeviceControllerSetDevicePropertyStatus, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
@@ -4422,7 +4422,7 @@ impl VideoDeviceController {
             (windows_core::Interface::vtable(this).SetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDevicePropertyByExtendedId<P1>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P1) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
+    pub fn GetDevicePropertyByExtendedId<P1>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P1) -> Result<VideoDeviceControllerGetDevicePropertyResult, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
@@ -4432,35 +4432,35 @@ impl VideoDeviceController {
             (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
+    pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> Result<VideoDeviceControllerSetDevicePropertyStatus, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), propertyvalue.len().try_into().unwrap(), propertyvalue.as_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn VideoTemporalDenoisingControl(&self) -> windows_core::Result<VideoTemporalDenoisingControl> {
+    pub fn VideoTemporalDenoisingControl(&self) -> Result<VideoTemporalDenoisingControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoTemporalDenoisingControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InfraredTorchControl(&self) -> windows_core::Result<InfraredTorchControl> {
+    pub fn InfraredTorchControl(&self) -> Result<InfraredTorchControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController7>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InfraredTorchControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PanelBasedOptimizationControl(&self) -> windows_core::Result<PanelBasedOptimizationControl> {
+    pub fn PanelBasedOptimizationControl(&self) -> Result<PanelBasedOptimizationControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PanelBasedOptimizationControl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DigitalWindowControl(&self) -> windows_core::Result<DigitalWindowControl> {
+    pub fn DigitalWindowControl(&self) -> Result<DigitalWindowControl, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4468,7 +4468,7 @@ impl VideoDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4476,7 +4476,7 @@ impl VideoDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
+    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> Result<super::MediaProperties::IMediaEncodingProperties, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4484,7 +4484,7 @@ impl VideoDeviceController {
         }
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<P1>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P1) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::MediaProperties::IMediaEncodingProperties>,
     {
@@ -4494,77 +4494,77 @@ impl VideoDeviceController {
             (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Brightness(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Brightness(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Brightness)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Contrast(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Contrast(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contrast)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Hue(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Hue(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Hue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WhiteBalance(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn WhiteBalance(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WhiteBalance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BacklightCompensation(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn BacklightCompensation(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BacklightCompensation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Pan(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Pan(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pan)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Tilt(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Tilt(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tilt)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Zoom(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Zoom(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Zoom)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Roll(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Roll(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Roll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Exposure(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Exposure(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Exposure)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Focus(&self) -> windows_core::Result<MediaDeviceControl> {
+    pub fn Focus(&self) -> Result<MediaDeviceControl, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4572,7 +4572,7 @@ impl VideoDeviceController {
         }
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> windows_core::Result<bool> {
+    pub fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4580,7 +4580,7 @@ impl VideoDeviceController {
         }
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn TryGetPowerlineFrequency(&self, value: &mut super::Capture::PowerlineFrequency) -> windows_core::Result<bool> {
+    pub fn TryGetPowerlineFrequency(&self, value: &mut super::Capture::PowerlineFrequency) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4603,14 +4603,14 @@ impl windows_core::RuntimeName for VideoDeviceController {
 pub struct VideoDeviceControllerGetDevicePropertyResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoDeviceControllerGetDevicePropertyResult, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoDeviceControllerGetDevicePropertyResult {
-    pub fn Status(&self) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyStatus> {
+    pub fn Status(&self) -> Result<VideoDeviceControllerGetDevicePropertyStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Value(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4670,28 +4670,28 @@ impl windows_core::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus 
 pub struct VideoTemporalDenoisingControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoTemporalDenoisingControl, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoTemporalDenoisingControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<VideoTemporalDenoisingMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_collections::IVectorView<VideoTemporalDenoisingMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Mode(&self) -> windows_core::Result<VideoTemporalDenoisingMode> {
+    pub fn Mode(&self) -> Result<VideoTemporalDenoisingMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMode(&self, value: VideoTemporalDenoisingMode) -> windows_core::Result<()> {
+    pub fn SetMode(&self, value: VideoTemporalDenoisingMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4727,56 +4727,56 @@ impl windows_core::RuntimeType for VideoTemporalDenoisingMode {
 pub struct WhiteBalanceControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WhiteBalanceControl, windows_core::IUnknown, windows_core::IInspectable);
 impl WhiteBalanceControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Preset(&self) -> windows_core::Result<ColorTemperaturePreset> {
+    pub fn Preset(&self) -> Result<ColorTemperaturePreset, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Preset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetPresetAsync)(windows_core::Interface::as_raw(this), preset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Min(&self) -> windows_core::Result<u32> {
+    pub fn Min(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<u32> {
+    pub fn Max(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<u32> {
+    pub fn Step(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<u32> {
+    pub fn Value(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValueAsync(&self, temperature: u32) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SetValueAsync(&self, temperature: u32) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4799,60 +4799,60 @@ impl windows_core::RuntimeName for WhiteBalanceControl {
 pub struct ZoomControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ZoomControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ZoomControl {
-    pub fn Supported(&self) -> windows_core::Result<bool> {
+    pub fn Supported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Supported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Min(&self) -> windows_core::Result<f32> {
+    pub fn Min(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Max(&self) -> windows_core::Result<f32> {
+    pub fn Max(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Step(&self) -> windows_core::Result<f32> {
+    pub fn Step(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<f32> {
+    pub fn Value(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValue(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetValue(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SupportedModes(&self) -> windows_core::Result<windows_collections::IVectorView<ZoomTransitionMode>> {
+    pub fn SupportedModes(&self) -> Result<windows_collections::IVectorView<ZoomTransitionMode>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IZoomControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedModes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Mode(&self) -> windows_core::Result<ZoomTransitionMode> {
+    pub fn Mode(&self) -> Result<ZoomTransitionMode, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IZoomControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Configure<P0>(&self, settings: P0) -> windows_core::Result<()>
+    pub fn Configure<P0>(&self, settings: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ZoomSettings>,
     {
@@ -4875,32 +4875,32 @@ impl windows_core::RuntimeName for ZoomControl {
 pub struct ZoomSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ZoomSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl ZoomSettings {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ZoomSettings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Mode(&self) -> windows_core::Result<ZoomTransitionMode> {
+    pub fn Mode(&self) -> Result<ZoomTransitionMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMode(&self, value: ZoomTransitionMode) -> windows_core::Result<()> {
+    pub fn SetMode(&self, value: ZoomTransitionMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Value(&self) -> windows_core::Result<f32> {
+    pub fn Value(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetValue(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetValue(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value).ok() }
     }

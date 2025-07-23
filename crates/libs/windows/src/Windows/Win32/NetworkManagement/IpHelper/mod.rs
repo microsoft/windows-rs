@@ -654,7 +654,7 @@ pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
     }
 }
 #[inline]
-pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("iphlpapi.dll" "system" fn GetRTTAndHopCount(destipaddress : u32, hopcount : *mut u32, maxhops : u32, rtt : *mut u32) -> windows_core::BOOL);
     unsafe { GetRTTAndHopCount(destipaddress, hopcount as _, maxhops, rtt as _).ok() }
 }
@@ -750,10 +750,10 @@ pub unsafe fn GetUnicastIpAddressTable(family: super::super::Networking::WinSock
     unsafe { GetUnicastIpAddressTable(family, table as _) }
 }
 #[inline]
-pub unsafe fn Icmp6CreateFile() -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn Icmp6CreateFile() -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("iphlpapi.dll" "system" fn Icmp6CreateFile() -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { Icmp6CreateFile() };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn Icmp6ParseReplies(replybuffer: *mut core::ffi::c_void, replysize: u32) -> u32 {
@@ -767,15 +767,15 @@ pub unsafe fn Icmp6SendEcho2(icmphandle: super::super::Foundation::HANDLE, event
     unsafe { Icmp6SendEcho2(icmphandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, sourceaddress, destinationaddress, requestdata, requestsize, requestoptions.unwrap_or(core::mem::zeroed()) as _, replybuffer as _, replysize, timeout) }
 }
 #[inline]
-pub unsafe fn IcmpCloseHandle(icmphandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn IcmpCloseHandle(icmphandle: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("iphlpapi.dll" "system" fn IcmpCloseHandle(icmphandle : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { IcmpCloseHandle(icmphandle).ok() }
 }
 #[inline]
-pub unsafe fn IcmpCreateFile() -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn IcmpCreateFile() -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("iphlpapi.dll" "system" fn IcmpCreateFile() -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { IcmpCreateFile() };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn IcmpParseReplies(replybuffer: *mut core::ffi::c_void, replysize: u32) -> u32 {

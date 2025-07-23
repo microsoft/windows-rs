@@ -4,9 +4,9 @@ use windows::{core::*, Win32::Foundation::E_BOUNDS};
 use windows_collections::*;
 
 #[test]
-fn primitive() -> Result<()> {
+fn primitive() -> Result<(), HRESULT> {
     let v = IVectorView::<i32>::from(vec![]);
-    assert_eq!(v.GetAt(0).unwrap_err().code(), E_BOUNDS);
+    assert_eq!(v.GetAt(0).unwrap_err(), E_BOUNDS);
     assert_eq!(v.Size()?, 0);
     assert!(!(v.IndexOf(0, &mut 0)?));
     assert_eq!(v.GetMany(0, &mut [0; 5])?, 0);
@@ -45,12 +45,12 @@ fn primitive() -> Result<()> {
 }
 
 #[test]
-fn primitive_iterator() -> Result<()> {
+fn primitive_iterator() -> Result<(), HRESULT> {
     let able = IVectorView::<i32>::from(vec![]);
     let iter = able.First()?;
 
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
 
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
@@ -83,8 +83,8 @@ fn primitive_iterator() -> Result<()> {
 
     assert!(!iter.MoveNext()?);
     assert!(!iter.MoveNext()?);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
 

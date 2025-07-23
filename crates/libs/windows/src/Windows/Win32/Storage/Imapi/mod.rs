@@ -5,7 +5,7 @@ pub unsafe fn CloseIMsgSession(lpmsgsess: LPMSGSESS) {
 }
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
-pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> windows_core::Result<()> {
+pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mapi32.dll" "system" fn GetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> windows_core::HRESULT);
     unsafe { GetAttribIMsgOnIStg(lpobject as _, lpproptagarray as _, lpppropattrarray as _).ok() }
 }
@@ -35,7 +35,7 @@ where
 }
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
-pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> windows_core::Result<()> {
+pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> windows_core::HRESULT);
     unsafe { SetAttribIMsgOnIStg(lpobject as _, lpproptags as _, lppropattrs as _, lpppropproblems as _).ok() }
 }
@@ -75,7 +75,7 @@ impl core::ops::Deref for DDiscFormat2DataEvents {
 windows_core::imp::interface_hierarchy!(DDiscFormat2DataEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2DataEvents {
-    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> windows_core::Result<()>
+    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
@@ -92,7 +92,7 @@ pub struct DDiscFormat2DataEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DDiscFormat2DataEvents_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DDiscFormat2DataEvents_Vtbl {
@@ -124,7 +124,7 @@ impl core::ops::Deref for DDiscFormat2EraseEvents {
 windows_core::imp::interface_hierarchy!(DDiscFormat2EraseEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2EraseEvents {
-    pub unsafe fn Update<P0>(&self, object: P0, elapsedseconds: i32, estimatedtotalseconds: i32) -> windows_core::Result<()>
+    pub unsafe fn Update<P0>(&self, object: P0, elapsedseconds: i32, estimatedtotalseconds: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
@@ -140,7 +140,7 @@ pub struct DDiscFormat2EraseEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DDiscFormat2EraseEvents_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> windows_core::Result<()>;
+    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DDiscFormat2EraseEvents_Vtbl {
@@ -172,7 +172,7 @@ impl core::ops::Deref for DDiscFormat2RawCDEvents {
 windows_core::imp::interface_hierarchy!(DDiscFormat2RawCDEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2RawCDEvents {
-    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> windows_core::Result<()>
+    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
@@ -189,7 +189,7 @@ pub struct DDiscFormat2RawCDEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DDiscFormat2RawCDEvents_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DDiscFormat2RawCDEvents_Vtbl {
@@ -221,7 +221,7 @@ impl core::ops::Deref for DDiscFormat2TrackAtOnceEvents {
 windows_core::imp::interface_hierarchy!(DDiscFormat2TrackAtOnceEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2TrackAtOnceEvents {
-    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> windows_core::Result<()>
+    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
@@ -238,7 +238,7 @@ pub struct DDiscFormat2TrackAtOnceEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DDiscFormat2TrackAtOnceEvents_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DDiscFormat2TrackAtOnceEvents_Vtbl {
@@ -270,13 +270,13 @@ impl core::ops::Deref for DDiscMaster2Events {
 windows_core::imp::interface_hierarchy!(DDiscMaster2Events, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscMaster2Events {
-    pub unsafe fn NotifyDeviceAdded<P0>(&self, object: P0, uniqueid: &windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn NotifyDeviceAdded<P0>(&self, object: P0, uniqueid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
         unsafe { (windows_core::Interface::vtable(self).NotifyDeviceAdded)(windows_core::Interface::as_raw(self), object.param().abi(), core::mem::transmute_copy(uniqueid)).ok() }
     }
-    pub unsafe fn NotifyDeviceRemoved<P0>(&self, object: P0, uniqueid: &windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn NotifyDeviceRemoved<P0>(&self, object: P0, uniqueid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
@@ -293,8 +293,8 @@ pub struct DDiscMaster2Events_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DDiscMaster2Events_Impl: super::super::System::Com::IDispatch_Impl {
-    fn NotifyDeviceAdded(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, uniqueid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn NotifyDeviceRemoved(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, uniqueid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn NotifyDeviceAdded(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, uniqueid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NotifyDeviceRemoved(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, uniqueid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DDiscMaster2Events_Vtbl {
@@ -336,7 +336,7 @@ impl core::ops::Deref for DFileSystemImageEvents {
 windows_core::imp::interface_hierarchy!(DFileSystemImageEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DFileSystemImageEvents {
-    pub unsafe fn Update<P0>(&self, object: P0, currentfile: &windows_core::BSTR, copiedsectors: i32, totalsectors: i32) -> windows_core::Result<()>
+    pub unsafe fn Update<P0>(&self, object: P0, currentfile: &windows_core::BSTR, copiedsectors: i32, totalsectors: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
@@ -352,7 +352,7 @@ pub struct DFileSystemImageEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DFileSystemImageEvents_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, currentfile: &windows_core::BSTR, copiedsectors: i32, totalsectors: i32) -> windows_core::Result<()>;
+    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, currentfile: &windows_core::BSTR, copiedsectors: i32, totalsectors: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DFileSystemImageEvents_Vtbl {
@@ -384,7 +384,7 @@ impl core::ops::Deref for DFileSystemImageImportEvents {
 windows_core::imp::interface_hierarchy!(DFileSystemImageImportEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DFileSystemImageImportEvents {
-    pub unsafe fn UpdateImport<P0>(&self, object: P0, filesystem: FsiFileSystems, currentitem: &windows_core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> windows_core::Result<()>
+    pub unsafe fn UpdateImport<P0>(&self, object: P0, filesystem: FsiFileSystems, currentitem: &windows_core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
@@ -400,7 +400,7 @@ pub struct DFileSystemImageImportEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DFileSystemImageImportEvents_Impl: super::super::System::Com::IDispatch_Impl {
-    fn UpdateImport(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &windows_core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> windows_core::Result<()>;
+    fn UpdateImport(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &windows_core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DFileSystemImageImportEvents_Vtbl {
@@ -607,7 +607,7 @@ impl core::ops::Deref for DWriteEngine2Events {
 windows_core::imp::interface_hierarchy!(DWriteEngine2Events, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DWriteEngine2Events {
-    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> windows_core::Result<()>
+    pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
@@ -624,7 +624,7 @@ pub struct DWriteEngine2Events_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DWriteEngine2Events_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Update(&self, object: windows_core::Ref<'_, super::super::System::Com::IDispatch>, progress: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DWriteEngine2Events_Vtbl {
@@ -687,13 +687,13 @@ impl core::ops::Deref for IBlockRange {
 windows_core::imp::interface_hierarchy!(IBlockRange, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IBlockRange {
-    pub unsafe fn StartLba(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartLba(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartLba)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EndLba(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EndLba(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EndLba)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -710,8 +710,8 @@ pub struct IBlockRange_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBlockRange_Impl: super::super::System::Com::IDispatch_Impl {
-    fn StartLba(&self) -> windows_core::Result<i32>;
-    fn EndLba(&self) -> windows_core::Result<i32>;
+    fn StartLba(&self) -> Result<i32, windows_result::HRESULT>;
+    fn EndLba(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBlockRange_Vtbl {
@@ -765,7 +765,7 @@ impl core::ops::Deref for IBlockRangeList {
 windows_core::imp::interface_hierarchy!(IBlockRangeList, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IBlockRangeList {
-    pub unsafe fn BlockRanges(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn BlockRanges(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -781,7 +781,7 @@ pub struct IBlockRangeList_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBlockRangeList_Impl: super::super::System::Com::IDispatch_Impl {
-    fn BlockRanges(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn BlockRanges(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBlockRangeList_Vtbl {
@@ -819,46 +819,46 @@ impl core::ops::Deref for IBootOptions {
 windows_core::imp::interface_hierarchy!(IBootOptions, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IBootOptions {
-    pub unsafe fn BootImage(&self) -> windows_core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn BootImage(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BootImage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Manufacturer(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Manufacturer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Manufacturer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetManufacturer(&self, newval: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetManufacturer(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetManufacturer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)).ok() }
     }
-    pub unsafe fn PlatformId(&self) -> windows_core::Result<PlatformId> {
+    pub unsafe fn PlatformId(&self) -> Result<PlatformId, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PlatformId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPlatformId(&self, newval: PlatformId) -> windows_core::Result<()> {
+    pub unsafe fn SetPlatformId(&self, newval: PlatformId) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPlatformId)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn Emulation(&self) -> windows_core::Result<EmulationType> {
+    pub unsafe fn Emulation(&self) -> Result<EmulationType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Emulation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEmulation(&self, newval: EmulationType) -> windows_core::Result<()> {
+    pub unsafe fn SetEmulation(&self, newval: EmulationType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEmulation)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn ImageSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn ImageSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImageSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AssignBootImage<P0>(&self, newval: P0) -> windows_core::Result<()>
+    pub unsafe fn AssignBootImage<P0>(&self, newval: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
@@ -882,15 +882,15 @@ pub struct IBootOptions_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBootOptions_Impl: super::super::System::Com::IDispatch_Impl {
-    fn BootImage(&self) -> windows_core::Result<super::super::System::Com::IStream>;
-    fn Manufacturer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetManufacturer(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PlatformId(&self) -> windows_core::Result<PlatformId>;
-    fn SetPlatformId(&self, newval: PlatformId) -> windows_core::Result<()>;
-    fn Emulation(&self) -> windows_core::Result<EmulationType>;
-    fn SetEmulation(&self, newval: EmulationType) -> windows_core::Result<()>;
-    fn ImageSize(&self) -> windows_core::Result<u32>;
-    fn AssignBootImage(&self, newval: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn BootImage(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT>;
+    fn Manufacturer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetManufacturer(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn PlatformId(&self) -> Result<PlatformId, windows_result::HRESULT>;
+    fn SetPlatformId(&self, newval: PlatformId) -> Result<(), windows_result::HRESULT>;
+    fn Emulation(&self) -> Result<EmulationType, windows_result::HRESULT>;
+    fn SetEmulation(&self, newval: EmulationType) -> Result<(), windows_result::HRESULT>;
+    fn ImageSize(&self) -> Result<u32, windows_result::HRESULT>;
+    fn AssignBootImage(&self, newval: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBootOptions_Vtbl {
@@ -1001,10 +1001,10 @@ impl windows_core::RuntimeName for IBootOptions {}
 windows_core::imp::define_interface!(IBurnVerification, IBurnVerification_Vtbl, 0xd2ffd834_958b_426d_8470_2a13879c6a91);
 windows_core::imp::interface_hierarchy!(IBurnVerification, windows_core::IUnknown);
 impl IBurnVerification {
-    pub unsafe fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> windows_core::Result<()> {
+    pub unsafe fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBurnVerificationLevel)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn BurnVerificationLevel(&self) -> windows_core::Result<IMAPI_BURN_VERIFICATION_LEVEL> {
+    pub unsafe fn BurnVerificationLevel(&self) -> Result<IMAPI_BURN_VERIFICATION_LEVEL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BurnVerificationLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1019,8 +1019,8 @@ pub struct IBurnVerification_Vtbl {
     pub BurnVerificationLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMAPI_BURN_VERIFICATION_LEVEL) -> windows_core::HRESULT,
 }
 pub trait IBurnVerification_Impl: windows_core::IUnknownImpl {
-    fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> windows_core::Result<()>;
-    fn BurnVerificationLevel(&self) -> windows_core::Result<IMAPI_BURN_VERIFICATION_LEVEL>;
+    fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> Result<(), windows_result::HRESULT>;
+    fn BurnVerificationLevel(&self) -> Result<IMAPI_BURN_VERIFICATION_LEVEL, windows_result::HRESULT>;
 }
 impl IBurnVerification_Vtbl {
     pub const fn new<Identity: IBurnVerification_Impl, const OFFSET: isize>() -> Self {
@@ -1066,7 +1066,7 @@ impl core::ops::Deref for IDiscFormat2 {
 windows_core::imp::interface_hierarchy!(IDiscFormat2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2 {
-    pub unsafe fn IsRecorderSupported<P0>(&self, recorder: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn IsRecorderSupported<P0>(&self, recorder: P0) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
@@ -1075,7 +1075,7 @@ impl IDiscFormat2 {
             (windows_core::Interface::vtable(self).IsRecorderSupported)(windows_core::Interface::as_raw(self), recorder.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsCurrentMediaSupported<P0>(&self, recorder: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn IsCurrentMediaSupported<P0>(&self, recorder: P0) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
@@ -1084,19 +1084,19 @@ impl IDiscFormat2 {
             (windows_core::Interface::vtable(self).IsCurrentMediaSupported)(windows_core::Interface::as_raw(self), recorder.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MediaPhysicallyBlank(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MediaPhysicallyBlank(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MediaPhysicallyBlank)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MediaHeuristicallyBlank(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MediaHeuristicallyBlank(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MediaHeuristicallyBlank)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedMediaTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedMediaTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedMediaTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1116,11 +1116,11 @@ pub struct IDiscFormat2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn IsRecorderSupported(&self, recorder: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsCurrentMediaSupported(&self, recorder: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn MediaPhysicallyBlank(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn MediaHeuristicallyBlank(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SupportedMediaTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn IsRecorderSupported(&self, recorder: windows_core::Ref<'_, IDiscRecorder2>) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsCurrentMediaSupported(&self, recorder: windows_core::Ref<'_, IDiscRecorder2>) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn MediaPhysicallyBlank(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn MediaHeuristicallyBlank(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SupportedMediaTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2_Vtbl {
@@ -1213,172 +1213,172 @@ impl core::ops::Deref for IDiscFormat2Data {
 windows_core::imp::interface_hierarchy!(IDiscFormat2Data, windows_core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2Data {
-    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRecorder)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn Recorder(&self) -> windows_core::Result<IDiscRecorder2> {
+    pub unsafe fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recorder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBufferUnderrunFreeDisabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn BufferUnderrunFreeDisabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn BufferUnderrunFreeDisabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BufferUnderrunFreeDisabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPostgapAlreadyInImage(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetPostgapAlreadyInImage(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPostgapAlreadyInImage)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn PostgapAlreadyInImage(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn PostgapAlreadyInImage(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PostgapAlreadyInImage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentMediaStatus(&self) -> windows_core::Result<IMAPI_FORMAT2_DATA_MEDIA_STATE> {
+    pub unsafe fn CurrentMediaStatus(&self) -> Result<IMAPI_FORMAT2_DATA_MEDIA_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentMediaStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WriteProtectStatus(&self) -> windows_core::Result<IMAPI_MEDIA_WRITE_PROTECT_STATE> {
+    pub unsafe fn WriteProtectStatus(&self) -> Result<IMAPI_MEDIA_WRITE_PROTECT_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteProtectStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TotalSectorsOnMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TotalSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalSectorsOnMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FreeSectorsOnMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FreeSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FreeSectorsOnMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NextWritableAddress(&self) -> windows_core::Result<i32> {
+    pub unsafe fn NextWritableAddress(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NextWritableAddress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StartAddressOfPreviousSession(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartAddressOfPreviousSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastWrittenAddressOfPreviousSession(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LastWrittenAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastWrittenAddressOfPreviousSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetForceMediaToBeClosed(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetForceMediaToBeClosed(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetForceMediaToBeClosed)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ForceMediaToBeClosed(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ForceMediaToBeClosed(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ForceMediaToBeClosed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisableConsumerDvdCompatibilityMode(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDisableConsumerDvdCompatibilityMode(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisableConsumerDvdCompatibilityMode)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn DisableConsumerDvdCompatibilityMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DisableConsumerDvdCompatibilityMode(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisableConsumerDvdCompatibilityMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE> {
+    pub unsafe fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentPhysicalMediaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn ClientName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RequestedWriteSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RequestedWriteSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestedWriteSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestedRotationTypeIsPureCAV)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentWriteSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentWriteSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentWriteSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRotationTypeIsPureCAV)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedWriteSpeeds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedWriteSpeeds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedWriteSpeedDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetForceOverwrite(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetForceOverwrite(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetForceOverwrite)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ForceOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ForceOverwrite(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ForceOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MultisessionInterfaces(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn MultisessionInterfaces(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MultisessionInterfaces)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Write<P0>(&self, data: P0) -> windows_core::Result<()>
+    pub unsafe fn Write<P0>(&self, data: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), data.param().abi()).ok() }
     }
-    pub unsafe fn CancelWrite(&self) -> windows_core::Result<()> {
+    pub unsafe fn CancelWrite(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CancelWrite)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteSpeed)(windows_core::Interface::as_raw(self), requestedsectorspersecond, rotationtypeispurecav).ok() }
     }
 }
@@ -1422,38 +1422,38 @@ pub struct IDiscFormat2Data_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2Data_Impl: IDiscFormat2_Impl {
-    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<()>;
-    fn Recorder(&self) -> windows_core::Result<IDiscRecorder2>;
-    fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn BufferUnderrunFreeDisabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetPostgapAlreadyInImage(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn PostgapAlreadyInImage(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CurrentMediaStatus(&self) -> windows_core::Result<IMAPI_FORMAT2_DATA_MEDIA_STATE>;
-    fn WriteProtectStatus(&self) -> windows_core::Result<IMAPI_MEDIA_WRITE_PROTECT_STATE>;
-    fn TotalSectorsOnMedia(&self) -> windows_core::Result<i32>;
-    fn FreeSectorsOnMedia(&self) -> windows_core::Result<i32>;
-    fn NextWritableAddress(&self) -> windows_core::Result<i32>;
-    fn StartAddressOfPreviousSession(&self) -> windows_core::Result<i32>;
-    fn LastWrittenAddressOfPreviousSession(&self) -> windows_core::Result<i32>;
-    fn SetForceMediaToBeClosed(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ForceMediaToBeClosed(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDisableConsumerDvdCompatibilityMode(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DisableConsumerDvdCompatibilityMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ClientName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RequestedWriteSpeed(&self) -> windows_core::Result<i32>;
-    fn RequestedRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CurrentWriteSpeed(&self) -> windows_core::Result<i32>;
-    fn CurrentRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetForceOverwrite(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ForceOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn MultisessionInterfaces(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn Write(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn CancelWrite(&self) -> windows_core::Result<()>;
-    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> Result<(), windows_result::HRESULT>;
+    fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT>;
+    fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn BufferUnderrunFreeDisabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetPostgapAlreadyInImage(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn PostgapAlreadyInImage(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CurrentMediaStatus(&self) -> Result<IMAPI_FORMAT2_DATA_MEDIA_STATE, windows_result::HRESULT>;
+    fn WriteProtectStatus(&self) -> Result<IMAPI_MEDIA_WRITE_PROTECT_STATE, windows_result::HRESULT>;
+    fn TotalSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FreeSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT>;
+    fn NextWritableAddress(&self) -> Result<i32, windows_result::HRESULT>;
+    fn StartAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LastWrittenAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetForceMediaToBeClosed(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ForceMediaToBeClosed(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetDisableConsumerDvdCompatibilityMode(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn DisableConsumerDvdCompatibilityMode(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT>;
+    fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RequestedWriteSpeed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RequestedRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CurrentWriteSpeed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SupportedWriteSpeeds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SupportedWriteSpeedDescriptors(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetForceOverwrite(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ForceOverwrite(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn MultisessionInterfaces(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn Write(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn CancelWrite(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2Data_Vtbl {
@@ -1837,25 +1837,25 @@ impl core::ops::Deref for IDiscFormat2DataEventArgs {
 windows_core::imp::interface_hierarchy!(IDiscFormat2DataEventArgs, windows_core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2DataEventArgs {
-    pub unsafe fn ElapsedTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ElapsedTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElapsedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemainingTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RemainingTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemainingTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TotalTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TotalTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_DATA_WRITE_ACTION> {
+    pub unsafe fn CurrentAction(&self) -> Result<IMAPI_FORMAT2_DATA_WRITE_ACTION, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1874,10 +1874,10 @@ pub struct IDiscFormat2DataEventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2DataEventArgs_Impl: IWriteEngine2EventArgs_Impl {
-    fn ElapsedTime(&self) -> windows_core::Result<i32>;
-    fn RemainingTime(&self) -> windows_core::Result<i32>;
-    fn TotalTime(&self) -> windows_core::Result<i32>;
-    fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_DATA_WRITE_ACTION>;
+    fn ElapsedTime(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RemainingTime(&self) -> Result<i32, windows_result::HRESULT>;
+    fn TotalTime(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentAction(&self) -> Result<IMAPI_FORMAT2_DATA_WRITE_ACTION, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2DataEventArgs_Vtbl {
@@ -1957,43 +1957,43 @@ impl core::ops::Deref for IDiscFormat2Erase {
 windows_core::imp::interface_hierarchy!(IDiscFormat2Erase, windows_core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2Erase {
-    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRecorder)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn Recorder(&self) -> windows_core::Result<IDiscRecorder2> {
+    pub unsafe fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recorder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetFullErase(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetFullErase(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFullErase)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn FullErase(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn FullErase(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FullErase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE> {
+    pub unsafe fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentPhysicalMediaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn ClientName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn EraseMedia(&self) -> windows_core::Result<()> {
+    pub unsafe fn EraseMedia(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EraseMedia)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2013,14 +2013,14 @@ pub struct IDiscFormat2Erase_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2Erase_Impl: IDiscFormat2_Impl {
-    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<()>;
-    fn Recorder(&self) -> windows_core::Result<IDiscRecorder2>;
-    fn SetFullErase(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn FullErase(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ClientName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn EraseMedia(&self) -> windows_core::Result<()>;
+    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> Result<(), windows_result::HRESULT>;
+    fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT>;
+    fn SetFullErase(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn FullErase(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT>;
+    fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn EraseMedia(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2Erase_Vtbl {
@@ -2128,124 +2128,124 @@ impl core::ops::Deref for IDiscFormat2RawCD {
 windows_core::imp::interface_hierarchy!(IDiscFormat2RawCD, windows_core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2RawCD {
-    pub unsafe fn PrepareMedia(&self) -> windows_core::Result<()> {
+    pub unsafe fn PrepareMedia(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).PrepareMedia)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WriteMedia<P0>(&self, data: P0) -> windows_core::Result<()>
+    pub unsafe fn WriteMedia<P0>(&self, data: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteMedia)(windows_core::Interface::as_raw(self), data.param().abi()).ok() }
     }
-    pub unsafe fn WriteMedia2<P0>(&self, data: P0, streamleadinsectors: i32) -> windows_core::Result<()>
+    pub unsafe fn WriteMedia2<P0>(&self, data: P0, streamleadinsectors: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteMedia2)(windows_core::Interface::as_raw(self), data.param().abi(), streamleadinsectors).ok() }
     }
-    pub unsafe fn CancelWrite(&self) -> windows_core::Result<()> {
+    pub unsafe fn CancelWrite(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CancelWrite)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ReleaseMedia(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseMedia(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseMedia)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteSpeed)(windows_core::Interface::as_raw(self), requestedsectorspersecond, rotationtypeispurecav).ok() }
     }
-    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRecorder)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn Recorder(&self) -> windows_core::Result<IDiscRecorder2> {
+    pub unsafe fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recorder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBufferUnderrunFreeDisabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn BufferUnderrunFreeDisabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn BufferUnderrunFreeDisabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BufferUnderrunFreeDisabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StartOfNextSession(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartOfNextSession(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartOfNextSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastPossibleStartOfLeadout(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LastPossibleStartOfLeadout(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastPossibleStartOfLeadout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE> {
+    pub unsafe fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentPhysicalMediaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedSectorTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedSectorTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedSectorTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn SetRequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRequestedSectorType)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn RequestedSectorType(&self) -> windows_core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE> {
+    pub unsafe fn RequestedSectorType(&self) -> Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestedSectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn ClientName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RequestedWriteSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RequestedWriteSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestedWriteSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestedRotationTypeIsPureCAV)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentWriteSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentWriteSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentWriteSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRotationTypeIsPureCAV)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedWriteSpeeds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedWriteSpeeds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedWriteSpeedDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2284,30 +2284,30 @@ pub struct IDiscFormat2RawCD_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2RawCD_Impl: IDiscFormat2_Impl {
-    fn PrepareMedia(&self) -> windows_core::Result<()>;
-    fn WriteMedia(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn WriteMedia2(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>, streamleadinsectors: i32) -> windows_core::Result<()>;
-    fn CancelWrite(&self) -> windows_core::Result<()>;
-    fn ReleaseMedia(&self) -> windows_core::Result<()>;
-    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<()>;
-    fn Recorder(&self) -> windows_core::Result<IDiscRecorder2>;
-    fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn BufferUnderrunFreeDisabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn StartOfNextSession(&self) -> windows_core::Result<i32>;
-    fn LastPossibleStartOfLeadout(&self) -> windows_core::Result<i32>;
-    fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SupportedSectorTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetRequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> windows_core::Result<()>;
-    fn RequestedSectorType(&self) -> windows_core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
-    fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ClientName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RequestedWriteSpeed(&self) -> windows_core::Result<i32>;
-    fn RequestedRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CurrentWriteSpeed(&self) -> windows_core::Result<i32>;
-    fn CurrentRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn PrepareMedia(&self) -> Result<(), windows_result::HRESULT>;
+    fn WriteMedia(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn WriteMedia2(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>, streamleadinsectors: i32) -> Result<(), windows_result::HRESULT>;
+    fn CancelWrite(&self) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseMedia(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> Result<(), windows_result::HRESULT>;
+    fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT>;
+    fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn BufferUnderrunFreeDisabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn StartOfNextSession(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LastPossibleStartOfLeadout(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT>;
+    fn SupportedSectorTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetRequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> Result<(), windows_result::HRESULT>;
+    fn RequestedSectorType(&self) -> Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE, windows_result::HRESULT>;
+    fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RequestedWriteSpeed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RequestedRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CurrentWriteSpeed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SupportedWriteSpeeds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SupportedWriteSpeedDescriptors(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2RawCD_Vtbl {
@@ -2587,19 +2587,19 @@ impl core::ops::Deref for IDiscFormat2RawCDEventArgs {
 windows_core::imp::interface_hierarchy!(IDiscFormat2RawCDEventArgs, windows_core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2RawCDEventArgs {
-    pub unsafe fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION> {
+    pub unsafe fn CurrentAction(&self) -> Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ElapsedTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ElapsedTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElapsedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemainingTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RemainingTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemainingTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2617,9 +2617,9 @@ pub struct IDiscFormat2RawCDEventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2RawCDEventArgs_Impl: IWriteEngine2EventArgs_Impl {
-    fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION>;
-    fn ElapsedTime(&self) -> windows_core::Result<i32>;
-    fn RemainingTime(&self) -> windows_core::Result<i32>;
+    fn CurrentAction(&self) -> Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION, windows_result::HRESULT>;
+    fn ElapsedTime(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RemainingTime(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2RawCDEventArgs_Vtbl {
@@ -2686,130 +2686,130 @@ impl core::ops::Deref for IDiscFormat2TrackAtOnce {
 windows_core::imp::interface_hierarchy!(IDiscFormat2TrackAtOnce, windows_core::IUnknown, super::super::System::Com::IDispatch, IDiscFormat2);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2TrackAtOnce {
-    pub unsafe fn PrepareMedia(&self) -> windows_core::Result<()> {
+    pub unsafe fn PrepareMedia(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).PrepareMedia)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddAudioTrack<P0>(&self, data: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAudioTrack<P0>(&self, data: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAudioTrack)(windows_core::Interface::as_raw(self), data.param().abi()).ok() }
     }
-    pub unsafe fn CancelAddTrack(&self) -> windows_core::Result<()> {
+    pub unsafe fn CancelAddTrack(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CancelAddTrack)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ReleaseMedia(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseMedia(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseMedia)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWriteSpeed)(windows_core::Interface::as_raw(self), requestedsectorspersecond, rotationtypeispurecav).ok() }
     }
-    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRecorder)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn Recorder(&self) -> windows_core::Result<IDiscRecorder2> {
+    pub unsafe fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recorder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBufferUnderrunFreeDisabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn BufferUnderrunFreeDisabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn BufferUnderrunFreeDisabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BufferUnderrunFreeDisabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NumberOfExistingTracks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn NumberOfExistingTracks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NumberOfExistingTracks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TotalSectorsOnMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TotalSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalSectorsOnMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FreeSectorsOnMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FreeSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FreeSectorsOnMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UsedSectorsOnMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn UsedSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UsedSectorsOnMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDoNotFinalizeMedia(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDoNotFinalizeMedia(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDoNotFinalizeMedia)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn DoNotFinalizeMedia(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DoNotFinalizeMedia(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoNotFinalizeMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExpectedTableOfContents(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ExpectedTableOfContents(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpectedTableOfContents)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE> {
+    pub unsafe fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentPhysicalMediaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn ClientName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RequestedWriteSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RequestedWriteSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestedWriteSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestedRotationTypeIsPureCAV)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentWriteSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentWriteSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentWriteSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRotationTypeIsPureCAV)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedWriteSpeeds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedWriteSpeeds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedWriteSpeedDescriptors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2849,31 +2849,31 @@ pub struct IDiscFormat2TrackAtOnce_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2TrackAtOnce_Impl: IDiscFormat2_Impl {
-    fn PrepareMedia(&self) -> windows_core::Result<()>;
-    fn AddAudioTrack(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn CancelAddTrack(&self) -> windows_core::Result<()>;
-    fn ReleaseMedia(&self) -> windows_core::Result<()>;
-    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<()>;
-    fn Recorder(&self) -> windows_core::Result<IDiscRecorder2>;
-    fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn BufferUnderrunFreeDisabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn NumberOfExistingTracks(&self) -> windows_core::Result<i32>;
-    fn TotalSectorsOnMedia(&self) -> windows_core::Result<i32>;
-    fn FreeSectorsOnMedia(&self) -> windows_core::Result<i32>;
-    fn UsedSectorsOnMedia(&self) -> windows_core::Result<i32>;
-    fn SetDoNotFinalizeMedia(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DoNotFinalizeMedia(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ExpectedTableOfContents(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CurrentPhysicalMediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ClientName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RequestedWriteSpeed(&self) -> windows_core::Result<i32>;
-    fn RequestedRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CurrentWriteSpeed(&self) -> windows_core::Result<i32>;
-    fn CurrentRotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SupportedWriteSpeeds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedWriteSpeedDescriptors(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn PrepareMedia(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddAudioTrack(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn CancelAddTrack(&self) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseMedia(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2>) -> Result<(), windows_result::HRESULT>;
+    fn Recorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT>;
+    fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn BufferUnderrunFreeDisabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn NumberOfExistingTracks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn TotalSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FreeSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT>;
+    fn UsedSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetDoNotFinalizeMedia(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn DoNotFinalizeMedia(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn ExpectedTableOfContents(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CurrentPhysicalMediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT>;
+    fn SetClientName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ClientName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RequestedWriteSpeed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RequestedRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CurrentWriteSpeed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentRotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SupportedWriteSpeeds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SupportedWriteSpeedDescriptors(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2TrackAtOnce_Vtbl {
@@ -3172,25 +3172,25 @@ impl core::ops::Deref for IDiscFormat2TrackAtOnceEventArgs {
 windows_core::imp::interface_hierarchy!(IDiscFormat2TrackAtOnceEventArgs, windows_core::IUnknown, super::super::System::Com::IDispatch, IWriteEngine2EventArgs);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2TrackAtOnceEventArgs {
-    pub unsafe fn CurrentTrackNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentTrackNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentTrackNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_TAO_WRITE_ACTION> {
+    pub unsafe fn CurrentAction(&self) -> Result<IMAPI_FORMAT2_TAO_WRITE_ACTION, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ElapsedTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ElapsedTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElapsedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemainingTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RemainingTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemainingTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3209,10 +3209,10 @@ pub struct IDiscFormat2TrackAtOnceEventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscFormat2TrackAtOnceEventArgs_Impl: IWriteEngine2EventArgs_Impl {
-    fn CurrentTrackNumber(&self) -> windows_core::Result<i32>;
-    fn CurrentAction(&self) -> windows_core::Result<IMAPI_FORMAT2_TAO_WRITE_ACTION>;
-    fn ElapsedTime(&self) -> windows_core::Result<i32>;
-    fn RemainingTime(&self) -> windows_core::Result<i32>;
+    fn CurrentTrackNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentAction(&self) -> Result<IMAPI_FORMAT2_TAO_WRITE_ACTION, windows_result::HRESULT>;
+    fn ElapsedTime(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RemainingTime(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
@@ -3282,46 +3282,46 @@ impl windows_core::RuntimeName for IDiscFormat2TrackAtOnceEventArgs {}
 windows_core::imp::define_interface!(IDiscMaster, IDiscMaster_Vtbl, 0x520cca62_51a5_11d3_9144_00104ba11c5e);
 windows_core::imp::interface_hierarchy!(IDiscMaster, windows_core::IUnknown);
 impl IDiscMaster {
-    pub unsafe fn Open(&self) -> windows_core::Result<()> {
+    pub unsafe fn Open(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EnumDiscMasterFormats(&self) -> windows_core::Result<IEnumDiscMasterFormats> {
+    pub unsafe fn EnumDiscMasterFormats(&self) -> Result<IEnumDiscMasterFormats, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumDiscMasterFormats)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetActiveDiscMasterFormat(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetActiveDiscMasterFormat(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetActiveDiscMasterFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetActiveDiscMasterFormat(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn SetActiveDiscMasterFormat(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetActiveDiscMasterFormat)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
-    pub unsafe fn EnumDiscRecorders(&self) -> windows_core::Result<IEnumDiscRecorders> {
+    pub unsafe fn EnumDiscRecorders(&self) -> Result<IEnumDiscRecorders, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumDiscRecorders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetActiveDiscRecorder(&self) -> windows_core::Result<IDiscRecorder> {
+    pub unsafe fn GetActiveDiscRecorder(&self) -> Result<IDiscRecorder, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetActiveDiscRecorder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetActiveDiscRecorder<P0>(&self, precorder: P0) -> windows_core::Result<()>
+    pub unsafe fn SetActiveDiscRecorder<P0>(&self, precorder: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetActiveDiscRecorder)(windows_core::Interface::as_raw(self), precorder.param().abi()).ok() }
     }
-    pub unsafe fn ClearFormatContent(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearFormatContent(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearFormatContent)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ProgressAdvise<P0>(&self, pevents: P0) -> windows_core::Result<usize>
+    pub unsafe fn ProgressAdvise<P0>(&self, pevents: P0) -> Result<usize, windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscMasterProgressEvents>,
     {
@@ -3330,13 +3330,13 @@ impl IDiscMaster {
             (windows_core::Interface::vtable(self).ProgressAdvise)(windows_core::Interface::as_raw(self), pevents.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProgressUnadvise(&self, vcookie: usize) -> windows_core::Result<()> {
+    pub unsafe fn ProgressUnadvise(&self, vcookie: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ProgressUnadvise)(windows_core::Interface::as_raw(self), vcookie).ok() }
     }
-    pub unsafe fn RecordDisc(&self, bsimulate: u8, bejectafterburn: u8) -> windows_core::Result<()> {
+    pub unsafe fn RecordDisc(&self, bsimulate: u8, bejectafterburn: u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RecordDisc)(windows_core::Interface::as_raw(self), bsimulate, bejectafterburn).ok() }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3358,18 +3358,18 @@ pub struct IDiscMaster_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDiscMaster_Impl: windows_core::IUnknownImpl {
-    fn Open(&self) -> windows_core::Result<()>;
-    fn EnumDiscMasterFormats(&self) -> windows_core::Result<IEnumDiscMasterFormats>;
-    fn GetActiveDiscMasterFormat(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SetActiveDiscMasterFormat(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn EnumDiscRecorders(&self) -> windows_core::Result<IEnumDiscRecorders>;
-    fn GetActiveDiscRecorder(&self) -> windows_core::Result<IDiscRecorder>;
-    fn SetActiveDiscRecorder(&self, precorder: windows_core::Ref<'_, IDiscRecorder>) -> windows_core::Result<()>;
-    fn ClearFormatContent(&self) -> windows_core::Result<()>;
-    fn ProgressAdvise(&self, pevents: windows_core::Ref<'_, IDiscMasterProgressEvents>) -> windows_core::Result<usize>;
-    fn ProgressUnadvise(&self, vcookie: usize) -> windows_core::Result<()>;
-    fn RecordDisc(&self, bsimulate: u8, bejectafterburn: u8) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Open(&self) -> Result<(), windows_result::HRESULT>;
+    fn EnumDiscMasterFormats(&self) -> Result<IEnumDiscMasterFormats, windows_result::HRESULT>;
+    fn GetActiveDiscMasterFormat(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn SetActiveDiscMasterFormat(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn EnumDiscRecorders(&self) -> Result<IEnumDiscRecorders, windows_result::HRESULT>;
+    fn GetActiveDiscRecorder(&self) -> Result<IDiscRecorder, windows_result::HRESULT>;
+    fn SetActiveDiscRecorder(&self, precorder: windows_core::Ref<'_, IDiscRecorder>) -> Result<(), windows_result::HRESULT>;
+    fn ClearFormatContent(&self) -> Result<(), windows_result::HRESULT>;
+    fn ProgressAdvise(&self, pevents: windows_core::Ref<'_, IDiscMasterProgressEvents>) -> Result<usize, windows_result::HRESULT>;
+    fn ProgressUnadvise(&self, vcookie: usize) -> Result<(), windows_result::HRESULT>;
+    fn RecordDisc(&self, bsimulate: u8, bejectafterburn: u8) -> Result<(), windows_result::HRESULT>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IDiscMaster_Vtbl {
     pub const fn new<Identity: IDiscMaster_Impl, const OFFSET: isize>() -> Self {
@@ -3510,25 +3510,25 @@ windows_core::imp::interface_hierarchy!(IDiscMaster2, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscMaster2 {
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
+    pub unsafe fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsSupportedEnvironment(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsSupportedEnvironment(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSupportedEnvironment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3550,10 +3550,10 @@ pub struct IDiscMaster2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscMaster2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn IsSupportedEnvironment(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT>;
+    fn get_Item(&self, index: i32) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn IsSupportedEnvironment(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscMaster2_Vtbl {
@@ -3623,34 +3623,34 @@ impl windows_core::RuntimeName for IDiscMaster2 {}
 windows_core::imp::define_interface!(IDiscMasterProgressEvents, IDiscMasterProgressEvents_Vtbl, 0xec9e51c1_4e5d_11d3_9144_00104ba11c5e);
 windows_core::imp::interface_hierarchy!(IDiscMasterProgressEvents, windows_core::IUnknown);
 impl IDiscMasterProgressEvents {
-    pub unsafe fn QueryCancel(&self) -> windows_core::Result<u8> {
+    pub unsafe fn QueryCancel(&self) -> Result<u8, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryCancel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NotifyPnPActivity(&self) -> windows_core::Result<()> {
+    pub unsafe fn NotifyPnPActivity(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyPnPActivity)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn NotifyAddProgress(&self, ncompletedsteps: i32, ntotalsteps: i32) -> windows_core::Result<()> {
+    pub unsafe fn NotifyAddProgress(&self, ncompletedsteps: i32, ntotalsteps: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyAddProgress)(windows_core::Interface::as_raw(self), ncompletedsteps, ntotalsteps).ok() }
     }
-    pub unsafe fn NotifyBlockProgress(&self, ncompleted: i32, ntotal: i32) -> windows_core::Result<()> {
+    pub unsafe fn NotifyBlockProgress(&self, ncompleted: i32, ntotal: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyBlockProgress)(windows_core::Interface::as_raw(self), ncompleted, ntotal).ok() }
     }
-    pub unsafe fn NotifyTrackProgress(&self, ncurrenttrack: i32, ntotaltracks: i32) -> windows_core::Result<()> {
+    pub unsafe fn NotifyTrackProgress(&self, ncurrenttrack: i32, ntotaltracks: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyTrackProgress)(windows_core::Interface::as_raw(self), ncurrenttrack, ntotaltracks).ok() }
     }
-    pub unsafe fn NotifyPreparingBurn(&self, nestimatedseconds: i32) -> windows_core::Result<()> {
+    pub unsafe fn NotifyPreparingBurn(&self, nestimatedseconds: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyPreparingBurn)(windows_core::Interface::as_raw(self), nestimatedseconds).ok() }
     }
-    pub unsafe fn NotifyClosingDisc(&self, nestimatedseconds: i32) -> windows_core::Result<()> {
+    pub unsafe fn NotifyClosingDisc(&self, nestimatedseconds: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyClosingDisc)(windows_core::Interface::as_raw(self), nestimatedseconds).ok() }
     }
-    pub unsafe fn NotifyBurnComplete(&self, status: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub unsafe fn NotifyBurnComplete(&self, status: windows_core::HRESULT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyBurnComplete)(windows_core::Interface::as_raw(self), status).ok() }
     }
-    pub unsafe fn NotifyEraseComplete(&self, status: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub unsafe fn NotifyEraseComplete(&self, status: windows_core::HRESULT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotifyEraseComplete)(windows_core::Interface::as_raw(self), status).ok() }
     }
 }
@@ -3669,15 +3669,15 @@ pub struct IDiscMasterProgressEvents_Vtbl {
     pub NotifyEraseComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IDiscMasterProgressEvents_Impl: windows_core::IUnknownImpl {
-    fn QueryCancel(&self) -> windows_core::Result<u8>;
-    fn NotifyPnPActivity(&self) -> windows_core::Result<()>;
-    fn NotifyAddProgress(&self, ncompletedsteps: i32, ntotalsteps: i32) -> windows_core::Result<()>;
-    fn NotifyBlockProgress(&self, ncompleted: i32, ntotal: i32) -> windows_core::Result<()>;
-    fn NotifyTrackProgress(&self, ncurrenttrack: i32, ntotaltracks: i32) -> windows_core::Result<()>;
-    fn NotifyPreparingBurn(&self, nestimatedseconds: i32) -> windows_core::Result<()>;
-    fn NotifyClosingDisc(&self, nestimatedseconds: i32) -> windows_core::Result<()>;
-    fn NotifyBurnComplete(&self, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn NotifyEraseComplete(&self, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn QueryCancel(&self) -> Result<u8, windows_result::HRESULT>;
+    fn NotifyPnPActivity(&self) -> Result<(), windows_result::HRESULT>;
+    fn NotifyAddProgress(&self, ncompletedsteps: i32, ntotalsteps: i32) -> Result<(), windows_result::HRESULT>;
+    fn NotifyBlockProgress(&self, ncompleted: i32, ntotal: i32) -> Result<(), windows_result::HRESULT>;
+    fn NotifyTrackProgress(&self, ncurrenttrack: i32, ntotaltracks: i32) -> Result<(), windows_result::HRESULT>;
+    fn NotifyPreparingBurn(&self, nestimatedseconds: i32) -> Result<(), windows_result::HRESULT>;
+    fn NotifyClosingDisc(&self, nestimatedseconds: i32) -> Result<(), windows_result::HRESULT>;
+    fn NotifyBurnComplete(&self, status: windows_core::HRESULT) -> Result<(), windows_result::HRESULT>;
+    fn NotifyEraseComplete(&self, status: windows_core::HRESULT) -> Result<(), windows_result::HRESULT>;
 }
 impl IDiscMasterProgressEvents_Vtbl {
     pub const fn new<Identity: IDiscMasterProgressEvents_Impl, const OFFSET: isize>() -> Self {
@@ -3762,69 +3762,69 @@ impl windows_core::RuntimeName for IDiscMasterProgressEvents {}
 windows_core::imp::define_interface!(IDiscRecorder, IDiscRecorder_Vtbl, 0x85ac9776_ca88_4cf2_894e_09598c078a41);
 windows_core::imp::interface_hierarchy!(IDiscRecorder, windows_core::IUnknown);
 impl IDiscRecorder {
-    pub unsafe fn Init(&self, pbyuniqueid: &[u8], nuldrivenumber: u32) -> windows_core::Result<()> {
+    pub unsafe fn Init(&self, pbyuniqueid: &[u8], nuldrivenumber: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len().try_into().unwrap(), nuldrivenumber).ok() }
     }
-    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: Option<&mut [u8]>, pulreturnsizerequired: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: Option<&mut [u8]>, pulreturnsizerequired: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetRecorderGUID)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbyuniqueid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pulreturnsizerequired as _).ok() }
     }
-    pub unsafe fn GetRecorderType(&self) -> windows_core::Result<RECORDER_TYPES> {
+    pub unsafe fn GetRecorderType(&self) -> Result<RECORDER_TYPES, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecorderType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: Option<*mut windows_core::BSTR>, pbstrproductid: Option<*mut windows_core::BSTR>, pbstrrevision: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
+    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: Option<*mut windows_core::BSTR>, pbstrproductid: Option<*mut windows_core::BSTR>, pbstrrevision: Option<*mut windows_core::BSTR>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayNames)(windows_core::Interface::as_raw(self), pbstrvendorid.unwrap_or(core::mem::zeroed()) as _, pbstrproductid.unwrap_or(core::mem::zeroed()) as _, pbstrrevision.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetBasePnPID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetBasePnPID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBasePnPID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetPath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn GetRecorderProperties(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage> {
+    pub unsafe fn GetRecorderProperties(&self) -> Result<super::super::System::Com::StructuredStorage::IPropertyStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecorderProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn SetRecorderProperties<P0>(&self, ppropstg: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRecorderProperties<P0>(&self, ppropstg: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::StructuredStorage::IPropertyStorage>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRecorderProperties)(windows_core::Interface::as_raw(self), ppropstg.param().abi()).ok() }
     }
-    pub unsafe fn GetRecorderState(&self) -> windows_core::Result<DISC_RECORDER_STATE_FLAGS> {
+    pub unsafe fn GetRecorderState(&self) -> Result<DISC_RECORDER_STATE_FLAGS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecorderState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OpenExclusive(&self) -> windows_core::Result<()> {
+    pub unsafe fn OpenExclusive(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OpenExclusive)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn QueryMediaType(&self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> windows_core::Result<()> {
+    pub unsafe fn QueryMediaType(&self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryMediaType)(windows_core::Interface::as_raw(self), fmediatype as _, fmediaflags as _).ok() }
     }
-    pub unsafe fn QueryMediaInfo(&self, pbsessions: *mut u8, pblasttrack: *mut u8, ulstartaddress: *mut u32, ulnextwritable: *mut u32, ulfreeblocks: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn QueryMediaInfo(&self, pbsessions: *mut u8, pblasttrack: *mut u8, ulstartaddress: *mut u32, ulnextwritable: *mut u32, ulfreeblocks: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryMediaInfo)(windows_core::Interface::as_raw(self), pbsessions as _, pblasttrack as _, ulstartaddress as _, ulnextwritable as _, ulfreeblocks as _).ok() }
     }
-    pub unsafe fn Eject(&self) -> windows_core::Result<()> {
+    pub unsafe fn Eject(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Eject)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Erase(&self, bfullerase: u8) -> windows_core::Result<()> {
+    pub unsafe fn Erase(&self, bfullerase: u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Erase)(windows_core::Interface::as_raw(self), bfullerase).ok() }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3856,21 +3856,21 @@ pub struct IDiscRecorder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IDiscRecorder_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> windows_core::Result<()>;
-    fn GetRecorderGUID(&self, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> windows_core::Result<()>;
-    fn GetRecorderType(&self) -> windows_core::Result<RECORDER_TYPES>;
-    fn GetDisplayNames(&self, pbstrvendorid: *mut windows_core::BSTR, pbstrproductid: *mut windows_core::BSTR, pbstrrevision: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetBasePnPID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetRecorderProperties(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
-    fn SetRecorderProperties(&self, ppropstg: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IPropertyStorage>) -> windows_core::Result<()>;
-    fn GetRecorderState(&self) -> windows_core::Result<DISC_RECORDER_STATE_FLAGS>;
-    fn OpenExclusive(&self) -> windows_core::Result<()>;
-    fn QueryMediaType(&self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> windows_core::Result<()>;
-    fn QueryMediaInfo(&self, pbsessions: *mut u8, pblasttrack: *mut u8, ulstartaddress: *mut u32, ulnextwritable: *mut u32, ulfreeblocks: *mut u32) -> windows_core::Result<()>;
-    fn Eject(&self) -> windows_core::Result<()>;
-    fn Erase(&self, bfullerase: u8) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Init(&self, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetRecorderGUID(&self, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetRecorderType(&self) -> Result<RECORDER_TYPES, windows_result::HRESULT>;
+    fn GetDisplayNames(&self, pbstrvendorid: *mut windows_core::BSTR, pbstrproductid: *mut windows_core::BSTR, pbstrrevision: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetBasePnPID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetRecorderProperties(&self) -> Result<super::super::System::Com::StructuredStorage::IPropertyStorage, windows_result::HRESULT>;
+    fn SetRecorderProperties(&self, ppropstg: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IPropertyStorage>) -> Result<(), windows_result::HRESULT>;
+    fn GetRecorderState(&self) -> Result<DISC_RECORDER_STATE_FLAGS, windows_result::HRESULT>;
+    fn OpenExclusive(&self) -> Result<(), windows_result::HRESULT>;
+    fn QueryMediaType(&self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> Result<(), windows_result::HRESULT>;
+    fn QueryMediaInfo(&self, pbsessions: *mut u8, pblasttrack: *mut u8, ulstartaddress: *mut u32, ulnextwritable: *mut u32, ulfreeblocks: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Eject(&self) -> Result<(), windows_result::HRESULT>;
+    fn Erase(&self, bfullerase: u8) -> Result<(), windows_result::HRESULT>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IDiscRecorder_Vtbl {
@@ -4033,106 +4033,106 @@ impl core::ops::Deref for IDiscRecorder2 {
 windows_core::imp::interface_hierarchy!(IDiscRecorder2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscRecorder2 {
-    pub unsafe fn EjectMedia(&self) -> windows_core::Result<()> {
+    pub unsafe fn EjectMedia(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EjectMedia)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CloseTray(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseTray(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseTray)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AcquireExclusiveAccess(&self, force: super::super::Foundation::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AcquireExclusiveAccess(&self, force: super::super::Foundation::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AcquireExclusiveAccess)(windows_core::Interface::as_raw(self), force, core::mem::transmute_copy(__midl__idiscrecorder20000)).ok() }
     }
-    pub unsafe fn ReleaseExclusiveAccess(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseExclusiveAccess(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseExclusiveAccess)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DisableMcn(&self) -> windows_core::Result<()> {
+    pub unsafe fn DisableMcn(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DisableMcn)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EnableMcn(&self) -> windows_core::Result<()> {
+    pub unsafe fn EnableMcn(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnableMcn)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn InitializeDiscRecorder(&self, recorderuniqueid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn InitializeDiscRecorder(&self, recorderuniqueid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).InitializeDiscRecorder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(recorderuniqueid)).ok() }
     }
-    pub unsafe fn ActiveDiscRecorder(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ActiveDiscRecorder(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActiveDiscRecorder)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VendorId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VendorId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VendorId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProductId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProductId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProductRevision(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProductRevision(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductRevision)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VolumePathNames(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn VolumePathNames(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumePathNames)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceCanLoadMedia(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DeviceCanLoadMedia(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceCanLoadMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LegacyDeviceNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LegacyDeviceNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LegacyDeviceNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedFeaturePages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedFeaturePages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedFeaturePages)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentFeaturePages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CurrentFeaturePages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFeaturePages)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedProfiles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedProfiles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedProfiles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentProfiles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CurrentProfiles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentProfiles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupportedModePages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedModePages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedModePages)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExclusiveAccessOwner(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExclusiveAccessOwner(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExclusiveAccessOwner)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -4168,27 +4168,27 @@ pub struct IDiscRecorder2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDiscRecorder2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn EjectMedia(&self) -> windows_core::Result<()>;
-    fn CloseTray(&self) -> windows_core::Result<()>;
-    fn AcquireExclusiveAccess(&self, force: super::super::Foundation::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ReleaseExclusiveAccess(&self) -> windows_core::Result<()>;
-    fn DisableMcn(&self) -> windows_core::Result<()>;
-    fn EnableMcn(&self) -> windows_core::Result<()>;
-    fn InitializeDiscRecorder(&self, recorderuniqueid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ActiveDiscRecorder(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VendorId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProductId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProductRevision(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VolumePathNames(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn DeviceCanLoadMedia(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn LegacyDeviceNumber(&self) -> windows_core::Result<i32>;
-    fn SupportedFeaturePages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CurrentFeaturePages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedProfiles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CurrentProfiles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedModePages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ExclusiveAccessOwner(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn EjectMedia(&self) -> Result<(), windows_result::HRESULT>;
+    fn CloseTray(&self) -> Result<(), windows_result::HRESULT>;
+    fn AcquireExclusiveAccess(&self, force: super::super::Foundation::VARIANT_BOOL, __midl__idiscrecorder20000: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseExclusiveAccess(&self) -> Result<(), windows_result::HRESULT>;
+    fn DisableMcn(&self) -> Result<(), windows_result::HRESULT>;
+    fn EnableMcn(&self) -> Result<(), windows_result::HRESULT>;
+    fn InitializeDiscRecorder(&self, recorderuniqueid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ActiveDiscRecorder(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VendorId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ProductId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ProductRevision(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VolumePathNames(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn DeviceCanLoadMedia(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn LegacyDeviceNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SupportedFeaturePages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CurrentFeaturePages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SupportedProfiles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CurrentProfiles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SupportedModePages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn ExclusiveAccessOwner(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDiscRecorder2_Vtbl {
@@ -4437,64 +4437,64 @@ impl windows_core::RuntimeName for IDiscRecorder2 {}
 windows_core::imp::define_interface!(IDiscRecorder2Ex, IDiscRecorder2Ex_Vtbl, 0x27354132_7f64_5b0f_8f00_5d77afbe261e);
 windows_core::imp::interface_hierarchy!(IDiscRecorder2Ex, windows_core::IUnknown);
 impl IDiscRecorder2Ex {
-    pub unsafe fn SendCommandNoData(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32) -> windows_core::Result<()> {
+    pub unsafe fn SendCommandNoData(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendCommandNoData)(windows_core::Interface::as_raw(self), core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), core::mem::transmute(sensebuffer.as_ptr()), timeout).ok() }
     }
-    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), core::mem::transmute(sensebuffer.as_ptr()), timeout, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &mut [u8], bufferfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &mut [u8], bufferfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), core::mem::transmute(sensebuffer.as_ptr()), timeout, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), bufferfetched as _).ok() }
     }
-    pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReadDvdStructure)(windows_core::Interface::as_raw(self), format, address, layer, agid, data as _, count as _).ok() }
     }
-    pub unsafe fn SendDvdStructure(&self, format: u32, data: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn SendDvdStructure(&self, format: u32, data: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendDvdStructure)(windows_core::Interface::as_raw(self), format, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterDescriptor)(windows_core::Interface::as_raw(self), data as _, bytesize as _).ok() }
     }
-    pub unsafe fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceDescriptor)(windows_core::Interface::as_raw(self), data as _, bytesize as _).ok() }
     }
-    pub unsafe fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDiscInformation)(windows_core::Interface::as_raw(self), discinformation as _, bytesize as _).ok() }
     }
-    pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTrackInformation)(windows_core::Interface::as_raw(self), address, addresstype, trackinformation as _, bytesize as _).ok() }
     }
-    pub unsafe fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetFeaturePage)(windows_core::Interface::as_raw(self), requestedfeature, currentfeatureonly, featuredata as _, bytesize as _).ok() }
     }
-    pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetModePage)(windows_core::Interface::as_raw(self), requestedmodepage, requesttype, modepagedata as _, bytesize as _).ok() }
     }
-    pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetModePage)(windows_core::Interface::as_raw(self), requesttype, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSupportedFeaturePages)(windows_core::Interface::as_raw(self), currentfeatureonly, featuredata as _, bytesize as _).ok() }
     }
-    pub unsafe fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSupportedProfiles)(windows_core::Interface::as_raw(self), currentonly, profiletypes as _, validprofiles as _).ok() }
     }
-    pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSupportedModePages)(windows_core::Interface::as_raw(self), requesttype, modepagetypes as _, validpages as _).ok() }
     }
-    pub unsafe fn GetByteAlignmentMask(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetByteAlignmentMask(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetByteAlignmentMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaximumNonPageAlignedTransferSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetMaximumNonPageAlignedTransferSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaximumNonPageAlignedTransferSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaximumPageAlignedTransferSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetMaximumPageAlignedTransferSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaximumPageAlignedTransferSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4525,24 +4525,24 @@ pub struct IDiscRecorder2Ex_Vtbl {
     pub GetMaximumPageAlignedTransferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDiscRecorder2Ex_Impl: windows_core::IUnknownImpl {
-    fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::Result<()>;
-    fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> windows_core::Result<()>;
-    fn SendCommandGetDataFromDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> windows_core::Result<()>;
-    fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> windows_core::Result<()>;
-    fn SendDvdStructure(&self, format: u32, data: *const u8, count: u32) -> windows_core::Result<()>;
-    fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: u32) -> windows_core::Result<()>;
-    fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> windows_core::Result<()>;
-    fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> windows_core::Result<()>;
-    fn GetByteAlignmentMask(&self) -> windows_core::Result<u32>;
-    fn GetMaximumNonPageAlignedTransferSize(&self) -> windows_core::Result<u32>;
-    fn GetMaximumPageAlignedTransferSize(&self) -> windows_core::Result<u32>;
+    fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> Result<(), windows_result::HRESULT>;
+    fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> Result<(), windows_result::HRESULT>;
+    fn SendCommandGetDataFromDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SendDvdStructure(&self, format: u32, data: *const u8, count: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetByteAlignmentMask(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetMaximumNonPageAlignedTransferSize(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetMaximumPageAlignedTransferSize(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IDiscRecorder2Ex_Vtbl {
     pub const fn new<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>() -> Self {
@@ -4702,16 +4702,16 @@ impl windows_core::RuntimeName for IDiscRecorder2Ex {}
 windows_core::imp::define_interface!(IEnumDiscMasterFormats, IEnumDiscMasterFormats_Vtbl, 0xddf445e1_54ba_11d3_9144_00104ba11c5e);
 windows_core::imp::interface_hierarchy!(IEnumDiscMasterFormats, windows_core::IUnknown);
 impl IEnumDiscMasterFormats {
-    pub unsafe fn Next(&self, lpiidformatid: &mut [windows_core::GUID], pcfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, lpiidformatid: &mut [windows_core::GUID], pcfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lpiidformatid.len().try_into().unwrap(), core::mem::transmute(lpiidformatid.as_ptr()), pcfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, cformats: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, cformats: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cformats).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDiscMasterFormats> {
+    pub unsafe fn Clone(&self) -> Result<IEnumDiscMasterFormats, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4728,10 +4728,10 @@ pub struct IEnumDiscMasterFormats_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDiscMasterFormats_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cformats: u32, lpiidformatid: *mut windows_core::GUID, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, cformats: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumDiscMasterFormats>;
+    fn Next(&self, cformats: u32, lpiidformatid: *mut windows_core::GUID, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, cformats: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumDiscMasterFormats, windows_result::HRESULT>;
 }
 impl IEnumDiscMasterFormats_Vtbl {
     pub const fn new<Identity: IEnumDiscMasterFormats_Impl, const OFFSET: isize>() -> Self {
@@ -4781,16 +4781,16 @@ impl windows_core::RuntimeName for IEnumDiscMasterFormats {}
 windows_core::imp::define_interface!(IEnumDiscRecorders, IEnumDiscRecorders_Vtbl, 0x9b1921e1_54ac_11d3_9144_00104ba11c5e);
 windows_core::imp::interface_hierarchy!(IEnumDiscRecorders, windows_core::IUnknown);
 impl IEnumDiscRecorders {
-    pub unsafe fn Next(&self, pprecorder: &mut [Option<IDiscRecorder>], pcfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, pprecorder: &mut [Option<IDiscRecorder>], pcfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pprecorder.len().try_into().unwrap(), core::mem::transmute(pprecorder.as_ptr()), pcfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, crecorders: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, crecorders: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), crecorders).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDiscRecorders> {
+    pub unsafe fn Clone(&self) -> Result<IEnumDiscRecorders, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4807,10 +4807,10 @@ pub struct IEnumDiscRecorders_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDiscRecorders_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, crecorders: u32, pprecorder: *mut Option<IDiscRecorder>, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, crecorders: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumDiscRecorders>;
+    fn Next(&self, crecorders: u32, pprecorder: *mut Option<IDiscRecorder>, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, crecorders: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumDiscRecorders, windows_result::HRESULT>;
 }
 impl IEnumDiscRecorders_Vtbl {
     pub const fn new<Identity: IEnumDiscRecorders_Impl, const OFFSET: isize>() -> Self {
@@ -4861,16 +4861,16 @@ windows_core::imp::define_interface!(IEnumFsiItems, IEnumFsiItems_Vtbl, 0x2c941f
 windows_core::imp::interface_hierarchy!(IEnumFsiItems, windows_core::IUnknown);
 impl IEnumFsiItems {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IFsiItem>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [Option<IFsiItem>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumFsiItems> {
+    pub unsafe fn Clone(&self) -> Result<IEnumFsiItems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4891,10 +4891,10 @@ pub struct IEnumFsiItems_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumFsiItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IFsiItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumFsiItems>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IFsiItem>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumFsiItems, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumFsiItems_Vtbl {
@@ -4947,16 +4947,16 @@ windows_core::imp::define_interface!(IEnumProgressItems, IEnumProgressItems_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumProgressItems, windows_core::IUnknown);
 impl IEnumProgressItems {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IProgressItem>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [Option<IProgressItem>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumProgressItems> {
+    pub unsafe fn Clone(&self) -> Result<IEnumProgressItems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4977,10 +4977,10 @@ pub struct IEnumProgressItems_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumProgressItems_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IProgressItem>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumProgressItems>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IProgressItem>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumProgressItems, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumProgressItems_Vtbl {
@@ -5042,187 +5042,187 @@ impl core::ops::Deref for IFileSystemImage {
 windows_core::imp::interface_hierarchy!(IFileSystemImage, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImage {
-    pub unsafe fn Root(&self) -> windows_core::Result<IFsiDirectoryItem> {
+    pub unsafe fn Root(&self) -> Result<IFsiDirectoryItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Root)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SessionStartBlock(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionStartBlock(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionStartBlock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSessionStartBlock(&self, newval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetSessionStartBlock(&self, newval: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSessionStartBlock)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn FreeMediaBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FreeMediaBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FreeMediaBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFreeMediaBlocks(&self, newval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetFreeMediaBlocks(&self, newval: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFreeMediaBlocks)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn SetMaxMediaBlocksFromDevice<P0>(&self, discrecorder: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMaxMediaBlocksFromDevice<P0>(&self, discrecorder: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxMediaBlocksFromDevice)(windows_core::Interface::as_raw(self), discrecorder.param().abi()).ok() }
     }
-    pub unsafe fn UsedBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn UsedBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UsedBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetVolumeName(&self, newval: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetVolumeName(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVolumeName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)).ok() }
     }
-    pub unsafe fn ImportedVolumeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ImportedVolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportedVolumeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn BootImageOptions(&self) -> windows_core::Result<IBootOptions> {
+    pub unsafe fn BootImageOptions(&self) -> Result<IBootOptions, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BootImageOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetBootImageOptions<P0>(&self, newval: P0) -> windows_core::Result<()>
+    pub unsafe fn SetBootImageOptions<P0>(&self, newval: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IBootOptions>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetBootImageOptions)(windows_core::Interface::as_raw(self), newval.param().abi()).ok() }
     }
-    pub unsafe fn FileCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FileCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DirectoryCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DirectoryCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DirectoryCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn WorkingDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WorkingDirectory)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetWorkingDirectory(&self, newval: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetWorkingDirectory(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)).ok() }
     }
-    pub unsafe fn ChangePoint(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ChangePoint(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChangePoint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StrictFileSystemCompliance(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn StrictFileSystemCompliance(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StrictFileSystemCompliance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStrictFileSystemCompliance(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetStrictFileSystemCompliance(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStrictFileSystemCompliance)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn UseRestrictedCharacterSet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn UseRestrictedCharacterSet(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UseRestrictedCharacterSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUseRestrictedCharacterSet(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetUseRestrictedCharacterSet(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUseRestrictedCharacterSet)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn FileSystemsToCreate(&self) -> windows_core::Result<FsiFileSystems> {
+    pub unsafe fn FileSystemsToCreate(&self) -> Result<FsiFileSystems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileSystemsToCreate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> windows_core::Result<()> {
+    pub unsafe fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileSystemsToCreate)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn FileSystemsSupported(&self) -> windows_core::Result<FsiFileSystems> {
+    pub unsafe fn FileSystemsSupported(&self) -> Result<FsiFileSystems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileSystemsSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUDFRevision(&self, newval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetUDFRevision(&self, newval: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUDFRevision)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn UDFRevision(&self) -> windows_core::Result<i32> {
+    pub unsafe fn UDFRevision(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UDFRevision)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UDFRevisionsSupported(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn UDFRevisionsSupported(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UDFRevisionsSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ChooseImageDefaults<P0>(&self, discrecorder: P0) -> windows_core::Result<()>
+    pub unsafe fn ChooseImageDefaults<P0>(&self, discrecorder: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
         unsafe { (windows_core::Interface::vtable(self).ChooseImageDefaults)(windows_core::Interface::as_raw(self), discrecorder.param().abi()).ok() }
     }
-    pub unsafe fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ChooseImageDefaultsForMediaType)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn SetISO9660InterchangeLevel(&self, newval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetISO9660InterchangeLevel(&self, newval: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetISO9660InterchangeLevel)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn ISO9660InterchangeLevel(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ISO9660InterchangeLevel(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ISO9660InterchangeLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ISO9660InterchangeLevelsSupported(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ISO9660InterchangeLevelsSupported(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ISO9660InterchangeLevelsSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateResultImage(&self) -> windows_core::Result<IFileSystemImageResult> {
+    pub unsafe fn CreateResultImage(&self) -> Result<IFileSystemImageResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateResultImage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Exists(&self, fullpath: &windows_core::BSTR) -> windows_core::Result<FsiItemType> {
+    pub unsafe fn Exists(&self, fullpath: &windows_core::BSTR) -> Result<FsiItemType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Exists)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(fullpath), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CalculateDiscIdentifier(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CalculateDiscIdentifier(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CalculateDiscIdentifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IdentifyFileSystemsOnDisc<P0>(&self, discrecorder: P0) -> windows_core::Result<FsiFileSystems>
+    pub unsafe fn IdentifyFileSystemsOnDisc<P0>(&self, discrecorder: P0) -> Result<FsiFileSystems, windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2>,
     {
@@ -5231,73 +5231,73 @@ impl IFileSystemImage {
             (windows_core::Interface::vtable(self).IdentifyFileSystemsOnDisc)(windows_core::Interface::as_raw(self), discrecorder.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> windows_core::Result<FsiFileSystems> {
+    pub unsafe fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> Result<FsiFileSystems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultFileSystemForImport)(windows_core::Interface::as_raw(self), filesystems, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ImportFileSystem(&self) -> windows_core::Result<FsiFileSystems> {
+    pub unsafe fn ImportFileSystem(&self) -> Result<FsiFileSystems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportFileSystem)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> windows_core::Result<()> {
+    pub unsafe fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ImportSpecificFileSystem)(windows_core::Interface::as_raw(self), filesystemtouse).ok() }
     }
-    pub unsafe fn RollbackToChangePoint(&self, changepoint: i32) -> windows_core::Result<()> {
+    pub unsafe fn RollbackToChangePoint(&self, changepoint: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RollbackToChangePoint)(windows_core::Interface::as_raw(self), changepoint).ok() }
     }
-    pub unsafe fn LockInChangePoint(&self) -> windows_core::Result<()> {
+    pub unsafe fn LockInChangePoint(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LockInChangePoint)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CreateDirectoryItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsiDirectoryItem> {
+    pub unsafe fn CreateDirectoryItem(&self, name: &windows_core::BSTR) -> Result<IFsiDirectoryItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateDirectoryItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateFileItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsiFileItem> {
+    pub unsafe fn CreateFileItem(&self, name: &windows_core::BSTR) -> Result<IFsiFileItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFileItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn VolumeNameUDF(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeNameUDF(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeNameUDF)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VolumeNameJoliet(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeNameJoliet(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeNameJoliet)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VolumeNameISO9660(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeNameISO9660(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeNameISO9660)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn StageFiles(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn StageFiles(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StageFiles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStageFiles)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn MultisessionInterfaces(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn MultisessionInterfaces(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MultisessionInterfaces)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMultisessionInterfaces)(windows_core::Interface::as_raw(self), newval).ok() }
     }
 }
@@ -5359,56 +5359,56 @@ pub struct IFileSystemImage_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFileSystemImage_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Root(&self) -> windows_core::Result<IFsiDirectoryItem>;
-    fn SessionStartBlock(&self) -> windows_core::Result<i32>;
-    fn SetSessionStartBlock(&self, newval: i32) -> windows_core::Result<()>;
-    fn FreeMediaBlocks(&self) -> windows_core::Result<i32>;
-    fn SetFreeMediaBlocks(&self, newval: i32) -> windows_core::Result<()>;
-    fn SetMaxMediaBlocksFromDevice(&self, discrecorder: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<()>;
-    fn UsedBlocks(&self) -> windows_core::Result<i32>;
-    fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetVolumeName(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImportedVolumeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn BootImageOptions(&self) -> windows_core::Result<IBootOptions>;
-    fn SetBootImageOptions(&self, newval: windows_core::Ref<'_, IBootOptions>) -> windows_core::Result<()>;
-    fn FileCount(&self) -> windows_core::Result<i32>;
-    fn DirectoryCount(&self) -> windows_core::Result<i32>;
-    fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetWorkingDirectory(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ChangePoint(&self) -> windows_core::Result<i32>;
-    fn StrictFileSystemCompliance(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetStrictFileSystemCompliance(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn UseRestrictedCharacterSet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetUseRestrictedCharacterSet(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn FileSystemsToCreate(&self) -> windows_core::Result<FsiFileSystems>;
-    fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> windows_core::Result<()>;
-    fn FileSystemsSupported(&self) -> windows_core::Result<FsiFileSystems>;
-    fn SetUDFRevision(&self, newval: i32) -> windows_core::Result<()>;
-    fn UDFRevision(&self) -> windows_core::Result<i32>;
-    fn UDFRevisionsSupported(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ChooseImageDefaults(&self, discrecorder: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<()>;
-    fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> windows_core::Result<()>;
-    fn SetISO9660InterchangeLevel(&self, newval: i32) -> windows_core::Result<()>;
-    fn ISO9660InterchangeLevel(&self) -> windows_core::Result<i32>;
-    fn ISO9660InterchangeLevelsSupported(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CreateResultImage(&self) -> windows_core::Result<IFileSystemImageResult>;
-    fn Exists(&self, fullpath: &windows_core::BSTR) -> windows_core::Result<FsiItemType>;
-    fn CalculateDiscIdentifier(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IdentifyFileSystemsOnDisc(&self, discrecorder: windows_core::Ref<'_, IDiscRecorder2>) -> windows_core::Result<FsiFileSystems>;
-    fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> windows_core::Result<FsiFileSystems>;
-    fn ImportFileSystem(&self) -> windows_core::Result<FsiFileSystems>;
-    fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> windows_core::Result<()>;
-    fn RollbackToChangePoint(&self, changepoint: i32) -> windows_core::Result<()>;
-    fn LockInChangePoint(&self) -> windows_core::Result<()>;
-    fn CreateDirectoryItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsiDirectoryItem>;
-    fn CreateFileItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsiFileItem>;
-    fn VolumeNameUDF(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VolumeNameJoliet(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VolumeNameISO9660(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn StageFiles(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn MultisessionInterfaces(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn Root(&self) -> Result<IFsiDirectoryItem, windows_result::HRESULT>;
+    fn SessionStartBlock(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetSessionStartBlock(&self, newval: i32) -> Result<(), windows_result::HRESULT>;
+    fn FreeMediaBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetFreeMediaBlocks(&self, newval: i32) -> Result<(), windows_result::HRESULT>;
+    fn SetMaxMediaBlocksFromDevice(&self, discrecorder: windows_core::Ref<'_, IDiscRecorder2>) -> Result<(), windows_result::HRESULT>;
+    fn UsedBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn VolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetVolumeName(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ImportedVolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn BootImageOptions(&self) -> Result<IBootOptions, windows_result::HRESULT>;
+    fn SetBootImageOptions(&self, newval: windows_core::Ref<'_, IBootOptions>) -> Result<(), windows_result::HRESULT>;
+    fn FileCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DirectoryCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn WorkingDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetWorkingDirectory(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ChangePoint(&self) -> Result<i32, windows_result::HRESULT>;
+    fn StrictFileSystemCompliance(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetStrictFileSystemCompliance(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn UseRestrictedCharacterSet(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetUseRestrictedCharacterSet(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn FileSystemsToCreate(&self) -> Result<FsiFileSystems, windows_result::HRESULT>;
+    fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> Result<(), windows_result::HRESULT>;
+    fn FileSystemsSupported(&self) -> Result<FsiFileSystems, windows_result::HRESULT>;
+    fn SetUDFRevision(&self, newval: i32) -> Result<(), windows_result::HRESULT>;
+    fn UDFRevision(&self) -> Result<i32, windows_result::HRESULT>;
+    fn UDFRevisionsSupported(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn ChooseImageDefaults(&self, discrecorder: windows_core::Ref<'_, IDiscRecorder2>) -> Result<(), windows_result::HRESULT>;
+    fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> Result<(), windows_result::HRESULT>;
+    fn SetISO9660InterchangeLevel(&self, newval: i32) -> Result<(), windows_result::HRESULT>;
+    fn ISO9660InterchangeLevel(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ISO9660InterchangeLevelsSupported(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CreateResultImage(&self) -> Result<IFileSystemImageResult, windows_result::HRESULT>;
+    fn Exists(&self, fullpath: &windows_core::BSTR) -> Result<FsiItemType, windows_result::HRESULT>;
+    fn CalculateDiscIdentifier(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn IdentifyFileSystemsOnDisc(&self, discrecorder: windows_core::Ref<'_, IDiscRecorder2>) -> Result<FsiFileSystems, windows_result::HRESULT>;
+    fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> Result<FsiFileSystems, windows_result::HRESULT>;
+    fn ImportFileSystem(&self) -> Result<FsiFileSystems, windows_result::HRESULT>;
+    fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> Result<(), windows_result::HRESULT>;
+    fn RollbackToChangePoint(&self, changepoint: i32) -> Result<(), windows_result::HRESULT>;
+    fn LockInChangePoint(&self) -> Result<(), windows_result::HRESULT>;
+    fn CreateDirectoryItem(&self, name: &windows_core::BSTR) -> Result<IFsiDirectoryItem, windows_result::HRESULT>;
+    fn CreateFileItem(&self, name: &windows_core::BSTR) -> Result<IFsiFileItem, windows_result::HRESULT>;
+    fn VolumeNameUDF(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VolumeNameJoliet(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VolumeNameISO9660(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn StageFiles(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn MultisessionInterfaces(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFileSystemImage_Vtbl {
@@ -5978,13 +5978,13 @@ impl core::ops::Deref for IFileSystemImage2 {
 windows_core::imp::interface_hierarchy!(IFileSystemImage2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImage);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImage2 {
-    pub unsafe fn BootImageOptionsArray(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn BootImageOptionsArray(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BootImageOptionsArray)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBootImageOptionsArray)(windows_core::Interface::as_raw(self), newval).ok() }
     }
 }
@@ -5998,8 +5998,8 @@ pub struct IFileSystemImage2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFileSystemImage2_Impl: IFileSystemImage_Impl {
-    fn BootImageOptionsArray(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn BootImageOptionsArray(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFileSystemImage2_Vtbl {
@@ -6047,16 +6047,16 @@ impl core::ops::Deref for IFileSystemImage3 {
 windows_core::imp::interface_hierarchy!(IFileSystemImage3, windows_core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImage, IFileSystemImage2);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImage3 {
-    pub unsafe fn CreateRedundantUdfMetadataFiles(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CreateRedundantUdfMetadataFiles(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateRedundantUdfMetadataFiles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCreateRedundantUdfMetadataFiles)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProbeSpecificFileSystem)(windows_core::Interface::as_raw(self), filesystemtoprobe, &mut result__).map(|| result__)
@@ -6074,9 +6074,9 @@ pub struct IFileSystemImage3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFileSystemImage3_Impl: IFileSystemImage2_Impl {
-    fn CreateRedundantUdfMetadataFiles(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn CreateRedundantUdfMetadataFiles(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetCreateRedundantUdfMetadataFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFileSystemImage3_Vtbl {
@@ -6137,31 +6137,31 @@ impl core::ops::Deref for IFileSystemImageResult {
 windows_core::imp::interface_hierarchy!(IFileSystemImageResult, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImageResult {
-    pub unsafe fn ImageStream(&self) -> windows_core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn ImageStream(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImageStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProgressItems(&self) -> windows_core::Result<IProgressItems> {
+    pub unsafe fn ProgressItems(&self) -> Result<IProgressItems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProgressItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TotalBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TotalBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BlockSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn BlockSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DiscId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DiscId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DiscId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -6181,11 +6181,11 @@ pub struct IFileSystemImageResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFileSystemImageResult_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ImageStream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
-    fn ProgressItems(&self) -> windows_core::Result<IProgressItems>;
-    fn TotalBlocks(&self) -> windows_core::Result<i32>;
-    fn BlockSize(&self) -> windows_core::Result<i32>;
-    fn DiscId(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn ImageStream(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT>;
+    fn ProgressItems(&self) -> Result<IProgressItems, windows_result::HRESULT>;
+    fn TotalBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn BlockSize(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DiscId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFileSystemImageResult_Vtbl {
@@ -6278,7 +6278,7 @@ impl core::ops::Deref for IFileSystemImageResult2 {
 windows_core::imp::interface_hierarchy!(IFileSystemImageResult2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFileSystemImageResult);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImageResult2 {
-    pub unsafe fn ModifiedBlocks(&self) -> windows_core::Result<IBlockRangeList> {
+    pub unsafe fn ModifiedBlocks(&self) -> Result<IBlockRangeList, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModifiedBlocks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6294,7 +6294,7 @@ pub struct IFileSystemImageResult2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFileSystemImageResult2_Impl: IFileSystemImageResult_Impl {
-    fn ModifiedBlocks(&self) -> windows_core::Result<IBlockRangeList>;
+    fn ModifiedBlocks(&self) -> Result<IBlockRangeList, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFileSystemImageResult2_Vtbl {
@@ -6333,52 +6333,52 @@ windows_core::imp::interface_hierarchy!(IFsiDirectoryItem, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IFsiDirectoryItem {
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
+    pub unsafe fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Item(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsiItem> {
+    pub unsafe fn get_Item(&self, path: &windows_core::BSTR) -> Result<IFsiItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumFsiItems(&self) -> windows_core::Result<IEnumFsiItems> {
+    pub unsafe fn EnumFsiItems(&self) -> Result<IEnumFsiItems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumFsiItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddDirectory(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AddDirectory(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
-    pub unsafe fn AddFile<P1>(&self, path: &windows_core::BSTR, filedata: P1) -> windows_core::Result<()>
+    pub unsafe fn AddFile<P1>(&self, path: &windows_core::BSTR, filedata: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), filedata.param().abi()).ok() }
     }
-    pub unsafe fn AddTree(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn AddTree(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddTree)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sourcedirectory), includebasedirectory).ok() }
     }
-    pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, item: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsiItem>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.param().abi()).ok() }
     }
-    pub unsafe fn Remove(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
-    pub unsafe fn RemoveTree(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn RemoveTree(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveTree)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
 }
@@ -6403,16 +6403,16 @@ pub struct IFsiDirectoryItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsiDirectoryItem_Impl: IFsiItem_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn get_Item(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsiItem>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn EnumFsiItems(&self) -> windows_core::Result<IEnumFsiItems>;
-    fn AddDirectory(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddFile(&self, path: &windows_core::BSTR, filedata: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn AddTree(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Add(&self, item: windows_core::Ref<'_, IFsiItem>) -> windows_core::Result<()>;
-    fn Remove(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveTree(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT>;
+    fn get_Item(&self, path: &windows_core::BSTR) -> Result<IFsiItem, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn EnumFsiItems(&self) -> Result<IEnumFsiItems, windows_result::HRESULT>;
+    fn AddDirectory(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AddFile(&self, path: &windows_core::BSTR, filedata: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn AddTree(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Add(&self, item: windows_core::Ref<'_, IFsiItem>) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RemoveTree(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsiDirectoryItem_Vtbl {
@@ -6534,7 +6534,7 @@ impl core::ops::Deref for IFsiDirectoryItem2 {
 windows_core::imp::interface_hierarchy!(IFsiDirectoryItem2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsiItem, IFsiDirectoryItem);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsiDirectoryItem2 {
-    pub unsafe fn AddTreeWithNamedStreams(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn AddTreeWithNamedStreams(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddTreeWithNamedStreams)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sourcedirectory), includebasedirectory).ok() }
     }
 }
@@ -6547,7 +6547,7 @@ pub struct IFsiDirectoryItem2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsiDirectoryItem2_Impl: IFsiDirectoryItem_Impl {
-    fn AddTreeWithNamedStreams(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn AddTreeWithNamedStreams(&self, sourcedirectory: &windows_core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsiDirectoryItem2_Vtbl {
@@ -6579,31 +6579,31 @@ impl core::ops::Deref for IFsiFileItem {
 windows_core::imp::interface_hierarchy!(IFsiFileItem, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsiItem);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsiFileItem {
-    pub unsafe fn DataSize(&self) -> windows_core::Result<i64> {
+    pub unsafe fn DataSize(&self) -> Result<i64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DataSize32BitLow(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DataSize32BitLow(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataSize32BitLow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DataSize32BitHigh(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DataSize32BitHigh(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataSize32BitHigh)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Data(&self) -> windows_core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn Data(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetData<P0>(&self, newval: P0) -> windows_core::Result<()>
+    pub unsafe fn SetData<P0>(&self, newval: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
@@ -6623,11 +6623,11 @@ pub struct IFsiFileItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsiFileItem_Impl: IFsiItem_Impl {
-    fn DataSize(&self) -> windows_core::Result<i64>;
-    fn DataSize32BitLow(&self) -> windows_core::Result<i32>;
-    fn DataSize32BitHigh(&self) -> windows_core::Result<i32>;
-    fn Data(&self) -> windows_core::Result<super::super::System::Com::IStream>;
-    fn SetData(&self, newval: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn DataSize(&self) -> Result<i64, windows_result::HRESULT>;
+    fn DataSize32BitLow(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DataSize32BitHigh(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Data(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT>;
+    fn SetData(&self, newval: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsiFileItem_Vtbl {
@@ -6714,34 +6714,34 @@ impl core::ops::Deref for IFsiFileItem2 {
 windows_core::imp::interface_hierarchy!(IFsiFileItem2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsiItem, IFsiFileItem);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsiFileItem2 {
-    pub unsafe fn FsiNamedStreams(&self) -> windows_core::Result<IFsiNamedStreams> {
+    pub unsafe fn FsiNamedStreams(&self) -> Result<IFsiNamedStreams, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FsiNamedStreams)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsNamedStream(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsNamedStream(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsNamedStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddStream<P1>(&self, name: &windows_core::BSTR, streamdata: P1) -> windows_core::Result<()>
+    pub unsafe fn AddStream<P1>(&self, name: &windows_core::BSTR, streamdata: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddStream)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), streamdata.param().abi()).ok() }
     }
-    pub unsafe fn RemoveStream(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn RemoveStream(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsRealTime(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIsRealTime(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIsRealTime(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIsRealTime)(windows_core::Interface::as_raw(self), newval).ok() }
     }
 }
@@ -6759,12 +6759,12 @@ pub struct IFsiFileItem2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsiFileItem2_Impl: IFsiFileItem_Impl {
-    fn FsiNamedStreams(&self) -> windows_core::Result<IFsiNamedStreams>;
-    fn IsNamedStream(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn AddStream(&self, name: &windows_core::BSTR, streamdata: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn RemoveStream(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIsRealTime(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn FsiNamedStreams(&self) -> Result<IFsiNamedStreams, windows_result::HRESULT>;
+    fn IsNamedStream(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn AddStream(&self, name: &windows_core::BSTR, streamdata: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveStream(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsRealTime(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIsRealTime(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsiFileItem2_Vtbl {
@@ -6852,61 +6852,61 @@ impl core::ops::Deref for IFsiItem {
 windows_core::imp::interface_hierarchy!(IFsiItem, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsiItem {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn FullPath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FullPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FullPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CreationTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CreationTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCreationTime(&self, newval: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetCreationTime(&self, newval: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCreationTime)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn LastAccessedTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LastAccessedTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastAccessedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLastAccessedTime(&self, newval: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLastAccessedTime(&self, newval: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLastAccessedTime)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn LastModifiedTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LastModifiedTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModifiedTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLastModifiedTime)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsHidden(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIsHidden)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileSystemName)(windows_core::Interface::as_raw(self), filesystem, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn FileSystemPath(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FileSystemPath(&self, filesystem: FsiFileSystems) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileSystemPath)(windows_core::Interface::as_raw(self), filesystem, &mut result__).map(|| core::mem::transmute(result__))
@@ -6933,18 +6933,18 @@ pub struct IFsiItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsiItem_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn FullPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CreationTime(&self) -> windows_core::Result<f64>;
-    fn SetCreationTime(&self, newval: f64) -> windows_core::Result<()>;
-    fn LastAccessedTime(&self) -> windows_core::Result<f64>;
-    fn SetLastAccessedTime(&self, newval: f64) -> windows_core::Result<()>;
-    fn LastModifiedTime(&self) -> windows_core::Result<f64>;
-    fn SetLastModifiedTime(&self, newval: f64) -> windows_core::Result<()>;
-    fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn FileSystemName(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR>;
-    fn FileSystemPath(&self, filesystem: FsiFileSystems) -> windows_core::Result<windows_core::BSTR>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn FullPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CreationTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetCreationTime(&self, newval: f64) -> Result<(), windows_result::HRESULT>;
+    fn LastAccessedTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetLastAccessedTime(&self, newval: f64) -> Result<(), windows_result::HRESULT>;
+    fn LastModifiedTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetLastModifiedTime(&self, newval: f64) -> Result<(), windows_result::HRESULT>;
+    fn IsHidden(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIsHidden(&self, newval: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn FileSystemName(&self, filesystem: FsiFileSystems) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn FileSystemPath(&self, filesystem: FsiFileSystems) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsiItem_Vtbl {
@@ -7105,25 +7105,25 @@ windows_core::imp::interface_hierarchy!(IFsiNamedStreams, windows_core::IUnknown
 #[cfg(feature = "Win32_System_Com")]
 impl IFsiNamedStreams {
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
+    pub unsafe fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IFsiFileItem2> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IFsiFileItem2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumNamedStreams(&self) -> windows_core::Result<IEnumFsiItems> {
+    pub unsafe fn EnumNamedStreams(&self) -> Result<IEnumFsiItems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumNamedStreams)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7145,10 +7145,10 @@ pub struct IFsiNamedStreams_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsiNamedStreams_Impl: super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<IFsiFileItem2>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn EnumNamedStreams(&self) -> windows_core::Result<IEnumFsiItems>;
+    fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT>;
+    fn get_Item(&self, index: i32) -> Result<IFsiFileItem2, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn EnumNamedStreams(&self) -> Result<IEnumFsiItems, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsiNamedStreams_Vtbl {
@@ -7228,28 +7228,28 @@ impl core::ops::Deref for IIsoImageManager {
 windows_core::imp::interface_hierarchy!(IIsoImageManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IIsoImageManager {
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Stream(&self) -> windows_core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn Stream(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Stream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetPath(&self, val: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPath(&self, val: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(val)).ok() }
     }
-    pub unsafe fn SetStream<P0>(&self, data: P0) -> windows_core::Result<()>
+    pub unsafe fn SetStream<P0>(&self, data: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetStream)(windows_core::Interface::as_raw(self), data.param().abi()).ok() }
     }
-    pub unsafe fn Validate(&self) -> windows_core::Result<()> {
+    pub unsafe fn Validate(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -7266,11 +7266,11 @@ pub struct IIsoImageManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IIsoImageManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Stream(&self) -> windows_core::Result<super::super::System::Com::IStream>;
-    fn SetPath(&self, val: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetStream(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Validate(&self) -> windows_core::Result<()>;
+    fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Stream(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT>;
+    fn SetPath(&self, val: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetStream(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn Validate(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IIsoImageManager_Vtbl {
@@ -7335,40 +7335,40 @@ impl windows_core::RuntimeName for IIsoImageManager {}
 windows_core::imp::define_interface!(IJolietDiscMaster, IJolietDiscMaster_Vtbl, 0xe3bc42ce_4e5c_11d3_9144_00104ba11c5e);
 windows_core::imp::interface_hierarchy!(IJolietDiscMaster, windows_core::IUnknown);
 impl IJolietDiscMaster {
-    pub unsafe fn GetTotalDataBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetTotalDataBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTotalDataBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUsedDataBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetUsedDataBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUsedDataBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDataBlockSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetDataBlockSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDataBlockSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn AddData<P0>(&self, pstorage: P0, lfileoverwrite: i32) -> windows_core::Result<()>
+    pub unsafe fn AddData<P0>(&self, pstorage: P0, lfileoverwrite: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::StructuredStorage::IStorage>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddData)(windows_core::Interface::as_raw(self), pstorage.param().abi(), lfileoverwrite).ok() }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn GetJolietProperties(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage> {
+    pub unsafe fn GetJolietProperties(&self) -> Result<super::super::System::Com::StructuredStorage::IPropertyStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetJolietProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn SetJolietProperties<P0>(&self, ppropstg: P0) -> windows_core::Result<()>
+    pub unsafe fn SetJolietProperties<P0>(&self, ppropstg: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::StructuredStorage::IPropertyStorage>,
     {
@@ -7397,12 +7397,12 @@ pub struct IJolietDiscMaster_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IJolietDiscMaster_Impl: windows_core::IUnknownImpl {
-    fn GetTotalDataBlocks(&self) -> windows_core::Result<i32>;
-    fn GetUsedDataBlocks(&self) -> windows_core::Result<i32>;
-    fn GetDataBlockSize(&self) -> windows_core::Result<i32>;
-    fn AddData(&self, pstorage: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IStorage>, lfileoverwrite: i32) -> windows_core::Result<()>;
-    fn GetJolietProperties(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
-    fn SetJolietProperties(&self, ppropstg: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IPropertyStorage>) -> windows_core::Result<()>;
+    fn GetTotalDataBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetUsedDataBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetDataBlockSize(&self) -> Result<i32, windows_result::HRESULT>;
+    fn AddData(&self, pstorage: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IStorage>, lfileoverwrite: i32) -> Result<(), windows_result::HRESULT>;
+    fn GetJolietProperties(&self) -> Result<super::super::System::Com::StructuredStorage::IPropertyStorage, windows_result::HRESULT>;
+    fn SetJolietProperties(&self, ppropstg: windows_core::Ref<'_, super::super::System::Com::StructuredStorage::IPropertyStorage>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IJolietDiscMaster_Vtbl {
@@ -7897,22 +7897,22 @@ impl core::ops::Deref for IMultisession {
 windows_core::imp::interface_hierarchy!(IMultisession, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisession {
-    pub unsafe fn IsSupportedOnCurrentMediaState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsSupportedOnCurrentMediaState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSupportedOnCurrentMediaState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetInUse)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn InUse(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn InUse(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InUse)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ImportRecorder(&self) -> windows_core::Result<IDiscRecorder2> {
+    pub unsafe fn ImportRecorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportRecorder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7931,10 +7931,10 @@ pub struct IMultisession_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMultisession_Impl: super::super::System::Com::IDispatch_Impl {
-    fn IsSupportedOnCurrentMediaState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn InUse(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ImportRecorder(&self) -> windows_core::Result<IDiscRecorder2>;
+    fn IsSupportedOnCurrentMediaState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetInUse(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn InUse(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn ImportRecorder(&self) -> Result<IDiscRecorder2, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMultisession_Vtbl {
@@ -8008,19 +8008,19 @@ impl core::ops::Deref for IMultisessionRandomWrite {
 windows_core::imp::interface_hierarchy!(IMultisessionRandomWrite, windows_core::IUnknown, super::super::System::Com::IDispatch, IMultisession);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisessionRandomWrite {
-    pub unsafe fn WriteUnitSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn WriteUnitSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteUnitSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastWrittenAddress(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LastWrittenAddress(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastWrittenAddress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TotalSectorsOnMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TotalSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalSectorsOnMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8038,9 +8038,9 @@ pub struct IMultisessionRandomWrite_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMultisessionRandomWrite_Impl: IMultisession_Impl {
-    fn WriteUnitSize(&self) -> windows_core::Result<i32>;
-    fn LastWrittenAddress(&self) -> windows_core::Result<i32>;
-    fn TotalSectorsOnMedia(&self) -> windows_core::Result<i32>;
+    fn WriteUnitSize(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LastWrittenAddress(&self) -> Result<i32, windows_result::HRESULT>;
+    fn TotalSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMultisessionRandomWrite_Vtbl {
@@ -8107,31 +8107,31 @@ impl core::ops::Deref for IMultisessionSequential {
 windows_core::imp::interface_hierarchy!(IMultisessionSequential, windows_core::IUnknown, super::super::System::Com::IDispatch, IMultisession);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisessionSequential {
-    pub unsafe fn IsFirstDataSession(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsFirstDataSession(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsFirstDataSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StartAddressOfPreviousSession(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartAddressOfPreviousSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastWrittenAddressOfPreviousSession(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LastWrittenAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastWrittenAddressOfPreviousSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NextWritableAddress(&self) -> windows_core::Result<i32> {
+    pub unsafe fn NextWritableAddress(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NextWritableAddress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FreeSectorsOnMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FreeSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FreeSectorsOnMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8151,11 +8151,11 @@ pub struct IMultisessionSequential_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMultisessionSequential_Impl: IMultisession_Impl {
-    fn IsFirstDataSession(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn StartAddressOfPreviousSession(&self) -> windows_core::Result<i32>;
-    fn LastWrittenAddressOfPreviousSession(&self) -> windows_core::Result<i32>;
-    fn NextWritableAddress(&self) -> windows_core::Result<i32>;
-    fn FreeSectorsOnMedia(&self) -> windows_core::Result<i32>;
+    fn IsFirstDataSession(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn StartAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LastWrittenAddressOfPreviousSession(&self) -> Result<i32, windows_result::HRESULT>;
+    fn NextWritableAddress(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FreeSectorsOnMedia(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMultisessionSequential_Vtbl {
@@ -8248,7 +8248,7 @@ impl core::ops::Deref for IMultisessionSequential2 {
 windows_core::imp::interface_hierarchy!(IMultisessionSequential2, windows_core::IUnknown, super::super::System::Com::IDispatch, IMultisession, IMultisessionSequential);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisessionSequential2 {
-    pub unsafe fn WriteUnitSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn WriteUnitSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteUnitSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8264,7 +8264,7 @@ pub struct IMultisessionSequential2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMultisessionSequential2_Impl: IMultisessionSequential_Impl {
-    fn WriteUnitSize(&self) -> windows_core::Result<i32>;
+    fn WriteUnitSize(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMultisessionSequential2_Vtbl {
@@ -8302,25 +8302,25 @@ impl core::ops::Deref for IProgressItem {
 windows_core::imp::interface_hierarchy!(IProgressItem, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IProgressItem {
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn FirstBlock(&self) -> windows_core::Result<u32> {
+    pub unsafe fn FirstBlock(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FirstBlock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastBlock(&self) -> windows_core::Result<u32> {
+    pub unsafe fn LastBlock(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastBlock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BlockCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BlockCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8339,10 +8339,10 @@ pub struct IProgressItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProgressItem_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn FirstBlock(&self) -> windows_core::Result<u32>;
-    fn LastBlock(&self) -> windows_core::Result<u32>;
-    fn BlockCount(&self) -> windows_core::Result<u32>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn FirstBlock(&self) -> Result<u32, windows_result::HRESULT>;
+    fn LastBlock(&self) -> Result<u32, windows_result::HRESULT>;
+    fn BlockCount(&self) -> Result<u32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProgressItem_Vtbl {
@@ -8423,37 +8423,37 @@ windows_core::imp::interface_hierarchy!(IProgressItems, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IProgressItems {
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
+    pub unsafe fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IProgressItem> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IProgressItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProgressItemFromBlock(&self, block: u32) -> windows_core::Result<IProgressItem> {
+    pub unsafe fn ProgressItemFromBlock(&self, block: u32) -> Result<IProgressItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProgressItemFromBlock)(windows_core::Interface::as_raw(self), block, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProgressItemFromDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<IProgressItem> {
+    pub unsafe fn ProgressItemFromDescription(&self, description: &windows_core::BSTR) -> Result<IProgressItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProgressItemFromDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumProgressItems(&self) -> windows_core::Result<IEnumProgressItems> {
+    pub unsafe fn EnumProgressItems(&self) -> Result<IEnumProgressItems, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumProgressItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8477,12 +8477,12 @@ pub struct IProgressItems_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProgressItems_Impl: super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<IProgressItem>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn ProgressItemFromBlock(&self, block: u32) -> windows_core::Result<IProgressItem>;
-    fn ProgressItemFromDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<IProgressItem>;
-    fn EnumProgressItems(&self) -> windows_core::Result<IEnumProgressItems>;
+    fn _NewEnum(&self) -> Result<super::super::System::Ole::IEnumVARIANT, windows_result::HRESULT>;
+    fn get_Item(&self, index: i32) -> Result<IProgressItem, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ProgressItemFromBlock(&self, block: u32) -> Result<IProgressItem, windows_result::HRESULT>;
+    fn ProgressItemFromDescription(&self, description: &windows_core::BSTR) -> Result<IProgressItem, windows_result::HRESULT>;
+    fn EnumProgressItems(&self) -> Result<IEnumProgressItems, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProgressItems_Vtbl {
@@ -8588,13 +8588,13 @@ impl core::ops::Deref for IRawCDImageCreator {
 windows_core::imp::interface_hierarchy!(IRawCDImageCreator, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRawCDImageCreator {
-    pub unsafe fn CreateResultImage(&self) -> windows_core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn CreateResultImage(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateResultImage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddTrack<P1>(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: P1) -> windows_core::Result<i32>
+    pub unsafe fn AddTrack<P1>(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: P1) -> Result<i32, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::System::Com::IStream>,
     {
@@ -8603,88 +8603,88 @@ impl IRawCDImageCreator {
             (windows_core::Interface::vtable(self).AddTrack)(windows_core::Interface::as_raw(self), datatype, data.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddSpecialPregap<P0>(&self, data: P0) -> windows_core::Result<()>
+    pub unsafe fn AddSpecialPregap<P0>(&self, data: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddSpecialPregap)(windows_core::Interface::as_raw(self), data.param().abi()).ok() }
     }
-    pub unsafe fn AddSubcodeRWGenerator<P0>(&self, subcode: P0) -> windows_core::Result<()>
+    pub unsafe fn AddSubcodeRWGenerator<P0>(&self, subcode: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddSubcodeRWGenerator)(windows_core::Interface::as_raw(self), subcode.param().abi()).ok() }
     }
-    pub unsafe fn SetResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn SetResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetResultingImageType)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ResultingImageType(&self) -> windows_core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE> {
+    pub unsafe fn ResultingImageType(&self) -> Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultingImageType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StartOfLeadout(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartOfLeadout(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartOfLeadout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStartOfLeadoutLimit(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetStartOfLeadoutLimit(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStartOfLeadoutLimit)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn StartOfLeadoutLimit(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartOfLeadoutLimit(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartOfLeadoutLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisableGaplessAudio(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDisableGaplessAudio(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisableGaplessAudio)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn DisableGaplessAudio(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DisableGaplessAudio(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisableGaplessAudio)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMediaCatalogNumber(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMediaCatalogNumber(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMediaCatalogNumber)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn MediaCatalogNumber(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MediaCatalogNumber(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MediaCatalogNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetStartingTrackNumber(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetStartingTrackNumber(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStartingTrackNumber)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn StartingTrackNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartingTrackNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartingTrackNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_TrackInfo(&self, trackindex: i32) -> windows_core::Result<IRawCDImageTrackInfo> {
+    pub unsafe fn get_TrackInfo(&self, trackindex: i32) -> Result<IRawCDImageTrackInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_TrackInfo)(windows_core::Interface::as_raw(self), trackindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn NumberOfExistingTracks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn NumberOfExistingTracks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NumberOfExistingTracks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastUsedUserSectorInImage(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LastUsedUserSectorInImage(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastUsedUserSectorInImage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExpectedTableOfContents(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ExpectedTableOfContents(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpectedTableOfContents)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8718,25 +8718,25 @@ pub struct IRawCDImageCreator_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawCDImageCreator_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CreateResultImage(&self) -> windows_core::Result<super::super::System::Com::IStream>;
-    fn AddTrack(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<i32>;
-    fn AddSpecialPregap(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn AddSubcodeRWGenerator(&self, subcode: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn SetResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> windows_core::Result<()>;
-    fn ResultingImageType(&self) -> windows_core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
-    fn StartOfLeadout(&self) -> windows_core::Result<i32>;
-    fn SetStartOfLeadoutLimit(&self, value: i32) -> windows_core::Result<()>;
-    fn StartOfLeadoutLimit(&self) -> windows_core::Result<i32>;
-    fn SetDisableGaplessAudio(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DisableGaplessAudio(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetMediaCatalogNumber(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MediaCatalogNumber(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetStartingTrackNumber(&self, value: i32) -> windows_core::Result<()>;
-    fn StartingTrackNumber(&self) -> windows_core::Result<i32>;
-    fn get_TrackInfo(&self, trackindex: i32) -> windows_core::Result<IRawCDImageTrackInfo>;
-    fn NumberOfExistingTracks(&self) -> windows_core::Result<i32>;
-    fn LastUsedUserSectorInImage(&self) -> windows_core::Result<i32>;
-    fn ExpectedTableOfContents(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CreateResultImage(&self) -> Result<super::super::System::Com::IStream, windows_result::HRESULT>;
+    fn AddTrack(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<i32, windows_result::HRESULT>;
+    fn AddSpecialPregap(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn AddSubcodeRWGenerator(&self, subcode: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn SetResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> Result<(), windows_result::HRESULT>;
+    fn ResultingImageType(&self) -> Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE, windows_result::HRESULT>;
+    fn StartOfLeadout(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetStartOfLeadoutLimit(&self, value: i32) -> Result<(), windows_result::HRESULT>;
+    fn StartOfLeadoutLimit(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetDisableGaplessAudio(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn DisableGaplessAudio(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetMediaCatalogNumber(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MediaCatalogNumber(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetStartingTrackNumber(&self, value: i32) -> Result<(), windows_result::HRESULT>;
+    fn StartingTrackNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_TrackInfo(&self, trackindex: i32) -> Result<IRawCDImageTrackInfo, windows_result::HRESULT>;
+    fn NumberOfExistingTracks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LastUsedUserSectorInImage(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ExpectedTableOfContents(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawCDImageCreator_Vtbl {
@@ -8969,67 +8969,67 @@ impl core::ops::Deref for IRawCDImageTrackInfo {
 windows_core::imp::interface_hierarchy!(IRawCDImageTrackInfo, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRawCDImageTrackInfo {
-    pub unsafe fn StartingLba(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartingLba(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartingLba)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SectorCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SectorCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SectorCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TrackNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TrackNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TrackNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SectorType(&self) -> windows_core::Result<IMAPI_CD_SECTOR_TYPE> {
+    pub unsafe fn SectorType(&self) -> Result<IMAPI_CD_SECTOR_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ISRC(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ISRC(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ISRC)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetISRC(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetISRC(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetISRC)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn DigitalAudioCopySetting(&self) -> windows_core::Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING> {
+    pub unsafe fn DigitalAudioCopySetting(&self) -> Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DigitalAudioCopySetting)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> windows_core::Result<()> {
+    pub unsafe fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDigitalAudioCopySetting)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn AudioHasPreemphasis(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AudioHasPreemphasis(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AudioHasPreemphasis)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAudioHasPreemphasis(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAudioHasPreemphasis(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAudioHasPreemphasis)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn TrackIndexes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn TrackIndexes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TrackIndexes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddTrackIndex(&self, lbaoffset: i32) -> windows_core::Result<()> {
+    pub unsafe fn AddTrackIndex(&self, lbaoffset: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddTrackIndex)(windows_core::Interface::as_raw(self), lbaoffset).ok() }
     }
-    pub unsafe fn ClearTrackIndex(&self, lbaoffset: i32) -> windows_core::Result<()> {
+    pub unsafe fn ClearTrackIndex(&self, lbaoffset: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearTrackIndex)(windows_core::Interface::as_raw(self), lbaoffset).ok() }
     }
 }
@@ -9054,19 +9054,19 @@ pub struct IRawCDImageTrackInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawCDImageTrackInfo_Impl: super::super::System::Com::IDispatch_Impl {
-    fn StartingLba(&self) -> windows_core::Result<i32>;
-    fn SectorCount(&self) -> windows_core::Result<i32>;
-    fn TrackNumber(&self) -> windows_core::Result<i32>;
-    fn SectorType(&self) -> windows_core::Result<IMAPI_CD_SECTOR_TYPE>;
-    fn ISRC(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetISRC(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DigitalAudioCopySetting(&self) -> windows_core::Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING>;
-    fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> windows_core::Result<()>;
-    fn AudioHasPreemphasis(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAudioHasPreemphasis(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn TrackIndexes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn AddTrackIndex(&self, lbaoffset: i32) -> windows_core::Result<()>;
-    fn ClearTrackIndex(&self, lbaoffset: i32) -> windows_core::Result<()>;
+    fn StartingLba(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SectorCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn TrackNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SectorType(&self) -> Result<IMAPI_CD_SECTOR_TYPE, windows_result::HRESULT>;
+    fn ISRC(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetISRC(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DigitalAudioCopySetting(&self) -> Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING, windows_result::HRESULT>;
+    fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> Result<(), windows_result::HRESULT>;
+    fn AudioHasPreemphasis(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetAudioHasPreemphasis(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn TrackIndexes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn AddTrackIndex(&self, lbaoffset: i32) -> Result<(), windows_result::HRESULT>;
+    fn ClearTrackIndex(&self, lbaoffset: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawCDImageTrackInfo_Vtbl {
@@ -9223,43 +9223,43 @@ impl windows_core::RuntimeName for IRawCDImageTrackInfo {}
 windows_core::imp::define_interface!(IRedbookDiscMaster, IRedbookDiscMaster_Vtbl, 0xe3bc42cd_4e5c_11d3_9144_00104ba11c5e);
 windows_core::imp::interface_hierarchy!(IRedbookDiscMaster, windows_core::IUnknown);
 impl IRedbookDiscMaster {
-    pub unsafe fn GetTotalAudioTracks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetTotalAudioTracks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTotalAudioTracks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTotalAudioBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetTotalAudioBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTotalAudioBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUsedAudioBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetUsedAudioBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUsedAudioBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAvailableAudioTrackBlocks(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetAvailableAudioTrackBlocks(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAvailableAudioTrackBlocks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAudioBlockSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetAudioBlockSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAudioBlockSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateAudioTrack(&self, nblocks: i32) -> windows_core::Result<()> {
+    pub unsafe fn CreateAudioTrack(&self, nblocks: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CreateAudioTrack)(windows_core::Interface::as_raw(self), nblocks).ok() }
     }
-    pub unsafe fn AddAudioTrackBlocks(&self, pby: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn AddAudioTrackBlocks(&self, pby: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddAudioTrackBlocks)(windows_core::Interface::as_raw(self), core::mem::transmute(pby.as_ptr()), pby.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn CloseAudioTrack(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseAudioTrack(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseAudioTrack)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -9277,14 +9277,14 @@ pub struct IRedbookDiscMaster_Vtbl {
     pub CloseAudioTrack: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRedbookDiscMaster_Impl: windows_core::IUnknownImpl {
-    fn GetTotalAudioTracks(&self) -> windows_core::Result<i32>;
-    fn GetTotalAudioBlocks(&self) -> windows_core::Result<i32>;
-    fn GetUsedAudioBlocks(&self) -> windows_core::Result<i32>;
-    fn GetAvailableAudioTrackBlocks(&self) -> windows_core::Result<i32>;
-    fn GetAudioBlockSize(&self) -> windows_core::Result<i32>;
-    fn CreateAudioTrack(&self, nblocks: i32) -> windows_core::Result<()>;
-    fn AddAudioTrackBlocks(&self, pby: *const u8, cb: i32) -> windows_core::Result<()>;
-    fn CloseAudioTrack(&self) -> windows_core::Result<()>;
+    fn GetTotalAudioTracks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetTotalAudioBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetUsedAudioBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetAvailableAudioTrackBlocks(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetAudioBlockSize(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CreateAudioTrack(&self, nblocks: i32) -> Result<(), windows_result::HRESULT>;
+    fn AddAudioTrackBlocks(&self, pby: *const u8, cb: i32) -> Result<(), windows_result::HRESULT>;
+    fn CloseAudioTrack(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IRedbookDiscMaster_Vtbl {
     pub const fn new<Identity: IRedbookDiscMaster_Impl, const OFFSET: isize>() -> Self {
@@ -9396,23 +9396,23 @@ impl core::ops::Deref for IStreamConcatenate {
 windows_core::imp::interface_hierarchy!(IStreamConcatenate, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamConcatenate {
-    pub unsafe fn Initialize<P0, P1>(&self, stream1: P0, stream2: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, stream1: P0, stream2: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), stream1.param().abi(), stream2.param().abi()).ok() }
     }
-    pub unsafe fn Initialize2(&self, streams: &[Option<super::super::System::Com::IStream>]) -> windows_core::Result<()> {
+    pub unsafe fn Initialize2(&self, streams: &[Option<super::super::System::Com::IStream>]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Initialize2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn Append<P0>(&self, stream: P0) -> windows_core::Result<()>
+    pub unsafe fn Append<P0>(&self, stream: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), stream.param().abi()).ok() }
     }
-    pub unsafe fn Append2(&self, streams: &[Option<super::super::System::Com::IStream>]) -> windows_core::Result<()> {
+    pub unsafe fn Append2(&self, streams: &[Option<super::super::System::Com::IStream>]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Append2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()).ok() }
     }
 }
@@ -9428,10 +9428,10 @@ pub struct IStreamConcatenate_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStreamConcatenate_Impl: super::super::System::Com::IStream_Impl {
-    fn Initialize(&self, stream1: windows_core::Ref<'_, super::super::System::Com::IStream>, stream2: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Initialize2(&self, streams: *const Option<super::super::System::Com::IStream>, streamcount: u32) -> windows_core::Result<()>;
-    fn Append(&self, stream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Append2(&self, streams: *const Option<super::super::System::Com::IStream>, streamcount: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, stream1: windows_core::Ref<'_, super::super::System::Com::IStream>, stream2: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn Initialize2(&self, streams: *const Option<super::super::System::Com::IStream>, streamcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn Append(&self, stream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn Append2(&self, streams: *const Option<super::super::System::Com::IStream>, streamcount: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamConcatenate_Vtbl {
@@ -9487,7 +9487,7 @@ impl core::ops::Deref for IStreamInterleave {
 windows_core::imp::interface_hierarchy!(IStreamInterleave, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamInterleave {
-    pub unsafe fn Initialize(&self, streams: *const Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> windows_core::Result<()> {
+    pub unsafe fn Initialize(&self, streams: *const Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), interleavesizes, streamcount).ok() }
     }
 }
@@ -9500,7 +9500,7 @@ pub struct IStreamInterleave_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStreamInterleave_Impl: super::super::System::Com::IStream_Impl {
-    fn Initialize(&self, streams: *const Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, streams: *const Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamInterleave_Vtbl {
@@ -9532,19 +9532,19 @@ impl core::ops::Deref for IStreamPseudoRandomBased {
 windows_core::imp::interface_hierarchy!(IStreamPseudoRandomBased, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamPseudoRandomBased {
-    pub unsafe fn SetSeed(&self, value: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSeed(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSeed)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn Seed(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Seed(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Seed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn put_ExtendedSeed(&self, values: &[u32]) -> windows_core::Result<()> {
+    pub unsafe fn put_ExtendedSeed(&self, values: &[u32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).put_ExtendedSeed)(windows_core::Interface::as_raw(self), core::mem::transmute(values.as_ptr()), values.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_ExtendedSeed)(windows_core::Interface::as_raw(self), values as _, ecount as _).ok() }
     }
 }
@@ -9560,10 +9560,10 @@ pub struct IStreamPseudoRandomBased_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStreamPseudoRandomBased_Impl: super::super::System::Com::IStream_Impl {
-    fn SetSeed(&self, value: u32) -> windows_core::Result<()>;
-    fn Seed(&self) -> windows_core::Result<u32>;
-    fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> windows_core::Result<()>;
-    fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> windows_core::Result<()>;
+    fn SetSeed(&self, value: u32) -> Result<(), windows_result::HRESULT>;
+    fn Seed(&self) -> Result<u32, windows_result::HRESULT>;
+    fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> Result<(), windows_result::HRESULT>;
+    fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamPseudoRandomBased_Vtbl {
@@ -9625,64 +9625,64 @@ impl core::ops::Deref for IWriteEngine2 {
 windows_core::imp::interface_hierarchy!(IWriteEngine2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWriteEngine2 {
-    pub unsafe fn WriteSection<P0>(&self, data: P0, startingblockaddress: i32, numberofblocks: i32) -> windows_core::Result<()>
+    pub unsafe fn WriteSection<P0>(&self, data: P0, startingblockaddress: i32, numberofblocks: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteSection)(windows_core::Interface::as_raw(self), data.param().abi(), startingblockaddress, numberofblocks).ok() }
     }
-    pub unsafe fn CancelWrite(&self) -> windows_core::Result<()> {
+    pub unsafe fn CancelWrite(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CancelWrite)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRecorder<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDiscRecorder2Ex>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRecorder)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn Recorder(&self) -> windows_core::Result<IDiscRecorder2Ex> {
+    pub unsafe fn Recorder(&self) -> Result<IDiscRecorder2Ex, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recorder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetUseStreamingWrite12(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetUseStreamingWrite12(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUseStreamingWrite12)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn UseStreamingWrite12(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn UseStreamingWrite12(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UseStreamingWrite12)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStartingSectorsPerSecond(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetStartingSectorsPerSecond(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStartingSectorsPerSecond)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn StartingSectorsPerSecond(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartingSectorsPerSecond(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartingSectorsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEndingSectorsPerSecond(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetEndingSectorsPerSecond(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEndingSectorsPerSecond)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn EndingSectorsPerSecond(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EndingSectorsPerSecond(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EndingSectorsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBytesPerSector(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetBytesPerSector(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBytesPerSector)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn BytesPerSector(&self) -> windows_core::Result<i32> {
+    pub unsafe fn BytesPerSector(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BytesPerSector)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WriteInProgress(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn WriteInProgress(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteInProgress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9710,19 +9710,19 @@ pub struct IWriteEngine2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWriteEngine2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn WriteSection(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>, startingblockaddress: i32, numberofblocks: i32) -> windows_core::Result<()>;
-    fn CancelWrite(&self) -> windows_core::Result<()>;
-    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2Ex>) -> windows_core::Result<()>;
-    fn Recorder(&self) -> windows_core::Result<IDiscRecorder2Ex>;
-    fn SetUseStreamingWrite12(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn UseStreamingWrite12(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetStartingSectorsPerSecond(&self, value: i32) -> windows_core::Result<()>;
-    fn StartingSectorsPerSecond(&self) -> windows_core::Result<i32>;
-    fn SetEndingSectorsPerSecond(&self, value: i32) -> windows_core::Result<()>;
-    fn EndingSectorsPerSecond(&self) -> windows_core::Result<i32>;
-    fn SetBytesPerSector(&self, value: i32) -> windows_core::Result<()>;
-    fn BytesPerSector(&self) -> windows_core::Result<i32>;
-    fn WriteInProgress(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn WriteSection(&self, data: windows_core::Ref<'_, super::super::System::Com::IStream>, startingblockaddress: i32, numberofblocks: i32) -> Result<(), windows_result::HRESULT>;
+    fn CancelWrite(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetRecorder(&self, value: windows_core::Ref<'_, IDiscRecorder2Ex>) -> Result<(), windows_result::HRESULT>;
+    fn Recorder(&self) -> Result<IDiscRecorder2Ex, windows_result::HRESULT>;
+    fn SetUseStreamingWrite12(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn UseStreamingWrite12(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetStartingSectorsPerSecond(&self, value: i32) -> Result<(), windows_result::HRESULT>;
+    fn StartingSectorsPerSecond(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetEndingSectorsPerSecond(&self, value: i32) -> Result<(), windows_result::HRESULT>;
+    fn EndingSectorsPerSecond(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetBytesPerSector(&self, value: i32) -> Result<(), windows_result::HRESULT>;
+    fn BytesPerSector(&self) -> Result<i32, windows_result::HRESULT>;
+    fn WriteInProgress(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWriteEngine2_Vtbl {
@@ -9877,43 +9877,43 @@ impl core::ops::Deref for IWriteEngine2EventArgs {
 windows_core::imp::interface_hierarchy!(IWriteEngine2EventArgs, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWriteEngine2EventArgs {
-    pub unsafe fn StartLba(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StartLba(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartLba)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SectorCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SectorCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SectorCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastReadLba(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LastReadLba(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastReadLba)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastWrittenLba(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LastWrittenLba(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastWrittenLba)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TotalSystemBuffer(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TotalSystemBuffer(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalSystemBuffer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UsedSystemBuffer(&self) -> windows_core::Result<i32> {
+    pub unsafe fn UsedSystemBuffer(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UsedSystemBuffer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FreeSystemBuffer(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FreeSystemBuffer(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FreeSystemBuffer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9935,13 +9935,13 @@ pub struct IWriteEngine2EventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWriteEngine2EventArgs_Impl: super::super::System::Com::IDispatch_Impl {
-    fn StartLba(&self) -> windows_core::Result<i32>;
-    fn SectorCount(&self) -> windows_core::Result<i32>;
-    fn LastReadLba(&self) -> windows_core::Result<i32>;
-    fn LastWrittenLba(&self) -> windows_core::Result<i32>;
-    fn TotalSystemBuffer(&self) -> windows_core::Result<i32>;
-    fn UsedSystemBuffer(&self) -> windows_core::Result<i32>;
-    fn FreeSystemBuffer(&self) -> windows_core::Result<i32>;
+    fn StartLba(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SectorCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LastReadLba(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LastWrittenLba(&self) -> Result<i32, windows_result::HRESULT>;
+    fn TotalSystemBuffer(&self) -> Result<i32, windows_result::HRESULT>;
+    fn UsedSystemBuffer(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FreeSystemBuffer(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWriteEngine2EventArgs_Vtbl {
@@ -10060,19 +10060,19 @@ impl core::ops::Deref for IWriteSpeedDescriptor {
 windows_core::imp::interface_hierarchy!(IWriteSpeedDescriptor, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWriteSpeedDescriptor {
-    pub unsafe fn MediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE> {
+    pub unsafe fn MediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MediaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RotationTypeIsPureCAV)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WriteSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn WriteSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WriteSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10090,9 +10090,9 @@ pub struct IWriteSpeedDescriptor_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWriteSpeedDescriptor_Impl: super::super::System::Com::IDispatch_Impl {
-    fn MediaType(&self) -> windows_core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn RotationTypeIsPureCAV(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn WriteSpeed(&self) -> windows_core::Result<i32>;
+    fn MediaType(&self) -> Result<IMAPI_MEDIA_PHYSICAL_TYPE, windows_result::HRESULT>;
+    fn RotationTypeIsPureCAV(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn WriteSpeed(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWriteSpeedDescriptor_Vtbl {

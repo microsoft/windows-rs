@@ -17,7 +17,7 @@ impl windows_core::RuntimeType for AddContactResult {
 pub struct ContactPickerUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPickerUI, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactPickerUI {
-    pub fn AddContact<P1>(&self, id: &windows_core::HSTRING, contact: P1) -> windows_core::Result<AddContactResult>
+    pub fn AddContact<P1>(&self, id: &windows_core::HSTRING, contact: P1) -> Result<AddContactResult, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::Contact>,
     {
@@ -27,32 +27,32 @@ impl ContactPickerUI {
             (windows_core::Interface::vtable(this).AddContact)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), contact.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveContact(&self, id: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveContact(&self, id: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveContact)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id)).ok() }
     }
-    pub fn ContainsContact(&self, id: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn ContainsContact(&self, id: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContainsContact)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).map(|| result__)
         }
     }
-    pub fn DesiredFields(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn DesiredFields(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredFields)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectionMode(&self) -> windows_core::Result<super::ContactSelectionMode> {
+    pub fn SelectionMode(&self) -> Result<super::ContactSelectionMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectionMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContactRemoved<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>,
     {
@@ -62,11 +62,11 @@ impl ContactPickerUI {
             (windows_core::Interface::vtable(this).ContactRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveContactRemoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveContactRemoved(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveContactRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AddContact2<P0>(&self, contact: P0) -> windows_core::Result<AddContactResult>
+    pub fn AddContact2<P0>(&self, contact: P0) -> Result<AddContactResult, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Contact>,
     {
@@ -76,7 +76,7 @@ impl ContactPickerUI {
             (windows_core::Interface::vtable(this).AddContact)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn DesiredFieldsWithContactFieldType(&self) -> windows_core::Result<windows_collections::IVector<super::ContactFieldType>> {
+    pub fn DesiredFieldsWithContactFieldType(&self) -> Result<windows_collections::IVector<super::ContactFieldType>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -99,7 +99,7 @@ impl windows_core::RuntimeName for ContactPickerUI {
 pub struct ContactRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactRemovedEventArgs {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -1,7 +1,7 @@
 use windows::{core::*, Win32::Foundation::*, Win32::System::Rpc::*};
 
 #[test]
-fn hresult() -> Result<()> {
+fn hresult() -> Result<(), HRESULT> {
     let _: HRESULT = S_OK;
     let _: HRESULT = E_INVALIDARG;
     let error: Error = E_INVALIDARG.into();
@@ -19,7 +19,7 @@ fn hresult() -> Result<()> {
 }
 
 #[test]
-fn win32_error() -> Result<()> {
+fn win32_error() -> Result<(), WIN32_ERROR> {
     let _: WIN32_ERROR = ERROR_SUCCESS;
     let _: WIN32_ERROR = ERROR_BAD_ARGUMENTS;
     let error: Error = ERROR_BAD_ARGUMENTS.into();
@@ -39,7 +39,7 @@ fn win32_error() -> Result<()> {
 }
 
 #[test]
-fn ntstatus() -> Result<()> {
+fn ntstatus() -> Result<(), NTSTATUS> {
     let _: NTSTATUS = STATUS_SUCCESS;
     let _: NTSTATUS = STATUS_NOT_FOUND;
     let error: Error = STATUS_NOT_FOUND.into();
@@ -59,14 +59,14 @@ fn ntstatus() -> Result<()> {
 }
 
 #[test]
-fn rpc() -> Result<()> {
+fn rpc() -> Result<(), RPC_STATUS> {
     helpers::set_thread_ui_language();
 
     let _: RPC_STATUS = RPC_S_OK;
     assert!(RPC_S_OK.is_ok());
     assert!(!RPC_S_OK.is_err());
 
-    let r: Result<()> = RPC_S_OK.ok();
+    let r: Result<(), RPC_STATUS> = RPC_S_OK.ok();
     assert!(r.is_ok());
 
     assert_eq!(RPC_S_OK.to_hresult(), HRESULT(0));
@@ -77,20 +77,20 @@ fn rpc() -> Result<()> {
     assert!(!RPC_S_NOT_LISTENING.is_ok());
     assert!(RPC_S_NOT_LISTENING.is_err());
 
-    let r: Result<()> = RPC_S_NOT_LISTENING.ok();
+    let r: Result<(), RPC_STATUS> = RPC_S_NOT_LISTENING.ok();
     assert!(r.is_err());
 
     assert_eq!(RPC_S_NOT_LISTENING.to_hresult(), HRESULT::from_win32(1715));
     let hr: HRESULT = RPC_S_NOT_LISTENING.into();
     assert_eq!(hr, HRESULT::from_win32(1715));
 
-    let e: Error = RPC_S_NOT_LISTENING.into();
-    assert_eq!(r.unwrap_err(), e);
+    let e: Error = RPC_S_NOT_LISTENING.to_hresult().into();
+    assert_eq!(r.unwrap_err(), RPC_S_NOT_LISTENING);
     assert_eq!(e.code(), HRESULT::from_win32(1715));
     assert_eq!(e.message(), "The RPC server is not listening.");
 
-    let r: Result<()> = unsafe { RpcServerListen(0, 0, 1).ok() };
-    assert_eq!(r.unwrap_err().code(), RPC_S_MAX_CALLS_TOO_SMALL.into());
+    let r: Result<(), RPC_STATUS> = unsafe { RpcServerListen(0, 0, 1).ok() };
+    assert_eq!(r.unwrap_err(), RPC_S_MAX_CALLS_TOO_SMALL);
 
     RPC_S_OK.ok()
 }

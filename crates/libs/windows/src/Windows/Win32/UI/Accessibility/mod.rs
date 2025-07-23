@@ -1,16 +1,16 @@
 #[inline]
-pub unsafe fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> windows_core::Result<()> {
+pub unsafe fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> windows_core::HRESULT);
     unsafe { AccNotifyTouchInteraction(hwndapp, hwndtarget, core::mem::transmute(pttarget)).ok() }
 }
 #[inline]
-pub unsafe fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> windows_core::HRESULT);
     unsafe { AccSetRunningUtilityState(hwndapp, dwutilitystatemask, dwutilitystate).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarchildren: &mut [super::super::System::Variant::VARIANT], pcobtained: *mut i32) -> windows_core::Result<()>
+pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarchildren: &mut [super::super::System::Variant::VARIANT], pcobtained: *mut i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAccessible>,
 {
@@ -19,28 +19,28 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+pub unsafe fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { AccessibleObjectFromEvent(hwnd, dwid, dwchildid, core::mem::transmute(ppacc), core::mem::transmute(pvarchild)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { AccessibleObjectFromPoint(core::mem::transmute(ptscreen), core::mem::transmute(ppacc), core::mem::transmute(pvarchild)).ok() }
 }
 #[inline]
-pub unsafe fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { AccessibleObjectFromWindow(hwnd, dwid, riid, ppvobject as _).ok() }
 }
 #[inline]
-pub unsafe fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CreateStdAccessibleObject(hwnd, idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyA<P1>(hwnd: super::super::Foundation::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateStdAccessibleProxyA<P1>(hwnd: super::super::Foundation::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
@@ -48,7 +48,7 @@ where
     unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyW<P1>(hwnd: super::super::Foundation::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateStdAccessibleProxyW<P1>(hwnd: super::super::Foundation::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -56,17 +56,17 @@ where
     unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
-pub unsafe fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> windows_core::Result<()> {
+pub unsafe fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn DockPattern_SetDockPosition(hobj : HUIAPATTERNOBJECT, dockposition : DockPosition) -> windows_core::HRESULT);
     unsafe { DockPattern_SetDockPosition(hobj, dockposition).ok() }
 }
 #[inline]
-pub unsafe fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Collapse(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { ExpandCollapsePattern_Collapse(hobj).ok() }
 }
 #[inline]
-pub unsafe fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Expand(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { ExpandCollapsePattern_Expand(hobj).ok() }
 }
@@ -96,12 +96,12 @@ pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: Option<&mut [u16]>) -> u3
     unsafe { GetStateTextW(lstatebit, core::mem::transmute(lpszstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> windows_core::Result<()> {
+pub unsafe fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn GridPattern_GetItem(hobj : HUIAPATTERNOBJECT, row : i32, column : i32, presult : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { GridPattern_GetItem(hobj, row, column, presult as _).ok() }
 }
 #[inline]
-pub unsafe fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn InvokePattern_Invoke(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { InvokePattern_Invoke(hobj).ok() }
 }
@@ -112,18 +112,18 @@ pub unsafe fn IsWinEventHookInstalled(event: u32) -> windows_core::BOOL {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: &super::super::System::Variant::VARIANT, pfound: *mut HUIANODE) -> windows_core::Result<()> {
+pub unsafe fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: &super::super::System::Variant::VARIANT, pfound: *mut HUIANODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { ItemContainerPattern_FindItemByProperty(hobj, hnodestartafter, propertyid, core::mem::transmute_copy(value), pfound as _).ok() }
 }
 #[inline]
-pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_DoDefaultAction(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { LegacyIAccessiblePattern_DoDefaultAction(hobj).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<IAccessible> {
+pub unsafe fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT) -> Result<IAccessible, windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_GetIAccessible(hobj : HUIAPATTERNOBJECT, paccessible : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -131,12 +131,12 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT) -
     }
 }
 #[inline]
-pub unsafe fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> windows_core::Result<()> {
+pub unsafe fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_Select(hobj : HUIAPATTERNOBJECT, flagsselect : i32) -> windows_core::HRESULT);
     unsafe { LegacyIAccessiblePattern_Select(hobj, flagsselect).ok() }
 }
 #[inline]
-pub unsafe fn LegacyIAccessiblePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, szvalue: P1) -> windows_core::Result<()>
+pub unsafe fn LegacyIAccessiblePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, szvalue: P1) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -152,12 +152,12 @@ where
     unsafe { LresultFromObject(riid, wparam, punk.param().abi()) }
 }
 #[inline]
-pub unsafe fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut windows_core::BSTR) -> windows_core::Result<()> {
+pub unsafe fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_GetViewName(hobj : HUIAPATTERNOBJECT, viewid : i32, ppstr : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MultipleViewPattern_GetViewName(hobj, viewid, core::mem::transmute(ppstr)).ok() }
 }
 #[inline]
-pub unsafe fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> windows_core::Result<()> {
+pub unsafe fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_SetCurrentView(hobj : HUIAPATTERNOBJECT, viewid : i32) -> windows_core::HRESULT);
     unsafe { MultipleViewPattern_SetCurrentView(hobj, viewid).ok() }
 }
@@ -167,18 +167,18 @@ pub unsafe fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, i
     unsafe { NotifyWinEvent(event, hwnd, idobject, idchild) }
 }
 #[inline]
-pub unsafe fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::super::Foundation:: LRESULT, riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { ObjectFromLresult(lresult, riid, wparam, ppvobject as _).ok() }
 }
 #[inline]
-pub unsafe fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> windows_core::Result<()> {
+pub unsafe fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn RangeValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, val : f64) -> windows_core::HRESULT);
     unsafe { RangeValuePattern_SetValue(hobj, val).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()> {
+pub unsafe fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { RegisterPointerInputTarget(hwnd, pointertype).ok() }
 }
@@ -189,32 +189,32 @@ pub unsafe fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND,
     unsafe { RegisterPointerInputTargetEx(hwnd, pointertype, fobserve.into()) }
 }
 #[inline]
-pub unsafe fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn ScrollItemPattern_ScrollIntoView(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { ScrollItemPattern_ScrollIntoView(hobj).ok() }
 }
 #[inline]
-pub unsafe fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()> {
+pub unsafe fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn ScrollPattern_Scroll(hobj : HUIAPATTERNOBJECT, horizontalamount : ScrollAmount, verticalamount : ScrollAmount) -> windows_core::HRESULT);
     unsafe { ScrollPattern_Scroll(hobj, horizontalamount, verticalamount).ok() }
 }
 #[inline]
-pub unsafe fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()> {
+pub unsafe fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn ScrollPattern_SetScrollPercent(hobj : HUIAPATTERNOBJECT, horizontalpercent : f64, verticalpercent : f64) -> windows_core::HRESULT);
     unsafe { ScrollPattern_SetScrollPercent(hobj, horizontalpercent, verticalpercent).ok() }
 }
 #[inline]
-pub unsafe fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_AddToSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SelectionItemPattern_AddToSelection(hobj).ok() }
 }
 #[inline]
-pub unsafe fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_RemoveFromSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SelectionItemPattern_RemoveFromSelection(hobj).ok() }
 }
 #[inline]
-pub unsafe fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_Select(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SelectionItemPattern_Select(hobj).ok() }
 }
@@ -224,164 +224,164 @@ pub unsafe fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: Op
     unsafe { SetWinEventHook(eventmin, eventmax, hmodwineventproc.unwrap_or(core::mem::zeroed()) as _, pfnwineventproc, idprocess, idthread, dwflags) }
 }
 #[inline]
-pub unsafe fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_Cancel(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SynchronizedInputPattern_Cancel(hobj).ok() }
 }
 #[inline]
-pub unsafe fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> windows_core::Result<()> {
+pub unsafe fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_StartListening(hobj : HUIAPATTERNOBJECT, inputtype : SynchronizedInputType) -> windows_core::HRESULT);
     unsafe { SynchronizedInputPattern_StartListening(hobj, inputtype).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+pub unsafe fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_GetSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextPattern_GetSelection(hobj, pretval as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+pub unsafe fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_GetVisibleRanges(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextPattern_GetVisibleRanges(hobj, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromChild(hobj : HUIAPATTERNOBJECT, hnodechild : HUIANODE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextPattern_RangeFromChild(hobj, hnodechild, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromPoint(hobj : HUIAPATTERNOBJECT, point : UiaPoint, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextPattern_RangeFromPoint(hobj, core::mem::transmute(point), pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_get_DocumentRange(hobj : HUIAPATTERNOBJECT, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextPattern_get_DocumentRange(hobj, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> windows_core::Result<()> {
+pub unsafe fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_get_SupportedTextSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut SupportedTextSelection) -> windows_core::HRESULT);
     unsafe { TextPattern_get_SupportedTextSelection(hobj, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_AddToSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_AddToSelection(hobj).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Clone(hobj : HUIATEXTRANGE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_Clone(hobj, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut windows_core::BOOL) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { TextRange_Compare(hobj, range, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> windows_core::Result<()> {
+pub unsafe fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_CompareEndpoints(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint, pretval : *mut i32) -> windows_core::HRESULT);
     unsafe { TextRange_CompareEndpoints(hobj, endpoint, targetrange, targetendpoint, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> windows_core::Result<()> {
+pub unsafe fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> windows_core::HRESULT);
     unsafe { TextRange_ExpandToEnclosingUnit(hobj, unit).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: &super::super::System::Variant::VARIANT, backward: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: &super::super::System::Variant::VARIANT, backward: bool, pretval: *mut HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_FindAttribute(hobj, attributeid, core::mem::transmute_copy(val), backward.into(), pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_FindText(hobj: HUIATEXTRANGE, text: &windows_core::BSTR, backward: bool, ignorecase: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextRange_FindText(hobj: HUIATEXTRANGE, text: &windows_core::BSTR, backward: bool, ignorecase: bool, pretval: *mut HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : * mut core::ffi::c_void, backward : windows_core::BOOL, ignorecase : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_FindText(hobj, core::mem::transmute_copy(text), backward.into(), ignorecase.into(), pretval as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+pub unsafe fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { TextRange_GetAttributeValue(hobj, attributeid, core::mem::transmute(pretval)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+pub unsafe fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextRange_GetBoundingRectangles(hobj, pretval as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+pub unsafe fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetChildren(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextRange_GetChildren(hobj, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> windows_core::Result<()> {
+pub unsafe fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetEnclosingElement(hobj : HUIATEXTRANGE, pretval : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { TextRange_GetEnclosingElement(hobj, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut windows_core::BSTR) -> windows_core::Result<()> {
+pub unsafe fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetText(hobj : HUIATEXTRANGE, maxlength : i32, pretval : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { TextRange_GetText(hobj, maxlength, core::mem::transmute(pretval)).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::Result<()> {
+pub unsafe fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Move(hobj : HUIATEXTRANGE, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
     unsafe { TextRange_Move(hobj, unit, count, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()> {
+pub unsafe fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByRange(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint) -> windows_core::HRESULT);
     unsafe { TextRange_MoveEndpointByRange(hobj, endpoint, targetrange, targetendpoint).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::Result<()> {
+pub unsafe fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByUnit(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
     unsafe { TextRange_MoveEndpointByUnit(hobj, endpoint, unit, count, pretval as _).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_RemoveFromSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_RemoveFromSelection(hobj).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: bool) -> windows_core::Result<()> {
+pub unsafe fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { TextRange_ScrollIntoView(hobj, aligntotop.into()).ok() }
 }
 #[inline]
-pub unsafe fn TextRange_Select(hobj: HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn TextRange_Select(hobj: HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Select(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_Select(hobj).ok() }
 }
 #[inline]
-pub unsafe fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TogglePattern_Toggle(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { TogglePattern_Toggle(hobj).ok() }
 }
 #[inline]
-pub unsafe fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> windows_core::Result<()> {
+pub unsafe fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TransformPattern_Move(hobj : HUIAPATTERNOBJECT, x : f64, y : f64) -> windows_core::HRESULT);
     unsafe { TransformPattern_Move(hobj, x, y).ok() }
 }
 #[inline]
-pub unsafe fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> windows_core::Result<()> {
+pub unsafe fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TransformPattern_Resize(hobj : HUIAPATTERNOBJECT, width : f64, height : f64) -> windows_core::HRESULT);
     unsafe { TransformPattern_Resize(hobj, width, height).ok() }
 }
 #[inline]
-pub unsafe fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> windows_core::Result<()> {
+pub unsafe fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn TransformPattern_Rotate(hobj : HUIAPATTERNOBJECT, degrees : f64) -> windows_core::HRESULT);
     unsafe { TransformPattern_Rotate(hobj, degrees).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> windows_core::Result<()> {
+pub unsafe fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaAddEvent(hnode : HUIANODE, eventid : i32, pcallback : *mut UiaEventCallback, scope : TreeScope, pproperties : *mut i32, cproperties : i32, prequest : *mut UiaCacheRequest, phevent : *mut HUIAEVENT) -> windows_core::HRESULT);
     unsafe { UiaAddEvent(hnode, eventid, pcallback as _, scope, pproperties as _, cproperties, prequest as _, phevent as _).ok() }
 }
@@ -391,12 +391,12 @@ pub unsafe fn UiaClientsAreListening() -> windows_core::BOOL {
     unsafe { UiaClientsAreListening() }
 }
 #[inline]
-pub unsafe fn UiaDisconnectAllProviders() -> windows_core::Result<()> {
+pub unsafe fn UiaDisconnectAllProviders() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaDisconnectAllProviders() -> windows_core::HRESULT);
     unsafe { UiaDisconnectAllProviders().ok() }
 }
 #[inline]
-pub unsafe fn UiaDisconnectProvider<P0>(pprovider: P0) -> windows_core::Result<()>
+pub unsafe fn UiaDisconnectProvider<P0>(pprovider: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -404,18 +404,18 @@ where
     unsafe { UiaDisconnectProvider(pprovider.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+pub unsafe fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaEventAddWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { UiaEventAddWindow(hevent, hwnd).ok() }
 }
 #[inline]
-pub unsafe fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+pub unsafe fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaEventRemoveWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { UiaEventRemoveWindow(hevent, hwnd).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+pub unsafe fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { UiaFind(hnode, pparams as _, prequest as _, pprequesteddata as _, ppoffsets as _, pptreestructures as _).ok() }
 }
@@ -425,18 +425,18 @@ pub unsafe fn UiaGetErrorDescription(pdescription: *mut windows_core::BSTR) -> w
     unsafe { UiaGetErrorDescription(core::mem::transmute(pdescription)) }
 }
 #[inline]
-pub unsafe fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { UiaGetPatternProvider(hnode, patternid, phobj as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+pub unsafe fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { UiaGetPropertyValue(hnode, propertyid, core::mem::transmute(pvalue)).ok() }
 }
 #[inline]
-pub unsafe fn UiaGetReservedMixedAttributeValue() -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn UiaGetReservedMixedAttributeValue() -> Result<windows_core::IUnknown, windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -444,7 +444,7 @@ pub unsafe fn UiaGetReservedMixedAttributeValue() -> windows_core::Result<window
     }
 }
 #[inline]
-pub unsafe fn UiaGetReservedNotSupportedValue() -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn UiaGetReservedNotSupportedValue() -> Result<windows_core::IUnknown, windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaGetReservedNotSupportedValue(punknotsupportedvalue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -452,37 +452,37 @@ pub unsafe fn UiaGetReservedNotSupportedValue() -> windows_core::Result<windows_
     }
 }
 #[inline]
-pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> windows_core::Result<()> {
+pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaGetRootNode(phnode : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaGetRootNode(phnode as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+pub unsafe fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { UiaGetRuntimeId(hnode, pruntimeid as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
+pub unsafe fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaGetUpdatedCache(hnode, prequest as _, normalizestate, pnormalizecondition as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { UiaHPatternObjectFromVariant(core::mem::transmute(pvar), phobj as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
+pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { UiaHTextRangeFromVariant(core::mem::transmute(pvar), phtextrange as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phnode: *mut HUIANODE) -> windows_core::Result<()> {
+pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phnode: *mut HUIANODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaHUiaNodeFromVariant(core::mem::transmute(pvar), phnode as _).ok() }
 }
@@ -492,7 +492,7 @@ pub unsafe fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> 
     unsafe { UiaHasServerSideProvider(hwnd) }
 }
 #[inline]
-pub unsafe fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND) -> windows_core::Result<IRawElementProviderSimple> {
+pub unsafe fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaHostProviderFromHwnd(hwnd : super::super::Foundation:: HWND, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -501,7 +501,7 @@ pub unsafe fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND) -> w
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppaccessible: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>
+pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppaccessible: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -515,29 +515,29 @@ pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const window
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
+pub unsafe fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaNavigate(hnode : HUIANODE, direction : NavigateDirection, pcondition : *mut UiaCondition, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaNavigate(hnode, direction, pcondition as _, prequest as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
+pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeFromFocus(prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaNodeFromFocus(prequest as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[inline]
-pub unsafe fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> windows_core::Result<()> {
+pub unsafe fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeFromHandle(hwnd : super::super::Foundation:: HWND, phnode : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaNodeFromHandle(hwnd, phnode as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
+pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeFromPoint(x : f64, y : f64, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaNodeFromPoint(x, y, prequest as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[inline]
-pub unsafe fn UiaNodeFromProvider<P0>(pprovider: P0, phnode: *mut HUIANODE) -> windows_core::Result<()>
+pub unsafe fn UiaNodeFromProvider<P0>(pprovider: P0, phnode: *mut HUIANODE) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -555,7 +555,7 @@ pub unsafe fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> windows_core::BOOL {
     unsafe { UiaPatternRelease(hobj) }
 }
 #[inline]
-pub unsafe fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> windows_core::Result<IRawElementProviderSimple> {
+pub unsafe fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaProviderForNonClient(hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -564,7 +564,7 @@ pub unsafe fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idob
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwflags: u32) -> windows_core::Result<IRawElementProviderSimple>
+pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwflags: u32) -> Result<IRawElementProviderSimple, windows_result::HRESULT>
 where
     P0: windows_core::Param<IAccessible>,
 {
@@ -575,7 +575,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<P0, P1>(provider: P0, textrange: P1) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<P0, P1>(provider: P0, textrange: P1) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
     P1: windows_core::Param<ITextRangeProvider>,
@@ -584,7 +584,7 @@ where
     unsafe { UiaRaiseActiveTextPositionChangedEvent(provider.param().abi(), textrange.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn UiaRaiseAsyncContentLoadedEvent<P0>(pprovider: P0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseAsyncContentLoadedEvent<P0>(pprovider: P0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -592,7 +592,7 @@ where
     unsafe { UiaRaiseAsyncContentLoadedEvent(pprovider.param().abi(), asynccontentloadedstate, percentcomplete).ok() }
 }
 #[inline]
-pub unsafe fn UiaRaiseAutomationEvent<P0>(pprovider: P0, id: UIA_EVENT_ID) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseAutomationEvent<P0>(pprovider: P0, id: UIA_EVENT_ID) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -601,7 +601,7 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0>(pprovider: P0, id: UIA_PROPERTY_ID, oldvalue: &super::super::System::Variant::VARIANT, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0>(pprovider: P0, id: UIA_PROPERTY_ID, oldvalue: &super::super::System::Variant::VARIANT, newvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -610,7 +610,7 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaRaiseChangesEvent<P0>(pprovider: P0, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseChangesEvent<P0>(pprovider: P0, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -618,7 +618,7 @@ where
     unsafe { UiaRaiseChangesEvent(pprovider.param().abi(), eventidcount, core::mem::transmute(puiachanges)).ok() }
 }
 #[inline]
-pub unsafe fn UiaRaiseNotificationEvent<P0>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseNotificationEvent<P0>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -626,7 +626,7 @@ where
     unsafe { UiaRaiseNotificationEvent(provider.param().abi(), notificationkind, notificationprocessing, core::mem::transmute_copy(displaystring), core::mem::transmute_copy(activityid)).ok() }
 }
 #[inline]
-pub unsafe fn UiaRaiseStructureChangedEvent<P0>(pprovider: P0, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseStructureChangedEvent<P0>(pprovider: P0, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -635,7 +635,7 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UiaRaiseTextEditTextChangedEvent<P0>(pprovider: P0, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+pub unsafe fn UiaRaiseTextEditTextChangedEvent<P0>(pprovider: P0, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
@@ -649,7 +649,7 @@ pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
     unsafe { UiaRegisterProviderCallback(pcallback as _) }
 }
 #[inline]
-pub unsafe fn UiaRemoveEvent(hevent: HUIAEVENT) -> windows_core::Result<()> {
+pub unsafe fn UiaRemoveEvent(hevent: HUIAEVENT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : HUIAEVENT) -> windows_core::HRESULT);
     unsafe { UiaRemoveEvent(hevent).ok() }
 }
@@ -662,7 +662,7 @@ where
     unsafe { UiaReturnRawElementProvider(hwnd, wparam, lparam, el.param().abi()) }
 }
 #[inline]
-pub unsafe fn UiaSetFocus(hnode: HUIANODE) -> windows_core::Result<()> {
+pub unsafe fn UiaSetFocus(hnode: HUIANODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn UiaSetFocus(hnode : HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaSetFocus(hnode).ok() }
 }
@@ -678,7 +678,7 @@ pub unsafe fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> windows_core::BOOL
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()> {
+pub unsafe fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { UnregisterPointerInputTarget(hwnd, pointertype).ok() }
 }
@@ -689,7 +689,7 @@ pub unsafe fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWN
     unsafe { UnregisterPointerInputTargetEx(hwnd, pointertype) }
 }
 #[inline]
-pub unsafe fn ValuePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, pval: P1) -> windows_core::Result<()>
+pub unsafe fn ValuePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, pval: P1) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -697,13 +697,13 @@ where
     unsafe { ValuePattern_SetValue(hobj, pval.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn VirtualizedItemPattern_Realize(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { VirtualizedItemPattern_Realize(hobj).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0, phwnd: Option<*mut super::super::Foundation::HWND>) -> windows_core::Result<()>
+pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0, phwnd: Option<*mut super::super::Foundation::HWND>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAccessible>,
 {
@@ -711,17 +711,17 @@ where
     unsafe { WindowFromAccessibleObject(param0.param().abi(), phwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
+pub unsafe fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { WindowPattern_Close(hobj).ok() }
 }
 #[inline]
-pub unsafe fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> windows_core::Result<()> {
+pub unsafe fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> windows_core::HRESULT);
     unsafe { WindowPattern_SetWindowVisualState(hobj, state).ok() }
 }
 #[inline]
-pub unsafe fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut windows_core::BOOL) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WindowPattern_WaitForInputIdle(hobj, milliseconds, presult as _).ok() }
 }
@@ -1281,7 +1281,7 @@ pub const Hyperlink_Control_GUID: windows_core::GUID = windows_core::GUID::from_
 windows_core::imp::define_interface!(IAccIdentity, IAccIdentity_Vtbl, 0x7852b78d_1cfd_41c1_a615_9c0c85960b5f);
 windows_core::imp::interface_hierarchy!(IAccIdentity, windows_core::IUnknown);
 impl IAccIdentity {
-    pub unsafe fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetIdentityString)(windows_core::Interface::as_raw(self), dwidchild, ppidstring as _, pdwidstringlen as _).ok() }
     }
 }
@@ -1292,7 +1292,7 @@ pub struct IAccIdentity_Vtbl {
     pub GetIdentityString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IAccIdentity_Impl: windows_core::IUnknownImpl {
-    fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
+    fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IAccIdentity_Vtbl {
     pub const fn new<Identity: IAccIdentity_Impl, const OFFSET: isize>() -> Self {
@@ -1313,7 +1313,7 @@ windows_core::imp::define_interface!(IAccPropServer, IAccPropServer_Vtbl, 0x76c0
 windows_core::imp::interface_hierarchy!(IAccPropServer, windows_core::IUnknown);
 impl IAccPropServer {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut windows_core::BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPropValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(idprop), core::mem::transmute(pvarvalue), pfhasprop as _).ok() }
     }
 }
@@ -1328,7 +1328,7 @@ pub struct IAccPropServer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccPropServer_Impl: windows_core::IUnknownImpl {
-    fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccPropServer_Vtbl {
@@ -1351,71 +1351,71 @@ windows_core::imp::define_interface!(IAccPropServices, IAccPropServices_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IAccPropServices, windows_core::IUnknown);
 impl IAccPropServices {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetPropValue(&self, pidstring: &[u8], idprop: windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetPropValue(&self, pidstring: &[u8], idprop: windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(idprop), core::mem::transmute_copy(var)).ok() }
     }
-    pub unsafe fn SetPropServer<P4>(&self, pidstring: &[u8], paprops: &[windows_core::GUID], pserver: P4, annoscope: AnnoScope) -> windows_core::Result<()>
+    pub unsafe fn SetPropServer<P4>(&self, pidstring: &[u8], paprops: &[windows_core::GUID], pserver: P4, annoscope: AnnoScope) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<IAccPropServer>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPropServer)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok() }
     }
-    pub unsafe fn ClearProps(&self, pidstring: &[u8], paprops: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn ClearProps(&self, pidstring: &[u8], paprops: &[windows_core::GUID]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearProps)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetHwndProp)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(var)).ok() }
     }
-    pub unsafe fn SetHwndPropStr<P4>(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, str: P4) -> windows_core::Result<()>
+    pub unsafe fn SetHwndPropStr<P4>(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, str: P4) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), str.param().abi()).ok() }
     }
-    pub unsafe fn SetHwndPropServer<P5>(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: &[windows_core::GUID], pserver: P5, annoscope: AnnoScope) -> windows_core::Result<()>
+    pub unsafe fn SetHwndPropServer<P5>(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: &[windows_core::GUID], pserver: P5, annoscope: AnnoScope) -> Result<(), windows_result::HRESULT>
     where
         P5: windows_core::Param<IAccPropServer>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetHwndPropServer)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok() }
     }
-    pub unsafe fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: &[windows_core::GUID]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearHwndProps)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ComposeHwndIdentityString)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, ppidstring as _, pdwidstringlen as _).ok() }
     }
-    pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: &[u8], phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: &[u8], phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DecomposeHwndIdentityString)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), phwnd as _, pidobject as _, pidchild as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetHmenuProp)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(var)).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetHmenuPropStr<P3>(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, str: P3) -> windows_core::Result<()>
+    pub unsafe fn SetHmenuPropStr<P3>(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, str: P3) -> Result<(), windows_result::HRESULT>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), str.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetHmenuPropServer<P4>(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: &[windows_core::GUID], pserver: P4, annoscope: AnnoScope) -> windows_core::Result<()>
+    pub unsafe fn SetHmenuPropServer<P4>(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: &[windows_core::GUID], pserver: P4, annoscope: AnnoScope) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<IAccPropServer>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetHmenuPropServer)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: &[windows_core::GUID]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearHmenuProps)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ComposeHmenuIdentityString)(windows_core::Interface::as_raw(self), hmenu, idchild, ppidstring as _, pdwidstringlen as _).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn DecomposeHmenuIdentityString(&self, pidstring: &[u8], phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn DecomposeHmenuIdentityString(&self, pidstring: &[u8], phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DecomposeHmenuIdentityString)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), phmenu as _, pidchild as _).ok() }
     }
 }
@@ -1465,21 +1465,21 @@ pub struct IAccPropServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IAccPropServices_Impl: windows_core::IUnknownImpl {
-    fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
-    fn ClearProps(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
-    fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
-    fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
-    fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
-    fn DecomposeHwndIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::Result<()>;
-    fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
-    fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
-    fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
-    fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> windows_core::Result<()>;
+    fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> Result<(), windows_result::HRESULT>;
+    fn ClearProps(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32) -> Result<(), windows_result::HRESULT>;
+    fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> Result<(), windows_result::HRESULT>;
+    fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> Result<(), windows_result::HRESULT>;
+    fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn DecomposeHwndIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> Result<(), windows_result::HRESULT>;
+    fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> Result<(), windows_result::HRESULT>;
+    fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IAccPropServices_Vtbl {
@@ -1612,134 +1612,134 @@ impl core::ops::Deref for IAccessible {
 windows_core::imp::interface_hierarchy!(IAccessible, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessible {
-    pub unsafe fn accParent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn accParent(&self) -> Result<super::super::System::Com::IDispatch, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn accChildCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn accChildCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accChildCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accChild(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn get_accChild(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Com::IDispatch, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accChild)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accName(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_accName(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accValue(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_accValue(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accDescription(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_accDescription(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accRole(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_accRole(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accState(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_accState(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accHelp(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_accHelp(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accHelp)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<i32> {
+    pub unsafe fn get_accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &super::super::System::Variant::VARIANT) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), core::mem::transmute_copy(varchild), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accKeyboardShortcut(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_accKeyboardShortcut(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accKeyboardShortcut)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn accFocus(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn accFocus(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn accSelection(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn accSelection(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_accDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_accDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_accDefaultAction)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn accSelect(&self, flagsselect: i32, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn accSelect(&self, flagsselect: i32, varchild: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).accSelect)(windows_core::Interface::as_raw(self), flagsselect, core::mem::transmute_copy(varchild)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).accLocation)(windows_core::Interface::as_raw(self), pxleft as _, pytop as _, pcxwidth as _, pcyheight as _, core::mem::transmute_copy(varchild)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn accNavigate(&self, navdir: i32, varstart: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn accNavigate(&self, navdir: i32, varstart: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accNavigate)(windows_core::Interface::as_raw(self), navdir, core::mem::transmute_copy(varstart), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).accHitTest)(windows_core::Interface::as_raw(self), xleft, ytop, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn accDoDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn accDoDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).accDoDefaultAction)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_accName(&self, varchild: &super::super::System::Variant::VARIANT, szname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn put_accName(&self, varchild: &super::super::System::Variant::VARIANT, szname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).put_accName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), core::mem::transmute_copy(szname)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_accValue(&self, varchild: &super::super::System::Variant::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn put_accValue(&self, varchild: &super::super::System::Variant::VARIANT, szvalue: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).put_accValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varchild), core::mem::transmute_copy(szvalue)).ok() }
     }
 }
@@ -1829,27 +1829,27 @@ pub struct IAccessible_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccessible_Impl: super::super::System::Com::IDispatch_Impl {
-    fn accParent(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn accChildCount(&self) -> windows_core::Result<i32>;
-    fn get_accChild(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn get_accName(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accValue(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accDescription(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accRole(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn get_accState(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn get_accHelp(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<i32>;
-    fn get_accKeyboardShortcut(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn accFocus(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn accSelection(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn get_accDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn accSelect(&self, flagsselect: i32, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn accNavigate(&self, navdir: i32, varstart: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn accDoDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn put_accName(&self, varchild: &super::super::System::Variant::VARIANT, szname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn put_accValue(&self, varchild: &super::super::System::Variant::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn accParent(&self) -> Result<super::super::System::Com::IDispatch, windows_result::HRESULT>;
+    fn accChildCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_accChild(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Com::IDispatch, windows_result::HRESULT>;
+    fn get_accName(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn get_accValue(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn get_accDescription(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn get_accRole(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn get_accState(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn get_accHelp(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn get_accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &super::super::System::Variant::VARIANT) -> Result<i32, windows_result::HRESULT>;
+    fn get_accKeyboardShortcut(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn accFocus(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn accSelection(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn get_accDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn accSelect(&self, flagsselect: i32, varchild: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn accNavigate(&self, navdir: i32, varstart: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn accHitTest(&self, xleft: i32, ytop: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn accDoDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn put_accName(&self, varchild: &super::super::System::Variant::VARIANT, szname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn put_accValue(&self, varchild: &super::super::System::Variant::VARIANT, szvalue: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccessible_Vtbl {
@@ -2110,24 +2110,24 @@ impl windows_core::RuntimeName for IAccessible {}
 windows_core::imp::define_interface!(IAccessibleEx, IAccessibleEx_Vtbl, 0xf8b80ada_2c44_48d0_89be_5ff23c9cd875);
 windows_core::imp::interface_hierarchy!(IAccessibleEx, windows_core::IUnknown);
 impl IAccessibleEx {
-    pub unsafe fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<IAccessibleEx> {
+    pub unsafe fn GetObjectForChild(&self, idchild: i32) -> Result<IAccessibleEx, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetObjectForChild)(windows_core::Interface::as_raw(self), idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIAccessiblePair(&self, ppacc: *mut Option<IAccessible>, pidchild: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetIAccessiblePair(&self, ppacc: *mut Option<IAccessible>, pidchild: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetIAccessiblePair)(windows_core::Interface::as_raw(self), core::mem::transmute(ppacc), pidchild as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetRuntimeId(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRuntimeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0) -> windows_core::Result<IAccessibleEx>
+    pub unsafe fn ConvertReturnedElement<P0>(&self, pin: P0) -> Result<IAccessibleEx, windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
@@ -2154,10 +2154,10 @@ pub struct IAccessibleEx_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleEx_Impl: windows_core::IUnknownImpl {
-    fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<IAccessibleEx>;
-    fn GetIAccessiblePair(&self, ppacc: windows_core::OutRef<'_, IAccessible>, pidchild: *mut i32) -> windows_core::Result<()>;
-    fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ConvertReturnedElement(&self, pin: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<IAccessibleEx>;
+    fn GetObjectForChild(&self, idchild: i32) -> Result<IAccessibleEx, windows_result::HRESULT>;
+    fn GetIAccessiblePair(&self, ppacc: windows_core::OutRef<'_, IAccessible>, pidchild: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn GetRuntimeId(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn ConvertReturnedElement(&self, pin: windows_core::Ref<'_, IRawElementProviderSimple>) -> Result<IAccessibleEx, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleEx_Vtbl {
@@ -2222,7 +2222,7 @@ windows_core::imp::define_interface!(IAccessibleHandler, IAccessibleHandler_Vtbl
 windows_core::imp::interface_hierarchy!(IAccessibleHandler, windows_core::IUnknown);
 impl IAccessibleHandler {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<IAccessible> {
+    pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> Result<IAccessible, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AccessibleObjectFromID)(windows_core::Interface::as_raw(self), hwnd, lobjectid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2240,7 +2240,7 @@ pub struct IAccessibleHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleHandler_Impl: windows_core::IUnknownImpl {
-    fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> windows_core::Result<IAccessible>;
+    fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> Result<IAccessible, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleHandler_Vtbl {
@@ -2269,13 +2269,13 @@ windows_core::imp::define_interface!(IAccessibleHostingElementProviders, IAccess
 windows_core::imp::interface_hierarchy!(IAccessibleHostingElementProviders, windows_core::IUnknown);
 impl IAccessibleHostingElementProviders {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEmbeddedFragmentRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetEmbeddedFragmentRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEmbeddedFragmentRoots)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetObjectIdForProvider<P0>(&self, pprovider: P0) -> windows_core::Result<i32>
+    pub unsafe fn GetObjectIdForProvider<P0>(&self, pprovider: P0) -> Result<i32, windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
@@ -2297,8 +2297,8 @@ pub struct IAccessibleHostingElementProviders_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleHostingElementProviders_Impl: windows_core::IUnknownImpl {
-    fn GetEmbeddedFragmentRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetObjectIdForProvider(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<i32>;
+    fn GetEmbeddedFragmentRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetObjectIdForProvider(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleHostingElementProviders_Vtbl {
@@ -2342,7 +2342,7 @@ impl windows_core::RuntimeName for IAccessibleHostingElementProviders {}
 windows_core::imp::define_interface!(IAccessibleWindowlessSite, IAccessibleWindowlessSite_Vtbl, 0xbf3abd9c_76da_4389_9eb6_1427d25abab7);
 windows_core::imp::interface_hierarchy!(IAccessibleWindowlessSite, windows_core::IUnknown);
 impl IAccessibleWindowlessSite {
-    pub unsafe fn AcquireObjectIdRange<P1>(&self, rangesize: i32, prangeowner: P1) -> windows_core::Result<i32>
+    pub unsafe fn AcquireObjectIdRange<P1>(&self, rangesize: i32, prangeowner: P1) -> Result<i32, windows_result::HRESULT>
     where
         P1: windows_core::Param<IAccessibleHandler>,
     {
@@ -2351,14 +2351,14 @@ impl IAccessibleWindowlessSite {
             (windows_core::Interface::vtable(self).AcquireObjectIdRange)(windows_core::Interface::as_raw(self), rangesize, prangeowner.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReleaseObjectIdRange<P1>(&self, rangebase: i32, prangeowner: P1) -> windows_core::Result<()>
+    pub unsafe fn ReleaseObjectIdRange<P1>(&self, rangebase: i32, prangeowner: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IAccessibleHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).ReleaseObjectIdRange)(windows_core::Interface::as_raw(self), rangebase, prangeowner.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryObjectIdRanges<P0>(&self, prangesowner: P0) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
+    pub unsafe fn QueryObjectIdRanges<P0>(&self, prangesowner: P0) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>
     where
         P0: windows_core::Param<IAccessibleHandler>,
     {
@@ -2368,7 +2368,7 @@ impl IAccessibleWindowlessSite {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetParentAccessible(&self) -> windows_core::Result<IAccessible> {
+    pub unsafe fn GetParentAccessible(&self) -> Result<IAccessible, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParentAccessible)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2392,10 +2392,10 @@ pub struct IAccessibleWindowlessSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleWindowlessSite_Impl: windows_core::IUnknownImpl {
-    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<'_, IAccessibleHandler>) -> windows_core::Result<i32>;
-    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<'_, IAccessibleHandler>) -> windows_core::Result<()>;
-    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<'_, IAccessibleHandler>) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetParentAccessible(&self) -> windows_core::Result<IAccessible>;
+    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<'_, IAccessibleHandler>) -> Result<i32, windows_result::HRESULT>;
+    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<'_, IAccessibleHandler>) -> Result<(), windows_result::HRESULT>;
+    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<'_, IAccessibleHandler>) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetParentAccessible(&self) -> Result<IAccessible, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleWindowlessSite_Vtbl {
@@ -2459,31 +2459,31 @@ impl windows_core::RuntimeName for IAccessibleWindowlessSite {}
 windows_core::imp::define_interface!(IAnnotationProvider, IAnnotationProvider_Vtbl, 0xf95c7e80_bd63_4601_9782_445ebff011fc);
 windows_core::imp::interface_hierarchy!(IAnnotationProvider, windows_core::IUnknown);
 impl IAnnotationProvider {
-    pub unsafe fn AnnotationTypeId(&self) -> windows_core::Result<UIA_ANNOTATIONTYPE> {
+    pub unsafe fn AnnotationTypeId(&self) -> Result<UIA_ANNOTATIONTYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AnnotationTypeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AnnotationTypeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn AnnotationTypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AnnotationTypeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Author(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Author(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Author)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DateTime(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DateTime(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Target(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn Target(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Target)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2501,11 +2501,11 @@ pub struct IAnnotationProvider_Vtbl {
     pub Target: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAnnotationProvider_Impl: windows_core::IUnknownImpl {
-    fn AnnotationTypeId(&self) -> windows_core::Result<UIA_ANNOTATIONTYPE>;
-    fn AnnotationTypeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Author(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DateTime(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Target(&self) -> windows_core::Result<IRawElementProviderSimple>;
+    fn AnnotationTypeId(&self) -> Result<UIA_ANNOTATIONTYPE, windows_result::HRESULT>;
+    fn AnnotationTypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Author(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DateTime(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Target(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 impl IAnnotationProvider_Vtbl {
     pub const fn new<Identity: IAnnotationProvider_Impl, const OFFSET: isize>() -> Self {
@@ -2586,7 +2586,7 @@ impl windows_core::RuntimeName for IAnnotationProvider {}
 windows_core::imp::define_interface!(ICustomNavigationProvider, ICustomNavigationProvider_Vtbl, 0x2062a28a_8c07_4b94_8e12_7037c622aeb8);
 windows_core::imp::interface_hierarchy!(ICustomNavigationProvider, windows_core::IUnknown);
 impl ICustomNavigationProvider {
-    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2600,7 +2600,7 @@ pub struct ICustomNavigationProvider_Vtbl {
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, NavigateDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICustomNavigationProvider_Impl: windows_core::IUnknownImpl {
-    fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<IRawElementProviderSimple>;
+    fn Navigate(&self, direction: NavigateDirection) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 impl ICustomNavigationProvider_Vtbl {
     pub const fn new<Identity: ICustomNavigationProvider_Impl, const OFFSET: isize>() -> Self {
@@ -2626,10 +2626,10 @@ impl windows_core::RuntimeName for ICustomNavigationProvider {}
 windows_core::imp::define_interface!(IDockProvider, IDockProvider_Vtbl, 0x159bc72c_4ad3_485e_9637_d7052edf0146);
 windows_core::imp::interface_hierarchy!(IDockProvider, windows_core::IUnknown);
 impl IDockProvider {
-    pub unsafe fn SetDockPosition(&self, dockposition: DockPosition) -> windows_core::Result<()> {
+    pub unsafe fn SetDockPosition(&self, dockposition: DockPosition) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDockPosition)(windows_core::Interface::as_raw(self), dockposition).ok() }
     }
-    pub unsafe fn DockPosition(&self) -> windows_core::Result<DockPosition> {
+    pub unsafe fn DockPosition(&self) -> Result<DockPosition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DockPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2644,8 +2644,8 @@ pub struct IDockProvider_Vtbl {
     pub DockPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DockPosition) -> windows_core::HRESULT,
 }
 pub trait IDockProvider_Impl: windows_core::IUnknownImpl {
-    fn SetDockPosition(&self, dockposition: DockPosition) -> windows_core::Result<()>;
-    fn DockPosition(&self) -> windows_core::Result<DockPosition>;
+    fn SetDockPosition(&self, dockposition: DockPosition) -> Result<(), windows_result::HRESULT>;
+    fn DockPosition(&self) -> Result<DockPosition, windows_result::HRESULT>;
 }
 impl IDockProvider_Vtbl {
     pub const fn new<Identity: IDockProvider_Impl, const OFFSET: isize>() -> Self {
@@ -2681,27 +2681,27 @@ impl windows_core::RuntimeName for IDockProvider {}
 windows_core::imp::define_interface!(IDragProvider, IDragProvider_Vtbl, 0x6aa7bbbb_7ff9_497d_904f_d20b897929d8);
 windows_core::imp::interface_hierarchy!(IDragProvider, windows_core::IUnknown);
 impl IDragProvider {
-    pub unsafe fn IsGrabbed(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsGrabbed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsGrabbed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DropEffect(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DropEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DropEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn DropEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DropEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetGrabbedItems(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetGrabbedItems(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGrabbedItems)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2725,10 +2725,10 @@ pub struct IDragProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDragProvider_Impl: windows_core::IUnknownImpl {
-    fn IsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn DropEffect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetGrabbedItems(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn IsGrabbed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn DropEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DropEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetGrabbedItems(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDragProvider_Vtbl {
@@ -2798,14 +2798,14 @@ impl windows_core::RuntimeName for IDragProvider {}
 windows_core::imp::define_interface!(IDropTargetProvider, IDropTargetProvider_Vtbl, 0xbae82bfd_358a_481c_85a0_d8b4d90a5d61);
 windows_core::imp::interface_hierarchy!(IDropTargetProvider, windows_core::IUnknown);
 impl IDropTargetProvider {
-    pub unsafe fn DropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DropTargetEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DropTargetEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DropTargetEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn DropTargetEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DropTargetEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2824,8 +2824,8 @@ pub struct IDropTargetProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDropTargetProvider_Impl: windows_core::IUnknownImpl {
-    fn DropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DropTargetEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn DropTargetEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DropTargetEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDropTargetProvider_Vtbl {
@@ -2869,13 +2869,13 @@ impl windows_core::RuntimeName for IDropTargetProvider {}
 windows_core::imp::define_interface!(IExpandCollapseProvider, IExpandCollapseProvider_Vtbl, 0xd847d3a5_cab0_4a98_8c32_ecb45c59ad24);
 windows_core::imp::interface_hierarchy!(IExpandCollapseProvider, windows_core::IUnknown);
 impl IExpandCollapseProvider {
-    pub unsafe fn Expand(&self) -> windows_core::Result<()> {
+    pub unsafe fn Expand(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Collapse(&self) -> windows_core::Result<()> {
+    pub unsafe fn Collapse(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Collapse)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ExpandCollapseState(&self) -> windows_core::Result<ExpandCollapseState> {
+    pub unsafe fn ExpandCollapseState(&self) -> Result<ExpandCollapseState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpandCollapseState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2891,9 +2891,9 @@ pub struct IExpandCollapseProvider_Vtbl {
     pub ExpandCollapseState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ExpandCollapseState) -> windows_core::HRESULT,
 }
 pub trait IExpandCollapseProvider_Impl: windows_core::IUnknownImpl {
-    fn Expand(&self) -> windows_core::Result<()>;
-    fn Collapse(&self) -> windows_core::Result<()>;
-    fn ExpandCollapseState(&self) -> windows_core::Result<ExpandCollapseState>;
+    fn Expand(&self) -> Result<(), windows_result::HRESULT>;
+    fn Collapse(&self) -> Result<(), windows_result::HRESULT>;
+    fn ExpandCollapseState(&self) -> Result<ExpandCollapseState, windows_result::HRESULT>;
 }
 impl IExpandCollapseProvider_Vtbl {
     pub const fn new<Identity: IExpandCollapseProvider_Impl, const OFFSET: isize>() -> Self {
@@ -2936,31 +2936,31 @@ impl windows_core::RuntimeName for IExpandCollapseProvider {}
 windows_core::imp::define_interface!(IGridItemProvider, IGridItemProvider_Vtbl, 0xd02541f1_fb81_4d64_ae32_f520f8a6dbd1);
 windows_core::imp::interface_hierarchy!(IGridItemProvider, windows_core::IUnknown);
 impl IGridItemProvider {
-    pub unsafe fn Row(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Row(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Row)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Column(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Column(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Column)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RowSpan(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RowSpan(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RowSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ColumnSpan(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ColumnSpan(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ColumnSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ContainingGrid(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn ContainingGrid(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ContainingGrid)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2978,11 +2978,11 @@ pub struct IGridItemProvider_Vtbl {
     pub ContainingGrid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IGridItemProvider_Impl: windows_core::IUnknownImpl {
-    fn Row(&self) -> windows_core::Result<i32>;
-    fn Column(&self) -> windows_core::Result<i32>;
-    fn RowSpan(&self) -> windows_core::Result<i32>;
-    fn ColumnSpan(&self) -> windows_core::Result<i32>;
-    fn ContainingGrid(&self) -> windows_core::Result<IRawElementProviderSimple>;
+    fn Row(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Column(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RowSpan(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ColumnSpan(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ContainingGrid(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 impl IGridItemProvider_Vtbl {
     pub const fn new<Identity: IGridItemProvider_Impl, const OFFSET: isize>() -> Self {
@@ -3063,19 +3063,19 @@ impl windows_core::RuntimeName for IGridItemProvider {}
 windows_core::imp::define_interface!(IGridProvider, IGridProvider_Vtbl, 0xb17d6187_0907_464b_a168_0ef17a1572b1);
 windows_core::imp::interface_hierarchy!(IGridProvider, windows_core::IUnknown);
 impl IGridProvider {
-    pub unsafe fn GetItem(&self, row: i32, column: i32) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn GetItem(&self, row: i32, column: i32) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), row, column, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RowCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RowCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RowCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ColumnCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ColumnCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ColumnCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3091,9 +3091,9 @@ pub struct IGridProvider_Vtbl {
     pub ColumnCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IGridProvider_Impl: windows_core::IUnknownImpl {
-    fn GetItem(&self, row: i32, column: i32) -> windows_core::Result<IRawElementProviderSimple>;
-    fn RowCount(&self) -> windows_core::Result<i32>;
-    fn ColumnCount(&self) -> windows_core::Result<i32>;
+    fn GetItem(&self, row: i32, column: i32) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
+    fn RowCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ColumnCount(&self) -> Result<i32, windows_result::HRESULT>;
 }
 impl IGridProvider_Vtbl {
     pub const fn new<Identity: IGridProvider_Impl, const OFFSET: isize>() -> Self {
@@ -3150,7 +3150,7 @@ pub const IIS_IsOleaccProxy: windows_core::GUID = windows_core::GUID::from_u128(
 windows_core::imp::define_interface!(IInvokeProvider, IInvokeProvider_Vtbl, 0x54fcb24b_e18e_47a2_b4d3_eccbe77599a2);
 windows_core::imp::interface_hierarchy!(IInvokeProvider, windows_core::IUnknown);
 impl IInvokeProvider {
-    pub unsafe fn Invoke(&self) -> windows_core::Result<()> {
+    pub unsafe fn Invoke(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3161,7 +3161,7 @@ pub struct IInvokeProvider_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInvokeProvider_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self) -> windows_core::Result<()>;
+    fn Invoke(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IInvokeProvider_Vtbl {
     pub const fn new<Identity: IInvokeProvider_Impl, const OFFSET: isize>() -> Self {
@@ -3182,7 +3182,7 @@ windows_core::imp::define_interface!(IItemContainerProvider, IItemContainerProvi
 windows_core::imp::interface_hierarchy!(IItemContainerProvider, windows_core::IUnknown);
 impl IItemContainerProvider {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IRawElementProviderSimple>
+    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> Result<IRawElementProviderSimple, windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
@@ -3203,7 +3203,7 @@ pub struct IItemContainerProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IItemContainerProvider_Impl: windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<'_, IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
+    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<'_, IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IItemContainerProvider_Vtbl {
@@ -3231,81 +3231,81 @@ impl windows_core::RuntimeName for IItemContainerProvider {}
 windows_core::imp::define_interface!(ILegacyIAccessibleProvider, ILegacyIAccessibleProvider_Vtbl, 0xe44c3566_915d_4070_99c6_047bff5a08f5);
 windows_core::imp::interface_hierarchy!(ILegacyIAccessibleProvider, windows_core::IUnknown);
 impl ILegacyIAccessibleProvider {
-    pub unsafe fn Select(&self, flagsselect: i32) -> windows_core::Result<()> {
+    pub unsafe fn Select(&self, flagsselect: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), flagsselect).ok() }
     }
-    pub unsafe fn DoDefaultAction(&self) -> windows_core::Result<()> {
+    pub unsafe fn DoDefaultAction(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DoDefaultAction)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> windows_core::Result<()>
+    pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIAccessible(&self) -> windows_core::Result<IAccessible> {
+    pub unsafe fn GetIAccessible(&self) -> Result<IAccessible, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIAccessible)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ChildId(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ChildId(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChildId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Role(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Role(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Role)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<u32> {
+    pub unsafe fn State(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Help(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Help(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Help)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn KeyboardShortcut(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn KeyboardShortcut(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KeyboardShortcut)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetSelection(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DefaultAction(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DefaultAction(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -3339,20 +3339,20 @@ pub struct ILegacyIAccessibleProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ILegacyIAccessibleProvider_Impl: windows_core::IUnknownImpl {
-    fn Select(&self, flagsselect: i32) -> windows_core::Result<()>;
-    fn DoDefaultAction(&self) -> windows_core::Result<()>;
-    fn SetValue(&self, szvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetIAccessible(&self) -> windows_core::Result<IAccessible>;
-    fn ChildId(&self) -> windows_core::Result<i32>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Role(&self) -> windows_core::Result<u32>;
-    fn State(&self) -> windows_core::Result<u32>;
-    fn Help(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn KeyboardShortcut(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn DefaultAction(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Select(&self, flagsselect: i32) -> Result<(), windows_result::HRESULT>;
+    fn DoDefaultAction(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetValue(&self, szvalue: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetIAccessible(&self) -> Result<IAccessible, windows_result::HRESULT>;
+    fn ChildId(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Role(&self) -> Result<u32, windows_result::HRESULT>;
+    fn State(&self) -> Result<u32, windows_result::HRESULT>;
+    fn Help(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn KeyboardShortcut(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetSelection(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn DefaultAction(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ILegacyIAccessibleProvider_Vtbl {
@@ -3534,23 +3534,23 @@ impl windows_core::RuntimeName for ILegacyIAccessibleProvider {}
 windows_core::imp::define_interface!(IMultipleViewProvider, IMultipleViewProvider_Vtbl, 0x6278cab1_b556_4a1a_b4e0_418acc523201);
 windows_core::imp::interface_hierarchy!(IMultipleViewProvider, windows_core::IUnknown);
 impl IMultipleViewProvider {
-    pub unsafe fn GetViewName(&self, viewid: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetViewName(&self, viewid: i32) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetViewName)(windows_core::Interface::as_raw(self), viewid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetCurrentView(&self, viewid: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetCurrentView(&self, viewid: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentView)(windows_core::Interface::as_raw(self), viewid).ok() }
     }
-    pub unsafe fn CurrentView(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentView(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSupportedViews(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetSupportedViews(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedViews)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3571,10 +3571,10 @@ pub struct IMultipleViewProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMultipleViewProvider_Impl: windows_core::IUnknownImpl {
-    fn GetViewName(&self, viewid: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCurrentView(&self, viewid: i32) -> windows_core::Result<()>;
-    fn CurrentView(&self) -> windows_core::Result<i32>;
-    fn GetSupportedViews(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetViewName(&self, viewid: i32) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetCurrentView(&self, viewid: i32) -> Result<(), windows_result::HRESULT>;
+    fn CurrentView(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetSupportedViews(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMultipleViewProvider_Vtbl {
@@ -3638,7 +3638,7 @@ impl windows_core::RuntimeName for IMultipleViewProvider {}
 windows_core::imp::define_interface!(IObjectModelProvider, IObjectModelProvider_Vtbl, 0x3ad86ebd_f5ef_483d_bb18_b1042a475d64);
 windows_core::imp::interface_hierarchy!(IObjectModelProvider, windows_core::IUnknown);
 impl IObjectModelProvider {
-    pub unsafe fn GetUnderlyingObjectModel(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetUnderlyingObjectModel(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUnderlyingObjectModel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3652,7 +3652,7 @@ pub struct IObjectModelProvider_Vtbl {
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectModelProvider_Impl: windows_core::IUnknownImpl {
-    fn GetUnderlyingObjectModel(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetUnderlyingObjectModel(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 impl IObjectModelProvider_Vtbl {
     pub const fn new<Identity: IObjectModelProvider_Impl, const OFFSET: isize>() -> Self {
@@ -3678,7 +3678,7 @@ impl windows_core::RuntimeName for IObjectModelProvider {}
 windows_core::imp::define_interface!(IProxyProviderWinEventHandler, IProxyProviderWinEventHandler_Vtbl, 0x89592ad4_f4e0_43d5_a3b6_bad7e111b435);
 windows_core::imp::interface_hierarchy!(IProxyProviderWinEventHandler, windows_core::IUnknown);
 impl IProxyProviderWinEventHandler {
-    pub unsafe fn RespondToWinEvent<P4>(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: P4) -> windows_core::Result<()>
+    pub unsafe fn RespondToWinEvent<P4>(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: P4) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<IProxyProviderWinEventSink>,
     {
@@ -3692,7 +3692,7 @@ pub struct IProxyProviderWinEventHandler_Vtbl {
     pub RespondToWinEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IProxyProviderWinEventHandler_Impl: windows_core::IUnknownImpl {
-    fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: windows_core::Ref<'_, IProxyProviderWinEventSink>) -> windows_core::Result<()>;
+    fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: windows_core::Ref<'_, IProxyProviderWinEventSink>) -> Result<(), windows_result::HRESULT>;
 }
 impl IProxyProviderWinEventHandler_Vtbl {
     pub const fn new<Identity: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -3713,20 +3713,20 @@ windows_core::imp::define_interface!(IProxyProviderWinEventSink, IProxyProviderW
 windows_core::imp::interface_hierarchy!(IProxyProviderWinEventSink, windows_core::IUnknown);
 impl IProxyProviderWinEventSink {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAutomationPropertyChangedEvent<P0>(&self, pprovider: P0, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>
+    pub unsafe fn AddAutomationPropertyChangedEvent<P0>(&self, pprovider: P0, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAutomationPropertyChangedEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), id, core::mem::transmute_copy(newvalue)).ok() }
     }
-    pub unsafe fn AddAutomationEvent<P0>(&self, pprovider: P0, id: UIA_EVENT_ID) -> windows_core::Result<()>
+    pub unsafe fn AddAutomationEvent<P0>(&self, pprovider: P0, id: UIA_EVENT_ID) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAutomationEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), id).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddStructureChangedEvent<P0>(&self, pprovider: P0, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn AddStructureChangedEvent<P0>(&self, pprovider: P0, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
@@ -3749,9 +3749,9 @@ pub struct IProxyProviderWinEventSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProxyProviderWinEventSink_Impl: windows_core::IUnknownImpl {
-    fn AddAutomationPropertyChangedEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddAutomationEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, id: UIA_EVENT_ID) -> windows_core::Result<()>;
-    fn AddStructureChangedEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn AddAutomationPropertyChangedEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn AddAutomationEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, id: UIA_EVENT_ID) -> Result<(), windows_result::HRESULT>;
+    fn AddStructureChangedEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProxyProviderWinEventSink_Vtbl {
@@ -3790,40 +3790,40 @@ impl windows_core::RuntimeName for IProxyProviderWinEventSink {}
 windows_core::imp::define_interface!(IRangeValueProvider, IRangeValueProvider_Vtbl, 0x36dc7aef_33e6_4691_afe1_2be7274b3d33);
 windows_core::imp::interface_hierarchy!(IRangeValueProvider, windows_core::IUnknown);
 impl IRangeValueProvider {
-    pub unsafe fn SetValue(&self, val: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, val: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val).ok() }
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<f64> {
+    pub unsafe fn Value(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Maximum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn Maximum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Maximum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Minimum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn Minimum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Minimum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LargeChange(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LargeChange(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LargeChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SmallChange(&self) -> windows_core::Result<f64> {
+    pub unsafe fn SmallChange(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SmallChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3843,13 +3843,13 @@ pub struct IRangeValueProvider_Vtbl {
     pub SmallChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 pub trait IRangeValueProvider_Impl: windows_core::IUnknownImpl {
-    fn SetValue(&self, val: f64) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<f64>;
-    fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn Maximum(&self) -> windows_core::Result<f64>;
-    fn Minimum(&self) -> windows_core::Result<f64>;
-    fn LargeChange(&self) -> windows_core::Result<f64>;
-    fn SmallChange(&self) -> windows_core::Result<f64>;
+    fn SetValue(&self, val: f64) -> Result<(), windows_result::HRESULT>;
+    fn Value(&self) -> Result<f64, windows_result::HRESULT>;
+    fn IsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn Maximum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn Minimum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn LargeChange(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SmallChange(&self) -> Result<f64, windows_result::HRESULT>;
 }
 impl IRangeValueProvider_Vtbl {
     pub const fn new<Identity: IRangeValueProvider_Impl, const OFFSET: isize>() -> Self {
@@ -3951,11 +3951,11 @@ windows_core::imp::define_interface!(IRawElementProviderAdviseEvents, IRawElemen
 windows_core::imp::interface_hierarchy!(IRawElementProviderAdviseEvents, windows_core::IUnknown);
 impl IRawElementProviderAdviseEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AdviseEventAdded)(windows_core::Interface::as_raw(self), eventid, propertyids).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdviseEventRemoved(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn AdviseEventRemoved(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AdviseEventRemoved)(windows_core::Interface::as_raw(self), eventid, propertyids).ok() }
     }
 }
@@ -3974,8 +3974,8 @@ pub struct IRawElementProviderAdviseEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderAdviseEvents_Impl: windows_core::IUnknownImpl {
-    fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn AdviseEventRemoved(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn AdviseEventRemoved(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderAdviseEvents_Vtbl {
@@ -4007,36 +4007,36 @@ impl windows_core::RuntimeName for IRawElementProviderAdviseEvents {}
 windows_core::imp::define_interface!(IRawElementProviderFragment, IRawElementProviderFragment_Vtbl, 0xf7063da8_8359_439c_9297_bbc5299a7d87);
 windows_core::imp::interface_hierarchy!(IRawElementProviderFragment, windows_core::IUnknown);
 impl IRawElementProviderFragment {
-    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<IRawElementProviderFragment> {
+    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> Result<IRawElementProviderFragment, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetRuntimeId(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRuntimeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BoundingRectangle(&self) -> windows_core::Result<UiaRect> {
+    pub unsafe fn BoundingRectangle(&self) -> Result<UiaRect, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BoundingRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEmbeddedFragmentRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetEmbeddedFragmentRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEmbeddedFragmentRoots)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFocus(&self) -> windows_core::Result<()> {
+    pub unsafe fn SetFocus(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn FragmentRoot(&self) -> windows_core::Result<IRawElementProviderFragmentRoot> {
+    pub unsafe fn FragmentRoot(&self) -> Result<IRawElementProviderFragmentRoot, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FragmentRoot)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4062,12 +4062,12 @@ pub struct IRawElementProviderFragment_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderFragment_Impl: windows_core::IUnknownImpl {
-    fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<IRawElementProviderFragment>;
-    fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn BoundingRectangle(&self) -> windows_core::Result<UiaRect>;
-    fn GetEmbeddedFragmentRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetFocus(&self) -> windows_core::Result<()>;
-    fn FragmentRoot(&self) -> windows_core::Result<IRawElementProviderFragmentRoot>;
+    fn Navigate(&self, direction: NavigateDirection) -> Result<IRawElementProviderFragment, windows_result::HRESULT>;
+    fn GetRuntimeId(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn BoundingRectangle(&self) -> Result<UiaRect, windows_result::HRESULT>;
+    fn GetEmbeddedFragmentRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetFocus(&self) -> Result<(), windows_result::HRESULT>;
+    fn FragmentRoot(&self) -> Result<IRawElementProviderFragmentRoot, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderFragment_Vtbl {
@@ -4157,13 +4157,13 @@ impl windows_core::RuntimeName for IRawElementProviderFragment {}
 windows_core::imp::define_interface!(IRawElementProviderFragmentRoot, IRawElementProviderFragmentRoot_Vtbl, 0x620ce2a5_ab8f_40a9_86cb_de3c75599b58);
 windows_core::imp::interface_hierarchy!(IRawElementProviderFragmentRoot, windows_core::IUnknown);
 impl IRawElementProviderFragmentRoot {
-    pub unsafe fn ElementProviderFromPoint(&self, x: f64, y: f64) -> windows_core::Result<IRawElementProviderFragment> {
+    pub unsafe fn ElementProviderFromPoint(&self, x: f64, y: f64) -> Result<IRawElementProviderFragment, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElementProviderFromPoint)(windows_core::Interface::as_raw(self), x, y, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFocus(&self) -> windows_core::Result<IRawElementProviderFragment> {
+    pub unsafe fn GetFocus(&self) -> Result<IRawElementProviderFragment, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFocus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4178,8 +4178,8 @@ pub struct IRawElementProviderFragmentRoot_Vtbl {
     pub GetFocus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRawElementProviderFragmentRoot_Impl: windows_core::IUnknownImpl {
-    fn ElementProviderFromPoint(&self, x: f64, y: f64) -> windows_core::Result<IRawElementProviderFragment>;
-    fn GetFocus(&self) -> windows_core::Result<IRawElementProviderFragment>;
+    fn ElementProviderFromPoint(&self, x: f64, y: f64) -> Result<IRawElementProviderFragment, windows_result::HRESULT>;
+    fn GetFocus(&self) -> Result<IRawElementProviderFragment, windows_result::HRESULT>;
 }
 impl IRawElementProviderFragmentRoot_Vtbl {
     pub const fn new<Identity: IRawElementProviderFragmentRoot_Impl, const OFFSET: isize>() -> Self {
@@ -4222,7 +4222,7 @@ windows_core::imp::define_interface!(IRawElementProviderHostingAccessibles, IRaw
 windows_core::imp::interface_hierarchy!(IRawElementProviderHostingAccessibles, windows_core::IUnknown);
 impl IRawElementProviderHostingAccessibles {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEmbeddedAccessibles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetEmbeddedAccessibles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEmbeddedAccessibles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4240,7 +4240,7 @@ pub struct IRawElementProviderHostingAccessibles_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderHostingAccessibles_Impl: windows_core::IUnknownImpl {
-    fn GetEmbeddedAccessibles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetEmbeddedAccessibles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderHostingAccessibles_Vtbl {
@@ -4268,7 +4268,7 @@ impl windows_core::RuntimeName for IRawElementProviderHostingAccessibles {}
 windows_core::imp::define_interface!(IRawElementProviderHwndOverride, IRawElementProviderHwndOverride_Vtbl, 0x1d5df27c_8947_4425_b8d9_79787bb460b8);
 windows_core::imp::interface_hierarchy!(IRawElementProviderHwndOverride, windows_core::IUnknown);
 impl IRawElementProviderHwndOverride {
-    pub unsafe fn GetOverrideProviderForHwnd(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn GetOverrideProviderForHwnd(&self, hwnd: super::super::Foundation::HWND) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOverrideProviderForHwnd)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4282,7 +4282,7 @@ pub struct IRawElementProviderHwndOverride_Vtbl {
     pub GetOverrideProviderForHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRawElementProviderHwndOverride_Impl: windows_core::IUnknownImpl {
-    fn GetOverrideProviderForHwnd(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<IRawElementProviderSimple>;
+    fn GetOverrideProviderForHwnd(&self, hwnd: super::super::Foundation::HWND) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 impl IRawElementProviderHwndOverride_Vtbl {
     pub const fn new<Identity: IRawElementProviderHwndOverride_Impl, const OFFSET: isize>() -> Self {
@@ -4308,26 +4308,26 @@ impl windows_core::RuntimeName for IRawElementProviderHwndOverride {}
 windows_core::imp::define_interface!(IRawElementProviderSimple, IRawElementProviderSimple_Vtbl, 0xd6dd68d1_86fd_4332_8666_9abedea2d24c);
 windows_core::imp::interface_hierarchy!(IRawElementProviderSimple, windows_core::IUnknown);
 impl IRawElementProviderSimple {
-    pub unsafe fn ProviderOptions(&self) -> windows_core::Result<ProviderOptions> {
+    pub unsafe fn ProviderOptions(&self) -> Result<ProviderOptions, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProviderOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPatternProvider)(windows_core::Interface::as_raw(self), patternid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropertyValue)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn HostRawElementProvider(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn HostRawElementProvider(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HostRawElementProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4348,10 +4348,10 @@ pub struct IRawElementProviderSimple_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple_Impl: windows_core::IUnknownImpl {
-    fn ProviderOptions(&self) -> windows_core::Result<ProviderOptions>;
-    fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn HostRawElementProvider(&self) -> windows_core::Result<IRawElementProviderSimple>;
+    fn ProviderOptions(&self) -> Result<ProviderOptions, windows_result::HRESULT>;
+    fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn HostRawElementProvider(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple_Vtbl {
@@ -4427,7 +4427,7 @@ impl core::ops::Deref for IRawElementProviderSimple2 {
 }
 windows_core::imp::interface_hierarchy!(IRawElementProviderSimple2, windows_core::IUnknown, IRawElementProviderSimple);
 impl IRawElementProviderSimple2 {
-    pub unsafe fn ShowContextMenu(&self) -> windows_core::Result<()> {
+    pub unsafe fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ShowContextMenu)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4439,7 +4439,7 @@ pub struct IRawElementProviderSimple2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple2_Impl: IRawElementProviderSimple_Impl {
-    fn ShowContextMenu(&self) -> windows_core::Result<()>;
+    fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple2_Vtbl {
@@ -4468,7 +4468,7 @@ impl core::ops::Deref for IRawElementProviderSimple3 {
 windows_core::imp::interface_hierarchy!(IRawElementProviderSimple3, windows_core::IUnknown, IRawElementProviderSimple, IRawElementProviderSimple2);
 impl IRawElementProviderSimple3 {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMetadataValue)(windows_core::Interface::as_raw(self), targetid, metadataid, &mut result__).map(|| core::mem::transmute(result__))
@@ -4486,7 +4486,7 @@ pub struct IRawElementProviderSimple3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple3_Impl: IRawElementProviderSimple2_Impl {
-    fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple3_Vtbl {
@@ -4514,14 +4514,14 @@ impl windows_core::RuntimeName for IRawElementProviderSimple3 {}
 windows_core::imp::define_interface!(IRawElementProviderWindowlessSite, IRawElementProviderWindowlessSite_Vtbl, 0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0);
 windows_core::imp::interface_hierarchy!(IRawElementProviderWindowlessSite, windows_core::IUnknown);
 impl IRawElementProviderWindowlessSite {
-    pub unsafe fn GetAdjacentFragment(&self, direction: NavigateDirection) -> windows_core::Result<IRawElementProviderFragment> {
+    pub unsafe fn GetAdjacentFragment(&self, direction: NavigateDirection) -> Result<IRawElementProviderFragment, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAdjacentFragment)(windows_core::Interface::as_raw(self), direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRuntimeIdPrefix(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetRuntimeIdPrefix(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRuntimeIdPrefix)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4540,8 +4540,8 @@ pub struct IRawElementProviderWindowlessSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRawElementProviderWindowlessSite_Impl: windows_core::IUnknownImpl {
-    fn GetAdjacentFragment(&self, direction: NavigateDirection) -> windows_core::Result<IRawElementProviderFragment>;
-    fn GetRuntimeIdPrefix(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetAdjacentFragment(&self, direction: NavigateDirection) -> Result<IRawElementProviderFragment, windows_result::HRESULT>;
+    fn GetRuntimeIdPrefix(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderWindowlessSite_Vtbl {
@@ -4585,10 +4585,10 @@ impl windows_core::RuntimeName for IRawElementProviderWindowlessSite {}
 windows_core::imp::define_interface!(IRichEditUiaInformation, IRichEditUiaInformation_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IRichEditUiaInformation, windows_core::IUnknown);
 impl IRichEditUiaInformation {
-    pub unsafe fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> windows_core::Result<()> {
+    pub unsafe fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetBoundaryRectangle)(windows_core::Interface::as_raw(self), puiarect as _).ok() }
     }
-    pub unsafe fn IsVisible(&self) -> windows_core::Result<()> {
+    pub unsafe fn IsVisible(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsVisible)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4600,8 +4600,8 @@ pub struct IRichEditUiaInformation_Vtbl {
     pub IsVisible: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRichEditUiaInformation_Impl: windows_core::IUnknownImpl {
-    fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> windows_core::Result<()>;
-    fn IsVisible(&self) -> windows_core::Result<()>;
+    fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> Result<(), windows_result::HRESULT>;
+    fn IsVisible(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IRichEditUiaInformation_Vtbl {
     pub const fn new<Identity: IRichEditUiaInformation_Impl, const OFFSET: isize>() -> Self {
@@ -4631,7 +4631,7 @@ impl windows_core::RuntimeName for IRichEditUiaInformation {}
 windows_core::imp::define_interface!(IRicheditWindowlessAccessibility, IRicheditWindowlessAccessibility_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IRicheditWindowlessAccessibility, windows_core::IUnknown);
 impl IRicheditWindowlessAccessibility {
-    pub unsafe fn CreateProvider<P0>(&self, psite: P0) -> windows_core::Result<IRawElementProviderSimple>
+    pub unsafe fn CreateProvider<P0>(&self, psite: P0) -> Result<IRawElementProviderSimple, windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderWindowlessSite>,
     {
@@ -4648,7 +4648,7 @@ pub struct IRicheditWindowlessAccessibility_Vtbl {
     pub CreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRicheditWindowlessAccessibility_Impl: windows_core::IUnknownImpl {
-    fn CreateProvider(&self, psite: windows_core::Ref<'_, IRawElementProviderWindowlessSite>) -> windows_core::Result<IRawElementProviderSimple>;
+    fn CreateProvider(&self, psite: windows_core::Ref<'_, IRawElementProviderWindowlessSite>) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 impl IRicheditWindowlessAccessibility_Vtbl {
     pub const fn new<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>() -> Self {
@@ -4674,7 +4674,7 @@ impl windows_core::RuntimeName for IRicheditWindowlessAccessibility {}
 windows_core::imp::define_interface!(IScrollItemProvider, IScrollItemProvider_Vtbl, 0x2360c714_4bf1_4b26_ba65_9b21316127eb);
 windows_core::imp::interface_hierarchy!(IScrollItemProvider, windows_core::IUnknown);
 impl IScrollItemProvider {
-    pub unsafe fn ScrollIntoView(&self) -> windows_core::Result<()> {
+    pub unsafe fn ScrollIntoView(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4685,7 +4685,7 @@ pub struct IScrollItemProvider_Vtbl {
     pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IScrollItemProvider_Impl: windows_core::IUnknownImpl {
-    fn ScrollIntoView(&self) -> windows_core::Result<()>;
+    fn ScrollIntoView(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IScrollItemProvider_Vtbl {
     pub const fn new<Identity: IScrollItemProvider_Impl, const OFFSET: isize>() -> Self {
@@ -4705,43 +4705,43 @@ impl windows_core::RuntimeName for IScrollItemProvider {}
 windows_core::imp::define_interface!(IScrollProvider, IScrollProvider_Vtbl, 0xb38b8077_1fc3_42a5_8cae_d40c2215055a);
 windows_core::imp::interface_hierarchy!(IScrollProvider, windows_core::IUnknown);
 impl IScrollProvider {
-    pub unsafe fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()> {
+    pub unsafe fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), horizontalamount, verticalamount).ok() }
     }
-    pub unsafe fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetScrollPercent)(windows_core::Interface::as_raw(self), horizontalpercent, verticalpercent).ok() }
     }
-    pub unsafe fn HorizontalScrollPercent(&self) -> windows_core::Result<f64> {
+    pub unsafe fn HorizontalScrollPercent(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HorizontalScrollPercent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VerticalScrollPercent(&self) -> windows_core::Result<f64> {
+    pub unsafe fn VerticalScrollPercent(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VerticalScrollPercent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn HorizontalViewSize(&self) -> windows_core::Result<f64> {
+    pub unsafe fn HorizontalViewSize(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HorizontalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VerticalViewSize(&self) -> windows_core::Result<f64> {
+    pub unsafe fn VerticalViewSize(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VerticalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn HorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn HorizontallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HorizontallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn VerticallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VerticallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4762,14 +4762,14 @@ pub struct IScrollProvider_Vtbl {
     pub VerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IScrollProvider_Impl: windows_core::IUnknownImpl {
-    fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()>;
-    fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()>;
-    fn HorizontalScrollPercent(&self) -> windows_core::Result<f64>;
-    fn VerticalScrollPercent(&self) -> windows_core::Result<f64>;
-    fn HorizontalViewSize(&self) -> windows_core::Result<f64>;
-    fn VerticalViewSize(&self) -> windows_core::Result<f64>;
-    fn HorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn VerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> Result<(), windows_result::HRESULT>;
+    fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> Result<(), windows_result::HRESULT>;
+    fn HorizontalScrollPercent(&self) -> Result<f64, windows_result::HRESULT>;
+    fn VerticalScrollPercent(&self) -> Result<f64, windows_result::HRESULT>;
+    fn HorizontalViewSize(&self) -> Result<f64, windows_result::HRESULT>;
+    fn VerticalViewSize(&self) -> Result<f64, windows_result::HRESULT>;
+    fn HorizontallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn VerticallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IScrollProvider_Vtbl {
     pub const fn new<Identity: IScrollProvider_Impl, const OFFSET: isize>() -> Self {
@@ -4877,22 +4877,22 @@ impl windows_core::RuntimeName for IScrollProvider {}
 windows_core::imp::define_interface!(ISelectionItemProvider, ISelectionItemProvider_Vtbl, 0x2acad808_b2d4_452d_a407_91ff1ad167b2);
 windows_core::imp::interface_hierarchy!(ISelectionItemProvider, windows_core::IUnknown);
 impl ISelectionItemProvider {
-    pub unsafe fn Select(&self) -> windows_core::Result<()> {
+    pub unsafe fn Select(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddToSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn AddToSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddToSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsSelected(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsSelected(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SelectionContainer(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn SelectionContainer(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectionContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4910,11 +4910,11 @@ pub struct ISelectionItemProvider_Vtbl {
     pub SelectionContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISelectionItemProvider_Impl: windows_core::IUnknownImpl {
-    fn Select(&self) -> windows_core::Result<()>;
-    fn AddToSelection(&self) -> windows_core::Result<()>;
-    fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn IsSelected(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SelectionContainer(&self) -> windows_core::Result<IRawElementProviderSimple>;
+    fn Select(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddToSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn IsSelected(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SelectionContainer(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 impl ISelectionItemProvider_Vtbl {
     pub const fn new<Identity: ISelectionItemProvider_Impl, const OFFSET: isize>() -> Self {
@@ -4978,19 +4978,19 @@ windows_core::imp::define_interface!(ISelectionProvider, ISelectionProvider_Vtbl
 windows_core::imp::interface_hierarchy!(ISelectionProvider, windows_core::IUnknown);
 impl ISelectionProvider {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetSelection(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanSelectMultiple(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanSelectMultiple)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsSelectionRequired(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSelectionRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5010,9 +5010,9 @@ pub struct ISelectionProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISelectionProvider_Impl: windows_core::IUnknownImpl {
-    fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetSelection(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CanSelectMultiple(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsSelectionRequired(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISelectionProvider_Vtbl {
@@ -5075,25 +5075,25 @@ impl core::ops::Deref for ISelectionProvider2 {
 }
 windows_core::imp::interface_hierarchy!(ISelectionProvider2, windows_core::IUnknown, ISelectionProvider);
 impl ISelectionProvider2 {
-    pub unsafe fn FirstSelectedItem(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn FirstSelectedItem(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FirstSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LastSelectedItem(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn LastSelectedItem(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentSelectedItem(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn CurrentSelectedItem(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ItemCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ItemCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5111,10 +5111,10 @@ pub struct ISelectionProvider2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISelectionProvider2_Impl: ISelectionProvider_Impl {
-    fn FirstSelectedItem(&self) -> windows_core::Result<IRawElementProviderSimple>;
-    fn LastSelectedItem(&self) -> windows_core::Result<IRawElementProviderSimple>;
-    fn CurrentSelectedItem(&self) -> windows_core::Result<IRawElementProviderSimple>;
-    fn ItemCount(&self) -> windows_core::Result<i32>;
+    fn FirstSelectedItem(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
+    fn LastSelectedItem(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
+    fn CurrentSelectedItem(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
+    fn ItemCount(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISelectionProvider2_Vtbl {
@@ -5184,21 +5184,21 @@ impl windows_core::RuntimeName for ISelectionProvider2 {}
 windows_core::imp::define_interface!(ISpreadsheetItemProvider, ISpreadsheetItemProvider_Vtbl, 0xeaed4660_7b3d_4879_a2e6_365ce603f3d0);
 windows_core::imp::interface_hierarchy!(ISpreadsheetItemProvider, windows_core::IUnknown);
 impl ISpreadsheetItemProvider {
-    pub unsafe fn Formula(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Formula(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Formula)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAnnotationObjects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetAnnotationObjects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAnnotationObjects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAnnotationTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5221,9 +5221,9 @@ pub struct ISpreadsheetItemProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpreadsheetItemProvider_Impl: windows_core::IUnknownImpl {
-    fn Formula(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetAnnotationObjects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn Formula(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetAnnotationObjects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISpreadsheetItemProvider_Vtbl {
@@ -5280,7 +5280,7 @@ impl windows_core::RuntimeName for ISpreadsheetItemProvider {}
 windows_core::imp::define_interface!(ISpreadsheetProvider, ISpreadsheetProvider_Vtbl, 0x6f6b5d35_5525_4f80_b758_85473832ffc7);
 windows_core::imp::interface_hierarchy!(ISpreadsheetProvider, windows_core::IUnknown);
 impl ISpreadsheetProvider {
-    pub unsafe fn GetItemByName<P0>(&self, name: P0) -> windows_core::Result<IRawElementProviderSimple>
+    pub unsafe fn GetItemByName<P0>(&self, name: P0) -> Result<IRawElementProviderSimple, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5297,7 +5297,7 @@ pub struct ISpreadsheetProvider_Vtbl {
     pub GetItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISpreadsheetProvider_Impl: windows_core::IUnknownImpl {
-    fn GetItemByName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<IRawElementProviderSimple>;
+    fn GetItemByName(&self, name: &windows_core::PCWSTR) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
 }
 impl ISpreadsheetProvider_Vtbl {
     pub const fn new<Identity: ISpreadsheetProvider_Impl, const OFFSET: isize>() -> Self {
@@ -5323,43 +5323,43 @@ impl windows_core::RuntimeName for ISpreadsheetProvider {}
 windows_core::imp::define_interface!(IStylesProvider, IStylesProvider_Vtbl, 0x19b6b649_f5d7_4a6d_bdcb_129252be588a);
 windows_core::imp::interface_hierarchy!(IStylesProvider, windows_core::IUnknown);
 impl IStylesProvider {
-    pub unsafe fn StyleId(&self) -> windows_core::Result<UIA_STYLE_ID> {
+    pub unsafe fn StyleId(&self) -> Result<UIA_STYLE_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StyleId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StyleName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StyleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StyleName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn FillColor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FillColor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FillColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FillPatternStyle(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FillPatternStyle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FillPatternStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Shape(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Shape(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Shape)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn FillPatternColor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FillPatternColor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FillPatternColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExtendedProperties(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExtendedProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -5379,13 +5379,13 @@ pub struct IStylesProvider_Vtbl {
     pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IStylesProvider_Impl: windows_core::IUnknownImpl {
-    fn StyleId(&self) -> windows_core::Result<UIA_STYLE_ID>;
-    fn StyleName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn FillColor(&self) -> windows_core::Result<i32>;
-    fn FillPatternStyle(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Shape(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn FillPatternColor(&self) -> windows_core::Result<i32>;
-    fn ExtendedProperties(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn StyleId(&self) -> Result<UIA_STYLE_ID, windows_result::HRESULT>;
+    fn StyleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn FillColor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FillPatternStyle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Shape(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn FillPatternColor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ExtendedProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 impl IStylesProvider_Vtbl {
     pub const fn new<Identity: IStylesProvider_Impl, const OFFSET: isize>() -> Self {
@@ -5492,10 +5492,10 @@ impl windows_core::RuntimeName for IStylesProvider {}
 windows_core::imp::define_interface!(ISynchronizedInputProvider, ISynchronizedInputProvider_Vtbl, 0x29db1a06_02ce_4cf7_9b42_565d4fab20ee);
 windows_core::imp::interface_hierarchy!(ISynchronizedInputProvider, windows_core::IUnknown);
 impl ISynchronizedInputProvider {
-    pub unsafe fn StartListening(&self, inputtype: SynchronizedInputType) -> windows_core::Result<()> {
+    pub unsafe fn StartListening(&self, inputtype: SynchronizedInputType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StartListening)(windows_core::Interface::as_raw(self), inputtype).ok() }
     }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -5507,8 +5507,8 @@ pub struct ISynchronizedInputProvider_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISynchronizedInputProvider_Impl: windows_core::IUnknownImpl {
-    fn StartListening(&self, inputtype: SynchronizedInputType) -> windows_core::Result<()>;
-    fn Cancel(&self) -> windows_core::Result<()>;
+    fn StartListening(&self, inputtype: SynchronizedInputType) -> Result<(), windows_result::HRESULT>;
+    fn Cancel(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ISynchronizedInputProvider_Vtbl {
     pub const fn new<Identity: ISynchronizedInputProvider_Impl, const OFFSET: isize>() -> Self {
@@ -5539,14 +5539,14 @@ windows_core::imp::define_interface!(ITableItemProvider, ITableItemProvider_Vtbl
 windows_core::imp::interface_hierarchy!(ITableItemProvider, windows_core::IUnknown);
 impl ITableItemProvider {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRowHeaderItems(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetRowHeaderItems(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRowHeaderItems)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetColumnHeaderItems(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetColumnHeaderItems(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetColumnHeaderItems)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5568,8 +5568,8 @@ pub struct ITableItemProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITableItemProvider_Impl: windows_core::IUnknownImpl {
-    fn GetRowHeaderItems(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetColumnHeaderItems(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetRowHeaderItems(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetColumnHeaderItems(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITableItemProvider_Vtbl {
@@ -5614,20 +5614,20 @@ windows_core::imp::define_interface!(ITableProvider, ITableProvider_Vtbl, 0x9c86
 windows_core::imp::interface_hierarchy!(ITableProvider, windows_core::IUnknown);
 impl ITableProvider {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRowHeaders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetRowHeaders(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRowHeaders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetColumnHeaders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetColumnHeaders(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetColumnHeaders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RowOrColumnMajor(&self) -> windows_core::Result<RowOrColumnMajor> {
+    pub unsafe fn RowOrColumnMajor(&self) -> Result<RowOrColumnMajor, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RowOrColumnMajor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5650,9 +5650,9 @@ pub struct ITableProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITableProvider_Impl: windows_core::IUnknownImpl {
-    fn GetRowHeaders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetColumnHeaders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn RowOrColumnMajor(&self) -> windows_core::Result<RowOrColumnMajor>;
+    fn GetRowHeaders(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetColumnHeaders(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn RowOrColumnMajor(&self) -> Result<RowOrColumnMajor, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITableProvider_Vtbl {
@@ -5709,13 +5709,13 @@ impl windows_core::RuntimeName for ITableProvider {}
 windows_core::imp::define_interface!(ITextChildProvider, ITextChildProvider_Vtbl, 0x4c2de2b9_c88f_4f88_a111_f1d336b7d1a9);
 windows_core::imp::interface_hierarchy!(ITextChildProvider, windows_core::IUnknown);
 impl ITextChildProvider {
-    pub unsafe fn TextContainer(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn TextContainer(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TextContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TextRange(&self) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn TextRange(&self) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TextRange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5730,8 +5730,8 @@ pub struct ITextChildProvider_Vtbl {
     pub TextRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITextChildProvider_Impl: windows_core::IUnknownImpl {
-    fn TextContainer(&self) -> windows_core::Result<IRawElementProviderSimple>;
-    fn TextRange(&self) -> windows_core::Result<ITextRangeProvider>;
+    fn TextContainer(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
+    fn TextRange(&self) -> Result<ITextRangeProvider, windows_result::HRESULT>;
 }
 impl ITextChildProvider_Vtbl {
     pub const fn new<Identity: ITextChildProvider_Impl, const OFFSET: isize>() -> Self {
@@ -5779,13 +5779,13 @@ impl core::ops::Deref for ITextEditProvider {
 }
 windows_core::imp::interface_hierarchy!(ITextEditProvider, windows_core::IUnknown, ITextProvider);
 impl ITextEditProvider {
-    pub unsafe fn GetActiveComposition(&self) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn GetActiveComposition(&self) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetActiveComposition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetConversionTarget(&self) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn GetConversionTarget(&self) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConversionTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5801,8 +5801,8 @@ pub struct ITextEditProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextEditProvider_Impl: ITextProvider_Impl {
-    fn GetActiveComposition(&self) -> windows_core::Result<ITextRangeProvider>;
-    fn GetConversionTarget(&self) -> windows_core::Result<ITextRangeProvider>;
+    fn GetActiveComposition(&self) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn GetConversionTarget(&self) -> Result<ITextRangeProvider, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITextEditProvider_Vtbl {
@@ -5847,20 +5847,20 @@ windows_core::imp::define_interface!(ITextProvider, ITextProvider_Vtbl, 0x3589c9
 windows_core::imp::interface_hierarchy!(ITextProvider, windows_core::IUnknown);
 impl ITextProvider {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetSelection(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetVisibleRanges(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetVisibleRanges(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVisibleRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RangeFromChild<P0>(&self, childelement: P0) -> windows_core::Result<ITextRangeProvider>
+    pub unsafe fn RangeFromChild<P0>(&self, childelement: P0) -> Result<ITextRangeProvider, windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
@@ -5869,19 +5869,19 @@ impl ITextProvider {
             (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), childelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RangeFromPoint(&self, point: UiaPoint) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn RangeFromPoint(&self, point: UiaPoint) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(point), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DocumentRange(&self) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn DocumentRange(&self) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DocumentRange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SupportedTextSelection(&self) -> windows_core::Result<SupportedTextSelection> {
+    pub unsafe fn SupportedTextSelection(&self) -> Result<SupportedTextSelection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedTextSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5907,12 +5907,12 @@ pub struct ITextProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider_Impl: windows_core::IUnknownImpl {
-    fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetVisibleRanges(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn RangeFromChild(&self, childelement: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
-    fn RangeFromPoint(&self, point: &UiaPoint) -> windows_core::Result<ITextRangeProvider>;
-    fn DocumentRange(&self) -> windows_core::Result<ITextRangeProvider>;
-    fn SupportedTextSelection(&self) -> windows_core::Result<SupportedTextSelection>;
+    fn GetSelection(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetVisibleRanges(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn RangeFromChild(&self, childelement: windows_core::Ref<'_, IRawElementProviderSimple>) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn RangeFromPoint(&self, point: &UiaPoint) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn DocumentRange(&self) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn SupportedTextSelection(&self) -> Result<SupportedTextSelection, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITextProvider_Vtbl {
@@ -6014,7 +6014,7 @@ impl core::ops::Deref for ITextProvider2 {
 }
 windows_core::imp::interface_hierarchy!(ITextProvider2, windows_core::IUnknown, ITextProvider);
 impl ITextProvider2 {
-    pub unsafe fn RangeFromAnnotation<P0>(&self, annotationelement: P0) -> windows_core::Result<ITextRangeProvider>
+    pub unsafe fn RangeFromAnnotation<P0>(&self, annotationelement: P0) -> Result<ITextRangeProvider, windows_result::HRESULT>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
@@ -6023,7 +6023,7 @@ impl ITextProvider2 {
             (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotationelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCaretRange)(windows_core::Interface::as_raw(self), isactive as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6039,8 +6039,8 @@ pub struct ITextProvider2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider2_Impl: ITextProvider_Impl {
-    fn RangeFromAnnotation(&self, annotationelement: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
-    fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
+    fn RangeFromAnnotation(&self, annotationelement: windows_core::Ref<'_, IRawElementProviderSimple>) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> Result<ITextRangeProvider, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITextProvider2_Vtbl {
@@ -6084,13 +6084,13 @@ impl windows_core::RuntimeName for ITextProvider2 {}
 windows_core::imp::define_interface!(ITextRangeProvider, ITextRangeProvider_Vtbl, 0x5347ad7b_c355_46f8_aff5_909033582f63);
 windows_core::imp::interface_hierarchy!(ITextRangeProvider, windows_core::IUnknown);
 impl ITextRangeProvider {
-    pub unsafe fn Clone(&self) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn Clone(&self) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn Compare<P0>(&self, range: P0) -> Result<windows_core::BOOL, windows_result::HRESULT>
     where
         P0: windows_core::Param<ITextRangeProvider>,
     {
@@ -6099,7 +6099,7 @@ impl ITextRangeProvider {
             (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CompareEndpoints<P1>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
+    pub unsafe fn CompareEndpoints<P1>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> Result<i32, windows_result::HRESULT>
     where
         P1: windows_core::Param<ITextRangeProvider>,
     {
@@ -6108,80 +6108,80 @@ impl ITextRangeProvider {
             (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()> {
+    pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), unit).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attributeid, core::mem::transmute_copy(val), backward.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<ITextRangeProvider> {
+    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> Result<ITextRangeProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), attributeid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetBoundingRectangles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBoundingRectangles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEnclosingElement(&self) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn GetEnclosingElement(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEnclosingElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetText(&self, maxlength: i32) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), maxlength, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32> {
+    pub unsafe fn Move(&self, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32> {
+    pub unsafe fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveEndpointByUnit)(windows_core::Interface::as_raw(self), endpoint, unit, count, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveEndpointByRange<P1>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
+    pub unsafe fn MoveEndpointByRange<P1>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<ITextRangeProvider>,
     {
         unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint).ok() }
     }
-    pub unsafe fn Select(&self) -> windows_core::Result<()> {
+    pub unsafe fn Select(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddToSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn AddToSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddToSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ScrollIntoView(&self, aligntotop: bool) -> windows_core::Result<()> {
+    pub unsafe fn ScrollIntoView(&self, aligntotop: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetChildren(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChildren)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6225,24 +6225,24 @@ pub struct ITextRangeProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self) -> windows_core::Result<ITextRangeProvider>;
-    fn Compare(&self, range: windows_core::Ref<'_, ITextRangeProvider>) -> windows_core::Result<windows_core::BOOL>;
-    fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<'_, ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
-    fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()>;
-    fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
-    fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
-    fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetEnclosingElement(&self) -> windows_core::Result<IRawElementProviderSimple>;
-    fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByRange(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<'_, ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
-    fn Select(&self) -> windows_core::Result<()>;
-    fn AddToSelection(&self) -> windows_core::Result<()>;
-    fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn Clone(&self) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn Compare(&self, range: windows_core::Ref<'_, ITextRangeProvider>) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<'_, ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> Result<i32, windows_result::HRESULT>;
+    fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> Result<(), windows_result::HRESULT>;
+    fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> Result<ITextRangeProvider, windows_result::HRESULT>;
+    fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn GetBoundingRectangles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetEnclosingElement(&self) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
+    fn GetText(&self, maxlength: i32) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Move(&self, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT>;
+    fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT>;
+    fn MoveEndpointByRange(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<'_, ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> Result<(), windows_result::HRESULT>;
+    fn Select(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddToSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn GetChildren(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRangeProvider_Vtbl {
@@ -6464,7 +6464,7 @@ impl core::ops::Deref for ITextRangeProvider2 {
 }
 windows_core::imp::interface_hierarchy!(ITextRangeProvider2, windows_core::IUnknown, ITextRangeProvider);
 impl ITextRangeProvider2 {
-    pub unsafe fn ShowContextMenu(&self) -> windows_core::Result<()> {
+    pub unsafe fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ShowContextMenu)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -6476,7 +6476,7 @@ pub struct ITextRangeProvider2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider2_Impl: ITextRangeProvider_Impl {
-    fn ShowContextMenu(&self) -> windows_core::Result<()>;
+    fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRangeProvider2_Vtbl {
@@ -6498,10 +6498,10 @@ impl windows_core::RuntimeName for ITextRangeProvider2 {}
 windows_core::imp::define_interface!(IToggleProvider, IToggleProvider_Vtbl, 0x56d00bd0_c4f4_433c_a836_1a52a57e0892);
 windows_core::imp::interface_hierarchy!(IToggleProvider, windows_core::IUnknown);
 impl IToggleProvider {
-    pub unsafe fn Toggle(&self) -> windows_core::Result<()> {
+    pub unsafe fn Toggle(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Toggle)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ToggleState(&self) -> windows_core::Result<ToggleState> {
+    pub unsafe fn ToggleState(&self) -> Result<ToggleState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ToggleState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6516,8 +6516,8 @@ pub struct IToggleProvider_Vtbl {
     pub ToggleState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToggleState) -> windows_core::HRESULT,
 }
 pub trait IToggleProvider_Impl: windows_core::IUnknownImpl {
-    fn Toggle(&self) -> windows_core::Result<()>;
-    fn ToggleState(&self) -> windows_core::Result<ToggleState>;
+    fn Toggle(&self) -> Result<(), windows_result::HRESULT>;
+    fn ToggleState(&self) -> Result<ToggleState, windows_result::HRESULT>;
 }
 impl IToggleProvider_Vtbl {
     pub const fn new<Identity: IToggleProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6549,28 +6549,28 @@ impl windows_core::RuntimeName for IToggleProvider {}
 windows_core::imp::define_interface!(ITransformProvider, ITransformProvider_Vtbl, 0x6829ddc4_4f91_4ffa_b86f_bd3e2987cb4c);
 windows_core::imp::interface_hierarchy!(ITransformProvider, windows_core::IUnknown);
 impl ITransformProvider {
-    pub unsafe fn Move(&self, x: f64, y: f64) -> windows_core::Result<()> {
+    pub unsafe fn Move(&self, x: f64, y: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), x, y).ok() }
     }
-    pub unsafe fn Resize(&self, width: f64, height: f64) -> windows_core::Result<()> {
+    pub unsafe fn Resize(&self, width: f64, height: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), width, height).ok() }
     }
-    pub unsafe fn Rotate(&self, degrees: f64) -> windows_core::Result<()> {
+    pub unsafe fn Rotate(&self, degrees: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees).ok() }
     }
-    pub unsafe fn CanMove(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanMove(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanMove)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanResize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanResize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanResize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanRotate(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanRotate(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanRotate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6589,12 +6589,12 @@ pub struct ITransformProvider_Vtbl {
     pub CanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITransformProvider_Impl: windows_core::IUnknownImpl {
-    fn Move(&self, x: f64, y: f64) -> windows_core::Result<()>;
-    fn Resize(&self, width: f64, height: f64) -> windows_core::Result<()>;
-    fn Rotate(&self, degrees: f64) -> windows_core::Result<()>;
-    fn CanMove(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CanResize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CanRotate(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn Move(&self, x: f64, y: f64) -> Result<(), windows_result::HRESULT>;
+    fn Resize(&self, width: f64, height: f64) -> Result<(), windows_result::HRESULT>;
+    fn Rotate(&self, degrees: f64) -> Result<(), windows_result::HRESULT>;
+    fn CanMove(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CanResize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CanRotate(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl ITransformProvider_Vtbl {
     pub const fn new<Identity: ITransformProvider_Impl, const OFFSET: isize>() -> Self {
@@ -6676,34 +6676,34 @@ impl core::ops::Deref for ITransformProvider2 {
 }
 windows_core::imp::interface_hierarchy!(ITransformProvider2, windows_core::IUnknown, ITransformProvider);
 impl ITransformProvider2 {
-    pub unsafe fn Zoom(&self, zoom: f64) -> windows_core::Result<()> {
+    pub unsafe fn Zoom(&self, zoom: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Zoom)(windows_core::Interface::as_raw(self), zoom).ok() }
     }
-    pub unsafe fn CanZoom(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanZoom(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanZoom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ZoomLevel(&self) -> windows_core::Result<f64> {
+    pub unsafe fn ZoomLevel(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ZoomLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ZoomMinimum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn ZoomMinimum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ZoomMinimum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ZoomMaximum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn ZoomMaximum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ZoomMaximum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> windows_core::Result<()> {
+    pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ZoomByUnit)(windows_core::Interface::as_raw(self), zoomunit).ok() }
     }
 }
@@ -6719,12 +6719,12 @@ pub struct ITransformProvider2_Vtbl {
     pub ZoomByUnit: unsafe extern "system" fn(*mut core::ffi::c_void, ZoomUnit) -> windows_core::HRESULT,
 }
 pub trait ITransformProvider2_Impl: ITransformProvider_Impl {
-    fn Zoom(&self, zoom: f64) -> windows_core::Result<()>;
-    fn CanZoom(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn ZoomLevel(&self) -> windows_core::Result<f64>;
-    fn ZoomMinimum(&self) -> windows_core::Result<f64>;
-    fn ZoomMaximum(&self) -> windows_core::Result<f64>;
-    fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> windows_core::Result<()>;
+    fn Zoom(&self, zoom: f64) -> Result<(), windows_result::HRESULT>;
+    fn CanZoom(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn ZoomLevel(&self) -> Result<f64, windows_result::HRESULT>;
+    fn ZoomMinimum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn ZoomMaximum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> Result<(), windows_result::HRESULT>;
 }
 impl ITransformProvider2_Vtbl {
     pub const fn new<Identity: ITransformProvider2_Impl, const OFFSET: isize>() -> Self {
@@ -6806,7 +6806,7 @@ impl windows_core::RuntimeName for ITransformProvider2 {}
 windows_core::imp::define_interface!(IUIAutomation, IUIAutomation_Vtbl, 0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee);
 windows_core::imp::interface_hierarchy!(IUIAutomation, windows_core::IUnknown);
 impl IUIAutomation {
-    pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> Result<windows_core::BOOL, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationElement>,
@@ -6817,37 +6817,37 @@ impl IUIAutomation {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CompareRuntimeIds)(windows_core::Interface::as_raw(self), runtimeid1, runtimeid2, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRootElement(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetRootElement(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRootElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ElementFromHandle(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn ElementFromHandle(&self, hwnd: super::super::Foundation::HWND) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElementFromHandle)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ElementFromPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFocusedElement(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetFocusedElement(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFocusedElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetRootElementBuildCache<P0>(&self, cacherequest: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -6856,7 +6856,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ElementFromHandleBuildCache<P1>(&self, hwnd: super::super::Foundation::HWND, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn ElementFromHandleBuildCache<P1>(&self, hwnd: super::super::Foundation::HWND, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -6865,7 +6865,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ElementFromPointBuildCache<P1>(&self, pt: super::super::Foundation::POINT, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn ElementFromPointBuildCache<P1>(&self, pt: super::super::Foundation::POINT, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -6874,7 +6874,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -6883,7 +6883,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
+    pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCondition>,
     {
@@ -6892,75 +6892,75 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
+    pub unsafe fn ControlViewWalker(&self) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ControlViewWalker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ContentViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
+    pub unsafe fn ContentViewWalker(&self) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ContentViewWalker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RawViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
+    pub unsafe fn RawViewWalker(&self) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RawViewWalker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RawViewCondition(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn RawViewCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RawViewCondition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ControlViewCondition(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn ControlViewCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ControlViewCondition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ContentViewCondition(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn ContentViewCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ContentViewCondition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateCacheRequest(&self) -> windows_core::Result<IUIAutomationCacheRequest> {
+    pub unsafe fn CreateCacheRequest(&self) -> Result<IUIAutomationCacheRequest, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateCacheRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateTrueCondition(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateTrueCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTrueCondition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateFalseCondition(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateFalseCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFalseCondition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePropertyCondition)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePropertyConditionEx)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute_copy(value), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
+    pub unsafe fn CreateAndCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> Result<IUIAutomationCondition, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCondition>,
         P1: windows_core::Param<IUIAutomationCondition>,
@@ -6971,19 +6971,19 @@ impl IUIAutomation {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateAndConditionFromArray)(windows_core::Interface::as_raw(self), conditions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateAndConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions.as_ptr()), conditions.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> windows_core::Result<IUIAutomationCondition>
+    pub unsafe fn CreateOrCondition<P0, P1>(&self, condition1: P0, condition2: P1) -> Result<IUIAutomationCondition, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCondition>,
         P1: windows_core::Param<IUIAutomationCondition>,
@@ -6994,19 +6994,19 @@ impl IUIAutomation {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateOrConditionFromArray)(windows_core::Interface::as_raw(self), conditions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[Option<IUIAutomationCondition>]) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateOrConditionFromNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(conditions.as_ptr()), conditions.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> windows_core::Result<IUIAutomationCondition>
+    pub unsafe fn CreateNotCondition<P0>(&self, condition: P0) -> Result<IUIAutomationCondition, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCondition>,
     {
@@ -7015,7 +7015,7 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddAutomationEventHandler<P1, P3, P4>(&self, eventid: UIA_EVENT_ID, element: P1, scope: TreeScope, cacherequest: P3, handler: P4) -> windows_core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<P1, P3, P4>(&self, eventid: UIA_EVENT_ID, element: P1, scope: TreeScope, cacherequest: P3, handler: P4) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationElement>,
         P3: windows_core::Param<IUIAutomationCacheRequest>,
@@ -7023,14 +7023,14 @@ impl IUIAutomation {
     {
         unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveAutomationEventHandler<P1, P2>(&self, eventid: UIA_EVENT_ID, element: P1, handler: P2) -> windows_core::Result<()>
+    pub unsafe fn RemoveAutomationEventHandler<P1, P2>(&self, eventid: UIA_EVENT_ID, element: P1, handler: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: &[UIA_PROPERTY_ID]) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -7039,7 +7039,7 @@ impl IUIAutomation {
         unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddPropertyChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -7047,14 +7047,14 @@ impl IUIAutomation {
     {
         unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok() }
     }
-    pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
+    pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddStructureChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3) -> windows_core::Result<()>
+    pub unsafe fn AddStructureChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -7062,65 +7062,65 @@ impl IUIAutomation {
     {
         unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
+    pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
+    pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
         P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAllEventHandlers(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IntNativeArrayToSafeArray)(windows_core::Interface::as_raw(self), core::mem::transmute(array.as_ptr()), array.len().try_into().unwrap(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> windows_core::Result<i32> {
+    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IntSafeArrayToNativeArray)(windows_core::Interface::as_raw(self), intarray, array as _, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RectToVariant)(windows_core::Interface::as_raw(self), core::mem::transmute(rc), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn VariantToRect(&self, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn VariantToRect(&self, var: &super::super::System::Variant::VARIANT) -> Result<super::super::Foundation::RECT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VariantToRect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(var), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32> {
+    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SafeArrayToRectNativeArray)(windows_core::Interface::as_raw(self), rects, rectarray as _, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> windows_core::Result<IUIAutomationProxyFactoryEntry>
+    pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> Result<IUIAutomationProxyFactoryEntry, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationProxyFactory>,
     {
@@ -7129,59 +7129,59 @@ impl IUIAutomation {
             (windows_core::Interface::vtable(self).CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
+    pub unsafe fn ProxyFactoryMapping(&self) -> Result<IUIAutomationProxyFactoryMapping, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyFactoryMapping)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropertyProgrammaticName)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPatternProgrammaticName)(windows_core::Interface::as_raw(self), pattern, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
         unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids as _, patternnames as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
         unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids as _, propertynames as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckNotSupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn ReservedNotSupportedValue(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReservedNotSupportedValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ReservedMixedAttributeValue(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn ReservedMixedAttributeValue(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReservedMixedAttributeValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IAccessible>,
     {
@@ -7191,7 +7191,7 @@ impl IUIAutomation {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ElementFromIAccessibleBuildCache<P0, P2>(&self, accessible: P0, childid: i32, cacherequest: P2) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn ElementFromIAccessibleBuildCache<P0, P2>(&self, accessible: P0, childid: i32, cacherequest: P2) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IAccessible>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -7312,61 +7312,61 @@ pub struct IUIAutomation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
-    fn CompareElements(&self, el1: windows_core::Ref<'_, IUIAutomationElement>, el2: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<windows_core::BOOL>;
-    fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<windows_core::BOOL>;
-    fn GetRootElement(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromHandle(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromPoint(&self, pt: &super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFocusedElement(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn GetRootElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromHandleBuildCache(&self, hwnd: super::super::Foundation::HWND, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromPointBuildCache(&self, pt: &super::super::Foundation::POINT, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFocusedElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn CreateTreeWalker(&self, pcondition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationTreeWalker>;
-    fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
-    fn ContentViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
-    fn RawViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
-    fn RawViewCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn ControlViewCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn ContentViewCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateCacheRequest(&self) -> windows_core::Result<IUIAutomationCacheRequest>;
-    fn CreateTrueCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateFalseCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateAndCondition(&self, condition1: windows_core::Ref<'_, IUIAutomationCondition>, condition2: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateAndConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateOrCondition(&self, condition1: windows_core::Ref<'_, IUIAutomationCondition>, condition2: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateOrConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateNotCondition(&self, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
-    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn RemoveAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandlerNativeArray(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn RemovePropertyChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddStructureChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveStructureChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddFocusChangedEventHandler(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveFocusChangedEventHandler(&self, handler: windows_core::Ref<'_, IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveAllEventHandlers(&self) -> windows_core::Result<()>;
-    fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> windows_core::Result<i32>;
-    fn RectToVariant(&self, rc: &super::super::Foundation::RECT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn VariantToRect(&self, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32>;
-    fn CreateProxyFactoryEntry(&self, factory: windows_core::Ref<'_, IUIAutomationProxyFactory>) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
-    fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping>;
-    fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::BSTR>;
-    fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> windows_core::Result<windows_core::BSTR>;
-    fn PollForPotentialSupportedPatterns(&self, pelement: windows_core::Ref<'_, IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn PollForPotentialSupportedProperties(&self, pelement: windows_core::Ref<'_, IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BOOL>;
-    fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn ReservedMixedAttributeValue(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn ElementFromIAccessible(&self, accessible: windows_core::Ref<'_, IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromIAccessibleBuildCache(&self, accessible: windows_core::Ref<'_, IAccessible>, childid: i32, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn CompareElements(&self, el1: windows_core::Ref<'_, IUIAutomationElement>, el2: windows_core::Ref<'_, IUIAutomationElement>) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn GetRootElement(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn ElementFromHandle(&self, hwnd: super::super::Foundation::HWND) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn ElementFromPoint(&self, pt: &super::super::Foundation::POINT) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetFocusedElement(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetRootElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn ElementFromHandleBuildCache(&self, hwnd: super::super::Foundation::HWND, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn ElementFromPointBuildCache(&self, pt: &super::super::Foundation::POINT, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetFocusedElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CreateTreeWalker(&self, pcondition: windows_core::Ref<'_, IUIAutomationCondition>) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT>;
+    fn ControlViewWalker(&self) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT>;
+    fn ContentViewWalker(&self) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT>;
+    fn RawViewWalker(&self) -> Result<IUIAutomationTreeWalker, windows_result::HRESULT>;
+    fn RawViewCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn ControlViewCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn ContentViewCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateCacheRequest(&self) -> Result<IUIAutomationCacheRequest, windows_result::HRESULT>;
+    fn CreateTrueCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateFalseCondition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateAndCondition(&self, condition1: windows_core::Ref<'_, IUIAutomationCondition>, condition2: windows_core::Ref<'_, IUIAutomationCondition>) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateAndConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateOrCondition(&self, condition1: windows_core::Ref<'_, IUIAutomationCondition>, condition2: windows_core::Ref<'_, IUIAutomationCondition>) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateOrConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn CreateNotCondition(&self, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddPropertyChangedEventHandlerNativeArray(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> Result<(), windows_result::HRESULT>;
+    fn AddPropertyChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn RemovePropertyChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddStructureChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveStructureChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddFocusChangedEventHandler(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationFocusChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveFocusChangedEventHandler(&self, handler: windows_core::Ref<'_, IUIAutomationFocusChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveAllEventHandlers(&self) -> Result<(), windows_result::HRESULT>;
+    fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> Result<i32, windows_result::HRESULT>;
+    fn RectToVariant(&self, rc: &super::super::Foundation::RECT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn VariantToRect(&self, var: &super::super::System::Variant::VARIANT) -> Result<super::super::Foundation::RECT, windows_result::HRESULT>;
+    fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> Result<i32, windows_result::HRESULT>;
+    fn CreateProxyFactoryEntry(&self, factory: windows_core::Ref<'_, IUIAutomationProxyFactory>) -> Result<IUIAutomationProxyFactoryEntry, windows_result::HRESULT>;
+    fn ProxyFactoryMapping(&self) -> Result<IUIAutomationProxyFactoryMapping, windows_result::HRESULT>;
+    fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn PollForPotentialSupportedPatterns(&self, pelement: windows_core::Ref<'_, IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn PollForPotentialSupportedProperties(&self, pelement: windows_core::Ref<'_, IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn ReservedNotSupportedValue(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn ReservedMixedAttributeValue(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn ElementFromIAccessible(&self, accessible: windows_core::Ref<'_, IAccessible>, childid: i32) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn ElementFromIAccessibleBuildCache(&self, accessible: windows_core::Ref<'_, IAccessible>, childid: i32, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation_Vtbl {
@@ -8033,31 +8033,31 @@ impl core::ops::Deref for IUIAutomation2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation2, windows_core::IUnknown, IUIAutomation);
 impl IUIAutomation2 {
-    pub unsafe fn AutoSetFocus(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn AutoSetFocus(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoSetFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoSetFocus(&self, autosetfocus: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAutoSetFocus(&self, autosetfocus: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoSetFocus)(windows_core::Interface::as_raw(self), autosetfocus.into()).ok() }
     }
-    pub unsafe fn ConnectionTimeout(&self) -> windows_core::Result<u32> {
+    pub unsafe fn ConnectionTimeout(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectionTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetConnectionTimeout)(windows_core::Interface::as_raw(self), timeout).ok() }
     }
-    pub unsafe fn TransactionTimeout(&self) -> windows_core::Result<u32> {
+    pub unsafe fn TransactionTimeout(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TransactionTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTransactionTimeout)(windows_core::Interface::as_raw(self), timeout).ok() }
     }
 }
@@ -8074,12 +8074,12 @@ pub struct IUIAutomation2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation2_Impl: IUIAutomation_Impl {
-    fn AutoSetFocus(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetAutoSetFocus(&self, autosetfocus: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ConnectionTimeout(&self) -> windows_core::Result<u32>;
-    fn SetConnectionTimeout(&self, timeout: u32) -> windows_core::Result<()>;
-    fn TransactionTimeout(&self) -> windows_core::Result<u32>;
-    fn SetTransactionTimeout(&self, timeout: u32) -> windows_core::Result<()>;
+    fn AutoSetFocus(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SetAutoSetFocus(&self, autosetfocus: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ConnectionTimeout(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetConnectionTimeout(&self, timeout: u32) -> Result<(), windows_result::HRESULT>;
+    fn TransactionTimeout(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetTransactionTimeout(&self, timeout: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation2_Vtbl {
@@ -8163,7 +8163,7 @@ impl core::ops::Deref for IUIAutomation3 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation3, windows_core::IUnknown, IUIAutomation, IUIAutomation2);
 impl IUIAutomation3 {
-    pub unsafe fn AddTextEditTextChangedEventHandler<P0, P3, P4>(&self, element: P0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P3, handler: P4) -> windows_core::Result<()>
+    pub unsafe fn AddTextEditTextChangedEventHandler<P0, P3, P4>(&self, element: P0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P3, handler: P4) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P3: windows_core::Param<IUIAutomationCacheRequest>,
@@ -8171,7 +8171,7 @@ impl IUIAutomation3 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveTextEditTextChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
+    pub unsafe fn RemoveTextEditTextChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
@@ -8188,8 +8188,8 @@ pub struct IUIAutomation3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation3_Impl: IUIAutomation2_Impl {
-    fn AddTextEditTextChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveTextEditTextChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddTextEditTextChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveTextEditTextChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation3_Vtbl {
@@ -8227,7 +8227,7 @@ impl core::ops::Deref for IUIAutomation4 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation4, windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3);
 impl IUIAutomation4 {
-    pub unsafe fn AddChangesEventHandler<P0, P4, P5>(&self, element: P0, scope: TreeScope, changetypes: &[i32], pcacherequest: P4, handler: P5) -> windows_core::Result<()>
+    pub unsafe fn AddChangesEventHandler<P0, P4, P5>(&self, element: P0, scope: TreeScope, changetypes: &[i32], pcacherequest: P4, handler: P5) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P4: windows_core::Param<IUIAutomationCacheRequest>,
@@ -8235,7 +8235,7 @@ impl IUIAutomation4 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
+    pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationChangesEventHandler>,
@@ -8252,8 +8252,8 @@ pub struct IUIAutomation4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation4_Impl: IUIAutomation3_Impl {
-    fn AddChangesEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
-    fn RemoveChangesEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
+    fn AddChangesEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveChangesEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation4_Vtbl {
@@ -8291,7 +8291,7 @@ impl core::ops::Deref for IUIAutomation5 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation5, windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4);
 impl IUIAutomation5 {
-    pub unsafe fn AddNotificationEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3) -> windows_core::Result<()>
+    pub unsafe fn AddNotificationEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -8299,7 +8299,7 @@ impl IUIAutomation5 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveNotificationEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
+    pub unsafe fn RemoveNotificationEventHandler<P0, P1>(&self, element: P0, handler: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationNotificationEventHandler>,
@@ -8316,8 +8316,8 @@ pub struct IUIAutomation5_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation5_Impl: IUIAutomation4_Impl {
-    fn AddNotificationEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
-    fn RemoveNotificationEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
+    fn AddNotificationEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveNotificationEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation5_Vtbl {
@@ -8355,45 +8355,45 @@ impl core::ops::Deref for IUIAutomation6 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomation6, windows_core::IUnknown, IUIAutomation, IUIAutomation2, IUIAutomation3, IUIAutomation4, IUIAutomation5);
 impl IUIAutomation6 {
-    pub unsafe fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup> {
+    pub unsafe fn CreateEventHandlerGroup(&self) -> Result<IUIAutomationEventHandlerGroup, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateEventHandlerGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> windows_core::Result<()>
+    pub unsafe fn AddEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationEventHandlerGroup>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddEventHandlerGroup)(windows_core::Interface::as_raw(self), element.param().abi(), handlergroup.param().abi()).ok() }
     }
-    pub unsafe fn RemoveEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> windows_core::Result<()>
+    pub unsafe fn RemoveEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationEventHandlerGroup>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveEventHandlerGroup)(windows_core::Interface::as_raw(self), element.param().abi(), handlergroup.param().abi()).ok() }
     }
-    pub unsafe fn ConnectionRecoveryBehavior(&self) -> windows_core::Result<ConnectionRecoveryBehaviorOptions> {
+    pub unsafe fn ConnectionRecoveryBehavior(&self) -> Result<ConnectionRecoveryBehaviorOptions, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectionRecoveryBehavior)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> windows_core::Result<()> {
+    pub unsafe fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetConnectionRecoveryBehavior)(windows_core::Interface::as_raw(self), connectionrecoverybehavioroptions).ok() }
     }
-    pub unsafe fn CoalesceEvents(&self) -> windows_core::Result<CoalesceEventsOptions> {
+    pub unsafe fn CoalesceEvents(&self) -> Result<CoalesceEventsOptions, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CoalesceEvents)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> windows_core::Result<()> {
+    pub unsafe fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCoalesceEvents)(windows_core::Interface::as_raw(self), coalesceeventsoptions).ok() }
     }
-    pub unsafe fn AddActiveTextPositionChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3) -> windows_core::Result<()>
+    pub unsafe fn AddActiveTextPositionChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -8401,7 +8401,7 @@ impl IUIAutomation6 {
     {
         unsafe { (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn RemoveActiveTextPositionChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
+    pub unsafe fn RemoveActiveTextPositionChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
@@ -8425,15 +8425,15 @@ pub struct IUIAutomation6_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation6_Impl: IUIAutomation5_Impl {
-    fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup>;
-    fn AddEventHandlerGroup(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handlergroup: windows_core::Ref<'_, IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
-    fn RemoveEventHandlerGroup(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handlergroup: windows_core::Ref<'_, IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
-    fn ConnectionRecoveryBehavior(&self) -> windows_core::Result<ConnectionRecoveryBehaviorOptions>;
-    fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> windows_core::Result<()>;
-    fn CoalesceEvents(&self) -> windows_core::Result<CoalesceEventsOptions>;
-    fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> windows_core::Result<()>;
-    fn AddActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
+    fn CreateEventHandlerGroup(&self) -> Result<IUIAutomationEventHandlerGroup, windows_result::HRESULT>;
+    fn AddEventHandlerGroup(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handlergroup: windows_core::Ref<'_, IUIAutomationEventHandlerGroup>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveEventHandlerGroup(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handlergroup: windows_core::Ref<'_, IUIAutomationEventHandlerGroup>) -> Result<(), windows_result::HRESULT>;
+    fn ConnectionRecoveryBehavior(&self) -> Result<ConnectionRecoveryBehaviorOptions, windows_result::HRESULT>;
+    fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> Result<(), windows_result::HRESULT>;
+    fn CoalesceEvents(&self) -> Result<CoalesceEventsOptions, windows_result::HRESULT>;
+    fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> Result<(), windows_result::HRESULT>;
+    fn AddActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation6_Vtbl {
@@ -8532,7 +8532,7 @@ impl windows_core::RuntimeName for IUIAutomation6 {}
 windows_core::imp::define_interface!(IUIAutomationActiveTextPositionChangedEventHandler, IUIAutomationActiveTextPositionChangedEventHandler_Vtbl, 0xf97933b0_8dae_4496_8997_5ba015fe0d82);
 windows_core::imp::interface_hierarchy!(IUIAutomationActiveTextPositionChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationActiveTextPositionChangedEventHandler {
-    pub unsafe fn HandleActiveTextPositionChangedEvent<P0, P1>(&self, sender: P0, range: P1) -> windows_core::Result<()>
+    pub unsafe fn HandleActiveTextPositionChangedEvent<P0, P1>(&self, sender: P0, range: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationTextRange>,
@@ -8547,7 +8547,7 @@ pub struct IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub HandleActiveTextPositionChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationActiveTextPositionChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleActiveTextPositionChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, range: windows_core::Ref<'_, IUIAutomationTextRange>) -> windows_core::Result<()>;
+    fn HandleActiveTextPositionChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, range: windows_core::Ref<'_, IUIAutomationTextRange>) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -8576,17 +8576,17 @@ impl core::ops::Deref for IUIAutomationAndCondition {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationAndCondition, windows_core::IUnknown, IUIAutomationCondition);
 impl IUIAutomationAndCondition {
-    pub unsafe fn ChildCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ChildCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChildCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetChildrenAsNativeArray)(windows_core::Interface::as_raw(self), childarray as _, childarraycount as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetChildren(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChildren)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8606,9 +8606,9 @@ pub struct IUIAutomationAndCondition_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationAndCondition_Impl: IUIAutomationCondition_Impl {
-    fn ChildCount(&self) -> windows_core::Result<i32>;
-    fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::Result<()>;
-    fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn ChildCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn GetChildren(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationAndCondition_Vtbl {
@@ -8659,61 +8659,61 @@ impl windows_core::RuntimeName for IUIAutomationAndCondition {}
 windows_core::imp::define_interface!(IUIAutomationAnnotationPattern, IUIAutomationAnnotationPattern_Vtbl, 0x9a175b21_339e_41b1_8e8b_623f6b681098);
 windows_core::imp::interface_hierarchy!(IUIAutomationAnnotationPattern, windows_core::IUnknown);
 impl IUIAutomationAnnotationPattern {
-    pub unsafe fn CurrentAnnotationTypeId(&self) -> windows_core::Result<UIA_ANNOTATIONTYPE> {
+    pub unsafe fn CurrentAnnotationTypeId(&self) -> Result<UIA_ANNOTATIONTYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAnnotationTypeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentAnnotationTypeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentAnnotationTypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAnnotationTypeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentAuthor(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentAuthor(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAuthor)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentDateTime(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentDateTime(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentTarget(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentTarget(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedAnnotationTypeId(&self) -> windows_core::Result<UIA_ANNOTATIONTYPE> {
+    pub unsafe fn CachedAnnotationTypeId(&self) -> Result<UIA_ANNOTATIONTYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAnnotationTypeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedAnnotationTypeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedAnnotationTypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAnnotationTypeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedAuthor(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedAuthor(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAuthor)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedDateTime(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedDateTime(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedTarget(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedTarget(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8736,16 +8736,16 @@ pub struct IUIAutomationAnnotationPattern_Vtbl {
     pub CachedTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationAnnotationPattern_Impl: windows_core::IUnknownImpl {
-    fn CurrentAnnotationTypeId(&self) -> windows_core::Result<UIA_ANNOTATIONTYPE>;
-    fn CurrentAnnotationTypeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentAuthor(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentDateTime(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentTarget(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedAnnotationTypeId(&self) -> windows_core::Result<UIA_ANNOTATIONTYPE>;
-    fn CachedAnnotationTypeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedAuthor(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedDateTime(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedTarget(&self) -> windows_core::Result<IUIAutomationElement>;
+    fn CurrentAnnotationTypeId(&self) -> Result<UIA_ANNOTATIONTYPE, windows_result::HRESULT>;
+    fn CurrentAnnotationTypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentAuthor(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentDateTime(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentTarget(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CachedAnnotationTypeId(&self) -> Result<UIA_ANNOTATIONTYPE, windows_result::HRESULT>;
+    fn CachedAnnotationTypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedAuthor(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedDateTime(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedTarget(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
 }
 impl IUIAutomationAnnotationPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>() -> Self {
@@ -8897,7 +8897,7 @@ impl core::ops::Deref for IUIAutomationBoolCondition {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationBoolCondition, windows_core::IUnknown, IUIAutomationCondition);
 impl IUIAutomationBoolCondition {
-    pub unsafe fn BooleanValue(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn BooleanValue(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BooleanValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8911,7 +8911,7 @@ pub struct IUIAutomationBoolCondition_Vtbl {
     pub BooleanValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationBoolCondition_Impl: IUIAutomationCondition_Impl {
-    fn BooleanValue(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn BooleanValue(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IUIAutomationBoolCondition_Vtbl {
     pub const fn new<Identity: IUIAutomationBoolCondition_Impl, const OFFSET: isize>() -> Self {
@@ -8937,46 +8937,46 @@ impl windows_core::RuntimeName for IUIAutomationBoolCondition {}
 windows_core::imp::define_interface!(IUIAutomationCacheRequest, IUIAutomationCacheRequest_Vtbl, 0xb32a92b5_bc25_4078_9c08_d7ee95c48e03);
 windows_core::imp::interface_hierarchy!(IUIAutomationCacheRequest, windows_core::IUnknown);
 impl IUIAutomationCacheRequest {
-    pub unsafe fn AddProperty(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<()> {
+    pub unsafe fn AddProperty(&self, propertyid: UIA_PROPERTY_ID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), propertyid).ok() }
     }
-    pub unsafe fn AddPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<()> {
+    pub unsafe fn AddPattern(&self, patternid: UIA_PATTERN_ID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddPattern)(windows_core::Interface::as_raw(self), patternid).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IUIAutomationCacheRequest> {
+    pub unsafe fn Clone(&self) -> Result<IUIAutomationCacheRequest, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TreeScope(&self) -> windows_core::Result<TreeScope> {
+    pub unsafe fn TreeScope(&self) -> Result<TreeScope, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TreeScope)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTreeScope(&self, scope: TreeScope) -> windows_core::Result<()> {
+    pub unsafe fn SetTreeScope(&self, scope: TreeScope) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTreeScope)(windows_core::Interface::as_raw(self), scope).ok() }
     }
-    pub unsafe fn TreeFilter(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn TreeFilter(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TreeFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetTreeFilter<P0>(&self, filter: P0) -> windows_core::Result<()>
+    pub unsafe fn SetTreeFilter<P0>(&self, filter: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCondition>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetTreeFilter)(windows_core::Interface::as_raw(self), filter.param().abi()).ok() }
     }
-    pub unsafe fn AutomationElementMode(&self) -> windows_core::Result<AutomationElementMode> {
+    pub unsafe fn AutomationElementMode(&self) -> Result<AutomationElementMode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutomationElementMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> windows_core::Result<()> {
+    pub unsafe fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAutomationElementMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
 }
@@ -8995,15 +8995,15 @@ pub struct IUIAutomationCacheRequest_Vtbl {
     pub SetAutomationElementMode: unsafe extern "system" fn(*mut core::ffi::c_void, AutomationElementMode) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationCacheRequest_Impl: windows_core::IUnknownImpl {
-    fn AddProperty(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<()>;
-    fn AddPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IUIAutomationCacheRequest>;
-    fn TreeScope(&self) -> windows_core::Result<TreeScope>;
-    fn SetTreeScope(&self, scope: TreeScope) -> windows_core::Result<()>;
-    fn TreeFilter(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn SetTreeFilter(&self, filter: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<()>;
-    fn AutomationElementMode(&self) -> windows_core::Result<AutomationElementMode>;
-    fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> windows_core::Result<()>;
+    fn AddProperty(&self, propertyid: UIA_PROPERTY_ID) -> Result<(), windows_result::HRESULT>;
+    fn AddPattern(&self, patternid: UIA_PATTERN_ID) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IUIAutomationCacheRequest, windows_result::HRESULT>;
+    fn TreeScope(&self) -> Result<TreeScope, windows_result::HRESULT>;
+    fn SetTreeScope(&self, scope: TreeScope) -> Result<(), windows_result::HRESULT>;
+    fn TreeFilter(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
+    fn SetTreeFilter(&self, filter: windows_core::Ref<'_, IUIAutomationCondition>) -> Result<(), windows_result::HRESULT>;
+    fn AutomationElementMode(&self) -> Result<AutomationElementMode, windows_result::HRESULT>;
+    fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationCacheRequest_Vtbl {
     pub const fn new<Identity: IUIAutomationCacheRequest_Impl, const OFFSET: isize>() -> Self {
@@ -9107,7 +9107,7 @@ windows_core::imp::define_interface!(IUIAutomationChangesEventHandler, IUIAutoma
 windows_core::imp::interface_hierarchy!(IUIAutomationChangesEventHandler, windows_core::IUnknown);
 impl IUIAutomationChangesEventHandler {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: &[UiaChangeInfo]) -> windows_core::Result<()>
+    pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: &[UiaChangeInfo]) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -9125,7 +9125,7 @@ pub struct IUIAutomationChangesEventHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationChangesEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleChangesEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::Result<()>;
+    fn HandleChangesEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationChangesEventHandler_Vtbl {
@@ -9164,7 +9164,7 @@ impl windows_core::RuntimeName for IUIAutomationCondition {}
 windows_core::imp::define_interface!(IUIAutomationCustomNavigationPattern, IUIAutomationCustomNavigationPattern_Vtbl, 0x01ea217a_1766_47ed_a6cc_acf492854b1f);
 windows_core::imp::interface_hierarchy!(IUIAutomationCustomNavigationPattern, windows_core::IUnknown);
 impl IUIAutomationCustomNavigationPattern {
-    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn Navigate(&self, direction: NavigateDirection) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9178,7 +9178,7 @@ pub struct IUIAutomationCustomNavigationPattern_Vtbl {
     pub Navigate: unsafe extern "system" fn(*mut core::ffi::c_void, NavigateDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationCustomNavigationPattern_Impl: windows_core::IUnknownImpl {
-    fn Navigate(&self, direction: NavigateDirection) -> windows_core::Result<IUIAutomationElement>;
+    fn Navigate(&self, direction: NavigateDirection) -> Result<IUIAutomationElement, windows_result::HRESULT>;
 }
 impl IUIAutomationCustomNavigationPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationCustomNavigationPattern_Impl, const OFFSET: isize>() -> Self {
@@ -9204,16 +9204,16 @@ impl windows_core::RuntimeName for IUIAutomationCustomNavigationPattern {}
 windows_core::imp::define_interface!(IUIAutomationDockPattern, IUIAutomationDockPattern_Vtbl, 0xfde5ef97_1464_48f6_90bf_43d0948e86ec);
 windows_core::imp::interface_hierarchy!(IUIAutomationDockPattern, windows_core::IUnknown);
 impl IUIAutomationDockPattern {
-    pub unsafe fn SetDockPosition(&self, dockpos: DockPosition) -> windows_core::Result<()> {
+    pub unsafe fn SetDockPosition(&self, dockpos: DockPosition) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDockPosition)(windows_core::Interface::as_raw(self), dockpos).ok() }
     }
-    pub unsafe fn CurrentDockPosition(&self) -> windows_core::Result<DockPosition> {
+    pub unsafe fn CurrentDockPosition(&self) -> Result<DockPosition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDockPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedDockPosition(&self) -> windows_core::Result<DockPosition> {
+    pub unsafe fn CachedDockPosition(&self) -> Result<DockPosition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDockPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9229,9 +9229,9 @@ pub struct IUIAutomationDockPattern_Vtbl {
     pub CachedDockPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DockPosition) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationDockPattern_Impl: windows_core::IUnknownImpl {
-    fn SetDockPosition(&self, dockpos: DockPosition) -> windows_core::Result<()>;
-    fn CurrentDockPosition(&self) -> windows_core::Result<DockPosition>;
-    fn CachedDockPosition(&self) -> windows_core::Result<DockPosition>;
+    fn SetDockPosition(&self, dockpos: DockPosition) -> Result<(), windows_result::HRESULT>;
+    fn CurrentDockPosition(&self) -> Result<DockPosition, windows_result::HRESULT>;
+    fn CachedDockPosition(&self) -> Result<DockPosition, windows_result::HRESULT>;
 }
 impl IUIAutomationDockPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationDockPattern_Impl, const OFFSET: isize>() -> Self {
@@ -9280,51 +9280,51 @@ impl windows_core::RuntimeName for IUIAutomationDockPattern {}
 windows_core::imp::define_interface!(IUIAutomationDragPattern, IUIAutomationDragPattern_Vtbl, 0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd);
 windows_core::imp::interface_hierarchy!(IUIAutomationDragPattern, windows_core::IUnknown);
 impl IUIAutomationDragPattern {
-    pub unsafe fn CurrentIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsGrabbed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsGrabbed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsGrabbed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsGrabbed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentDropEffect(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentDropEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDropEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedDropEffect(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedDropEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDropEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentDropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CurrentDropEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDropEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedDropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CachedDropEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDropEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCurrentGrabbedItems(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentGrabbedItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentGrabbedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedGrabbedItems(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedGrabbedItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedGrabbedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9352,14 +9352,14 @@ pub struct IUIAutomationDragPattern_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationDragPattern_Impl: windows_core::IUnknownImpl {
-    fn CurrentIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsGrabbed(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentDropEffect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedDropEffect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentDropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CachedDropEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetCurrentGrabbedItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCachedGrabbedItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
+    fn CurrentIsGrabbed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsGrabbed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentDropEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedDropEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentDropEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CachedDropEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetCurrentGrabbedItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCachedGrabbedItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationDragPattern_Vtbl {
@@ -9481,27 +9481,27 @@ impl windows_core::RuntimeName for IUIAutomationDragPattern {}
 windows_core::imp::define_interface!(IUIAutomationDropTargetPattern, IUIAutomationDropTargetPattern_Vtbl, 0x69a095f7_eee4_430e_a46b_fb73b1ae39a5);
 windows_core::imp::interface_hierarchy!(IUIAutomationDropTargetPattern, windows_core::IUnknown);
 impl IUIAutomationDropTargetPattern {
-    pub unsafe fn CurrentDropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentDropTargetEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDropTargetEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedDropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedDropTargetEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDropTargetEffect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentDropTargetEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CurrentDropTargetEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDropTargetEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedDropTargetEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CachedDropTargetEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDropTargetEffects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9525,10 +9525,10 @@ pub struct IUIAutomationDropTargetPattern_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationDropTargetPattern_Impl: windows_core::IUnknownImpl {
-    fn CurrentDropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedDropTargetEffect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentDropTargetEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CachedDropTargetEffects(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CurrentDropTargetEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedDropTargetEffect(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentDropTargetEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CachedDropTargetEffects(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationDropTargetPattern_Vtbl {
@@ -9598,17 +9598,17 @@ impl windows_core::RuntimeName for IUIAutomationDropTargetPattern {}
 windows_core::imp::define_interface!(IUIAutomationElement, IUIAutomationElement_Vtbl, 0xd22108aa_8ac5_49a5_837b_37bbb3d7591e);
 windows_core::imp::interface_hierarchy!(IUIAutomationElement, windows_core::IUnknown);
 impl IUIAutomationElement {
-    pub unsafe fn SetFocus(&self) -> windows_core::Result<()> {
+    pub unsafe fn SetFocus(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFocus)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetRuntimeId(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRuntimeId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FindFirst<P1>(&self, scope: TreeScope, condition: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn FindFirst<P1>(&self, scope: TreeScope, condition: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
     {
@@ -9617,7 +9617,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindAll<P1>(&self, scope: TreeScope, condition: P1) -> windows_core::Result<IUIAutomationElementArray>
+    pub unsafe fn FindAll<P1>(&self, scope: TreeScope, condition: P1) -> Result<IUIAutomationElementArray, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
     {
@@ -9626,7 +9626,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindFirstBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn FindFirstBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -9636,7 +9636,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindAllBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> windows_core::Result<IUIAutomationElementArray>
+    pub unsafe fn FindAllBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> Result<IUIAutomationElementArray, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -9646,7 +9646,7 @@ impl IUIAutomationElement {
             (windows_core::Interface::vtable(self).FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -9656,456 +9656,456 @@ impl IUIAutomationElement {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPropertyValue)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: bool) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: bool) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedPropertyValue)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: bool) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: bool) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedPropertyValueEx)(windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetCurrentPatternAs)(windows_core::Interface::as_raw(self), patternid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetCachedPatternAs)(windows_core::Interface::as_raw(self), patternid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPattern)(windows_core::Interface::as_raw(self), patternid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedPattern)(windows_core::Interface::as_raw(self), patternid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedParent(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetCachedParent(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedChildren(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedChildren(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedChildren)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentProcessId(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentProcessId(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentProcessId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentControlType(&self) -> windows_core::Result<UIA_CONTROLTYPE_ID> {
+    pub unsafe fn CurrentControlType(&self) -> Result<UIA_CONTROLTYPE_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentControlType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentLocalizedControlType(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentLocalizedControlType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLocalizedControlType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentAcceleratorKey(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentAcceleratorKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAcceleratorKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentAccessKey(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentAccessKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAccessKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentHasKeyboardFocus(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHasKeyboardFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsKeyboardFocusable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsKeyboardFocusable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentAutomationId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentAutomationId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAutomationId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentClassName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentClassName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentClassName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentHelpText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentHelpText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHelpText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentCulture(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentCulture(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCulture)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsControlElement(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsControlElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsControlElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsContentElement(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsContentElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsContentElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsPassword(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsPassword(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsPassword)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentNativeWindowHandle(&self) -> windows_core::Result<super::super::Foundation::HWND> {
+    pub unsafe fn CurrentNativeWindowHandle(&self) -> Result<super::super::Foundation::HWND, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentNativeWindowHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentItemType(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentItemType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsOffscreen(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsOffscreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentOrientation(&self) -> windows_core::Result<OrientationType> {
+    pub unsafe fn CurrentOrientation(&self) -> Result<OrientationType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentOrientation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentFrameworkId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentFrameworkId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFrameworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsRequiredForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsRequiredForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentItemStatus(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentItemStatus(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentItemStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn CurrentBoundingRectangle(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentBoundingRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentLabeledBy(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentLabeledBy(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLabeledBy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentAriaRole(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentAriaRole(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAriaRole)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentAriaProperties(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentAriaProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAriaProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsDataValidForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsDataValidForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentControllerFor(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CurrentControllerFor(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentControllerFor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentDescribedBy(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CurrentDescribedBy(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDescribedBy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentFlowsTo(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CurrentFlowsTo(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFlowsTo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentProviderDescription(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentProviderDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentProviderDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedProcessId(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedProcessId(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedProcessId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedControlType(&self) -> windows_core::Result<UIA_CONTROLTYPE_ID> {
+    pub unsafe fn CachedControlType(&self) -> Result<UIA_CONTROLTYPE_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedControlType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedLocalizedControlType(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedLocalizedControlType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLocalizedControlType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedAcceleratorKey(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedAcceleratorKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAcceleratorKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedAccessKey(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedAccessKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAccessKey)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedHasKeyboardFocus(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHasKeyboardFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsKeyboardFocusable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsKeyboardFocusable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedAutomationId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedAutomationId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAutomationId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedClassName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedClassName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedClassName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedHelpText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedHelpText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHelpText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedCulture(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedCulture(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCulture)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsControlElement(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsControlElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsControlElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsContentElement(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsContentElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsContentElement)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsPassword(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsPassword(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsPassword)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedNativeWindowHandle(&self) -> windows_core::Result<super::super::Foundation::HWND> {
+    pub unsafe fn CachedNativeWindowHandle(&self) -> Result<super::super::Foundation::HWND, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedNativeWindowHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedItemType(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedItemType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedItemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsOffscreen(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsOffscreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedOrientation(&self) -> windows_core::Result<OrientationType> {
+    pub unsafe fn CachedOrientation(&self) -> Result<OrientationType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedOrientation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedFrameworkId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedFrameworkId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFrameworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsRequiredForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsRequiredForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedItemStatus(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedItemStatus(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedItemStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn CachedBoundingRectangle(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedBoundingRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedLabeledBy(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedLabeledBy(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLabeledBy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedAriaRole(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedAriaRole(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAriaRole)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedAriaProperties(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedAriaProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAriaProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsDataValidForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsDataValidForForm)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedControllerFor(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CachedControllerFor(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedControllerFor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedDescribedBy(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CachedDescribedBy(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDescribedBy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedFlowsTo(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CachedFlowsTo(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFlowsTo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedProviderDescription(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedProviderDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedProviderDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClickablePoint)(windows_core::Interface::as_raw(self), clickable as _, &mut result__).map(|| result__)
@@ -10216,88 +10216,88 @@ pub struct IUIAutomationElement_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
-    fn SetFocus(&self) -> windows_core::Result<()>;
-    fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn FindFirst(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAll(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn FindFirstBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn BuildUpdatedCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetCurrentPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetCachedPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetCachedParent(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn GetCachedChildren(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentProcessId(&self) -> windows_core::Result<i32>;
-    fn CurrentControlType(&self) -> windows_core::Result<UIA_CONTROLTYPE_ID>;
-    fn CurrentLocalizedControlType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentAcceleratorKey(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentAccessKey(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentIsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentAutomationId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentClassName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentHelpText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentCulture(&self) -> windows_core::Result<i32>;
-    fn CurrentIsControlElement(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentIsContentElement(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentIsPassword(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentNativeWindowHandle(&self) -> windows_core::Result<super::super::Foundation::HWND>;
-    fn CurrentItemType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentOrientation(&self) -> windows_core::Result<OrientationType>;
-    fn CurrentFrameworkId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentItemStatus(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn CurrentLabeledBy(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CurrentAriaRole(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentAriaProperties(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentControllerFor(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentDescribedBy(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentFlowsTo(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentProviderDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedProcessId(&self) -> windows_core::Result<i32>;
-    fn CachedControlType(&self) -> windows_core::Result<UIA_CONTROLTYPE_ID>;
-    fn CachedLocalizedControlType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedAcceleratorKey(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedAccessKey(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedHasKeyboardFocus(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsKeyboardFocusable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedAutomationId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedClassName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedHelpText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedCulture(&self) -> windows_core::Result<i32>;
-    fn CachedIsControlElement(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsContentElement(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsPassword(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedNativeWindowHandle(&self) -> windows_core::Result<super::super::Foundation::HWND>;
-    fn CachedItemType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsOffscreen(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedOrientation(&self) -> windows_core::Result<OrientationType>;
-    fn CachedFrameworkId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsRequiredForForm(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedItemStatus(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn CachedLabeledBy(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedAriaRole(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedAriaProperties(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsDataValidForForm(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedControllerFor(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedDescribedBy(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedFlowsTo(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedProviderDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> windows_core::Result<windows_core::BOOL>;
+    fn SetFocus(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetRuntimeId(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn FindFirst(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn FindAll(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn FindFirstBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn FindAllBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn BuildUpdatedCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn GetCurrentPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn GetCachedPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn GetCachedParent(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetCachedChildren(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CurrentProcessId(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentControlType(&self) -> Result<UIA_CONTROLTYPE_ID, windows_result::HRESULT>;
+    fn CurrentLocalizedControlType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentAcceleratorKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentAccessKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentHasKeyboardFocus(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentIsKeyboardFocusable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentIsEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentAutomationId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentClassName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentHelpText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentCulture(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentIsControlElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentIsContentElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentIsPassword(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentNativeWindowHandle(&self) -> Result<super::super::Foundation::HWND, windows_result::HRESULT>;
+    fn CurrentItemType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentIsOffscreen(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentOrientation(&self) -> Result<OrientationType, windows_result::HRESULT>;
+    fn CurrentFrameworkId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentIsRequiredForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentItemStatus(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentBoundingRectangle(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT>;
+    fn CurrentLabeledBy(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CurrentAriaRole(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentAriaProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentIsDataValidForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentControllerFor(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CurrentDescribedBy(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CurrentFlowsTo(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CurrentProviderDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedProcessId(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedControlType(&self) -> Result<UIA_CONTROLTYPE_ID, windows_result::HRESULT>;
+    fn CachedLocalizedControlType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedAcceleratorKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedAccessKey(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedHasKeyboardFocus(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsKeyboardFocusable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedAutomationId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedClassName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedHelpText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedCulture(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedIsControlElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsContentElement(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsPassword(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedNativeWindowHandle(&self) -> Result<super::super::Foundation::HWND, windows_result::HRESULT>;
+    fn CachedItemType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedIsOffscreen(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedOrientation(&self) -> Result<OrientationType, windows_result::HRESULT>;
+    fn CachedFrameworkId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedIsRequiredForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedItemStatus(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedBoundingRectangle(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT>;
+    fn CachedLabeledBy(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CachedAriaRole(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedAriaProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedIsDataValidForForm(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedControllerFor(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedDescribedBy(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedFlowsTo(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedProviderDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement_Vtbl {
@@ -11369,37 +11369,37 @@ impl core::ops::Deref for IUIAutomationElement2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement2, windows_core::IUnknown, IUIAutomationElement);
 impl IUIAutomationElement2 {
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentOptimizeForVisualContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedOptimizeForVisualContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentLiveSetting(&self) -> windows_core::Result<LiveSetting> {
+    pub unsafe fn CurrentLiveSetting(&self) -> Result<LiveSetting, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLiveSetting)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedLiveSetting(&self) -> windows_core::Result<LiveSetting> {
+    pub unsafe fn CachedLiveSetting(&self) -> Result<LiveSetting, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLiveSetting)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CurrentFlowsFrom(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFlowsFrom)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CachedFlowsFrom(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFlowsFrom)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11419,12 +11419,12 @@ pub struct IUIAutomationElement2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement2_Impl: IUIAutomationElement_Impl {
-    fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentLiveSetting(&self) -> windows_core::Result<LiveSetting>;
-    fn CachedLiveSetting(&self) -> windows_core::Result<LiveSetting>;
-    fn CurrentFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray>;
+    fn CurrentOptimizeForVisualContent(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedOptimizeForVisualContent(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentLiveSetting(&self) -> Result<LiveSetting, windows_result::HRESULT>;
+    fn CachedLiveSetting(&self) -> Result<LiveSetting, windows_result::HRESULT>;
+    fn CurrentFlowsFrom(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedFlowsFrom(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement2_Vtbl {
@@ -11526,16 +11526,16 @@ impl core::ops::Deref for IUIAutomationElement3 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement3, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2);
 impl IUIAutomationElement3 {
-    pub unsafe fn ShowContextMenu(&self) -> windows_core::Result<()> {
+    pub unsafe fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ShowContextMenu)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CurrentIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsPeripheral(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsPeripheral)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsPeripheral(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsPeripheral)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11552,9 +11552,9 @@ pub struct IUIAutomationElement3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement3_Impl: IUIAutomationElement2_Impl {
-    fn ShowContextMenu(&self) -> windows_core::Result<()>;
-    fn CurrentIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsPeripheral(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT>;
+    fn CurrentIsPeripheral(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsPeripheral(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement3_Vtbl {
@@ -11611,63 +11611,63 @@ impl core::ops::Deref for IUIAutomationElement4 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement4, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3);
 impl IUIAutomationElement4 {
-    pub unsafe fn CurrentPositionInSet(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentPositionInSet(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentPositionInSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentSizeOfSet(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentSizeOfSet(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentSizeOfSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentLevel(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentLevel(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CurrentAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAnnotationTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CurrentAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentAnnotationObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedPositionInSet(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedPositionInSet(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedPositionInSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedSizeOfSet(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedSizeOfSet(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedSizeOfSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedLevel(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedLevel(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn CachedAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAnnotationTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn CachedAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedAnnotationObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11697,16 +11697,16 @@ pub struct IUIAutomationElement4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement4_Impl: IUIAutomationElement3_Impl {
-    fn CurrentPositionInSet(&self) -> windows_core::Result<i32>;
-    fn CurrentSizeOfSet(&self) -> windows_core::Result<i32>;
-    fn CurrentLevel(&self) -> windows_core::Result<i32>;
-    fn CurrentAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CurrentAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedPositionInSet(&self) -> windows_core::Result<i32>;
-    fn CachedSizeOfSet(&self) -> windows_core::Result<i32>;
-    fn CachedLevel(&self) -> windows_core::Result<i32>;
-    fn CachedAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CachedAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
+    fn CurrentPositionInSet(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentSizeOfSet(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentLevel(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CurrentAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedPositionInSet(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedSizeOfSet(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedLevel(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CachedAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement4_Vtbl {
@@ -11860,25 +11860,25 @@ impl core::ops::Deref for IUIAutomationElement5 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement5, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4);
 impl IUIAutomationElement5 {
-    pub unsafe fn CurrentLandmarkType(&self) -> windows_core::Result<UIA_LANDMARKTYPE_ID> {
+    pub unsafe fn CurrentLandmarkType(&self) -> Result<UIA_LANDMARKTYPE_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLandmarkType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLocalizedLandmarkType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedLandmarkType(&self) -> windows_core::Result<UIA_LANDMARKTYPE_ID> {
+    pub unsafe fn CachedLandmarkType(&self) -> Result<UIA_LANDMARKTYPE_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLandmarkType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedLocalizedLandmarkType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLocalizedLandmarkType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -11896,10 +11896,10 @@ pub struct IUIAutomationElement5_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement5_Impl: IUIAutomationElement4_Impl {
-    fn CurrentLandmarkType(&self) -> windows_core::Result<UIA_LANDMARKTYPE_ID>;
-    fn CurrentLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedLandmarkType(&self) -> windows_core::Result<UIA_LANDMARKTYPE_ID>;
-    fn CachedLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn CurrentLandmarkType(&self) -> Result<UIA_LANDMARKTYPE_ID, windows_result::HRESULT>;
+    fn CurrentLocalizedLandmarkType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedLandmarkType(&self) -> Result<UIA_LANDMARKTYPE_ID, windows_result::HRESULT>;
+    fn CachedLocalizedLandmarkType(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement5_Vtbl {
@@ -11975,13 +11975,13 @@ impl core::ops::Deref for IUIAutomationElement6 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement6, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5);
 impl IUIAutomationElement6 {
-    pub unsafe fn CurrentFullDescription(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentFullDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFullDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedFullDescription(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedFullDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFullDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -11997,8 +11997,8 @@ pub struct IUIAutomationElement6_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement6_Impl: IUIAutomationElement5_Impl {
-    fn CurrentFullDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedFullDescription(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn CurrentFullDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedFullDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement6_Vtbl {
@@ -12048,7 +12048,7 @@ impl core::ops::Deref for IUIAutomationElement7 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement7, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6);
 impl IUIAutomationElement7 {
-    pub unsafe fn FindFirstWithOptions<P1, P3>(&self, scope: TreeScope, condition: P1, traversaloptions: TreeTraversalOptions, root: P3) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn FindFirstWithOptions<P1, P3>(&self, scope: TreeScope, condition: P1, traversaloptions: TreeTraversalOptions, root: P3) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
         P3: windows_core::Param<IUIAutomationElement>,
@@ -12058,7 +12058,7 @@ impl IUIAutomationElement7 {
             (windows_core::Interface::vtable(self).FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindAllWithOptions<P1, P3>(&self, scope: TreeScope, condition: P1, traversaloptions: TreeTraversalOptions, root: P3) -> windows_core::Result<IUIAutomationElementArray>
+    pub unsafe fn FindAllWithOptions<P1, P3>(&self, scope: TreeScope, condition: P1, traversaloptions: TreeTraversalOptions, root: P3) -> Result<IUIAutomationElementArray, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
         P3: windows_core::Param<IUIAutomationElement>,
@@ -12068,7 +12068,7 @@ impl IUIAutomationElement7 {
             (windows_core::Interface::vtable(self).FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindFirstWithOptionsBuildCache<P1, P2, P4>(&self, scope: TreeScope, condition: P1, cacherequest: P2, traversaloptions: TreeTraversalOptions, root: P4) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn FindFirstWithOptionsBuildCache<P1, P2, P4>(&self, scope: TreeScope, condition: P1, cacherequest: P2, traversaloptions: TreeTraversalOptions, root: P4) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -12079,7 +12079,7 @@ impl IUIAutomationElement7 {
             (windows_core::Interface::vtable(self).FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindAllWithOptionsBuildCache<P1, P2, P4>(&self, scope: TreeScope, condition: P1, cacherequest: P2, traversaloptions: TreeTraversalOptions, root: P4) -> windows_core::Result<IUIAutomationElementArray>
+    pub unsafe fn FindAllWithOptionsBuildCache<P1, P2, P4>(&self, scope: TreeScope, condition: P1, cacherequest: P2, traversaloptions: TreeTraversalOptions, root: P4) -> Result<IUIAutomationElementArray, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCondition>,
         P2: windows_core::Param<IUIAutomationCacheRequest>,
@@ -12091,7 +12091,7 @@ impl IUIAutomationElement7 {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentMetadataValue)(windows_core::Interface::as_raw(self), targetid, metadataid, &mut result__).map(|| core::mem::transmute(result__))
@@ -12113,11 +12113,11 @@ pub struct IUIAutomationElement7_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement7_Impl: IUIAutomationElement6_Impl {
-    fn FindFirstWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn FindFirstWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn FindAllWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement7_Vtbl {
@@ -12206,13 +12206,13 @@ impl core::ops::Deref for IUIAutomationElement8 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement8, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7);
 impl IUIAutomationElement8 {
-    pub unsafe fn CurrentHeadingLevel(&self) -> windows_core::Result<UIA_HEADINGLEVEL_ID> {
+    pub unsafe fn CurrentHeadingLevel(&self) -> Result<UIA_HEADINGLEVEL_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHeadingLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedHeadingLevel(&self) -> windows_core::Result<UIA_HEADINGLEVEL_ID> {
+    pub unsafe fn CachedHeadingLevel(&self) -> Result<UIA_HEADINGLEVEL_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHeadingLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -12228,8 +12228,8 @@ pub struct IUIAutomationElement8_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement8_Impl: IUIAutomationElement7_Impl {
-    fn CurrentHeadingLevel(&self) -> windows_core::Result<UIA_HEADINGLEVEL_ID>;
-    fn CachedHeadingLevel(&self) -> windows_core::Result<UIA_HEADINGLEVEL_ID>;
+    fn CurrentHeadingLevel(&self) -> Result<UIA_HEADINGLEVEL_ID, windows_result::HRESULT>;
+    fn CachedHeadingLevel(&self) -> Result<UIA_HEADINGLEVEL_ID, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement8_Vtbl {
@@ -12279,13 +12279,13 @@ impl core::ops::Deref for IUIAutomationElement9 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationElement9, windows_core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7, IUIAutomationElement8);
 impl IUIAutomationElement9 {
-    pub unsafe fn CurrentIsDialog(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsDialog(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsDialog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsDialog(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsDialog(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsDialog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -12301,8 +12301,8 @@ pub struct IUIAutomationElement9_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement9_Impl: IUIAutomationElement8_Impl {
-    fn CurrentIsDialog(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsDialog(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn CurrentIsDialog(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsDialog(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement9_Vtbl {
@@ -12346,13 +12346,13 @@ impl windows_core::RuntimeName for IUIAutomationElement9 {}
 windows_core::imp::define_interface!(IUIAutomationElementArray, IUIAutomationElementArray_Vtbl, 0x14314595_b4bc_4055_95f2_58f2e42c9855);
 windows_core::imp::interface_hierarchy!(IUIAutomationElementArray, windows_core::IUnknown);
 impl IUIAutomationElementArray {
-    pub unsafe fn Length(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Length(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetElement(&self, index: i32) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetElement(&self, index: i32) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetElement)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12367,8 +12367,8 @@ pub struct IUIAutomationElementArray_Vtbl {
     pub GetElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationElementArray_Impl: windows_core::IUnknownImpl {
-    fn Length(&self) -> windows_core::Result<i32>;
-    fn GetElement(&self, index: i32) -> windows_core::Result<IUIAutomationElement>;
+    fn Length(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetElement(&self, index: i32) -> Result<IUIAutomationElement, windows_result::HRESULT>;
 }
 impl IUIAutomationElementArray_Vtbl {
     pub const fn new<Identity: IUIAutomationElementArray_Impl, const OFFSET: isize>() -> Self {
@@ -12406,7 +12406,7 @@ impl windows_core::RuntimeName for IUIAutomationElementArray {}
 windows_core::imp::define_interface!(IUIAutomationEventHandler, IUIAutomationEventHandler_Vtbl, 0x146c3c17_f12e_4e22_8c27_f894b9b79c69);
 windows_core::imp::interface_hierarchy!(IUIAutomationEventHandler, windows_core::IUnknown);
 impl IUIAutomationEventHandler {
-    pub unsafe fn HandleAutomationEvent<P0>(&self, sender: P0, eventid: UIA_EVENT_ID) -> windows_core::Result<()>
+    pub unsafe fn HandleAutomationEvent<P0>(&self, sender: P0, eventid: UIA_EVENT_ID) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -12420,7 +12420,7 @@ pub struct IUIAutomationEventHandler_Vtbl {
     pub HandleAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UIA_EVENT_ID) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleAutomationEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, eventid: UIA_EVENT_ID) -> windows_core::Result<()>;
+    fn HandleAutomationEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, eventid: UIA_EVENT_ID) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -12440,49 +12440,49 @@ impl windows_core::RuntimeName for IUIAutomationEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationEventHandlerGroup, IUIAutomationEventHandlerGroup_Vtbl, 0xc9ee12f2_c13b_4408_997c_639914377f4e);
 windows_core::imp::interface_hierarchy!(IUIAutomationEventHandlerGroup, windows_core::IUnknown);
 impl IUIAutomationEventHandlerGroup {
-    pub unsafe fn AddActiveTextPositionChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
+    pub unsafe fn AddActiveTextPositionChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddAutomationEventHandler<P2, P3>(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: P2, handler: P3) -> windows_core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<P2, P3>(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: P2, handler: P3) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddChangesEventHandler<P3, P4>(&self, scope: TreeScope, changetypes: &[i32], cacherequest: P3, handler: P4) -> windows_core::Result<()>
+    pub unsafe fn AddChangesEventHandler<P3, P4>(&self, scope: TreeScope, changetypes: &[i32], cacherequest: P3, handler: P4) -> Result<(), windows_result::HRESULT>
     where
         P3: windows_core::Param<IUIAutomationCacheRequest>,
         P4: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddNotificationEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
+    pub unsafe fn AddNotificationEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn AddStructureChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
+    pub unsafe fn AddStructureChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
     }
-    pub unsafe fn AddTextEditTextChangedEventHandler<P2, P3>(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P2, handler: P3) -> windows_core::Result<()>
+    pub unsafe fn AddTextEditTextChangedEventHandler<P2, P3>(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P2, handler: P3) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
@@ -12503,13 +12503,13 @@ pub struct IUIAutomationEventHandlerGroup_Vtbl {
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, TextEditChangeType, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationEventHandlerGroup_Impl: windows_core::IUnknownImpl {
-    fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn AddChangesEventHandler(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
-    fn AddNotificationEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
-    fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddChangesEventHandler(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddNotificationEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> Result<(), windows_result::HRESULT>;
+    fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
+    fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationEventHandlerGroup_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>() -> Self {
@@ -12574,19 +12574,19 @@ impl windows_core::RuntimeName for IUIAutomationEventHandlerGroup {}
 windows_core::imp::define_interface!(IUIAutomationExpandCollapsePattern, IUIAutomationExpandCollapsePattern_Vtbl, 0x619be086_1f4e_4ee4_bafa_210128738730);
 windows_core::imp::interface_hierarchy!(IUIAutomationExpandCollapsePattern, windows_core::IUnknown);
 impl IUIAutomationExpandCollapsePattern {
-    pub unsafe fn Expand(&self) -> windows_core::Result<()> {
+    pub unsafe fn Expand(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Collapse(&self) -> windows_core::Result<()> {
+    pub unsafe fn Collapse(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Collapse)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CurrentExpandCollapseState(&self) -> windows_core::Result<ExpandCollapseState> {
+    pub unsafe fn CurrentExpandCollapseState(&self) -> Result<ExpandCollapseState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentExpandCollapseState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedExpandCollapseState(&self) -> windows_core::Result<ExpandCollapseState> {
+    pub unsafe fn CachedExpandCollapseState(&self) -> Result<ExpandCollapseState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedExpandCollapseState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -12603,10 +12603,10 @@ pub struct IUIAutomationExpandCollapsePattern_Vtbl {
     pub CachedExpandCollapseState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ExpandCollapseState) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationExpandCollapsePattern_Impl: windows_core::IUnknownImpl {
-    fn Expand(&self) -> windows_core::Result<()>;
-    fn Collapse(&self) -> windows_core::Result<()>;
-    fn CurrentExpandCollapseState(&self) -> windows_core::Result<ExpandCollapseState>;
-    fn CachedExpandCollapseState(&self) -> windows_core::Result<ExpandCollapseState>;
+    fn Expand(&self) -> Result<(), windows_result::HRESULT>;
+    fn Collapse(&self) -> Result<(), windows_result::HRESULT>;
+    fn CurrentExpandCollapseState(&self) -> Result<ExpandCollapseState, windows_result::HRESULT>;
+    fn CachedExpandCollapseState(&self) -> Result<ExpandCollapseState, windows_result::HRESULT>;
 }
 impl IUIAutomationExpandCollapsePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>() -> Self {
@@ -12662,7 +12662,7 @@ impl windows_core::RuntimeName for IUIAutomationExpandCollapsePattern {}
 windows_core::imp::define_interface!(IUIAutomationFocusChangedEventHandler, IUIAutomationFocusChangedEventHandler_Vtbl, 0xc270f6b5_5c69_4290_9745_7a7f97169468);
 windows_core::imp::interface_hierarchy!(IUIAutomationFocusChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationFocusChangedEventHandler {
-    pub unsafe fn HandleFocusChangedEvent<P0>(&self, sender: P0) -> windows_core::Result<()>
+    pub unsafe fn HandleFocusChangedEvent<P0>(&self, sender: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -12676,7 +12676,7 @@ pub struct IUIAutomationFocusChangedEventHandler_Vtbl {
     pub HandleFocusChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationFocusChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleFocusChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<()>;
+    fn HandleFocusChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationFocusChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -12696,61 +12696,61 @@ impl windows_core::RuntimeName for IUIAutomationFocusChangedEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationGridItemPattern, IUIAutomationGridItemPattern_Vtbl, 0x78f8ef57_66c3_4e09_bd7c_e79b2004894d);
 windows_core::imp::interface_hierarchy!(IUIAutomationGridItemPattern, windows_core::IUnknown);
 impl IUIAutomationGridItemPattern {
-    pub unsafe fn CurrentContainingGrid(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentContainingGrid(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentContainingGrid)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentRow(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentRow(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentColumn(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentColumn(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentColumn)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentRowSpan(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentRowSpan(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRowSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentColumnSpan(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentColumnSpan(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentColumnSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedContainingGrid(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedContainingGrid(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedContainingGrid)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedRow(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedRow(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedRow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedColumn(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedColumn(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedColumn)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedRowSpan(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedRowSpan(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedRowSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedColumnSpan(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedColumnSpan(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedColumnSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -12773,16 +12773,16 @@ pub struct IUIAutomationGridItemPattern_Vtbl {
     pub CachedColumnSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationGridItemPattern_Impl: windows_core::IUnknownImpl {
-    fn CurrentContainingGrid(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CurrentRow(&self) -> windows_core::Result<i32>;
-    fn CurrentColumn(&self) -> windows_core::Result<i32>;
-    fn CurrentRowSpan(&self) -> windows_core::Result<i32>;
-    fn CurrentColumnSpan(&self) -> windows_core::Result<i32>;
-    fn CachedContainingGrid(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedRow(&self) -> windows_core::Result<i32>;
-    fn CachedColumn(&self) -> windows_core::Result<i32>;
-    fn CachedRowSpan(&self) -> windows_core::Result<i32>;
-    fn CachedColumnSpan(&self) -> windows_core::Result<i32>;
+    fn CurrentContainingGrid(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CurrentRow(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentColumn(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentRowSpan(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentColumnSpan(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedContainingGrid(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CachedRow(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedColumn(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedRowSpan(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedColumnSpan(&self) -> Result<i32, windows_result::HRESULT>;
 }
 impl IUIAutomationGridItemPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>() -> Self {
@@ -12928,31 +12928,31 @@ impl windows_core::RuntimeName for IUIAutomationGridItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationGridPattern, IUIAutomationGridPattern_Vtbl, 0x414c3cdc_856b_4f5b_8538_3131c6302550);
 windows_core::imp::interface_hierarchy!(IUIAutomationGridPattern, windows_core::IUnknown);
 impl IUIAutomationGridPattern {
-    pub unsafe fn GetItem(&self, row: i32, column: i32) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetItem(&self, row: i32, column: i32) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), row, column, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentRowCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentRowCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRowCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentColumnCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentColumnCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentColumnCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedRowCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedRowCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedRowCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedColumnCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedColumnCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedColumnCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -12970,11 +12970,11 @@ pub struct IUIAutomationGridPattern_Vtbl {
     pub CachedColumnCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationGridPattern_Impl: windows_core::IUnknownImpl {
-    fn GetItem(&self, row: i32, column: i32) -> windows_core::Result<IUIAutomationElement>;
-    fn CurrentRowCount(&self) -> windows_core::Result<i32>;
-    fn CurrentColumnCount(&self) -> windows_core::Result<i32>;
-    fn CachedRowCount(&self) -> windows_core::Result<i32>;
-    fn CachedColumnCount(&self) -> windows_core::Result<i32>;
+    fn GetItem(&self, row: i32, column: i32) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CurrentRowCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentColumnCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedRowCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedColumnCount(&self) -> Result<i32, windows_result::HRESULT>;
 }
 impl IUIAutomationGridPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationGridPattern_Impl, const OFFSET: isize>() -> Self {
@@ -13055,7 +13055,7 @@ impl windows_core::RuntimeName for IUIAutomationGridPattern {}
 windows_core::imp::define_interface!(IUIAutomationInvokePattern, IUIAutomationInvokePattern_Vtbl, 0xfb377fbe_8ea6_46d5_9c73_6499642d3059);
 windows_core::imp::interface_hierarchy!(IUIAutomationInvokePattern, windows_core::IUnknown);
 impl IUIAutomationInvokePattern {
-    pub unsafe fn Invoke(&self) -> windows_core::Result<()> {
+    pub unsafe fn Invoke(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -13066,7 +13066,7 @@ pub struct IUIAutomationInvokePattern_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationInvokePattern_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self) -> windows_core::Result<()>;
+    fn Invoke(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationInvokePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationInvokePattern_Impl, const OFFSET: isize>() -> Self {
@@ -13087,7 +13087,7 @@ windows_core::imp::define_interface!(IUIAutomationItemContainerPattern, IUIAutom
 windows_core::imp::interface_hierarchy!(IUIAutomationItemContainerPattern, windows_core::IUnknown);
 impl IUIAutomationItemContainerPattern {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -13108,7 +13108,7 @@ pub struct IUIAutomationItemContainerPattern_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationItemContainerPattern_Impl: windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<'_, IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationElement>;
+    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<'_, IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> Result<IUIAutomationElement, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationItemContainerPattern_Vtbl {
@@ -13136,140 +13136,140 @@ impl windows_core::RuntimeName for IUIAutomationItemContainerPattern {}
 windows_core::imp::define_interface!(IUIAutomationLegacyIAccessiblePattern, IUIAutomationLegacyIAccessiblePattern_Vtbl, 0x828055ad_355b_4435_86d5_3b51c14a9b1b);
 windows_core::imp::interface_hierarchy!(IUIAutomationLegacyIAccessiblePattern, windows_core::IUnknown);
 impl IUIAutomationLegacyIAccessiblePattern {
-    pub unsafe fn Select(&self, flagsselect: i32) -> windows_core::Result<()> {
+    pub unsafe fn Select(&self, flagsselect: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), flagsselect).ok() }
     }
-    pub unsafe fn DoDefaultAction(&self) -> windows_core::Result<()> {
+    pub unsafe fn DoDefaultAction(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DoDefaultAction)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> windows_core::Result<()>
+    pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok() }
     }
-    pub unsafe fn CurrentChildId(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentChildId(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentChildId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentValue(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentDescription(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentRole(&self) -> windows_core::Result<u32> {
+    pub unsafe fn CurrentRole(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRole)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentState(&self) -> windows_core::Result<u32> {
+    pub unsafe fn CurrentState(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentHelp(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentHelp(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHelp)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentKeyboardShortcut(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentKeyboardShortcut(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentKeyboardShortcut)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCurrentSelection(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentDefaultAction(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentDefaultAction(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDefaultAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedChildId(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedChildId(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedChildId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedValue(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedDescription(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedRole(&self) -> windows_core::Result<u32> {
+    pub unsafe fn CachedRole(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedRole)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedState(&self) -> windows_core::Result<u32> {
+    pub unsafe fn CachedState(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedHelp(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedHelp(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHelp)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedKeyboardShortcut(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedKeyboardShortcut(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedKeyboardShortcut)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCachedSelection(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedDefaultAction(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedDefaultAction(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedDefaultAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIAccessible(&self) -> windows_core::Result<IAccessible> {
+    pub unsafe fn GetIAccessible(&self) -> Result<IAccessible, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIAccessible)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13310,30 +13310,30 @@ pub struct IUIAutomationLegacyIAccessiblePattern_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationLegacyIAccessiblePattern_Impl: windows_core::IUnknownImpl {
-    fn Select(&self, flagsselect: i32) -> windows_core::Result<()>;
-    fn DoDefaultAction(&self) -> windows_core::Result<()>;
-    fn SetValue(&self, szvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CurrentChildId(&self) -> windows_core::Result<i32>;
-    fn CurrentName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentValue(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentRole(&self) -> windows_core::Result<u32>;
-    fn CurrentState(&self) -> windows_core::Result<u32>;
-    fn CurrentHelp(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentKeyboardShortcut(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCurrentSelection(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentDefaultAction(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedChildId(&self) -> windows_core::Result<i32>;
-    fn CachedName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedValue(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedRole(&self) -> windows_core::Result<u32>;
-    fn CachedState(&self) -> windows_core::Result<u32>;
-    fn CachedHelp(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedKeyboardShortcut(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCachedSelection(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedDefaultAction(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetIAccessible(&self) -> windows_core::Result<IAccessible>;
+    fn Select(&self, flagsselect: i32) -> Result<(), windows_result::HRESULT>;
+    fn DoDefaultAction(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetValue(&self, szvalue: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn CurrentChildId(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentRole(&self) -> Result<u32, windows_result::HRESULT>;
+    fn CurrentState(&self) -> Result<u32, windows_result::HRESULT>;
+    fn CurrentHelp(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentKeyboardShortcut(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetCurrentSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CurrentDefaultAction(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedChildId(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedDescription(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedRole(&self) -> Result<u32, windows_result::HRESULT>;
+    fn CachedState(&self) -> Result<u32, windows_result::HRESULT>;
+    fn CachedHelp(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedKeyboardShortcut(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetCachedSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedDefaultAction(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetIAccessible(&self) -> Result<IAccessible, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
@@ -13645,36 +13645,36 @@ impl windows_core::RuntimeName for IUIAutomationLegacyIAccessiblePattern {}
 windows_core::imp::define_interface!(IUIAutomationMultipleViewPattern, IUIAutomationMultipleViewPattern_Vtbl, 0x8d253c91_1dc5_4bb5_b18f_ade16fa495e8);
 windows_core::imp::interface_hierarchy!(IUIAutomationMultipleViewPattern, windows_core::IUnknown);
 impl IUIAutomationMultipleViewPattern {
-    pub unsafe fn GetViewName(&self, view: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetViewName(&self, view: i32) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetViewName)(windows_core::Interface::as_raw(self), view, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetCurrentView(&self, view: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetCurrentView(&self, view: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentView)(windows_core::Interface::as_raw(self), view).ok() }
     }
-    pub unsafe fn CurrentCurrentView(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentCurrentView(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCurrentView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCurrentSupportedViews(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetCurrentSupportedViews(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentSupportedViews)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCurrentView(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedCurrentView(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCurrentView)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCachedSupportedViews(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetCachedSupportedViews(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedSupportedViews)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -13700,12 +13700,12 @@ pub struct IUIAutomationMultipleViewPattern_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationMultipleViewPattern_Impl: windows_core::IUnknownImpl {
-    fn GetViewName(&self, view: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCurrentView(&self, view: i32) -> windows_core::Result<()>;
-    fn CurrentCurrentView(&self) -> windows_core::Result<i32>;
-    fn GetCurrentSupportedViews(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CachedCurrentView(&self) -> windows_core::Result<i32>;
-    fn GetCachedSupportedViews(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetViewName(&self, view: i32) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetCurrentView(&self, view: i32) -> Result<(), windows_result::HRESULT>;
+    fn CurrentCurrentView(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetCurrentSupportedViews(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CachedCurrentView(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetCachedSupportedViews(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationMultipleViewPattern_Vtbl {
@@ -13801,7 +13801,7 @@ impl core::ops::Deref for IUIAutomationNotCondition {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationNotCondition, windows_core::IUnknown, IUIAutomationCondition);
 impl IUIAutomationNotCondition {
-    pub unsafe fn GetChild(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn GetChild(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChild)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13815,7 +13815,7 @@ pub struct IUIAutomationNotCondition_Vtbl {
     pub GetChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationNotCondition_Impl: IUIAutomationCondition_Impl {
-    fn GetChild(&self) -> windows_core::Result<IUIAutomationCondition>;
+    fn GetChild(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
 }
 impl IUIAutomationNotCondition_Vtbl {
     pub const fn new<Identity: IUIAutomationNotCondition_Impl, const OFFSET: isize>() -> Self {
@@ -13841,7 +13841,7 @@ impl windows_core::RuntimeName for IUIAutomationNotCondition {}
 windows_core::imp::define_interface!(IUIAutomationNotificationEventHandler, IUIAutomationNotificationEventHandler_Vtbl, 0xc7cb2637_e6c2_4d0c_85de_4948c02175c7);
 windows_core::imp::interface_hierarchy!(IUIAutomationNotificationEventHandler, windows_core::IUnknown);
 impl IUIAutomationNotificationEventHandler {
-    pub unsafe fn HandleNotificationEvent<P0>(&self, sender: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn HandleNotificationEvent<P0>(&self, sender: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -13855,7 +13855,7 @@ pub struct IUIAutomationNotificationEventHandler_Vtbl {
     pub HandleNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, NotificationKind, NotificationProcessing, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationNotificationEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleNotificationEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn HandleNotificationEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationNotificationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -13875,7 +13875,7 @@ impl windows_core::RuntimeName for IUIAutomationNotificationEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationObjectModelPattern, IUIAutomationObjectModelPattern_Vtbl, 0x71c284b3_c14d_4d14_981e_19751b0d756d);
 windows_core::imp::interface_hierarchy!(IUIAutomationObjectModelPattern, windows_core::IUnknown);
 impl IUIAutomationObjectModelPattern {
-    pub unsafe fn GetUnderlyingObjectModel(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetUnderlyingObjectModel(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUnderlyingObjectModel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13889,7 +13889,7 @@ pub struct IUIAutomationObjectModelPattern_Vtbl {
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationObjectModelPattern_Impl: windows_core::IUnknownImpl {
-    fn GetUnderlyingObjectModel(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetUnderlyingObjectModel(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 impl IUIAutomationObjectModelPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationObjectModelPattern_Impl, const OFFSET: isize>() -> Self {
@@ -13921,17 +13921,17 @@ impl core::ops::Deref for IUIAutomationOrCondition {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationOrCondition, windows_core::IUnknown, IUIAutomationCondition);
 impl IUIAutomationOrCondition {
-    pub unsafe fn ChildCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ChildCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChildCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetChildrenAsNativeArray)(windows_core::Interface::as_raw(self), childarray as _, childarraycount as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetChildren(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChildren)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -13951,9 +13951,9 @@ pub struct IUIAutomationOrCondition_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationOrCondition_Impl: IUIAutomationCondition_Impl {
-    fn ChildCount(&self) -> windows_core::Result<i32>;
-    fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::Result<()>;
-    fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn ChildCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetChildrenAsNativeArray(&self, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn GetChildren(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationOrCondition_Vtbl {
@@ -14004,7 +14004,7 @@ impl windows_core::RuntimeName for IUIAutomationOrCondition {}
 windows_core::imp::define_interface!(IUIAutomationPatternHandler, IUIAutomationPatternHandler_Vtbl, 0xd97022f3_a947_465e_8b2a_ac4315fa54e8);
 windows_core::imp::interface_hierarchy!(IUIAutomationPatternHandler, windows_core::IUnknown);
 impl IUIAutomationPatternHandler {
-    pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn CreateClientWrapper<P0>(&self, ppatterninstance: P0) -> Result<windows_core::IUnknown, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationPatternInstance>,
     {
@@ -14013,7 +14013,7 @@ impl IUIAutomationPatternHandler {
             (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Dispatch<P0>(&self, ptarget: P0, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>
+    pub unsafe fn Dispatch<P0>(&self, ptarget: P0, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -14028,8 +14028,8 @@ pub struct IUIAutomationPatternHandler_Vtbl {
     pub Dispatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const UIAutomationParameter, u32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationPatternHandler_Impl: windows_core::IUnknownImpl {
-    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<'_, IUIAutomationPatternInstance>) -> windows_core::Result<windows_core::IUnknown>;
-    fn Dispatch(&self, ptarget: windows_core::Ref<'_, windows_core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>;
+    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<'_, IUIAutomationPatternInstance>) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Dispatch(&self, ptarget: windows_core::Ref<'_, windows_core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationPatternHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>() -> Self {
@@ -14065,10 +14065,10 @@ impl windows_core::RuntimeName for IUIAutomationPatternHandler {}
 windows_core::imp::define_interface!(IUIAutomationPatternInstance, IUIAutomationPatternInstance_Vtbl, 0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d);
 windows_core::imp::interface_hierarchy!(IUIAutomationPatternInstance, windows_core::IUnknown);
 impl IUIAutomationPatternInstance {
-    pub unsafe fn GetProperty(&self, index: u32, cached: bool, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn GetProperty(&self, index: u32, cached: bool, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), index, cached.into(), r#type, pptr as _).ok() }
     }
-    pub unsafe fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()> {
+    pub unsafe fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CallMethod)(windows_core::Interface::as_raw(self), index, pparams, cparams).ok() }
     }
 }
@@ -14080,8 +14080,8 @@ pub struct IUIAutomationPatternInstance_Vtbl {
     pub CallMethod: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const UIAutomationParameter, u32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationPatternInstance_Impl: windows_core::IUnknownImpl {
-    fn GetProperty(&self, index: u32, cached: windows_core::BOOL, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>;
+    fn GetProperty(&self, index: u32, cached: windows_core::BOOL, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationPatternInstance_Vtbl {
     pub const fn new<Identity: IUIAutomationPatternInstance_Impl, const OFFSET: isize>() -> Self {
@@ -14112,7 +14112,7 @@ windows_core::imp::define_interface!(IUIAutomationPropertyChangedEventHandler, I
 windows_core::imp::interface_hierarchy!(IUIAutomationPropertyChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationPropertyChangedEventHandler {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn HandlePropertyChangedEvent<P0>(&self, sender: P0, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>
+    pub unsafe fn HandlePropertyChangedEvent<P0>(&self, sender: P0, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -14130,7 +14130,7 @@ pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandlePropertyChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn HandlePropertyChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyChangedEventHandler_Vtbl {
@@ -14158,20 +14158,20 @@ impl core::ops::Deref for IUIAutomationPropertyCondition {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationPropertyCondition, windows_core::IUnknown, IUIAutomationCondition);
 impl IUIAutomationPropertyCondition {
-    pub unsafe fn PropertyId(&self) -> windows_core::Result<UIA_PROPERTY_ID> {
+    pub unsafe fn PropertyId(&self) -> Result<UIA_PROPERTY_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PropertyValue(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PropertyValue(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PropertyConditionFlags(&self) -> windows_core::Result<PropertyConditionFlags> {
+    pub unsafe fn PropertyConditionFlags(&self) -> Result<PropertyConditionFlags, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyConditionFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14191,9 +14191,9 @@ pub struct IUIAutomationPropertyCondition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyCondition_Impl: IUIAutomationCondition_Impl {
-    fn PropertyId(&self) -> windows_core::Result<UIA_PROPERTY_ID>;
-    fn PropertyValue(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn PropertyConditionFlags(&self) -> windows_core::Result<PropertyConditionFlags>;
+    fn PropertyId(&self) -> Result<UIA_PROPERTY_ID, windows_result::HRESULT>;
+    fn PropertyValue(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn PropertyConditionFlags(&self) -> Result<PropertyConditionFlags, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyCondition_Vtbl {
@@ -14250,13 +14250,13 @@ impl windows_core::RuntimeName for IUIAutomationPropertyCondition {}
 windows_core::imp::define_interface!(IUIAutomationProxyFactory, IUIAutomationProxyFactory_Vtbl, 0x85b94ecd_849d_42b6_b94d_d6db23fdf5a4);
 windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactory, windows_core::IUnknown);
 impl IUIAutomationProxyFactory {
-    pub unsafe fn CreateProvider(&self, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> windows_core::Result<IRawElementProviderSimple> {
+    pub unsafe fn CreateProvider(&self, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> Result<IRawElementProviderSimple, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateProvider)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProxyFactoryId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProxyFactoryId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyFactoryId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -14271,8 +14271,8 @@ pub struct IUIAutomationProxyFactory_Vtbl {
     pub ProxyFactoryId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationProxyFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateProvider(&self, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> windows_core::Result<IRawElementProviderSimple>;
-    fn ProxyFactoryId(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn CreateProvider(&self, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> Result<IRawElementProviderSimple, windows_result::HRESULT>;
+    fn ProxyFactoryId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 impl IUIAutomationProxyFactory_Vtbl {
     pub const fn new<Identity: IUIAutomationProxyFactory_Impl, const OFFSET: isize>() -> Self {
@@ -14314,69 +14314,69 @@ impl windows_core::RuntimeName for IUIAutomationProxyFactory {}
 windows_core::imp::define_interface!(IUIAutomationProxyFactoryEntry, IUIAutomationProxyFactoryEntry_Vtbl, 0xd50e472e_b64b_490c_bca1_d30696f9f289);
 windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactoryEntry, windows_core::IUnknown);
 impl IUIAutomationProxyFactoryEntry {
-    pub unsafe fn ProxyFactory(&self) -> windows_core::Result<IUIAutomationProxyFactory> {
+    pub unsafe fn ProxyFactory(&self) -> Result<IUIAutomationProxyFactory, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyFactory)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ClassName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClassName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ImageName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ImageName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImageName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AllowSubstringMatch(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn AllowSubstringMatch(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowSubstringMatch)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanCheckBaseClass(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanCheckBaseClass(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanCheckBaseClass)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NeedsAdviseEvents(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn NeedsAdviseEvents(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NeedsAdviseEvents)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClassName<P0>(&self, classname: P0) -> windows_core::Result<()>
+    pub unsafe fn SetClassName<P0>(&self, classname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), classname.param().abi()).ok() }
     }
-    pub unsafe fn SetImageName<P0>(&self, imagename: P0) -> windows_core::Result<()>
+    pub unsafe fn SetImageName<P0>(&self, imagename: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), imagename.param().abi()).ok() }
     }
-    pub unsafe fn SetAllowSubstringMatch(&self, allowsubstringmatch: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAllowSubstringMatch(&self, allowsubstringmatch: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowSubstringMatch)(windows_core::Interface::as_raw(self), allowsubstringmatch.into()).ok() }
     }
-    pub unsafe fn SetCanCheckBaseClass(&self, cancheckbaseclass: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCanCheckBaseClass(&self, cancheckbaseclass: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCanCheckBaseClass)(windows_core::Interface::as_raw(self), cancheckbaseclass.into()).ok() }
     }
-    pub unsafe fn SetNeedsAdviseEvents(&self, adviseevents: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetNeedsAdviseEvents(&self, adviseevents: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNeedsAdviseEvents)(windows_core::Interface::as_raw(self), adviseevents.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWinEventsForAutomationEvent)(windows_core::Interface::as_raw(self), eventid, propertyid, winevents).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetWinEventsForAutomationEvent)(windows_core::Interface::as_raw(self), eventid, propertyid, &mut result__).map(|| result__)
@@ -14409,19 +14409,19 @@ pub struct IUIAutomationProxyFactoryEntry_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationProxyFactoryEntry_Impl: windows_core::IUnknownImpl {
-    fn ProxyFactory(&self) -> windows_core::Result<IUIAutomationProxyFactory>;
-    fn ClassName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ImageName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AllowSubstringMatch(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CanCheckBaseClass(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn NeedsAdviseEvents(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetClassName(&self, classname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetImageName(&self, imagename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetAllowSubstringMatch(&self, allowsubstringmatch: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetCanCheckBaseClass(&self, cancheckbaseclass: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetNeedsAdviseEvents(&self, adviseevents: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn ProxyFactory(&self) -> Result<IUIAutomationProxyFactory, windows_result::HRESULT>;
+    fn ClassName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ImageName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn AllowSubstringMatch(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CanCheckBaseClass(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn NeedsAdviseEvents(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SetClassName(&self, classname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetImageName(&self, imagename: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetAllowSubstringMatch(&self, allowsubstringmatch: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetCanCheckBaseClass(&self, cancheckbaseclass: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetNeedsAdviseEvents(&self, adviseevents: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationProxyFactoryEntry_Vtbl {
@@ -14572,46 +14572,46 @@ impl windows_core::RuntimeName for IUIAutomationProxyFactoryEntry {}
 windows_core::imp::define_interface!(IUIAutomationProxyFactoryMapping, IUIAutomationProxyFactoryMapping_Vtbl, 0x09e31e18_872d_4873_93d1_1e541ec133fd);
 windows_core::imp::interface_hierarchy!(IUIAutomationProxyFactoryMapping, windows_core::IUnknown);
 impl IUIAutomationProxyFactoryMapping {
-    pub unsafe fn Count(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Count(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTable(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetTable(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEntry(&self, index: u32) -> windows_core::Result<IUIAutomationProxyFactoryEntry> {
+    pub unsafe fn GetEntry(&self, index: u32) -> Result<IUIAutomationProxyFactoryEntry, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntry)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTable)(windows_core::Interface::as_raw(self), factorylist).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).InsertEntries)(windows_core::Interface::as_raw(self), before, factorylist).ok() }
     }
-    pub unsafe fn InsertEntry<P1>(&self, before: u32, factory: P1) -> windows_core::Result<()>
+    pub unsafe fn InsertEntry<P1>(&self, before: u32, factory: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationProxyFactoryEntry>,
     {
         unsafe { (windows_core::Interface::vtable(self).InsertEntry)(windows_core::Interface::as_raw(self), before, factory.param().abi()).ok() }
     }
-    pub unsafe fn RemoveEntry(&self, index: u32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveEntry(&self, index: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveEntry)(windows_core::Interface::as_raw(self), index).ok() }
     }
-    pub unsafe fn ClearTable(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearTable(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearTable)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RestoreDefaultTable(&self) -> windows_core::Result<()> {
+    pub unsafe fn RestoreDefaultTable(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RestoreDefaultTable)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -14640,15 +14640,15 @@ pub struct IUIAutomationProxyFactoryMapping_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationProxyFactoryMapping_Impl: windows_core::IUnknownImpl {
-    fn Count(&self) -> windows_core::Result<u32>;
-    fn GetTable(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetEntry(&self, index: u32) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
-    fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn InsertEntry(&self, before: u32, factory: windows_core::Ref<'_, IUIAutomationProxyFactoryEntry>) -> windows_core::Result<()>;
-    fn RemoveEntry(&self, index: u32) -> windows_core::Result<()>;
-    fn ClearTable(&self) -> windows_core::Result<()>;
-    fn RestoreDefaultTable(&self) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetTable(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetEntry(&self, index: u32) -> Result<IUIAutomationProxyFactoryEntry, windows_result::HRESULT>;
+    fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn InsertEntry(&self, before: u32, factory: windows_core::Ref<'_, IUIAutomationProxyFactoryEntry>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveEntry(&self, index: u32) -> Result<(), windows_result::HRESULT>;
+    fn ClearTable(&self) -> Result<(), windows_result::HRESULT>;
+    fn RestoreDefaultTable(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationProxyFactoryMapping_Vtbl {
@@ -14747,76 +14747,76 @@ impl windows_core::RuntimeName for IUIAutomationProxyFactoryMapping {}
 windows_core::imp::define_interface!(IUIAutomationRangeValuePattern, IUIAutomationRangeValuePattern_Vtbl, 0x59213f4f_7346_49e5_b120_80555987a148);
 windows_core::imp::interface_hierarchy!(IUIAutomationRangeValuePattern, windows_core::IUnknown);
 impl IUIAutomationRangeValuePattern {
-    pub unsafe fn SetValue(&self, val: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, val: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val).ok() }
     }
-    pub unsafe fn CurrentValue(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentValue(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentMaximum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentMaximum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentMaximum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentMinimum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentMinimum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentMinimum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentLargeChange(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentLargeChange(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLargeChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentSmallChange(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentSmallChange(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentSmallChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedValue(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedValue(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedMaximum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedMaximum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedMaximum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedMinimum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedMinimum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedMinimum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedLargeChange(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedLargeChange(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLargeChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedSmallChange(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedSmallChange(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedSmallChange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14842,19 +14842,19 @@ pub struct IUIAutomationRangeValuePattern_Vtbl {
     pub CachedSmallChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationRangeValuePattern_Impl: windows_core::IUnknownImpl {
-    fn SetValue(&self, val: f64) -> windows_core::Result<()>;
-    fn CurrentValue(&self) -> windows_core::Result<f64>;
-    fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentMaximum(&self) -> windows_core::Result<f64>;
-    fn CurrentMinimum(&self) -> windows_core::Result<f64>;
-    fn CurrentLargeChange(&self) -> windows_core::Result<f64>;
-    fn CurrentSmallChange(&self) -> windows_core::Result<f64>;
-    fn CachedValue(&self) -> windows_core::Result<f64>;
-    fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedMaximum(&self) -> windows_core::Result<f64>;
-    fn CachedMinimum(&self) -> windows_core::Result<f64>;
-    fn CachedLargeChange(&self) -> windows_core::Result<f64>;
-    fn CachedSmallChange(&self) -> windows_core::Result<f64>;
+    fn SetValue(&self, val: f64) -> Result<(), windows_result::HRESULT>;
+    fn CurrentValue(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentMaximum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentMinimum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentLargeChange(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentSmallChange(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedValue(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedMaximum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedMinimum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedLargeChange(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedSmallChange(&self) -> Result<f64, windows_result::HRESULT>;
 }
 impl IUIAutomationRangeValuePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>() -> Self {
@@ -15033,19 +15033,19 @@ impl windows_core::RuntimeName for IUIAutomationRangeValuePattern {}
 windows_core::imp::define_interface!(IUIAutomationRegistrar, IUIAutomationRegistrar_Vtbl, 0x8609c4ec_4a1a_4d88_a357_5a66e060e1cf);
 windows_core::imp::interface_hierarchy!(IUIAutomationRegistrar, windows_core::IUnknown);
 impl IUIAutomationRegistrar {
-    pub unsafe fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> windows_core::Result<i32> {
+    pub unsafe fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterProperty)(windows_core::Interface::as_raw(self), property, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> windows_core::Result<i32> {
+    pub unsafe fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterEvent)(windows_core::Interface::as_raw(self), event, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, ppropertyids: &mut [i32], peventids: &mut [i32]) -> windows_core::Result<()> {
+    pub unsafe fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, ppropertyids: &mut [i32], peventids: &mut [i32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RegisterPattern)(windows_core::Interface::as_raw(self), core::mem::transmute(pattern), ppatternid as _, ppatternavailablepropertyid as _, ppropertyids.len().try_into().unwrap(), core::mem::transmute(ppropertyids.as_ptr()), peventids.len().try_into().unwrap(), core::mem::transmute(peventids.as_ptr())).ok() }
     }
 }
@@ -15058,9 +15058,9 @@ pub struct IUIAutomationRegistrar_Vtbl {
     pub RegisterPattern: unsafe extern "system" fn(*mut core::ffi::c_void, *const UIAutomationPatternInfo, *mut i32, *mut i32, u32, *mut i32, u32, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationRegistrar_Impl: windows_core::IUnknownImpl {
-    fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> windows_core::Result<i32>;
-    fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> windows_core::Result<i32>;
-    fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> windows_core::Result<()>;
+    fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> Result<i32, windows_result::HRESULT>;
+    fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> Result<i32, windows_result::HRESULT>;
+    fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationRegistrar_Vtbl {
     pub const fn new<Identity: IUIAutomationRegistrar_Impl, const OFFSET: isize>() -> Self {
@@ -15109,7 +15109,7 @@ impl windows_core::RuntimeName for IUIAutomationRegistrar {}
 windows_core::imp::define_interface!(IUIAutomationScrollItemPattern, IUIAutomationScrollItemPattern_Vtbl, 0xb488300f_d015_4f19_9c29_bb595e3645ef);
 windows_core::imp::interface_hierarchy!(IUIAutomationScrollItemPattern, windows_core::IUnknown);
 impl IUIAutomationScrollItemPattern {
-    pub unsafe fn ScrollIntoView(&self) -> windows_core::Result<()> {
+    pub unsafe fn ScrollIntoView(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -15120,7 +15120,7 @@ pub struct IUIAutomationScrollItemPattern_Vtbl {
     pub ScrollIntoView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationScrollItemPattern_Impl: windows_core::IUnknownImpl {
-    fn ScrollIntoView(&self) -> windows_core::Result<()>;
+    fn ScrollIntoView(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationScrollItemPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationScrollItemPattern_Impl, const OFFSET: isize>() -> Self {
@@ -15140,79 +15140,79 @@ impl windows_core::RuntimeName for IUIAutomationScrollItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationScrollPattern, IUIAutomationScrollPattern_Vtbl, 0x88f4d42a_e881_459d_a77c_73bbbb7e02dc);
 windows_core::imp::interface_hierarchy!(IUIAutomationScrollPattern, windows_core::IUnknown);
 impl IUIAutomationScrollPattern {
-    pub unsafe fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()> {
+    pub unsafe fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), horizontalamount, verticalamount).ok() }
     }
-    pub unsafe fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetScrollPercent)(windows_core::Interface::as_raw(self), horizontalpercent, verticalpercent).ok() }
     }
-    pub unsafe fn CurrentHorizontalScrollPercent(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentHorizontalScrollPercent(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHorizontalScrollPercent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentVerticalScrollPercent(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentVerticalScrollPercent(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentVerticalScrollPercent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentHorizontalViewSize(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentHorizontalViewSize(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHorizontalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentVerticalViewSize(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentVerticalViewSize(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentVerticalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentHorizontallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentHorizontallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentVerticallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentVerticallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedHorizontalScrollPercent(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedHorizontalScrollPercent(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHorizontalScrollPercent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedVerticalScrollPercent(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedVerticalScrollPercent(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedVerticalScrollPercent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedHorizontalViewSize(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedHorizontalViewSize(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHorizontalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedVerticalViewSize(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedVerticalViewSize(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedVerticalViewSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedHorizontallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedHorizontallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedVerticallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedVerticallyScrollable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15239,20 +15239,20 @@ pub struct IUIAutomationScrollPattern_Vtbl {
     pub CachedVerticallyScrollable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationScrollPattern_Impl: windows_core::IUnknownImpl {
-    fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()>;
-    fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()>;
-    fn CurrentHorizontalScrollPercent(&self) -> windows_core::Result<f64>;
-    fn CurrentVerticalScrollPercent(&self) -> windows_core::Result<f64>;
-    fn CurrentHorizontalViewSize(&self) -> windows_core::Result<f64>;
-    fn CurrentVerticalViewSize(&self) -> windows_core::Result<f64>;
-    fn CurrentHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedHorizontalScrollPercent(&self) -> windows_core::Result<f64>;
-    fn CachedVerticalScrollPercent(&self) -> windows_core::Result<f64>;
-    fn CachedHorizontalViewSize(&self) -> windows_core::Result<f64>;
-    fn CachedVerticalViewSize(&self) -> windows_core::Result<f64>;
-    fn CachedHorizontallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedVerticallyScrollable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn Scroll(&self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> Result<(), windows_result::HRESULT>;
+    fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> Result<(), windows_result::HRESULT>;
+    fn CurrentHorizontalScrollPercent(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentVerticalScrollPercent(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentHorizontalViewSize(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentVerticalViewSize(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentHorizontallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentVerticallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedHorizontalScrollPercent(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedVerticalScrollPercent(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedHorizontalViewSize(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedVerticalViewSize(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedHorizontallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedVerticallyScrollable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IUIAutomationScrollPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationScrollPattern_Impl, const OFFSET: isize>() -> Self {
@@ -15438,34 +15438,34 @@ impl windows_core::RuntimeName for IUIAutomationScrollPattern {}
 windows_core::imp::define_interface!(IUIAutomationSelectionItemPattern, IUIAutomationSelectionItemPattern_Vtbl, 0xa8efa66a_0fda_421a_9194_38021f3578ea);
 windows_core::imp::interface_hierarchy!(IUIAutomationSelectionItemPattern, windows_core::IUnknown);
 impl IUIAutomationSelectionItemPattern {
-    pub unsafe fn Select(&self) -> windows_core::Result<()> {
+    pub unsafe fn Select(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddToSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn AddToSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddToSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CurrentIsSelected(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsSelected(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentSelectionContainer(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentSelectionContainer(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentSelectionContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedIsSelected(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsSelected(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedSelectionContainer(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedSelectionContainer(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedSelectionContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -15485,13 +15485,13 @@ pub struct IUIAutomationSelectionItemPattern_Vtbl {
     pub CachedSelectionContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationSelectionItemPattern_Impl: windows_core::IUnknownImpl {
-    fn Select(&self) -> windows_core::Result<()>;
-    fn AddToSelection(&self) -> windows_core::Result<()>;
-    fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn CurrentIsSelected(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentSelectionContainer(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedIsSelected(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedSelectionContainer(&self) -> windows_core::Result<IUIAutomationElement>;
+    fn Select(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddToSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn CurrentIsSelected(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentSelectionContainer(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CachedIsSelected(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedSelectionContainer(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
 }
 impl IUIAutomationSelectionItemPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>() -> Self {
@@ -15580,37 +15580,37 @@ impl windows_core::RuntimeName for IUIAutomationSelectionItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationSelectionPattern, IUIAutomationSelectionPattern_Vtbl, 0x5ed5202e_b2ac_47a6_b638_4b0bf140d78e);
 windows_core::imp::interface_hierarchy!(IUIAutomationSelectionPattern, windows_core::IUnknown);
 impl IUIAutomationSelectionPattern {
-    pub unsafe fn GetCurrentSelection(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentCanSelectMultiple(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanSelectMultiple)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsSelectionRequired(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsSelectionRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCachedSelection(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedCanSelectMultiple(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanSelectMultiple)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsSelectionRequired(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsSelectionRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15629,12 +15629,12 @@ pub struct IUIAutomationSelectionPattern_Vtbl {
     pub CachedIsSelectionRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationSelectionPattern_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentSelection(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetCachedSelection(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedCanSelectMultiple(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsSelectionRequired(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetCurrentSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CurrentCanSelectMultiple(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentIsSelectionRequired(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn GetCachedSelection(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedCanSelectMultiple(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsSelectionRequired(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IUIAutomationSelectionPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>() -> Self {
@@ -15734,49 +15734,49 @@ impl core::ops::Deref for IUIAutomationSelectionPattern2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationSelectionPattern2, windows_core::IUnknown, IUIAutomationSelectionPattern);
 impl IUIAutomationSelectionPattern2 {
-    pub unsafe fn CurrentFirstSelectedItem(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentFirstSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFirstSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentLastSelectedItem(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentLastSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentLastSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentCurrentSelectedItem(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CurrentCurrentSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCurrentSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentItemCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentItemCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedFirstSelectedItem(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedFirstSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFirstSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedLastSelectedItem(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedLastSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedLastSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedCurrentSelectedItem(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn CachedCurrentSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCurrentSelectedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedItemCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedItemCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15797,14 +15797,14 @@ pub struct IUIAutomationSelectionPattern2_Vtbl {
     pub CachedItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationSelectionPattern2_Impl: IUIAutomationSelectionPattern_Impl {
-    fn CurrentFirstSelectedItem(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CurrentLastSelectedItem(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CurrentCurrentSelectedItem(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CurrentItemCount(&self) -> windows_core::Result<i32>;
-    fn CachedFirstSelectedItem(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedLastSelectedItem(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedCurrentSelectedItem(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn CachedItemCount(&self) -> windows_core::Result<i32>;
+    fn CurrentFirstSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CurrentLastSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CurrentCurrentSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CurrentItemCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedFirstSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CachedLastSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CachedCurrentSelectedItem(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn CachedItemCount(&self) -> Result<i32, windows_result::HRESULT>;
 }
 impl IUIAutomationSelectionPattern2_Vtbl {
     pub const fn new<Identity: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>() -> Self {
@@ -15924,39 +15924,39 @@ impl windows_core::RuntimeName for IUIAutomationSelectionPattern2 {}
 windows_core::imp::define_interface!(IUIAutomationSpreadsheetItemPattern, IUIAutomationSpreadsheetItemPattern_Vtbl, 0x7d4fb86c_8d34_40e1_8e83_62c15204e335);
 windows_core::imp::interface_hierarchy!(IUIAutomationSpreadsheetItemPattern, windows_core::IUnknown);
 impl IUIAutomationSpreadsheetItemPattern {
-    pub unsafe fn CurrentFormula(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentFormula(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFormula)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCurrentAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentAnnotationObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCurrentAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetCurrentAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentAnnotationTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedFormula(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedFormula(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFormula)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCachedAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedAnnotationObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetCachedAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetCachedAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedAnnotationTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15982,12 +15982,12 @@ pub struct IUIAutomationSpreadsheetItemPattern_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationSpreadsheetItemPattern_Impl: windows_core::IUnknownImpl {
-    fn CurrentFormula(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCurrentAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCurrentAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CachedFormula(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCachedAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCachedAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CurrentFormula(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetCurrentAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCurrentAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CachedFormula(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetCachedAnnotationObjects(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCachedAnnotationTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationSpreadsheetItemPattern_Vtbl {
@@ -16083,7 +16083,7 @@ impl windows_core::RuntimeName for IUIAutomationSpreadsheetItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationSpreadsheetPattern, IUIAutomationSpreadsheetPattern_Vtbl, 0x7517a7c8_faae_4de9_9f08_29b91e8595c1);
 windows_core::imp::interface_hierarchy!(IUIAutomationSpreadsheetPattern, windows_core::IUnknown);
 impl IUIAutomationSpreadsheetPattern {
-    pub unsafe fn GetItemByName(&self, name: &windows_core::BSTR) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetItemByName(&self, name: &windows_core::BSTR) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -16097,7 +16097,7 @@ pub struct IUIAutomationSpreadsheetPattern_Vtbl {
     pub GetItemByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationSpreadsheetPattern_Impl: windows_core::IUnknownImpl {
-    fn GetItemByName(&self, name: &windows_core::BSTR) -> windows_core::Result<IUIAutomationElement>;
+    fn GetItemByName(&self, name: &windows_core::BSTR) -> Result<IUIAutomationElement, windows_result::HRESULT>;
 }
 impl IUIAutomationSpreadsheetPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationSpreadsheetPattern_Impl, const OFFSET: isize>() -> Self {
@@ -16124,7 +16124,7 @@ windows_core::imp::define_interface!(IUIAutomationStructureChangedEventHandler, 
 windows_core::imp::interface_hierarchy!(IUIAutomationStructureChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationStructureChangedEventHandler {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn HandleStructureChangedEvent<P0>(&self, sender: P0, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn HandleStructureChangedEvent<P0>(&self, sender: P0, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -16142,7 +16142,7 @@ pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationStructureChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleStructureChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn HandleStructureChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationStructureChangedEventHandler_Vtbl {
@@ -16164,94 +16164,94 @@ impl windows_core::RuntimeName for IUIAutomationStructureChangedEventHandler {}
 windows_core::imp::define_interface!(IUIAutomationStylesPattern, IUIAutomationStylesPattern_Vtbl, 0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb);
 windows_core::imp::interface_hierarchy!(IUIAutomationStylesPattern, windows_core::IUnknown);
 impl IUIAutomationStylesPattern {
-    pub unsafe fn CurrentStyleId(&self) -> windows_core::Result<UIA_STYLE_ID> {
+    pub unsafe fn CurrentStyleId(&self) -> Result<UIA_STYLE_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentStyleId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentStyleName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentStyleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentStyleName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentFillColor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentFillColor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFillColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentFillPatternStyle(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentFillPatternStyle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFillPatternStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentShape(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentShape(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentShape)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentFillPatternColor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentFillPatternColor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentFillPatternColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentExtendedProperties(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentExtendedProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCurrentExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetCurrentExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentExtendedPropertiesAsArray)(windows_core::Interface::as_raw(self), propertyarray as _, propertycount as _).ok() }
     }
-    pub unsafe fn CachedStyleId(&self) -> windows_core::Result<UIA_STYLE_ID> {
+    pub unsafe fn CachedStyleId(&self) -> Result<UIA_STYLE_ID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedStyleId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedStyleName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedStyleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedStyleName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedFillColor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedFillColor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFillColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedFillPatternStyle(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedFillPatternStyle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFillPatternStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedShape(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedShape(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedShape)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedFillPatternColor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CachedFillPatternColor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedFillPatternColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedExtendedProperties(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedExtendedProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetCachedExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetCachedExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCachedExtendedPropertiesAsArray)(windows_core::Interface::as_raw(self), propertyarray as _, propertycount as _).ok() }
     }
 }
@@ -16277,22 +16277,22 @@ pub struct IUIAutomationStylesPattern_Vtbl {
     pub GetCachedExtendedPropertiesAsArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut ExtendedProperty, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationStylesPattern_Impl: windows_core::IUnknownImpl {
-    fn CurrentStyleId(&self) -> windows_core::Result<UIA_STYLE_ID>;
-    fn CurrentStyleName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentFillColor(&self) -> windows_core::Result<i32>;
-    fn CurrentFillPatternStyle(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentShape(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentFillPatternColor(&self) -> windows_core::Result<i32>;
-    fn CurrentExtendedProperties(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCurrentExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> windows_core::Result<()>;
-    fn CachedStyleId(&self) -> windows_core::Result<UIA_STYLE_ID>;
-    fn CachedStyleName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedFillColor(&self) -> windows_core::Result<i32>;
-    fn CachedFillPatternStyle(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedShape(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedFillPatternColor(&self) -> windows_core::Result<i32>;
-    fn CachedExtendedProperties(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCachedExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> windows_core::Result<()>;
+    fn CurrentStyleId(&self) -> Result<UIA_STYLE_ID, windows_result::HRESULT>;
+    fn CurrentStyleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentFillColor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentFillPatternStyle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentShape(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentFillPatternColor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentExtendedProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetCurrentExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn CachedStyleId(&self) -> Result<UIA_STYLE_ID, windows_result::HRESULT>;
+    fn CachedStyleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedFillColor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedFillPatternStyle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedShape(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedFillPatternColor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CachedExtendedProperties(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetCachedExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationStylesPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationStylesPattern_Impl, const OFFSET: isize>() -> Self {
@@ -16504,10 +16504,10 @@ impl windows_core::RuntimeName for IUIAutomationStylesPattern {}
 windows_core::imp::define_interface!(IUIAutomationSynchronizedInputPattern, IUIAutomationSynchronizedInputPattern_Vtbl, 0x2233be0b_afb7_448b_9fda_3b378aa5eae1);
 windows_core::imp::interface_hierarchy!(IUIAutomationSynchronizedInputPattern, windows_core::IUnknown);
 impl IUIAutomationSynchronizedInputPattern {
-    pub unsafe fn StartListening(&self, inputtype: SynchronizedInputType) -> windows_core::Result<()> {
+    pub unsafe fn StartListening(&self, inputtype: SynchronizedInputType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StartListening)(windows_core::Interface::as_raw(self), inputtype).ok() }
     }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -16519,8 +16519,8 @@ pub struct IUIAutomationSynchronizedInputPattern_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationSynchronizedInputPattern_Impl: windows_core::IUnknownImpl {
-    fn StartListening(&self, inputtype: SynchronizedInputType) -> windows_core::Result<()>;
-    fn Cancel(&self) -> windows_core::Result<()>;
+    fn StartListening(&self, inputtype: SynchronizedInputType) -> Result<(), windows_result::HRESULT>;
+    fn Cancel(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationSynchronizedInputPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>() -> Self {
@@ -16550,25 +16550,25 @@ impl windows_core::RuntimeName for IUIAutomationSynchronizedInputPattern {}
 windows_core::imp::define_interface!(IUIAutomationTableItemPattern, IUIAutomationTableItemPattern_Vtbl, 0x0b964eb3_ef2e_4464_9c79_61d61737a27e);
 windows_core::imp::interface_hierarchy!(IUIAutomationTableItemPattern, windows_core::IUnknown);
 impl IUIAutomationTableItemPattern {
-    pub unsafe fn GetCurrentRowHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentRowHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentRowHeaderItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCurrentColumnHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentColumnHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentColumnHeaderItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedRowHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedRowHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedRowHeaderItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedColumnHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedColumnHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedColumnHeaderItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -16585,10 +16585,10 @@ pub struct IUIAutomationTableItemPattern_Vtbl {
     pub GetCachedColumnHeaderItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTableItemPattern_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentRowHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCurrentColumnHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCachedRowHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCachedColumnHeaderItems(&self) -> windows_core::Result<IUIAutomationElementArray>;
+    fn GetCurrentRowHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCurrentColumnHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCachedRowHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCachedColumnHeaderItems(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
 }
 impl IUIAutomationTableItemPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>() -> Self {
@@ -16656,37 +16656,37 @@ impl windows_core::RuntimeName for IUIAutomationTableItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationTablePattern, IUIAutomationTablePattern_Vtbl, 0x620e691c_ea96_4710_a850_754b24ce2417);
 windows_core::imp::interface_hierarchy!(IUIAutomationTablePattern, windows_core::IUnknown);
 impl IUIAutomationTablePattern {
-    pub unsafe fn GetCurrentRowHeaders(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentRowHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentRowHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCurrentColumnHeaders(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCurrentColumnHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentColumnHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentRowOrColumnMajor(&self) -> windows_core::Result<RowOrColumnMajor> {
+    pub unsafe fn CurrentRowOrColumnMajor(&self) -> Result<RowOrColumnMajor, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentRowOrColumnMajor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCachedRowHeaders(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedRowHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedRowHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCachedColumnHeaders(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetCachedColumnHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedColumnHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CachedRowOrColumnMajor(&self) -> windows_core::Result<RowOrColumnMajor> {
+    pub unsafe fn CachedRowOrColumnMajor(&self) -> Result<RowOrColumnMajor, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedRowOrColumnMajor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -16705,12 +16705,12 @@ pub struct IUIAutomationTablePattern_Vtbl {
     pub CachedRowOrColumnMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RowOrColumnMajor) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTablePattern_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentRowHeaders(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCurrentColumnHeaders(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CurrentRowOrColumnMajor(&self) -> windows_core::Result<RowOrColumnMajor>;
-    fn GetCachedRowHeaders(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCachedColumnHeaders(&self) -> windows_core::Result<IUIAutomationElementArray>;
-    fn CachedRowOrColumnMajor(&self) -> windows_core::Result<RowOrColumnMajor>;
+    fn GetCurrentRowHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCurrentColumnHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CurrentRowOrColumnMajor(&self) -> Result<RowOrColumnMajor, windows_result::HRESULT>;
+    fn GetCachedRowHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetCachedColumnHeaders(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn CachedRowOrColumnMajor(&self) -> Result<RowOrColumnMajor, windows_result::HRESULT>;
 }
 impl IUIAutomationTablePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTablePattern_Impl, const OFFSET: isize>() -> Self {
@@ -16804,13 +16804,13 @@ impl windows_core::RuntimeName for IUIAutomationTablePattern {}
 windows_core::imp::define_interface!(IUIAutomationTextChildPattern, IUIAutomationTextChildPattern_Vtbl, 0x6552b038_ae05_40c8_abfd_aa08352aab86);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextChildPattern, windows_core::IUnknown);
 impl IUIAutomationTextChildPattern {
-    pub unsafe fn TextContainer(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn TextContainer(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TextContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TextRange(&self) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn TextRange(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TextRange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -16825,8 +16825,8 @@ pub struct IUIAutomationTextChildPattern_Vtbl {
     pub TextRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextChildPattern_Impl: windows_core::IUnknownImpl {
-    fn TextContainer(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn TextRange(&self) -> windows_core::Result<IUIAutomationTextRange>;
+    fn TextContainer(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn TextRange(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
 }
 impl IUIAutomationTextChildPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTextChildPattern_Impl, const OFFSET: isize>() -> Self {
@@ -16874,13 +16874,13 @@ impl core::ops::Deref for IUIAutomationTextEditPattern {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationTextEditPattern, windows_core::IUnknown, IUIAutomationTextPattern);
 impl IUIAutomationTextEditPattern {
-    pub unsafe fn GetActiveComposition(&self) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn GetActiveComposition(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetActiveComposition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetConversionTarget(&self) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn GetConversionTarget(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConversionTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -16895,8 +16895,8 @@ pub struct IUIAutomationTextEditPattern_Vtbl {
     pub GetConversionTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextEditPattern_Impl: IUIAutomationTextPattern_Impl {
-    fn GetActiveComposition(&self) -> windows_core::Result<IUIAutomationTextRange>;
-    fn GetConversionTarget(&self) -> windows_core::Result<IUIAutomationTextRange>;
+    fn GetActiveComposition(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn GetConversionTarget(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
 }
 impl IUIAutomationTextEditPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>() -> Self {
@@ -16939,7 +16939,7 @@ windows_core::imp::define_interface!(IUIAutomationTextEditTextChangedEventHandle
 windows_core::imp::interface_hierarchy!(IUIAutomationTextEditTextChangedEventHandler, windows_core::IUnknown);
 impl IUIAutomationTextEditTextChangedEventHandler {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn HandleTextEditTextChangedEvent<P0>(&self, sender: P0, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn HandleTextEditTextChangedEvent<P0>(&self, sender: P0, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -16957,7 +16957,7 @@ pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationTextEditTextChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleTextEditTextChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn HandleTextEditTextChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
@@ -16982,13 +16982,13 @@ impl windows_core::RuntimeName for IUIAutomationTextEditTextChangedEventHandler 
 windows_core::imp::define_interface!(IUIAutomationTextPattern, IUIAutomationTextPattern_Vtbl, 0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextPattern, windows_core::IUnknown);
 impl IUIAutomationTextPattern {
-    pub unsafe fn RangeFromPoint(&self, pt: super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn RangeFromPoint(&self, pt: super::super::Foundation::POINT) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RangeFromChild<P0>(&self, child: P0) -> windows_core::Result<IUIAutomationTextRange>
+    pub unsafe fn RangeFromChild<P0>(&self, child: P0) -> Result<IUIAutomationTextRange, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -16997,25 +16997,25 @@ impl IUIAutomationTextPattern {
             (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), child.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray> {
+    pub unsafe fn GetSelection(&self) -> Result<IUIAutomationTextRangeArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetVisibleRanges(&self) -> windows_core::Result<IUIAutomationTextRangeArray> {
+    pub unsafe fn GetVisibleRanges(&self) -> Result<IUIAutomationTextRangeArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVisibleRanges)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DocumentRange(&self) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn DocumentRange(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DocumentRange)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SupportedTextSelection(&self) -> windows_core::Result<SupportedTextSelection> {
+    pub unsafe fn SupportedTextSelection(&self) -> Result<SupportedTextSelection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedTextSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -17034,12 +17034,12 @@ pub struct IUIAutomationTextPattern_Vtbl {
     pub SupportedTextSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SupportedTextSelection) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextPattern_Impl: windows_core::IUnknownImpl {
-    fn RangeFromPoint(&self, pt: &super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationTextRange>;
-    fn RangeFromChild(&self, child: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
-    fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray>;
-    fn GetVisibleRanges(&self) -> windows_core::Result<IUIAutomationTextRangeArray>;
-    fn DocumentRange(&self) -> windows_core::Result<IUIAutomationTextRange>;
-    fn SupportedTextSelection(&self) -> windows_core::Result<SupportedTextSelection>;
+    fn RangeFromPoint(&self, pt: &super::super::Foundation::POINT) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn RangeFromChild(&self, child: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn GetSelection(&self) -> Result<IUIAutomationTextRangeArray, windows_result::HRESULT>;
+    fn GetVisibleRanges(&self) -> Result<IUIAutomationTextRangeArray, windows_result::HRESULT>;
+    fn DocumentRange(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn SupportedTextSelection(&self) -> Result<SupportedTextSelection, windows_result::HRESULT>;
 }
 impl IUIAutomationTextPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTextPattern_Impl, const OFFSET: isize>() -> Self {
@@ -17139,7 +17139,7 @@ impl core::ops::Deref for IUIAutomationTextPattern2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationTextPattern2, windows_core::IUnknown, IUIAutomationTextPattern);
 impl IUIAutomationTextPattern2 {
-    pub unsafe fn RangeFromAnnotation<P0>(&self, annotation: P0) -> windows_core::Result<IUIAutomationTextRange>
+    pub unsafe fn RangeFromAnnotation<P0>(&self, annotation: P0) -> Result<IUIAutomationTextRange, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -17148,7 +17148,7 @@ impl IUIAutomationTextPattern2 {
             (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCaretRange)(windows_core::Interface::as_raw(self), isactive as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17163,8 +17163,8 @@ pub struct IUIAutomationTextPattern2_Vtbl {
     pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextPattern2_Impl: IUIAutomationTextPattern_Impl {
-    fn RangeFromAnnotation(&self, annotation: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
-    fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
+    fn RangeFromAnnotation(&self, annotation: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
 }
 impl IUIAutomationTextPattern2_Vtbl {
     pub const fn new<Identity: IUIAutomationTextPattern2_Impl, const OFFSET: isize>() -> Self {
@@ -17206,13 +17206,13 @@ impl windows_core::RuntimeName for IUIAutomationTextPattern2 {}
 windows_core::imp::define_interface!(IUIAutomationTextRange, IUIAutomationTextRange_Vtbl, 0xa543cc6a_f4ae_494b_8239_c814481187a8);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextRange, windows_core::IUnknown);
 impl IUIAutomationTextRange {
-    pub unsafe fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn Clone(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Compare<P0>(&self, range: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn Compare<P0>(&self, range: P0) -> Result<windows_core::BOOL, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationTextRange>,
     {
@@ -17221,7 +17221,7 @@ impl IUIAutomationTextRange {
             (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CompareEndpoints<P1>(&self, srcendpoint: TextPatternRangeEndpoint, range: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
+    pub unsafe fn CompareEndpoints<P1>(&self, srcendpoint: TextPatternRangeEndpoint, range: P1, targetendpoint: TextPatternRangeEndpoint) -> Result<i32, windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationTextRange>,
     {
@@ -17230,79 +17230,79 @@ impl IUIAutomationTextRange {
             (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()> {
+    pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(windows_core::Interface::as_raw(self), textunit).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: bool) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindAttribute)(windows_core::Interface::as_raw(self), attr, core::mem::transmute_copy(val), backward.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn FindText(&self, text: &windows_core::BSTR, backward: bool, ignorecase: bool) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FindText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), backward.into(), ignorecase.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), attr, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetBoundingRectangles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBoundingRectangles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEnclosingElement(&self) -> windows_core::Result<IUIAutomationElement> {
+    pub unsafe fn GetEnclosingElement(&self) -> Result<IUIAutomationElement, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEnclosingElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetText(&self, maxlength: i32) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), maxlength, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32> {
+    pub unsafe fn Move(&self, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32> {
+    pub unsafe fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoveEndpointByUnit)(windows_core::Interface::as_raw(self), endpoint, unit, count, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoveEndpointByRange<P1>(&self, srcendpoint: TextPatternRangeEndpoint, range: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>
+    pub unsafe fn MoveEndpointByRange<P1>(&self, srcendpoint: TextPatternRangeEndpoint, range: P1, targetendpoint: TextPatternRangeEndpoint) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUIAutomationTextRange>,
     {
         unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint).ok() }
     }
-    pub unsafe fn Select(&self) -> windows_core::Result<()> {
+    pub unsafe fn Select(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddToSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn AddToSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddToSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RemoveFromSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFromSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ScrollIntoView(&self, aligntotop: bool) -> windows_core::Result<()> {
+    pub unsafe fn ScrollIntoView(&self, aligntotop: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ScrollIntoView)(windows_core::Interface::as_raw(self), aligntotop.into()).ok() }
     }
-    pub unsafe fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray> {
+    pub unsafe fn GetChildren(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChildren)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17343,24 +17343,24 @@ pub struct IUIAutomationTextRange_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
-    fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange>;
-    fn Compare(&self, range: windows_core::Ref<'_, IUIAutomationTextRange>) -> windows_core::Result<windows_core::BOOL>;
-    fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<'_, IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
-    fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()>;
-    fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
-    fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
-    fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetEnclosingElement(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByRange(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<'_, IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
-    fn Select(&self) -> windows_core::Result<()>;
-    fn AddToSelection(&self) -> windows_core::Result<()>;
-    fn RemoveFromSelection(&self) -> windows_core::Result<()>;
-    fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray>;
+    fn Clone(&self) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn Compare(&self, range: windows_core::Ref<'_, IUIAutomationTextRange>) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<'_, IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> Result<i32, windows_result::HRESULT>;
+    fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> Result<(), windows_result::HRESULT>;
+    fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
+    fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn GetBoundingRectangles(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn GetEnclosingElement(&self) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetText(&self, maxlength: i32) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Move(&self, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT>;
+    fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> Result<i32, windows_result::HRESULT>;
+    fn MoveEndpointByRange(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<'_, IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> Result<(), windows_result::HRESULT>;
+    fn Select(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddToSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn RemoveFromSelection(&self) -> Result<(), windows_result::HRESULT>;
+    fn ScrollIntoView(&self, aligntotop: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn GetChildren(&self) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange_Vtbl {
@@ -17582,7 +17582,7 @@ impl core::ops::Deref for IUIAutomationTextRange2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationTextRange2, windows_core::IUnknown, IUIAutomationTextRange);
 impl IUIAutomationTextRange2 {
-    pub unsafe fn ShowContextMenu(&self) -> windows_core::Result<()> {
+    pub unsafe fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ShowContextMenu)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -17594,7 +17594,7 @@ pub struct IUIAutomationTextRange2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange2_Impl: IUIAutomationTextRange_Impl {
-    fn ShowContextMenu(&self) -> windows_core::Result<()>;
+    fn ShowContextMenu(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange2_Vtbl {
@@ -17622,7 +17622,7 @@ impl core::ops::Deref for IUIAutomationTextRange3 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationTextRange3, windows_core::IUnknown, IUIAutomationTextRange, IUIAutomationTextRange2);
 impl IUIAutomationTextRange3 {
-    pub unsafe fn GetEnclosingElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetEnclosingElementBuildCache<P0>(&self, cacherequest: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -17631,7 +17631,7 @@ impl IUIAutomationTextRange3 {
             (windows_core::Interface::vtable(self).GetEnclosingElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetChildrenBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElementArray>
+    pub unsafe fn GetChildrenBuildCache<P0>(&self, cacherequest: P0) -> Result<IUIAutomationElementArray, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
     {
@@ -17641,7 +17641,7 @@ impl IUIAutomationTextRange3 {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAttributeValues(&self, attributeids: &[UIA_TEXTATTRIBUTE_ID]) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetAttributeValues(&self, attributeids: &[UIA_TEXTATTRIBUTE_ID]) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAttributeValues)(windows_core::Interface::as_raw(self), core::mem::transmute(attributeids.as_ptr()), attributeids.len().try_into().unwrap(), &mut result__).map(|| result__)
@@ -17661,9 +17661,9 @@ pub struct IUIAutomationTextRange3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange3_Impl: IUIAutomationTextRange2_Impl {
-    fn GetEnclosingElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetChildrenBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetAttributeValues(&self, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetEnclosingElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetChildrenBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElementArray, windows_result::HRESULT>;
+    fn GetAttributeValues(&self, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange3_Vtbl {
@@ -17720,13 +17720,13 @@ impl windows_core::RuntimeName for IUIAutomationTextRange3 {}
 windows_core::imp::define_interface!(IUIAutomationTextRangeArray, IUIAutomationTextRangeArray_Vtbl, 0xce4ae76a_e717_4c98_81ea_47371d028eb6);
 windows_core::imp::interface_hierarchy!(IUIAutomationTextRangeArray, windows_core::IUnknown);
 impl IUIAutomationTextRangeArray {
-    pub unsafe fn Length(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Length(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetElement(&self, index: i32) -> windows_core::Result<IUIAutomationTextRange> {
+    pub unsafe fn GetElement(&self, index: i32) -> Result<IUIAutomationTextRange, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetElement)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -17741,8 +17741,8 @@ pub struct IUIAutomationTextRangeArray_Vtbl {
     pub GetElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextRangeArray_Impl: windows_core::IUnknownImpl {
-    fn Length(&self) -> windows_core::Result<i32>;
-    fn GetElement(&self, index: i32) -> windows_core::Result<IUIAutomationTextRange>;
+    fn Length(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetElement(&self, index: i32) -> Result<IUIAutomationTextRange, windows_result::HRESULT>;
 }
 impl IUIAutomationTextRangeArray_Vtbl {
     pub const fn new<Identity: IUIAutomationTextRangeArray_Impl, const OFFSET: isize>() -> Self {
@@ -17780,16 +17780,16 @@ impl windows_core::RuntimeName for IUIAutomationTextRangeArray {}
 windows_core::imp::define_interface!(IUIAutomationTogglePattern, IUIAutomationTogglePattern_Vtbl, 0x94cf8058_9b8d_4ab9_8bfd_4cd0a33c8c70);
 windows_core::imp::interface_hierarchy!(IUIAutomationTogglePattern, windows_core::IUnknown);
 impl IUIAutomationTogglePattern {
-    pub unsafe fn Toggle(&self) -> windows_core::Result<()> {
+    pub unsafe fn Toggle(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Toggle)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CurrentToggleState(&self) -> windows_core::Result<ToggleState> {
+    pub unsafe fn CurrentToggleState(&self) -> Result<ToggleState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentToggleState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedToggleState(&self) -> windows_core::Result<ToggleState> {
+    pub unsafe fn CachedToggleState(&self) -> Result<ToggleState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedToggleState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -17805,9 +17805,9 @@ pub struct IUIAutomationTogglePattern_Vtbl {
     pub CachedToggleState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToggleState) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTogglePattern_Impl: windows_core::IUnknownImpl {
-    fn Toggle(&self) -> windows_core::Result<()>;
-    fn CurrentToggleState(&self) -> windows_core::Result<ToggleState>;
-    fn CachedToggleState(&self) -> windows_core::Result<ToggleState>;
+    fn Toggle(&self) -> Result<(), windows_result::HRESULT>;
+    fn CurrentToggleState(&self) -> Result<ToggleState, windows_result::HRESULT>;
+    fn CachedToggleState(&self) -> Result<ToggleState, windows_result::HRESULT>;
 }
 impl IUIAutomationTogglePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTogglePattern_Impl, const OFFSET: isize>() -> Self {
@@ -17856,46 +17856,46 @@ impl windows_core::RuntimeName for IUIAutomationTogglePattern {}
 windows_core::imp::define_interface!(IUIAutomationTransformPattern, IUIAutomationTransformPattern_Vtbl, 0xa9b55844_a55d_4ef0_926d_569c16ff89bb);
 windows_core::imp::interface_hierarchy!(IUIAutomationTransformPattern, windows_core::IUnknown);
 impl IUIAutomationTransformPattern {
-    pub unsafe fn Move(&self, x: f64, y: f64) -> windows_core::Result<()> {
+    pub unsafe fn Move(&self, x: f64, y: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), x, y).ok() }
     }
-    pub unsafe fn Resize(&self, width: f64, height: f64) -> windows_core::Result<()> {
+    pub unsafe fn Resize(&self, width: f64, height: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), width, height).ok() }
     }
-    pub unsafe fn Rotate(&self, degrees: f64) -> windows_core::Result<()> {
+    pub unsafe fn Rotate(&self, degrees: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees).ok() }
     }
-    pub unsafe fn CurrentCanMove(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentCanMove(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanMove)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentCanResize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentCanResize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanResize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentCanRotate(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentCanRotate(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanRotate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanMove(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedCanMove(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanMove)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanResize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedCanResize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanResize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanRotate(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedCanRotate(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanRotate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -17917,15 +17917,15 @@ pub struct IUIAutomationTransformPattern_Vtbl {
     pub CachedCanRotate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTransformPattern_Impl: windows_core::IUnknownImpl {
-    fn Move(&self, x: f64, y: f64) -> windows_core::Result<()>;
-    fn Resize(&self, width: f64, height: f64) -> windows_core::Result<()>;
-    fn Rotate(&self, degrees: f64) -> windows_core::Result<()>;
-    fn CurrentCanMove(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentCanResize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentCanRotate(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedCanMove(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedCanResize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedCanRotate(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn Move(&self, x: f64, y: f64) -> Result<(), windows_result::HRESULT>;
+    fn Resize(&self, width: f64, height: f64) -> Result<(), windows_result::HRESULT>;
+    fn Rotate(&self, degrees: f64) -> Result<(), windows_result::HRESULT>;
+    fn CurrentCanMove(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentCanResize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentCanRotate(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedCanMove(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedCanResize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedCanRotate(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IUIAutomationTransformPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationTransformPattern_Impl, const OFFSET: isize>() -> Self {
@@ -18046,55 +18046,55 @@ impl core::ops::Deref for IUIAutomationTransformPattern2 {
 }
 windows_core::imp::interface_hierarchy!(IUIAutomationTransformPattern2, windows_core::IUnknown, IUIAutomationTransformPattern);
 impl IUIAutomationTransformPattern2 {
-    pub unsafe fn Zoom(&self, zoomvalue: f64) -> windows_core::Result<()> {
+    pub unsafe fn Zoom(&self, zoomvalue: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Zoom)(windows_core::Interface::as_raw(self), zoomvalue).ok() }
     }
-    pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> windows_core::Result<()> {
+    pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ZoomByUnit)(windows_core::Interface::as_raw(self), zoomunit).ok() }
     }
-    pub unsafe fn CurrentCanZoom(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentCanZoom(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanZoom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanZoom(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedCanZoom(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanZoom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentZoomLevel(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentZoomLevel(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentZoomLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedZoomLevel(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedZoomLevel(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedZoomLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentZoomMinimum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentZoomMinimum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentZoomMinimum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedZoomMinimum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedZoomMinimum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedZoomMinimum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentZoomMaximum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CurrentZoomMaximum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentZoomMaximum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedZoomMaximum(&self) -> windows_core::Result<f64> {
+    pub unsafe fn CachedZoomMaximum(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedZoomMaximum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18117,16 +18117,16 @@ pub struct IUIAutomationTransformPattern2_Vtbl {
     pub CachedZoomMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTransformPattern2_Impl: IUIAutomationTransformPattern_Impl {
-    fn Zoom(&self, zoomvalue: f64) -> windows_core::Result<()>;
-    fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> windows_core::Result<()>;
-    fn CurrentCanZoom(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedCanZoom(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentZoomLevel(&self) -> windows_core::Result<f64>;
-    fn CachedZoomLevel(&self) -> windows_core::Result<f64>;
-    fn CurrentZoomMinimum(&self) -> windows_core::Result<f64>;
-    fn CachedZoomMinimum(&self) -> windows_core::Result<f64>;
-    fn CurrentZoomMaximum(&self) -> windows_core::Result<f64>;
-    fn CachedZoomMaximum(&self) -> windows_core::Result<f64>;
+    fn Zoom(&self, zoomvalue: f64) -> Result<(), windows_result::HRESULT>;
+    fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> Result<(), windows_result::HRESULT>;
+    fn CurrentCanZoom(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedCanZoom(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentZoomLevel(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedZoomLevel(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentZoomMinimum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedZoomMinimum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CurrentZoomMaximum(&self) -> Result<f64, windows_result::HRESULT>;
+    fn CachedZoomMaximum(&self) -> Result<f64, windows_result::HRESULT>;
 }
 impl IUIAutomationTransformPattern2_Vtbl {
     pub const fn new<Identity: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>() -> Self {
@@ -18260,7 +18260,7 @@ impl windows_core::RuntimeName for IUIAutomationTransformPattern2 {}
 windows_core::imp::define_interface!(IUIAutomationTreeWalker, IUIAutomationTreeWalker_Vtbl, 0x4042c624_389c_4afc_a630_9df854a541fc);
 windows_core::imp::interface_hierarchy!(IUIAutomationTreeWalker, windows_core::IUnknown);
 impl IUIAutomationTreeWalker {
-    pub unsafe fn GetParentElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetParentElement<P0>(&self, element: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -18269,7 +18269,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetParentElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFirstChildElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetFirstChildElement<P0>(&self, element: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -18278,7 +18278,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetFirstChildElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetLastChildElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetLastChildElement<P0>(&self, element: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -18287,7 +18287,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetLastChildElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNextSiblingElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetNextSiblingElement<P0>(&self, element: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -18296,7 +18296,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetNextSiblingElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPreviousSiblingElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetPreviousSiblingElement<P0>(&self, element: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -18305,7 +18305,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetPreviousSiblingElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn NormalizeElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn NormalizeElement<P0>(&self, element: P0) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
@@ -18314,7 +18314,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).NormalizeElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetParentElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetParentElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -18324,7 +18324,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetParentElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFirstChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetFirstChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -18334,7 +18334,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetFirstChildElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetLastChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetLastChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -18344,7 +18344,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetLastChildElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNextSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetNextSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -18354,7 +18354,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetNextSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPreviousSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn GetPreviousSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -18364,7 +18364,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).GetPreviousSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn NormalizeElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
+    pub unsafe fn NormalizeElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> Result<IUIAutomationElement, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationCacheRequest>,
@@ -18374,7 +18374,7 @@ impl IUIAutomationTreeWalker {
             (windows_core::Interface::vtable(self).NormalizeElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Condition(&self) -> windows_core::Result<IUIAutomationCondition> {
+    pub unsafe fn Condition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Condition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -18400,19 +18400,19 @@ pub struct IUIAutomationTreeWalker_Vtbl {
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTreeWalker_Impl: windows_core::IUnknownImpl {
-    fn GetParentElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFirstChildElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetLastChildElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetNextSiblingElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetPreviousSiblingElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn NormalizeElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetParentElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFirstChildElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetLastChildElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetNextSiblingElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetPreviousSiblingElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn NormalizeElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn Condition(&self) -> windows_core::Result<IUIAutomationCondition>;
+    fn GetParentElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetFirstChildElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetLastChildElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetNextSiblingElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetPreviousSiblingElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn NormalizeElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetParentElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetFirstChildElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetLastChildElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetNextSiblingElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn GetPreviousSiblingElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn NormalizeElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> Result<IUIAutomationElement, windows_result::HRESULT>;
+    fn Condition(&self) -> Result<IUIAutomationCondition, windows_result::HRESULT>;
 }
 impl IUIAutomationTreeWalker_Vtbl {
     pub const fn new<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>() -> Self {
@@ -18597,28 +18597,28 @@ impl windows_core::RuntimeName for IUIAutomationTreeWalker {}
 windows_core::imp::define_interface!(IUIAutomationValuePattern, IUIAutomationValuePattern_Vtbl, 0xa94cd8b1_0844_4cd6_9d2d_640537ab39e9);
 windows_core::imp::interface_hierarchy!(IUIAutomationValuePattern, windows_core::IUnknown);
 impl IUIAutomationValuePattern {
-    pub unsafe fn SetValue(&self, val: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, val: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(val)).ok() }
     }
-    pub unsafe fn CurrentValue(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CurrentValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedValue(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CachedValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18636,11 +18636,11 @@ pub struct IUIAutomationValuePattern_Vtbl {
     pub CachedIsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationValuePattern_Impl: windows_core::IUnknownImpl {
-    fn SetValue(&self, val: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CurrentValue(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedValue(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CachedIsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetValue(&self, val: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CurrentValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CurrentIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedValue(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CachedIsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IUIAutomationValuePattern_Vtbl {
     pub const fn new<Identity: IUIAutomationValuePattern_Impl, const OFFSET: isize>() -> Self {
@@ -18715,7 +18715,7 @@ impl windows_core::RuntimeName for IUIAutomationValuePattern {}
 windows_core::imp::define_interface!(IUIAutomationVirtualizedItemPattern, IUIAutomationVirtualizedItemPattern_Vtbl, 0x6ba3d7a6_04cf_4f11_8793_a8d1cde9969f);
 windows_core::imp::interface_hierarchy!(IUIAutomationVirtualizedItemPattern, windows_core::IUnknown);
 impl IUIAutomationVirtualizedItemPattern {
-    pub unsafe fn Realize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Realize(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Realize)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -18726,7 +18726,7 @@ pub struct IUIAutomationVirtualizedItemPattern_Vtbl {
     pub Realize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationVirtualizedItemPattern_Impl: windows_core::IUnknownImpl {
-    fn Realize(&self) -> windows_core::Result<()>;
+    fn Realize(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IUIAutomationVirtualizedItemPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationVirtualizedItemPattern_Impl, const OFFSET: isize>() -> Self {
@@ -18746,85 +18746,85 @@ impl windows_core::RuntimeName for IUIAutomationVirtualizedItemPattern {}
 windows_core::imp::define_interface!(IUIAutomationWindowPattern, IUIAutomationWindowPattern_Vtbl, 0x0faef453_9208_43ef_bbb2_3b485177864f);
 windows_core::imp::interface_hierarchy!(IUIAutomationWindowPattern, windows_core::IUnknown);
 impl IUIAutomationWindowPattern {
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForInputIdle)(windows_core::Interface::as_raw(self), milliseconds, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWindowVisualState(&self, state: WindowVisualState) -> windows_core::Result<()> {
+    pub unsafe fn SetWindowVisualState(&self, state: WindowVisualState) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWindowVisualState)(windows_core::Interface::as_raw(self), state).ok() }
     }
-    pub unsafe fn CurrentCanMaximize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentCanMaximize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanMaximize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentCanMinimize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentCanMinimize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCanMinimize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsModal(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsModal(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsModal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentIsTopmost(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CurrentIsTopmost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentIsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentWindowVisualState(&self) -> windows_core::Result<WindowVisualState> {
+    pub unsafe fn CurrentWindowVisualState(&self) -> Result<WindowVisualState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentWindowVisualState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentWindowInteractionState(&self) -> windows_core::Result<WindowInteractionState> {
+    pub unsafe fn CurrentWindowInteractionState(&self) -> Result<WindowInteractionState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentWindowInteractionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanMaximize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedCanMaximize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanMaximize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedCanMinimize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedCanMinimize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedCanMinimize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsModal(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsModal(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsModal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedIsTopmost(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CachedIsTopmost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedIsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedWindowVisualState(&self) -> windows_core::Result<WindowVisualState> {
+    pub unsafe fn CachedWindowVisualState(&self) -> Result<WindowVisualState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedWindowVisualState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CachedWindowInteractionState(&self) -> windows_core::Result<WindowInteractionState> {
+    pub unsafe fn CachedWindowInteractionState(&self) -> Result<WindowInteractionState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CachedWindowInteractionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -18852,21 +18852,21 @@ pub struct IUIAutomationWindowPattern_Vtbl {
     pub CachedWindowInteractionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowInteractionState) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationWindowPattern_Impl: windows_core::IUnknownImpl {
-    fn Close(&self) -> windows_core::Result<()>;
-    fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL>;
-    fn SetWindowVisualState(&self, state: WindowVisualState) -> windows_core::Result<()>;
-    fn CurrentCanMaximize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentCanMinimize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentIsModal(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentIsTopmost(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CurrentWindowVisualState(&self) -> windows_core::Result<WindowVisualState>;
-    fn CurrentWindowInteractionState(&self) -> windows_core::Result<WindowInteractionState>;
-    fn CachedCanMaximize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedCanMinimize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsModal(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedIsTopmost(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CachedWindowVisualState(&self) -> windows_core::Result<WindowVisualState>;
-    fn CachedWindowInteractionState(&self) -> windows_core::Result<WindowInteractionState>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
+    fn WaitForInputIdle(&self, milliseconds: i32) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SetWindowVisualState(&self, state: WindowVisualState) -> Result<(), windows_result::HRESULT>;
+    fn CurrentCanMaximize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentCanMinimize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentIsModal(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentIsTopmost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CurrentWindowVisualState(&self) -> Result<WindowVisualState, windows_result::HRESULT>;
+    fn CurrentWindowInteractionState(&self) -> Result<WindowInteractionState, windows_result::HRESULT>;
+    fn CachedCanMaximize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedCanMinimize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsModal(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedIsTopmost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CachedWindowVisualState(&self) -> Result<WindowVisualState, windows_result::HRESULT>;
+    fn CachedWindowInteractionState(&self) -> Result<WindowInteractionState, windows_result::HRESULT>;
 }
 impl IUIAutomationWindowPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationWindowPattern_Impl, const OFFSET: isize>() -> Self {
@@ -19065,19 +19065,19 @@ impl windows_core::RuntimeName for IUIAutomationWindowPattern {}
 windows_core::imp::define_interface!(IValueProvider, IValueProvider_Vtbl, 0xc7935180_6fb3_4201_b174_7df73adbf64a);
 windows_core::imp::interface_hierarchy!(IValueProvider, windows_core::IUnknown);
 impl IValueProvider {
-    pub unsafe fn SetValue<P0>(&self, val: P0) -> windows_core::Result<()>
+    pub unsafe fn SetValue<P0>(&self, val: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val.param().abi()).ok() }
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -19093,9 +19093,9 @@ pub struct IValueProvider_Vtbl {
     pub IsReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IValueProvider_Impl: windows_core::IUnknownImpl {
-    fn SetValue(&self, val: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsReadOnly(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetValue(&self, val: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn IsReadOnly(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IValueProvider_Vtbl {
     pub const fn new<Identity: IValueProvider_Impl, const OFFSET: isize>() -> Self {
@@ -19144,7 +19144,7 @@ impl windows_core::RuntimeName for IValueProvider {}
 windows_core::imp::define_interface!(IVirtualizedItemProvider, IVirtualizedItemProvider_Vtbl, 0xcb98b665_2d35_4fac_ad35_f3c60d0c0b8b);
 windows_core::imp::interface_hierarchy!(IVirtualizedItemProvider, windows_core::IUnknown);
 impl IVirtualizedItemProvider {
-    pub unsafe fn Realize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Realize(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Realize)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -19155,7 +19155,7 @@ pub struct IVirtualizedItemProvider_Vtbl {
     pub Realize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVirtualizedItemProvider_Impl: windows_core::IUnknownImpl {
-    fn Realize(&self) -> windows_core::Result<()>;
+    fn Realize(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IVirtualizedItemProvider_Vtbl {
     pub const fn new<Identity: IVirtualizedItemProvider_Impl, const OFFSET: isize>() -> Self {
@@ -19175,49 +19175,49 @@ impl windows_core::RuntimeName for IVirtualizedItemProvider {}
 windows_core::imp::define_interface!(IWindowProvider, IWindowProvider_Vtbl, 0x987df77b_db06_4d77_8f8a_86a9c3bb90b9);
 windows_core::imp::interface_hierarchy!(IWindowProvider, windows_core::IUnknown);
 impl IWindowProvider {
-    pub unsafe fn SetVisualState(&self, state: WindowVisualState) -> windows_core::Result<()> {
+    pub unsafe fn SetVisualState(&self, state: WindowVisualState) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVisualState)(windows_core::Interface::as_raw(self), state).ok() }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForInputIdle)(windows_core::Interface::as_raw(self), milliseconds, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanMaximize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanMaximize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanMaximize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanMinimize(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CanMinimize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanMinimize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsModal(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsModal(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsModal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WindowVisualState(&self) -> windows_core::Result<WindowVisualState> {
+    pub unsafe fn WindowVisualState(&self) -> Result<WindowVisualState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WindowVisualState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WindowInteractionState(&self) -> windows_core::Result<WindowInteractionState> {
+    pub unsafe fn WindowInteractionState(&self) -> Result<WindowInteractionState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WindowInteractionState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsTopmost(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsTopmost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsTopmost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -19239,15 +19239,15 @@ pub struct IWindowProvider_Vtbl {
     pub IsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWindowProvider_Impl: windows_core::IUnknownImpl {
-    fn SetVisualState(&self, state: WindowVisualState) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
-    fn WaitForInputIdle(&self, milliseconds: i32) -> windows_core::Result<windows_core::BOOL>;
-    fn CanMaximize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn CanMinimize(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsModal(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn WindowVisualState(&self) -> windows_core::Result<WindowVisualState>;
-    fn WindowInteractionState(&self) -> windows_core::Result<WindowInteractionState>;
-    fn IsTopmost(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SetVisualState(&self, state: WindowVisualState) -> Result<(), windows_result::HRESULT>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
+    fn WaitForInputIdle(&self, milliseconds: i32) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CanMaximize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CanMinimize(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsModal(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn WindowVisualState(&self) -> Result<WindowVisualState, windows_result::HRESULT>;
+    fn WindowInteractionState(&self) -> Result<WindowInteractionState, windows_result::HRESULT>;
+    fn IsTopmost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IWindowProvider_Vtbl {
     pub const fn new<Identity: IWindowProvider_Impl, const OFFSET: isize>() -> Self {

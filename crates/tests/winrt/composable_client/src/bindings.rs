@@ -15,22 +15,22 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Compositor {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<
             Compositor,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual> {
+    pub fn CreateSpriteVisual(&self, brush: i32) -> Result<SpriteVisual, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -42,7 +42,10 @@ impl Compositor {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual> {
+    pub fn CreateContainerVisual(
+        &self,
+        children: i32,
+    ) -> Result<ContainerVisual, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -90,7 +93,7 @@ impl ContainerVisual {
             result__
         }
     }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> Result<Compositor, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -250,7 +253,7 @@ impl SpriteVisual {
             result__
         }
     }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> Result<Compositor, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -280,7 +283,7 @@ unsafe impl Sync for SpriteVisual {}
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
 impl Visual {
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> Result<Compositor, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

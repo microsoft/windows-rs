@@ -23,7 +23,7 @@ fn create_with_transaction() {
 
     // The transaction is not yet committed so this non-transaction read will fail.
     assert_eq!(
-        key.get_u64("u64").unwrap_err().code(),
+        key.get_u64("u64").unwrap_err(),
         HRESULT::from_win32(ERROR_FILE_NOT_FOUND)
     );
 
@@ -34,7 +34,7 @@ fn create_with_transaction() {
 
     // The transaction is no longer active so this key cannot be used.
     assert_eq!(
-        tx_key.get_u64("u64").unwrap_err().code(),
+        tx_key.get_u64("u64").unwrap_err(),
         HRESULT::from_win32(ERROR_TRANSACTION_NOT_ACTIVE)
     );
 }

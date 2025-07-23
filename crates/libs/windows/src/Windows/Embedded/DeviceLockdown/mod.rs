@@ -1,30 +1,30 @@
 pub struct DeviceLockdownProfile;
 impl DeviceLockdownProfile {
-    pub fn GetSupportedLockdownProfiles() -> windows_core::Result<windows_collections::IVectorView<windows_core::GUID>> {
+    pub fn GetSupportedLockdownProfiles() -> Result<windows_collections::IVectorView<windows_core::GUID>, windows_result::HRESULT> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedLockdownProfiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCurrentLockdownProfile() -> windows_core::Result<windows_core::GUID> {
+    pub fn GetCurrentLockdownProfile() -> Result<windows_core::GUID, windows_result::HRESULT> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ApplyLockdownProfileAsync(profileid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ApplyLockdownProfileAsync(profileid: windows_core::GUID) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplyLockdownProfileAsync)(windows_core::Interface::as_raw(this), profileid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetLockdownProfileInformation(profileid: windows_core::GUID) -> windows_core::Result<DeviceLockdownProfileInformation> {
+    pub fn GetLockdownProfileInformation(profileid: windows_core::GUID) -> Result<DeviceLockdownProfileInformation, windows_result::HRESULT> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetLockdownProfileInformation)(windows_core::Interface::as_raw(this), profileid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IDeviceLockdownProfileStatics<R, F: FnOnce(&IDeviceLockdownProfileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceLockdownProfileStatics<R, F: FnOnce(&IDeviceLockdownProfileStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DeviceLockdownProfile, IDeviceLockdownProfileStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -37,7 +37,7 @@ impl windows_core::RuntimeName for DeviceLockdownProfile {
 pub struct DeviceLockdownProfileInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceLockdownProfileInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceLockdownProfileInformation {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

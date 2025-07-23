@@ -13,9 +13,9 @@ impl<T: Type<T>> OutRef<'_, T> {
     }
 
     /// Overwrites a memory location with the given value without reading or dropping the old value.
-    pub fn write(self, value: T::Default) -> Result<()> {
+    pub fn write(self, value: T::Default) -> Result<(), windows_result::HRESULT> {
         if self.0.is_null() {
-            Err(Error::from_hresult(imp::E_POINTER))
+            Err(imp::E_POINTER)
         } else {
             unsafe { *self.0 = core::mem::transmute_copy(&value) }
             core::mem::forget(value);

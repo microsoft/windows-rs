@@ -5,7 +5,7 @@ pub mod Core;
 pub struct ActivatedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivatedDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -28,11 +28,11 @@ impl windows_core::RuntimeType for ActivatedEventHandler {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ActivatedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = ActivatedEventHandlerBox { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<super::super::ApplicationModel::Activation::IActivatedEventArgs>,
@@ -50,13 +50,13 @@ pub struct ActivatedEventHandler_Vtbl {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
-struct ActivatedEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct ActivatedEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const ActivatedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> ActivatedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> ActivatedEventHandlerBox<F> {
     const VTABLE: ActivatedEventHandler_Vtbl = ActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -108,7 +108,7 @@ impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::R
 pub struct ActivatedOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivatedOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivatedOperation {
-    pub fn GetDeferral(&self) -> windows_core::Result<ActivatedDeferral> {
+    pub fn GetDeferral(&self) -> Result<ActivatedDeferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -135,7 +135,7 @@ windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_co
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Background")]
-    pub fn TaskInstance(&self) -> windows_core::Result<super::super::ApplicationModel::Background::IBackgroundTaskInstance> {
+    pub fn TaskInstance(&self) -> Result<super::super::ApplicationModel::Background::IBackgroundTaskInstance, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -168,11 +168,11 @@ impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundActivatedEventHandlerBox { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>,
@@ -190,13 +190,13 @@ pub struct BackgroundActivatedEventHandler_Vtbl {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
-struct BackgroundActivatedEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundActivatedEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const BackgroundActivatedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundActivatedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> BackgroundActivatedEventHandlerBox<F> {
     const VTABLE: BackgroundActivatedEventHandler_Vtbl = BackgroundActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -251,7 +251,7 @@ pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::IEnteredBackgroundEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventArgs {
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -284,11 +284,11 @@ impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = EnteredBackgroundEventHandlerBox { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<super::super::ApplicationModel::IEnteredBackgroundEventArgs>,
@@ -306,13 +306,13 @@ pub struct EnteredBackgroundEventHandler_Vtbl {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-struct EnteredBackgroundEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct EnteredBackgroundEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const EnteredBackgroundEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> EnteredBackgroundEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> EnteredBackgroundEventHandlerBox<F> {
     const VTABLE: EnteredBackgroundEventHandler_Vtbl = EnteredBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -369,106 +369,106 @@ windows_core::imp::interface_hierarchy!(HtmlPrintDocumentSource, windows_core::I
 windows_core::imp::required_hierarchy!(HtmlPrintDocumentSource, super::super::Foundation::IClosable, super::super::Graphics::Printing::IPrintDocumentSource);
 #[cfg(feature = "Graphics_Printing")]
 impl HtmlPrintDocumentSource {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Content(&self) -> windows_core::Result<PrintContent> {
+    pub fn Content(&self) -> Result<PrintContent, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetContent(&self, value: PrintContent) -> windows_core::Result<()> {
+    pub fn SetContent(&self, value: PrintContent) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn LeftMargin(&self) -> windows_core::Result<f32> {
+    pub fn LeftMargin(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LeftMargin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetLeftMargin(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetLeftMargin(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLeftMargin)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TopMargin(&self) -> windows_core::Result<f32> {
+    pub fn TopMargin(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TopMargin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTopMargin(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetTopMargin(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTopMargin)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RightMargin(&self) -> windows_core::Result<f32> {
+    pub fn RightMargin(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RightMargin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRightMargin(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetRightMargin(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRightMargin)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BottomMargin(&self) -> windows_core::Result<f32> {
+    pub fn BottomMargin(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BottomMargin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBottomMargin(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetBottomMargin(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBottomMargin)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn EnableHeaderFooter(&self) -> windows_core::Result<bool> {
+    pub fn EnableHeaderFooter(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnableHeaderFooter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEnableHeaderFooter(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnableHeaderFooter(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnableHeaderFooter)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ShrinkToFit(&self) -> windows_core::Result<bool> {
+    pub fn ShrinkToFit(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShrinkToFit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetShrinkToFit(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetShrinkToFit(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetShrinkToFit)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PercentScale(&self) -> windows_core::Result<f32> {
+    pub fn PercentScale(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PercentScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPercentScale(&self, scalepercent: f32) -> windows_core::Result<()> {
+    pub fn SetPercentScale(&self, scalepercent: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPercentScale)(windows_core::Interface::as_raw(this), scalepercent).ok() }
     }
-    pub fn PageRange(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PageRange(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PageRange)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TrySetPageRange(&self, strpagerange: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn TrySetPageRange(&self, strpagerange: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -509,7 +509,7 @@ impl windows_core::RuntimeType for IActivatedEventArgsDeferral {
 }
 windows_core::imp::interface_hierarchy!(IActivatedEventArgsDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl IActivatedEventArgsDeferral {
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -521,7 +521,7 @@ impl windows_core::RuntimeName for IActivatedEventArgsDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
 }
 pub trait IActivatedEventArgsDeferral_Impl: windows_core::IUnknownImpl {
-    fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation>;
+    fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT>;
 }
 impl IActivatedEventArgsDeferral_Vtbl {
     pub const fn new<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> Self {
@@ -694,14 +694,14 @@ impl windows_core::RuntimeType for IWebUIBackgroundTaskInstance {
 }
 windows_core::imp::interface_hierarchy!(IWebUIBackgroundTaskInstance, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUIBackgroundTaskInstance {
-    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+    pub fn Succeeded(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()> {
+    pub fn SetSucceeded(&self, succeeded: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSucceeded)(windows_core::Interface::as_raw(this), succeeded).ok() }
     }
@@ -710,8 +710,8 @@ impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
 }
 pub trait IWebUIBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
-    fn Succeeded(&self) -> windows_core::Result<bool>;
-    fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()>;
+    fn Succeeded(&self) -> Result<bool, windows_result::HRESULT>;
+    fn SetSucceeded(&self, succeeded: bool) -> Result<(), windows_result::HRESULT>;
 }
 impl IWebUIBackgroundTaskInstance_Vtbl {
     pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> Self {
@@ -776,7 +776,7 @@ impl windows_core::RuntimeType for IWebUINavigatedEventArgs {
 }
 windows_core::imp::interface_hierarchy!(IWebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUINavigatedEventArgs {
-    pub fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation> {
+    pub fn NavigatedOperation(&self) -> Result<WebUINavigatedOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -788,7 +788,7 @@ impl windows_core::RuntimeName for IWebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
 }
 pub trait IWebUINavigatedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation>;
+    fn NavigatedOperation(&self) -> Result<WebUINavigatedOperation, windows_result::HRESULT>;
 }
 impl IWebUINavigatedEventArgs_Vtbl {
     pub const fn new<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -877,7 +877,7 @@ pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ILeavingBackgroundEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventArgs {
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -910,11 +910,11 @@ impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = LeavingBackgroundEventHandlerBox { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<super::super::ApplicationModel::ILeavingBackgroundEventArgs>,
@@ -932,13 +932,13 @@ pub struct LeavingBackgroundEventHandler_Vtbl {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-struct LeavingBackgroundEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct LeavingBackgroundEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const LeavingBackgroundEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> LeavingBackgroundEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> LeavingBackgroundEventHandlerBox<F> {
     const VTABLE: LeavingBackgroundEventHandler_Vtbl = LeavingBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -990,11 +990,11 @@ impl windows_core::RuntimeType for NavigatedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl NavigatedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, IWebUINavigatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = NavigatedEventHandlerBox { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<IWebUINavigatedEventArgs>,
@@ -1010,12 +1010,12 @@ pub struct NavigatedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct NavigatedEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct NavigatedEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, IWebUINavigatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const NavigatedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> NavigatedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, IWebUINavigatedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> NavigatedEventHandlerBox<F> {
     const VTABLE: NavigatedEventHandler_Vtbl = NavigatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1068,7 +1068,7 @@ pub struct NewWebUIViewCreatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NewWebUIViewCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl NewWebUIViewCreatedEventArgs {
     #[cfg(feature = "Web_UI")]
-    pub fn WebUIView(&self) -> windows_core::Result<WebUIView> {
+    pub fn WebUIView(&self) -> Result<WebUIView, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1076,21 +1076,21 @@ impl NewWebUIViewCreatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn ActivatedEventArgs(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
+    pub fn ActivatedEventArgs(&self) -> Result<super::super::ApplicationModel::Activation::IActivatedEventArgs, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedEventArgs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasPendingNavigate(&self) -> windows_core::Result<bool> {
+    pub fn HasPendingNavigate(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasPendingNavigate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1128,11 +1128,11 @@ impl windows_core::RuntimeType for ResumingEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ResumingEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = ResumingEventHandlerBox { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -1147,12 +1147,12 @@ pub struct ResumingEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ResumingEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
+struct ResumingEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const ResumingEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> ResumingEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>) -> Result<(), windows_result::HRESULT> + Send + 'static> ResumingEventHandlerBox<F> {
     const VTABLE: ResumingEventHandler_Vtbl = ResumingEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1207,7 +1207,7 @@ pub struct SuspendingDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingDeferral);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -1233,7 +1233,7 @@ pub struct SuspendingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventArgs {
-    pub fn SuspendingOperation(&self) -> windows_core::Result<super::super::ApplicationModel::SuspendingOperation> {
+    pub fn SuspendingOperation(&self) -> Result<super::super::ApplicationModel::SuspendingOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1262,11 +1262,11 @@ impl windows_core::RuntimeType for SuspendingEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ISuspendingEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = SuspendingEventHandlerBox { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<super::super::ApplicationModel::ISuspendingEventArgs>,
@@ -1284,13 +1284,13 @@ pub struct SuspendingEventHandler_Vtbl {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
-struct SuspendingEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct SuspendingEventHandlerBox<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ISuspendingEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const SuspendingEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "ApplicationModel")]
-impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> SuspendingEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, super::super::ApplicationModel::ISuspendingEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> SuspendingEventHandlerBox<F> {
     const VTABLE: SuspendingEventHandler_Vtbl = SuspendingEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1345,14 +1345,14 @@ pub struct SuspendingOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingOperation);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingOperation {
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::ApplicationModel::SuspendingDeferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::ApplicationModel::SuspendingDeferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1376,7 +1376,7 @@ impl windows_core::RuntimeName for SuspendingOperation {
 pub struct WebUIApplication;
 impl WebUIApplication {
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn Activated<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn Activated<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<ActivatedEventHandler>,
     {
@@ -1385,11 +1385,11 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveActivated(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveActivated(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveActivated)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn Suspending<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn Suspending<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<SuspendingEventHandler>,
     {
@@ -1398,10 +1398,10 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).Suspending)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveSuspending(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSuspending(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveSuspending)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn Resuming<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn Resuming<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<ResumingEventHandler>,
     {
@@ -1410,10 +1410,10 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).Resuming)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveResuming(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveResuming(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveResuming)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn Navigated<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn Navigated<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<NavigatedEventHandler>,
     {
@@ -1422,11 +1422,11 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).Navigated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveNavigated(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveNavigated(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNavigated)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn LeavingBackground<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn LeavingBackground<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<LeavingBackgroundEventHandler>,
     {
@@ -1435,11 +1435,11 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).LeavingBackground)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveLeavingBackground(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveLeavingBackground(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveLeavingBackground)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn EnteredBackground<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn EnteredBackground<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<EnteredBackgroundEventHandler>,
     {
@@ -1448,21 +1448,21 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).EnteredBackground)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveEnteredBackground(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEnteredBackground(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveEnteredBackground)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn EnablePrelaunch(value: bool) -> windows_core::Result<()> {
+    pub fn EnablePrelaunch(value: bool) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).EnablePrelaunch)(windows_core::Interface::as_raw(this), value).ok() })
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn RequestRestartAsync(launcharguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>> {
+    pub fn RequestRestartAsync(launcharguments: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>, windows_result::HRESULT> {
         Self::IWebUIActivationStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestRestartAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(launcharguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "System"))]
-    pub fn RequestRestartForUserAsync<P0>(user: P0, launcharguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>
+    pub fn RequestRestartForUserAsync<P0>(user: P0, launcharguments: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -1471,7 +1471,7 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).RequestRestartForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(launcharguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn NewWebUIViewCreated<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn NewWebUIViewCreated<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>>,
     {
@@ -1480,11 +1480,11 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).NewWebUIViewCreated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveNewWebUIViewCreated(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveNewWebUIViewCreated(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics4(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNewWebUIViewCreated)(windows_core::Interface::as_raw(this), token).ok() })
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn BackgroundActivated<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn BackgroundActivated<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<BackgroundActivatedEventHandler>,
     {
@@ -1493,22 +1493,22 @@ impl WebUIApplication {
             (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveBackgroundActivated(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveBackgroundActivated(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWebUIActivationStatics4(|this| unsafe { (windows_core::Interface::vtable(this).RemoveBackgroundActivated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IWebUIActivationStatics<R, F: FnOnce(&IWebUIActivationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics<R, F: FnOnce(&IWebUIActivationStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IWebUIActivationStatics2<R, F: FnOnce(&IWebUIActivationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics2<R, F: FnOnce(&IWebUIActivationStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IWebUIActivationStatics3<R, F: FnOnce(&IWebUIActivationStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics3<R, F: FnOnce(&IWebUIActivationStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IWebUIActivationStatics4<R, F: FnOnce(&IWebUIActivationStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics4<R, F: FnOnce(&IWebUIActivationStatics4) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1526,28 +1526,28 @@ windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentA
 windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1555,14 +1555,14 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1570,7 +1570,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub fn AddAppointmentOperation(&self) -> windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation> {
+    pub fn AddAppointmentOperation(&self) -> Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1601,28 +1601,28 @@ windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointme
 windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1630,14 +1630,14 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1645,7 +1645,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub fn RemoveAppointmentOperation(&self) -> windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
+    pub fn RemoveAppointmentOperation(&self) -> Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1676,28 +1676,28 @@ windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointm
 windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1705,14 +1705,14 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1720,7 +1720,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub fn ReplaceAppointmentOperation(&self) -> windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
+    pub fn ReplaceAppointmentOperation(&self) -> Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1751,28 +1751,28 @@ windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointment
 windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1780,35 +1780,35 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn InstanceStartDate(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceStartDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RoamingId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1839,28 +1839,28 @@ windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameAc
 windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1868,28 +1868,28 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn TimeToShow(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeToShow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1912,13 +1912,13 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderShowTimeFrameActivat
 }
 pub struct WebUIBackgroundTaskInstance;
 impl WebUIBackgroundTaskInstance {
-    pub fn Current() -> windows_core::Result<IWebUIBackgroundTaskInstance> {
+    pub fn Current() -> Result<IWebUIBackgroundTaskInstance, windows_result::HRESULT> {
         Self::IWebUIBackgroundTaskInstanceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebUIBackgroundTaskInstanceStatics<R, F: FnOnce(&IWebUIBackgroundTaskInstanceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIBackgroundTaskInstanceStatics<R, F: FnOnce(&IWebUIBackgroundTaskInstanceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstanceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1936,39 +1936,39 @@ windows_core::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass,
 windows_core::imp::required_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, super::super::ApplicationModel::Background::IBackgroundTaskInstance);
 #[cfg(feature = "ApplicationModel_Background")]
 impl WebUIBackgroundTaskInstanceRuntimeClass {
-    pub fn InstanceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn InstanceId(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Task(&self) -> windows_core::Result<super::super::ApplicationModel::Background::BackgroundTaskRegistration> {
+    pub fn Task(&self) -> Result<super::super::ApplicationModel::Background::BackgroundTaskRegistration, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Task)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Progress(&self) -> windows_core::Result<u32> {
+    pub fn Progress(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetProgress(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetProgress(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProgress)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TriggerDetails(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn TriggerDetails(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TriggerDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Canceled<P0>(&self, cancelhandler: P0) -> windows_core::Result<i64>
+    pub fn Canceled<P0>(&self, cancelhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Background::BackgroundTaskCanceledEventHandler>,
     {
@@ -1978,32 +1978,32 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveCanceled(&self, cookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveCanceled)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn SuspendedCount(&self) -> windows_core::Result<u32> {
+    pub fn SuspendedCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SuspendedCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::ApplicationModel::Background::BackgroundTaskDeferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::ApplicationModel::Background::BackgroundTaskDeferral, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+    pub fn Succeeded(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()> {
+    pub fn SetSucceeded(&self, succeeded: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSucceeded)(windows_core::Interface::as_raw(this), succeeded).ok() }
     }
@@ -2031,28 +2031,28 @@ windows_core::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEvent
 windows_core::imp::required_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIBarcodeScannerPreviewActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2060,14 +2060,14 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectionId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ConnectionId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2102,28 +2102,28 @@ windows_core::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs
 windows_core::imp::required_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICachedFileUpdaterActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2131,7 +2131,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2139,7 +2139,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Provider")]
-    pub fn CachedFileUpdaterUI(&self) -> windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
+    pub fn CachedFileUpdaterUI(&self) -> Result<super::super::Storage::Provider::CachedFileUpdaterUI, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2170,42 +2170,42 @@ windows_core::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, w
 windows_core::imp::required_hierarchy!(WebUICameraSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICameraSettingsActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VideoDeviceController(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn VideoDeviceController(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoDeviceController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VideoDeviceExtension(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn VideoDeviceExtension(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2236,28 +2236,28 @@ windows_core::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, wind
 windows_core::imp::required_hierarchy!(WebUICommandLineActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICommandLineActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2265,14 +2265,14 @@ impl WebUICommandLineActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Operation(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::CommandLineActivationOperation> {
+    pub fn Operation(&self) -> Result<super::super::ApplicationModel::Activation::CommandLineActivationOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2307,49 +2307,49 @@ windows_core::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, wind
 windows_core::imp::required_hierarchy!(WebUIContactCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactCallActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceUserId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2357,7 +2357,7 @@ impl WebUIContactCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
+    pub fn Contact(&self) -> Result<super::super::ApplicationModel::Contacts::Contact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2388,35 +2388,35 @@ windows_core::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, windo
 windows_core::imp::required_hierarchy!(WebUIContactMapActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMapActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2424,7 +2424,7 @@ impl WebUIContactMapActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Address(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::ContactAddress> {
+    pub fn Address(&self) -> Result<super::super::ApplicationModel::Contacts::ContactAddress, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2432,7 +2432,7 @@ impl WebUIContactMapActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
+    pub fn Contact(&self) -> Result<super::super::ApplicationModel::Contacts::Contact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2463,49 +2463,49 @@ windows_core::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, w
 windows_core::imp::required_hierarchy!(WebUIContactMessageActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMessageActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceUserId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2513,7 +2513,7 @@ impl WebUIContactMessageActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
+    pub fn Contact(&self) -> Result<super::super::ApplicationModel::Contacts::Contact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2544,28 +2544,28 @@ windows_core::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, win
 windows_core::imp::required_hierarchy!(WebUIContactPanelActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPanelActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2573,7 +2573,7 @@ impl WebUIContactPanelActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2581,7 +2581,7 @@ impl WebUIContactPanelActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn ContactPanel(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::ContactPanel> {
+    pub fn ContactPanel(&self) -> Result<super::super::ApplicationModel::Contacts::ContactPanel, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2589,7 +2589,7 @@ impl WebUIContactPanelActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
+    pub fn Contact(&self) -> Result<super::super::ApplicationModel::Contacts::Contact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2624,28 +2624,28 @@ windows_core::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, wi
 windows_core::imp::required_hierarchy!(WebUIContactPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPickerActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2653,7 +2653,7 @@ impl WebUIContactPickerActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
-    pub fn ContactPickerUI(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI> {
+    pub fn ContactPickerUI(&self) -> Result<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2684,49 +2684,49 @@ windows_core::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, wind
 windows_core::imp::required_hierarchy!(WebUIContactPostActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPostActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceUserId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2734,7 +2734,7 @@ impl WebUIContactPostActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
+    pub fn Contact(&self) -> Result<super::super::ApplicationModel::Contacts::Contact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2765,49 +2765,49 @@ windows_core::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs,
 windows_core::imp::required_hierarchy!(WebUIContactVideoCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactVideoCallActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceUserId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2815,7 +2815,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
+    pub fn Contact(&self) -> Result<super::super::ApplicationModel::Contacts::Contact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2846,28 +2846,28 @@ windows_core::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, windows_c
 windows_core::imp::required_hierarchy!(WebUIDeviceActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDeviceActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2875,28 +2875,28 @@ impl WebUIDeviceActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceInformationId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceInformationId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceInformationId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2927,28 +2927,28 @@ windows_core::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, wi
 windows_core::imp::required_hierarchy!(WebUIDevicePairingActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDevicePairingActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2956,7 +2956,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2964,7 +2964,7 @@ impl WebUIDevicePairingActivatedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn DeviceInformation(&self) -> windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
+    pub fn DeviceInformation(&self) -> Result<super::super::Devices::Enumeration::DeviceInformation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2995,28 +2995,28 @@ windows_core::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, win
 windows_core::imp::required_hierarchy!(WebUIDialReceiverActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDialReceiverActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3024,35 +3024,35 @@ impl WebUIDialReceiverActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AppName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Arguments(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TileId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3083,28 +3083,28 @@ windows_core::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, windows_cor
 windows_core::imp::required_hierarchy!(WebUIFileActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3112,14 +3112,14 @@ impl WebUIFileActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3127,14 +3127,14 @@ impl WebUIFileActivatedEventArgs {
         }
     }
     #[cfg(feature = "Storage")]
-    pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::IStorageItem>> {
+    pub fn Files(&self) -> Result<windows_collections::IVectorView<super::super::Storage::IStorageItem>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Verb(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3142,7 +3142,7 @@ impl WebUIFileActivatedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn NeighboringFilesQuery(&self) -> windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
+    pub fn NeighboringFilesQuery(&self) -> Result<super::super::Storage::Search::StorageFileQueryResult, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3173,28 +3173,28 @@ windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, w
 windows_core::imp::required_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3202,7 +3202,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3210,14 +3210,14 @@ impl WebUIFileOpenPickerActivatedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Pickers_Provider")]
-    pub fn FileOpenPickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
+    pub fn FileOpenPickerUI(&self) -> Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileOpenPickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CallerPackageFamilyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3248,28 +3248,28 @@ windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs
 windows_core::imp::required_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerContinuationEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3277,7 +3277,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3285,7 +3285,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn ContinuationData(&self) -> Result<super::super::Foundation::Collections::ValueSet, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3293,7 +3293,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Files(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Storage::StorageFile>> {
+    pub fn Files(&self) -> Result<windows_collections::IVectorView<super::super::Storage::StorageFile>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3324,28 +3324,28 @@ windows_core::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, w
 windows_core::imp::required_hierarchy!(WebUIFileSavePickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3353,7 +3353,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3361,21 +3361,21 @@ impl WebUIFileSavePickerActivatedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Pickers_Provider")]
-    pub fn FileSavePickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
+    pub fn FileSavePickerUI(&self) -> Result<super::super::Storage::Pickers::Provider::FileSavePickerUI, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileSavePickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CallerPackageFamilyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EnterpriseId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3406,28 +3406,28 @@ windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs
 windows_core::imp::required_hierarchy!(WebUIFileSavePickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerContinuationEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3435,7 +3435,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3443,7 +3443,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn ContinuationData(&self) -> Result<super::super::Foundation::Collections::ValueSet, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3451,7 +3451,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
+    pub fn File(&self) -> Result<super::super::Storage::StorageFile, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3482,28 +3482,28 @@ windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, 
 windows_core::imp::required_hierarchy!(WebUIFolderPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFolderPickerContinuationEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3511,7 +3511,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3519,7 +3519,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn ContinuationData(&self) -> Result<super::super::Foundation::Collections::ValueSet, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3527,7 +3527,7 @@ impl WebUIFolderPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
+    pub fn Folder(&self) -> Result<super::super::Storage::StorageFolder, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3558,28 +3558,28 @@ windows_core::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, windows_c
 windows_core::imp::required_hierarchy!(WebUILaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2, super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILaunchActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3587,42 +3587,42 @@ impl WebUILaunchActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Arguments(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TileId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TileActivatedInfo(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::TileActivatedInfo> {
+    pub fn TileActivatedInfo(&self) -> Result<super::super::ApplicationModel::Activation::TileActivatedInfo, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileActivatedInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrelaunchActivated(&self) -> windows_core::Result<bool> {
+    pub fn PrelaunchActivated(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3653,28 +3653,28 @@ windows_core::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, windo
 windows_core::imp::required_hierarchy!(WebUILockScreenActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3682,21 +3682,21 @@ impl WebUILockScreenActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Info(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Info(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3727,49 +3727,49 @@ windows_core::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, w
 windows_core::imp::required_hierarchy!(WebUILockScreenCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenCallActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Arguments(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TileId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3777,7 +3777,7 @@ impl WebUILockScreenCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Calls")]
-    pub fn CallUI(&self) -> windows_core::Result<super::super::ApplicationModel::Calls::LockScreenCallUI> {
+    pub fn CallUI(&self) -> Result<super::super::ApplicationModel::Calls::LockScreenCallUI, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3808,28 +3808,28 @@ windows_core::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventAr
 windows_core::imp::required_hierarchy!(WebUILockScreenComponentActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenComponentActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3855,7 +3855,7 @@ impl windows_core::RuntimeName for WebUILockScreenComponentActivatedEventArgs {
 pub struct WebUINavigatedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUINavigatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUINavigatedDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -3875,7 +3875,7 @@ impl windows_core::RuntimeName for WebUINavigatedDeferral {
 pub struct WebUINavigatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, IWebUINavigatedEventArgs);
 impl WebUINavigatedEventArgs {
-    pub fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation> {
+    pub fn NavigatedOperation(&self) -> Result<WebUINavigatedOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3898,7 +3898,7 @@ impl windows_core::RuntimeName for WebUINavigatedEventArgs {
 pub struct WebUINavigatedOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUINavigatedOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUINavigatedOperation {
-    pub fn GetDeferral(&self) -> windows_core::Result<WebUINavigatedDeferral> {
+    pub fn GetDeferral(&self) -> Result<WebUINavigatedDeferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3926,28 +3926,28 @@ windows_core::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, window
 windows_core::imp::required_hierarchy!(WebUIPhoneCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPhoneCallActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3955,14 +3955,14 @@ impl WebUIPhoneCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn LineId(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3997,28 +3997,28 @@ windows_core::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, 
 windows_core::imp::required_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrint3DWorkflowActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4026,7 +4026,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Printers_Extensions")]
-    pub fn Workflow(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
+    pub fn Workflow(&self) -> Result<super::super::Devices::Printers::Extensions::Print3DWorkflow, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4057,28 +4057,28 @@ windows_core::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs
 windows_core::imp::required_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintTaskSettingsActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4086,7 +4086,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Printers_Extensions")]
-    pub fn Configuration(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
+    pub fn Configuration(&self) -> Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4117,28 +4117,28 @@ windows_core::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivate
 windows_core::imp::required_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4169,28 +4169,28 @@ windows_core::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, windows
 windows_core::imp::required_hierarchy!(WebUIProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4198,28 +4198,28 @@ impl WebUIProtocolActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CallerPackageFamilyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4227,7 +4227,7 @@ impl WebUIProtocolActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Data(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn Data(&self) -> Result<super::super::Foundation::Collections::ValueSet, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4258,28 +4258,28 @@ windows_core::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArg
 windows_core::imp::required_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolForResultsActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4287,28 +4287,28 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CallerPackageFamilyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4316,7 +4316,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Data(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn Data(&self) -> Result<super::super::Foundation::Collections::ValueSet, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4324,7 +4324,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn ProtocolForResultsOperation(&self) -> windows_core::Result<super::super::System::ProtocolForResultsOperation> {
+    pub fn ProtocolForResultsOperation(&self) -> Result<super::super::System::ProtocolForResultsOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4355,28 +4355,28 @@ windows_core::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs,
 windows_core::imp::required_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIRestrictedLaunchActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4384,14 +4384,14 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SharedContext(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn SharedContext(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4422,49 +4422,49 @@ windows_core::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, windows_c
 windows_core::imp::required_hierarchy!(WebUISearchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUISearchActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn CurrentlyShownApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4472,7 +4472,7 @@ impl WebUISearchActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Search")]
-    pub fn LinguisticDetails(&self) -> windows_core::Result<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails> {
+    pub fn LinguisticDetails(&self) -> Result<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4503,28 +4503,28 @@ windows_core::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, wind
 windows_core::imp::required_hierarchy!(WebUIShareTargetActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIShareTargetActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4532,7 +4532,7 @@ impl WebUIShareTargetActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4540,7 +4540,7 @@ impl WebUIShareTargetActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
-    pub fn ShareOperation(&self) -> windows_core::Result<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation> {
+    pub fn ShareOperation(&self) -> Result<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4571,28 +4571,28 @@ windows_core::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, wind
 windows_core::imp::required_hierarchy!(WebUIStartupTaskActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIStartupTaskActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4600,14 +4600,14 @@ impl WebUIStartupTaskActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TaskId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TaskId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4642,28 +4642,28 @@ windows_core::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs
 windows_core::imp::required_hierarchy!(WebUIToastNotificationActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIToastNotificationActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4671,14 +4671,14 @@ impl WebUIToastNotificationActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Argument(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Argument(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4686,7 +4686,7 @@ impl WebUIToastNotificationActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UserInput(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn UserInput(&self) -> Result<super::super::Foundation::Collections::ValueSet, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4717,28 +4717,28 @@ windows_core::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEve
 windows_core::imp::required_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIUserDataAccountProviderActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4746,7 +4746,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
-    pub fn Operation(&self) -> windows_core::Result<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
+    pub fn Operation(&self) -> Result<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4777,14 +4777,14 @@ windows_core::imp::interface_hierarchy!(WebUIView, windows_core::IUnknown, windo
 windows_core::imp::required_hierarchy!(WebUIView, super::super::Web::UI::IWebViewControl, super::super::Web::UI::IWebViewControl2);
 #[cfg(feature = "Web_UI")]
 impl WebUIView {
-    pub fn ApplicationViewId(&self) -> windows_core::Result<i32> {
+    pub fn ApplicationViewId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Closed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WebUIView, windows_core::IInspectable>>,
     {
@@ -4794,12 +4794,12 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveClosed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Activated<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WebUIView, super::super::ApplicationModel::Activation::IActivatedEventArgs>>,
     {
@@ -4809,28 +4809,28 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveActivated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveActivated(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveActivated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn IgnoreApplicationContentUriRulesNavigationRestrictions(&self) -> windows_core::Result<bool> {
+    pub fn IgnoreApplicationContentUriRulesNavigationRestrictions(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IgnoreApplicationContentUriRulesNavigationRestrictions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIgnoreApplicationContentUriRulesNavigationRestrictions(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIgnoreApplicationContentUriRulesNavigationRestrictions)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<WebUIView>> {
+    pub fn CreateAsync() -> Result<windows_future::IAsyncOperation<WebUIView>, windows_result::HRESULT> {
         Self::IWebUIViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithUriAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebUIView>>
+    pub fn CreateWithUriAsync<P0>(uri: P0) -> Result<windows_future::IAsyncOperation<WebUIView>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -4839,102 +4839,102 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).CreateWithUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Source(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn Source(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSource<P0>(&self, source: P0) -> windows_core::Result<()>
+    pub fn SetSource<P0>(&self, source: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
-    pub fn DocumentTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DocumentTitle(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DocumentTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CanGoBack(&self) -> windows_core::Result<bool> {
+    pub fn CanGoBack(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanGoBack)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CanGoForward(&self) -> windows_core::Result<bool> {
+    pub fn CanGoForward(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanGoForward)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDefaultBackgroundColor(&self, value: super::Color) -> windows_core::Result<()> {
+    pub fn SetDefaultBackgroundColor(&self, value: super::Color) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultBackgroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DefaultBackgroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn DefaultBackgroundColor(&self) -> Result<super::Color, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContainsFullScreenElement(&self) -> windows_core::Result<bool> {
+    pub fn ContainsFullScreenElement(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContainsFullScreenElement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Settings(&self) -> windows_core::Result<super::super::Web::UI::WebViewControlSettings> {
+    pub fn Settings(&self) -> Result<super::super::Web::UI::WebViewControlSettings, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Settings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeferredPermissionRequests(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>> {
+    pub fn DeferredPermissionRequests(&self) -> Result<windows_collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeferredPermissionRequests)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GoForward(&self) -> windows_core::Result<()> {
+    pub fn GoForward(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GoForward)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GoBack(&self) -> windows_core::Result<()> {
+    pub fn GoBack(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GoBack)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Refresh(&self) -> windows_core::Result<()> {
+    pub fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Refresh)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Navigate<P0>(&self, source: P0) -> windows_core::Result<()>
+    pub fn Navigate<P0>(&self, source: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Navigate)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
-    pub fn NavigateToString(&self, text: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn NavigateToString(&self, text: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NavigateToString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text)).ok() }
     }
     #[cfg(feature = "Web")]
-    pub fn NavigateToLocalStreamUri<P0, P1>(&self, source: P0, streamresolver: P1) -> windows_core::Result<()>
+    pub fn NavigateToLocalStreamUri<P0, P1>(&self, source: P0, streamresolver: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Web::IUriToStreamResolver>,
@@ -4943,14 +4943,14 @@ impl WebUIView {
         unsafe { (windows_core::Interface::vtable(this).NavigateToLocalStreamUri)(windows_core::Interface::as_raw(this), source.param().abi(), streamresolver.param().abi()).ok() }
     }
     #[cfg(feature = "Web_Http")]
-    pub fn NavigateWithHttpRequestMessage<P0>(&self, requestmessage: P0) -> windows_core::Result<()>
+    pub fn NavigateWithHttpRequestMessage<P0>(&self, requestmessage: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Web::Http::HttpRequestMessage>,
     {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(windows_core::Interface::as_raw(this), requestmessage.param().abi()).ok() }
     }
-    pub fn InvokeScriptAsync<P1>(&self, scriptname: &windows_core::HSTRING, arguments: P1) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn InvokeScriptAsync<P1>(&self, scriptname: &windows_core::HSTRING, arguments: P1) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -4961,7 +4961,7 @@ impl WebUIView {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CapturePreviewToStreamAsync<P0>(&self, stream: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn CapturePreviewToStreamAsync<P0>(&self, stream: P0) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
@@ -4972,25 +4972,25 @@ impl WebUIView {
         }
     }
     #[cfg(feature = "ApplicationModel_DataTransfer")]
-    pub fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>> {
+    pub fn CaptureSelectedContentToDataPackageAsync(&self) -> Result<windows_future::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CaptureSelectedContentToDataPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BuildLocalStreamUri(&self, contentidentifier: &windows_core::HSTRING, relativepath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn BuildLocalStreamUri(&self, contentidentifier: &windows_core::HSTRING, relativepath: &windows_core::HSTRING) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BuildLocalStreamUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contentidentifier), core::mem::transmute_copy(relativepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>) -> windows_core::Result<()> {
+    pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GetDeferredPermissionRequestById)(windows_core::Interface::as_raw(this), id, result as *mut _ as _).ok() }
     }
-    pub fn NavigationStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NavigationStarting<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>>,
     {
@@ -5000,11 +5000,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).NavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveNavigationStarting(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveNavigationStarting(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveNavigationStarting)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ContentLoading<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContentLoading<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>>,
     {
@@ -5014,11 +5014,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).ContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveContentLoading(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveContentLoading(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveContentLoading)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DOMContentLoaded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DOMContentLoaded<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>>,
     {
@@ -5028,11 +5028,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).DOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDOMContentLoaded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDOMContentLoaded(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveDOMContentLoaded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn NavigationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NavigationCompleted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>>,
     {
@@ -5042,11 +5042,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).NavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveNavigationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveNavigationCompleted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveNavigationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FrameNavigationStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FrameNavigationStarting<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>>,
     {
@@ -5056,11 +5056,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameNavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFrameNavigationStarting(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFrameNavigationStarting(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameNavigationStarting)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FrameContentLoading<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FrameContentLoading<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>>,
     {
@@ -5070,11 +5070,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFrameContentLoading(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFrameContentLoading(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameContentLoading)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FrameDOMContentLoaded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FrameDOMContentLoaded<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>>,
     {
@@ -5084,11 +5084,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameDOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFrameDOMContentLoaded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFrameDOMContentLoaded(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameDOMContentLoaded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FrameNavigationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FrameNavigationCompleted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>>,
     {
@@ -5098,11 +5098,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameNavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFrameNavigationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFrameNavigationCompleted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameNavigationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ScriptNotify<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScriptNotify<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlScriptNotifyEventArgs>>,
     {
@@ -5112,11 +5112,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).ScriptNotify)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveScriptNotify(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveScriptNotify(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveScriptNotify)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn LongRunningScriptDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn LongRunningScriptDetected<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs>>,
     {
@@ -5126,11 +5126,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).LongRunningScriptDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveLongRunningScriptDetected(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveLongRunningScriptDetected(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveLongRunningScriptDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UnsafeContentWarningDisplaying<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UnsafeContentWarningDisplaying<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, windows_core::IInspectable>>,
     {
@@ -5140,11 +5140,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).UnsafeContentWarningDisplaying)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUnsafeContentWarningDisplaying(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUnsafeContentWarningDisplaying(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnsafeContentWarningDisplaying)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UnviewableContentIdentified<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UnviewableContentIdentified<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs>>,
     {
@@ -5154,11 +5154,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).UnviewableContentIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUnviewableContentIdentified(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUnviewableContentIdentified(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnviewableContentIdentified)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PermissionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PermissionRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlPermissionRequestedEventArgs>>,
     {
@@ -5168,11 +5168,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).PermissionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePermissionRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePermissionRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePermissionRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UnsupportedUriSchemeIdentified<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UnsupportedUriSchemeIdentified<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>>,
     {
@@ -5182,11 +5182,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).UnsupportedUriSchemeIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUnsupportedUriSchemeIdentified(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUnsupportedUriSchemeIdentified(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnsupportedUriSchemeIdentified)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn NewWindowRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NewWindowRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNewWindowRequestedEventArgs>>,
     {
@@ -5196,11 +5196,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).NewWindowRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveNewWindowRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveNewWindowRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveNewWindowRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ContainsFullScreenElementChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ContainsFullScreenElementChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, windows_core::IInspectable>>,
     {
@@ -5210,11 +5210,11 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).ContainsFullScreenElementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveContainsFullScreenElementChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveContainsFullScreenElementChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveContainsFullScreenElementChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn WebResourceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn WebResourceRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlWebResourceRequestedEventArgs>>,
     {
@@ -5224,15 +5224,15 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).WebResourceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveWebResourceRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveWebResourceRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveWebResourceRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddInitializeScript)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(script)).ok() }
     }
-    fn IWebUIViewStatics<R, F: FnOnce(&IWebUIViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIViewStatics<R, F: FnOnce(&IWebUIViewStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUIView, IWebUIViewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5260,28 +5260,28 @@ windows_core::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, win
 windows_core::imp::required_hierarchy!(WebUIVoiceCommandActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIVoiceCommandActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5289,7 +5289,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5297,7 +5297,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
         }
     }
     #[cfg(feature = "Media_SpeechRecognition")]
-    pub fn Result(&self) -> windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
+    pub fn Result(&self) -> Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5328,35 +5328,35 @@ windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, win
 windows_core::imp::required_hierarchy!(WebUIWalletActionActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWalletActionActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ItemId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5364,14 +5364,14 @@ impl WebUIWalletActionActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Wallet")]
-    pub fn ActionKind(&self) -> windows_core::Result<super::super::ApplicationModel::Wallet::WalletActionKind> {
+    pub fn ActionKind(&self) -> Result<super::super::ApplicationModel::Wallet::WalletActionKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActionId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5402,28 +5402,28 @@ windows_core::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArg
 windows_core::imp::required_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAccountProviderActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5431,7 +5431,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5439,7 +5439,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "Security_Authentication_Web_Provider")]
-    pub fn Operation(&self) -> windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
+    pub fn Operation(&self) -> Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5470,28 +5470,28 @@ windows_core::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuation
 windows_core::imp::required_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAuthenticationBrokerContinuationEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> Result<super::super::ApplicationModel::Activation::ActivationKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> Result<super::super::ApplicationModel::Activation::ApplicationExecutionState, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> Result<super::super::ApplicationModel::Activation::SplashScreen, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+    pub fn ActivatedOperation(&self) -> Result<ActivatedOperation, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5499,7 +5499,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn ContinuationData(&self) -> Result<super::super::Foundation::Collections::ValueSet, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5507,7 +5507,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Security_Authentication_Web")]
-    pub fn WebAuthenticationResult(&self) -> windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
+    pub fn WebAuthenticationResult(&self) -> Result<super::super::Security::Authentication::Web::WebAuthenticationResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

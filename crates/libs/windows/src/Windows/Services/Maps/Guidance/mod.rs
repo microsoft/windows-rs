@@ -34,21 +34,21 @@ impl windows_core::RuntimeType for GuidanceAudioNotificationKind {
 pub struct GuidanceAudioNotificationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceAudioNotificationRequestedEventArgs {
-    pub fn AudioNotification(&self) -> windows_core::Result<GuidanceAudioNotificationKind> {
+    pub fn AudioNotification(&self) -> Result<GuidanceAudioNotificationKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioNotification)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AudioFilePaths(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn AudioFilePaths(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioFilePaths)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AudioText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AudioText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -124,14 +124,14 @@ impl core::ops::Not for GuidanceAudioNotifications {
 pub struct GuidanceLaneInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceLaneInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceLaneInfo {
-    pub fn LaneMarkers(&self) -> windows_core::Result<GuidanceLaneMarkers> {
+    pub fn LaneMarkers(&self) -> Result<GuidanceLaneMarkers, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaneMarkers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsOnRoute(&self) -> windows_core::Result<bool> {
+    pub fn IsOnRoute(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -212,84 +212,84 @@ pub struct GuidanceManeuver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceManeuver, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceManeuver {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn StartLocation(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
+    pub fn StartLocation(&self) -> Result<super::super::super::Devices::Geolocation::Geopoint, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DistanceFromRouteStart(&self) -> windows_core::Result<i32> {
+    pub fn DistanceFromRouteStart(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DistanceFromRouteStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DistanceFromPreviousManeuver(&self) -> windows_core::Result<i32> {
+    pub fn DistanceFromPreviousManeuver(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DistanceFromPreviousManeuver)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DepartureRoadName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DepartureRoadName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DepartureRoadName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn NextRoadName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NextRoadName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextRoadName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DepartureShortRoadName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DepartureShortRoadName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DepartureShortRoadName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn NextShortRoadName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NextShortRoadName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextShortRoadName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<GuidanceManeuverKind> {
+    pub fn Kind(&self) -> Result<GuidanceManeuverKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StartAngle(&self) -> windows_core::Result<i32> {
+    pub fn StartAngle(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAngle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EndAngle(&self) -> windows_core::Result<i32> {
+    pub fn EndAngle(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EndAngle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RoadSignpost(&self) -> windows_core::Result<GuidanceRoadSignpost> {
+    pub fn RoadSignpost(&self) -> Result<GuidanceRoadSignpost, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoadSignpost)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InstructionText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn InstructionText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -374,35 +374,35 @@ pub struct GuidanceMapMatchedCoordinate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceMapMatchedCoordinate {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Location(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
+    pub fn Location(&self) -> Result<super::super::super::Devices::Geolocation::Geopoint, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentHeading(&self) -> windows_core::Result<f64> {
+    pub fn CurrentHeading(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentHeading)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CurrentSpeed(&self) -> windows_core::Result<f64> {
+    pub fn CurrentSpeed(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentSpeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsOnStreet(&self) -> windows_core::Result<bool> {
+    pub fn IsOnStreet(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOnStreet)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Road(&self) -> windows_core::Result<GuidanceRoadSegment> {
+    pub fn Road(&self) -> Result<GuidanceRoadSegment, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -442,63 +442,63 @@ impl windows_core::RuntimeType for GuidanceMode {
 pub struct GuidanceNavigator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceNavigator, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceNavigator {
-    pub fn StartNavigating<P0>(&self, route: P0) -> windows_core::Result<()>
+    pub fn StartNavigating<P0>(&self, route: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<GuidanceRoute>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartNavigating)(windows_core::Interface::as_raw(this), route.param().abi()).ok() }
     }
-    pub fn StartSimulating<P0>(&self, route: P0, speedinmeterspersecond: i32) -> windows_core::Result<()>
+    pub fn StartSimulating<P0>(&self, route: P0, speedinmeterspersecond: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<GuidanceRoute>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartSimulating)(windows_core::Interface::as_raw(this), route.param().abi(), speedinmeterspersecond).ok() }
     }
-    pub fn StartTracking(&self) -> windows_core::Result<()> {
+    pub fn StartTracking(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartTracking)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Pause(&self) -> windows_core::Result<()> {
+    pub fn Pause(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Pause)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Resume(&self) -> windows_core::Result<()> {
+    pub fn Resume(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Resume)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn RepeatLastAudioNotification(&self) -> windows_core::Result<()> {
+    pub fn RepeatLastAudioNotification(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RepeatLastAudioNotification)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn AudioMeasurementSystem(&self) -> windows_core::Result<GuidanceAudioMeasurementSystem> {
+    pub fn AudioMeasurementSystem(&self) -> Result<GuidanceAudioMeasurementSystem, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioMeasurementSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAudioMeasurementSystem(&self, value: GuidanceAudioMeasurementSystem) -> windows_core::Result<()> {
+    pub fn SetAudioMeasurementSystem(&self, value: GuidanceAudioMeasurementSystem) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAudioMeasurementSystem)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AudioNotifications(&self) -> windows_core::Result<GuidanceAudioNotifications> {
+    pub fn AudioNotifications(&self) -> Result<GuidanceAudioNotifications, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioNotifications)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAudioNotifications(&self, value: GuidanceAudioNotifications) -> windows_core::Result<()> {
+    pub fn SetAudioNotifications(&self, value: GuidanceAudioNotifications) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAudioNotifications)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GuidanceUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn GuidanceUpdated<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceUpdatedEventArgs>>,
     {
@@ -508,11 +508,11 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).GuidanceUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveGuidanceUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveGuidanceUpdated(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGuidanceUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DestinationReached<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DestinationReached<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
@@ -522,11 +522,11 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).DestinationReached)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDestinationReached(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDestinationReached(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDestinationReached)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Rerouting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Rerouting<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
@@ -536,11 +536,11 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).Rerouting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRerouting(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRerouting(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRerouting)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Rerouted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Rerouted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceReroutedEventArgs>>,
     {
@@ -550,11 +550,11 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).Rerouted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRerouted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRerouted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRerouted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RerouteFailed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RerouteFailed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
@@ -564,11 +564,11 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).RerouteFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRerouteFailed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRerouteFailed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRerouteFailed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UserLocationLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UserLocationLost<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
@@ -578,11 +578,11 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).UserLocationLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUserLocationLost(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUserLocationLost(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUserLocationLost)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UserLocationRestored<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UserLocationRestored<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
@@ -592,16 +592,16 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).UserLocationRestored)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUserLocationRestored(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUserLocationRestored(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUserLocationRestored)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetGuidanceVoice(&self, voiceid: i32, voicefolder: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetGuidanceVoice(&self, voiceid: i32, voicefolder: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGuidanceVoice)(windows_core::Interface::as_raw(this), voiceid, core::mem::transmute_copy(voicefolder)).ok() }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn UpdateUserLocation<P0>(&self, userlocation: P0) -> windows_core::Result<()>
+    pub fn UpdateUserLocation<P0>(&self, userlocation: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocoordinate>,
     {
@@ -609,14 +609,14 @@ impl GuidanceNavigator {
         unsafe { (windows_core::Interface::vtable(this).UpdateUserLocation)(windows_core::Interface::as_raw(this), userlocation.param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn UpdateUserLocationWithPositionOverride<P0>(&self, userlocation: P0, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> windows_core::Result<()>
+    pub fn UpdateUserLocationWithPositionOverride<P0>(&self, userlocation: P0, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocoordinate>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdateUserLocationWithPositionOverride)(windows_core::Interface::as_raw(this), userlocation.param().abi(), positionoverride).ok() }
     }
-    pub fn AudioNotificationRequested<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn AudioNotificationRequested<P0>(&self, value: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>>,
     {
@@ -626,38 +626,38 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).AudioNotificationRequested)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAudioNotificationRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAudioNotificationRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioNotificationRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn IsGuidanceAudioMuted(&self) -> windows_core::Result<bool> {
+    pub fn IsGuidanceAudioMuted(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsGuidanceAudioMuted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsGuidanceAudioMuted(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsGuidanceAudioMuted(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsGuidanceAudioMuted)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetCurrent() -> windows_core::Result<GuidanceNavigator> {
+    pub fn GetCurrent() -> Result<GuidanceNavigator, windows_result::HRESULT> {
         Self::IGuidanceNavigatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn UseAppProvidedVoice() -> windows_core::Result<bool> {
+    pub fn UseAppProvidedVoice() -> Result<bool, windows_result::HRESULT> {
         Self::IGuidanceNavigatorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UseAppProvidedVoice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGuidanceNavigatorStatics<R, F: FnOnce(&IGuidanceNavigatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceNavigatorStatics<R, F: FnOnce(&IGuidanceNavigatorStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGuidanceNavigatorStatics2<R, F: FnOnce(&IGuidanceNavigatorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceNavigatorStatics2<R, F: FnOnce(&IGuidanceNavigatorStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -679,7 +679,7 @@ unsafe impl Sync for GuidanceNavigator {}
 pub struct GuidanceReroutedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceReroutedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceReroutedEventArgs {
-    pub fn Route(&self) -> windows_core::Result<GuidanceRoute> {
+    pub fn Route(&self) -> Result<GuidanceRoute, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -704,28 +704,28 @@ unsafe impl Sync for GuidanceReroutedEventArgs {}
 pub struct GuidanceRoadSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceRoadSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceRoadSegment {
-    pub fn RoadName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RoadName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoadName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ShortRoadName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ShortRoadName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShortRoadName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SpeedLimit(&self) -> windows_core::Result<f64> {
+    pub fn SpeedLimit(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SpeedLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TravelTime(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn TravelTime(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -733,42 +733,42 @@ impl GuidanceRoadSegment {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Path(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
+    pub fn Path(&self) -> Result<super::super::super::Devices::Geolocation::Geopath, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsHighway(&self) -> windows_core::Result<bool> {
+    pub fn IsHighway(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsHighway)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsTunnel(&self) -> windows_core::Result<bool> {
+    pub fn IsTunnel(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTunnel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsTollRoad(&self) -> windows_core::Result<bool> {
+    pub fn IsTollRoad(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTollRoad)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsScenic(&self) -> windows_core::Result<bool> {
+    pub fn IsScenic(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGuidanceRoadSegment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -793,14 +793,14 @@ unsafe impl Sync for GuidanceRoadSegment {}
 pub struct GuidanceRoadSignpost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceRoadSignpost, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceRoadSignpost {
-    pub fn ExitNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ExitNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExitNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Exit(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Exit(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -808,7 +808,7 @@ impl GuidanceRoadSignpost {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::super::UI::Color> {
+    pub fn BackgroundColor(&self) -> Result<super::super::super::UI::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -816,14 +816,14 @@ impl GuidanceRoadSignpost {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn ForegroundColor(&self) -> windows_core::Result<super::super::super::UI::Color> {
+    pub fn ForegroundColor(&self) -> Result<super::super::super::UI::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExitDirections(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn ExitDirections(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -848,21 +848,21 @@ unsafe impl Sync for GuidanceRoadSignpost {}
 pub struct GuidanceRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceRoute, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceRoute {
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Distance(&self) -> windows_core::Result<i32> {
+    pub fn Distance(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Distance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Maneuvers(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceManeuver>> {
+    pub fn Maneuvers(&self) -> Result<windows_collections::IVectorView<GuidanceManeuver>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -870,7 +870,7 @@ impl GuidanceRoute {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn BoundingBox(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::GeoboundingBox> {
+    pub fn BoundingBox(&self) -> Result<super::super::super::Devices::Geolocation::GeoboundingBox, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -878,28 +878,28 @@ impl GuidanceRoute {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Path(&self) -> windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
+    pub fn Path(&self) -> Result<super::super::super::Devices::Geolocation::Geopath, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RoadSegments(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceRoadSegment>> {
+    pub fn RoadSegments(&self) -> Result<windows_collections::IVectorView<GuidanceRoadSegment>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoadSegments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConvertToMapRoute(&self) -> windows_core::Result<super::MapRoute> {
+    pub fn ConvertToMapRoute(&self) -> Result<super::MapRoute, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertToMapRoute)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CanCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<bool>
+    pub fn CanCreateFromMapRoute<P0>(maproute: P0) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::MapRoute>,
     {
@@ -908,7 +908,7 @@ impl GuidanceRoute {
             (windows_core::Interface::vtable(this).CanCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn TryCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<GuidanceRoute>
+    pub fn TryCreateFromMapRoute<P0>(maproute: P0) -> Result<GuidanceRoute, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::MapRoute>,
     {
@@ -917,7 +917,7 @@ impl GuidanceRoute {
             (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGuidanceRouteStatics<R, F: FnOnce(&IGuidanceRouteStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceRouteStatics<R, F: FnOnce(&IGuidanceRouteStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceRoute, IGuidanceRouteStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -939,50 +939,50 @@ unsafe impl Sync for GuidanceRoute {}
 pub struct GuidanceTelemetryCollector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceTelemetryCollector, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceTelemetryCollector {
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ClearLocalData(&self) -> windows_core::Result<()> {
+    pub fn ClearLocalData(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearLocalData)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SpeedTrigger(&self) -> windows_core::Result<f64> {
+    pub fn SpeedTrigger(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SpeedTrigger)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSpeedTrigger(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetSpeedTrigger(&self, value: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSpeedTrigger)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UploadFrequency(&self) -> windows_core::Result<i32> {
+    pub fn UploadFrequency(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UploadFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUploadFrequency(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetUploadFrequency(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUploadFrequency)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetCurrent() -> windows_core::Result<GuidanceTelemetryCollector> {
+    pub fn GetCurrent() -> Result<GuidanceTelemetryCollector, windows_result::HRESULT> {
         Self::IGuidanceTelemetryCollectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGuidanceTelemetryCollectorStatics<R, F: FnOnce(&IGuidanceTelemetryCollectorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceTelemetryCollectorStatics<R, F: FnOnce(&IGuidanceTelemetryCollectorStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceTelemetryCollector, IGuidanceTelemetryCollectorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1004,98 +1004,98 @@ unsafe impl Sync for GuidanceTelemetryCollector {}
 pub struct GuidanceUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceUpdatedEventArgs {
-    pub fn Mode(&self) -> windows_core::Result<GuidanceMode> {
+    pub fn Mode(&self) -> Result<GuidanceMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NextManeuver(&self) -> windows_core::Result<GuidanceManeuver> {
+    pub fn NextManeuver(&self) -> Result<GuidanceManeuver, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextManeuver)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextManeuverDistance(&self) -> windows_core::Result<i32> {
+    pub fn NextManeuverDistance(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextManeuverDistance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AfterNextManeuver(&self) -> windows_core::Result<GuidanceManeuver> {
+    pub fn AfterNextManeuver(&self) -> Result<GuidanceManeuver, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AfterNextManeuver)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AfterNextManeuverDistance(&self) -> windows_core::Result<i32> {
+    pub fn AfterNextManeuverDistance(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AfterNextManeuverDistance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DistanceToDestination(&self) -> windows_core::Result<i32> {
+    pub fn DistanceToDestination(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DistanceToDestination)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ElapsedDistance(&self) -> windows_core::Result<i32> {
+    pub fn ElapsedDistance(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ElapsedDistance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ElapsedTime(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ElapsedTime(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ElapsedTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeToDestination(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn TimeToDestination(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeToDestination)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RoadName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RoadName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoadName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Route(&self) -> windows_core::Result<GuidanceRoute> {
+    pub fn Route(&self) -> Result<GuidanceRoute, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Route)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentLocation(&self) -> windows_core::Result<GuidanceMapMatchedCoordinate> {
+    pub fn CurrentLocation(&self) -> Result<GuidanceMapMatchedCoordinate, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsNewManeuver(&self) -> windows_core::Result<bool> {
+    pub fn IsNewManeuver(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsNewManeuver)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LaneInfo(&self) -> windows_core::Result<windows_collections::IVectorView<GuidanceLaneInfo>> {
+    pub fn LaneInfo(&self) -> Result<windows_collections::IVectorView<GuidanceLaneInfo>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -1,7 +1,7 @@
 use windows::{core::*, Win32::Foundation::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     helpers::set_thread_ui_language();
 
     let p: PCWSTR = w!("hello");

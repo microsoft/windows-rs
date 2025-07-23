@@ -3,21 +3,21 @@
 pub struct Battery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
 impl Battery {
-    pub fn RemainingChargePercent(&self) -> windows_core::Result<i32> {
+    pub fn RemainingChargePercent(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemainingChargePercent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RemainingDischargeTime(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn RemainingDischargeTime(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RemainingChargePercentChanged<P0>(&self, changehandler: P0) -> windows_core::Result<i64>
+    pub fn RemainingChargePercentChanged<P0>(&self, changehandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -27,17 +27,17 @@ impl Battery {
             (windows_core::Interface::vtable(this).RemainingChargePercentChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRemainingChargePercentChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRemainingChargePercentChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRemainingChargePercentChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<Battery> {
+    pub fn GetDefault() -> Result<Battery, windows_result::HRESULT> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Battery, IBatteryStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

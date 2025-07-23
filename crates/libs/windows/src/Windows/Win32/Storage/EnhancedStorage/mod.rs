@@ -210,31 +210,31 @@ pub const HOMEGROUPING_UNSPECIFIED: u32 = 0u32;
 windows_core::imp::define_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x6e7781f4_e0f2_4239_b976_a01abab52930);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT, windows_core::IUnknown);
 impl IEnhancedStorageACT {
-    pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Authorize)(windows_core::Interface::as_raw(self), hwndparent, dwflags).ok() }
     }
-    pub unsafe fn Unauthorize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Unauthorize(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Unauthorize)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetAuthorizationState(&self) -> windows_core::Result<ACT_AUTHORIZATION_STATE> {
+    pub unsafe fn GetAuthorizationState(&self) -> Result<ACT_AUTHORIZATION_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAuthorizationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMatchingVolume(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetMatchingVolume(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMatchingVolume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUniqueIdentity(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetUniqueIdentity(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUniqueIdentity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSilos)(windows_core::Interface::as_raw(self), pppienhancedstoragesilos as _, pcenhancedstoragesilos as _).ok() }
     }
 }
@@ -250,12 +250,12 @@ pub struct IEnhancedStorageACT_Vtbl {
     pub GetSilos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IEnhancedStorageACT_Impl: windows_core::IUnknownImpl {
-    fn Authorize(&self, hwndparent: u32, dwflags: u32) -> windows_core::Result<()>;
-    fn Unauthorize(&self) -> windows_core::Result<()>;
-    fn GetAuthorizationState(&self) -> windows_core::Result<ACT_AUTHORIZATION_STATE>;
-    fn GetMatchingVolume(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetUniqueIdentity(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> windows_core::Result<()>;
+    fn Authorize(&self, hwndparent: u32, dwflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn Unauthorize(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetAuthorizationState(&self) -> Result<ACT_AUTHORIZATION_STATE, windows_result::HRESULT>;
+    fn GetMatchingVolume(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn GetUniqueIdentity(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IEnhancedStorageACT_Vtbl {
     pub const fn new<Identity: IEnhancedStorageACT_Impl, const OFFSET: isize>() -> Self {
@@ -337,13 +337,13 @@ impl core::ops::Deref for IEnhancedStorageACT2 {
 }
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT2, windows_core::IUnknown, IEnhancedStorageACT);
 impl IEnhancedStorageACT2 {
-    pub unsafe fn GetDeviceName(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetDeviceName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeviceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDeviceRemovable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsDeviceRemovable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDeviceRemovable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -358,8 +358,8 @@ pub struct IEnhancedStorageACT2_Vtbl {
     pub IsDeviceRemovable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IEnhancedStorageACT2_Impl: IEnhancedStorageACT_Impl {
-    fn GetDeviceName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn IsDeviceRemovable(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn GetDeviceName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn IsDeviceRemovable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IEnhancedStorageACT2_Vtbl {
     pub const fn new<Identity: IEnhancedStorageACT2_Impl, const OFFSET: isize>() -> Self {
@@ -407,16 +407,16 @@ impl core::ops::Deref for IEnhancedStorageACT3 {
 }
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT3, windows_core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
 impl IEnhancedStorageACT3 {
-    pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UnauthorizeEx)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
-    pub unsafe fn IsQueueFrozen(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsQueueFrozen(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsQueueFrozen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetShellExtSupport(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn GetShellExtSupport(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetShellExtSupport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -432,9 +432,9 @@ pub struct IEnhancedStorageACT3_Vtbl {
     pub GetShellExtSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IEnhancedStorageACT3_Impl: IEnhancedStorageACT2_Impl {
-    fn UnauthorizeEx(&self, dwflags: u32) -> windows_core::Result<()>;
-    fn IsQueueFrozen(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetShellExtSupport(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn UnauthorizeEx(&self, dwflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn IsQueueFrozen(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn GetShellExtSupport(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IEnhancedStorageACT3_Vtbl {
     pub const fn new<Identity: IEnhancedStorageACT3_Impl, const OFFSET: isize>() -> Self {
@@ -483,26 +483,26 @@ impl windows_core::RuntimeName for IEnhancedStorageACT3 {}
 windows_core::imp::define_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageSilo, windows_core::IUnknown);
 impl IEnhancedStorageSilo {
-    pub unsafe fn GetInfo(&self) -> windows_core::Result<SILO_INFO> {
+    pub unsafe fn GetInfo(&self) -> Result<SILO_INFO, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetActions)(windows_core::Interface::as_raw(self), pppienhancedstoragesiloactions as _, pcenhancedstoragesiloactions as _).ok() }
     }
-    pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendCommand)(windows_core::Interface::as_raw(self), command, core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len().try_into().unwrap(), pbresponsebuffer as _, pcbresponsebuffer as _).ok() }
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub unsafe fn GetPortableDevice(&self) -> windows_core::Result<super::super::Devices::PortableDevices::IPortableDevice> {
+    pub unsafe fn GetPortableDevice(&self) -> Result<super::super::Devices::PortableDevices::IPortableDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPortableDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDevicePath(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetDevicePath(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDevicePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -524,11 +524,11 @@ pub struct IEnhancedStorageSilo_Vtbl {
 }
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait IEnhancedStorageSilo_Impl: windows_core::IUnknownImpl {
-    fn GetInfo(&self) -> windows_core::Result<SILO_INFO>;
-    fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> windows_core::Result<()>;
-    fn SendCommand(&self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()>;
-    fn GetPortableDevice(&self) -> windows_core::Result<super::super::Devices::PortableDevices::IPortableDevice>;
-    fn GetDevicePath(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetInfo(&self) -> Result<SILO_INFO, windows_result::HRESULT>;
+    fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SendCommand(&self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetPortableDevice(&self) -> Result<super::super::Devices::PortableDevices::IPortableDevice, windows_result::HRESULT>;
+    fn GetDevicePath(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 impl IEnhancedStorageSilo_Vtbl {
@@ -599,19 +599,19 @@ impl windows_core::RuntimeName for IEnhancedStorageSilo {}
 windows_core::imp::define_interface!(IEnhancedStorageSiloAction, IEnhancedStorageSiloAction_Vtbl, 0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageSiloAction, windows_core::IUnknown);
 impl IEnhancedStorageSiloAction {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetDescription(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Invoke(&self) -> windows_core::Result<()> {
+    pub unsafe fn Invoke(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -624,9 +624,9 @@ pub struct IEnhancedStorageSiloAction_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnhancedStorageSiloAction_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetDescription(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn Invoke(&self) -> windows_core::Result<()>;
+    fn GetName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn GetDescription(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn Invoke(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IEnhancedStorageSiloAction_Vtbl {
     pub const fn new<Identity: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>() -> Self {
@@ -675,10 +675,10 @@ impl windows_core::RuntimeName for IEnhancedStorageSiloAction {}
 windows_core::imp::define_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStorageACT_Vtbl, 0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
 windows_core::imp::interface_hierarchy!(IEnumEnhancedStorageACT, windows_core::IUnknown);
 impl IEnumEnhancedStorageACT {
-    pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetACTs)(windows_core::Interface::as_raw(self), pppienhancedstorageacts as _, pcenhancedstorageacts as _).ok() }
     }
-    pub unsafe fn GetMatchingACT<P0>(&self, szvolume: P0) -> windows_core::Result<IEnhancedStorageACT>
+    pub unsafe fn GetMatchingACT<P0>(&self, szvolume: P0) -> Result<IEnhancedStorageACT, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -696,8 +696,8 @@ pub struct IEnumEnhancedStorageACT_Vtbl {
     pub GetMatchingACT: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumEnhancedStorageACT_Impl: windows_core::IUnknownImpl {
-    fn GetACTs(&self, pppienhancedstorageacts: *mut *mut Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> windows_core::Result<()>;
-    fn GetMatchingACT(&self, szvolume: &windows_core::PCWSTR) -> windows_core::Result<IEnhancedStorageACT>;
+    fn GetACTs(&self, pppienhancedstorageacts: *mut *mut Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetMatchingACT(&self, szvolume: &windows_core::PCWSTR) -> Result<IEnhancedStorageACT, windows_result::HRESULT>;
 }
 impl IEnumEnhancedStorageACT_Vtbl {
     pub const fn new<Identity: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>() -> Self {

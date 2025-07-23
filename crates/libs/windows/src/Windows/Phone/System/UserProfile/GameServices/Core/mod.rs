@@ -1,24 +1,24 @@
 pub struct GameService;
 impl GameService {
-    pub fn ServiceUri() -> windows_core::Result<super::super::super::super::super::Foundation::Uri> {
+    pub fn ServiceUri() -> Result<super::super::super::super::super::Foundation::Uri, windows_result::HRESULT> {
         Self::IGameService(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetGamerProfileAsync() -> windows_core::Result<windows_future::IAsyncOperation<GameServicePropertyCollection>> {
+    pub fn GetGamerProfileAsync() -> Result<windows_future::IAsyncOperation<GameServicePropertyCollection>, windows_result::HRESULT> {
         Self::IGameService(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetGamerProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetInstalledGameItemsAsync() -> windows_core::Result<windows_future::IAsyncOperation<GameServicePropertyCollection>> {
+    pub fn GetInstalledGameItemsAsync() -> Result<windows_future::IAsyncOperation<GameServicePropertyCollection>, windows_result::HRESULT> {
         Self::IGameService(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetInstalledGameItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPartnerTokenAsync<P0>(audienceuri: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetPartnerTokenAsync<P0>(audienceuri: P0) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::super::super::Foundation::Uri>,
     {
@@ -27,42 +27,42 @@ impl GameService {
             (windows_core::Interface::vtable(this).GetPartnerTokenAsync)(windows_core::Interface::as_raw(this), audienceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPrivilegesAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetPrivilegesAsync() -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT> {
         Self::IGameService(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPrivilegesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GrantAchievement(achievementid: u32) -> windows_core::Result<()> {
+    pub fn GrantAchievement(achievementid: u32) -> Result<(), windows_result::HRESULT> {
         Self::IGameService(|this| unsafe { (windows_core::Interface::vtable(this).GrantAchievement)(windows_core::Interface::as_raw(this), achievementid).ok() })
     }
-    pub fn GrantAvatarAward(avatarawardid: u32) -> windows_core::Result<()> {
+    pub fn GrantAvatarAward(avatarawardid: u32) -> Result<(), windows_result::HRESULT> {
         Self::IGameService(|this| unsafe { (windows_core::Interface::vtable(this).GrantAvatarAward)(windows_core::Interface::as_raw(this), avatarawardid).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PostResult<P4>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P4) -> windows_core::Result<()>
+    pub fn PostResult<P4>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P4) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<super::super::super::super::super::Storage::Streams::IBuffer>,
     {
         Self::IGameService(|this| unsafe { (windows_core::Interface::vtable(this).PostResult)(windows_core::Interface::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.param().abi()).ok() })
     }
-    pub fn NotifyPartnerTokenExpired<P0>(audienceuri: P0) -> windows_core::Result<()>
+    pub fn NotifyPartnerTokenExpired<P0>(audienceuri: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::super::super::Foundation::Uri>,
     {
         Self::IGameService2(|this| unsafe { (windows_core::Interface::vtable(this).NotifyPartnerTokenExpired)(windows_core::Interface::as_raw(this), audienceuri.param().abi()).ok() })
     }
-    pub fn GetAuthenticationStatus() -> windows_core::Result<u32> {
+    pub fn GetAuthenticationStatus() -> Result<u32, windows_result::HRESULT> {
         Self::IGameService2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAuthenticationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGameService<R, F: FnOnce(&IGameService) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameService<R, F: FnOnce(&IGameService) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GameService, IGameService> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGameService2<R, F: FnOnce(&IGameService2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameService2<R, F: FnOnce(&IGameService2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GameService, IGameService2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -90,7 +90,7 @@ impl windows_core::RuntimeType for GameServiceGameOutcome {
 pub struct GameServicePropertyCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameServicePropertyCollection, windows_core::IUnknown, windows_core::IInspectable);
 impl GameServicePropertyCollection {
-    pub fn GetPropertyAsync(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::IInspectable>> {
+    pub fn GetPropertyAsync(&self, propertyname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<windows_core::IInspectable>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

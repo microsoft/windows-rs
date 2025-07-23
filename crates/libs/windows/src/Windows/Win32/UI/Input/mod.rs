@@ -23,7 +23,7 @@ pub unsafe fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> window
     unsafe { GetCIMSSM(inputmessagesource as _) }
 }
 #[inline]
-pub unsafe fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> windows_core::Result<()> {
+pub unsafe fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn GetCurrentInputMessageSource(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> windows_core::BOOL);
     unsafe { GetCurrentInputMessageSource(inputmessagesource as _).ok() }
 }
@@ -58,7 +58,7 @@ pub unsafe fn GetRegisteredRawInputDevices(prawinputdevices: Option<*mut RAWINPU
     unsafe { GetRegisteredRawInputDevices(prawinputdevices.unwrap_or(core::mem::zeroed()) as _, puinumdevices as _, cbsize) }
 }
 #[inline]
-pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsize: u32) -> windows_core::Result<()> {
+pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsize: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : *const RAWINPUTDEVICE, uinumdevices : u32, cbsize : u32) -> windows_core::BOOL);
     unsafe { RegisterRawInputDevices(core::mem::transmute(prawinputdevices.as_ptr()), prawinputdevices.len().try_into().unwrap(), cbsize).ok() }
 }

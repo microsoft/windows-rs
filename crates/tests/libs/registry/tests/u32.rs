@@ -1,8 +1,9 @@
 use windows_registry::*;
 use windows_strings::*;
+use windows_result::*;
 
 #[test]
-fn u32() -> Result<()> {
+fn u32() -> Result<(), HRESULT> {
     let test_key = "software\\windows-rs\\tests\\u32";
     _ = CURRENT_USER.remove_tree(test_key);
     let key = CURRENT_USER.create(test_key)?;

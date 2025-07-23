@@ -5,7 +5,7 @@ use windows::{core::*, Foundation::*, Win32::System::WinRT::IMemoryBufferByteAcc
 // this function does not perform borrow/lifetime checking. The caller must ensure that the
 // IMemoryBufferReference remains alive and that that buffer is not shared across threads.
 
-unsafe fn as_mut_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
+unsafe fn as_mut_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8], HRESULT> {
     let interop = buffer.cast::<IMemoryBufferByteAccess>()?;
     let mut data = std::ptr::null_mut();
     let mut len = 0;
@@ -16,7 +16,7 @@ unsafe fn as_mut_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
     }
 }
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     let buffer = MemoryBuffer::Create(11)?;
     let reference = buffer.CreateReference()?;
     assert_eq!(reference.Capacity()?, 11);

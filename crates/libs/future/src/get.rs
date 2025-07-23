@@ -2,7 +2,7 @@ use super::*;
 
 impl IAsyncAction {
     /// Waits for the `IAsyncAction` to finish.
-    pub fn get(&self) -> Result<()> {
+    pub fn get(&self) -> Result<(), HRESULT> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
             self.SetCompleted(&AsyncActionCompletedHandler::new(move |_, _| {
@@ -19,7 +19,7 @@ impl IAsyncAction {
 
 impl<T: RuntimeType> IAsyncOperation<T> {
     /// Waits for the `IAsyncOperation<T>` to finish.
-    pub fn get(&self) -> Result<T> {
+    pub fn get(&self) -> Result<T, HRESULT> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
             self.SetCompleted(&AsyncOperationCompletedHandler::new(move |_, _| {
@@ -36,7 +36,7 @@ impl<T: RuntimeType> IAsyncOperation<T> {
 
 impl<P: RuntimeType> IAsyncActionWithProgress<P> {
     /// Waits for the `IAsyncActionWithProgress<P>` to finish.
-    pub fn get(&self) -> Result<()> {
+    pub fn get(&self) -> Result<(), HRESULT> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
             self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(
@@ -55,7 +55,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
     /// Waits for the `IAsyncOperationWithProgress<T, P>` to finish.
-    pub fn get(&self) -> Result<T> {
+    pub fn get(&self) -> Result<T, HRESULT> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
             self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(

@@ -12,7 +12,7 @@ super::define_interface!(
 super::interface_hierarchy!(IGenericFactory, crate::IUnknown, crate::IInspectable);
 
 impl IGenericFactory {
-    pub fn ActivateInstance<I: Interface>(&self) -> crate::Result<I> {
+    pub fn ActivateInstance<I: Interface>(&self) -> Result<I, windows_result::HRESULT> {
         unsafe {
             let mut result__ = zeroed();
             (Interface::vtable(self).ActivateInstance)(
@@ -29,5 +29,5 @@ impl IGenericFactory {
 pub struct IGenericFactory_Vtbl {
     pub base__: crate::IInspectable_Vtbl,
     pub ActivateInstance:
-        unsafe extern "system" fn(this: *mut c_void, instance: *mut *mut c_void) -> crate::HRESULT,
+        unsafe extern "system" fn(this: *mut c_void, instance: *mut *mut c_void) -> windows_result::HRESULT,
 }

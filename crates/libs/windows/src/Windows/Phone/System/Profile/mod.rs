@@ -10,13 +10,13 @@ pub struct IRetailModeStatics_Vtbl {
 }
 pub struct RetailMode;
 impl RetailMode {
-    pub fn RetailModeEnabled() -> windows_core::Result<bool> {
+    pub fn RetailModeEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::IRetailModeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetailModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IRetailModeStatics<R, F: FnOnce(&IRetailModeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRetailModeStatics<R, F: FnOnce(&IRetailModeStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RetailMode, IRetailModeStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

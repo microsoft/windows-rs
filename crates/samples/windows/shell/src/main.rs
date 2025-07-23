@@ -3,7 +3,7 @@ use windows::{
     Win32::UI::WindowsAndMessaging::*,
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe { CoInitialize(None).ok()? };
 
     shell_execute_from_explorer(
@@ -22,7 +22,7 @@ fn shell_execute_from_explorer(
     directory: &str,
     operation: &str,
     show: SHOW_WINDOW_CMD,
-) -> Result<()> {
+) -> Result<(), HRESULT> {
     unsafe {
         let view: IShellView = find_desktop_folder_view()?;
         let background: IDispatch = view.GetItemObject(SVGIO_BACKGROUND)?;
@@ -40,7 +40,7 @@ fn shell_execute_from_explorer(
 }
 
 // Ported from https://devblogs.microsoft.com/oldnewthing/20130318-00/?p=4933
-fn find_desktop_folder_view<T: Interface>() -> Result<T> {
+fn find_desktop_folder_view<T: Interface>() -> Result<T, HRESULT> {
     unsafe {
         let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL)?;
         let mut handle = 0;

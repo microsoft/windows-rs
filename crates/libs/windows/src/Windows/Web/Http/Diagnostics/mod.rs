@@ -3,15 +3,15 @@
 pub struct HttpDiagnosticProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProvider {
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn RequestSent<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RequestSent<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs>>,
     {
@@ -21,11 +21,11 @@ impl HttpDiagnosticProvider {
             (windows_core::Interface::vtable(this).RequestSent)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRequestSent(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRequestSent(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRequestSent)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ResponseReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ResponseReceived<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs>>,
     {
@@ -35,11 +35,11 @@ impl HttpDiagnosticProvider {
             (windows_core::Interface::vtable(this).ResponseReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveResponseReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveResponseReceived(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveResponseReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestResponseCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RequestResponseCompleted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs>>,
     {
@@ -49,12 +49,12 @@ impl HttpDiagnosticProvider {
             (windows_core::Interface::vtable(this).RequestResponseCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRequestResponseCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRequestResponseCompleted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRequestResponseCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "System_Diagnostics")]
-    pub fn CreateFromProcessDiagnosticInfo<P0>(processdiagnosticinfo: P0) -> windows_core::Result<HttpDiagnosticProvider>
+    pub fn CreateFromProcessDiagnosticInfo<P0>(processdiagnosticinfo: P0) -> Result<HttpDiagnosticProvider, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::System::Diagnostics::ProcessDiagnosticInfo>,
     {
@@ -63,7 +63,7 @@ impl HttpDiagnosticProvider {
             (windows_core::Interface::vtable(this).CreateFromProcessDiagnosticInfo)(windows_core::Interface::as_raw(this), processdiagnosticinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IHttpDiagnosticProviderStatics<R, F: FnOnce(&IHttpDiagnosticProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpDiagnosticProviderStatics<R, F: FnOnce(&IHttpDiagnosticProviderStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<HttpDiagnosticProvider, IHttpDiagnosticProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -85,49 +85,49 @@ unsafe impl Sync for HttpDiagnosticProvider {}
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    pub fn ActivityId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ActivityId(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Timestamps(&self) -> windows_core::Result<HttpDiagnosticProviderRequestResponseTimestamps> {
+    pub fn Timestamps(&self) -> Result<HttpDiagnosticProviderRequestResponseTimestamps, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestedUri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn RequestedUri(&self) -> Result<super::super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestedUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessId(&self) -> windows_core::Result<u32> {
+    pub fn ProcessId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ThreadId(&self) -> windows_core::Result<u32> {
+    pub fn ThreadId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ThreadId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Initiator(&self) -> windows_core::Result<HttpDiagnosticRequestInitiator> {
+    pub fn Initiator(&self) -> Result<HttpDiagnosticRequestInitiator, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Initiator)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SourceLocations(&self) -> windows_core::Result<windows_collections::IVectorView<HttpDiagnosticSourceLocation>> {
+    pub fn SourceLocations(&self) -> Result<windows_collections::IVectorView<HttpDiagnosticSourceLocation>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -152,63 +152,63 @@ unsafe impl Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
-    pub fn CacheCheckedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn CacheCheckedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CacheCheckedTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectionInitiatedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn ConnectionInitiatedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionInitiatedTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NameResolvedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn NameResolvedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NameResolvedTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SslNegotiatedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn SslNegotiatedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SslNegotiatedTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectionCompletedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn ConnectionCompletedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionCompletedTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestSentTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn RequestSentTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSentTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestCompletedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn RequestCompletedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestCompletedTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResponseReceivedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn ResponseReceivedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseReceivedTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResponseCompletedTimestamp(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn ResponseCompletedTimestamp(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -233,49 +233,49 @@ unsafe impl Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 pub struct HttpDiagnosticProviderRequestSentEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestSentEventArgs {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ActivityId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ActivityId(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Message(&self) -> windows_core::Result<super::HttpRequestMessage> {
+    pub fn Message(&self) -> Result<super::HttpRequestMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessId(&self) -> windows_core::Result<u32> {
+    pub fn ProcessId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ThreadId(&self) -> windows_core::Result<u32> {
+    pub fn ThreadId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ThreadId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Initiator(&self) -> windows_core::Result<HttpDiagnosticRequestInitiator> {
+    pub fn Initiator(&self) -> Result<HttpDiagnosticRequestInitiator, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Initiator)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SourceLocations(&self) -> windows_core::Result<windows_collections::IVectorView<HttpDiagnosticSourceLocation>> {
+    pub fn SourceLocations(&self) -> Result<windows_collections::IVectorView<HttpDiagnosticSourceLocation>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -300,21 +300,21 @@ unsafe impl Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ActivityId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ActivityId(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Message(&self) -> windows_core::Result<super::HttpResponseMessage> {
+    pub fn Message(&self) -> Result<super::HttpResponseMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -363,21 +363,21 @@ impl windows_core::RuntimeType for HttpDiagnosticRequestInitiator {
 pub struct HttpDiagnosticSourceLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticSourceLocation {
-    pub fn SourceUri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn SourceUri(&self) -> Result<super::super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LineNumber(&self) -> windows_core::Result<u64> {
+    pub fn LineNumber(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LineNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ColumnNumber(&self) -> windows_core::Result<u64> {
+    pub fn ColumnNumber(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -1,8 +1,8 @@
-use windows::{core::Result, Win32::System::Threading::*};
+use windows::{core::HRESULT, Win32::System::Threading::*};
 
 static COUNTER: std::sync::RwLock<i32> = std::sync::RwLock::new(0);
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let work = CreateThreadpoolWork(Some(callback), None, None)?;
 

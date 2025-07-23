@@ -22,13 +22,13 @@ pub struct IPowerManagerStatics2_Vtbl {
 }
 pub struct PowerManager;
 impl PowerManager {
-    pub fn PowerSavingMode() -> windows_core::Result<PowerSavingMode> {
+    pub fn PowerSavingMode() -> Result<PowerSavingMode, windows_result::HRESULT> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSavingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PowerSavingModeChanged<P0>(changehandler: P0) -> windows_core::Result<i64>
+    pub fn PowerSavingModeChanged<P0>(changehandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -37,20 +37,20 @@ impl PowerManager {
             (windows_core::Interface::vtable(this).PowerSavingModeChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemovePowerSavingModeChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemovePowerSavingModeChanged(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemovePowerSavingModeChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn PowerSavingModeEnabled() -> windows_core::Result<bool> {
+    pub fn PowerSavingModeEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::IPowerManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSavingModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IPowerManagerStatics<R, F: FnOnce(&IPowerManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPowerManagerStatics<R, F: FnOnce(&IPowerManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PowerManager, IPowerManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPowerManagerStatics2<R, F: FnOnce(&IPowerManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPowerManagerStatics2<R, F: FnOnce(&IPowerManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PowerManager, IPowerManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

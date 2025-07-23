@@ -154,7 +154,7 @@ impl<T: ComObjectInner> ComObject<T> {
     /// If you know that `T` implements `I`, then use [`Self::as_interface`] or [`Self::to_interface`] because
     /// those functions do not require a dynamic `QueryInterface` call.
     #[inline(always)]
-    pub fn cast<I: Interface>(&self) -> windows_core::Result<I>
+    pub fn cast<I: Interface>(&self) -> Result<I, windows_result::HRESULT>
     where
         T::Outer: ComObjectInterface<IUnknown>,
     {
@@ -212,7 +212,7 @@ impl<T: ComObjectInner> ComObject<T> {
     /// The returned value is an owned (counted) reference; this function calls `AddRef` on the
     /// underlying COM object. If you do not need an owned reference, then you can use the
     /// [`Interface::cast_object_ref`] method instead, and avoid the cost of `AddRef` / `Release`.
-    pub fn cast_from<I>(interface: &I) -> crate::Result<Self>
+    pub fn cast_from<I>(interface: &I) -> Result<Self, windows_result::HRESULT>
     where
         I: Interface,
         T::Outer: Any + 'static + IUnknownImpl<Impl = T>,

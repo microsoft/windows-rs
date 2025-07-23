@@ -43,7 +43,7 @@ pub struct XsltProcessor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XsltProcessor, windows_core::IUnknown, windows_core::IInspectable);
 impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToString<P0>(&self, inputnode: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn TransformToString<P0>(&self, inputnode: P0) -> Result<windows_core::HSTRING, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Dom::IXmlNode>,
     {
@@ -54,7 +54,7 @@ impl XsltProcessor {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToDocument<P0>(&self, inputnode: P0) -> windows_core::Result<super::Dom::XmlDocument>
+    pub fn TransformToDocument<P0>(&self, inputnode: P0) -> Result<super::Dom::XmlDocument, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Dom::IXmlNode>,
     {
@@ -65,7 +65,7 @@ impl XsltProcessor {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateInstance<P0>(document: P0) -> windows_core::Result<XsltProcessor>
+    pub fn CreateInstance<P0>(document: P0) -> Result<XsltProcessor, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Dom::XmlDocument>,
     {
@@ -74,7 +74,7 @@ impl XsltProcessor {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), document.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<XsltProcessor, IXsltProcessorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

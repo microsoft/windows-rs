@@ -16,7 +16,9 @@ impl windows_core::RuntimeType for Callback {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Callback {
-    pub fn new<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(i32) -> Result<i32, windows_result::HRESULT> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
         let com = CallbackBox {
             vtable: &CallbackBox::<F>::VTABLE,
             count: windows_core::imp::RefCount::new(1),
@@ -24,7 +26,7 @@ impl Callback {
         };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn Invoke(&self, a: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -48,12 +50,12 @@ pub struct Callback_Vtbl {
     ) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct CallbackBox<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> {
+struct CallbackBox<F: FnMut(i32) -> Result<i32, windows_result::HRESULT> + Send + 'static> {
     vtable: *const Callback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F> {
+impl<F: FnMut(i32) -> Result<i32, windows_result::HRESULT> + Send + 'static> CallbackBox<F> {
     const VTABLE: Callback_Vtbl = Callback_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: Self::QueryInterface,
@@ -132,20 +134,20 @@ impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F>
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Class, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Property(&self) -> windows_core::Result<i32> {
+    pub fn Property(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -156,7 +158,7 @@ impl Class {
             .map(|| result__)
         }
     }
-    pub fn SetProperty(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetProperty(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetProperty)(
@@ -166,7 +168,7 @@ impl Class {
             .ok()
         }
     }
-    pub fn Flags(&self) -> windows_core::Result<Flags> {
+    pub fn Flags(&self) -> Result<Flags, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -182,7 +184,7 @@ impl Class {
         a: &[i32],
         b: &mut [i32],
         c: &mut windows_core::Array<i32>,
-    ) -> windows_core::Result<windows_core::Array<i32>> {
+    ) -> Result<windows_core::Array<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -205,7 +207,7 @@ impl Class {
         a: &[windows_core::HSTRING],
         b: &mut [windows_core::HSTRING],
         c: &mut windows_core::Array<windows_core::HSTRING>,
-    ) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
+    ) -> Result<windows_core::Array<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -225,7 +227,13 @@ impl Class {
             .map(|| result__.assume_init())
         }
     }
-    pub fn Input<P0, P1, P2, P3>(&self, a: P0, b: P1, c: P2, d: P3) -> windows_core::Result<()>
+    pub fn Input<P0, P1, P2, P3>(
+        &self,
+        a: P0,
+        b: P1,
+        c: P2,
+        d: P3,
+    ) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<Class>,
@@ -356,7 +364,7 @@ impl windows_core::RuntimeType for IThing {
 }
 windows_core::imp::interface_hierarchy!(IThing, windows_core::IUnknown, windows_core::IInspectable);
 impl IThing {
-    pub fn Method(&self) -> windows_core::Result<()> {
+    pub fn Method(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this))
@@ -368,7 +376,7 @@ impl windows_core::RuntimeName for IThing {
     const NAME: &'static str = "test_component.Nested.IThing";
 }
 pub trait IThing_Impl: windows_core::IUnknownImpl {
-    fn Method(&self) -> windows_core::Result<()>;
+    fn Method(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IThing_Vtbl {
     pub const fn new<Identity: IThing_Impl, const OFFSET: isize>() -> Self {

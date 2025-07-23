@@ -21,7 +21,7 @@ impl windows_core::RuntimeType for BinaryStringEncoding {
 pub struct CryptographicBuffer;
 impl CryptographicBuffer {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Compare<P0, P1>(object1: P0, object2: P1) -> windows_core::Result<bool>
+    pub fn Compare<P0, P1>(object1: P0, object2: P1) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -32,41 +32,41 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GenerateRandom(length: u32) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn GenerateRandom(length: u32) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateRandom)(windows_core::Interface::as_raw(this), length, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GenerateRandomNumber() -> windows_core::Result<u32> {
+    pub fn GenerateRandomNumber() -> Result<u32, windows_result::HRESULT> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateRandomNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromByteArray(value: &[u8]) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn CreateFromByteArray(value: &[u8]) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromByteArray)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CopyToByteArray<P0>(buffer: P0, value: &mut windows_core::Array<u8>) -> windows_core::Result<()>
+    pub fn CopyToByteArray<P0>(buffer: P0, value: &mut windows_core::Array<u8>) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicBufferStatics(|this| unsafe { (windows_core::Interface::vtable(this).CopyToByteArray)(windows_core::Interface::as_raw(this), buffer.param().abi(), value.set_abi_len(), value as *mut _ as _).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecodeFromHexString(value: &windows_core::HSTRING) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn DecodeFromHexString(value: &windows_core::HSTRING) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DecodeFromHexString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncodeToHexString<P0>(buffer: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn EncodeToHexString<P0>(buffer: P0) -> Result<windows_core::HSTRING, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -76,14 +76,14 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecodeFromBase64String(value: &windows_core::HSTRING) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn DecodeFromBase64String(value: &windows_core::HSTRING) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DecodeFromBase64String)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncodeToBase64String<P0>(buffer: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn EncodeToBase64String<P0>(buffer: P0) -> Result<windows_core::HSTRING, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -93,14 +93,14 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ConvertStringToBinary(value: &windows_core::HSTRING, encoding: BinaryStringEncoding) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn ConvertStringToBinary(value: &windows_core::HSTRING, encoding: BinaryStringEncoding) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertStringToBinary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ConvertBinaryToString<P1>(encoding: BinaryStringEncoding, buffer: P1) -> windows_core::Result<windows_core::HSTRING>
+    pub fn ConvertBinaryToString<P1>(encoding: BinaryStringEncoding, buffer: P1) -> Result<windows_core::HSTRING, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -109,7 +109,7 @@ impl CryptographicBuffer {
             (windows_core::Interface::vtable(this).ConvertBinaryToString)(windows_core::Interface::as_raw(this), encoding, buffer.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn ICryptographicBufferStatics<R, F: FnOnce(&ICryptographicBufferStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICryptographicBufferStatics<R, F: FnOnce(&ICryptographicBufferStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CryptographicBuffer, ICryptographicBufferStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

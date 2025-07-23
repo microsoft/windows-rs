@@ -4,40 +4,40 @@ pub struct Direct3D11CaptureFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Direct3D11CaptureFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Direct3D11CaptureFrame, super::super::Foundation::IClosable);
 impl Direct3D11CaptureFrame {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Surface(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
+    pub fn Surface(&self) -> Result<super::DirectX::Direct3D11::IDirect3DSurface, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Surface)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SystemRelativeTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativeTime(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemRelativeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContentSize(&self) -> windows_core::Result<super::SizeInt32> {
+    pub fn ContentSize(&self) -> Result<super::SizeInt32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DirtyRegions(&self) -> windows_core::Result<windows_collections::IVectorView<super::RectInt32>> {
+    pub fn DirtyRegions(&self) -> Result<windows_collections::IVectorView<super::RectInt32>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IDirect3D11CaptureFrame2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DirtyRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DirtyRegionMode(&self) -> windows_core::Result<GraphicsCaptureDirtyRegionMode> {
+    pub fn DirtyRegionMode(&self) -> Result<GraphicsCaptureDirtyRegionMode, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IDirect3D11CaptureFrame2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -63,26 +63,26 @@ pub struct Direct3D11CaptureFramePool(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Direct3D11CaptureFramePool, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Direct3D11CaptureFramePool, super::super::Foundation::IClosable);
 impl Direct3D11CaptureFramePool {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Recreate<P0>(&self, device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<()>
+    pub fn Recreate<P0>(&self, device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Recreate)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size).ok() }
     }
-    pub fn TryGetNextFrame(&self) -> windows_core::Result<Direct3D11CaptureFrame> {
+    pub fn TryGetNextFrame(&self) -> Result<Direct3D11CaptureFrame, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetNextFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FrameArrived<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, windows_core::IInspectable>>,
     {
@@ -92,11 +92,11 @@ impl Direct3D11CaptureFramePool {
             (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFrameArrived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFrameArrived(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameArrived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CreateCaptureSession<P0>(&self, item: P0) -> windows_core::Result<GraphicsCaptureSession>
+    pub fn CreateCaptureSession<P0>(&self, item: P0) -> Result<GraphicsCaptureSession, windows_result::HRESULT>
     where
         P0: windows_core::Param<GraphicsCaptureItem>,
     {
@@ -107,7 +107,7 @@ impl Direct3D11CaptureFramePool {
         }
     }
     #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
+    pub fn DispatcherQueue(&self) -> Result<super::super::System::DispatcherQueue, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -115,7 +115,7 @@ impl Direct3D11CaptureFramePool {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Create<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Direct3D11CaptureFramePool>
+    pub fn Create<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> Result<Direct3D11CaptureFramePool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
@@ -125,7 +125,7 @@ impl Direct3D11CaptureFramePool {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFreeThreaded<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> windows_core::Result<Direct3D11CaptureFramePool>
+    pub fn CreateFreeThreaded<P0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> Result<Direct3D11CaptureFramePool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
@@ -134,11 +134,11 @@ impl Direct3D11CaptureFramePool {
             (windows_core::Interface::vtable(this).CreateFreeThreaded)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IDirect3D11CaptureFramePoolStatics<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDirect3D11CaptureFramePoolStatics<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IDirect3D11CaptureFramePoolStatics2<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDirect3D11CaptureFramePoolStatics2<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -158,13 +158,13 @@ unsafe impl Sync for Direct3D11CaptureFramePool {}
 pub struct GraphicsCaptureAccess;
 impl GraphicsCaptureAccess {
     #[cfg(feature = "Security_Authorization_AppCapabilityAccess")]
-    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
+    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> Result<windows_future::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>, windows_result::HRESULT> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), request, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGraphicsCaptureAccessStatics<R, F: FnOnce(&IGraphicsCaptureAccessStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureAccessStatics<R, F: FnOnce(&IGraphicsCaptureAccessStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureAccess, IGraphicsCaptureAccessStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -203,21 +203,21 @@ impl windows_core::RuntimeType for GraphicsCaptureDirtyRegionMode {
 pub struct GraphicsCaptureItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GraphicsCaptureItem, windows_core::IUnknown, windows_core::IInspectable);
 impl GraphicsCaptureItem {
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<super::SizeInt32> {
+    pub fn Size(&self) -> Result<super::SizeInt32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Closed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, windows_core::IInspectable>>,
     {
@@ -227,12 +227,12 @@ impl GraphicsCaptureItem {
             (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveClosed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateFromVisual<P0>(visual: P0) -> windows_core::Result<GraphicsCaptureItem>
+    pub fn CreateFromVisual<P0>(visual: P0) -> Result<GraphicsCaptureItem, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::UI::Composition::Visual>,
     {
@@ -242,23 +242,23 @@ impl GraphicsCaptureItem {
         })
     }
     #[cfg(feature = "UI")]
-    pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> windows_core::Result<GraphicsCaptureItem> {
+    pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> Result<GraphicsCaptureItem, windows_result::HRESULT> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFromWindowId)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryCreateFromDisplayId(displayid: super::DisplayId) -> windows_core::Result<GraphicsCaptureItem> {
+    pub fn TryCreateFromDisplayId(displayid: super::DisplayId) -> Result<GraphicsCaptureItem, windows_result::HRESULT> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFromDisplayId)(windows_core::Interface::as_raw(this), displayid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGraphicsCaptureItemStatics<R, F: FnOnce(&IGraphicsCaptureItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureItemStatics<R, F: FnOnce(&IGraphicsCaptureItemStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGraphicsCaptureItemStatics2<R, F: FnOnce(&IGraphicsCaptureItemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureItemStatics2<R, F: FnOnce(&IGraphicsCaptureItemStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -280,14 +280,14 @@ unsafe impl Sync for GraphicsCaptureItem {}
 pub struct GraphicsCapturePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GraphicsCapturePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl GraphicsCapturePicker {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCapturePicker, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn PickSingleItemAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GraphicsCaptureItem>> {
+    pub fn PickSingleItemAsync(&self) -> Result<windows_future::IAsyncOperation<GraphicsCaptureItem>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -313,76 +313,76 @@ pub struct GraphicsCaptureSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GraphicsCaptureSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GraphicsCaptureSession, super::super::Foundation::IClosable);
 impl GraphicsCaptureSession {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartCapture(&self) -> windows_core::Result<()> {
+    pub fn StartCapture(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartCapture)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsCursorCaptureEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsCursorCaptureEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCursorCaptureEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsCursorCaptureEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsCursorCaptureEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsCursorCaptureEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsBorderRequired(&self) -> windows_core::Result<bool> {
+    pub fn IsBorderRequired(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBorderRequired)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsBorderRequired(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsBorderRequired(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsBorderRequired)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DirtyRegionMode(&self) -> windows_core::Result<GraphicsCaptureDirtyRegionMode> {
+    pub fn DirtyRegionMode(&self) -> Result<GraphicsCaptureDirtyRegionMode, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DirtyRegionMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDirtyRegionMode(&self, value: GraphicsCaptureDirtyRegionMode) -> windows_core::Result<()> {
+    pub fn SetDirtyRegionMode(&self, value: GraphicsCaptureDirtyRegionMode) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDirtyRegionMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MinUpdateInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MinUpdateInterval(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinUpdateInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMinUpdateInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetMinUpdateInterval(&self, value: super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMinUpdateInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IncludeSecondaryWindows(&self) -> windows_core::Result<bool> {
+    pub fn IncludeSecondaryWindows(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IncludeSecondaryWindows)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIncludeSecondaryWindows(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIncludeSecondaryWindows(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession6>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIncludeSecondaryWindows)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> Result<bool, windows_result::HRESULT> {
         Self::IGraphicsCaptureSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGraphicsCaptureSessionStatics<R, F: FnOnce(&IGraphicsCaptureSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureSessionStatics<R, F: FnOnce(&IGraphicsCaptureSessionStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureSession, IGraphicsCaptureSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

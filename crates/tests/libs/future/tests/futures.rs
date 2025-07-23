@@ -5,13 +5,13 @@ use windows::{core::*, Storage::Streams::*, System::Threading::*};
 
 // A simple example of blocking synchronously with the `get` method.
 #[test]
-fn simple_sync() -> Result<()> {
+fn simple_sync() -> Result<(), HRESULT> {
     ThreadPool::RunAsync(&WorkItemHandler::new(|_| Ok(())))?.get()
 }
 
 // A simple example of awaiting with an async function.
 #[test]
-fn simple_async() -> Result<()> {
+fn simple_async() -> Result<(), HRESULT> {
     futures::executor::block_on(async {
         ThreadPool::RunAsync(&WorkItemHandler::new(|_| Ok(())))?.await
     })
@@ -19,7 +19,7 @@ fn simple_async() -> Result<()> {
 
 // A representative example of a WinRT async API.
 #[test]
-fn stream_async() -> Result<()> {
+fn stream_async() -> Result<(), HRESULT> {
     futures::executor::block_on(async {
         let stream = &InMemoryRandomAccessStream::new()?;
 
@@ -45,7 +45,7 @@ fn stream_async() -> Result<()> {
 }
 
 #[test]
-fn switch_context() -> Result<()> {
+fn switch_context() -> Result<(), HRESULT> {
     use futures::{executor::LocalPool, future, task::SpawnExt};
     use std::future::IntoFuture;
 

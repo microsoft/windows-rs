@@ -75,14 +75,14 @@ pub struct IPaymentTransactionStatics_Vtbl {
 pub struct PaymentAppCanMakePaymentTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentAppCanMakePaymentTriggerDetails {
-    pub fn Request(&self) -> windows_core::Result<super::PaymentRequest> {
+    pub fn Request(&self) -> Result<super::PaymentRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCanMakePaymentResult<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn ReportCanMakePaymentResult<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::PaymentCanMakePaymentResult>,
     {
@@ -107,7 +107,7 @@ unsafe impl Sync for PaymentAppCanMakePaymentTriggerDetails {}
 pub struct PaymentAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentAppManager {
-    pub fn RegisterAsync<P0>(&self, supportedpaymentmethodids: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn RegisterAsync<P0>(&self, supportedpaymentmethodids: P0) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -117,20 +117,20 @@ impl PaymentAppManager {
             (windows_core::Interface::vtable(this).RegisterAsync)(windows_core::Interface::as_raw(this), supportedpaymentmethodids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UnregisterAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn UnregisterAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnregisterAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<PaymentAppManager> {
+    pub fn Current() -> Result<PaymentAppManager, windows_result::HRESULT> {
         Self::IPaymentAppManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPaymentAppManagerStatics<R, F: FnOnce(&IPaymentAppManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentAppManagerStatics<R, F: FnOnce(&IPaymentAppManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PaymentAppManager, IPaymentAppManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -152,47 +152,47 @@ unsafe impl Sync for PaymentAppManager {}
 pub struct PaymentTransaction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentTransaction, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentTransaction {
-    pub fn PaymentRequest(&self) -> windows_core::Result<super::PaymentRequest> {
+    pub fn PaymentRequest(&self) -> Result<super::PaymentRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PaymentRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PayerEmail(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PayerEmail(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PayerEmail)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPayerEmail(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetPayerEmail(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPayerEmail)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn PayerName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PayerName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PayerName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPayerName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetPayerName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPayerName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn PayerPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PayerPhoneNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PayerPhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPayerPhoneNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetPayerPhoneNumber(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPayerPhoneNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn UpdateShippingAddressAsync<P0>(&self, shippingaddress: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::PaymentRequestChangedResult>>
+    pub fn UpdateShippingAddressAsync<P0>(&self, shippingaddress: P0) -> Result<windows_future::IAsyncOperation<super::PaymentRequestChangedResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::PaymentAddress>,
     {
@@ -202,7 +202,7 @@ impl PaymentTransaction {
             (windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(windows_core::Interface::as_raw(this), shippingaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateSelectedShippingOptionAsync<P0>(&self, selectedshippingoption: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::PaymentRequestChangedResult>>
+    pub fn UpdateSelectedShippingOptionAsync<P0>(&self, selectedshippingoption: P0) -> Result<windows_future::IAsyncOperation<super::PaymentRequestChangedResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::PaymentShippingOption>,
     {
@@ -212,7 +212,7 @@ impl PaymentTransaction {
             (windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(windows_core::Interface::as_raw(this), selectedshippingoption.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AcceptAsync<P0>(&self, paymenttoken: P0) -> windows_core::Result<windows_future::IAsyncOperation<PaymentTransactionAcceptResult>>
+    pub fn AcceptAsync<P0>(&self, paymenttoken: P0) -> Result<windows_future::IAsyncOperation<PaymentTransactionAcceptResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::PaymentToken>,
     {
@@ -222,17 +222,17 @@ impl PaymentTransaction {
             (windows_core::Interface::vtable(this).AcceptAsync)(windows_core::Interface::as_raw(this), paymenttoken.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Reject(&self) -> windows_core::Result<()> {
+    pub fn Reject(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Reject)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn FromIdAsync(id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PaymentTransaction>> {
+    pub fn FromIdAsync(id: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<PaymentTransaction>, windows_result::HRESULT> {
         Self::IPaymentTransactionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPaymentTransactionStatics<R, F: FnOnce(&IPaymentTransactionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentTransactionStatics<R, F: FnOnce(&IPaymentTransactionStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PaymentTransaction, IPaymentTransactionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -254,7 +254,7 @@ unsafe impl Sync for PaymentTransaction {}
 pub struct PaymentTransactionAcceptResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentTransactionAcceptResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentTransactionAcceptResult {
-    pub fn Status(&self) -> windows_core::Result<super::PaymentRequestCompletionStatus> {
+    pub fn Status(&self) -> Result<super::PaymentRequestCompletionStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

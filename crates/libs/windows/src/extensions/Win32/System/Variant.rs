@@ -92,8 +92,8 @@ impl Eq for VARIANT {}
 
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl TryFrom<&PROPVARIANT> for VARIANT {
-    type Error = Error;
-    fn try_from(from: &PROPVARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &PROPVARIANT) -> Result<Self, HRESULT> {
         unsafe { PropVariantToVariant(from) }
     }
 }
@@ -103,14 +103,14 @@ impl TryFrom<&PROPVARIANT> for VARIANT {
 variant_from_value!(IUnknown, VT_UNKNOWN, punkVal, |v: IUnknown| ManuallyDrop::new(Some(v)));
 
 impl TryFrom<&VARIANT> for IUnknown {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe {
             if from.Anonymous.Anonymous.vt == VT_UNKNOWN && !from.Anonymous.Anonymous.Anonymous.punkVal.is_none() {
                 let unknown: &IUnknown = transmute(&from.Anonymous.Anonymous.Anonymous.punkVal);
                 Ok(unknown.clone())
             } else {
-                Err(Error::from_hresult(TYPE_E_TYPEMISMATCH))
+                Err(TYPE_E_TYPEMISMATCH)
             }
         }
     }
@@ -128,8 +128,8 @@ impl From<&str> for VARIANT {
 
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl TryFrom<&VARIANT> for BSTR {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         let pv = PROPVARIANT::try_from(from)?;
         BSTR::try_from(&pv)
     }
@@ -140,8 +140,8 @@ impl TryFrom<&VARIANT> for BSTR {
 variant_from_value!(bool, VT_BOOL, boolVal, |v: bool| VARIANT_BOOL(if v { -1 } else { 0 }));
 
 impl TryFrom<&VARIANT> for bool {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToBoolean(from) }.map(|ok| ok.0 != 0)
     }
 }
@@ -159,8 +159,8 @@ variant_from_value!(i8, VT_I1, cVal, |v: i8| v);
 variant_from_value!(u16, VT_UI2, uiVal, |v: u16| v);
 
 impl TryFrom<&VARIANT> for u16 {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToUInt16(from) }
     }
 }
@@ -170,8 +170,8 @@ impl TryFrom<&VARIANT> for u16 {
 variant_from_value!(i16, VT_I2, iVal, |v: i16| v);
 
 impl TryFrom<&VARIANT> for i16 {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToInt16(from) }
     }
 }
@@ -181,8 +181,8 @@ impl TryFrom<&VARIANT> for i16 {
 variant_from_value!(u32, VT_UI4, ulVal, |v: u32| v);
 
 impl TryFrom<&VARIANT> for u32 {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToUInt32(from) }
     }
 }
@@ -192,8 +192,8 @@ impl TryFrom<&VARIANT> for u32 {
 variant_from_value!(i32, VT_I4, lVal, |v: i32| v);
 
 impl TryFrom<&VARIANT> for i32 {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToInt32(from) }
     }
 }
@@ -211,8 +211,8 @@ impl From<u64> for VARIANT {
 }
 
 impl TryFrom<&VARIANT> for u64 {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToUInt64(from) }
     }
 }
@@ -228,8 +228,8 @@ impl From<i64> for VARIANT {
 }
 
 impl TryFrom<&VARIANT> for i64 {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToInt64(from) }
     }
 }
@@ -243,8 +243,8 @@ variant_from_value!(f32, VT_R4, fltVal, |v: f32| v);
 variant_from_value!(f64, VT_R8, dblVal, |v: f64| v);
 
 impl TryFrom<&VARIANT> for f64 {
-    type Error = Error;
-    fn try_from(from: &VARIANT) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe { VariantToDouble(from) }
     }
 }
@@ -264,14 +264,14 @@ impl From<IDispatch> for VARIANT {
 }
 
 impl TryFrom<&VARIANT> for IDispatch {
-    type Error = windows_core::Error;
-    fn try_from(from: &VARIANT) -> windows_core::Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: &VARIANT) -> Result<Self, HRESULT> {
         unsafe {
             if from.Anonymous.Anonymous.vt == VT_DISPATCH && !from.Anonymous.Anonymous.Anonymous.pdispVal.is_none() {
                 let dispatch: &IDispatch = transmute(&from.Anonymous.Anonymous.Anonymous.pdispVal);
                 Ok(dispatch.clone())
             } else {
-                Err(windows_core::Error::from_hresult(TYPE_E_TYPEMISMATCH))
+                Err(TYPE_E_TYPEMISMATCH)
             }
         }
     }

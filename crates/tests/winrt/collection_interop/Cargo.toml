@@ -11,6 +11,9 @@ doctest = false
 [dependencies.windows-core]
 workspace = true
 
+[dependencies.windows-result]
+workspace = true
+
 [dependencies.windows-collections]
 workspace = true
 features = ["std"]

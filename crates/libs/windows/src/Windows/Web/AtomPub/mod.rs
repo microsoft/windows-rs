@@ -8,14 +8,14 @@ windows_core::imp::interface_hierarchy!(AtomPubClient, windows_core::IUnknown, w
 windows_core::imp::required_hierarchy!(AtomPubClient, super::Syndication::ISyndicationClient);
 #[cfg(feature = "Web_Syndication")]
 impl AtomPubClient {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AtomPubClient, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RetrieveServiceDocumentAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveServiceDocumentAsync<P0>(&self, uri: P0) -> Result<windows_future::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -26,7 +26,7 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RetrieveMediaResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveMediaResourceAsync<P0>(&self, uri: P0) -> Result<windows_future::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -36,7 +36,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).RetrieveMediaResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RetrieveResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveResourceAsync<P0>(&self, uri: P0) -> Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -46,7 +46,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).RetrieveResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateResourceAsync<P0, P2>(&self, uri: P0, description: &windows_core::HSTRING, item: P2) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    pub fn CreateResourceAsync<P0, P2>(&self, uri: P0, description: &windows_core::HSTRING, item: P2) -> Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P2: windows_core::Param<super::Syndication::SyndicationItem>,
@@ -58,7 +58,7 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateMediaResourceAsync<P0, P3>(&self, uri: P0, mediatype: &windows_core::HSTRING, description: &windows_core::HSTRING, mediastream: P3) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    pub fn CreateMediaResourceAsync<P0, P3>(&self, uri: P0, mediatype: &windows_core::HSTRING, description: &windows_core::HSTRING, mediastream: P3) -> Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P3: windows_core::Param<super::super::Storage::Streams::IInputStream>,
@@ -70,7 +70,7 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UpdateMediaResourceAsync<P0, P2>(&self, uri: P0, mediatype: &windows_core::HSTRING, mediastream: P2) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateMediaResourceAsync<P0, P2>(&self, uri: P0, mediatype: &windows_core::HSTRING, mediastream: P2) -> Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P2: windows_core::Param<super::super::Storage::Streams::IInputStream>,
@@ -81,7 +81,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).UpdateMediaResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(mediatype), mediastream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateResourceAsync<P0, P1>(&self, uri: P0, item: P1) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateResourceAsync<P0, P1>(&self, uri: P0, item: P1) -> Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::Syndication::SyndicationItem>,
@@ -92,7 +92,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).UpdateResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateResourceItemAsync<P0>(&self, item: P0) -> Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Syndication::SyndicationItem>,
     {
@@ -102,7 +102,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).UpdateResourceItemAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn DeleteResourceAsync<P0>(&self, uri: P0) -> Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -112,7 +112,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).DeleteResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn DeleteResourceItemAsync<P0>(&self, item: P0) -> Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Syndication::SyndicationItem>,
     {
@@ -122,12 +122,12 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).DeleteResourceItemAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CancelAsyncOperations(&self) -> windows_core::Result<()> {
+    pub fn CancelAsyncOperations(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CancelAsyncOperations)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateAtomPubClientWithCredentials<P0>(servercredential: P0) -> windows_core::Result<AtomPubClient>
+    pub fn CreateAtomPubClientWithCredentials<P0>(servercredential: P0) -> Result<AtomPubClient, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
@@ -137,7 +137,7 @@ impl AtomPubClient {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
+    pub fn ServerCredential(&self) -> Result<super::super::Security::Credentials::PasswordCredential, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -145,7 +145,7 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetServerCredential<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
@@ -153,7 +153,7 @@ impl AtomPubClient {
         unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
+    pub fn ProxyCredential(&self) -> Result<super::super::Security::Credentials::PasswordCredential, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -161,51 +161,51 @@ impl AtomPubClient {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetProxyCredential<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn MaxResponseBufferSize(&self) -> windows_core::Result<u32> {
+    pub fn MaxResponseBufferSize(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxResponseBufferSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMaxResponseBufferSize(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetMaxResponseBufferSize(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMaxResponseBufferSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Timeout(&self) -> windows_core::Result<u32> {
+    pub fn Timeout(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTimeout(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTimeout(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BypassCacheOnRetrieve(&self) -> windows_core::Result<bool> {
+    pub fn BypassCacheOnRetrieve(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BypassCacheOnRetrieve)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBypassCacheOnRetrieve(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetBypassCacheOnRetrieve(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBypassCacheOnRetrieve)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetRequestHeader(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRequestHeader(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>
+    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -215,7 +215,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).RetrieveFeedAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    fn IAtomPubClientFactory<R, F: FnOnce(&IAtomPubClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAtomPubClientFactory<R, F: FnOnce(&IAtomPubClientFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AtomPubClient, IAtomPubClientFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -335,100 +335,100 @@ windows_core::imp::interface_hierarchy!(ResourceCollection, windows_core::IUnkno
 windows_core::imp::required_hierarchy!(ResourceCollection, super::Syndication::ISyndicationNode);
 #[cfg(feature = "Web_Syndication")]
 impl ResourceCollection {
-    pub fn Title(&self) -> windows_core::Result<super::Syndication::ISyndicationText> {
+    pub fn Title(&self) -> Result<super::Syndication::ISyndicationText, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Categories(&self) -> windows_core::Result<windows_collections::IVectorView<super::Syndication::SyndicationCategory>> {
+    pub fn Categories(&self) -> Result<windows_collections::IVectorView<super::Syndication::SyndicationCategory>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Categories)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Accepts(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Accepts(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Accepts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn NodeNamespace(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeNamespace(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeNamespace)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeNamespace(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeNamespace(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeNamespace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn NodeValue(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeValue(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeValue(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BaseUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn BaseUri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BaseUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetBaseUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBaseUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> Result<windows_collections::IVector<super::Syndication::ISyndicationNode>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -436,7 +436,7 @@ impl ResourceCollection {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument(&self, format: super::Syndication::SyndicationFormat) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetXmlDocument(&self, format: super::Syndication::SyndicationFormat) -> Result<super::super::Data::Xml::Dom::XmlDocument, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -471,79 +471,79 @@ windows_core::imp::interface_hierarchy!(ServiceDocument, windows_core::IUnknown,
 windows_core::imp::required_hierarchy!(ServiceDocument, super::Syndication::ISyndicationNode);
 #[cfg(feature = "Web_Syndication")]
 impl ServiceDocument {
-    pub fn Workspaces(&self) -> windows_core::Result<windows_collections::IVectorView<Workspace>> {
+    pub fn Workspaces(&self) -> Result<windows_collections::IVectorView<Workspace>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Workspaces)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn NodeNamespace(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeNamespace(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeNamespace)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeNamespace(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeNamespace(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeNamespace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn NodeValue(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeValue(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeValue(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BaseUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn BaseUri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BaseUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetBaseUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBaseUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> Result<windows_collections::IVector<super::Syndication::ISyndicationNode>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -551,7 +551,7 @@ impl ServiceDocument {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument(&self, format: super::Syndication::SyndicationFormat) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetXmlDocument(&self, format: super::Syndication::SyndicationFormat) -> Result<super::super::Data::Xml::Dom::XmlDocument, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -586,72 +586,72 @@ windows_core::imp::interface_hierarchy!(Workspace, windows_core::IUnknown, windo
 windows_core::imp::required_hierarchy!(Workspace, super::Syndication::ISyndicationNode);
 #[cfg(feature = "Web_Syndication")]
 impl Workspace {
-    pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn NodeNamespace(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeNamespace(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeNamespace)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeNamespace(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeNamespace(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeNamespace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn NodeValue(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NodeValue(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NodeValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNodeValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNodeValue(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BaseUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn BaseUri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BaseUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetBaseUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBaseUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>> {
+    pub fn AttributeExtensions(&self) -> Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ElementExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::ISyndicationNode>> {
+    pub fn ElementExtensions(&self) -> Result<windows_collections::IVector<super::Syndication::ISyndicationNode>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -659,21 +659,21 @@ impl Workspace {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument(&self, format: super::Syndication::SyndicationFormat) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetXmlDocument(&self, format: super::Syndication::SyndicationFormat) -> Result<super::super::Data::Xml::Dom::XmlDocument, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Title(&self) -> windows_core::Result<super::Syndication::ISyndicationText> {
+    pub fn Title(&self) -> Result<super::Syndication::ISyndicationText, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Collections(&self) -> windows_core::Result<windows_collections::IVectorView<ResourceCollection>> {
+    pub fn Collections(&self) -> Result<windows_collections::IVectorView<ResourceCollection>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

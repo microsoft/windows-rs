@@ -5,7 +5,7 @@ use bindings::*;
 use windows::core::*;
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let reference = Reference::new()?;
     assert_eq!(reference.ToString()?, "Reference");
     assert_eq!(reference.Method(&reference)?, "Reference");

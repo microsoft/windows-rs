@@ -54,205 +54,205 @@ impl core::ops::Not for AddPackageByAppInstallerOptions {
 pub struct AddPackageOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AddPackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl AddPackageOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AddPackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DependencyPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TargetVolume(&self) -> windows_core::Result<PackageVolume> {
+    pub fn TargetVolume(&self) -> Result<PackageVolume, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TargetVolume)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTargetVolume<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetTargetVolume<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PackageVolume>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTargetVolume)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OptionalPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn OptionalPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RelatedPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn RelatedPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelatedPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExternalLocationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ExternalLocationUri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExternalLocationUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExternalLocationUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExternalLocationUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExternalLocationUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn StubPackageOption(&self) -> windows_core::Result<StubPackageOption> {
+    pub fn StubPackageOption(&self) -> Result<StubPackageOption, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StubPackageOption)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> windows_core::Result<()> {
+    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStubPackageOption)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DeveloperMode(&self) -> windows_core::Result<bool> {
+    pub fn DeveloperMode(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeveloperMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeveloperMode(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDeveloperMode(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeveloperMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceAppShutdown(&self) -> windows_core::Result<bool> {
+    pub fn ForceAppShutdown(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceAppShutdown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceAppShutdown(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceAppShutdown(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceAppShutdown)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceTargetAppShutdown(&self) -> windows_core::Result<bool> {
+    pub fn ForceTargetAppShutdown(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceTargetAppShutdown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceTargetAppShutdown(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceTargetAppShutdown(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceTargetAppShutdown)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceUpdateFromAnyVersion(&self) -> windows_core::Result<bool> {
+    pub fn ForceUpdateFromAnyVersion(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InstallAllResources(&self) -> windows_core::Result<bool> {
+    pub fn InstallAllResources(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstallAllResources)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInstallAllResources(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetInstallAllResources(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInstallAllResources)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RequiredContentGroupOnly(&self) -> windows_core::Result<bool> {
+    pub fn RequiredContentGroupOnly(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequiredContentGroupOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRequiredContentGroupOnly(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRequiredContentGroupOnly(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequiredContentGroupOnly)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RetainFilesOnFailure(&self) -> windows_core::Result<bool> {
+    pub fn RetainFilesOnFailure(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetainFilesOnFailure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRetainFilesOnFailure(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRetainFilesOnFailure(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRetainFilesOnFailure)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn StageInPlace(&self) -> windows_core::Result<bool> {
+    pub fn StageInPlace(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StageInPlace)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStageInPlace(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetStageInPlace(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStageInPlace)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AllowUnsigned(&self) -> windows_core::Result<bool> {
+    pub fn AllowUnsigned(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowUnsigned)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAllowUnsigned(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowUnsigned(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllowUnsigned)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> windows_core::Result<bool> {
+    pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ExpectedDigests(&self) -> windows_core::Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
+    pub fn ExpectedDigests(&self) -> Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAddPackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpectedDigests)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LimitToExistingPackages(&self) -> windows_core::Result<bool> {
+    pub fn LimitToExistingPackages(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAddPackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LimitToExistingPackages)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetLimitToExistingPackages(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetLimitToExistingPackages(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAddPackageOptions2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLimitToExistingPackages)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -274,34 +274,34 @@ unsafe impl Sync for AddPackageOptions {}
 pub struct AppInstallerManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInstallerManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInstallerManager {
-    pub fn SetAutoUpdateSettings<P1>(&self, packagefamilyname: &windows_core::HSTRING, appinstallerinfo: P1) -> windows_core::Result<()>
+    pub fn SetAutoUpdateSettings<P1>(&self, packagefamilyname: &windows_core::HSTRING, appinstallerinfo: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<AutoUpdateSettingsOptions>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoUpdateSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), appinstallerinfo.param().abi()).ok() }
     }
-    pub fn ClearAutoUpdateSettings(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ClearAutoUpdateSettings(&self, packagefamilyname: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearAutoUpdateSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname)).ok() }
     }
-    pub fn PauseAutoUpdatesUntil(&self, packagefamilyname: &windows_core::HSTRING, datetime: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn PauseAutoUpdatesUntil(&self, packagefamilyname: &windows_core::HSTRING, datetime: super::super::Foundation::DateTime) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).PauseAutoUpdatesUntil)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), datetime).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<AppInstallerManager> {
+    pub fn GetDefault() -> Result<AppInstallerManager, windows_result::HRESULT> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForSystem() -> windows_core::Result<AppInstallerManager> {
+    pub fn GetForSystem() -> Result<AppInstallerManager, windows_result::HRESULT> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAppInstallerManagerStatics<R, F: FnOnce(&IAppInstallerManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppInstallerManagerStatics<R, F: FnOnce(&IAppInstallerManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppInstallerManager, IAppInstallerManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -323,15 +323,15 @@ unsafe impl Sync for AppInstallerManager {}
 pub struct AutoUpdateSettingsOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutoUpdateSettingsOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl AutoUpdateSettingsOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AutoUpdateSettingsOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn Version(&self) -> windows_core::Result<super::super::ApplicationModel::PackageVersion> {
+    pub fn Version(&self) -> Result<super::super::ApplicationModel::PackageVersion, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -339,123 +339,123 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn SetVersion(&self, value: super::super::ApplicationModel::PackageVersion) -> windows_core::Result<()> {
+    pub fn SetVersion(&self, value: super::super::ApplicationModel::PackageVersion) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVersion)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AppInstallerUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn AppInstallerUri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppInstallerUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAppInstallerUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetAppInstallerUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAppInstallerUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn OnLaunch(&self) -> windows_core::Result<bool> {
+    pub fn OnLaunch(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OnLaunch)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOnLaunch(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetOnLaunch(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOnLaunch)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoursBetweenUpdateChecks(&self) -> windows_core::Result<u32> {
+    pub fn HoursBetweenUpdateChecks(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoursBetweenUpdateChecks)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoursBetweenUpdateChecks(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetHoursBetweenUpdateChecks(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHoursBetweenUpdateChecks)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ShowPrompt(&self) -> windows_core::Result<bool> {
+    pub fn ShowPrompt(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowPrompt)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetShowPrompt(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetShowPrompt(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetShowPrompt)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UpdateBlocksActivation(&self) -> windows_core::Result<bool> {
+    pub fn UpdateBlocksActivation(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateBlocksActivation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUpdateBlocksActivation(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetUpdateBlocksActivation(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUpdateBlocksActivation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AutomaticBackgroundTask(&self) -> windows_core::Result<bool> {
+    pub fn AutomaticBackgroundTask(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomaticBackgroundTask)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutomaticBackgroundTask(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAutomaticBackgroundTask(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutomaticBackgroundTask)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceUpdateFromAnyVersion(&self) -> windows_core::Result<bool> {
+    pub fn ForceUpdateFromAnyVersion(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsAutoRepairEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsAutoRepairEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAutoRepairEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsAutoRepairEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsAutoRepairEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsAutoRepairEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UpdateUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn UpdateUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RepairUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn RepairUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RepairUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DependencyPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OptionalPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn OptionalPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -463,7 +463,7 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn CreateFromAppInstallerInfo<P0>(appinstallerinfo: P0) -> windows_core::Result<AutoUpdateSettingsOptions>
+    pub fn CreateFromAppInstallerInfo<P0>(appinstallerinfo: P0) -> Result<AutoUpdateSettingsOptions, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::ApplicationModel::AppInstallerInfo>,
     {
@@ -472,7 +472,7 @@ impl AutoUpdateSettingsOptions {
             (windows_core::Interface::vtable(this).CreateFromAppInstallerInfo)(windows_core::Interface::as_raw(this), appinstallerinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAutoUpdateSettingsOptionsStatics<R, F: FnOnce(&IAutoUpdateSettingsOptionsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAutoUpdateSettingsOptionsStatics<R, F: FnOnce(&IAutoUpdateSettingsOptionsStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AutoUpdateSettingsOptions, IAutoUpdateSettingsOptionsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -494,39 +494,39 @@ unsafe impl Sync for AutoUpdateSettingsOptions {}
 pub struct CreateSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateSharedPackageContainerOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CreateSharedPackageContainerOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Members(&self) -> windows_core::Result<windows_collections::IVector<SharedPackageContainerMember>> {
+    pub fn Members(&self) -> Result<windows_collections::IVector<SharedPackageContainerMember>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Members)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ForceAppShutdown(&self) -> windows_core::Result<bool> {
+    pub fn ForceAppShutdown(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceAppShutdown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceAppShutdown(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceAppShutdown(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceAppShutdown)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateCollisionOption(&self) -> windows_core::Result<SharedPackageContainerCreationCollisionOptions> {
+    pub fn CreateCollisionOption(&self) -> Result<SharedPackageContainerCreationCollisionOptions, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCollisionOption)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> windows_core::Result<()> {
+    pub fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCreateCollisionOption)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -548,21 +548,21 @@ unsafe impl Sync for CreateSharedPackageContainerOptions {}
 pub struct CreateSharedPackageContainerResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateSharedPackageContainerResult {
-    pub fn Container(&self) -> windows_core::Result<SharedPackageContainer> {
+    pub fn Container(&self) -> Result<SharedPackageContainer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Container)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Status(&self) -> windows_core::Result<SharedPackageContainerOperationStatus> {
+    pub fn Status(&self) -> Result<SharedPackageContainerOperationStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -587,32 +587,32 @@ unsafe impl Sync for CreateSharedPackageContainerResult {}
 pub struct DeleteSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeleteSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl DeleteSharedPackageContainerOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DeleteSharedPackageContainerOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ForceAppShutdown(&self) -> windows_core::Result<bool> {
+    pub fn ForceAppShutdown(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceAppShutdown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceAppShutdown(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceAppShutdown(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceAppShutdown)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AllUsers(&self) -> windows_core::Result<bool> {
+    pub fn AllUsers(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllUsers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAllUsers(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAllUsers(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllUsers)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -634,14 +634,14 @@ unsafe impl Sync for DeleteSharedPackageContainerOptions {}
 pub struct DeleteSharedPackageContainerResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeleteSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DeleteSharedPackageContainerResult {
-    pub fn Status(&self) -> windows_core::Result<SharedPackageContainerOperationStatus> {
+    pub fn Status(&self) -> Result<SharedPackageContainerOperationStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -744,28 +744,28 @@ impl windows_core::RuntimeType for DeploymentProgressState {
 pub struct DeploymentResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeploymentResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DeploymentResult {
-    pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ErrorText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ActivityId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ActivityId(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedErrorCode(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedErrorCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRegistered(&self) -> windows_core::Result<bool> {
+    pub fn IsRegistered(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IDeploymentResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -790,32 +790,32 @@ unsafe impl Sync for DeploymentResult {}
 pub struct FindSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FindSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FindSharedPackageContainerOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FindSharedPackageContainerOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageFamilyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPackageFamilyName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetPackageFamilyName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -1591,35 +1591,35 @@ pub struct IUpdateSharedPackageContainerResult_Vtbl {
 pub struct PackageAllUserProvisioningOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageAllUserProvisioningOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageAllUserProvisioningOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PackageAllUserProvisioningOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProjectionOrderPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn ProjectionOrderPackageFamilyNames(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProjectionOrderPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeferAutomaticRegistration(&self) -> windows_core::Result<bool> {
+    pub fn DeferAutomaticRegistration(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageAllUserProvisioningOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeferAutomaticRegistration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeferAutomaticRegistration(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDeferAutomaticRegistration(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageAllUserProvisioningOptions2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDeferAutomaticRegistration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1656,14 +1656,14 @@ impl windows_core::RuntimeType for PackageInstallState {
 pub struct PackageManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageManager {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PackageManager, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn AddPackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -1674,7 +1674,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdatePackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn UpdatePackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -1685,14 +1685,14 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).UpdatePackageAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemovePackageAsync(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RemovePackageAsync(&self, packagefullname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemovePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StagePackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -1703,7 +1703,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RegisterPackageAsync<P0, P1>(&self, manifesturi: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageAsync<P0, P1>(&self, manifesturi: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -1715,7 +1715,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackages(&self) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackages(&self) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1723,7 +1723,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1731,7 +1731,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1739,33 +1739,33 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindUsers(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<PackageUserInformation>> {
+    pub fn FindUsers(&self, packagefullname: &windows_core::HSTRING) -> Result<windows_collections::IIterable<PackageUserInformation>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindUsers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPackageState(&self, packagefullname: &windows_core::HSTRING, packagestate: PackageState) -> windows_core::Result<()> {
+    pub fn SetPackageState(&self, packagefullname: &windows_core::HSTRING, packagestate: PackageState) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPackageState)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), packagestate).ok() }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackageByPackageFullName(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<super::super::ApplicationModel::Package> {
+    pub fn FindPackageByPackageFullName(&self, packagefullname: &windows_core::HSTRING) -> Result<super::super::ApplicationModel::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackageByPackageFullName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CleanupPackageForUserAsync(&self, packagename: &windows_core::HSTRING, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn CleanupPackageForUserAsync(&self, packagename: &windows_core::HSTRING, usersecurityid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1773,7 +1773,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1781,7 +1781,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1789,14 +1789,14 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &windows_core::HSTRING, packagefullname: &windows_core::HSTRING) -> windows_core::Result<super::super::ApplicationModel::Package> {
+    pub fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &windows_core::HSTRING, packagefullname: &windows_core::HSTRING) -> Result<super::super::ApplicationModel::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProvisionPackageForAllUsersWithOptionsAsync<P1>(&self, mainpackagefamilyname: &windows_core::HSTRING, options: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn ProvisionPackageForAllUsersWithOptionsAsync<P1>(&self, mainpackagefamilyname: &windows_core::HSTRING, options: P1) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P1: windows_core::Param<PackageAllUserProvisioningOptions>,
     {
@@ -1806,7 +1806,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).ProvisionPackageForAllUsersWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(mainpackagefamilyname), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemovePackageByUriAsync<P0, P1>(&self, packageuri: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RemovePackageByUriAsync<P0, P1>(&self, packageuri: P0, options: P1) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<RemovePackageOptions>,
@@ -1817,21 +1817,21 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RemovePackageByUriAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsPackageRemovalPending(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsPackageRemovalPending(&self, packagefullname: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager12>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPackageRemovalPending)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPackageRemovalPendingForUser(&self, packagefullname: &windows_core::HSTRING, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsPackageRemovalPendingForUser(&self, packagefullname: &windows_core::HSTRING, usersecurityid: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager12>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPackageRemovalPendingForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), core::mem::transmute_copy(usersecurityid), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPackageRemovalPendingByUri<P0>(&self, packageuri: P0) -> windows_core::Result<bool>
+    pub fn IsPackageRemovalPendingByUri<P0>(&self, packageuri: P0) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1841,7 +1841,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).IsPackageRemovalPendingByUri)(windows_core::Interface::as_raw(this), packageuri.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPackageRemovalPendingByUriForUser<P0>(&self, packageuri: P0, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<bool>
+    pub fn IsPackageRemovalPendingByUriForUser<P0>(&self, packageuri: P0, usersecurityid: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1851,14 +1851,14 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).IsPackageRemovalPendingByUriForUser)(windows_core::Interface::as_raw(this), packageuri.param().abi(), core::mem::transmute_copy(usersecurityid), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePackageWithOptionsAsync(&self, packagefullname: &windows_core::HSTRING, removaloptions: RemovalOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn RemovePackageWithOptionsAsync(&self, packagefullname: &windows_core::HSTRING, removaloptions: RemovalOptions) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemovePackageWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), removaloptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StagePackageWithOptionsAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageWithOptionsAsync<P0, P1>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -1869,7 +1869,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageWithOptionsAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RegisterPackageByFullNameAsync<P1>(&self, mainpackagefullname: &windows_core::HSTRING, dependencypackagefullnames: P1, deploymentoptions: DeploymentOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageByFullNameAsync<P1>(&self, mainpackagefullname: &windows_core::HSTRING, dependencypackagefullnames: P1, deploymentoptions: DeploymentOptions) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1880,7 +1880,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1888,7 +1888,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1896,7 +1896,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByNamePublisherWithPackageTypes(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisherWithPackageTypes(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1904,7 +1904,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING, packagetypes: PackageTypes) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1912,7 +1912,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1920,28 +1920,28 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IIterable<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING, packagetypes: PackageTypes) -> Result<windows_collections::IIterable<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagefamilyname), packagetypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StageUserDataAsync(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StageUserDataAsync(&self, packagefullname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StageUserDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddPackageVolumeAsync(&self, packagestorepath: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PackageVolume>> {
+    pub fn AddPackageVolumeAsync(&self, packagestorepath: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<PackageVolume>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddPackageVolumeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagestorepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddPackageToVolumeAsync<P0, P1, P3>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageToVolumeAsync<P0, P1, P3>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -1953,11 +1953,11 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageToVolumeAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearPackageStatus(&self, packagefullname: &windows_core::HSTRING, status: PackageStatus) -> windows_core::Result<()> {
+    pub fn ClearPackageStatus(&self, packagefullname: &windows_core::HSTRING, status: PackageStatus) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ClearPackageStatus)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), status).ok() }
     }
-    pub fn RegisterPackageWithAppDataVolumeAsync<P0, P1, P3>(&self, manifesturi: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, appdatavolume: P3) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageWithAppDataVolumeAsync<P0, P1, P3>(&self, manifesturi: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, appdatavolume: P3) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -1969,28 +1969,28 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RegisterPackageWithAppDataVolumeAsync)(windows_core::Interface::as_raw(this), manifesturi.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, appdatavolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindPackageVolumeByName(&self, volumename: &windows_core::HSTRING) -> windows_core::Result<PackageVolume> {
+    pub fn FindPackageVolumeByName(&self, volumename: &windows_core::HSTRING) -> Result<PackageVolume, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackageVolumeByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(volumename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindPackageVolumes(&self) -> windows_core::Result<windows_collections::IIterable<PackageVolume>> {
+    pub fn FindPackageVolumes(&self) -> Result<windows_collections::IIterable<PackageVolume>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackageVolumes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefaultPackageVolume(&self) -> windows_core::Result<PackageVolume> {
+    pub fn GetDefaultPackageVolume(&self) -> Result<PackageVolume, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultPackageVolume)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MovePackageToVolumeAsync<P2>(&self, packagefullname: &windows_core::HSTRING, deploymentoptions: DeploymentOptions, targetvolume: P2) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn MovePackageToVolumeAsync<P2>(&self, packagefullname: &windows_core::HSTRING, deploymentoptions: DeploymentOptions, targetvolume: P2) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P2: windows_core::Param<PackageVolume>,
     {
@@ -2000,7 +2000,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).MovePackageToVolumeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), deploymentoptions, targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemovePackageVolumeAsync<P0>(&self, volume: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RemovePackageVolumeAsync<P0>(&self, volume: P0) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<PackageVolume>,
     {
@@ -2010,18 +2010,18 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RemovePackageVolumeAsync)(windows_core::Interface::as_raw(this), volume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDefaultPackageVolume<P0>(&self, volume: P0) -> windows_core::Result<()>
+    pub fn SetDefaultPackageVolume<P0>(&self, volume: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PackageVolume>,
     {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultPackageVolume)(windows_core::Interface::as_raw(this), volume.param().abi()).ok() }
     }
-    pub fn SetPackageStatus(&self, packagefullname: &windows_core::HSTRING, status: PackageStatus) -> windows_core::Result<()> {
+    pub fn SetPackageStatus(&self, packagefullname: &windows_core::HSTRING, status: PackageStatus) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPackageStatus)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), status).ok() }
     }
-    pub fn SetPackageVolumeOfflineAsync<P0>(&self, packagevolume: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn SetPackageVolumeOfflineAsync<P0>(&self, packagevolume: P0) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<PackageVolume>,
     {
@@ -2031,7 +2031,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).SetPackageVolumeOfflineAsync)(windows_core::Interface::as_raw(this), packagevolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPackageVolumeOnlineAsync<P0>(&self, packagevolume: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn SetPackageVolumeOnlineAsync<P0>(&self, packagevolume: P0) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<PackageVolume>,
     {
@@ -2041,7 +2041,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).SetPackageVolumeOnlineAsync)(windows_core::Interface::as_raw(this), packagevolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StagePackageToVolumeAsync<P0, P1, P3>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageToVolumeAsync<P0, P1, P3>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -2053,21 +2053,21 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageToVolumeAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StageUserDataWithOptionsAsync(&self, packagefullname: &windows_core::HSTRING, deploymentoptions: DeploymentOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn StageUserDataWithOptionsAsync(&self, packagefullname: &windows_core::HSTRING, deploymentoptions: DeploymentOptions) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StageUserDataWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPackageVolumesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PackageVolume>>> {
+    pub fn GetPackageVolumesAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PackageVolume>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPackageVolumesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddPackageToVolumeAndOptionalPackagesAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, externalpackageuris: P5) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageToVolumeAndOptionalPackagesAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, externalpackageuris: P5) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -2081,7 +2081,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageToVolumeAndOptionalPackagesAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), externalpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StagePackageToVolumeAndOptionalPackagesAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, externalpackageuris: P5) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageToVolumeAndOptionalPackagesAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, externalpackageuris: P5) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -2095,7 +2095,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageToVolumeAndOptionalPackagesAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), externalpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<P1, P3, P4>(&self, mainpackagefamilyname: &windows_core::HSTRING, dependencypackagefamilynames: P1, deploymentoptions: DeploymentOptions, appdatavolume: P3, optionalpackagefamilynames: P4) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<P1, P3, P4>(&self, mainpackagefamilyname: &windows_core::HSTRING, dependencypackagefamilynames: P1, deploymentoptions: DeploymentOptions, appdatavolume: P3, optionalpackagefamilynames: P4) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
         P3: windows_core::Param<PackageVolume>,
@@ -2107,21 +2107,21 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RegisterPackageByFamilyNameAndOptionalPackagesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(mainpackagefamilyname), dependencypackagefamilynames.param().abi(), deploymentoptions, appdatavolume.param().abi(), optionalpackagefamilynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DebugSettings(&self) -> windows_core::Result<PackageManagerDebugSettings> {
+    pub fn DebugSettings(&self) -> Result<PackageManagerDebugSettings, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DebugSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProvisionPackageForAllUsersAsync(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn ProvisionPackageForAllUsersAsync(&self, packagefamilyname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProvisionPackageForAllUsersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddPackageByAppInstallerFileAsync<P0, P2>(&self, appinstallerfileuri: P0, options: AddPackageByAppInstallerOptions, targetvolume: P2) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageByAppInstallerFileAsync<P0, P2>(&self, appinstallerfileuri: P0, options: AddPackageByAppInstallerOptions, targetvolume: P2) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P2: windows_core::Param<PackageVolume>,
@@ -2132,7 +2132,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageByAppInstallerFileAsync)(windows_core::Interface::as_raw(this), appinstallerfileuri.param().abi(), options, targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAddPackageByAppInstallerFileAsync<P0, P2>(&self, appinstallerfileuri: P0, options: AddPackageByAppInstallerOptions, targetvolume: P2) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RequestAddPackageByAppInstallerFileAsync<P0, P2>(&self, appinstallerfileuri: P0, options: AddPackageByAppInstallerOptions, targetvolume: P2) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P2: windows_core::Param<PackageVolume>,
@@ -2143,7 +2143,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RequestAddPackageByAppInstallerFileAsync)(windows_core::Interface::as_raw(this), appinstallerfileuri.param().abi(), options, targetvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddPackageToVolumeAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, options: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, packageuristoinstall: P5, relatedpackageuris: P6) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageToVolumeAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, options: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, packageuristoinstall: P5, relatedpackageuris: P6) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -2158,7 +2158,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageToVolumeAndRelatedSetAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), options, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), packageuristoinstall.param().abi(), relatedpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StagePackageToVolumeAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, options: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, packageuristoinstall: P5, relatedpackageuris: P6) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageToVolumeAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, options: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, packageuristoinstall: P5, relatedpackageuris: P6) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -2173,7 +2173,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageToVolumeAndRelatedSetAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), options, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), packageuristoinstall.param().abi(), relatedpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAddPackageAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, relatedpackageuris: P5) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RequestAddPackageAsync<P0, P1, P3, P4, P5>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, relatedpackageuris: P5) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -2187,7 +2187,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RequestAddPackageAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), relatedpackageuris.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAddPackageAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, relatedpackageuris: P5, packageuristoinstall: P6) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RequestAddPackageAndRelatedSetAsync<P0, P1, P3, P4, P5, P6>(&self, packageuri: P0, dependencypackageuris: P1, deploymentoptions: DeploymentOptions, targetvolume: P3, optionalpackagefamilynames: P4, relatedpackageuris: P5, packageuristoinstall: P6) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
@@ -2202,7 +2202,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RequestAddPackageAndRelatedSetAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, targetvolume.param().abi(), optionalpackagefamilynames.param().abi(), relatedpackageuris.param().abi(), packageuristoinstall.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeprovisionPackageForAllUsersAsync(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
+    pub fn DeprovisionPackageForAllUsersAsync(&self, packagefamilyname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2210,14 +2210,14 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindProvisionedPackages(&self) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindProvisionedPackages(&self) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindProvisionedPackages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddPackageByUriAsync<P0, P1>(&self, packageuri: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn AddPackageByUriAsync<P0, P1>(&self, packageuri: P0, options: P1) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<AddPackageOptions>,
@@ -2228,7 +2228,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).AddPackageByUriAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StagePackageByUriAsync<P0, P1>(&self, packageuri: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn StagePackageByUriAsync<P0, P1>(&self, packageuri: P0, options: P1) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<StagePackageOptions>,
@@ -2239,7 +2239,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).StagePackageByUriAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RegisterPackageByUriAsync<P0, P1>(&self, manifesturi: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackageByUriAsync<P0, P1>(&self, manifesturi: P0, options: P1) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<RegisterPackageOptions>,
@@ -2250,7 +2250,7 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RegisterPackageByUriAsync)(windows_core::Interface::as_raw(this), manifesturi.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RegisterPackagesByFullNameAsync<P0, P1>(&self, packagefullnames: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    pub fn RegisterPackagesByFullNameAsync<P0, P1>(&self, packagefullnames: P0, options: P1) -> Result<windows_future::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
         P1: windows_core::Param<RegisterPackageOptions>,
@@ -2261,11 +2261,11 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RegisterPackagesByFullNameAsync)(windows_core::Interface::as_raw(this), packagefullnames.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPackageStubPreference(&self, packagefamilyname: &windows_core::HSTRING, usestub: PackageStubPreference) -> windows_core::Result<()> {
+    pub fn SetPackageStubPreference(&self, packagefamilyname: &windows_core::HSTRING, usestub: PackageStubPreference) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager9>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPackageStubPreference)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), usestub).ok() }
     }
-    pub fn GetPackageStubPreference(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<PackageStubPreference> {
+    pub fn GetPackageStubPreference(&self, packagefamilyname: &windows_core::HSTRING) -> Result<PackageStubPreference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2291,7 +2291,7 @@ pub struct PackageManagerDebugSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageManagerDebugSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageManagerDebugSettings {
     #[cfg(feature = "ApplicationModel")]
-    pub fn SetContentGroupStateAsync<P0>(&self, package: P0, contentgroupname: &windows_core::HSTRING, state: super::super::ApplicationModel::PackageContentGroupState) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetContentGroupStateAsync<P0>(&self, package: P0, contentgroupname: &windows_core::HSTRING, state: super::super::ApplicationModel::PackageContentGroupState) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Package>,
     {
@@ -2302,7 +2302,7 @@ impl PackageManagerDebugSettings {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn SetContentGroupStateWithPercentageAsync<P0>(&self, package: P0, contentgroupname: &windows_core::HSTRING, state: super::super::ApplicationModel::PackageContentGroupState, completionpercentage: f64) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetContentGroupStateWithPercentageAsync<P0>(&self, package: P0, contentgroupname: &windows_core::HSTRING, state: super::super::ApplicationModel::PackageContentGroupState, completionpercentage: f64) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Package>,
     {
@@ -2459,14 +2459,14 @@ impl core::ops::Not for PackageTypes {
 pub struct PackageUserInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUserInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUserInformation {
-    pub fn UserSecurityId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserSecurityId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserSecurityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstallState(&self) -> windows_core::Result<PackageInstallState> {
+    pub fn InstallState(&self) -> Result<PackageInstallState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2491,42 +2491,42 @@ unsafe impl Sync for PackageUserInformation {}
 pub struct PackageVolume(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageVolume, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageVolume {
-    pub fn IsOffline(&self) -> windows_core::Result<bool> {
+    pub fn IsOffline(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOffline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsSystemVolume(&self) -> windows_core::Result<bool> {
+    pub fn IsSystemVolume(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSystemVolume)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MountPoint(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MountPoint(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MountPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PackageStorePath(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageStorePath(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageStorePath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SupportsHardLinks(&self) -> windows_core::Result<bool> {
+    pub fn SupportsHardLinks(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2534,7 +2534,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackages(&self) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackages(&self) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2542,7 +2542,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisher(&self, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2550,7 +2550,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyName(&self, packagefamilyname: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2558,7 +2558,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2566,7 +2566,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByNamePublisherWithPackagesTypes(&self, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByNamePublisherWithPackagesTypes(&self, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2574,7 +2574,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByPackageFamilyNameWithPackageTypes(&self, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2582,7 +2582,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackageByPackageFullName(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackageByPackageFullName(&self, packagefullname: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2590,7 +2590,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityId(&self, usersecurityid: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2598,7 +2598,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisher(&self, usersecurityid: &windows_core::HSTRING, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2606,7 +2606,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyName(&self, usersecurityid: &windows_core::HSTRING, packagefamilyname: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2614,7 +2614,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2622,7 +2622,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagename: &windows_core::HSTRING, packagepublisher: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2630,7 +2630,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes(&self, usersecurityid: &windows_core::HSTRING, packagetypes: PackageTypes, packagefamilyname: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2638,28 +2638,28 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &windows_core::HSTRING, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVector<super::super::ApplicationModel::Package>> {
+    pub fn FindPackageByUserSecurityIdPackageFullName(&self, usersecurityid: &windows_core::HSTRING, packagefullname: &windows_core::HSTRING) -> Result<windows_collections::IVector<super::super::ApplicationModel::Package>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersecurityid), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsFullTrustPackageSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsFullTrustPackageSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFullTrustPackageSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsAppxInstallSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsAppxInstallSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAppxInstallSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetAvailableSpaceAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<u64>> {
+    pub fn GetAvailableSpaceAsync(&self) -> Result<windows_future::IAsyncOperation<u64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2684,144 +2684,144 @@ unsafe impl Sync for PackageVolume {}
 pub struct RegisterPackageOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RegisterPackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl RegisterPackageOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RegisterPackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DependencyPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AppDataVolume(&self) -> windows_core::Result<PackageVolume> {
+    pub fn AppDataVolume(&self) -> Result<PackageVolume, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppDataVolume)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAppDataVolume<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetAppDataVolume<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PackageVolume>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAppDataVolume)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExternalLocationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ExternalLocationUri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExternalLocationUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExternalLocationUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExternalLocationUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExternalLocationUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn DeveloperMode(&self) -> windows_core::Result<bool> {
+    pub fn DeveloperMode(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeveloperMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeveloperMode(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDeveloperMode(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeveloperMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceAppShutdown(&self) -> windows_core::Result<bool> {
+    pub fn ForceAppShutdown(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceAppShutdown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceAppShutdown(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceAppShutdown(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceAppShutdown)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceTargetAppShutdown(&self) -> windows_core::Result<bool> {
+    pub fn ForceTargetAppShutdown(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceTargetAppShutdown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceTargetAppShutdown(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceTargetAppShutdown(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceTargetAppShutdown)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceUpdateFromAnyVersion(&self) -> windows_core::Result<bool> {
+    pub fn ForceUpdateFromAnyVersion(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InstallAllResources(&self) -> windows_core::Result<bool> {
+    pub fn InstallAllResources(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstallAllResources)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInstallAllResources(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetInstallAllResources(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInstallAllResources)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn StageInPlace(&self) -> windows_core::Result<bool> {
+    pub fn StageInPlace(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StageInPlace)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStageInPlace(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetStageInPlace(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStageInPlace)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AllowUnsigned(&self) -> windows_core::Result<bool> {
+    pub fn AllowUnsigned(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowUnsigned)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAllowUnsigned(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowUnsigned(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllowUnsigned)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> windows_core::Result<bool> {
+    pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ExpectedDigests(&self) -> windows_core::Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
+    pub fn ExpectedDigests(&self) -> Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRegisterPackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2895,54 +2895,54 @@ impl core::ops::Not for RemovalOptions {
 pub struct RemovePackageOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemovePackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl RemovePackageOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RemovePackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn PreserveApplicationData(&self) -> windows_core::Result<bool> {
+    pub fn PreserveApplicationData(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreserveApplicationData)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPreserveApplicationData(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetPreserveApplicationData(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPreserveApplicationData)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PreserveRoamableApplicationData(&self) -> windows_core::Result<bool> {
+    pub fn PreserveRoamableApplicationData(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreserveRoamableApplicationData)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPreserveRoamableApplicationData(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetPreserveRoamableApplicationData(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPreserveRoamableApplicationData)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RemoveForAllUsers(&self) -> windows_core::Result<bool> {
+    pub fn RemoveForAllUsers(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoveForAllUsers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRemoveForAllUsers(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRemoveForAllUsers(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRemoveForAllUsers)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DeferRemovalWhenPackagesAreInUse(&self) -> windows_core::Result<bool> {
+    pub fn DeferRemovalWhenPackagesAreInUse(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRemovePackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeferRemovalWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeferRemovalWhenPackagesAreInUse(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDeferRemovalWhenPackagesAreInUse(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRemovePackageOptions2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDeferRemovalWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2964,28 +2964,28 @@ unsafe impl Sync for RemovePackageOptions {}
 pub struct SharedPackageContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SharedPackageContainer, windows_core::IUnknown, windows_core::IInspectable);
 impl SharedPackageContainer {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetMembers(&self) -> windows_core::Result<windows_collections::IVector<SharedPackageContainerMember>> {
+    pub fn GetMembers(&self) -> Result<windows_collections::IVector<SharedPackageContainerMember>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMembers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemovePackageFamily<P1>(&self, packagefamilyname: &windows_core::HSTRING, options: P1) -> windows_core::Result<UpdateSharedPackageContainerResult>
+    pub fn RemovePackageFamily<P1>(&self, packagefamilyname: &windows_core::HSTRING, options: P1) -> Result<UpdateSharedPackageContainerResult, windows_result::HRESULT>
     where
         P1: windows_core::Param<UpdateSharedPackageContainerOptions>,
     {
@@ -2995,7 +2995,7 @@ impl SharedPackageContainer {
             (windows_core::Interface::vtable(this).RemovePackageFamily)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResetData(&self) -> windows_core::Result<UpdateSharedPackageContainerResult> {
+    pub fn ResetData(&self) -> Result<UpdateSharedPackageContainerResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3034,7 +3034,7 @@ impl windows_core::RuntimeType for SharedPackageContainerCreationCollisionOption
 pub struct SharedPackageContainerManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SharedPackageContainerManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SharedPackageContainerManager {
-    pub fn CreateContainer<P1>(&self, name: &windows_core::HSTRING, options: P1) -> windows_core::Result<CreateSharedPackageContainerResult>
+    pub fn CreateContainer<P1>(&self, name: &windows_core::HSTRING, options: P1) -> Result<CreateSharedPackageContainerResult, windows_result::HRESULT>
     where
         P1: windows_core::Param<CreateSharedPackageContainerOptions>,
     {
@@ -3044,7 +3044,7 @@ impl SharedPackageContainerManager {
             (windows_core::Interface::vtable(this).CreateContainer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteContainer<P1>(&self, id: &windows_core::HSTRING, options: P1) -> windows_core::Result<DeleteSharedPackageContainerResult>
+    pub fn DeleteContainer<P1>(&self, id: &windows_core::HSTRING, options: P1) -> Result<DeleteSharedPackageContainerResult, windows_result::HRESULT>
     where
         P1: windows_core::Param<DeleteSharedPackageContainerOptions>,
     {
@@ -3054,21 +3054,21 @@ impl SharedPackageContainerManager {
             (windows_core::Interface::vtable(this).DeleteContainer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetContainer(&self, id: &windows_core::HSTRING) -> windows_core::Result<SharedPackageContainer> {
+    pub fn GetContainer(&self, id: &windows_core::HSTRING) -> Result<SharedPackageContainer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetContainer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindContainers(&self) -> windows_core::Result<windows_collections::IVector<SharedPackageContainer>> {
+    pub fn FindContainers(&self) -> Result<windows_collections::IVector<SharedPackageContainer>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContainers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindContainersWithOptions<P0>(&self, options: P0) -> windows_core::Result<windows_collections::IVector<SharedPackageContainer>>
+    pub fn FindContainersWithOptions<P0>(&self, options: P0) -> Result<windows_collections::IVector<SharedPackageContainer>, windows_result::HRESULT>
     where
         P0: windows_core::Param<FindSharedPackageContainerOptions>,
     {
@@ -3078,25 +3078,25 @@ impl SharedPackageContainerManager {
             (windows_core::Interface::vtable(this).FindContainersWithOptions)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<SharedPackageContainerManager> {
+    pub fn GetDefault() -> Result<SharedPackageContainerManager, windows_result::HRESULT> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUser(usersid: &windows_core::HSTRING) -> windows_core::Result<SharedPackageContainerManager> {
+    pub fn GetForUser(usersid: &windows_core::HSTRING) -> Result<SharedPackageContainerManager, windows_result::HRESULT> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(usersid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForProvisioning() -> windows_core::Result<SharedPackageContainerManager> {
+    pub fn GetForProvisioning() -> Result<SharedPackageContainerManager, windows_result::HRESULT> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForProvisioning)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISharedPackageContainerManagerStatics<R, F: FnOnce(&ISharedPackageContainerManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedPackageContainerManagerStatics<R, F: FnOnce(&ISharedPackageContainerManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SharedPackageContainerManager, ISharedPackageContainerManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3118,20 +3118,20 @@ unsafe impl Sync for SharedPackageContainerManager {}
 pub struct SharedPackageContainerMember(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SharedPackageContainerMember, windows_core::IUnknown, windows_core::IInspectable);
 impl SharedPackageContainerMember {
-    pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageFamilyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<SharedPackageContainerMember> {
+    pub fn CreateInstance(packagefamilyname: &windows_core::HSTRING) -> Result<SharedPackageContainerMember, windows_result::HRESULT> {
         Self::ISharedPackageContainerMemberFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISharedPackageContainerMemberFactory<R, F: FnOnce(&ISharedPackageContainerMemberFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedPackageContainerMemberFactory<R, F: FnOnce(&ISharedPackageContainerMemberFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SharedPackageContainerMember, ISharedPackageContainerMemberFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3170,147 +3170,147 @@ impl windows_core::RuntimeType for SharedPackageContainerOperationStatus {
 pub struct StagePackageOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StagePackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl StagePackageOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<StagePackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn DependencyPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn DependencyPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DependencyPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TargetVolume(&self) -> windows_core::Result<PackageVolume> {
+    pub fn TargetVolume(&self) -> Result<PackageVolume, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TargetVolume)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTargetVolume<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetTargetVolume<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PackageVolume>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTargetVolume)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn OptionalPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn OptionalPackageFamilyNames(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OptionalPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn OptionalPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionalPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RelatedPackageUris(&self) -> windows_core::Result<windows_collections::IVector<super::super::Foundation::Uri>> {
+    pub fn RelatedPackageUris(&self) -> Result<windows_collections::IVector<super::super::Foundation::Uri>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelatedPackageUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExternalLocationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ExternalLocationUri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExternalLocationUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExternalLocationUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExternalLocationUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExternalLocationUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn StubPackageOption(&self) -> windows_core::Result<StubPackageOption> {
+    pub fn StubPackageOption(&self) -> Result<StubPackageOption, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StubPackageOption)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> windows_core::Result<()> {
+    pub fn SetStubPackageOption(&self, value: StubPackageOption) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStubPackageOption)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DeveloperMode(&self) -> windows_core::Result<bool> {
+    pub fn DeveloperMode(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeveloperMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeveloperMode(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDeveloperMode(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeveloperMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForceUpdateFromAnyVersion(&self) -> windows_core::Result<bool> {
+    pub fn ForceUpdateFromAnyVersion(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InstallAllResources(&self) -> windows_core::Result<bool> {
+    pub fn InstallAllResources(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstallAllResources)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInstallAllResources(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetInstallAllResources(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInstallAllResources)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RequiredContentGroupOnly(&self) -> windows_core::Result<bool> {
+    pub fn RequiredContentGroupOnly(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequiredContentGroupOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRequiredContentGroupOnly(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRequiredContentGroupOnly(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequiredContentGroupOnly)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn StageInPlace(&self) -> windows_core::Result<bool> {
+    pub fn StageInPlace(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StageInPlace)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStageInPlace(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetStageInPlace(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStageInPlace)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AllowUnsigned(&self) -> windows_core::Result<bool> {
+    pub fn AllowUnsigned(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowUnsigned)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAllowUnsigned(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowUnsigned(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllowUnsigned)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ExpectedDigests(&self) -> windows_core::Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>> {
+    pub fn ExpectedDigests(&self) -> Result<windows_collections::IMap<super::super::Foundation::Uri, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IStagePackageOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3350,32 +3350,32 @@ impl windows_core::RuntimeType for StubPackageOption {
 pub struct UpdateSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UpdateSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl UpdateSharedPackageContainerOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<UpdateSharedPackageContainerOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ForceAppShutdown(&self) -> windows_core::Result<bool> {
+    pub fn ForceAppShutdown(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceAppShutdown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForceAppShutdown(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetForceAppShutdown(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForceAppShutdown)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RequirePackagesPresent(&self) -> windows_core::Result<bool> {
+    pub fn RequirePackagesPresent(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequirePackagesPresent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRequirePackagesPresent(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRequirePackagesPresent(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequirePackagesPresent)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -3397,14 +3397,14 @@ unsafe impl Sync for UpdateSharedPackageContainerOptions {}
 pub struct UpdateSharedPackageContainerResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UpdateSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 impl UpdateSharedPackageContainerResult {
-    pub fn Status(&self) -> windows_core::Result<SharedPackageContainerOperationStatus> {
+    pub fn Status(&self) -> Result<SharedPackageContainerOperationStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

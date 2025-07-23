@@ -9,7 +9,7 @@ fn test_factory() {
     struct Factory;
 
     impl IActivationFactory_Impl for Factory_Impl {
-        fn ActivateInstance(&self) -> Result<IInspectable> {
+        fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
             todo!()
         }
     }

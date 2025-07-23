@@ -8,7 +8,7 @@ pub struct AgileReference<T>(imp::IAgileReference, PhantomData<T>);
 
 impl<T: Interface> AgileReference<T> {
     /// Creates an agile reference to the object.
-    pub fn new(object: &T) -> Result<Self> {
+    pub fn new(object: &T) -> Result<Self, windows_result::HRESULT> {
         // TODO: this assert is required until we can catch this at compile time using an "associated const equality" constraint.
         // For example, <T: Interface<UNKNOWN = true>>
         // https://github.com/rust-lang/rust/issues/92827
@@ -24,7 +24,7 @@ impl<T: Interface> AgileReference<T> {
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.
-    pub fn resolve(&self) -> Result<T> {
+    pub fn resolve(&self) -> Result<T, windows_result::HRESULT> {
         unsafe { self.0.Resolve() }
     }
 }

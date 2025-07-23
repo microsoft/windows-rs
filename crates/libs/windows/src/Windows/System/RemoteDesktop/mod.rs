@@ -14,13 +14,13 @@ pub struct IInteractiveSessionStatics_Vtbl {
 }
 pub struct InteractiveSession;
 impl InteractiveSession {
-    pub fn IsRemote() -> windows_core::Result<bool> {
+    pub fn IsRemote() -> Result<bool, windows_result::HRESULT> {
         Self::IInteractiveSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRemote)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IInteractiveSessionStatics<R, F: FnOnce(&IInteractiveSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractiveSessionStatics<R, F: FnOnce(&IInteractiveSessionStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<InteractiveSession, IInteractiveSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

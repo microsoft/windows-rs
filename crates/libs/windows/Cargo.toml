@@ -16,6 +16,7 @@ exclude = ["features.json"]
 [dependencies]
 windows-collections = { workspace = true }
 windows-core = { workspace = true }
+windows-result = { workspace = true }
 windows-future = { workspace = true }
 windows-link = { workspace = true }
 windows-numerics = { workspace = true }

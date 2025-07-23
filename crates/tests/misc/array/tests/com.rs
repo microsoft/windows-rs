@@ -1,7 +1,7 @@
 use windows::{core::*, Win32::Media::MediaFoundation::*, Win32::System::Com::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 

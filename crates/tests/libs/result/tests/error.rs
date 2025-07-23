@@ -59,12 +59,12 @@ fn from_win32() {
 
 #[test]
 fn try_from_int() {
-    fn call(value: usize) -> Result<u16> {
+    fn call(value: usize) -> Result<u16, HRESULT> {
         Ok(value.try_into()?)
     }
 
     assert_eq!(call(123), Ok(123));
 
     let e = call(usize::MAX).unwrap_err();
-    assert_eq!(e.code(), HRESULT::from_win32(ERROR_INVALID_DATA));
+    assert_eq!(e, HRESULT::from_win32(ERROR_INVALID_DATA));
 }

@@ -1,7 +1,7 @@
 use windows::{core::*, Win32::Security::Cryptography::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let mut rng = Owned::default();
         BCryptOpenAlgorithmProvider(&mut *rng, BCRYPT_RNG_ALGORITHM, None, Default::default())

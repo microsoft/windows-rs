@@ -1,5 +1,5 @@
-use windows::core::Result;
 use windows_strings::*;
+use windows_result::*;
 
 #[test]
 fn hstring_works() {
@@ -222,7 +222,7 @@ fn hstring_osstring_equality_combinations() {
 }
 
 #[test]
-fn hstring_compat() -> Result<()> {
+fn hstring_compat() -> Result<(), HRESULT> {
     unsafe {
         use windows::Win32::System::WinRT::*;
         let hey = HSTRING::from("Hey");

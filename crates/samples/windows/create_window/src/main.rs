@@ -3,7 +3,7 @@ use windows::{
     Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*,
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let instance = GetModuleHandleA(None)?;
         let window_class = s!("window");

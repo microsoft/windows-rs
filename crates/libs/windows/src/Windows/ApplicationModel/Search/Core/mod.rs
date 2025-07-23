@@ -88,28 +88,28 @@ unsafe impl Sync for RequestingFocusOnKeyboardInputEventArgs {}
 pub struct SearchSuggestion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestion, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestion {
-    pub fn Kind(&self) -> windows_core::Result<SearchSuggestionKind> {
+    pub fn Kind(&self) -> Result<SearchSuggestionKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Tag(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DetailText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DetailText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -117,14 +117,14 @@ impl SearchSuggestion {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Image(&self) -> windows_core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Image(&self) -> Result<super::super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Image)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ImageAlternateText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ImageAlternateText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -161,51 +161,51 @@ impl windows_core::RuntimeType for SearchSuggestionKind {
 pub struct SearchSuggestionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionManager {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SearchSuggestionManager, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SearchHistoryEnabled(&self) -> windows_core::Result<bool> {
+    pub fn SearchHistoryEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SearchHistoryEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSearchHistoryEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSearchHistoryEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSearchHistoryEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SearchHistoryContext(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SearchHistoryContext(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SearchHistoryContext)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetSearchHistoryContext(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetSearchHistoryContext(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSearchHistoryContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn SetLocalContentSuggestionSettings<P0>(&self, settings: P0) -> windows_core::Result<()>
+    pub fn SetLocalContentSuggestionSettings<P0>(&self, settings: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::LocalContentSuggestionSettings>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
-    pub fn SetQuery(&self, querytext: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetQuery(&self, querytext: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetQuery)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext)).ok() }
     }
-    pub fn SetQueryWithLanguage(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetQueryWithLanguage(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetQueryWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language)).ok() }
     }
-    pub fn SetQueryWithSearchQueryLinguisticDetails<P2>(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING, linguisticdetails: P2) -> windows_core::Result<()>
+    pub fn SetQueryWithSearchQueryLinguisticDetails<P2>(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING, linguisticdetails: P2) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<super::SearchQueryLinguisticDetails>,
     {
@@ -213,26 +213,26 @@ impl SearchSuggestionManager {
         unsafe { (windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language), linguisticdetails.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Suggestions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>> {
+    pub fn Suggestions(&self) -> Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Suggestions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddToHistory(&self, querytext: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn AddToHistory(&self, querytext: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddToHistory)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext)).ok() }
     }
-    pub fn AddToHistoryWithLanguage(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn AddToHistoryWithLanguage(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddToHistoryWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language)).ok() }
     }
-    pub fn ClearHistory(&self) -> windows_core::Result<()> {
+    pub fn ClearHistory(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearHistory)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SuggestionsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SuggestionsRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>,
     {
@@ -242,11 +242,11 @@ impl SearchSuggestionManager {
             (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSuggestionsRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSuggestionsRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSuggestionsRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestingFocusOnKeyboardInput<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RequestingFocusOnKeyboardInput<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>,
     {
@@ -256,7 +256,7 @@ impl SearchSuggestionManager {
             (windows_core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRequestingFocusOnKeyboardInput(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRequestingFocusOnKeyboardInput(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRequestingFocusOnKeyboardInput)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -276,28 +276,28 @@ impl windows_core::RuntimeName for SearchSuggestionManager {
 pub struct SearchSuggestionsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionsRequestedEventArgs {
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LinguisticDetails(&self) -> windows_core::Result<super::SearchQueryLinguisticDetails> {
+    pub fn LinguisticDetails(&self) -> Result<super::SearchQueryLinguisticDetails, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Request(&self) -> windows_core::Result<super::SearchSuggestionsRequest> {
+    pub fn Request(&self) -> Result<super::SearchSuggestionsRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -1,12 +1,12 @@
 pub struct ClassicAppManager;
 impl ClassicAppManager {
-    pub fn FindInstalledApp(appuninstallkey: &windows_core::HSTRING) -> windows_core::Result<InstalledClassicAppInfo> {
+    pub fn FindInstalledApp(appuninstallkey: &windows_core::HSTRING) -> Result<InstalledClassicAppInfo, windows_result::HRESULT> {
         Self::IClassicAppManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindInstalledApp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appuninstallkey), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IClassicAppManagerStatics<R, F: FnOnce(&IClassicAppManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClassicAppManagerStatics<R, F: FnOnce(&IClassicAppManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ClassicAppManager, IClassicAppManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -40,14 +40,14 @@ pub struct IInstalledClassicAppInfo_Vtbl {
 pub struct InstalledClassicAppInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InstalledClassicAppInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl InstalledClassicAppInfo {
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayVersion(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

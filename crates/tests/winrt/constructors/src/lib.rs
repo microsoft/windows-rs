@@ -22,13 +22,13 @@ struct ActivatableFactory;
 
 impl IActivationFactory_Impl for ActivatableFactory_Impl {
     // Activatable types implement their default constructors using `IActivationFactory::ActivateInstance`.
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
         Ok(Activatable::new(0).into())
     }
 }
 
 impl bindings::IActivatableFactory_Impl for ActivatableFactory_Impl {
-    fn WithValue(&self, arg: i32) -> Result<bindings::Activatable> {
+    fn WithValue(&self, arg: i32) -> Result<bindings::Activatable, HRESULT> {
         Ok(Activatable::new(arg).into())
     }
 }
@@ -37,7 +37,7 @@ impl bindings::IActivatableFactory_Impl for ActivatableFactory_Impl {
 struct Activatable(i32);
 
 impl bindings::IActivatable_Impl for Activatable_Impl {
-    fn Property(&self) -> Result<i32> {
+    fn Property(&self) -> Result<i32, HRESULT> {
         Ok(self.0)
     }
 }
@@ -54,7 +54,7 @@ struct ComposableFactory;
 impl IActivationFactory_Impl for ComposableFactory_Impl {
     // Composable types implement their default constructors using custom composable factory interfaces.
     // `IComposableFactory::CreateInstance` in this case.
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
         Err(E_NOTIMPL.into())
     }
 }
@@ -64,7 +64,7 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
         &self,
         base: Ref<windows_core::IInspectable>,
         inner: OutRef<windows_core::IInspectable>,
-    ) -> Result<bindings::Composable> {
+    ) -> Result<bindings::Composable, HRESULT> {
         // windows-rs doesn't support binary composition
         _ = inner.write(None);
         if base.is_some() {
@@ -79,7 +79,7 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
         arg: i32,
         base: Ref<windows_core::IInspectable>,
         inner: OutRef<windows_core::IInspectable>,
-    ) -> Result<bindings::Composable> {
+    ) -> Result<bindings::Composable, HRESULT> {
         // windows-rs doesn't support binary composition
         _ = inner.write(None);
         if base.is_some() {
@@ -94,7 +94,7 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
 struct Composable(i32);
 
 impl bindings::IComposable_Impl for Composable_Impl {
-    fn Property(&self) -> Result<i32> {
+    fn Property(&self) -> Result<i32, HRESULT> {
         Ok(self.0)
     }
 }

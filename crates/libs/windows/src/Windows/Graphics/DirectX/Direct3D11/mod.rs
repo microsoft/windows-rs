@@ -100,11 +100,11 @@ impl windows_core::RuntimeType for IDirect3DDevice {
 windows_core::imp::interface_hierarchy!(IDirect3DDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IDirect3DDevice, super::super::super::Foundation::IClosable);
 impl IDirect3DDevice {
-    pub fn Trim(&self) -> windows_core::Result<()> {
+    pub fn Trim(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Trim)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -113,7 +113,7 @@ impl windows_core::RuntimeName for IDirect3DDevice {
     const NAME: &'static str = "Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice";
 }
 pub trait IDirect3DDevice_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn Trim(&self) -> windows_core::Result<()>;
+    fn Trim(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirect3DDevice_Vtbl {
     pub const fn new<Identity: IDirect3DDevice_Impl, const OFFSET: isize>() -> Self {
@@ -142,14 +142,14 @@ impl windows_core::RuntimeType for IDirect3DSurface {
 windows_core::imp::interface_hierarchy!(IDirect3DSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IDirect3DSurface, super::super::super::Foundation::IClosable);
 impl IDirect3DSurface {
-    pub fn Description(&self) -> windows_core::Result<Direct3DSurfaceDescription> {
+    pub fn Description(&self) -> Result<Direct3DSurfaceDescription, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -158,7 +158,7 @@ impl windows_core::RuntimeName for IDirect3DSurface {
     const NAME: &'static str = "Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface";
 }
 pub trait IDirect3DSurface_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn Description(&self) -> windows_core::Result<Direct3DSurfaceDescription>;
+    fn Description(&self) -> Result<Direct3DSurfaceDescription, windows_result::HRESULT>;
 }
 impl IDirect3DSurface_Vtbl {
     pub const fn new<Identity: IDirect3DSurface_Impl, const OFFSET: isize>() -> Self {

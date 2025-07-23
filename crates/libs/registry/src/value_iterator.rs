@@ -9,7 +9,7 @@ pub struct ValueIterator<'a> {
 }
 
 impl<'a> ValueIterator<'a> {
-    pub(crate) fn new(key: &'a Key) -> Result<Self> {
+    pub(crate) fn new(key: &'a Key) -> Result<Self, HRESULT> {
         let mut count = 0;
         let mut name_max_len = 0;
         let mut value_max_len = 0;

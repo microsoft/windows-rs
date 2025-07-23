@@ -30,12 +30,12 @@ pub struct PalmRejectionDelayZonePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PalmRejectionDelayZonePreview, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PalmRejectionDelayZonePreview, super::super::super::super::Foundation::IClosable);
 impl PalmRejectionDelayZonePreview {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
+    pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> Result<PalmRejectionDelayZonePreview, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Composition::Visual>,
     {
@@ -45,7 +45,7 @@ impl PalmRejectionDelayZonePreview {
         })
     }
     #[cfg(feature = "UI_Composition")]
-    pub fn CreateForVisualWithViewportClip<P0, P2>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P2, viewportrect: super::super::super::super::Foundation::Rect) -> windows_core::Result<PalmRejectionDelayZonePreview>
+    pub fn CreateForVisualWithViewportClip<P0, P2>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P2, viewportrect: super::super::super::super::Foundation::Rect) -> Result<PalmRejectionDelayZonePreview, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Composition::Visual>,
         P2: windows_core::Param<super::super::super::Composition::Visual>,
@@ -55,7 +55,7 @@ impl PalmRejectionDelayZonePreview {
             (windows_core::Interface::vtable(this).CreateForVisualWithViewportClip)(windows_core::Interface::as_raw(this), inputpanelvisual.param().abi(), inputpanelrect, viewportvisual.param().abi(), viewportrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPalmRejectionDelayZonePreviewStatics<R, F: FnOnce(&IPalmRejectionDelayZonePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPalmRejectionDelayZonePreviewStatics<R, F: FnOnce(&IPalmRejectionDelayZonePreviewStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PalmRejectionDelayZonePreview, IPalmRejectionDelayZonePreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

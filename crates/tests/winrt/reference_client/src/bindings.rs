@@ -35,22 +35,25 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(Reference, windows::Foundation::IStringable);
 impl Reference {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<
             Reference,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method<P0>(&self, stringable: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn Method<P0>(
+        &self,
+        stringable: P0,
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows::Foundation::IStringable>,
     {
@@ -65,7 +68,7 @@ impl Reference {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

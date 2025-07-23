@@ -11,7 +11,7 @@ struct JsonValidator {
 
 // Implement the `IJsonValidator` interface.
 impl bindings::IJsonValidator_Impl for JsonValidator_Impl {
-    fn Validate(&self, value: &HSTRING) -> Result<HSTRING> {
+    fn Validate(&self, value: &HSTRING) -> Result<HSTRING, HRESULT> {
         let value = json_from_hstring(value)?;
 
         if self.schema.is_valid(&value) {
@@ -27,7 +27,7 @@ impl bindings::IJsonValidator_Impl for JsonValidator_Impl {
                 .next()
                 .map_or(String::new(), |error| error.to_string());
 
-            Err(Error::new(E_INVALIDARG, message))
+            Err(Error::new(E_INVALIDARG, message).into())
         }
     }
 }
@@ -39,14 +39,14 @@ struct JsonValidatorFactory;
 // The JsonValidator class doesn't provide a default constructor but WinRT still requires an
 // implementation of `IActivationFactory`.
 impl IActivationFactory_Impl for JsonValidatorFactory_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
         Err(E_NOTIMPL.into())
     }
 }
 
 // Implement the `IJsonValidatorFactory` interface.
 impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory_Impl {
-    fn CreateInstance(&self, schema: &HSTRING) -> Result<bindings::JsonValidator> {
+    fn CreateInstance(&self, schema: &HSTRING) -> Result<bindings::JsonValidator, HRESULT> {
         let schema = json_from_hstring(schema)?;
 
         let schema =
@@ -57,10 +57,10 @@ impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory_Impl {
 }
 
 // Takes care of all the JSON parsing and parameter validation.
-fn json_from_hstring(value: &HSTRING) -> Result<serde_json::Value> {
+fn json_from_hstring(value: &HSTRING) -> Result<serde_json::Value, HRESULT> {
     let value = String::try_from(value)?;
 
-    serde_json::from_str(&value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")))
+    serde_json::from_str(&value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")).into())
 }
 
 static JSON_VALIDATOR_FACTORY: StaticComObject<JsonValidatorFactory> =

@@ -2,6 +2,8 @@ use windows::{
     core::*, Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*,
 };
 
+type Result<T> = std::result::Result<T, HRESULT>;
+
 fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;

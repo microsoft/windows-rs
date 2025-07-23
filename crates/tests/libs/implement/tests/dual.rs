@@ -3,7 +3,7 @@
 use windows::{core::*, Foundation::*};
 
 #[test]
-fn implement() -> Result<()> {
+fn implement() -> Result<(), HRESULT> {
     let (sender, receiver) = std::sync::mpsc::channel();
     {
         let t = Thing {
@@ -68,13 +68,13 @@ impl Drop for Thing {
 }
 
 impl IStringable_Impl for Thing_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok(HSTRING::from(&self.value))
     }
 }
 
 impl IClosable_Impl for Thing_Impl {
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         self.sender.send(format!("close: {}", self.value)).unwrap();
         Ok(())
     }

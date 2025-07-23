@@ -67,7 +67,7 @@ pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> boo
     unsafe { GetPwrDiskSpindownRange(puimax as _, puimin as _) }
 }
 #[inline]
-pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> windows_core::Result<()> {
+pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn GetSystemPowerStatus(lpsystempowerstatus : *mut SYSTEM_POWER_STATUS) -> windows_core::BOOL);
     unsafe { GetSystemPowerStatus(lpsystempowerstatus as _).ok() }
 }
@@ -102,7 +102,7 @@ pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const win
     unsafe { PowerCanRestoreIndividualDefaultPowerScheme(schemeguid) }
 }
 #[inline]
-pub unsafe fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::Result<()> {
+pub unsafe fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn PowerClearRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> windows_core::BOOL);
     unsafe { PowerClearRequest(powerrequest, requesttype).ok() }
 }
@@ -114,10 +114,10 @@ pub unsafe fn PowerCreatePossibleSetting(rootsystempowerkey: Option<super::Regis
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn PowerCreateRequest(context : *const super::Threading:: REASON_CONTEXT) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { PowerCreateRequest(context) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -287,7 +287,7 @@ pub unsafe fn PowerReadValueUnitsSpecifier(rootpowerkey: Option<super::Registry:
     unsafe { PowerReadValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: Option<*const core::ffi::c_void>, registrationhandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: Option<*const core::ffi::c_void>, registrationhandle: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("powrprof.dll" "system" fn PowerRegisterForEffectivePowerModeNotifications(version : u32, callback : EFFECTIVE_POWER_MODE_CALLBACK, context : *const core::ffi::c_void, registrationhandle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PowerRegisterForEffectivePowerModeNotifications(version, callback, context.unwrap_or(core::mem::zeroed()) as _, registrationhandle as _).ok() }
 }
@@ -329,7 +329,7 @@ pub unsafe fn PowerSetActiveScheme(userrootpowerkey: Option<super::Registry::HKE
     unsafe { PowerSetActiveScheme(userrootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::Result<()> {
+pub unsafe fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> windows_core::BOOL);
     unsafe { PowerSetRequest(powerrequest, requesttype).ok() }
 }
@@ -356,7 +356,7 @@ pub unsafe fn PowerSettingUnregisterNotification(registrationhandle: HPOWERNOTIF
     unsafe { PowerSettingUnregisterNotification(registrationhandle) }
 }
 #[inline]
-pub unsafe fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("powrprof.dll" "system" fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle).ok() }
 }
@@ -471,17 +471,17 @@ pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> bool 
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const windows_core::GUID, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> windows_core::Result<HPOWERNOTIFY> {
+pub unsafe fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const windows_core::GUID, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> Result<HPOWERNOTIFY, windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const windows_core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
     let result__ = unsafe { RegisterPowerSettingNotification(hrecipient, powersettingguid, flags) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> windows_core::Result<HPOWERNOTIFY> {
+pub unsafe fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> Result<HPOWERNOTIFY, windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn RegisterSuspendResumeNotification(hrecipient : super::super::Foundation:: HANDLE, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
     let result__ = unsafe { RegisterSuspendResumeNotification(hrecipient, flags) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> windows_core::BOOL {
@@ -499,7 +499,7 @@ pub unsafe fn SetSuspendState(bhibernate: bool, bforce: bool, bwakeupeventsdisab
     unsafe { SetSuspendState(bhibernate, bforce, bwakeupeventsdisabled) }
 }
 #[inline]
-pub unsafe fn SetSystemPowerState(fsuspend: bool, fforce: bool) -> windows_core::Result<()> {
+pub unsafe fn SetSystemPowerState(fsuspend: bool, fforce: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn SetSystemPowerState(fsuspend : windows_core::BOOL, fforce : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSystemPowerState(fsuspend.into(), fforce.into()).ok() }
 }
@@ -509,12 +509,12 @@ pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STA
     unsafe { SetThreadExecutionState(esflags) }
 }
 #[inline]
-pub unsafe fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> windows_core::Result<()> {
+pub unsafe fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(handle : HPOWERNOTIFY) -> windows_core::BOOL);
     unsafe { UnregisterPowerSettingNotification(handle).ok() }
 }
 #[inline]
-pub unsafe fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> windows_core::Result<()> {
+pub unsafe fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> windows_core::BOOL);
     unsafe { UnregisterSuspendResumeNotification(handle).ok() }
 }

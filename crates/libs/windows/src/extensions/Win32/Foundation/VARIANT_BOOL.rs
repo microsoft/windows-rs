@@ -6,11 +6,11 @@ impl VARIANT_BOOL {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> windows_core::Result<()> {
+    pub fn ok(self) -> Result<(), windows_result::HRESULT> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(windows_core::Error::from_win32())
+            Err(windows_result::HRESULT::from_thread())
         }
     }
     #[inline]

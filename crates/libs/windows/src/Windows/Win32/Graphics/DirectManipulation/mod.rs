@@ -434,7 +434,7 @@ pub const DirectManipulationViewport: windows_core::GUID = windows_core::GUID::f
 windows_core::imp::define_interface!(IDirectManipulationAutoScrollBehavior, IDirectManipulationAutoScrollBehavior_Vtbl, 0x6d5954d4_2003_4356_9b31_d051c9ff0af7);
 windows_core::imp::interface_hierarchy!(IDirectManipulationAutoScrollBehavior, windows_core::IUnknown);
 impl IDirectManipulationAutoScrollBehavior {
-    pub unsafe fn SetConfiguration(&self, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> windows_core::Result<()> {
+    pub unsafe fn SetConfiguration(&self, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), motiontypes, scrollmotion).ok() }
     }
 }
@@ -445,7 +445,7 @@ pub struct IDirectManipulationAutoScrollBehavior_Vtbl {
     pub SetConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, DIRECTMANIPULATION_MOTION_TYPES, DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationAutoScrollBehavior_Impl: windows_core::IUnknownImpl {
-    fn SetConfiguration(&self, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> windows_core::Result<()>;
+    fn SetConfiguration(&self, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationAutoScrollBehavior_Vtbl {
     pub const fn new<Identity: IDirectManipulationAutoScrollBehavior_Impl, const OFFSET: isize>() -> Self {
@@ -465,7 +465,7 @@ impl windows_core::RuntimeName for IDirectManipulationAutoScrollBehavior {}
 windows_core::imp::define_interface!(IDirectManipulationCompositor, IDirectManipulationCompositor_Vtbl, 0x537a0825_0387_4efa_b62f_71eb1f085a7e);
 windows_core::imp::interface_hierarchy!(IDirectManipulationCompositor, windows_core::IUnknown);
 impl IDirectManipulationCompositor {
-    pub unsafe fn AddContent<P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> windows_core::Result<()>
+    pub unsafe fn AddContent<P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationContent>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -474,19 +474,19 @@ impl IDirectManipulationCompositor {
     {
         unsafe { (windows_core::Interface::vtable(self).AddContent)(windows_core::Interface::as_raw(self), content.param().abi(), device.param().abi(), parentvisual.param().abi(), childvisual.param().abi()).ok() }
     }
-    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationContent>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveContent)(windows_core::Interface::as_raw(self), content.param().abi()).ok() }
     }
-    pub unsafe fn SetUpdateManager<P0>(&self, updatemanager: P0) -> windows_core::Result<()>
+    pub unsafe fn SetUpdateManager<P0>(&self, updatemanager: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationUpdateManager>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetUpdateManager)(windows_core::Interface::as_raw(self), updatemanager.param().abi()).ok() }
     }
-    pub unsafe fn Flush(&self) -> windows_core::Result<()> {
+    pub unsafe fn Flush(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -500,10 +500,10 @@ pub struct IDirectManipulationCompositor_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationCompositor_Impl: windows_core::IUnknownImpl {
-    fn AddContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>, device: windows_core::Ref<'_, windows_core::IUnknown>, parentvisual: windows_core::Ref<'_, windows_core::IUnknown>, childvisual: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RemoveContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>) -> windows_core::Result<()>;
-    fn SetUpdateManager(&self, updatemanager: windows_core::Ref<'_, IDirectManipulationUpdateManager>) -> windows_core::Result<()>;
-    fn Flush(&self) -> windows_core::Result<()>;
+    fn AddContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>, device: windows_core::Ref<'_, windows_core::IUnknown>, parentvisual: windows_core::Ref<'_, windows_core::IUnknown>, childvisual: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>) -> Result<(), windows_result::HRESULT>;
+    fn SetUpdateManager(&self, updatemanager: windows_core::Ref<'_, IDirectManipulationUpdateManager>) -> Result<(), windows_result::HRESULT>;
+    fn Flush(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationCompositor_Vtbl {
     pub const fn new<Identity: IDirectManipulationCompositor_Impl, const OFFSET: isize>() -> Self {
@@ -553,7 +553,7 @@ impl core::ops::Deref for IDirectManipulationCompositor2 {
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationCompositor2, windows_core::IUnknown, IDirectManipulationCompositor);
 impl IDirectManipulationCompositor2 {
-    pub unsafe fn AddContentWithCrossProcessChaining<P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> windows_core::Result<()>
+    pub unsafe fn AddContentWithCrossProcessChaining<P0, P1, P2, P3>(&self, content: P0, device: P1, parentvisual: P2, childvisual: P3) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationPrimaryContent>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -570,7 +570,7 @@ pub struct IDirectManipulationCompositor2_Vtbl {
     pub AddContentWithCrossProcessChaining: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationCompositor2_Impl: IDirectManipulationCompositor_Impl {
-    fn AddContentWithCrossProcessChaining(&self, content: windows_core::Ref<'_, IDirectManipulationPrimaryContent>, device: windows_core::Ref<'_, windows_core::IUnknown>, parentvisual: windows_core::Ref<'_, windows_core::IUnknown>, childvisual: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddContentWithCrossProcessChaining(&self, content: windows_core::Ref<'_, IDirectManipulationPrimaryContent>, device: windows_core::Ref<'_, windows_core::IUnknown>, parentvisual: windows_core::Ref<'_, windows_core::IUnknown>, childvisual: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationCompositor2_Vtbl {
     pub const fn new<Identity: IDirectManipulationCompositor2_Impl, const OFFSET: isize>() -> Self {
@@ -593,41 +593,41 @@ impl windows_core::RuntimeName for IDirectManipulationCompositor2 {}
 windows_core::imp::define_interface!(IDirectManipulationContent, IDirectManipulationContent_Vtbl, 0xb89962cb_3d89_442b_bb58_5098fa0f9f16);
 windows_core::imp::interface_hierarchy!(IDirectManipulationContent, windows_core::IUnknown);
 impl IDirectManipulationContent {
-    pub unsafe fn GetContentRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn GetContentRect(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetContentRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetContentRect)(windows_core::Interface::as_raw(self), contentsize).ok() }
     }
-    pub unsafe fn GetViewport<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn GetViewport<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetViewport)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetTag<T>(&self, id: Option<*mut u32>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn GetTag<T>(&self, id: Option<*mut u32>, result__: *mut Option<T>) -> Result<(), windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
+    pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id).ok() }
     }
-    pub unsafe fn GetOutputTransform(&self, matrix: &mut [f32]) -> windows_core::Result<()> {
+    pub unsafe fn GetOutputTransform(&self, matrix: &mut [f32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetOutputTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetContentTransform(&self, matrix: &mut [f32]) -> windows_core::Result<()> {
+    pub unsafe fn GetContentTransform(&self, matrix: &mut [f32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> windows_core::Result<()> {
+    pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()).ok() }
     }
 }
@@ -645,14 +645,14 @@ pub struct IDirectManipulationContent_Vtbl {
     pub SyncContentTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const f32, u32) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationContent_Impl: windows_core::IUnknownImpl {
-    fn GetContentRect(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn GetViewport(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetTag(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void, id: *mut u32) -> windows_core::Result<()>;
-    fn SetTag(&self, object: windows_core::Ref<'_, windows_core::IUnknown>, id: u32) -> windows_core::Result<()>;
-    fn GetOutputTransform(&self, matrix: *mut f32, pointcount: u32) -> windows_core::Result<()>;
-    fn GetContentTransform(&self, matrix: *mut f32, pointcount: u32) -> windows_core::Result<()>;
-    fn SyncContentTransform(&self, matrix: *const f32, pointcount: u32) -> windows_core::Result<()>;
+    fn GetContentRect(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT>;
+    fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> Result<(), windows_result::HRESULT>;
+    fn GetViewport(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn GetTag(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void, id: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetTag(&self, object: windows_core::Ref<'_, windows_core::IUnknown>, id: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetOutputTransform(&self, matrix: *mut f32, pointcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetContentTransform(&self, matrix: *mut f32, pointcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn SyncContentTransform(&self, matrix: *const f32, pointcount: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationContent_Vtbl {
     pub const fn new<Identity: IDirectManipulationContent_Impl, const OFFSET: isize>() -> Self {
@@ -730,13 +730,13 @@ impl windows_core::RuntimeName for IDirectManipulationContent {}
 windows_core::imp::define_interface!(IDirectManipulationDeferContactService, IDirectManipulationDeferContactService_Vtbl, 0x652d5c71_fe60_4a98_be70_e5f21291e7f1);
 windows_core::imp::interface_hierarchy!(IDirectManipulationDeferContactService, windows_core::IUnknown);
 impl IDirectManipulationDeferContactService {
-    pub unsafe fn DeferContact(&self, pointerid: u32, timeout: u32) -> windows_core::Result<()> {
+    pub unsafe fn DeferContact(&self, pointerid: u32, timeout: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeferContact)(windows_core::Interface::as_raw(self), pointerid, timeout).ok() }
     }
-    pub unsafe fn CancelContact(&self, pointerid: u32) -> windows_core::Result<()> {
+    pub unsafe fn CancelContact(&self, pointerid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CancelContact)(windows_core::Interface::as_raw(self), pointerid).ok() }
     }
-    pub unsafe fn CancelDeferral(&self, pointerid: u32) -> windows_core::Result<()> {
+    pub unsafe fn CancelDeferral(&self, pointerid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CancelDeferral)(windows_core::Interface::as_raw(self), pointerid).ok() }
     }
 }
@@ -749,9 +749,9 @@ pub struct IDirectManipulationDeferContactService_Vtbl {
     pub CancelDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationDeferContactService_Impl: windows_core::IUnknownImpl {
-    fn DeferContact(&self, pointerid: u32, timeout: u32) -> windows_core::Result<()>;
-    fn CancelContact(&self, pointerid: u32) -> windows_core::Result<()>;
-    fn CancelDeferral(&self, pointerid: u32) -> windows_core::Result<()>;
+    fn DeferContact(&self, pointerid: u32, timeout: u32) -> Result<(), windows_result::HRESULT>;
+    fn CancelContact(&self, pointerid: u32) -> Result<(), windows_result::HRESULT>;
+    fn CancelDeferral(&self, pointerid: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationDeferContactService_Vtbl {
     pub const fn new<Identity: IDirectManipulationDeferContactService_Impl, const OFFSET: isize>() -> Self {
@@ -788,10 +788,10 @@ impl windows_core::RuntimeName for IDirectManipulationDeferContactService {}
 windows_core::imp::define_interface!(IDirectManipulationDragDropBehavior, IDirectManipulationDragDropBehavior_Vtbl, 0x814b5af5_c2c8_4270_a9b7_a198ce8d02fa);
 windows_core::imp::interface_hierarchy!(IDirectManipulationDragDropBehavior, windows_core::IUnknown);
 impl IDirectManipulationDragDropBehavior {
-    pub unsafe fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> windows_core::Result<()> {
+    pub unsafe fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), configuration).ok() }
     }
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<DIRECTMANIPULATION_DRAG_DROP_STATUS> {
+    pub unsafe fn GetStatus(&self) -> Result<DIRECTMANIPULATION_DRAG_DROP_STATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -806,8 +806,8 @@ pub struct IDirectManipulationDragDropBehavior_Vtbl {
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationDragDropBehavior_Impl: windows_core::IUnknownImpl {
-    fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> windows_core::Result<()>;
-    fn GetStatus(&self) -> windows_core::Result<DIRECTMANIPULATION_DRAG_DROP_STATUS>;
+    fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> Result<(), windows_result::HRESULT>;
+    fn GetStatus(&self) -> Result<DIRECTMANIPULATION_DRAG_DROP_STATUS, windows_result::HRESULT>;
 }
 impl IDirectManipulationDragDropBehavior_Vtbl {
     pub const fn new<Identity: IDirectManipulationDragDropBehavior_Impl, const OFFSET: isize>() -> Self {
@@ -843,7 +843,7 @@ impl windows_core::RuntimeName for IDirectManipulationDragDropBehavior {}
 windows_core::imp::define_interface!(IDirectManipulationDragDropEventHandler, IDirectManipulationDragDropEventHandler_Vtbl, 0x1fa11b10_701b_41ae_b5f2_49e36bd595aa);
 windows_core::imp::interface_hierarchy!(IDirectManipulationDragDropEventHandler, windows_core::IUnknown);
 impl IDirectManipulationDragDropEventHandler {
-    pub unsafe fn OnDragDropStatusChange<P0>(&self, viewport: P0, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> windows_core::Result<()>
+    pub unsafe fn OnDragDropStatusChange<P0>(&self, viewport: P0, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationViewport2>,
     {
@@ -857,7 +857,7 @@ pub struct IDirectManipulationDragDropEventHandler_Vtbl {
     pub OnDragDropStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DIRECTMANIPULATION_DRAG_DROP_STATUS, DIRECTMANIPULATION_DRAG_DROP_STATUS) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationDragDropEventHandler_Impl: windows_core::IUnknownImpl {
-    fn OnDragDropStatusChange(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport2>, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> windows_core::Result<()>;
+    fn OnDragDropStatusChange(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport2>, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationDragDropEventHandler_Vtbl {
     pub const fn new<Identity: IDirectManipulationDragDropEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -877,7 +877,7 @@ impl windows_core::RuntimeName for IDirectManipulationDragDropEventHandler {}
 windows_core::imp::define_interface!(IDirectManipulationFrameInfoProvider, IDirectManipulationFrameInfoProvider_Vtbl, 0xfb759dba_6f4c_4c01_874e_19c8a05907f9);
 windows_core::imp::interface_hierarchy!(IDirectManipulationFrameInfoProvider, windows_core::IUnknown);
 impl IDirectManipulationFrameInfoProvider {
-    pub unsafe fn GetNextFrameInfo(&self, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> windows_core::Result<()> {
+    pub unsafe fn GetNextFrameInfo(&self, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetNextFrameInfo)(windows_core::Interface::as_raw(self), time as _, processtime as _, compositiontime as _).ok() }
     }
 }
@@ -888,7 +888,7 @@ pub struct IDirectManipulationFrameInfoProvider_Vtbl {
     pub GetNextFrameInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut u64, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationFrameInfoProvider_Impl: windows_core::IUnknownImpl {
-    fn GetNextFrameInfo(&self, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> windows_core::Result<()>;
+    fn GetNextFrameInfo(&self, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationFrameInfoProvider_Vtbl {
     pub const fn new<Identity: IDirectManipulationFrameInfoProvider_Impl, const OFFSET: isize>() -> Self {
@@ -908,7 +908,7 @@ impl windows_core::RuntimeName for IDirectManipulationFrameInfoProvider {}
 windows_core::imp::define_interface!(IDirectManipulationInteractionEventHandler, IDirectManipulationInteractionEventHandler_Vtbl, 0xe43f45b8_42b4_403e_b1f2_273b8f510830);
 windows_core::imp::interface_hierarchy!(IDirectManipulationInteractionEventHandler, windows_core::IUnknown);
 impl IDirectManipulationInteractionEventHandler {
-    pub unsafe fn OnInteraction<P0>(&self, viewport: P0, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> windows_core::Result<()>
+    pub unsafe fn OnInteraction<P0>(&self, viewport: P0, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationViewport2>,
     {
@@ -922,7 +922,7 @@ pub struct IDirectManipulationInteractionEventHandler_Vtbl {
     pub OnInteraction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, DIRECTMANIPULATION_INTERACTION_TYPE) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationInteractionEventHandler_Impl: windows_core::IUnknownImpl {
-    fn OnInteraction(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport2>, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> windows_core::Result<()>;
+    fn OnInteraction(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport2>, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationInteractionEventHandler_Vtbl {
     pub const fn new<Identity: IDirectManipulationInteractionEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -942,30 +942,30 @@ impl windows_core::RuntimeName for IDirectManipulationInteractionEventHandler {}
 windows_core::imp::define_interface!(IDirectManipulationManager, IDirectManipulationManager_Vtbl, 0xfbf5d3b4_70c7_4163_9322_5a6f660d6fbc);
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager, windows_core::IUnknown);
 impl IDirectManipulationManager {
-    pub unsafe fn Activate(&self, window: super::super::Foundation::HWND) -> windows_core::Result<()> {
+    pub unsafe fn Activate(&self, window: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), window).ok() }
     }
-    pub unsafe fn Deactivate(&self, window: super::super::Foundation::HWND) -> windows_core::Result<()> {
+    pub unsafe fn Deactivate(&self, window: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self), window).ok() }
     }
-    pub unsafe fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hittestwindow: Option<super::super::Foundation::HWND>, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hittestwindow: Option<super::super::Foundation::HWND>, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RegisterHitTestTarget)(windows_core::Interface::as_raw(self), window, hittestwindow.unwrap_or(core::mem::zeroed()) as _, r#type).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProcessInput)(windows_core::Interface::as_raw(self), message, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUpdateManager<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn GetUpdateManager<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetUpdateManager)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateViewport<P0, T>(&self, frameinfo: P0, window: super::super::Foundation::HWND) -> windows_core::Result<T>
+    pub unsafe fn CreateViewport<P0, T>(&self, frameinfo: P0, window: super::super::Foundation::HWND) -> Result<T, windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationFrameInfoProvider>,
         T: windows_core::Interface,
@@ -973,7 +973,7 @@ impl IDirectManipulationManager {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateViewport)(windows_core::Interface::as_raw(self), frameinfo.param().abi(), window, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateContent<P0, T>(&self, frameinfo: P0, clsid: *const windows_core::GUID) -> windows_core::Result<T>
+    pub unsafe fn CreateContent<P0, T>(&self, frameinfo: P0, clsid: *const windows_core::GUID) -> Result<T, windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationFrameInfoProvider>,
         T: windows_core::Interface,
@@ -999,13 +999,13 @@ pub struct IDirectManipulationManager_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager_Impl: windows_core::IUnknownImpl {
-    fn Activate(&self, window: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn Deactivate(&self, window: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hittestwindow: super::super::Foundation::HWND, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::Result<()>;
-    fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<windows_core::BOOL>;
-    fn GetUpdateManager(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateViewport(&self, frameinfo: windows_core::Ref<'_, IDirectManipulationFrameInfoProvider>, window: super::super::Foundation::HWND, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateContent(&self, frameinfo: windows_core::Ref<'_, IDirectManipulationFrameInfoProvider>, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Activate(&self, window: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT>;
+    fn Deactivate(&self, window: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT>;
+    fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hittestwindow: super::super::Foundation::HWND, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> Result<(), windows_result::HRESULT>;
+    fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn GetUpdateManager(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn CreateViewport(&self, frameinfo: windows_core::Ref<'_, IDirectManipulationFrameInfoProvider>, window: super::super::Foundation::HWND, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn CreateContent(&self, frameinfo: windows_core::Ref<'_, IDirectManipulationFrameInfoProvider>, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IDirectManipulationManager_Vtbl {
@@ -1084,7 +1084,7 @@ impl core::ops::Deref for IDirectManipulationManager2 {
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager2, windows_core::IUnknown, IDirectManipulationManager);
 impl IDirectManipulationManager2 {
-    pub unsafe fn CreateBehavior<T>(&self, clsid: *const windows_core::GUID) -> windows_core::Result<T>
+    pub unsafe fn CreateBehavior<T>(&self, clsid: *const windows_core::GUID) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -1100,7 +1100,7 @@ pub struct IDirectManipulationManager2_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager2_Impl: IDirectManipulationManager_Impl {
-    fn CreateBehavior(&self, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateBehavior(&self, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IDirectManipulationManager2_Vtbl {
@@ -1128,7 +1128,7 @@ impl core::ops::Deref for IDirectManipulationManager3 {
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationManager3, windows_core::IUnknown, IDirectManipulationManager, IDirectManipulationManager2);
 impl IDirectManipulationManager3 {
-    pub unsafe fn GetService<T>(&self, clsid: *const windows_core::GUID) -> windows_core::Result<T>
+    pub unsafe fn GetService<T>(&self, clsid: *const windows_core::GUID) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -1144,7 +1144,7 @@ pub struct IDirectManipulationManager3_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager3_Impl: IDirectManipulationManager2_Impl {
-    fn GetService(&self, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetService(&self, clsid: *const windows_core::GUID, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IDirectManipulationManager3_Vtbl {
@@ -1166,31 +1166,31 @@ impl windows_core::RuntimeName for IDirectManipulationManager3 {}
 windows_core::imp::define_interface!(IDirectManipulationPrimaryContent, IDirectManipulationPrimaryContent_Vtbl, 0xc12851e4_1698_4625_b9b1_7ca3ec18630b);
 windows_core::imp::interface_hierarchy!(IDirectManipulationPrimaryContent, windows_core::IUnknown);
 impl IDirectManipulationPrimaryContent {
-    pub unsafe fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSnapInterval)(windows_core::Interface::as_raw(self), motion, interval, offset).ok() }
     }
-    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: Option<&[f32]>) -> windows_core::Result<()> {
+    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: Option<&[f32]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, core::mem::transmute(points.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), points.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
-    pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSnapType)(windows_core::Interface::as_raw(self), motion, r#type).ok() }
     }
-    pub unsafe fn SetSnapCoordinate(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, coordinate: DIRECTMANIPULATION_SNAPPOINT_COORDINATE, origin: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetSnapCoordinate(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, coordinate: DIRECTMANIPULATION_SNAPPOINT_COORDINATE, origin: f32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSnapCoordinate)(windows_core::Interface::as_raw(self), motion, coordinate, origin).ok() }
     }
-    pub unsafe fn SetZoomBoundaries(&self, zoomminimum: f32, zoommaximum: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetZoomBoundaries(&self, zoomminimum: f32, zoommaximum: f32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetZoomBoundaries)(windows_core::Interface::as_raw(self), zoomminimum, zoommaximum).ok() }
     }
-    pub unsafe fn SetHorizontalAlignment(&self, alignment: DIRECTMANIPULATION_HORIZONTALALIGNMENT) -> windows_core::Result<()> {
+    pub unsafe fn SetHorizontalAlignment(&self, alignment: DIRECTMANIPULATION_HORIZONTALALIGNMENT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetHorizontalAlignment)(windows_core::Interface::as_raw(self), alignment).ok() }
     }
-    pub unsafe fn SetVerticalAlignment(&self, alignment: DIRECTMANIPULATION_VERTICALALIGNMENT) -> windows_core::Result<()> {
+    pub unsafe fn SetVerticalAlignment(&self, alignment: DIRECTMANIPULATION_VERTICALALIGNMENT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVerticalAlignment)(windows_core::Interface::as_raw(self), alignment).ok() }
     }
-    pub unsafe fn GetInertiaEndTransform(&self, matrix: &mut [f32]) -> windows_core::Result<()> {
+    pub unsafe fn GetInertiaEndTransform(&self, matrix: &mut [f32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetInertiaEndTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> windows_core::Result<()> {
+    pub unsafe fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCenterPoint)(windows_core::Interface::as_raw(self), centerx as _, centery as _).ok() }
     }
 }
@@ -1209,15 +1209,15 @@ pub struct IDirectManipulationPrimaryContent_Vtbl {
     pub GetCenterPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationPrimaryContent_Impl: windows_core::IUnknownImpl {
-    fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> windows_core::Result<()>;
-    fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: *const f32, pointcount: u32) -> windows_core::Result<()>;
-    fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> windows_core::Result<()>;
-    fn SetSnapCoordinate(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, coordinate: DIRECTMANIPULATION_SNAPPOINT_COORDINATE, origin: f32) -> windows_core::Result<()>;
-    fn SetZoomBoundaries(&self, zoomminimum: f32, zoommaximum: f32) -> windows_core::Result<()>;
-    fn SetHorizontalAlignment(&self, alignment: DIRECTMANIPULATION_HORIZONTALALIGNMENT) -> windows_core::Result<()>;
-    fn SetVerticalAlignment(&self, alignment: DIRECTMANIPULATION_VERTICALALIGNMENT) -> windows_core::Result<()>;
-    fn GetInertiaEndTransform(&self, matrix: *mut f32, pointcount: u32) -> windows_core::Result<()>;
-    fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> windows_core::Result<()>;
+    fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> Result<(), windows_result::HRESULT>;
+    fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: *const f32, pointcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> Result<(), windows_result::HRESULT>;
+    fn SetSnapCoordinate(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, coordinate: DIRECTMANIPULATION_SNAPPOINT_COORDINATE, origin: f32) -> Result<(), windows_result::HRESULT>;
+    fn SetZoomBoundaries(&self, zoomminimum: f32, zoommaximum: f32) -> Result<(), windows_result::HRESULT>;
+    fn SetHorizontalAlignment(&self, alignment: DIRECTMANIPULATION_HORIZONTALALIGNMENT) -> Result<(), windows_result::HRESULT>;
+    fn SetVerticalAlignment(&self, alignment: DIRECTMANIPULATION_VERTICALALIGNMENT) -> Result<(), windows_result::HRESULT>;
+    fn GetInertiaEndTransform(&self, matrix: *mut f32, pointcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationPrimaryContent_Vtbl {
     pub const fn new<Identity: IDirectManipulationPrimaryContent_Impl, const OFFSET: isize>() -> Self {
@@ -1296,7 +1296,7 @@ impl windows_core::RuntimeName for IDirectManipulationPrimaryContent {}
 windows_core::imp::define_interface!(IDirectManipulationUpdateHandler, IDirectManipulationUpdateHandler_Vtbl, 0x790b6337_64f8_4ff5_a269_b32bc2af27a7);
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateHandler, windows_core::IUnknown);
 impl IDirectManipulationUpdateHandler {
-    pub unsafe fn Update(&self) -> windows_core::Result<()> {
+    pub unsafe fn Update(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1307,7 +1307,7 @@ pub struct IDirectManipulationUpdateHandler_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationUpdateHandler_Impl: windows_core::IUnknownImpl {
-    fn Update(&self) -> windows_core::Result<()>;
+    fn Update(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationUpdateHandler_Vtbl {
     pub const fn new<Identity: IDirectManipulationUpdateHandler_Impl, const OFFSET: isize>() -> Self {
@@ -1327,7 +1327,7 @@ impl windows_core::RuntimeName for IDirectManipulationUpdateHandler {}
 windows_core::imp::define_interface!(IDirectManipulationUpdateManager, IDirectManipulationUpdateManager_Vtbl, 0xb0ae62fd_be34_46e7_9caa_d361facbb9cc);
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateManager, windows_core::IUnknown);
 impl IDirectManipulationUpdateManager {
-    pub unsafe fn RegisterWaitHandleCallback<P1>(&self, handle: super::super::Foundation::HANDLE, eventhandler: P1) -> windows_core::Result<u32>
+    pub unsafe fn RegisterWaitHandleCallback<P1>(&self, handle: super::super::Foundation::HANDLE, eventhandler: P1) -> Result<u32, windows_result::HRESULT>
     where
         P1: windows_core::Param<IDirectManipulationUpdateHandler>,
     {
@@ -1336,10 +1336,10 @@ impl IDirectManipulationUpdateManager {
             (windows_core::Interface::vtable(self).RegisterWaitHandleCallback)(windows_core::Interface::as_raw(self), handle, eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterWaitHandleCallback(&self, cookie: u32) -> windows_core::Result<()> {
+    pub unsafe fn UnregisterWaitHandleCallback(&self, cookie: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UnregisterWaitHandleCallback)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
-    pub unsafe fn Update<P0>(&self, frameinfo: P0) -> windows_core::Result<()>
+    pub unsafe fn Update<P0>(&self, frameinfo: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationFrameInfoProvider>,
     {
@@ -1355,9 +1355,9 @@ pub struct IDirectManipulationUpdateManager_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationUpdateManager_Impl: windows_core::IUnknownImpl {
-    fn RegisterWaitHandleCallback(&self, handle: super::super::Foundation::HANDLE, eventhandler: windows_core::Ref<'_, IDirectManipulationUpdateHandler>) -> windows_core::Result<u32>;
-    fn UnregisterWaitHandleCallback(&self, cookie: u32) -> windows_core::Result<()>;
-    fn Update(&self, frameinfo: windows_core::Ref<'_, IDirectManipulationFrameInfoProvider>) -> windows_core::Result<()>;
+    fn RegisterWaitHandleCallback(&self, handle: super::super::Foundation::HANDLE, eventhandler: windows_core::Ref<'_, IDirectManipulationUpdateHandler>) -> Result<u32, windows_result::HRESULT>;
+    fn UnregisterWaitHandleCallback(&self, cookie: u32) -> Result<(), windows_result::HRESULT>;
+    fn Update(&self, frameinfo: windows_core::Ref<'_, IDirectManipulationFrameInfoProvider>) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationUpdateManager_Vtbl {
     pub const fn new<Identity: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>() -> Self {
@@ -1400,95 +1400,95 @@ impl windows_core::RuntimeName for IDirectManipulationUpdateManager {}
 windows_core::imp::define_interface!(IDirectManipulationViewport, IDirectManipulationViewport_Vtbl, 0x28b85a3d_60a0_48bd_9ba1_5ce8d9ea3a6d);
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewport, windows_core::IUnknown);
 impl IDirectManipulationViewport {
-    pub unsafe fn Enable(&self) -> windows_core::Result<()> {
+    pub unsafe fn Enable(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Disable(&self) -> windows_core::Result<()> {
+    pub unsafe fn Disable(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Disable)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetContact(&self, pointerid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetContact(&self, pointerid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetContact)(windows_core::Interface::as_raw(self), pointerid).ok() }
     }
-    pub unsafe fn ReleaseContact(&self, pointerid: u32) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseContact(&self, pointerid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseContact)(windows_core::Interface::as_raw(self), pointerid).ok() }
     }
-    pub unsafe fn ReleaseAllContacts(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseAllContacts(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseAllContacts)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<DIRECTMANIPULATION_STATUS> {
+    pub unsafe fn GetStatus(&self) -> Result<DIRECTMANIPULATION_STATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTag<T>(&self, id: Option<*mut u32>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn GetTag<T>(&self, id: Option<*mut u32>, result__: *mut Option<T>) -> Result<(), windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
+    pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id).ok() }
     }
-    pub unsafe fn GetViewportRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn GetViewportRect(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetViewportRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetViewportRect)(windows_core::Interface::as_raw(self), viewport).ok() }
     }
-    pub unsafe fn ZoomToRect(&self, left: f32, top: f32, right: f32, bottom: f32, animate: bool) -> windows_core::Result<()> {
+    pub unsafe fn ZoomToRect(&self, left: f32, top: f32, right: f32, bottom: f32, animate: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ZoomToRect)(windows_core::Interface::as_raw(self), left, top, right, bottom, animate.into()).ok() }
     }
-    pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> windows_core::Result<()> {
+    pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> windows_core::Result<()> {
+    pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SyncDisplayTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetPrimaryContent<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn GetPrimaryContent<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetPrimaryContent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn AddContent<P0>(&self, content: P0) -> windows_core::Result<()>
+    pub unsafe fn AddContent<P0>(&self, content: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationContent>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddContent)(windows_core::Interface::as_raw(self), content.param().abi()).ok() }
     }
-    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveContent<P0>(&self, content: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationContent>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveContent)(windows_core::Interface::as_raw(self), content.param().abi()).ok() }
     }
-    pub unsafe fn SetViewportOptions(&self, options: DIRECTMANIPULATION_VIEWPORT_OPTIONS) -> windows_core::Result<()> {
+    pub unsafe fn SetViewportOptions(&self, options: DIRECTMANIPULATION_VIEWPORT_OPTIONS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetViewportOptions)(windows_core::Interface::as_raw(self), options).ok() }
     }
-    pub unsafe fn AddConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> windows_core::Result<()> {
+    pub unsafe fn AddConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddConfiguration)(windows_core::Interface::as_raw(self), configuration).ok() }
     }
-    pub unsafe fn RemoveConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> windows_core::Result<()> {
+    pub unsafe fn RemoveConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveConfiguration)(windows_core::Interface::as_raw(self), configuration).ok() }
     }
-    pub unsafe fn ActivateConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> windows_core::Result<()> {
+    pub unsafe fn ActivateConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ActivateConfiguration)(windows_core::Interface::as_raw(self), configuration).ok() }
     }
-    pub unsafe fn SetManualGesture(&self, configuration: DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> windows_core::Result<()> {
+    pub unsafe fn SetManualGesture(&self, configuration: DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetManualGesture)(windows_core::Interface::as_raw(self), configuration).ok() }
     }
-    pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> windows_core::Result<()> {
+    pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetChaining)(windows_core::Interface::as_raw(self), enabledtypes).ok() }
     }
-    pub unsafe fn AddEventHandler<P1>(&self, window: Option<super::super::Foundation::HWND>, eventhandler: P1) -> windows_core::Result<u32>
+    pub unsafe fn AddEventHandler<P1>(&self, window: Option<super::super::Foundation::HWND>, eventhandler: P1) -> Result<u32, windows_result::HRESULT>
     where
         P1: windows_core::Param<IDirectManipulationViewportEventHandler>,
     {
@@ -1497,19 +1497,19 @@ impl IDirectManipulationViewport {
             (windows_core::Interface::vtable(self).AddEventHandler)(windows_core::Interface::as_raw(self), window.unwrap_or(core::mem::zeroed()) as _, eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemoveEventHandler(&self, cookie: u32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveEventHandler(&self, cookie: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveEventHandler)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
-    pub unsafe fn SetInputMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> windows_core::Result<()> {
+    pub unsafe fn SetInputMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetInputMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn SetUpdateMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> windows_core::Result<()> {
+    pub unsafe fn SetUpdateMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUpdateMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Abandon(&self) -> windows_core::Result<()> {
+    pub unsafe fn Abandon(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Abandon)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1547,34 +1547,34 @@ pub struct IDirectManipulationViewport_Vtbl {
     pub Abandon: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationViewport_Impl: windows_core::IUnknownImpl {
-    fn Enable(&self) -> windows_core::Result<()>;
-    fn Disable(&self) -> windows_core::Result<()>;
-    fn SetContact(&self, pointerid: u32) -> windows_core::Result<()>;
-    fn ReleaseContact(&self, pointerid: u32) -> windows_core::Result<()>;
-    fn ReleaseAllContacts(&self) -> windows_core::Result<()>;
-    fn GetStatus(&self) -> windows_core::Result<DIRECTMANIPULATION_STATUS>;
-    fn GetTag(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void, id: *mut u32) -> windows_core::Result<()>;
-    fn SetTag(&self, object: windows_core::Ref<'_, windows_core::IUnknown>, id: u32) -> windows_core::Result<()>;
-    fn GetViewportRect(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn ZoomToRect(&self, left: f32, top: f32, right: f32, bottom: f32, animate: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetViewportTransform(&self, matrix: *const f32, pointcount: u32) -> windows_core::Result<()>;
-    fn SyncDisplayTransform(&self, matrix: *const f32, pointcount: u32) -> windows_core::Result<()>;
-    fn GetPrimaryContent(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>) -> windows_core::Result<()>;
-    fn RemoveContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>) -> windows_core::Result<()>;
-    fn SetViewportOptions(&self, options: DIRECTMANIPULATION_VIEWPORT_OPTIONS) -> windows_core::Result<()>;
-    fn AddConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> windows_core::Result<()>;
-    fn RemoveConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> windows_core::Result<()>;
-    fn ActivateConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> windows_core::Result<()>;
-    fn SetManualGesture(&self, configuration: DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> windows_core::Result<()>;
-    fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> windows_core::Result<()>;
-    fn AddEventHandler(&self, window: super::super::Foundation::HWND, eventhandler: windows_core::Ref<'_, IDirectManipulationViewportEventHandler>) -> windows_core::Result<u32>;
-    fn RemoveEventHandler(&self, cookie: u32) -> windows_core::Result<()>;
-    fn SetInputMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> windows_core::Result<()>;
-    fn SetUpdateMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn Abandon(&self) -> windows_core::Result<()>;
+    fn Enable(&self) -> Result<(), windows_result::HRESULT>;
+    fn Disable(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetContact(&self, pointerid: u32) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseContact(&self, pointerid: u32) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseAllContacts(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetStatus(&self) -> Result<DIRECTMANIPULATION_STATUS, windows_result::HRESULT>;
+    fn GetTag(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void, id: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetTag(&self, object: windows_core::Ref<'_, windows_core::IUnknown>, id: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetViewportRect(&self) -> Result<super::super::Foundation::RECT, windows_result::HRESULT>;
+    fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> Result<(), windows_result::HRESULT>;
+    fn ZoomToRect(&self, left: f32, top: f32, right: f32, bottom: f32, animate: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetViewportTransform(&self, matrix: *const f32, pointcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn SyncDisplayTransform(&self, matrix: *const f32, pointcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetPrimaryContent(&self, riid: *const windows_core::GUID, object: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn AddContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveContent(&self, content: windows_core::Ref<'_, IDirectManipulationContent>) -> Result<(), windows_result::HRESULT>;
+    fn SetViewportOptions(&self, options: DIRECTMANIPULATION_VIEWPORT_OPTIONS) -> Result<(), windows_result::HRESULT>;
+    fn AddConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> Result<(), windows_result::HRESULT>;
+    fn RemoveConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> Result<(), windows_result::HRESULT>;
+    fn ActivateConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> Result<(), windows_result::HRESULT>;
+    fn SetManualGesture(&self, configuration: DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> Result<(), windows_result::HRESULT>;
+    fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> Result<(), windows_result::HRESULT>;
+    fn AddEventHandler(&self, window: super::super::Foundation::HWND, eventhandler: windows_core::Ref<'_, IDirectManipulationViewportEventHandler>) -> Result<u32, windows_result::HRESULT>;
+    fn RemoveEventHandler(&self, cookie: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetInputMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> Result<(), windows_result::HRESULT>;
+    fn SetUpdateMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> Result<(), windows_result::HRESULT>;
+    fn Stop(&self) -> Result<(), windows_result::HRESULT>;
+    fn Abandon(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationViewport_Vtbl {
     pub const fn new<Identity: IDirectManipulationViewport_Impl, const OFFSET: isize>() -> Self {
@@ -1810,7 +1810,7 @@ impl core::ops::Deref for IDirectManipulationViewport2 {
 }
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewport2, windows_core::IUnknown, IDirectManipulationViewport);
 impl IDirectManipulationViewport2 {
-    pub unsafe fn AddBehavior<P0>(&self, behavior: P0) -> windows_core::Result<u32>
+    pub unsafe fn AddBehavior<P0>(&self, behavior: P0) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -1819,10 +1819,10 @@ impl IDirectManipulationViewport2 {
             (windows_core::Interface::vtable(self).AddBehavior)(windows_core::Interface::as_raw(self), behavior.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemoveBehavior(&self, cookie: u32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveBehavior(&self, cookie: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveBehavior)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
-    pub unsafe fn RemoveAllBehaviors(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAllBehaviors(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllBehaviors)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1835,9 +1835,9 @@ pub struct IDirectManipulationViewport2_Vtbl {
     pub RemoveAllBehaviors: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationViewport2_Impl: IDirectManipulationViewport_Impl {
-    fn AddBehavior(&self, behavior: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<u32>;
-    fn RemoveBehavior(&self, cookie: u32) -> windows_core::Result<()>;
-    fn RemoveAllBehaviors(&self) -> windows_core::Result<()>;
+    fn AddBehavior(&self, behavior: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<u32, windows_result::HRESULT>;
+    fn RemoveBehavior(&self, cookie: u32) -> Result<(), windows_result::HRESULT>;
+    fn RemoveAllBehaviors(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationViewport2_Vtbl {
     pub const fn new<Identity: IDirectManipulationViewport2_Impl, const OFFSET: isize>() -> Self {
@@ -1880,19 +1880,19 @@ impl windows_core::RuntimeName for IDirectManipulationViewport2 {}
 windows_core::imp::define_interface!(IDirectManipulationViewportEventHandler, IDirectManipulationViewportEventHandler_Vtbl, 0x952121da_d69f_45f9_b0f9_f23944321a6d);
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewportEventHandler, windows_core::IUnknown);
 impl IDirectManipulationViewportEventHandler {
-    pub unsafe fn OnViewportStatusChanged<P0>(&self, viewport: P0, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> windows_core::Result<()>
+    pub unsafe fn OnViewportStatusChanged<P0>(&self, viewport: P0, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationViewport>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnViewportStatusChanged)(windows_core::Interface::as_raw(self), viewport.param().abi(), current, previous).ok() }
     }
-    pub unsafe fn OnViewportUpdated<P0>(&self, viewport: P0) -> windows_core::Result<()>
+    pub unsafe fn OnViewportUpdated<P0>(&self, viewport: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationViewport>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnViewportUpdated)(windows_core::Interface::as_raw(self), viewport.param().abi()).ok() }
     }
-    pub unsafe fn OnContentUpdated<P0, P1>(&self, viewport: P0, content: P1) -> windows_core::Result<()>
+    pub unsafe fn OnContentUpdated<P0, P1>(&self, viewport: P0, content: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDirectManipulationViewport>,
         P1: windows_core::Param<IDirectManipulationContent>,
@@ -1909,9 +1909,9 @@ pub struct IDirectManipulationViewportEventHandler_Vtbl {
     pub OnContentUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectManipulationViewportEventHandler_Impl: windows_core::IUnknownImpl {
-    fn OnViewportStatusChanged(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport>, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> windows_core::Result<()>;
-    fn OnViewportUpdated(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport>) -> windows_core::Result<()>;
-    fn OnContentUpdated(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport>, content: windows_core::Ref<'_, IDirectManipulationContent>) -> windows_core::Result<()>;
+    fn OnViewportStatusChanged(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport>, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> Result<(), windows_result::HRESULT>;
+    fn OnViewportUpdated(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport>) -> Result<(), windows_result::HRESULT>;
+    fn OnContentUpdated(&self, viewport: windows_core::Ref<'_, IDirectManipulationViewport>, content: windows_core::Ref<'_, IDirectManipulationContent>) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirectManipulationViewportEventHandler_Vtbl {
     pub const fn new<Identity: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>() -> Self {

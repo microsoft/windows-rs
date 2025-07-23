@@ -3,15 +3,15 @@
 pub struct DataProtectionProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProtectionProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProtectionProvider {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DataProtectionProvider, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProtectAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn ProtectAsync<P0>(&self, data: P0) -> Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -22,7 +22,7 @@ impl DataProtectionProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnprotectAsync<P0>(&self, data: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn UnprotectAsync<P0>(&self, data: P0) -> Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -33,7 +33,7 @@ impl DataProtectionProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProtectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn ProtectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
@@ -45,7 +45,7 @@ impl DataProtectionProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnprotectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn UnprotectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
@@ -56,13 +56,13 @@ impl DataProtectionProvider {
             (windows_core::Interface::vtable(this).UnprotectStreamAsync)(windows_core::Interface::as_raw(this), src.param().abi(), dest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateOverloadExplicit(protectiondescriptor: &windows_core::HSTRING) -> windows_core::Result<DataProtectionProvider> {
+    pub fn CreateOverloadExplicit(protectiondescriptor: &windows_core::HSTRING) -> Result<DataProtectionProvider, windows_result::HRESULT> {
         Self::IDataProtectionProviderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateOverloadExplicit)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(protectiondescriptor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IDataProtectionProviderFactory<R, F: FnOnce(&IDataProtectionProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataProtectionProviderFactory<R, F: FnOnce(&IDataProtectionProviderFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DataProtectionProvider, IDataProtectionProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

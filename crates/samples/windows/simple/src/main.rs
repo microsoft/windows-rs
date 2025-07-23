@@ -1,4 +1,4 @@
-fn main() -> windows::core::Result<()> {
+fn main() -> Result<(), windows::core::HRESULT> {
     use windows::UI::Colors;
 
     let red = Colors::Red()?;

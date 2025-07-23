@@ -8,7 +8,7 @@ pub unsafe fn AcceptSecurityContext(phcredential: Option<*const super::super::Cr
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AcquireCredentialsHandleA<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AcquireCredentialsHandleA<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -18,7 +18,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AcquireCredentialsHandleW<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AcquireCredentialsHandleW<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: Option<*mut i64>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -28,7 +28,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AddCredentialsA<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AddCredentialsA<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -38,7 +38,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AddCredentialsW<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AddCredentialsW<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -47,7 +47,7 @@ where
     unsafe { AddCredentialsW(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AddSecurityPackageA<P0>(pszpackagename: P0, poptions: Option<*const SECURITY_PACKAGE_OPTIONS>) -> windows_core::Result<()>
+pub unsafe fn AddSecurityPackageA<P0>(pszpackagename: P0, poptions: Option<*const SECURITY_PACKAGE_OPTIONS>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -55,7 +55,7 @@ where
     unsafe { AddSecurityPackageA(pszpackagename.param().abi(), poptions.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AddSecurityPackageW<P0>(pszpackagename: P0, poptions: Option<*const SECURITY_PACKAGE_OPTIONS>) -> windows_core::Result<()>
+pub unsafe fn AddSecurityPackageW<P0>(pszpackagename: P0, poptions: Option<*const SECURITY_PACKAGE_OPTIONS>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -64,7 +64,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> windows_core::Result<()> {
+pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn ApplyControlToken(phcontext : *const super::super::Credentials:: SecHandle, pinput : *const SecBufferDesc) -> windows_core::HRESULT);
     unsafe { ApplyControlToken(phcontext, pinput).ok() }
 }
@@ -191,18 +191,18 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) ->
     unsafe { AuditSetSystemPolicy(core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
+pub unsafe fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn ChangeAccountPasswordA(pszpackagename : *const i8, pszdomainname : *const i8, pszaccountname : *const i8, pszoldpassword : *const i8, psznewpassword : *const i8, bimpersonating : bool, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
     unsafe { ChangeAccountPasswordA(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput as _).ok() }
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
+pub unsafe fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn ChangeAccountPasswordW(pszpackagename : *const u16, pszdomainname : *const u16, pszaccountname : *const u16, pszoldpassword : *const u16, psznewpassword : *const u16, bimpersonating : bool, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
     unsafe { ChangeAccountPasswordW(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> windows_core::Result<()> {
+pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn CompleteAuthToken(phcontext : *const super::super::Credentials:: SecHandle, ptoken : *const SecBufferDesc) -> windows_core::HRESULT);
     unsafe { CompleteAuthToken(phcontext, ptoken).ok() }
 }
@@ -226,12 +226,12 @@ pub unsafe fn DecryptMessage(phcontext: *const super::super::Credentials::SecHan
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> windows_core::Result<()> {
+pub unsafe fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn DeleteSecurityContext(phcontext : *const super::super::Credentials:: SecHandle) -> windows_core::HRESULT);
     unsafe { DeleteSecurityContext(phcontext).ok() }
 }
 #[inline]
-pub unsafe fn DeleteSecurityPackageA<P0>(pszpackagename: P0) -> windows_core::Result<()>
+pub unsafe fn DeleteSecurityPackageA<P0>(pszpackagename: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -239,7 +239,7 @@ where
     unsafe { DeleteSecurityPackageA(pszpackagename.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn DeleteSecurityPackageW<P0>(pszpackagename: P0) -> windows_core::Result<()>
+pub unsafe fn DeleteSecurityPackageW<P0>(pszpackagename: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -253,29 +253,29 @@ pub unsafe fn EncryptMessage(phcontext: *const super::super::Credentials::SecHan
     unsafe { EncryptMessage(phcontext, fqop, pmessage, messageseqno) }
 }
 #[inline]
-pub unsafe fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> windows_core::Result<()> {
+pub unsafe fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn EnumerateSecurityPackagesA(pcpackages : *mut u32, pppackageinfo : *mut *mut SecPkgInfoA) -> windows_core::HRESULT);
     unsafe { EnumerateSecurityPackagesA(pcpackages as _, pppackageinfo as _).ok() }
 }
 #[inline]
-pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> windows_core::Result<()> {
+pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn EnumerateSecurityPackagesW(pcpackages : *mut u32, pppackageinfo : *mut *mut SecPkgInfoW) -> windows_core::HRESULT);
     unsafe { EnumerateSecurityPackagesW(pcpackages as _, pppackageinfo as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn ExportSecurityContext(phcontext : *const super::super::Credentials:: SecHandle, fflags : EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext : *mut SecBuffer, ptoken : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { ExportSecurityContext(phcontext, fflags, ppackedcontext as _, ptoken as _).ok() }
 }
 #[inline]
-pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn FreeContextBuffer(pvcontextbuffer : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { FreeContextBuffer(pvcontextbuffer as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> windows_core::Result<()> {
+pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn FreeCredentialsHandle(phcredential : *const super::super::Credentials:: SecHandle) -> windows_core::HRESULT);
     unsafe { FreeCredentialsHandle(phcredential).ok() }
 }
@@ -301,13 +301,13 @@ pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Opt
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> windows_core::Result<()> {
+pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn ImpersonateSecurityContext(phcontext : *const super::super::Credentials:: SecHandle) -> windows_core::HRESULT);
     unsafe { ImpersonateSecurityContext(phcontext).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn ImportSecurityContextA<P0>(pszpackage: P0, ppackedcontext: *const SecBuffer, token: *const core::ffi::c_void) -> windows_core::Result<super::super::Credentials::SecHandle>
+pub unsafe fn ImportSecurityContextA<P0>(pszpackage: P0, ppackedcontext: *const SecBuffer, token: *const core::ffi::c_void) -> Result<super::super::Credentials::SecHandle, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -319,7 +319,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn ImportSecurityContextW<P0>(pszpackage: P0, ppackedcontext: *const SecBuffer, token: *const core::ffi::c_void) -> windows_core::Result<super::super::Credentials::SecHandle>
+pub unsafe fn ImportSecurityContextW<P0>(pszpackage: P0, ppackedcontext: *const SecBuffer, token: *const core::ffi::c_void) -> Result<super::super::Credentials::SecHandle, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -580,66 +580,66 @@ pub unsafe fn LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOT
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> windows_core::Result<()> {
+pub unsafe fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn MakeSignature(phcontext : *const super::super::Credentials:: SecHandle, fqop : u32, pmessage : *const SecBufferDesc, messageseqno : u32) -> windows_core::HRESULT);
     unsafe { MakeSignature(phcontext, fqop, pmessage, messageseqno).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn QueryContextAttributesA(phcontext : *const super::super::Credentials:: SecHandle, ulattribute : SECPKG_ATTR, pbuffer : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { QueryContextAttributesA(phcontext, ulattribute, pbuffer as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sspicli.dll" "system" fn QueryContextAttributesExA(phcontext : *const super::super::Credentials:: SecHandle, ulattribute : SECPKG_ATTR, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { QueryContextAttributesExA(phcontext, ulattribute, pbuffer as _, cbbuffer).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sspicli.dll" "system" fn QueryContextAttributesExW(phcontext : *const super::super::Credentials:: SecHandle, ulattribute : SECPKG_ATTR, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { QueryContextAttributesExW(phcontext, ulattribute, pbuffer as _, cbbuffer).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn QueryContextAttributesW(phcontext : *const super::super::Credentials:: SecHandle, ulattribute : SECPKG_ATTR, pbuffer : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { QueryContextAttributesW(phcontext, ulattribute, pbuffer as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn QueryCredentialsAttributesA(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { QueryCredentialsAttributesA(phcredential, ulattribute, pbuffer as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sspicli.dll" "system" fn QueryCredentialsAttributesExA(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { QueryCredentialsAttributesExA(phcredential, ulattribute, pbuffer as _, cbbuffer).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sspicli.dll" "system" fn QueryCredentialsAttributesExW(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { QueryCredentialsAttributesExW(phcredential, ulattribute, pbuffer as _, cbbuffer).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn QueryCredentialsAttributesW(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { QueryCredentialsAttributesW(phcredential, ulattribute, pbuffer as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn QuerySecurityContextToken(phcontext : *const super::super::Credentials:: SecHandle, token : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { QuerySecurityContextToken(phcontext, token as _).ok() }
 }
 #[inline]
-pub unsafe fn QuerySecurityPackageInfoA<P0>(pszpackagename: P0) -> windows_core::Result<*mut SecPkgInfoA>
+pub unsafe fn QuerySecurityPackageInfoA<P0>(pszpackagename: P0) -> Result<*mut SecPkgInfoA, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -650,7 +650,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn QuerySecurityPackageInfoW<P0>(pszpackagename: P0) -> windows_core::Result<*mut SecPkgInfoW>
+pub unsafe fn QuerySecurityPackageInfoW<P0>(pszpackagename: P0) -> Result<*mut SecPkgInfoW, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -662,7 +662,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> windows_core::Result<()> {
+pub unsafe fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn RevertSecurityContext(phcontext : *const super::super::Credentials:: SecHandle) -> windows_core::HRESULT);
     unsafe { RevertSecurityContext(phcontext).ok() }
 }
@@ -682,7 +682,7 @@ pub unsafe fn RtlGenRandom(randombuffer: *mut core::ffi::c_void, randombufferlen
     unsafe { RtlGenRandom(randombuffer as _, randombufferlength) }
 }
 #[inline]
-pub unsafe fn SLAcquireGenuineTicket<P2, P3, P4>(ppticketblob: *mut *mut core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: P2, pwszserverurl: P3, pwszclienttoken: P4) -> windows_core::Result<()>
+pub unsafe fn SLAcquireGenuineTicket<P2, P3, P4>(ppticketblob: *mut *mut core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: P2, pwszserverurl: P3, pwszclienttoken: P4) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
@@ -692,7 +692,7 @@ where
     unsafe { SLAcquireGenuineTicket(ppticketblob as _, pcbticketblob as _, pwsztemplateid.param().abi(), pwszserverurl.param().abi(), pwszclienttoken.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SLActivateProduct<P5>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, cbappspecificdata: Option<u32>, pvappspecificdata: Option<*const core::ffi::c_void>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszproxyserver: P5, wproxyport: Option<u16>) -> windows_core::Result<()>
+pub unsafe fn SLActivateProduct<P5>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, cbappspecificdata: Option<u32>, pvappspecificdata: Option<*const core::ffi::c_void>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszproxyserver: P5, wproxyport: Option<u16>) -> Result<(), windows_result::HRESULT>
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -700,12 +700,12 @@ where
     unsafe { SLActivateProduct(hslc, pproductskuid, cbappspecificdata.unwrap_or(core::mem::zeroed()) as _, pvappspecificdata.unwrap_or(core::mem::zeroed()) as _, pactivationinfo.unwrap_or(core::mem::zeroed()) as _, pwszproxyserver.param().abi(), wproxyport.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SLClose(hslc: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SLClose(hslc: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLClose(hslc : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SLClose(hslc).ok() }
 }
 #[inline]
-pub unsafe fn SLConsumeRight<P3>(hslc: *const core::ffi::c_void, pappid: *const windows_core::GUID, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P3, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SLConsumeRight<P3>(hslc: *const core::ffi::c_void, pappid: *const windows_core::GUID, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P3, pvreserved: Option<*const core::ffi::c_void>) -> Result<(), windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -713,7 +713,7 @@ where
     unsafe { SLConsumeRight(hslc, pappid, pproductskuid.unwrap_or(core::mem::zeroed()) as _, pwszrightname.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SLDepositOfflineConfirmationId<P2, P3>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszinstallationid: P2, pwszconfirmationid: P3) -> windows_core::Result<()>
+pub unsafe fn SLDepositOfflineConfirmationId<P2, P3>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszinstallationid: P2, pwszconfirmationid: P3) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
@@ -722,7 +722,7 @@ where
     unsafe { SLDepositOfflineConfirmationId(hslc, pproductskuid, pwszinstallationid.param().abi(), pwszconfirmationid.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SLDepositOfflineConfirmationIdEx<P3, P4>(hslc: *const core::ffi::c_void, pproductskuid: Option<*const windows_core::GUID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszinstallationid: P3, pwszconfirmationid: P4) -> windows_core::Result<()>
+pub unsafe fn SLDepositOfflineConfirmationIdEx<P3, P4>(hslc: *const core::ffi::c_void, pproductskuid: Option<*const windows_core::GUID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszinstallationid: P3, pwszconfirmationid: P4) -> Result<(), windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
@@ -731,7 +731,7 @@ where
     unsafe { SLDepositOfflineConfirmationIdEx(hslc, pproductskuid.unwrap_or(core::mem::zeroed()) as _, pactivationinfo.unwrap_or(core::mem::zeroed()) as _, pwszinstallationid.param().abi(), pwszconfirmationid.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SLFireEvent<P1>(hslc: *const core::ffi::c_void, pwszeventid: P1, papplicationid: *const windows_core::GUID) -> windows_core::Result<()>
+pub unsafe fn SLFireEvent<P1>(hslc: *const core::ffi::c_void, pwszeventid: P1, papplicationid: *const windows_core::GUID) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -739,7 +739,7 @@ where
     unsafe { SLFireEvent(hslc, pwszeventid.param().abi(), papplicationid).ok() }
 }
 #[inline]
-pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLGenerateOfflineInstallationId(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, ppwszinstallationid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -747,7 +747,7 @@ pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const core::ffi::c_void, pp
     }
 }
 #[inline]
-pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const core::ffi::c_void, pproductskuid: Option<*const windows_core::GUID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const core::ffi::c_void, pproductskuid: Option<*const windows_core::GUID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLGenerateOfflineInstallationIdEx(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, ppwszinstallationid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -755,7 +755,7 @@ pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const core::ffi::c_void, 
     }
 }
 #[inline]
-pub unsafe fn SLGetApplicationInformation<P2>(hslc: *const core::ffi::c_void, papplicationid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetApplicationInformation<P2>(hslc: *const core::ffi::c_void, papplicationid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -763,7 +763,7 @@ where
     unsafe { SLGetApplicationInformation(hslc, papplicationid, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetGenuineInformation<P1>(pqueryid: *const windows_core::GUID, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetGenuineInformation<P1>(pqueryid: *const windows_core::GUID, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -771,17 +771,17 @@ where
     unsafe { SLGetGenuineInformation(pqueryid, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetInstalledProductKeyIds(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn SLGetInstalledProductKeyIds(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut windows_core::GUID) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLGetInstalledProductKeyIds(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, pnproductkeyids : *mut u32, ppproductkeyids : *mut *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe { SLGetInstalledProductKeyIds(hslc, pproductskuid, pnproductkeyids as _, ppproductkeyids as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetLicense(hslc: *const core::ffi::c_void, plicensefileid: *const windows_core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> windows_core::Result<()> {
+pub unsafe fn SLGetLicense(hslc: *const core::ffi::c_void, plicensefileid: *const windows_core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLGetLicense(hslc : *const core::ffi::c_void, plicensefileid : *const windows_core::GUID, pcblicensefile : *mut u32, ppblicensefile : *mut *mut u8) -> windows_core::HRESULT);
     unsafe { SLGetLicense(hslc, plicensefileid, pcblicensefile as _, ppblicensefile as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetLicenseFileId(hslc: *const core::ffi::c_void, pblicenseblob: &[u8]) -> windows_core::Result<windows_core::GUID> {
+pub unsafe fn SLGetLicenseFileId(hslc: *const core::ffi::c_void, pblicenseblob: &[u8]) -> Result<windows_core::GUID, windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : *const core::ffi::c_void, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -789,7 +789,7 @@ pub unsafe fn SLGetLicenseFileId(hslc: *const core::ffi::c_void, pblicenseblob: 
     }
 }
 #[inline]
-pub unsafe fn SLGetLicenseInformation<P2>(hslc: *const core::ffi::c_void, psllicenseid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetLicenseInformation<P2>(hslc: *const core::ffi::c_void, psllicenseid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -797,7 +797,7 @@ where
     unsafe { SLGetLicenseInformation(hslc, psllicenseid, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetLicensingStatusInformation<P3>(hslc: *const core::ffi::c_void, pappid: Option<*const windows_core::GUID>, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P3, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> windows_core::Result<()>
+pub unsafe fn SLGetLicensingStatusInformation<P3>(hslc: *const core::ffi::c_void, pappid: Option<*const windows_core::GUID>, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P3, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> Result<(), windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -805,7 +805,7 @@ where
     unsafe { SLGetLicensingStatusInformation(hslc, pappid.unwrap_or(core::mem::zeroed()) as _, pproductskuid.unwrap_or(core::mem::zeroed()) as _, pwszrightname.param().abi(), pnstatuscount as _, pplicensingstatus as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetPKeyId<P1, P2>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<windows_core::GUID>
+pub unsafe fn SLGetPKeyId<P1, P2>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> Result<windows_core::GUID, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -817,7 +817,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn SLGetPKeyInformation<P2>(hslc: *const core::ffi::c_void, ppkeyid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetPKeyInformation<P2>(hslc: *const core::ffi::c_void, ppkeyid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -825,7 +825,7 @@ where
     unsafe { SLGetPKeyInformation(hslc, ppkeyid, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetPolicyInformation<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetPolicyInformation<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -833,7 +833,7 @@ where
     unsafe { SLGetPolicyInformation(hslc, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetPolicyInformationDWORD<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1) -> windows_core::Result<u32>
+pub unsafe fn SLGetPolicyInformationDWORD<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1) -> Result<u32, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -844,7 +844,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn SLGetProductSkuInformation<P2>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetProductSkuInformation<P2>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -852,7 +852,7 @@ where
     unsafe { SLGetProductSkuInformation(hslc, pproductskuid, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetReferralInformation<P3>(hslc: *const core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const windows_core::GUID, pwszvaluename: P3) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SLGetReferralInformation<P3>(hslc: *const core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const windows_core::GUID, pwszvaluename: P3) -> Result<windows_core::PWSTR, windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -863,12 +863,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn SLGetSLIDList(hslc: *const core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: Option<*const windows_core::GUID>, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn SLGetSLIDList(hslc: *const core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: Option<*const windows_core::GUID>, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut windows_core::GUID) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLGetSLIDList(hslc : *const core::ffi::c_void, equeryidtype : SLIDTYPE, pqueryid : *const windows_core::GUID, ereturnidtype : SLIDTYPE, pnreturnids : *mut u32, ppreturnids : *mut *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe { SLGetSLIDList(hslc, equeryidtype, pqueryid.unwrap_or(core::mem::zeroed()) as _, ereturnidtype, pnreturnids as _, ppreturnids as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetServerStatus<P0, P1, P2>(pwszserverurl: P0, pwszacquisitiontype: P1, pwszproxyserver: P2, wproxyport: Option<u16>) -> windows_core::Result<windows_core::HRESULT>
+pub unsafe fn SLGetServerStatus<P0, P1, P2>(pwszserverurl: P0, pwszacquisitiontype: P1, pwszproxyserver: P2, wproxyport: Option<u16>) -> Result<windows_core::HRESULT, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -881,7 +881,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn SLGetServiceInformation<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetServiceInformation<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -889,7 +889,7 @@ where
     unsafe { SLGetServiceInformation(hslc, pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetWindowsInformation<P0>(pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetWindowsInformation<P0>(pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -897,7 +897,7 @@ where
     unsafe { SLGetWindowsInformation(pwszvaluename.param().abi(), pedatatype.unwrap_or(core::mem::zeroed()) as _, pcbvalue as _, ppbvalue as _).ok() }
 }
 #[inline]
-pub unsafe fn SLGetWindowsInformationDWORD<P0>(pwszvaluename: P0) -> windows_core::Result<u32>
+pub unsafe fn SLGetWindowsInformationDWORD<P0>(pwszvaluename: P0) -> Result<u32, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -908,7 +908,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn SLInstallLicense(hslc: *const core::ffi::c_void, pblicenseblob: &[u8]) -> windows_core::Result<windows_core::GUID> {
+pub unsafe fn SLInstallLicense(hslc: *const core::ffi::c_void, pblicenseblob: &[u8]) -> Result<windows_core::GUID, windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLInstallLicense(hslc : *const core::ffi::c_void, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -916,7 +916,7 @@ pub unsafe fn SLInstallLicense(hslc: *const core::ffi::c_void, pblicenseblob: &[
     }
 }
 #[inline]
-pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<windows_core::GUID>
+pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> Result<windows_core::GUID, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -928,17 +928,17 @@ where
     }
 }
 #[inline]
-pub unsafe fn SLIsGenuineLocal(pappid: *const windows_core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: Option<*mut SL_NONGENUINE_UI_OPTIONS>) -> windows_core::Result<()> {
+pub unsafe fn SLIsGenuineLocal(pappid: *const windows_core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: Option<*mut SL_NONGENUINE_UI_OPTIONS>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slwga.dll" "system" fn SLIsGenuineLocal(pappid : *const windows_core::GUID, pgenuinestate : *mut SL_GENUINE_STATE, puioptions : *mut SL_NONGENUINE_UI_OPTIONS) -> windows_core::HRESULT);
     unsafe { SLIsGenuineLocal(pappid, pgenuinestate as _, puioptions.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SLOpen(phslc: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SLOpen(phslc: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLOpen(phslc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SLOpen(phslc as _).ok() }
 }
 #[inline]
-pub unsafe fn SLQueryLicenseValueFromApp<P0>(valuename: P0, valuetype: Option<*mut u32>, databuffer: Option<*mut core::ffi::c_void>, datasize: u32, resultdatasize: *mut u32) -> windows_core::Result<()>
+pub unsafe fn SLQueryLicenseValueFromApp<P0>(valuename: P0, valuetype: Option<*mut u32>, databuffer: Option<*mut core::ffi::c_void>, datasize: u32, resultdatasize: *mut u32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -946,7 +946,7 @@ where
     unsafe { SLQueryLicenseValueFromApp(valuename.param().abi(), valuetype.unwrap_or(core::mem::zeroed()) as _, databuffer.unwrap_or(core::mem::zeroed()) as _, datasize, resultdatasize as _).ok() }
 }
 #[inline]
-pub unsafe fn SLRegisterEvent<P1>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P1, papplicationid: *const windows_core::GUID, hevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn SLRegisterEvent<P1>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P1, papplicationid: *const windows_core::GUID, hevent: super::super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -954,12 +954,12 @@ where
     unsafe { SLRegisterEvent(hslc.unwrap_or(core::mem::zeroed()) as _, pwszeventid.param().abi(), papplicationid, hevent).ok() }
 }
 #[inline]
-pub unsafe fn SLSetCurrentProductKey(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pproductkeyid: *const windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn SLSetCurrentProductKey(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pproductkeyid: *const windows_core::GUID) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLSetCurrentProductKey(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, pproductkeyid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { SLSetCurrentProductKey(hslc, pproductskuid, pproductkeyid).ok() }
 }
 #[inline]
-pub unsafe fn SLSetGenuineInformation<P1>(pqueryid: *const windows_core::GUID, pwszvaluename: P1, edatatype: SLDATATYPE, pbvalue: Option<&[u8]>) -> windows_core::Result<()>
+pub unsafe fn SLSetGenuineInformation<P1>(pqueryid: *const windows_core::GUID, pwszvaluename: P1, edatatype: SLDATATYPE, pbvalue: Option<&[u8]>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -967,17 +967,17 @@ where
     unsafe { SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, pbvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
-pub unsafe fn SLUninstallLicense(hslc: *const core::ffi::c_void, plicensefileid: *const windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn SLUninstallLicense(hslc: *const core::ffi::c_void, plicensefileid: *const windows_core::GUID) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLUninstallLicense(hslc : *const core::ffi::c_void, plicensefileid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { SLUninstallLicense(hslc, plicensefileid).ok() }
 }
 #[inline]
-pub unsafe fn SLUninstallProofOfPurchase(hslc: *const core::ffi::c_void, ppkeyid: *const windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn SLUninstallProofOfPurchase(hslc: *const core::ffi::c_void, ppkeyid: *const windows_core::GUID) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("slc.dll" "system" fn SLUninstallProofOfPurchase(hslc : *const core::ffi::c_void, ppkeyid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { SLUninstallProofOfPurchase(hslc, ppkeyid).ok() }
 }
 #[inline]
-pub unsafe fn SLUnregisterEvent<P1>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P1, papplicationid: *const windows_core::GUID, hevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>
+pub unsafe fn SLUnregisterEvent<P1>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P1, papplicationid: *const windows_core::GUID, hevent: super::super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -991,23 +991,23 @@ pub unsafe fn SaslAcceptSecurityContext(phcredential: Option<*const super::super
     unsafe { SaslAcceptSecurityContext(phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, pinput.unwrap_or(core::mem::zeroed()) as _, fcontextreq, targetdatarep, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut windows_core::PSTR, profilecount: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut windows_core::PSTR, profilecount: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SaslEnumerateProfilesA(profilelist : *mut windows_core::PSTR, profilecount : *mut u32) -> windows_core::HRESULT);
     unsafe { SaslEnumerateProfilesA(profilelist as _, profilecount as _).ok() }
 }
 #[inline]
-pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut windows_core::PWSTR, profilecount: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut windows_core::PWSTR, profilecount: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SaslEnumerateProfilesW(profilelist : *mut windows_core::PWSTR, profilecount : *mut u32) -> windows_core::HRESULT);
     unsafe { SaslEnumerateProfilesW(profilelist as _, profilecount as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut core::ffi::c_void, size: u32, needed: Option<*mut u32>) -> windows_core::Result<()> {
+pub unsafe fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut core::ffi::c_void, size: u32, needed: Option<*mut u32>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SaslGetContextOption(contexthandle : *const super::super::Credentials:: SecHandle, option : u32, value : *mut core::ffi::c_void, size : u32, needed : *mut u32) -> windows_core::HRESULT);
     unsafe { SaslGetContextOption(contexthandle, option, value as _, size, needed.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SaslGetProfilePackageA<P0>(profilename: P0) -> windows_core::Result<*mut SecPkgInfoA>
+pub unsafe fn SaslGetProfilePackageA<P0>(profilename: P0) -> Result<*mut SecPkgInfoA, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -1018,7 +1018,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn SaslGetProfilePackageW<P0>(profilename: P0) -> windows_core::Result<*mut SecPkgInfoW>
+pub unsafe fn SaslGetProfilePackageW<P0>(profilename: P0) -> Result<*mut SecPkgInfoW, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1029,7 +1029,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc) -> windows_core::Result<*mut SecPkgInfoA> {
+pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc) -> Result<*mut SecPkgInfoA, windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SaslIdentifyPackageA(pinput : *const SecBufferDesc, packageinfo : *mut *mut SecPkgInfoA) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1037,7 +1037,7 @@ pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc) -> windows_core
     }
 }
 #[inline]
-pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc) -> windows_core::Result<*mut SecPkgInfoW> {
+pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc) -> Result<*mut SecPkgInfoW, windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SaslIdentifyPackageW(pinput : *const SecBufferDesc, packageinfo : *mut *mut SecPkgInfoW) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1064,7 +1064,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const core::ffi::c_void, size: u32) -> windows_core::Result<()> {
+pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const core::ffi::c_void, size: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SaslSetContextOption(contexthandle : *const super::super::Credentials:: SecHandle, option : u32, value : *const core::ffi::c_void, size : u32) -> windows_core::HRESULT);
     unsafe { SaslSetContextOption(contexthandle, option, value, size).ok() }
 }
@@ -1075,25 +1075,25 @@ pub unsafe fn SendSAS(asuser: bool) {
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SetContextAttributesA(phcontext : *const super::super::Credentials:: SecHandle, ulattribute : SECPKG_ATTR, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { SetContextAttributesA(phcontext, ulattribute, pbuffer, cbbuffer).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SetContextAttributesW(phcontext : *const super::super::Credentials:: SecHandle, ulattribute : SECPKG_ATTR, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { SetContextAttributesW(phcontext, ulattribute, pbuffer, cbbuffer).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SetCredentialsAttributesA(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { SetCredentialsAttributesA(phcredential, ulattribute, pbuffer, cbbuffer).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> windows_core::Result<()> {
+pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SetCredentialsAttributesW(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> windows_core::HRESULT);
     unsafe { SetCredentialsAttributesW(phcredential, ulattribute, pbuffer, cbbuffer).ok() }
 }
@@ -1105,7 +1105,7 @@ pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dw
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn SslDeserializeCertificateStore(serializedcertificatestore: super::super::Cryptography::CRYPT_INTEGER_BLOB) -> windows_core::Result<*mut super::super::Cryptography::CERT_CONTEXT> {
+pub unsafe fn SslDeserializeCertificateStore(serializedcertificatestore: super::super::Cryptography::CRYPT_INTEGER_BLOB) -> Result<*mut super::super::Cryptography::CERT_CONTEXT, windows_result::HRESULT> {
     windows_link::link!("schannel.dll" "system" fn SslDeserializeCertificateStore(serializedcertificatestore : super::super::Cryptography:: CRYPT_INTEGER_BLOB, ppcertcontext : *mut *mut super::super::Cryptography:: CERT_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1140,7 +1140,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
     unsafe { SslGenerateRandomBits(prandomdata as _, crandomdata) }
 }
 #[inline]
-pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> windows_core::Result<()> {
+pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const u8, clienthellobytesize : u32, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : u8, bytestoread : *mut u32, flags : SchGetExtensionsOptions) -> windows_core::HRESULT);
     unsafe { SslGetExtensions(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), core::mem::transmute(genericextensions.as_ptr()), genericextensions.len().try_into().unwrap(), bytestoread as _, flags).ok() }
 }
@@ -1150,37 +1150,37 @@ pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
     unsafe { SslGetMaximumKeySize(reserved) }
 }
 #[inline]
-pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> windows_core::Result<()> {
+pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : *const u8, clienthellosize : u32, serveridentity : *mut *mut u8, serveridentitysize : *mut u32, flags : u32) -> windows_core::HRESULT);
     unsafe { SslGetServerIdentity(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), serveridentity as _, serveridentitysize as _, flags).ok() }
 }
 #[inline]
-pub unsafe fn SspiCompareAuthIdentities(authidentity1: Option<*const core::ffi::c_void>, authidentity2: Option<*const core::ffi::c_void>, samesupplieduser: Option<*mut bool>, samesuppliedidentity: Option<*mut bool>) -> windows_core::Result<()> {
+pub unsafe fn SspiCompareAuthIdentities(authidentity1: Option<*const core::ffi::c_void>, authidentity2: Option<*const core::ffi::c_void>, samesupplieduser: Option<*mut bool>, samesuppliedidentity: Option<*mut bool>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiCompareAuthIdentities(authidentity1 : *const core::ffi::c_void, authidentity2 : *const core::ffi::c_void, samesupplieduser : *mut bool, samesuppliedidentity : *mut bool) -> windows_core::HRESULT);
     unsafe { SspiCompareAuthIdentities(authidentity1.unwrap_or(core::mem::zeroed()) as _, authidentity2.unwrap_or(core::mem::zeroed()) as _, samesupplieduser.unwrap_or(core::mem::zeroed()) as _, samesuppliedidentity.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiCopyAuthIdentity(authdata: *const core::ffi::c_void, authdatacopy: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SspiCopyAuthIdentity(authdata: *const core::ffi::c_void, authdatacopy: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiCopyAuthIdentity(authdata : *const core::ffi::c_void, authdatacopy : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SspiCopyAuthIdentity(authdata, authdatacopy as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiDecryptAuthIdentity(encryptedauthdata : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SspiDecryptAuthIdentity(encryptedauthdata as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sspicli.dll" "system" fn SspiDecryptAuthIdentityEx(options : u32, encryptedauthdata : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SspiDecryptAuthIdentityEx(options, encryptedauthdata as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const core::ffi::c_void, ppszusername: *mut windows_core::PCWSTR, ppszdomainname: *mut windows_core::PCWSTR, ppszpackedcredentialsstring: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()> {
+pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const core::ffi::c_void, ppszusername: *mut windows_core::PCWSTR, ppszdomainname: *mut windows_core::PCWSTR, ppszpackedcredentialsstring: Option<*mut windows_core::PCWSTR>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiEncodeAuthIdentityAsStrings(pauthidentity : *const core::ffi::c_void, ppszusername : *mut windows_core::PCWSTR, ppszdomainname : *mut windows_core::PCWSTR, ppszpackedcredentialsstring : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { SspiEncodeAuthIdentityAsStrings(pauthidentity, ppszusername as _, ppszdomainname as _, ppszpackedcredentialsstring.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiEncodeStringsAsAuthIdentity<P0, P1, P2>(pszusername: P0, pszdomainname: P1, pszpackedcredentialsstring: P2, ppauthidentity: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn SspiEncodeStringsAsAuthIdentity<P0, P1, P2>(pszusername: P0, pszdomainname: P1, pszpackedcredentialsstring: P2, ppauthidentity: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1190,17 +1190,17 @@ where
     unsafe { SspiEncodeStringsAsAuthIdentity(pszusername.param().abi(), pszdomainname.param().abi(), pszpackedcredentialsstring.param().abi(), ppauthidentity as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiEncryptAuthIdentity(authdata : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SspiEncryptAuthIdentity(authdata as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sspicli.dll" "system" fn SspiEncryptAuthIdentityEx(options : u32, authdata : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SspiEncryptAuthIdentityEx(options, authdata as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiExcludePackage<P1>(authidentity: Option<*const core::ffi::c_void>, pszpackagename: P1, ppnewauthidentity: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn SspiExcludePackage<P1>(authidentity: Option<*const core::ffi::c_void>, pszpackagename: P1, ppnewauthidentity: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1213,7 +1213,7 @@ pub unsafe fn SspiFreeAuthIdentity(authdata: Option<*const core::ffi::c_void>) {
     unsafe { SspiFreeAuthIdentity(authdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SspiGetTargetHostName<P0>(psztargetname: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SspiGetTargetHostName<P0>(psztargetname: P0) -> Result<windows_core::PWSTR, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1239,12 +1239,12 @@ pub unsafe fn SspiLocalFree(databuffer: Option<*const core::ffi::c_void>) {
     unsafe { SspiLocalFree(databuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> windows_core::Result<()> {
+pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiMarshalAuthIdentity(authidentity : *const core::ffi::c_void, authidentitylength : *mut u32, authidentitybytearray : *mut *mut i8) -> windows_core::HRESULT);
     unsafe { SspiMarshalAuthIdentity(authidentity, authidentitylength as _, authidentitybytearray as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiPrepareForCredRead<P1>(authidentity: *const core::ffi::c_void, psztargetname: P1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR) -> windows_core::Result<()>
+pub unsafe fn SspiPrepareForCredRead<P1>(authidentity: *const core::ffi::c_void, psztargetname: P1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1252,7 +1252,7 @@ where
     unsafe { SspiPrepareForCredRead(authidentity, psztargetname.param().abi(), pcredmancredentialtype as _, ppszcredmantargetname as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiPrepareForCredWrite<P1>(authidentity: *const core::ffi::c_void, psztargetname: P1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR, ppszcredmanusername: *mut windows_core::PCWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> windows_core::Result<()>
+pub unsafe fn SspiPrepareForCredWrite<P1>(authidentity: *const core::ffi::c_void, psztargetname: P1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR, ppszcredmanusername: *mut windows_core::PCWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1278,17 +1278,17 @@ where
     unsafe { SspiPromptForCredentialsW(psztargetname.param().abi(), puiinfo.unwrap_or(core::mem::zeroed()) as _, dwautherror, pszpackage.param().abi(), pinputauthidentity.unwrap_or(core::mem::zeroed()) as _, ppauthidentity as _, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[inline]
-pub unsafe fn SspiSetChannelBindingFlags(pbindings: *mut SecPkgContext_Bindings, flags: u32) -> windows_core::Result<()> {
+pub unsafe fn SspiSetChannelBindingFlags(pbindings: *mut SecPkgContext_Bindings, flags: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sspicli.dll" "system" fn SspiSetChannelBindingFlags(pbindings : *mut SecPkgContext_Bindings, flags : u32) -> windows_core::HRESULT);
     unsafe { SspiSetChannelBindingFlags(pbindings as _, flags).ok() }
 }
 #[inline]
-pub unsafe fn SspiUnmarshalAuthIdentity(authidentitybytearray: &[u8], ppauthidentity: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SspiUnmarshalAuthIdentity(authidentitybytearray: &[u8], ppauthidentity: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiUnmarshalAuthIdentity(authidentitylength : u32, authidentitybytearray : windows_core::PCSTR, ppauthidentity : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SspiUnmarshalAuthIdentity(authidentitybytearray.len().try_into().unwrap(), core::mem::transmute(authidentitybytearray.as_ptr()), ppauthidentity as _).ok() }
 }
 #[inline]
-pub unsafe fn SspiValidateAuthIdentity(authdata: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn SspiValidateAuthIdentity(authdata: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn SspiValidateAuthIdentity(authdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SspiValidateAuthIdentity(authdata).ok() }
 }
@@ -1298,12 +1298,12 @@ pub unsafe fn SspiZeroAuthIdentity(authdata: Option<*const core::ffi::c_void>) {
     unsafe { SspiZeroAuthIdentity(authdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn TokenBindingDeleteAllBindings() -> windows_core::Result<()> {
+pub unsafe fn TokenBindingDeleteAllBindings() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("tokenbinding.dll" "system" fn TokenBindingDeleteAllBindings() -> windows_core::HRESULT);
     unsafe { TokenBindingDeleteAllBindings().ok() }
 }
 #[inline]
-pub unsafe fn TokenBindingDeleteBinding<P0>(targeturl: P0) -> windows_core::Result<()>
+pub unsafe fn TokenBindingDeleteBinding<P0>(targeturl: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1311,7 +1311,7 @@ where
     unsafe { TokenBindingDeleteBinding(targeturl.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn TokenBindingGenerateBinding<P1>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: P1, bindingtype: TOKENBINDING_TYPE, tlsekm: *const core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const core::ffi::c_void, tokenbinding: *mut *mut core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: Option<*mut *mut TOKENBINDING_RESULT_DATA>) -> windows_core::Result<()>
+pub unsafe fn TokenBindingGenerateBinding<P1>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: P1, bindingtype: TOKENBINDING_TYPE, tlsekm: *const core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const core::ffi::c_void, tokenbinding: *mut *mut core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: Option<*mut *mut TOKENBINDING_RESULT_DATA>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1319,7 +1319,7 @@ where
     unsafe { TokenBindingGenerateBinding(keytype, targeturl.param().abi(), bindingtype, tlsekm, tlsekmsize, extensionformat, extensiondata, tokenbinding as _, tokenbindingsize as _, resultdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const core::ffi::c_void, publickeysize: u32) -> windows_core::Result<*mut TOKENBINDING_RESULT_DATA> {
+pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const core::ffi::c_void, publickeysize: u32) -> Result<*mut TOKENBINDING_RESULT_DATA, windows_result::HRESULT> {
     windows_link::link!("tokenbinding.dll" "system" fn TokenBindingGenerateID(keytype : TOKENBINDING_KEY_PARAMETERS_TYPE, publickey : *const core::ffi::c_void, publickeysize : u32, resultdata : *mut *mut TOKENBINDING_RESULT_DATA) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1327,7 +1327,7 @@ pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, 
     }
 }
 #[inline]
-pub unsafe fn TokenBindingGenerateIDForUri<P1>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: P1) -> windows_core::Result<*mut TOKENBINDING_RESULT_DATA>
+pub unsafe fn TokenBindingGenerateIDForUri<P1>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: P1) -> Result<*mut TOKENBINDING_RESULT_DATA, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1338,17 +1338,17 @@ where
     }
 }
 #[inline]
-pub unsafe fn TokenBindingGenerateMessage(tokenbindings: *const *const core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn TokenBindingGenerateMessage(tokenbindings: *const *const core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("tokenbinding.dll" "system" fn TokenBindingGenerateMessage(tokenbindings : *const *const core::ffi::c_void, tokenbindingssize : *const u32, tokenbindingscount : u32, tokenbindingmessage : *mut *mut core::ffi::c_void, tokenbindingmessagesize : *mut u32) -> windows_core::HRESULT);
     unsafe { TokenBindingGenerateMessage(tokenbindings, tokenbindingssize, tokenbindingscount, tokenbindingmessage as _, tokenbindingmessagesize as _).ok() }
 }
 #[inline]
-pub unsafe fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> windows_core::Result<()> {
+pub unsafe fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("tokenbinding.dll" "system" fn TokenBindingGetHighestSupportedVersion(majorversion : *mut u8, minorversion : *mut u8) -> windows_core::HRESULT);
     unsafe { TokenBindingGetHighestSupportedVersion(majorversion as _, minorversion as _).ok() }
 }
 #[inline]
-pub unsafe fn TokenBindingGetKeyTypesClient() -> windows_core::Result<*mut TOKENBINDING_KEY_TYPES> {
+pub unsafe fn TokenBindingGetKeyTypesClient() -> Result<*mut TOKENBINDING_KEY_TYPES, windows_result::HRESULT> {
     windows_link::link!("tokenbinding.dll" "system" fn TokenBindingGetKeyTypesClient(keytypes : *mut *mut TOKENBINDING_KEY_TYPES) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1356,7 +1356,7 @@ pub unsafe fn TokenBindingGetKeyTypesClient() -> windows_core::Result<*mut TOKEN
     }
 }
 #[inline]
-pub unsafe fn TokenBindingGetKeyTypesServer() -> windows_core::Result<*mut TOKENBINDING_KEY_TYPES> {
+pub unsafe fn TokenBindingGetKeyTypesServer() -> Result<*mut TOKENBINDING_KEY_TYPES, windows_result::HRESULT> {
     windows_link::link!("tokenbinding.dll" "system" fn TokenBindingGetKeyTypesServer(keytypes : *mut *mut TOKENBINDING_KEY_TYPES) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1364,7 +1364,7 @@ pub unsafe fn TokenBindingGetKeyTypesServer() -> windows_core::Result<*mut TOKEN
     }
 }
 #[inline]
-pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const core::ffi::c_void, tlsekmsize: u32) -> windows_core::Result<*mut TOKENBINDING_RESULT_LIST> {
+pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const core::ffi::c_void, tlsekmsize: u32) -> Result<*mut TOKENBINDING_RESULT_LIST, windows_result::HRESULT> {
     windows_link::link!("tokenbinding.dll" "system" fn TokenBindingVerifyMessage(tokenbindingmessage : *const core::ffi::c_void, tokenbindingmessagesize : u32, keytype : TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm : *const core::ffi::c_void, tlsekmsize : u32, resultlist : *mut *mut TOKENBINDING_RESULT_LIST) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1389,7 +1389,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> windows_core::Result<u32> {
+pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> Result<u32, windows_result::HRESULT> {
     windows_link::link!("secur32.dll" "system" fn VerifySignature(phcontext : *const super::super::Credentials:: SecHandle, pmessage : *const SecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -1871,7 +1871,7 @@ pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_T
 windows_core::imp::define_interface!(ICcgDomainAuthCredentials, ICcgDomainAuthCredentials_Vtbl, 0x6ecda518_2010_4437_8bc3_46e752b7b172);
 windows_core::imp::interface_hierarchy!(ICcgDomainAuthCredentials, windows_core::IUnknown);
 impl ICcgDomainAuthCredentials {
-    pub unsafe fn GetPasswordCredentials<P0>(&self, plugininput: P0, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> windows_core::Result<()>
+    pub unsafe fn GetPasswordCredentials<P0>(&self, plugininput: P0, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1885,7 +1885,7 @@ pub struct ICcgDomainAuthCredentials_Vtbl {
     pub GetPasswordCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait ICcgDomainAuthCredentials_Impl: windows_core::IUnknownImpl {
-    fn GetPasswordCredentials(&self, plugininput: &windows_core::PCWSTR, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetPasswordCredentials(&self, plugininput: &windows_core::PCWSTR, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl ICcgDomainAuthCredentials_Vtbl {
     pub const fn new<Identity: ICcgDomainAuthCredentials_Impl, const OFFSET: isize>() -> Self {

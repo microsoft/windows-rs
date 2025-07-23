@@ -44,12 +44,12 @@ pub unsafe fn DegaussMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32 
     unsafe { DegaussMonitor(hmonitor) }
 }
 #[inline]
-pub unsafe fn DestroyPhysicalMonitor(hmonitor: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn DestroyPhysicalMonitor(hmonitor: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitor(hmonitor : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { DestroyPhysicalMonitor(hmonitor).ok() }
 }
 #[inline]
-pub unsafe fn DestroyPhysicalMonitors(pphysicalmonitorarray: &[PHYSICAL_MONITOR]) -> windows_core::Result<()> {
+pub unsafe fn DestroyPhysicalMonitors(pphysicalmonitorarray: &[PHYSICAL_MONITOR]) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *const PHYSICAL_MONITOR) -> windows_core::BOOL);
     unsafe { DestroyPhysicalMonitors(pphysicalmonitorarray.len().try_into().unwrap(), core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok() }
 }
@@ -424,13 +424,13 @@ pub unsafe fn GetMonitorTechnologyType(hmonitor: super::super::Foundation::HANDL
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, pdwnumberofphysicalmonitors : *mut u32) -> windows_core::BOOL);
     unsafe { GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor, pdwnumberofphysicalmonitors as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
-pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0) -> windows_core::Result<u32>
+pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0) -> Result<u32, windows_result::HRESULT>
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
@@ -442,13 +442,13 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pphysicalmonitorarray: &mut [PHYSICAL_MONITOR]) -> windows_core::Result<()> {
+pub unsafe fn GetPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pphysicalmonitorarray: &mut [PHYSICAL_MONITOR]) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> windows_core::BOOL);
     unsafe { GetPhysicalMonitorsFromHMONITOR(hmonitor, pphysicalmonitorarray.len().try_into().unwrap(), core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
-pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0, pphysicalmonitorarray: &mut [PHYSICAL_MONITOR]) -> windows_core::Result<()>
+pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0, pphysicalmonitorarray: &mut [PHYSICAL_MONITOR]) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
@@ -2648,25 +2648,25 @@ pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 windows_core::imp::define_interface!(ICloneViewHelper, ICloneViewHelper_Vtbl, 0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
 windows_core::imp::interface_hierarchy!(ICloneViewHelper, windows_core::IUnknown);
 impl ICloneViewHelper {
-    pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::Result<()>
+    pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetConnectedIDs)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), pulcount as _, pulid as _, ulflags).ok() }
     }
-    pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, pulcount as _, pultargetid as _).ok() }
     }
-    pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>
+    pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, ulcount, pultargetid).ok() }
     }
-    pub unsafe fn Commit(&self, ffinalcall: bool) -> windows_core::Result<()> {
+    pub unsafe fn Commit(&self, ffinalcall: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), ffinalcall.into()).ok() }
     }
 }
@@ -2680,10 +2680,10 @@ pub struct ICloneViewHelper_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ICloneViewHelper_Impl: windows_core::IUnknownImpl {
-    fn GetConnectedIDs(&self, wszadaptorname: &windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::Result<()>;
-    fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>;
-    fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>;
-    fn Commit(&self, ffinalcall: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetConnectedIDs(&self, wszadaptorname: &windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> Result<(), windows_result::HRESULT>;
+    fn Commit(&self, ffinalcall: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 impl ICloneViewHelper_Vtbl {
     pub const fn new<Identity: ICloneViewHelper_Impl, const OFFSET: isize>() -> Self {
@@ -3072,29 +3072,29 @@ pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
 windows_core::imp::define_interface!(IViewHelper, IViewHelper_Vtbl, 0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 windows_core::imp::interface_hierarchy!(IViewHelper, windows_core::IUnknown);
 impl IViewHelper {
-    pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::Result<()>
+    pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetConnectedIDs)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), pulcount as _, pulid as _, ulflags).ok() }
     }
-    pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, pulcount as _, pultargetid as _).ok() }
     }
-    pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>
+    pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, ulcount, pultargetid).ok() }
     }
-    pub unsafe fn Commit(&self) -> windows_core::Result<()> {
+    pub unsafe fn Commit(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetConfiguration<P0>(&self, pistream: P0) -> windows_core::Result<u32>
+    pub unsafe fn SetConfiguration<P0>(&self, pistream: P0) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
@@ -3103,7 +3103,7 @@ impl IViewHelper {
             (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), pistream.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetProceedOnNewConfiguration(&self) -> windows_core::Result<()> {
+    pub unsafe fn GetProceedOnNewConfiguration(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProceedOnNewConfiguration)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3123,12 +3123,12 @@ pub struct IViewHelper_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IViewHelper_Impl: windows_core::IUnknownImpl {
-    fn GetConnectedIDs(&self, wszadaptorname: &windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::Result<()>;
-    fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>;
-    fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>;
-    fn Commit(&self) -> windows_core::Result<()>;
-    fn SetConfiguration(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<u32>;
-    fn GetProceedOnNewConfiguration(&self) -> windows_core::Result<()>;
+    fn GetConnectedIDs(&self, wszadaptorname: &windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> Result<(), windows_result::HRESULT>;
+    fn Commit(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetConfiguration(&self, pistream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> Result<u32, windows_result::HRESULT>;
+    fn GetProceedOnNewConfiguration(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IViewHelper_Vtbl {

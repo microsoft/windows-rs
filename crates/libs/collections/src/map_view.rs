@@ -19,7 +19,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>> {
+    fn First(&self) -> Result<IIterator<IKeyValuePair<K, V>>, HRESULT> {
         Ok(ComObject::new(StockMapViewIterator::<K, V> {
             _owner: self.to_object(),
             current: std::sync::RwLock::new(self.map.iter()),
@@ -35,17 +35,17 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn Lookup(&self, key: Ref<'_, K>) -> Result<V> {
+    fn Lookup(&self, key: Ref<'_, K>) -> Result<V, HRESULT> {
         let value = self.map.get(&*key).ok_or_else(|| Error::from(E_BOUNDS))?;
 
         V::from_default(value)
     }
 
-    fn Size(&self) -> Result<u32> {
+    fn Size(&self) -> Result<u32, HRESULT> {
         Ok(self.map.len().try_into()?)
     }
 
-    fn HasKey(&self, key: Ref<'_, K>) -> Result<bool> {
+    fn HasKey(&self, key: Ref<'_, K>) -> Result<bool, HRESULT> {
         Ok(self.map.contains_key(&*key))
     }
 
@@ -53,7 +53,7 @@ where
         &self,
         first: OutRef<'_, IMapView<K, V>>,
         second: OutRef<'_, IMapView<K, V>>,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         _ = first.write(None);
         _ = second.write(None);
         Ok(())
@@ -79,7 +79,7 @@ where
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    fn Current(&self) -> Result<IKeyValuePair<K, V>> {
+    fn Current(&self) -> Result<IKeyValuePair<K, V>, HRESULT> {
         let mut current = self.current.read().unwrap().clone().peekable();
 
         if let Some((key, value)) = current.peek() {
@@ -89,22 +89,22 @@ where
             })
             .into_interface())
         } else {
-            Err(Error::from(E_BOUNDS))
+            Err(E_BOUNDS)
         }
     }
 
-    fn HasCurrent(&self) -> Result<bool> {
+    fn HasCurrent(&self) -> Result<bool, HRESULT> {
         let mut current = self.current.read().unwrap().clone().peekable();
         Ok(current.peek().is_some())
     }
 
-    fn MoveNext(&self) -> Result<bool> {
+    fn MoveNext(&self) -> Result<bool, HRESULT> {
         let mut current = self.current.write().unwrap();
         current.next();
         Ok(current.clone().peekable().peek().is_some())
     }
 
-    fn GetMany(&self, pairs: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32> {
+    fn GetMany(&self, pairs: &mut [Option<IKeyValuePair<K, V>>]) -> Result<u32, HRESULT> {
         let mut current = self.current.write().unwrap();
         let mut actual = 0;
 
@@ -146,11 +146,11 @@ where
     K::Default: Clone,
     V::Default: Clone,
 {
-    fn Key(&self) -> Result<K> {
+    fn Key(&self) -> Result<K, HRESULT> {
         K::from_default(&self.key)
     }
 
-    fn Value(&self) -> Result<V> {
+    fn Value(&self) -> Result<V, HRESULT> {
         V::from_default(&self.value)
     }
 }

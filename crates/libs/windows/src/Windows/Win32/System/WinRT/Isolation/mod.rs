@@ -1,7 +1,7 @@
 windows_core::imp::define_interface!(IIsolatedEnvironmentInterop, IIsolatedEnvironmentInterop_Vtbl, 0x85713c2e_8e62_46c5_8de2_c647e1d54636);
 windows_core::imp::interface_hierarchy!(IIsolatedEnvironmentInterop, windows_core::IUnknown);
 impl IIsolatedEnvironmentInterop {
-    pub unsafe fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND> {
+    pub unsafe fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> Result<super::super::super::Foundation::HWND, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHostHwndInterop)(windows_core::Interface::as_raw(self), containerhwnd, &mut result__).map(|| result__)
@@ -15,7 +15,7 @@ pub struct IIsolatedEnvironmentInterop_Vtbl {
     pub GetHostHwndInterop: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 pub trait IIsolatedEnvironmentInterop_Impl: windows_core::IUnknownImpl {
-    fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND>;
+    fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> Result<super::super::super::Foundation::HWND, windows_result::HRESULT>;
 }
 impl IIsolatedEnvironmentInterop_Vtbl {
     pub const fn new<Identity: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>() -> Self {

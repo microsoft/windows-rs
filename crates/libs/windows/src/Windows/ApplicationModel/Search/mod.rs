@@ -58,21 +58,21 @@ impl windows_core::RuntimeType for ISearchPaneQueryChangedEventArgs {
 }
 windows_core::imp::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ISearchPaneQueryChangedEventArgs {
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails> {
+    pub fn LinguisticDetails(&self) -> Result<SearchPaneQueryLinguisticDetails, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -84,9 +84,9 @@ impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
 }
 pub trait ISearchPaneQueryChangedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails>;
+    fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn LinguisticDetails(&self) -> Result<SearchPaneQueryLinguisticDetails, windows_result::HRESULT>;
 }
 impl ISearchPaneQueryChangedEventArgs_Vtbl {
     pub const fn new<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -319,18 +319,18 @@ pub struct ISearchSuggestionsRequestDeferral_Vtbl {
 pub struct LocalContentSuggestionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalContentSuggestionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalContentSuggestionSettings {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LocalContentSuggestionSettings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -338,25 +338,25 @@ impl LocalContentSuggestionSettings {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn Locations(&self) -> windows_core::Result<windows_collections::IVector<super::super::Storage::StorageFolder>> {
+    pub fn Locations(&self) -> Result<windows_collections::IVector<super::super::Storage::StorageFolder>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Locations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAqsFilter(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetAqsFilter(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAqsFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn AqsFilter(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AqsFilter(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AqsFilter)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PropertiesToMatch(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn PropertiesToMatch(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -379,61 +379,61 @@ impl windows_core::RuntimeName for LocalContentSuggestionSettings {
 pub struct SearchPane(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPane, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPane {
-    pub fn SetSearchHistoryEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSearchHistoryEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSearchHistoryEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SearchHistoryEnabled(&self) -> windows_core::Result<bool> {
+    pub fn SearchHistoryEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SearchHistoryEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSearchHistoryContext(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetSearchHistoryContext(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSearchHistoryContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn SearchHistoryContext(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SearchHistoryContext(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SearchHistoryContext)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPlaceholderText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetPlaceholderText(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPlaceholderText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn PlaceholderText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PlaceholderText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlaceholderText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Visible(&self) -> windows_core::Result<bool> {
+    pub fn Visible(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Visible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VisibilityChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn VisibilityChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs>>,
     {
@@ -443,11 +443,11 @@ impl SearchPane {
             (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveVisibilityChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveVisibilityChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveVisibilityChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn QueryChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn QueryChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQueryChangedEventArgs>>,
     {
@@ -457,11 +457,11 @@ impl SearchPane {
             (windows_core::Interface::vtable(this).QueryChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveQueryChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveQueryChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQueryChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SuggestionsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SuggestionsRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneSuggestionsRequestedEventArgs>>,
     {
@@ -471,11 +471,11 @@ impl SearchPane {
             (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSuggestionsRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSuggestionsRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSuggestionsRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn QuerySubmitted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn QuerySubmitted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQuerySubmittedEventArgs>>,
     {
@@ -485,11 +485,11 @@ impl SearchPane {
             (windows_core::Interface::vtable(this).QuerySubmitted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveQuerySubmitted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveQuerySubmitted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQuerySubmitted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ResultSuggestionChosen<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ResultSuggestionChosen<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs>>,
     {
@@ -499,57 +499,57 @@ impl SearchPane {
             (windows_core::Interface::vtable(this).ResultSuggestionChosen)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveResultSuggestionChosen(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveResultSuggestionChosen(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveResultSuggestionChosen)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetLocalContentSuggestionSettings<P0>(&self, settings: P0) -> windows_core::Result<()>
+    pub fn SetLocalContentSuggestionSettings<P0>(&self, settings: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<LocalContentSuggestionSettings>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
-    pub fn ShowOverloadDefault(&self) -> windows_core::Result<()> {
+    pub fn ShowOverloadDefault(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowOverloadDefault)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ShowOverloadWithQuery(&self, query: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ShowOverloadWithQuery(&self, query: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowOverloadWithQuery)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(query)).ok() }
     }
-    pub fn SetShowOnKeyboardInput(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetShowOnKeyboardInput(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetShowOnKeyboardInput)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ShowOnKeyboardInput(&self) -> windows_core::Result<bool> {
+    pub fn ShowOnKeyboardInput(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowOnKeyboardInput)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TrySetQueryText(&self, query: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn TrySetQueryText(&self, query: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetQueryText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(query), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<SearchPane> {
+    pub fn GetForCurrentView() -> Result<SearchPane, windows_result::HRESULT> {
         Self::ISearchPaneStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn HideThisApplication() -> windows_core::Result<()> {
+    pub fn HideThisApplication() -> Result<(), windows_result::HRESULT> {
         Self::ISearchPaneStaticsWithHideThisApplication(|this| unsafe { (windows_core::Interface::vtable(this).HideThisApplication)(windows_core::Interface::as_raw(this)).ok() })
     }
-    fn ISearchPaneStatics<R, F: FnOnce(&ISearchPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISearchPaneStatics<R, F: FnOnce(&ISearchPaneStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SearchPane, ISearchPaneStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ISearchPaneStaticsWithHideThisApplication<R, F: FnOnce(&ISearchPaneStaticsWithHideThisApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISearchPaneStaticsWithHideThisApplication<R, F: FnOnce(&ISearchPaneStaticsWithHideThisApplication) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SearchPane, ISearchPaneStaticsWithHideThisApplication> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -569,21 +569,21 @@ impl windows_core::RuntimeName for SearchPane {
 pub struct SearchPaneQueryChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable, ISearchPaneQueryChangedEventArgs);
 impl SearchPaneQueryChangedEventArgs {
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails> {
+    pub fn LinguisticDetails(&self) -> Result<SearchPaneQueryLinguisticDetails, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -608,21 +608,21 @@ unsafe impl Sync for SearchPaneQueryChangedEventArgs {}
 pub struct SearchPaneQueryLinguisticDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneQueryLinguisticDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPaneQueryLinguisticDetails {
-    pub fn QueryTextAlternatives(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn QueryTextAlternatives(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryTextAlternatives)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn QueryTextCompositionStart(&self) -> windows_core::Result<u32> {
+    pub fn QueryTextCompositionStart(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryTextCompositionStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn QueryTextCompositionLength(&self) -> windows_core::Result<u32> {
+    pub fn QueryTextCompositionLength(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -647,21 +647,21 @@ unsafe impl Sync for SearchPaneQueryLinguisticDetails {}
 pub struct SearchPaneQuerySubmittedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneQuerySubmittedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPaneQuerySubmittedEventArgs {
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails> {
+    pub fn LinguisticDetails(&self) -> Result<SearchPaneQueryLinguisticDetails, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -686,7 +686,7 @@ unsafe impl Sync for SearchPaneQuerySubmittedEventArgs {}
 pub struct SearchPaneResultSuggestionChosenEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneResultSuggestionChosenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPaneResultSuggestionChosenEventArgs {
-    pub fn Tag(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Tag(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -711,21 +711,21 @@ unsafe impl Sync for SearchPaneResultSuggestionChosenEventArgs {}
 pub struct SearchPaneSuggestionsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPaneSuggestionsRequest {
-    pub fn IsCanceled(&self) -> windows_core::Result<bool> {
+    pub fn IsCanceled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCanceled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SearchSuggestionCollection(&self) -> windows_core::Result<SearchSuggestionCollection> {
+    pub fn SearchSuggestionCollection(&self) -> Result<SearchSuggestionCollection, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SearchSuggestionCollection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<SearchPaneSuggestionsRequestDeferral> {
+    pub fn GetDeferral(&self) -> Result<SearchPaneSuggestionsRequestDeferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -750,7 +750,7 @@ unsafe impl Sync for SearchPaneSuggestionsRequest {}
 pub struct SearchPaneSuggestionsRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPaneSuggestionsRequestDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -773,28 +773,28 @@ pub struct SearchPaneSuggestionsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SearchPaneSuggestionsRequestedEventArgs, ISearchPaneQueryChangedEventArgs);
 impl SearchPaneSuggestionsRequestedEventArgs {
-    pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QueryText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISearchPaneQueryChangedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISearchPaneQueryChangedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails> {
+    pub fn LinguisticDetails(&self) -> Result<SearchPaneQueryLinguisticDetails, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISearchPaneQueryChangedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Request(&self) -> windows_core::Result<SearchPaneSuggestionsRequest> {
+    pub fn Request(&self) -> Result<SearchPaneSuggestionsRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -819,7 +819,7 @@ unsafe impl Sync for SearchPaneSuggestionsRequestedEventArgs {}
 pub struct SearchPaneVisibilityChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneVisibilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPaneVisibilityChangedEventArgs {
-    pub fn Visible(&self) -> windows_core::Result<bool> {
+    pub fn Visible(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -844,28 +844,28 @@ unsafe impl Sync for SearchPaneVisibilityChangedEventArgs {}
 pub struct SearchQueryLinguisticDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchQueryLinguisticDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchQueryLinguisticDetails {
-    pub fn QueryTextAlternatives(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn QueryTextAlternatives(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryTextAlternatives)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn QueryTextCompositionStart(&self) -> windows_core::Result<u32> {
+    pub fn QueryTextCompositionStart(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryTextCompositionStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn QueryTextCompositionLength(&self) -> windows_core::Result<u32> {
+    pub fn QueryTextCompositionLength(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QueryTextCompositionLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance<P0>(querytextalternatives: P0, querytextcompositionstart: u32, querytextcompositionlength: u32) -> windows_core::Result<SearchQueryLinguisticDetails>
+    pub fn CreateInstance<P0>(querytextalternatives: P0, querytextcompositionstart: u32, querytextcompositionlength: u32) -> Result<SearchQueryLinguisticDetails, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -874,7 +874,7 @@ impl SearchQueryLinguisticDetails {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), querytextalternatives.param().abi(), querytextcompositionstart, querytextcompositionlength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISearchQueryLinguisticDetailsFactory<R, F: FnOnce(&ISearchQueryLinguisticDetailsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISearchQueryLinguisticDetailsFactory<R, F: FnOnce(&ISearchQueryLinguisticDetailsFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SearchQueryLinguisticDetails, ISearchQueryLinguisticDetailsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -896,18 +896,18 @@ unsafe impl Sync for SearchQueryLinguisticDetails {}
 pub struct SearchSuggestionCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionCollection, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionCollection {
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AppendQuerySuggestion(&self, text: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn AppendQuerySuggestion(&self, text: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AppendQuerySuggestion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text)).ok() }
     }
-    pub fn AppendQuerySuggestions<P0>(&self, suggestions: P0) -> windows_core::Result<()>
+    pub fn AppendQuerySuggestions<P0>(&self, suggestions: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -915,14 +915,14 @@ impl SearchSuggestionCollection {
         unsafe { (windows_core::Interface::vtable(this).AppendQuerySuggestions)(windows_core::Interface::as_raw(this), suggestions.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn AppendResultSuggestion<P3>(&self, text: &windows_core::HSTRING, detailtext: &windows_core::HSTRING, tag: &windows_core::HSTRING, image: P3, imagealternatetext: &windows_core::HSTRING) -> windows_core::Result<()>
+    pub fn AppendResultSuggestion<P3>(&self, text: &windows_core::HSTRING, detailtext: &windows_core::HSTRING, tag: &windows_core::HSTRING, image: P3, imagealternatetext: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>
     where
         P3: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AppendResultSuggestion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), core::mem::transmute_copy(detailtext), core::mem::transmute_copy(tag), image.param().abi(), core::mem::transmute_copy(imagealternatetext)).ok() }
     }
-    pub fn AppendSearchSeparator(&self, label: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn AppendSearchSeparator(&self, label: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AppendSearchSeparator)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label)).ok() }
     }
@@ -944,21 +944,21 @@ unsafe impl Sync for SearchSuggestionCollection {}
 pub struct SearchSuggestionsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionsRequest {
-    pub fn IsCanceled(&self) -> windows_core::Result<bool> {
+    pub fn IsCanceled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCanceled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SearchSuggestionCollection(&self) -> windows_core::Result<SearchSuggestionCollection> {
+    pub fn SearchSuggestionCollection(&self) -> Result<SearchSuggestionCollection, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SearchSuggestionCollection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<SearchSuggestionsRequestDeferral> {
+    pub fn GetDeferral(&self) -> Result<SearchSuggestionsRequestDeferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -983,7 +983,7 @@ unsafe impl Sync for SearchSuggestionsRequest {}
 pub struct SearchSuggestionsRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionsRequestDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }

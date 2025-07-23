@@ -4,58 +4,58 @@ impl windows_core::RuntimeType for IPwmControllerProvider {
 }
 windows_core::imp::interface_hierarchy!(IPwmControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmControllerProvider {
-    pub fn PinCount(&self) -> windows_core::Result<i32> {
+    pub fn PinCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PinCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ActualFrequency(&self) -> windows_core::Result<f64> {
+    pub fn ActualFrequency(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActualFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredFrequency(&self, frequency: f64) -> windows_core::Result<f64> {
+    pub fn SetDesiredFrequency(&self, frequency: f64) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetDesiredFrequency)(windows_core::Interface::as_raw(this), frequency, &mut result__).map(|| result__)
         }
     }
-    pub fn MaxFrequency(&self) -> windows_core::Result<f64> {
+    pub fn MaxFrequency(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinFrequency(&self) -> windows_core::Result<f64> {
+    pub fn MinFrequency(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AcquirePin(&self, pin: i32) -> windows_core::Result<()> {
+    pub fn AcquirePin(&self, pin: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AcquirePin)(windows_core::Interface::as_raw(this), pin).ok() }
     }
-    pub fn ReleasePin(&self, pin: i32) -> windows_core::Result<()> {
+    pub fn ReleasePin(&self, pin: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReleasePin)(windows_core::Interface::as_raw(this), pin).ok() }
     }
-    pub fn EnablePin(&self, pin: i32) -> windows_core::Result<()> {
+    pub fn EnablePin(&self, pin: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).EnablePin)(windows_core::Interface::as_raw(this), pin).ok() }
     }
-    pub fn DisablePin(&self, pin: i32) -> windows_core::Result<()> {
+    pub fn DisablePin(&self, pin: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DisablePin)(windows_core::Interface::as_raw(this), pin).ok() }
     }
-    pub fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> windows_core::Result<()> {
+    pub fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPulseParameters)(windows_core::Interface::as_raw(this), pin, dutycycle, invertpolarity).ok() }
     }
@@ -64,16 +64,16 @@ impl windows_core::RuntimeName for IPwmControllerProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmControllerProvider";
 }
 pub trait IPwmControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn PinCount(&self) -> windows_core::Result<i32>;
-    fn ActualFrequency(&self) -> windows_core::Result<f64>;
-    fn SetDesiredFrequency(&self, frequency: f64) -> windows_core::Result<f64>;
-    fn MaxFrequency(&self) -> windows_core::Result<f64>;
-    fn MinFrequency(&self) -> windows_core::Result<f64>;
-    fn AcquirePin(&self, pin: i32) -> windows_core::Result<()>;
-    fn ReleasePin(&self, pin: i32) -> windows_core::Result<()>;
-    fn EnablePin(&self, pin: i32) -> windows_core::Result<()>;
-    fn DisablePin(&self, pin: i32) -> windows_core::Result<()>;
-    fn SetPulseParameters(&self, pin: i32, dutyCycle: f64, invertPolarity: bool) -> windows_core::Result<()>;
+    fn PinCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ActualFrequency(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetDesiredFrequency(&self, frequency: f64) -> Result<f64, windows_result::HRESULT>;
+    fn MaxFrequency(&self) -> Result<f64, windows_result::HRESULT>;
+    fn MinFrequency(&self) -> Result<f64, windows_result::HRESULT>;
+    fn AcquirePin(&self, pin: i32) -> Result<(), windows_result::HRESULT>;
+    fn ReleasePin(&self, pin: i32) -> Result<(), windows_result::HRESULT>;
+    fn EnablePin(&self, pin: i32) -> Result<(), windows_result::HRESULT>;
+    fn DisablePin(&self, pin: i32) -> Result<(), windows_result::HRESULT>;
+    fn SetPulseParameters(&self, pin: i32, dutyCycle: f64, invertPolarity: bool) -> Result<(), windows_result::HRESULT>;
 }
 impl IPwmControllerProvider_Vtbl {
     pub const fn new<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>() -> Self {
@@ -206,7 +206,7 @@ impl windows_core::RuntimeType for IPwmProvider {
 }
 windows_core::imp::interface_hierarchy!(IPwmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmProvider {
-    pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IPwmControllerProvider>> {
+    pub fn GetControllers(&self) -> Result<windows_collections::IVectorView<IPwmControllerProvider>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -218,7 +218,7 @@ impl windows_core::RuntimeName for IPwmProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmProvider";
 }
 pub trait IPwmProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IPwmControllerProvider>>;
+    fn GetControllers(&self) -> Result<windows_collections::IVectorView<IPwmControllerProvider>, windows_result::HRESULT>;
 }
 impl IPwmProvider_Vtbl {
     pub const fn new<Identity: IPwmProvider_Impl, const OFFSET: isize>() -> Self {

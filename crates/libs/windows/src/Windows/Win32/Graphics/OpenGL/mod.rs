@@ -24,13 +24,13 @@ pub unsafe fn GetPixelFormat(hdc: super::Gdi::HDC) -> i32 {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetPixelFormat(hdc: super::Gdi::HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> windows_core::Result<()> {
+pub unsafe fn SetPixelFormat(hdc: super::Gdi::HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("gdi32.dll" "system" fn SetPixelFormat(hdc : super::Gdi:: HDC, format : i32, ppfd : *const PIXELFORMATDESCRIPTOR) -> windows_core::BOOL);
     unsafe { SetPixelFormat(hdc, format, ppfd).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SwapBuffers(param0: super::Gdi::HDC) -> windows_core::Result<()> {
+pub unsafe fn SwapBuffers(param0: super::Gdi::HDC) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("gdi32.dll" "system" fn SwapBuffers(param0 : super::Gdi:: HDC) -> windows_core::BOOL);
     unsafe { SwapBuffers(param0).ok() }
 }
@@ -1975,26 +1975,26 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
     unsafe { gluUnProject(winx, winy, winz, modelmatrix, projmatrix, viewport, objx as _, objy as _, objz as _) }
 }
 #[inline]
-pub unsafe fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> windows_core::Result<()> {
+pub unsafe fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglCopyContext(param0 : HGLRC, param1 : HGLRC, param2 : u32) -> windows_core::BOOL);
     unsafe { wglCopyContext(param0, param1, param2).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateContext(param0: super::Gdi::HDC) -> windows_core::Result<HGLRC> {
+pub unsafe fn wglCreateContext(param0: super::Gdi::HDC) -> Result<HGLRC, windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglCreateContext(param0 : super::Gdi:: HDC) -> HGLRC);
     let result__ = unsafe { wglCreateContext(param0) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> windows_core::Result<HGLRC> {
+pub unsafe fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> Result<HGLRC, windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglCreateLayerContext(param0 : super::Gdi:: HDC, param1 : i32) -> HGLRC);
     let result__ = unsafe { wglCreateLayerContext(param0, param1) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn wglDeleteContext(param0: HGLRC) -> windows_core::Result<()> {
+pub unsafe fn wglDeleteContext(param0: HGLRC) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglDeleteContext(param0 : HGLRC) -> windows_core::BOOL);
     unsafe { wglDeleteContext(param0).ok() }
 }
@@ -2031,13 +2031,13 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> windows_core::Result<()> {
+pub unsafe fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::Gdi:: HDC, param1 : HGLRC) -> windows_core::BOOL);
     unsafe { wglMakeCurrent(param0, param1).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: bool) -> windows_core::Result<()> {
+pub unsafe fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi:: HDC, param1 : i32, param2 : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { wglRealizeLayerPalette(param0, param1, param2.into()).ok() }
 }
@@ -2048,37 +2048,37 @@ pub unsafe fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, pa
     unsafe { wglSetLayerPaletteEntries(param0, param1, param2, param3, param4) }
 }
 #[inline]
-pub unsafe fn wglShareLists(param0: HGLRC, param1: HGLRC) -> windows_core::Result<()> {
+pub unsafe fn wglShareLists(param0: HGLRC, param1: HGLRC) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglShareLists(param0 : HGLRC, param1 : HGLRC) -> windows_core::BOOL);
     unsafe { wglShareLists(param0, param1).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglSwapLayerBuffers(param0: super::Gdi::HDC, param1: u32) -> windows_core::Result<()> {
+pub unsafe fn wglSwapLayerBuffers(param0: super::Gdi::HDC, param1: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglSwapLayerBuffers(param0 : super::Gdi:: HDC, param1 : u32) -> windows_core::BOOL);
     unsafe { wglSwapLayerBuffers(param0, param1).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontBitmapsA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> windows_core::Result<()> {
+pub unsafe fn wglUseFontBitmapsA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_core::BOOL);
     unsafe { wglUseFontBitmapsA(param0, param1, param2, param3).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> windows_core::Result<()> {
+pub unsafe fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_core::BOOL);
     unsafe { wglUseFontBitmapsW(param0, param1, param2, param3).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::Result<()> {
+pub unsafe fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_core::BOOL);
     unsafe { wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, param7 as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> windows_core::Result<()> {
+pub unsafe fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_core::BOOL);
     unsafe { wglUseFontOutlinesW(param0, param1, param2, param3, param4, param5, param6, param7 as _).ok() }
 }

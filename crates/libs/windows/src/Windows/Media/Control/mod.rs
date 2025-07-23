@@ -20,140 +20,140 @@ unsafe impl Sync for CurrentSessionChangedEventArgs {}
 pub struct GlobalSystemMediaTransportControlsSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSession, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSession {
-    pub fn SourceAppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourceAppUserModelId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceAppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TryGetMediaPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>> {
+    pub fn TryGetMediaPropertiesAsync(&self) -> Result<windows_future::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetMediaPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetTimelineProperties(&self) -> windows_core::Result<GlobalSystemMediaTransportControlsSessionTimelineProperties> {
+    pub fn GetTimelineProperties(&self) -> Result<GlobalSystemMediaTransportControlsSessionTimelineProperties, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTimelineProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPlaybackInfo(&self) -> windows_core::Result<GlobalSystemMediaTransportControlsSessionPlaybackInfo> {
+    pub fn GetPlaybackInfo(&self) -> Result<GlobalSystemMediaTransportControlsSessionPlaybackInfo, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPlaybackInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryPlayAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryPlayAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryPlayAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryPauseAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryPauseAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryPauseAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryStopAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryStopAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryStopAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryRecordAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryRecordAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryRecordAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryFastForwardAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryFastForwardAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryFastForwardAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryRewindAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryRewindAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryRewindAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TrySkipNextAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TrySkipNextAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySkipNextAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TrySkipPreviousAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TrySkipPreviousAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySkipPreviousAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangeChannelUpAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryChangeChannelUpAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryChangeChannelUpAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangeChannelDownAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryChangeChannelDownAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryChangeChannelDownAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryTogglePlayPauseAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryTogglePlayPauseAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryTogglePlayPauseAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangeAutoRepeatModeAsync(&self, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryChangeAutoRepeatModeAsync(&self, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryChangeAutoRepeatModeAsync)(windows_core::Interface::as_raw(this), requestedautorepeatmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangePlaybackRateAsync(&self, requestedplaybackrate: f64) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryChangePlaybackRateAsync(&self, requestedplaybackrate: f64) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryChangePlaybackRateAsync)(windows_core::Interface::as_raw(this), requestedplaybackrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangeShuffleActiveAsync(&self, requestedshufflestate: bool) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryChangeShuffleActiveAsync(&self, requestedshufflestate: bool) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryChangeShuffleActiveAsync)(windows_core::Interface::as_raw(this), requestedshufflestate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangePlaybackPositionAsync(&self, requestedplaybackposition: i64) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryChangePlaybackPositionAsync(&self, requestedplaybackposition: i64) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryChangePlaybackPositionAsync)(windows_core::Interface::as_raw(this), requestedplaybackposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TimelinePropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TimelinePropertiesChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs>>,
     {
@@ -163,11 +163,11 @@ impl GlobalSystemMediaTransportControlsSession {
             (windows_core::Interface::vtable(this).TimelinePropertiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTimelinePropertiesChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTimelinePropertiesChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTimelinePropertiesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PlaybackInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PlaybackInfoChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs>>,
     {
@@ -177,11 +177,11 @@ impl GlobalSystemMediaTransportControlsSession {
             (windows_core::Interface::vtable(this).PlaybackInfoChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePlaybackInfoChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePlaybackInfoChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePlaybackInfoChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn MediaPropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MediaPropertiesChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>>,
     {
@@ -191,7 +191,7 @@ impl GlobalSystemMediaTransportControlsSession {
             (windows_core::Interface::vtable(this).MediaPropertiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMediaPropertiesChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveMediaPropertiesChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMediaPropertiesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -213,21 +213,21 @@ unsafe impl Sync for GlobalSystemMediaTransportControlsSession {}
 pub struct GlobalSystemMediaTransportControlsSessionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionManager {
-    pub fn GetCurrentSession(&self) -> windows_core::Result<GlobalSystemMediaTransportControlsSession> {
+    pub fn GetCurrentSession(&self) -> Result<GlobalSystemMediaTransportControlsSession, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSessions(&self) -> windows_core::Result<windows_collections::IVectorView<GlobalSystemMediaTransportControlsSession>> {
+    pub fn GetSessions(&self) -> Result<windows_collections::IVectorView<GlobalSystemMediaTransportControlsSession>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSessions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CurrentSessionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CurrentSessionChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs>>,
     {
@@ -237,11 +237,11 @@ impl GlobalSystemMediaTransportControlsSessionManager {
             (windows_core::Interface::vtable(this).CurrentSessionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCurrentSessionChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCurrentSessionChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCurrentSessionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SessionsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionsChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs>>,
     {
@@ -251,17 +251,17 @@ impl GlobalSystemMediaTransportControlsSessionManager {
             (windows_core::Interface::vtable(this).SessionsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSessionsChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSessionsChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSessionsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestAsync() -> windows_core::Result<windows_future::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>> {
+    pub fn RequestAsync() -> Result<windows_future::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>, windows_result::HRESULT> {
         Self::IGlobalSystemMediaTransportControlsSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGlobalSystemMediaTransportControlsSessionManagerStatics<R, F: FnOnce(&IGlobalSystemMediaTransportControlsSessionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGlobalSystemMediaTransportControlsSessionManagerStatics<R, F: FnOnce(&IGlobalSystemMediaTransportControlsSessionManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GlobalSystemMediaTransportControlsSessionManager, IGlobalSystemMediaTransportControlsSessionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -283,63 +283,63 @@ unsafe impl Sync for GlobalSystemMediaTransportControlsSessionManager {}
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionMediaProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Subtitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subtitle(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subtitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AlbumArtist(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AlbumArtist(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlbumArtist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Artist(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Artist(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Artist)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AlbumTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AlbumTitle(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlbumTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TrackNumber(&self) -> windows_core::Result<i32> {
+    pub fn TrackNumber(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrackNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Genres(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Genres(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Genres)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AlbumTrackCount(&self) -> windows_core::Result<i32> {
+    pub fn AlbumTrackCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlbumTrackCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackType(&self) -> windows_core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>> {
+    pub fn PlaybackType(&self) -> Result<super::super::Foundation::IReference<super::MediaPlaybackType>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -347,7 +347,7 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Thumbnail(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -372,105 +372,105 @@ unsafe impl Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackControls, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    pub fn IsPlayEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsPlayEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPlayEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPauseEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsPauseEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPauseEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsStopEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsStopEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsStopEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRecordEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsRecordEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRecordEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsFastForwardEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsFastForwardEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFastForwardEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRewindEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsRewindEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRewindEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsNextEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsNextEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsNextEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPreviousEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsPreviousEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPreviousEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsChannelUpEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsChannelUpEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsChannelUpEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsChannelDownEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsChannelDownEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsChannelDownEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPlayPauseToggleEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsPlayPauseToggleEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPlayPauseToggleEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsShuffleEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsShuffleEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsShuffleEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRepeatEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsRepeatEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRepeatEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPlaybackRateEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsPlaybackRateEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPlaybackRateEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPlaybackPositionEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsPlaybackPositionEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -495,42 +495,42 @@ unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    pub fn Controls(&self) -> windows_core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls> {
+    pub fn Controls(&self) -> Result<GlobalSystemMediaTransportControlsSessionPlaybackControls, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Controls)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PlaybackStatus(&self) -> windows_core::Result<GlobalSystemMediaTransportControlsSessionPlaybackStatus> {
+    pub fn PlaybackStatus(&self) -> Result<GlobalSystemMediaTransportControlsSessionPlaybackStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlaybackStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackType(&self) -> windows_core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>> {
+    pub fn PlaybackType(&self) -> Result<super::super::Foundation::IReference<super::MediaPlaybackType>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlaybackType)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AutoRepeatMode(&self) -> windows_core::Result<super::super::Foundation::IReference<super::MediaPlaybackAutoRepeatMode>> {
+    pub fn AutoRepeatMode(&self) -> Result<super::super::Foundation::IReference<super::MediaPlaybackAutoRepeatMode>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoRepeatMode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PlaybackRate(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn PlaybackRate(&self) -> Result<super::super::Foundation::IReference<f64>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlaybackRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsShuffleActive(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
+    pub fn IsShuffleActive(&self) -> Result<super::super::Foundation::IReference<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -572,42 +572,42 @@ impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlay
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionTimelineProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn StartTime(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EndTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn EndTime(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EndTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinSeekTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MinSeekTime(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinSeekTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxSeekTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MaxSeekTime(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxSeekTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Position(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LastUpdatedTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LastUpdatedTime(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

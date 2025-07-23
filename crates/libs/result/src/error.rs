@@ -151,6 +151,13 @@ impl Error {
     pub fn as_ptr(&self) -> *mut core::ffi::c_void {
         self.info.as_ptr()
     }
+
+    /// Sets the error object for the calling thread.
+    pub fn to_thread(&self) -> HRESULT {
+        let code = self.code();
+        self.info.to_thread();
+        code
+    }
 }
 
 #[cfg(feature = "std")]
@@ -159,7 +166,7 @@ impl std::error::Error for Error {}
 impl From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code();
-        error.info.into_thread();
+        error.info.to_thread();
         code
     }
 }
@@ -289,8 +296,8 @@ mod error_info {
             }
         }
 
-        pub(crate) fn into_thread(self) {
-            if let Some(ptr) = self.ptr {
+        pub(crate) fn to_thread(&self) {
+            if let Some(ptr) = &self.ptr {
                 unsafe {
                     crate::bindings::SetErrorInfo(0, ptr.as_raw());
                 }
@@ -379,7 +386,7 @@ mod error_info {
             Self
         }
 
-        pub(crate) fn into_thread(self) {}
+        pub(crate) fn to_thread(&self) {}
 
         #[cfg(windows)]
         pub(crate) fn originate_error(_code: HRESULT, _message: &str) {}

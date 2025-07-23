@@ -13,7 +13,7 @@ impl IDynamicConceptProviderConcept_Impl for Test_Impl {
         concept: OutRef<IUnknown>,
         _: OutRef<IKeyStore>,
         _: *mut bool,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         let this = self.0.read().unwrap();
         concept.write(this.clone())?;
         Ok(())
@@ -24,18 +24,18 @@ impl IDynamicConceptProviderConcept_Impl for Test_Impl {
         _: *const GUID,
         concept: Ref<IUnknown>,
         _: Ref<IKeyStore>,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
         *this = concept.cloned();
         Ok(())
     }
-    fn NotifyParent(&self, _: Ref<IModelObject>) -> Result<()> {
+    fn NotifyParent(&self, _: Ref<IModelObject>) -> Result<(), HRESULT> {
         todo!()
     }
-    fn NotifyParentChange(&self, _: Ref<IModelObject>) -> Result<()> {
+    fn NotifyParentChange(&self, _: Ref<IModelObject>) -> Result<(), HRESULT> {
         todo!()
     }
-    fn NotifyDestruct(&self) -> Result<()> {
+    fn NotifyDestruct(&self) -> Result<(), HRESULT> {
         todo!()
     }
 }

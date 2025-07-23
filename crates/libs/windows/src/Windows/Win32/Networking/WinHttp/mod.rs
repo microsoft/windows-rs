@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn WinHttpAddRequestHeaders(hrequest: *mut core::ffi::c_void, lpszheaders: &[u16], dwmodifiers: u32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpAddRequestHeaders(hrequest: *mut core::ffi::c_void, lpszheaders: &[u16], dwmodifiers: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpAddRequestHeaders(hrequest : *mut core::ffi::c_void, lpszheaders : windows_core::PCWSTR, dwheaderslength : u32, dwmodifiers : u32) -> windows_core::BOOL);
     unsafe { WinHttpAddRequestHeaders(hrequest as _, core::mem::transmute(lpszheaders.as_ptr()), lpszheaders.len().try_into().unwrap(), dwmodifiers).ok() }
 }
@@ -9,12 +9,12 @@ pub unsafe fn WinHttpAddRequestHeadersEx(hrequest: *mut core::ffi::c_void, dwmod
     unsafe { WinHttpAddRequestHeadersEx(hrequest as _, dwmodifiers, ullflags, ullextra, pheaders.len().try_into().unwrap(), core::mem::transmute(pheaders.as_ptr())) }
 }
 #[inline]
-pub unsafe fn WinHttpCheckPlatform() -> windows_core::Result<()> {
+pub unsafe fn WinHttpCheckPlatform() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpCheckPlatform() -> windows_core::BOOL);
     unsafe { WinHttpCheckPlatform().ok() }
 }
 #[inline]
-pub unsafe fn WinHttpCloseHandle(hinternet: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn WinHttpCloseHandle(hinternet: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpCloseHandle(hinternet : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { WinHttpCloseHandle(hinternet as _).ok() }
 }
@@ -27,7 +27,7 @@ where
     unsafe { WinHttpConnect(hsession as _, pswzservername.param().abi(), nserverport, dwreserved) }
 }
 #[inline]
-pub unsafe fn WinHttpCrackUrl(pwszurl: &[u16], dwflags: u32, lpurlcomponents: *mut URL_COMPONENTS) -> windows_core::Result<()> {
+pub unsafe fn WinHttpCrackUrl(pwszurl: &[u16], dwflags: u32, lpurlcomponents: *mut URL_COMPONENTS) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpCrackUrl(pwszurl : windows_core::PCWSTR, dwurllength : u32, dwflags : u32, lpurlcomponents : *mut URL_COMPONENTS) -> windows_core::BOOL);
     unsafe { WinHttpCrackUrl(core::mem::transmute(pwszurl.as_ptr()), pwszurl.len().try_into().unwrap(), dwflags, lpurlcomponents as _).ok() }
 }
@@ -37,12 +37,12 @@ pub unsafe fn WinHttpCreateProxyResolver(hsession: *const core::ffi::c_void, phr
     unsafe { WinHttpCreateProxyResolver(hsession, phresolver as _) }
 }
 #[inline]
-pub unsafe fn WinHttpCreateUrl(lpurlcomponents: *const URL_COMPONENTS, dwflags: WIN_HTTP_CREATE_URL_FLAGS, pwszurl: Option<windows_core::PWSTR>, pdwurllength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpCreateUrl(lpurlcomponents: *const URL_COMPONENTS, dwflags: WIN_HTTP_CREATE_URL_FLAGS, pwszurl: Option<windows_core::PWSTR>, pdwurllength: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpCreateUrl(lpurlcomponents : *const URL_COMPONENTS, dwflags : WIN_HTTP_CREATE_URL_FLAGS, pwszurl : windows_core::PWSTR, pdwurllength : *mut u32) -> windows_core::BOOL);
     unsafe { WinHttpCreateUrl(lpurlcomponents, dwflags, pwszurl.unwrap_or(core::mem::zeroed()) as _, pdwurllength as _).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrautoconfigurl: *mut windows_core::PWSTR) -> windows_core::Result<()> {
+pub unsafe fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrautoconfigurl: *mut windows_core::PWSTR) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags : u32, ppwstrautoconfigurl : *mut windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { WinHttpDetectAutoProxyConfigUrl(dwautodetectflags, ppwstrautoconfigurl as _).ok() }
 }
@@ -72,17 +72,17 @@ pub unsafe fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_
     unsafe { WinHttpFreeQueryConnectionGroupResult(presult as _) }
 }
 #[inline]
-pub unsafe fn WinHttpGetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> windows_core::Result<()> {
+pub unsafe fn WinHttpGetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpGetDefaultProxyConfiguration(pproxyinfo : *mut WINHTTP_PROXY_INFO) -> windows_core::BOOL);
     unsafe { WinHttpGetDefaultProxyConfiguration(pproxyinfo as _).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> windows_core::Result<()> {
+pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig : *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> windows_core::BOOL);
     unsafe { WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig as _).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpGetProxyForUrl<P1>(hsession: *mut core::ffi::c_void, lpcwszurl: P1, pautoproxyoptions: *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo: *mut WINHTTP_PROXY_INFO) -> windows_core::Result<()>
+pub unsafe fn WinHttpGetProxyForUrl<P1>(hsession: *mut core::ffi::c_void, lpcwszurl: P1, pautoproxyoptions: *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo: *mut WINHTTP_PROXY_INFO) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -152,7 +152,7 @@ where
     unsafe { WinHttpOpenRequest(hconnect as _, pwszverb.param().abi(), pwszobjectname.param().abi(), pwszversion.param().abi(), pwszreferrer.param().abi(), ppwszaccepttypes, dwflags) }
 }
 #[inline]
-pub unsafe fn WinHttpQueryAuthSchemes(hrequest: *mut core::ffi::c_void, lpdwsupportedschemes: *mut u32, lpdwfirstscheme: *mut u32, pdwauthtarget: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpQueryAuthSchemes(hrequest: *mut core::ffi::c_void, lpdwsupportedschemes: *mut u32, lpdwfirstscheme: *mut u32, pdwauthtarget: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpQueryAuthSchemes(hrequest : *mut core::ffi::c_void, lpdwsupportedschemes : *mut u32, lpdwfirstscheme : *mut u32, pdwauthtarget : *mut u32) -> windows_core::BOOL);
     unsafe { WinHttpQueryAuthSchemes(hrequest as _, lpdwsupportedschemes as _, lpdwfirstscheme as _, pdwauthtarget as _).ok() }
 }
@@ -162,12 +162,12 @@ pub unsafe fn WinHttpQueryConnectionGroup(hinternet: *const core::ffi::c_void, p
     unsafe { WinHttpQueryConnectionGroup(hinternet, pguidconnection.unwrap_or(core::mem::zeroed()) as _, ullflags, ppresult as _) }
 }
 #[inline]
-pub unsafe fn WinHttpQueryDataAvailable(hrequest: *mut core::ffi::c_void, lpdwnumberofbytesavailable: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpQueryDataAvailable(hrequest: *mut core::ffi::c_void, lpdwnumberofbytesavailable: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpQueryDataAvailable(hrequest : *mut core::ffi::c_void, lpdwnumberofbytesavailable : *mut u32) -> windows_core::BOOL);
     unsafe { WinHttpQueryDataAvailable(hrequest as _, lpdwnumberofbytesavailable as _).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpQueryHeaders<P2>(hrequest: *mut core::ffi::c_void, dwinfolevel: u32, pwszname: P2, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> windows_core::Result<()>
+pub unsafe fn WinHttpQueryHeaders<P2>(hrequest: *mut core::ffi::c_void, dwinfolevel: u32, pwszname: P2, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -180,12 +180,12 @@ pub unsafe fn WinHttpQueryHeadersEx(hrequest: *const core::ffi::c_void, dwinfole
     unsafe { WinHttpQueryHeadersEx(hrequest, dwinfolevel, ullflags, uicodepage, pdwindex.unwrap_or(core::mem::zeroed()) as _, pheadername.unwrap_or(core::mem::zeroed()) as _, pbuffer.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength as _, ppheaders.unwrap_or(core::mem::zeroed()) as _, pdwheaderscount as _) }
 }
 #[inline]
-pub unsafe fn WinHttpQueryOption(hinternet: *mut core::ffi::c_void, dwoption: u32, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpQueryOption(hinternet: *mut core::ffi::c_void, dwoption: u32, lpbuffer: Option<*mut core::ffi::c_void>, lpdwbufferlength: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpQueryOption(hinternet : *mut core::ffi::c_void, dwoption : u32, lpbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32) -> windows_core::BOOL);
     unsafe { WinHttpQueryOption(hinternet as _, dwoption, lpbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwbufferlength as _).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpReadData(hrequest: *mut core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpReadData(hrequest: *mut core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpReadData(hrequest : *mut core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, dwnumberofbytestoread : u32, lpdwnumberofbytesread : *mut u32) -> windows_core::BOOL);
     unsafe { WinHttpReadData(hrequest as _, lpbuffer as _, dwnumberofbytestoread, lpdwnumberofbytesread as _).ok() }
 }
@@ -203,7 +203,7 @@ where
     unsafe { WinHttpReadProxySettings(hsession, pcwszconnectionname.param().abi(), ffallbacktodefaultsettings.into(), fsetautodiscoverfordefaultsettings.into(), pdwsettingsversion as _, pfdefaultsettingsarereturned as _, pwinhttpproxysettings as _) }
 }
 #[inline]
-pub unsafe fn WinHttpReceiveResponse(hrequest: *mut core::ffi::c_void, lpreserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn WinHttpReceiveResponse(hrequest: *mut core::ffi::c_void, lpreserved: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpReceiveResponse(hrequest : *mut core::ffi::c_void, lpreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { WinHttpReceiveResponse(hrequest as _, lpreserved as _).ok() }
 }
@@ -218,12 +218,12 @@ pub unsafe fn WinHttpResetAutoProxy(hsession: *const core::ffi::c_void, dwflags:
     unsafe { WinHttpResetAutoProxy(hsession, dwflags) }
 }
 #[inline]
-pub unsafe fn WinHttpSendRequest(hrequest: *mut core::ffi::c_void, lpszheaders: Option<&[u16]>, lpoptional: Option<*const core::ffi::c_void>, dwoptionallength: u32, dwtotallength: u32, dwcontext: usize) -> windows_core::Result<()> {
+pub unsafe fn WinHttpSendRequest(hrequest: *mut core::ffi::c_void, lpszheaders: Option<&[u16]>, lpoptional: Option<*const core::ffi::c_void>, dwoptionallength: u32, dwtotallength: u32, dwcontext: usize) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpSendRequest(hrequest : *mut core::ffi::c_void, lpszheaders : windows_core::PCWSTR, dwheaderslength : u32, lpoptional : *const core::ffi::c_void, dwoptionallength : u32, dwtotallength : u32, dwcontext : usize) -> windows_core::BOOL);
     unsafe { WinHttpSendRequest(hrequest as _, core::mem::transmute(lpszheaders.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpoptional.unwrap_or(core::mem::zeroed()) as _, dwoptionallength, dwtotallength, dwcontext).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpSetCredentials<P3, P4>(hrequest: *mut core::ffi::c_void, authtargets: u32, authscheme: u32, pwszusername: P3, pwszpassword: P4, pauthparams: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn WinHttpSetCredentials<P3, P4>(hrequest: *mut core::ffi::c_void, authtargets: u32, authscheme: u32, pwszusername: P3, pwszpassword: P4, pauthparams: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
@@ -232,12 +232,12 @@ where
     unsafe { WinHttpSetCredentials(hrequest as _, authtargets, authscheme, pwszusername.param().abi(), pwszpassword.param().abi(), pauthparams as _).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpSetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> windows_core::Result<()> {
+pub unsafe fn WinHttpSetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpSetDefaultProxyConfiguration(pproxyinfo : *mut WINHTTP_PROXY_INFO) -> windows_core::BOOL);
     unsafe { WinHttpSetDefaultProxyConfiguration(pproxyinfo as _).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpSetOption(hinternet: Option<*const core::ffi::c_void>, dwoption: u32, lpbuffer: Option<&[u8]>) -> windows_core::Result<()> {
+pub unsafe fn WinHttpSetOption(hinternet: Option<*const core::ffi::c_void>, dwoption: u32, lpbuffer: Option<&[u8]>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpSetOption(hinternet : *const core::ffi::c_void, dwoption : u32, lpbuffer : *const core::ffi::c_void, dwbufferlength : u32) -> windows_core::BOOL);
     unsafe { WinHttpSetOption(hinternet.unwrap_or(core::mem::zeroed()) as _, dwoption, core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
@@ -252,17 +252,17 @@ pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut core::ffi::c_void, lpfnin
     unsafe { WinHttpSetStatusCallback(hinternet as _, lpfninternetcallback, dwnotificationflags, dwreserved) }
 }
 #[inline]
-pub unsafe fn WinHttpSetTimeouts(hinternet: *mut core::ffi::c_void, nresolvetimeout: i32, nconnecttimeout: i32, nsendtimeout: i32, nreceivetimeout: i32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpSetTimeouts(hinternet: *mut core::ffi::c_void, nresolvetimeout: i32, nconnecttimeout: i32, nsendtimeout: i32, nreceivetimeout: i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpSetTimeouts(hinternet : *mut core::ffi::c_void, nresolvetimeout : i32, nconnecttimeout : i32, nsendtimeout : i32, nreceivetimeout : i32) -> windows_core::BOOL);
     unsafe { WinHttpSetTimeouts(hinternet as _, nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: &mut [u16; 62]) -> windows_core::Result<()> {
+pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: &mut [u16; 62]) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpTimeFromSystemTime(pst : *const super::super::Foundation:: SYSTEMTIME, pwsztime : windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { WinHttpTimeFromSystemTime(pst, core::mem::transmute(pwsztime.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn WinHttpTimeToSystemTime<P0>(pwsztime: P0, pst: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()>
+pub unsafe fn WinHttpTimeToSystemTime<P0>(pwsztime: P0, pst: *mut super::super::Foundation::SYSTEMTIME) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -305,7 +305,7 @@ pub unsafe fn WinHttpWebSocketShutdown(hwebsocket: *const core::ffi::c_void, uss
     unsafe { WinHttpWebSocketShutdown(hwebsocket, usstatus, pvreason.unwrap_or(core::mem::zeroed()) as _, dwreasonlength) }
 }
 #[inline]
-pub unsafe fn WinHttpWriteData(hrequest: *mut core::ffi::c_void, lpbuffer: Option<*const core::ffi::c_void>, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WinHttpWriteData(hrequest: *mut core::ffi::c_void, lpbuffer: Option<*const core::ffi::c_void>, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("winhttp.dll" "system" fn WinHttpWriteData(hrequest : *mut core::ffi::c_void, lpbuffer : *const core::ffi::c_void, dwnumberofbytestowrite : u32, lpdwnumberofbyteswritten : *mut u32) -> windows_core::BOOL);
     unsafe { WinHttpWriteData(hrequest as _, lpbuffer.unwrap_or(core::mem::zeroed()) as _, dwnumberofbytestowrite, lpdwnumberofbyteswritten as _).ok() }
 }
@@ -460,95 +460,95 @@ windows_core::imp::interface_hierarchy!(IWinHttpRequest, windows_core::IUnknown,
 #[cfg(feature = "Win32_System_Com")]
 impl IWinHttpRequest {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetProxy)(windows_core::Interface::as_raw(self), proxysetting, core::mem::transmute_copy(proxyserver), core::mem::transmute_copy(bypasslist)).ok() }
     }
-    pub unsafe fn SetCredentials(&self, username: &windows_core::BSTR, password: &windows_core::BSTR, flags: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetCredentials(&self, username: &windows_core::BSTR, password: &windows_core::BSTR, flags: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(username), core::mem::transmute_copy(password), flags).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Open(&self, method: &windows_core::BSTR, url: &windows_core::BSTR, r#async: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Open(&self, method: &windows_core::BSTR, url: &windows_core::BSTR, r#async: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(method), core::mem::transmute_copy(url), core::mem::transmute_copy(r#async)).ok() }
     }
-    pub unsafe fn SetRequestHeader(&self, header: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetRequestHeader(&self, header: &windows_core::BSTR, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(header), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn GetResponseHeader(&self, header: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetResponseHeader(&self, header: &windows_core::BSTR) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetResponseHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(header), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetAllResponseHeaders(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetAllResponseHeaders(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAllResponseHeaders)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Send(&self, body: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Send(&self, body: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(body)).ok() }
     }
-    pub unsafe fn Status(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Status(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ResponseText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ResponseText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResponseText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ResponseBody(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn ResponseBody(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResponseBody)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ResponseStream(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn ResponseStream(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResponseStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Option(&self, option: WinHttpRequestOption) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Option(&self, option: WinHttpRequestOption) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Option)(windows_core::Interface::as_raw(self), option, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_Option(&self, option: WinHttpRequestOption, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn put_Option(&self, option: WinHttpRequestOption, value: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).put_Option)(windows_core::Interface::as_raw(self), option, core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn WaitForResponse(&self, timeout: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn WaitForResponse(&self, timeout: &super::super::System::Variant::VARIANT) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForResponse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(timeout), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
+    pub unsafe fn Abort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTimeouts)(windows_core::Interface::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout).ok() }
     }
-    pub unsafe fn SetClientCertificate(&self, clientcertificate: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientCertificate(&self, clientcertificate: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clientcertificate)).ok() }
     }
-    pub unsafe fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> windows_core::Result<()> {
+    pub unsafe fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoLogonPolicy)(windows_core::Interface::as_raw(self), autologonpolicy).ok() }
     }
 }
@@ -603,25 +603,25 @@ pub struct IWinHttpRequest_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWinHttpRequest_Impl: super::super::System::Com::IDispatch_Impl {
-    fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetCredentials(&self, username: &windows_core::BSTR, password: &windows_core::BSTR, flags: i32) -> windows_core::Result<()>;
-    fn Open(&self, method: &windows_core::BSTR, url: &windows_core::BSTR, r#async: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetRequestHeader(&self, header: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetResponseHeader(&self, header: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn GetAllResponseHeaders(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Send(&self, body: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Status(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ResponseText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ResponseBody(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ResponseStream(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn get_Option(&self, option: WinHttpRequestOption) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn put_Option(&self, option: WinHttpRequestOption, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn WaitForResponse(&self, timeout: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Abort(&self) -> windows_core::Result<()>;
-    fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::Result<()>;
-    fn SetClientCertificate(&self, clientcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> windows_core::Result<()>;
+    fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn SetCredentials(&self, username: &windows_core::BSTR, password: &windows_core::BSTR, flags: i32) -> Result<(), windows_result::HRESULT>;
+    fn Open(&self, method: &windows_core::BSTR, url: &windows_core::BSTR, r#async: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn SetRequestHeader(&self, header: &windows_core::BSTR, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetResponseHeader(&self, header: &windows_core::BSTR) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetAllResponseHeaders(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Send(&self, body: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Status(&self) -> Result<i32, windows_result::HRESULT>;
+    fn StatusText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ResponseText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ResponseBody(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn ResponseStream(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn get_Option(&self, option: WinHttpRequestOption) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn put_Option(&self, option: WinHttpRequestOption, value: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn WaitForResponse(&self, timeout: &super::super::System::Variant::VARIANT) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Abort(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> Result<(), windows_result::HRESULT>;
+    fn SetClientCertificate(&self, clientcertificate: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWinHttpRequest_Vtbl {

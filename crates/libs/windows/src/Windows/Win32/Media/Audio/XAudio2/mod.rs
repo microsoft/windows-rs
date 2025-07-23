@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn CreateAudioReverb() -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn CreateAudioReverb() -> Result<windows_core::IUnknown, windows_result::HRESULT> {
     windows_link::link!("xaudio2_8.dll" "system" fn CreateAudioReverb(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -7,7 +7,7 @@ pub unsafe fn CreateAudioReverb() -> windows_core::Result<windows_core::IUnknown
     }
 }
 #[inline]
-pub unsafe fn CreateAudioVolumeMeter() -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn CreateAudioVolumeMeter() -> Result<windows_core::IUnknown, windows_result::HRESULT> {
     windows_link::link!("xaudio2_8.dll" "system" fn CreateAudioVolumeMeter(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -15,12 +15,12 @@ pub unsafe fn CreateAudioVolumeMeter() -> windows_core::Result<windows_core::IUn
     }
 }
 #[inline]
-pub unsafe fn CreateFX(clsid: *const windows_core::GUID, peffect: *mut Option<windows_core::IUnknown>, pinitdat: Option<*const core::ffi::c_void>, initdatabytesize: u32) -> windows_core::Result<()> {
+pub unsafe fn CreateFX(clsid: *const windows_core::GUID, peffect: *mut Option<windows_core::IUnknown>, pinitdat: Option<*const core::ffi::c_void>, initdatabytesize: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("xaudio2_8.dll" "C" fn CreateFX(clsid : *const windows_core::GUID, peffect : *mut * mut core::ffi::c_void, pinitdat : *const core::ffi::c_void, initdatabytesize : u32) -> windows_core::HRESULT);
     unsafe { CreateFX(clsid, core::mem::transmute(peffect), pinitdat.unwrap_or(core::mem::zeroed()) as _, initdatabytesize).ok() }
 }
 #[inline]
-pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> windows_core::Result<IXAPO> {
+pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> Result<IXAPO, windows_result::HRESULT> {
     windows_link::link!("hrtfapo.dll" "system" fn CreateHrtfApo(init : *const HrtfApoInit, xapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -28,7 +28,7 @@ pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> windows_core::Result<IX
     }
 }
 #[inline]
-pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> windows_core::Result<()> {
+pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("xaudio2_8.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut * mut core::ffi::c_void, flags : u32, xaudio2processor : u32, ntddiversion : u32) -> windows_core::HRESULT);
     unsafe { XAudio2CreateWithVersionInfo(core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok() }
 }
@@ -195,25 +195,25 @@ pub struct HrtfPosition {
 windows_core::imp::define_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
 windows_core::imp::interface_hierarchy!(IXAPO, windows_core::IUnknown);
 impl IXAPO {
-    pub unsafe fn GetRegistrationProperties(&self) -> windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
+    pub unsafe fn GetRegistrationProperties(&self) -> Result<*mut XAPO_REGISTRATION_PROPERTIES, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRegistrationProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: Option<*mut *mut super::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: Option<*mut *mut super::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poutputformat, prequestedinputformat, ppsupportedinputformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: Option<*mut *mut super::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: Option<*mut *mut super::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), pinputformat, prequestedoutputformat, ppsupportedoutputformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Initialize(&self, pdata: Option<*const core::ffi::c_void>, databytesize: u32) -> windows_core::Result<()> {
+    pub unsafe fn Initialize(&self, pdata: Option<*const core::ffi::c_void>, databytesize: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pdata.unwrap_or(core::mem::zeroed()) as _, databytesize).ok() }
     }
     pub unsafe fn Reset(&self) {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn LockForProcess(&self, pinputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>, poutputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>) -> windows_core::Result<()> {
+    pub unsafe fn LockForProcess(&self, pinputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>, poutputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LockForProcess)(windows_core::Interface::as_raw(self), pinputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputlockedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputlockedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn UnlockForProcess(&self) {
@@ -245,12 +245,12 @@ pub struct IXAPO_Vtbl {
     pub CalcOutputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
 }
 pub trait IXAPO_Impl: windows_core::IUnknownImpl {
-    fn GetRegistrationProperties(&self) -> windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
-    fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn Initialize(&self, pdata: *const core::ffi::c_void, databytesize: u32) -> windows_core::Result<()>;
+    fn GetRegistrationProperties(&self) -> Result<*mut XAPO_REGISTRATION_PROPERTIES, windows_result::HRESULT>;
+    fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn Initialize(&self, pdata: *const core::ffi::c_void, databytesize: u32) -> Result<(), windows_result::HRESULT>;
     fn Reset(&self);
-    fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::Result<()>;
+    fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> Result<(), windows_result::HRESULT>;
     fn UnlockForProcess(&self);
     fn Process(&self, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: windows_core::BOOL);
     fn CalcInputFrames(&self, outputframecount: u32) -> u32;
@@ -346,16 +346,16 @@ impl windows_core::RuntimeName for IXAPO {}
 windows_core::imp::define_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, windows_core::IUnknown);
 impl IXAPOHrtfParameters {
-    pub unsafe fn SetSourcePosition(&self, position: *const HrtfPosition) -> windows_core::Result<()> {
+    pub unsafe fn SetSourcePosition(&self, position: *const HrtfPosition) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSourcePosition)(windows_core::Interface::as_raw(self), position).ok() }
     }
-    pub unsafe fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> windows_core::Result<()> {
+    pub unsafe fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSourceOrientation)(windows_core::Interface::as_raw(self), orientation).ok() }
     }
-    pub unsafe fn SetSourceGain(&self, gain: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetSourceGain(&self, gain: f32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSourceGain)(windows_core::Interface::as_raw(self), gain).ok() }
     }
-    pub unsafe fn SetEnvironment(&self, environment: HrtfEnvironment) -> windows_core::Result<()> {
+    pub unsafe fn SetEnvironment(&self, environment: HrtfEnvironment) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnvironment)(windows_core::Interface::as_raw(self), environment).ok() }
     }
 }
@@ -369,10 +369,10 @@ pub struct IXAPOHrtfParameters_Vtbl {
     pub SetEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, HrtfEnvironment) -> windows_core::HRESULT,
 }
 pub trait IXAPOHrtfParameters_Impl: windows_core::IUnknownImpl {
-    fn SetSourcePosition(&self, position: *const HrtfPosition) -> windows_core::Result<()>;
-    fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> windows_core::Result<()>;
-    fn SetSourceGain(&self, gain: f32) -> windows_core::Result<()>;
-    fn SetEnvironment(&self, environment: HrtfEnvironment) -> windows_core::Result<()>;
+    fn SetSourcePosition(&self, position: *const HrtfPosition) -> Result<(), windows_result::HRESULT>;
+    fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> Result<(), windows_result::HRESULT>;
+    fn SetSourceGain(&self, gain: f32) -> Result<(), windows_result::HRESULT>;
+    fn SetEnvironment(&self, environment: HrtfEnvironment) -> Result<(), windows_result::HRESULT>;
 }
 impl IXAPOHrtfParameters_Vtbl {
     pub const fn new<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>() -> Self {
@@ -462,7 +462,7 @@ impl windows_core::RuntimeName for IXAPOParameters {}
 windows_core::imp::define_interface!(IXAudio2, IXAudio2_Vtbl, 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
 windows_core::imp::interface_hierarchy!(IXAudio2, windows_core::IUnknown);
 impl IXAudio2 {
-    pub unsafe fn RegisterForCallbacks<P0>(&self, pcallback: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterForCallbacks<P0>(&self, pcallback: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IXAudio2EngineCallback>,
     {
@@ -474,28 +474,28 @@ impl IXAudio2 {
     {
         unsafe { (windows_core::Interface::vtable(self).UnregisterForCallbacks)(windows_core::Interface::as_raw(self), pcallback.param().abi()) }
     }
-    pub unsafe fn CreateSourceVoice<P4>(&self, ppsourcevoice: *mut Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: P4, psendlist: Option<*const XAUDIO2_VOICE_SENDS>, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> windows_core::Result<()>
+    pub unsafe fn CreateSourceVoice<P4>(&self, ppsourcevoice: *mut Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: P4, psendlist: Option<*const XAUDIO2_VOICE_SENDS>, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<IXAudio2VoiceCallback>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateSourceVoice)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsourcevoice), psourceformat, flags, maxfrequencyratio, pcallback.param().abi(), psendlist.unwrap_or(core::mem::zeroed()) as _, peffectchain.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn CreateSubmixVoice(&self, ppsubmixvoice: *mut Option<IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: Option<*const XAUDIO2_VOICE_SENDS>, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> windows_core::Result<()> {
+    pub unsafe fn CreateSubmixVoice(&self, ppsubmixvoice: *mut Option<IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: Option<*const XAUDIO2_VOICE_SENDS>, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CreateSubmixVoice)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsubmixvoice), inputchannels, inputsamplerate, flags, processingstage, psendlist.unwrap_or(core::mem::zeroed()) as _, peffectchain.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn CreateMasteringVoice<P4>(&self, ppmasteringvoice: *mut Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: P4, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>, streamcategory: super::AUDIO_STREAM_CATEGORY) -> windows_core::Result<()>
+    pub unsafe fn CreateMasteringVoice<P4>(&self, ppmasteringvoice: *mut Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: P4, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>, streamcategory: super::AUDIO_STREAM_CATEGORY) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateMasteringVoice)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmasteringvoice), inputchannels, inputsamplerate, flags, szdeviceid.param().abi(), peffectchain.unwrap_or(core::mem::zeroed()) as _, streamcategory).ok() }
     }
-    pub unsafe fn StartEngine(&self) -> windows_core::Result<()> {
+    pub unsafe fn StartEngine(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StartEngine)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn StopEngine(&self) {
         unsafe { (windows_core::Interface::vtable(self).StopEngine)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CommitChanges(&self, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn CommitChanges(&self, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CommitChanges)(windows_core::Interface::as_raw(self), operationset).ok() }
     }
     pub unsafe fn GetPerformanceData(&self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA) {
@@ -521,14 +521,14 @@ pub struct IXAudio2_Vtbl {
     pub SetDebugConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_DEBUG_CONFIGURATION, *const core::ffi::c_void),
 }
 pub trait IXAudio2_Impl: windows_core::IUnknownImpl {
-    fn RegisterForCallbacks(&self, pcallback: windows_core::Ref<'_, IXAudio2EngineCallback>) -> windows_core::Result<()>;
+    fn RegisterForCallbacks(&self, pcallback: windows_core::Ref<'_, IXAudio2EngineCallback>) -> Result<(), windows_result::HRESULT>;
     fn UnregisterForCallbacks(&self, pcallback: windows_core::Ref<'_, IXAudio2EngineCallback>);
-    fn CreateSourceVoice(&self, ppsourcevoice: windows_core::OutRef<'_, IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: windows_core::Ref<'_, IXAudio2VoiceCallback>, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::Result<()>;
-    fn CreateSubmixVoice(&self, ppsubmixvoice: windows_core::OutRef<'_, IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::Result<()>;
-    fn CreateMasteringVoice(&self, ppmasteringvoice: windows_core::OutRef<'_, IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: &windows_core::PCWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> windows_core::Result<()>;
-    fn StartEngine(&self) -> windows_core::Result<()>;
+    fn CreateSourceVoice(&self, ppsourcevoice: windows_core::OutRef<'_, IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: windows_core::Ref<'_, IXAudio2VoiceCallback>, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> Result<(), windows_result::HRESULT>;
+    fn CreateSubmixVoice(&self, ppsubmixvoice: windows_core::OutRef<'_, IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> Result<(), windows_result::HRESULT>;
+    fn CreateMasteringVoice(&self, ppmasteringvoice: windows_core::OutRef<'_, IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: &windows_core::PCWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> Result<(), windows_result::HRESULT>;
+    fn StartEngine(&self) -> Result<(), windows_result::HRESULT>;
     fn StopEngine(&self);
-    fn CommitChanges(&self, operationset: u32) -> windows_core::Result<()>;
+    fn CommitChanges(&self, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetPerformanceData(&self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA);
     fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const core::ffi::c_void);
 }
@@ -733,7 +733,7 @@ impl core::ops::Deref for IXAudio2MasteringVoice {
 }
 windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
 impl IXAudio2MasteringVoice {
-    pub unsafe fn GetChannelMask(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetChannelMask(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetChannelMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -747,7 +747,7 @@ pub struct IXAudio2MasteringVoice_Vtbl {
     pub GetChannelMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IXAudio2MasteringVoice_Impl: IXAudio2Voice_Impl {
-    fn GetChannelMask(&self) -> windows_core::Result<u32>;
+    fn GetChannelMask(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IXAudio2MasteringVoice_Vtbl {
     pub const fn new<Identity: IXAudio2MasteringVoice_Impl>() -> Self {
@@ -787,28 +787,28 @@ impl core::ops::Deref for IXAudio2SourceVoice {
 }
 windows_core::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
 impl IXAudio2SourceVoice {
-    pub unsafe fn Start(&self, flags: u32, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn Start(&self, flags: u32, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), flags, operationset).ok() }
     }
-    pub unsafe fn Stop(&self, flags: u32, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self, flags: u32, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), flags, operationset).ok() }
     }
-    pub unsafe fn SubmitSourceBuffer(&self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: Option<*const XAUDIO2_BUFFER_WMA>) -> windows_core::Result<()> {
+    pub unsafe fn SubmitSourceBuffer(&self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: Option<*const XAUDIO2_BUFFER_WMA>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SubmitSourceBuffer)(windows_core::Interface::as_raw(self), pbuffer, pbufferwma.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn FlushSourceBuffers(&self) -> windows_core::Result<()> {
+    pub unsafe fn FlushSourceBuffers(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).FlushSourceBuffers)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Discontinuity(&self) -> windows_core::Result<()> {
+    pub unsafe fn Discontinuity(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Discontinuity)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ExitLoop(&self, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn ExitLoop(&self, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExitLoop)(windows_core::Interface::as_raw(self), operationset).ok() }
     }
     pub unsafe fn GetState(&self, pvoicestate: *mut XAUDIO2_VOICE_STATE, flags: u32) {
         unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), pvoicestate as _, flags) }
     }
-    pub unsafe fn SetFrequencyRatio(&self, ratio: f32, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFrequencyRatio(&self, ratio: f32, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFrequencyRatio)(windows_core::Interface::as_raw(self), ratio, operationset).ok() }
     }
     pub unsafe fn GetFrequencyRatio(&self) -> f32 {
@@ -818,7 +818,7 @@ impl IXAudio2SourceVoice {
             result__
         }
     }
-    pub unsafe fn SetSourceSampleRate(&self, newsourcesamplerate: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSourceSampleRate(&self, newsourcesamplerate: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSourceSampleRate)(windows_core::Interface::as_raw(self), newsourcesamplerate).ok() }
     }
 }
@@ -838,16 +838,16 @@ pub struct IXAudio2SourceVoice_Vtbl {
     pub SetSourceSampleRate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IXAudio2SourceVoice_Impl: IXAudio2Voice_Impl {
-    fn Start(&self, flags: u32, operationset: u32) -> windows_core::Result<()>;
-    fn Stop(&self, flags: u32, operationset: u32) -> windows_core::Result<()>;
-    fn SubmitSourceBuffer(&self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> windows_core::Result<()>;
-    fn FlushSourceBuffers(&self) -> windows_core::Result<()>;
-    fn Discontinuity(&self) -> windows_core::Result<()>;
-    fn ExitLoop(&self, operationset: u32) -> windows_core::Result<()>;
+    fn Start(&self, flags: u32, operationset: u32) -> Result<(), windows_result::HRESULT>;
+    fn Stop(&self, flags: u32, operationset: u32) -> Result<(), windows_result::HRESULT>;
+    fn SubmitSourceBuffer(&self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> Result<(), windows_result::HRESULT>;
+    fn FlushSourceBuffers(&self) -> Result<(), windows_result::HRESULT>;
+    fn Discontinuity(&self) -> Result<(), windows_result::HRESULT>;
+    fn ExitLoop(&self, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetState(&self, pvoicestate: *mut XAUDIO2_VOICE_STATE, flags: u32);
-    fn SetFrequencyRatio(&self, ratio: f32, operationset: u32) -> windows_core::Result<()>;
+    fn SetFrequencyRatio(&self, ratio: f32, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetFrequencyRatio(&self, pratio: *mut f32);
-    fn SetSourceSampleRate(&self, newsourcesamplerate: u32) -> windows_core::Result<()>;
+    fn SetSourceSampleRate(&self, newsourcesamplerate: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IXAudio2SourceVoice_Vtbl {
     pub const fn new<Identity: IXAudio2SourceVoice_Impl>() -> Self {
@@ -986,16 +986,16 @@ impl IXAudio2Voice {
             result__
         }
     }
-    pub unsafe fn SetOutputVoices(&self, psendlist: Option<*const XAUDIO2_VOICE_SENDS>) -> windows_core::Result<()> {
+    pub unsafe fn SetOutputVoices(&self, psendlist: Option<*const XAUDIO2_VOICE_SENDS>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOutputVoices)(windows_core::Interface::as_raw(self), psendlist.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetEffectChain(&self, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> windows_core::Result<()> {
+    pub unsafe fn SetEffectChain(&self, peffectchain: Option<*const XAUDIO2_EFFECT_CHAIN>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEffectChain)(windows_core::Interface::as_raw(self), peffectchain.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn EnableEffect(&self, effectindex: u32, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn EnableEffect(&self, effectindex: u32, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnableEffect)(windows_core::Interface::as_raw(self), effectindex, operationset).ok() }
     }
-    pub unsafe fn DisableEffect(&self, effectindex: u32, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn DisableEffect(&self, effectindex: u32, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DisableEffect)(windows_core::Interface::as_raw(self), effectindex, operationset).ok() }
     }
     pub unsafe fn GetEffectState(&self, effectindex: u32) -> windows_core::BOOL {
@@ -1005,13 +1005,13 @@ impl IXAudio2Voice {
             result__
         }
     }
-    pub unsafe fn SetEffectParameters(&self, effectindex: u32, pparameters: *const core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetEffectParameters(&self, effectindex: u32, pparameters: *const core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEffectParameters)(windows_core::Interface::as_raw(self), effectindex, pparameters, parametersbytesize, operationset).ok() }
     }
-    pub unsafe fn GetEffectParameters(&self, effectindex: u32, pparameters: *mut core::ffi::c_void, parametersbytesize: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetEffectParameters(&self, effectindex: u32, pparameters: *mut core::ffi::c_void, parametersbytesize: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetEffectParameters)(windows_core::Interface::as_raw(self), effectindex, pparameters as _, parametersbytesize).ok() }
     }
-    pub unsafe fn SetFilterParameters(&self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFilterParameters(&self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFilterParameters)(windows_core::Interface::as_raw(self), pparameters, operationset).ok() }
     }
     pub unsafe fn GetFilterParameters(&self) -> XAUDIO2_FILTER_PARAMETERS {
@@ -1021,7 +1021,7 @@ impl IXAudio2Voice {
             result__
         }
     }
-    pub unsafe fn SetOutputFilterParameters<P0>(&self, pdestinationvoice: P0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> windows_core::Result<()>
+    pub unsafe fn SetOutputFilterParameters<P0>(&self, pdestinationvoice: P0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IXAudio2Voice>,
     {
@@ -1037,7 +1037,7 @@ impl IXAudio2Voice {
             result__
         }
     }
-    pub unsafe fn SetVolume(&self, volume: f32, operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetVolume(&self, volume: f32, operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), volume, operationset).ok() }
     }
     pub unsafe fn GetVolume(&self) -> f32 {
@@ -1047,13 +1047,13 @@ impl IXAudio2Voice {
             result__
         }
     }
-    pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), core::mem::transmute(pvolumes.as_ptr()), operationset).ok() }
     }
     pub unsafe fn GetChannelVolumes(&self, pvolumes: &mut [f32]) {
         unsafe { (windows_core::Interface::vtable(self).GetChannelVolumes)(windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), core::mem::transmute(pvolumes.as_ptr())) }
     }
-    pub unsafe fn SetOutputMatrix<P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> windows_core::Result<()>
+    pub unsafe fn SetOutputMatrix<P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IXAudio2Voice>,
     {
@@ -1098,22 +1098,22 @@ pub struct IXAudio2Voice_Vtbl {
 }
 pub trait IXAudio2Voice_Impl {
     fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS);
-    fn SetOutputVoices(&self, psendlist: *const XAUDIO2_VOICE_SENDS) -> windows_core::Result<()>;
-    fn SetEffectChain(&self, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::Result<()>;
-    fn EnableEffect(&self, effectindex: u32, operationset: u32) -> windows_core::Result<()>;
-    fn DisableEffect(&self, effectindex: u32, operationset: u32) -> windows_core::Result<()>;
+    fn SetOutputVoices(&self, psendlist: *const XAUDIO2_VOICE_SENDS) -> Result<(), windows_result::HRESULT>;
+    fn SetEffectChain(&self, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> Result<(), windows_result::HRESULT>;
+    fn EnableEffect(&self, effectindex: u32, operationset: u32) -> Result<(), windows_result::HRESULT>;
+    fn DisableEffect(&self, effectindex: u32, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetEffectState(&self, effectindex: u32, penabled: *mut windows_core::BOOL);
-    fn SetEffectParameters(&self, effectindex: u32, pparameters: *const core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> windows_core::Result<()>;
-    fn GetEffectParameters(&self, effectindex: u32, pparameters: *mut core::ffi::c_void, parametersbytesize: u32) -> windows_core::Result<()>;
-    fn SetFilterParameters(&self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> windows_core::Result<()>;
+    fn SetEffectParameters(&self, effectindex: u32, pparameters: *const core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetEffectParameters(&self, effectindex: u32, pparameters: *mut core::ffi::c_void, parametersbytesize: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetFilterParameters(&self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetFilterParameters(&self, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
-    fn SetOutputFilterParameters(&self, pdestinationvoice: windows_core::Ref<'_, IXAudio2Voice>, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> windows_core::Result<()>;
+    fn SetOutputFilterParameters(&self, pdestinationvoice: windows_core::Ref<'_, IXAudio2Voice>, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetOutputFilterParameters(&self, pdestinationvoice: windows_core::Ref<'_, IXAudio2Voice>, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
-    fn SetVolume(&self, volume: f32, operationset: u32) -> windows_core::Result<()>;
+    fn SetVolume(&self, volume: f32, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetVolume(&self, pvolume: *mut f32);
-    fn SetChannelVolumes(&self, channels: u32, pvolumes: *const f32, operationset: u32) -> windows_core::Result<()>;
+    fn SetChannelVolumes(&self, channels: u32, pvolumes: *const f32, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetChannelVolumes(&self, channels: u32, pvolumes: *mut f32);
-    fn SetOutputMatrix(&self, pdestinationvoice: windows_core::Ref<'_, IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> windows_core::Result<()>;
+    fn SetOutputMatrix(&self, pdestinationvoice: windows_core::Ref<'_, IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> Result<(), windows_result::HRESULT>;
     fn GetOutputMatrix(&self, pdestinationvoice: windows_core::Ref<'_, IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32);
     fn DestroyVoice(&self);
 }

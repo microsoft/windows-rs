@@ -9,7 +9,7 @@ use windows::{
 
 use windows_numerics::*;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
     }
@@ -61,7 +61,7 @@ impl Angles {
 }
 
 impl Window {
-    fn new() -> Result<Self> {
+    fn new() -> Result<Self, HRESULT> {
         let factory = create_factory()?;
         let dxfactory: IDXGIFactory2 = unsafe { CreateDXGIFactory1()? };
         let style = create_style(&factory)?;
@@ -104,7 +104,7 @@ impl Window {
         })
     }
 
-    fn render(&mut self) -> Result<()> {
+    fn render(&mut self) -> Result<(), HRESULT> {
         if self.target.is_none() {
             let device = create_device()?;
             let target = create_render_target(&self.factory, &device)?;
@@ -128,7 +128,7 @@ impl Window {
         }
 
         if let Err(error) = self.present(1, DXGI_PRESENT(0)) {
-            if error.code() == DXGI_STATUS_OCCLUDED {
+            if error == DXGI_STATUS_OCCLUDED {
                 self.occlusion = unsafe {
                     self.dxfactory
                         .RegisterOcclusionStatusWindow(self.handle, WM_USER)?
@@ -154,11 +154,11 @@ impl Window {
         self.shadow = None;
     }
 
-    fn present(&self, sync: u32, flags: DXGI_PRESENT) -> Result<()> {
+    fn present(&self, sync: u32, flags: DXGI_PRESENT) -> Result<(), HRESULT> {
         unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags).ok() }
     }
 
-    fn draw(&self, target: &ID2D1DeviceContext) -> Result<()> {
+    fn draw(&self, target: &ID2D1DeviceContext) -> Result<(), HRESULT> {
         let clock = self.clock.as_ref().unwrap();
         let shadow = self.shadow.as_ref().unwrap();
 
@@ -201,7 +201,7 @@ impl Window {
         Ok(())
     }
 
-    fn draw_clock(&self) -> Result<()> {
+    fn draw_clock(&self) -> Result<(), HRESULT> {
         let target = self.target.as_ref().unwrap();
         let brush = self.brush.as_ref().unwrap();
 
@@ -275,7 +275,7 @@ impl Window {
         Ok(())
     }
 
-    fn create_device_size_resources(&mut self) -> Result<()> {
+    fn create_device_size_resources(&mut self) -> Result<(), HRESULT> {
         let target = self.target.as_ref().unwrap();
         let clock = self.create_clock(target)?;
         self.shadow = create_shadow(target, &clock).ok();
@@ -284,7 +284,7 @@ impl Window {
         Ok(())
     }
 
-    fn create_clock(&self, target: &ID2D1DeviceContext) -> Result<ID2D1Bitmap1> {
+    fn create_clock(&self, target: &ID2D1DeviceContext) -> Result<ID2D1Bitmap1, HRESULT> {
         let size_f = unsafe { target.GetSize() };
 
         let size_u = D2D_SIZE_U {
@@ -306,7 +306,7 @@ impl Window {
         unsafe { target.CreateBitmap(size_u, None, 0, &properties) }
     }
 
-    fn resize_swapchain_bitmap(&mut self) -> Result<()> {
+    fn resize_swapchain_bitmap(&mut self) -> Result<(), HRESULT> {
         if let Some(target) = &self.target {
             let swapchain = self.swapchain.as_ref().unwrap();
             unsafe { target.SetTarget(None) };
@@ -369,7 +369,7 @@ impl Window {
         }
     }
 
-    fn run(&mut self) -> Result<()> {
+    fn run(&mut self) -> Result<(), HRESULT> {
         unsafe {
             let instance = GetModuleHandleA(None)?;
             let window_class = s!("window");
@@ -455,7 +455,7 @@ impl Window {
     }
 }
 
-fn get_time(frequency: i64) -> Result<f64> {
+fn get_time(frequency: i64) -> Result<f64, HRESULT> {
     unsafe {
         let mut time = 0;
         QueryPerformanceCounter(&mut time)?;
@@ -463,7 +463,7 @@ fn get_time(frequency: i64) -> Result<f64> {
     }
 }
 
-fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
+fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush, HRESULT> {
     let color = D2D1_COLOR_F {
         r: 0.92,
         g: 0.38,
@@ -479,7 +479,7 @@ fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
     unsafe { target.CreateSolidColorBrush(&color, Some(&properties)) }
 }
 
-fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect> {
+fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect, HRESULT> {
     unsafe {
         let shadow = target.CreateEffect(&CLSID_D2D1Shadow)?;
 
@@ -488,7 +488,7 @@ fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID
     }
 }
 
-fn create_factory() -> Result<ID2D1Factory1> {
+fn create_factory() -> Result<ID2D1Factory1, HRESULT> {
     let mut options = D2D1_FACTORY_OPTIONS::default();
 
     if cfg!(debug_assertions) {
@@ -498,7 +498,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
     unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, Some(&options)) }
 }
 
-fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1> {
+fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1, HRESULT> {
     let props = D2D1_STROKE_STYLE_PROPERTIES1 {
         startCap: D2D1_CAP_STYLE_ROUND,
         endCap: D2D1_CAP_STYLE_TRIANGLE,
@@ -508,7 +508,7 @@ fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1> {
     unsafe { factory.CreateStrokeStyle(&props, None) }
 }
 
-fn create_transition() -> Result<IUIAnimationTransition> {
+fn create_transition() -> Result<IUIAnimationTransition, HRESULT> {
     unsafe {
         let library: IUIAnimationTransitionLibrary =
             CoCreateInstance(&UIAnimationTransitionLibrary, None, CLSCTX_ALL)?;
@@ -516,7 +516,7 @@ fn create_transition() -> Result<IUIAnimationTransition> {
     }
 }
 
-fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
+fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device, HRESULT> {
     let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
 
     if cfg!(debug_assertions) {
@@ -541,13 +541,11 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
     }
 }
 
-fn create_device() -> Result<ID3D11Device> {
+fn create_device() -> Result<ID3D11Device, HRESULT> {
     let mut result = create_device_with_type(D3D_DRIVER_TYPE_HARDWARE);
 
-    if let Err(err) = &result {
-        if err.code() == DXGI_ERROR_UNSUPPORTED {
+    if result == Err(DXGI_ERROR_UNSUPPORTED) {
             result = create_device_with_type(D3D_DRIVER_TYPE_WARP);
-        }
     }
 
     result
@@ -556,7 +554,7 @@ fn create_device() -> Result<ID3D11Device> {
 fn create_render_target(
     factory: &ID2D1Factory1,
     device: &ID3D11Device,
-) -> Result<ID2D1DeviceContext> {
+) -> Result<ID2D1DeviceContext, HRESULT> {
     unsafe {
         let d2device = factory.CreateDevice(&device.cast::<IDXGIDevice>()?)?;
 
@@ -568,12 +566,12 @@ fn create_render_target(
     }
 }
 
-fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2> {
+fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2, HRESULT> {
     let dxdevice = device.cast::<IDXGIDevice>()?;
     unsafe { dxdevice.GetAdapter()?.GetParent() }
 }
 
-fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceContext) -> Result<()> {
+fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceContext) -> Result<(), HRESULT> {
     let surface: IDXGISurface = unsafe { swapchain.GetBuffer(0)? };
 
     let props = D2D1_BITMAP_PROPERTIES1 {
@@ -595,7 +593,7 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
     Ok(())
 }
 
-fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChain1> {
+fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChain1, HRESULT> {
     let factory = get_dxgi_factory(device)?;
 
     let props = DXGI_SWAP_CHAIN_DESC1 {

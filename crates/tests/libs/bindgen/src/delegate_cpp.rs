@@ -7,7 +7,10 @@
 )]
 
 #[inline]
-pub unsafe fn EnumWindows(lpenumfunc: WNDENUMPROC, lparam: LPARAM) -> windows_core::Result<()> {
+pub unsafe fn EnumWindows(
+    lpenumfunc: WNDENUMPROC,
+    lparam: LPARAM,
+) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("user32.dll" "system" fn EnumWindows(lpenumfunc : WNDENUMPROC, lparam : LPARAM) -> windows_core::BOOL);
     unsafe { EnumWindows(lpenumfunc, lparam).ok() }
 }

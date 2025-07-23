@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn CLRCreateInstance<T>(clsid: *const windows_core::GUID) -> windows_core::Result<T>
+pub unsafe fn CLRCreateInstance<T>(clsid: *const windows_core::GUID) -> Result<T, windows_result::HRESULT>
 where
     T: windows_core::Interface,
 {
@@ -8,7 +8,7 @@ where
     unsafe { CLRCreateInstance(clsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CallFunctionShim<P0, P1, P4>(szdllname: P0, szfunctionname: P1, lpvargument1: *mut core::ffi::c_void, lpvargument2: *mut core::ffi::c_void, szversion: P4, pvreserved: *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CallFunctionShim<P0, P1, P4>(szdllname: P0, szfunctionname: P1, lpvargument1: *mut core::ffi::c_void, lpvargument2: *mut core::ffi::c_void, szversion: P4, pvreserved: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -18,7 +18,7 @@ where
     unsafe { CallFunctionShim(szdllname.param().abi(), szfunctionname.param().abi(), lpvargument1 as _, lpvargument2 as _, szversion.param().abi(), pvreserved as _).ok() }
 }
 #[inline]
-pub unsafe fn ClrCreateManagedInstance<P0>(ptypename: P0, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn ClrCreateManagedInstance<P0>(ptypename: P0, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -26,7 +26,7 @@ where
     unsafe { ClrCreateManagedInstance(ptypename.param().abi(), riid, ppobject as _).ok() }
 }
 #[inline]
-pub unsafe fn CorBindToCurrentRuntime<P0>(pwszfilename: P0, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CorBindToCurrentRuntime<P0>(pwszfilename: P0, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -34,7 +34,7 @@ where
     unsafe { CorBindToCurrentRuntime(pwszfilename.param().abi(), rclsid, riid, ppv as _).ok() }
 }
 #[inline]
-pub unsafe fn CorBindToRuntime<P0, P1>(pwszversion: P0, pwszbuildflavor: P1, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CorBindToRuntime<P0, P1>(pwszversion: P0, pwszbuildflavor: P1, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -44,7 +44,7 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CorBindToRuntimeByCfg<P0>(pcfgstream: P0, reserved: u32, startupflags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CorBindToRuntimeByCfg<P0>(pcfgstream: P0, reserved: u32, startupflags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<super::Com::IStream>,
 {
@@ -52,7 +52,7 @@ where
     unsafe { CorBindToRuntimeByCfg(pcfgstream.param().abi(), reserved, startupflags, rclsid, riid, ppv as _).ok() }
 }
 #[inline]
-pub unsafe fn CorBindToRuntimeEx<P0, P1>(pwszversion: P0, pwszbuildflavor: P1, startupflags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CorBindToRuntimeEx<P0, P1>(pwszversion: P0, pwszbuildflavor: P1, startupflags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -61,7 +61,7 @@ where
     unsafe { CorBindToRuntimeEx(pwszversion.param().abi(), pwszbuildflavor.param().abi(), startupflags, rclsid, riid, ppv as _).ok() }
 }
 #[inline]
-pub unsafe fn CorBindToRuntimeHost<P0, P1, P2>(pwszversion: P0, pwszbuildflavor: P1, pwszhostconfigfile: P2, preserved: *mut core::ffi::c_void, startupflags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CorBindToRuntimeHost<P0, P1, P2>(pwszversion: P0, pwszbuildflavor: P1, pwszhostconfigfile: P2, preserved: *mut core::ffi::c_void, startupflags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -77,7 +77,7 @@ pub unsafe fn CorExitProcess(exitcode: i32) {
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn CorLaunchApplication<P1>(dwclickoncehost: HOST_TYPE, pwzappfullname: P1, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR, lpprocessinformation: *mut super::Threading::PROCESS_INFORMATION) -> windows_core::Result<()>
+pub unsafe fn CorLaunchApplication<P1>(dwclickoncehost: HOST_TYPE, pwzappfullname: P1, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR, lpprocessinformation: *mut super::Threading::PROCESS_INFORMATION) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -90,7 +90,7 @@ pub unsafe fn CorMarkThreadInThreadPool() {
     unsafe { CorMarkThreadInThreadPool() }
 }
 #[inline]
-pub unsafe fn CreateDebuggingInterfaceFromVersion<P1>(idebuggerversion: i32, szdebuggeeversion: P1) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateDebuggingInterfaceFromVersion<P1>(idebuggerversion: i32, szdebuggeeversion: P1) -> Result<windows_core::IUnknown, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -101,7 +101,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn GetCLRIdentityManager(riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn GetCLRIdentityManager(riid: *const windows_core::GUID) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const windows_core::GUID, ppmanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -109,22 +109,22 @@ pub unsafe fn GetCLRIdentityManager(riid: *const windows_core::GUID) -> windows_
     }
 }
 #[inline]
-pub unsafe fn GetCORRequiredVersion(pbuffer: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetCORRequiredVersion(pbuffer: &mut [u16], dwlength: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
     unsafe { GetCORRequiredVersion(core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetCORSystemDirectory(pbuffer: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetCORSystemDirectory(pbuffer: &mut [u16], dwlength: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
     unsafe { GetCORSystemDirectory(core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetCORVersion(pbbuffer: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetCORVersion(pbbuffer: &mut [u16], dwlength: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
     unsafe { GetCORVersion(core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetFileVersion<P0>(szfilename: P0, szbuffer: Option<&mut [u16]>, dwlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GetFileVersion<P0>(szfilename: P0, szbuffer: Option<&mut [u16]>, dwlength: *mut u32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -132,7 +132,7 @@ where
     unsafe { GetFileVersion(szfilename.param().abi(), core::mem::transmute(szbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetRealProcAddress<P0>(pwszprocname: P0, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn GetRealProcAddress<P0>(pwszprocname: P0, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -140,7 +140,7 @@ where
     unsafe { GetRealProcAddress(pwszprocname.param().abi(), ppv as _).ok() }
 }
 #[inline]
-pub unsafe fn GetRequestedRuntimeInfo<P0, P1, P2>(pexe: P0, pwszversion: P1, pconfigurationfile: P2, startupflags: u32, runtimeinfoflags: u32, pdirectory: Option<&mut [u16]>, dwdirectorylength: Option<*mut u32>, pversion: Option<&mut [u16]>, dwlength: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn GetRequestedRuntimeInfo<P0, P1, P2>(pexe: P0, pwszversion: P1, pconfigurationfile: P2, startupflags: u32, runtimeinfoflags: u32, pdirectory: Option<&mut [u16]>, dwdirectorylength: Option<*mut u32>, pversion: Option<&mut [u16]>, dwlength: Option<*mut u32>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -165,7 +165,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn GetRequestedRuntimeVersion<P0>(pexe: P0, pversion: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GetRequestedRuntimeVersion<P0>(pexe: P0, pversion: &mut [u16], dwlength: *mut u32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -173,17 +173,17 @@ where
     unsafe { GetRequestedRuntimeVersion(pexe.param().abi(), core::mem::transmute(pversion.as_ptr()), pversion.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const windows_core::GUID, pversion: Option<&mut [u16]>, dwlength: Option<*mut u32>, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const windows_core::GUID, pversion: Option<&mut [u16]>, dwlength: Option<*mut u32>, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const windows_core::GUID, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> windows_core::HRESULT);
     unsafe { GetRequestedRuntimeVersionForCLSID(rclsid, core::mem::transmute(pversion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwlength.unwrap_or(core::mem::zeroed()) as _, dwresolutionflags).ok() }
 }
 #[inline]
-pub unsafe fn GetVersionFromProcess(hprocess: super::super::Foundation::HANDLE, pversion: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetVersionFromProcess(hprocess: super::super::Foundation::HANDLE, pversion: &mut [u16], dwlength: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
     unsafe { GetVersionFromProcess(hprocess, core::mem::transmute(pversion.as_ptr()), pversion.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadLibraryShim<P0, P1>(szdllname: P0, szversion: P1, pvreserved: *mut core::ffi::c_void, phmoddll: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
+pub unsafe fn LoadLibraryShim<P0, P1>(szdllname: P0, szversion: P1, pvreserved: *mut core::ffi::c_void, phmoddll: *mut super::super::Foundation::HMODULE) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -192,22 +192,22 @@ where
     unsafe { LoadLibraryShim(szdllname.param().abi(), szversion.param().abi(), pvreserved as _, phmoddll as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadStringRC(iresouceid: u32, szbuffer: &mut [u16], bquiet: i32) -> windows_core::Result<()> {
+pub unsafe fn LoadStringRC(iresouceid: u32, szbuffer: &mut [u16], bquiet: i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : windows_core::PWSTR, imax : i32, bquiet : i32) -> windows_core::HRESULT);
     unsafe { LoadStringRC(iresouceid, core::mem::transmute(szbuffer.as_ptr()), szbuffer.len().try_into().unwrap(), bquiet).ok() }
 }
 #[inline]
-pub unsafe fn LoadStringRCEx(lcid: u32, iresouceid: u32, szbuffer: &mut [u16], bquiet: i32, pcwchused: *mut i32) -> windows_core::Result<()> {
+pub unsafe fn LoadStringRCEx(lcid: u32, iresouceid: u32, szbuffer: &mut [u16], bquiet: i32, pcwchused: *mut i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : windows_core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> windows_core::HRESULT);
     unsafe { LoadStringRCEx(lcid, iresouceid, core::mem::transmute(szbuffer.as_ptr()), szbuffer.len().try_into().unwrap(), bquiet, pcwchused as _).ok() }
 }
 #[inline]
-pub unsafe fn LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: *mut FLockClrVersionCallback, pendhostsetup: *mut FLockClrVersionCallback) -> windows_core::Result<()> {
+pub unsafe fn LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: *mut FLockClrVersionCallback, pendhostsetup: *mut FLockClrVersionCallback) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mscoree.dll" "system" fn LockClrVersion(hostcallback : FLockClrVersionCallback, pbeginhostsetup : *mut FLockClrVersionCallback, pendhostsetup : *mut FLockClrVersionCallback) -> windows_core::HRESULT);
     unsafe { LockClrVersion(hostcallback, pbeginhostsetup as _, pendhostsetup as _).ok() }
 }
 #[inline]
-pub unsafe fn RunDll32ShimW<P2>(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HINSTANCE, lpszcmdline: P2, ncmdshow: i32) -> windows_core::Result<()>
+pub unsafe fn RunDll32ShimW<P2>(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HINSTANCE, lpszcmdline: P2, ncmdshow: i32) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -429,7 +429,7 @@ pub const HOST_TYPE_DEFAULT: HOST_TYPE = HOST_TYPE(0i32);
 windows_core::imp::define_interface!(IActionOnCLREvent, IActionOnCLREvent_Vtbl, 0x607be24b_d91b_4e28_a242_61871ce56e35);
 windows_core::imp::interface_hierarchy!(IActionOnCLREvent, windows_core::IUnknown);
 impl IActionOnCLREvent {
-    pub unsafe fn OnEvent(&self, event: EClrEvent, data: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn OnEvent(&self, event: EClrEvent, data: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), event, data).ok() }
     }
 }
@@ -440,7 +440,7 @@ pub struct IActionOnCLREvent_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, EClrEvent, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IActionOnCLREvent_Impl: windows_core::IUnknownImpl {
-    fn OnEvent(&self, event: EClrEvent, data: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn OnEvent(&self, event: EClrEvent, data: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 impl IActionOnCLREvent_Vtbl {
     pub const fn new<Identity: IActionOnCLREvent_Impl, const OFFSET: isize>() -> Self {
@@ -460,7 +460,7 @@ impl windows_core::RuntimeName for IActionOnCLREvent {}
 windows_core::imp::define_interface!(IApartmentCallback, IApartmentCallback_Vtbl, 0x178e5337_1528_4591_b1c9_1c6e484686d8);
 windows_core::imp::interface_hierarchy!(IApartmentCallback, windows_core::IUnknown);
 impl IApartmentCallback {
-    pub unsafe fn DoCallback(&self, pfunc: usize, pdata: usize) -> windows_core::Result<()> {
+    pub unsafe fn DoCallback(&self, pfunc: usize, pdata: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DoCallback)(windows_core::Interface::as_raw(self), pfunc, pdata).ok() }
     }
 }
@@ -471,7 +471,7 @@ pub struct IApartmentCallback_Vtbl {
     pub DoCallback: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
 }
 pub trait IApartmentCallback_Impl: windows_core::IUnknownImpl {
-    fn DoCallback(&self, pfunc: usize, pdata: usize) -> windows_core::Result<()>;
+    fn DoCallback(&self, pfunc: usize, pdata: usize) -> Result<(), windows_result::HRESULT>;
 }
 impl IApartmentCallback_Vtbl {
     pub const fn new<Identity: IApartmentCallback_Impl, const OFFSET: isize>() -> Self {
@@ -491,7 +491,7 @@ impl windows_core::RuntimeName for IApartmentCallback {}
 windows_core::imp::define_interface!(IAppDomainBinding, IAppDomainBinding_Vtbl, 0x5c2b07a7_1e98_11d3_872f_00c04f79ed0d);
 windows_core::imp::interface_hierarchy!(IAppDomainBinding, windows_core::IUnknown);
 impl IAppDomainBinding {
-    pub unsafe fn OnAppDomain<P0>(&self, pappdomain: P0) -> windows_core::Result<()>
+    pub unsafe fn OnAppDomain<P0>(&self, pappdomain: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -505,7 +505,7 @@ pub struct IAppDomainBinding_Vtbl {
     pub OnAppDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAppDomainBinding_Impl: windows_core::IUnknownImpl {
-    fn OnAppDomain(&self, pappdomain: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnAppDomain(&self, pappdomain: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 impl IAppDomainBinding_Vtbl {
     pub const fn new<Identity: IAppDomainBinding_Impl, const OFFSET: isize>() -> Self {
@@ -525,13 +525,13 @@ impl windows_core::RuntimeName for IAppDomainBinding {}
 windows_core::imp::define_interface!(ICLRAppDomainResourceMonitor, ICLRAppDomainResourceMonitor_Vtbl, 0xc62de18c_2e23_4aea_8423_b40c1fc59eae);
 windows_core::imp::interface_hierarchy!(ICLRAppDomainResourceMonitor, windows_core::IUnknown);
 impl ICLRAppDomainResourceMonitor {
-    pub unsafe fn GetCurrentAllocated(&self, dwappdomainid: u32, pbytesallocated: *mut u64) -> windows_core::Result<()> {
+    pub unsafe fn GetCurrentAllocated(&self, dwappdomainid: u32, pbytesallocated: *mut u64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentAllocated)(windows_core::Interface::as_raw(self), dwappdomainid, pbytesallocated as _).ok() }
     }
-    pub unsafe fn GetCurrentSurvived(&self, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> windows_core::Result<()> {
+    pub unsafe fn GetCurrentSurvived(&self, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentSurvived)(windows_core::Interface::as_raw(self), dwappdomainid, pappdomainbytessurvived as _, ptotalbytessurvived as _).ok() }
     }
-    pub unsafe fn GetCurrentCpuTime(&self, dwappdomainid: u32, pmilliseconds: *mut u64) -> windows_core::Result<()> {
+    pub unsafe fn GetCurrentCpuTime(&self, dwappdomainid: u32, pmilliseconds: *mut u64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentCpuTime)(windows_core::Interface::as_raw(self), dwappdomainid, pmilliseconds as _).ok() }
     }
 }
@@ -544,9 +544,9 @@ pub struct ICLRAppDomainResourceMonitor_Vtbl {
     pub GetCurrentCpuTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
 }
 pub trait ICLRAppDomainResourceMonitor_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentAllocated(&self, dwappdomainid: u32, pbytesallocated: *mut u64) -> windows_core::Result<()>;
-    fn GetCurrentSurvived(&self, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> windows_core::Result<()>;
-    fn GetCurrentCpuTime(&self, dwappdomainid: u32, pmilliseconds: *mut u64) -> windows_core::Result<()>;
+    fn GetCurrentAllocated(&self, dwappdomainid: u32, pbytesallocated: *mut u64) -> Result<(), windows_result::HRESULT>;
+    fn GetCurrentSurvived(&self, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> Result<(), windows_result::HRESULT>;
+    fn GetCurrentCpuTime(&self, dwappdomainid: u32, pmilliseconds: *mut u64) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRAppDomainResourceMonitor_Vtbl {
     pub const fn new<Identity: ICLRAppDomainResourceMonitor_Impl, const OFFSET: isize>() -> Self {
@@ -583,26 +583,26 @@ impl windows_core::RuntimeName for ICLRAppDomainResourceMonitor {}
 windows_core::imp::define_interface!(ICLRAssemblyIdentityManager, ICLRAssemblyIdentityManager_Vtbl, 0x15f0a9da_3ff6_4393_9da9_fdfd284e6972);
 windows_core::imp::interface_hierarchy!(ICLRAssemblyIdentityManager, windows_core::IUnknown);
 impl ICLRAssemblyIdentityManager {
-    pub unsafe fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const windows_core::PCWSTR, dwnumofreferences: u32) -> windows_core::Result<ICLRAssemblyReferenceList> {
+    pub unsafe fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const windows_core::PCWSTR, dwnumofreferences: u32) -> Result<ICLRAssemblyReferenceList, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCLRAssemblyReferenceList)(windows_core::Interface::as_raw(self), ppwzassemblyreferences, dwnumofreferences, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBindingIdentityFromFile<P0>(&self, pwzfilepath: P0, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetBindingIdentityFromFile<P0>(&self, pwzfilepath: P0, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetBindingIdentityFromFile)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), dwflags, core::mem::transmute(pwzbuffer), pcchbuffersize as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBindingIdentityFromStream<P0>(&self, pstream: P0, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetBindingIdentityFromStream<P0>(&self, pstream: P0, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetBindingIdentityFromStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), dwflags, core::mem::transmute(pwzbuffer), pcchbuffersize as _).ok() }
     }
-    pub unsafe fn GetReferencedAssembliesFromFile<P0, P2>(&self, pwzfilepath: P0, dwflags: u32, pexcludeassemblieslist: P2) -> windows_core::Result<ICLRReferenceAssemblyEnum>
+    pub unsafe fn GetReferencedAssembliesFromFile<P0, P2>(&self, pwzfilepath: P0, dwflags: u32, pexcludeassemblieslist: P2) -> Result<ICLRReferenceAssemblyEnum, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<ICLRAssemblyReferenceList>,
@@ -613,7 +613,7 @@ impl ICLRAssemblyIdentityManager {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetReferencedAssembliesFromStream<P0, P2>(&self, pstream: P0, dwflags: u32, pexcludeassemblieslist: P2) -> windows_core::Result<ICLRReferenceAssemblyEnum>
+    pub unsafe fn GetReferencedAssembliesFromStream<P0, P2>(&self, pstream: P0, dwflags: u32, pexcludeassemblieslist: P2) -> Result<ICLRReferenceAssemblyEnum, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Com::IStream>,
         P2: windows_core::Param<ICLRAssemblyReferenceList>,
@@ -623,7 +623,7 @@ impl ICLRAssemblyIdentityManager {
             (windows_core::Interface::vtable(self).GetReferencedAssembliesFromStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), dwflags, pexcludeassemblieslist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetProbingAssembliesFromReference<P2>(&self, dwmachinetype: u32, dwflags: u32, pwzreferenceidentity: P2) -> windows_core::Result<ICLRProbingAssemblyEnum>
+    pub unsafe fn GetProbingAssembliesFromReference<P2>(&self, dwmachinetype: u32, dwflags: u32, pwzreferenceidentity: P2) -> Result<ICLRProbingAssemblyEnum, windows_result::HRESULT>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -632,7 +632,7 @@ impl ICLRAssemblyIdentityManager {
             (windows_core::Interface::vtable(self).GetProbingAssembliesFromReference)(windows_core::Interface::as_raw(self), dwmachinetype, dwflags, pwzreferenceidentity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsStronglyNamed<P0>(&self, pwzassemblyidentity: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn IsStronglyNamed<P0>(&self, pwzassemblyidentity: P0) -> Result<windows_core::BOOL, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -662,13 +662,13 @@ pub struct ICLRAssemblyIdentityManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICLRAssemblyIdentityManager_Impl: windows_core::IUnknownImpl {
-    fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const windows_core::PCWSTR, dwnumofreferences: u32) -> windows_core::Result<ICLRAssemblyReferenceList>;
-    fn GetBindingIdentityFromFile(&self, pwzfilepath: &windows_core::PCWSTR, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>;
-    fn GetBindingIdentityFromStream(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>;
-    fn GetReferencedAssembliesFromFile(&self, pwzfilepath: &windows_core::PCWSTR, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<'_, ICLRAssemblyReferenceList>) -> windows_core::Result<ICLRReferenceAssemblyEnum>;
-    fn GetReferencedAssembliesFromStream(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<'_, ICLRAssemblyReferenceList>) -> windows_core::Result<ICLRReferenceAssemblyEnum>;
-    fn GetProbingAssembliesFromReference(&self, dwmachinetype: u32, dwflags: u32, pwzreferenceidentity: &windows_core::PCWSTR) -> windows_core::Result<ICLRProbingAssemblyEnum>;
-    fn IsStronglyNamed(&self, pwzassemblyidentity: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
+    fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const windows_core::PCWSTR, dwnumofreferences: u32) -> Result<ICLRAssemblyReferenceList, windows_result::HRESULT>;
+    fn GetBindingIdentityFromFile(&self, pwzfilepath: &windows_core::PCWSTR, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetBindingIdentityFromStream(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, dwflags: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetReferencedAssembliesFromFile(&self, pwzfilepath: &windows_core::PCWSTR, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<'_, ICLRAssemblyReferenceList>) -> Result<ICLRReferenceAssemblyEnum, windows_result::HRESULT>;
+    fn GetReferencedAssembliesFromStream(&self, pstream: windows_core::Ref<'_, super::Com::IStream>, dwflags: u32, pexcludeassemblieslist: windows_core::Ref<'_, ICLRAssemblyReferenceList>) -> Result<ICLRReferenceAssemblyEnum, windows_result::HRESULT>;
+    fn GetProbingAssembliesFromReference(&self, dwmachinetype: u32, dwflags: u32, pwzreferenceidentity: &windows_core::PCWSTR) -> Result<ICLRProbingAssemblyEnum, windows_result::HRESULT>;
+    fn IsStronglyNamed(&self, pwzassemblyidentity: &windows_core::PCWSTR) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ICLRAssemblyIdentityManager_Vtbl {
@@ -765,13 +765,13 @@ impl windows_core::RuntimeName for ICLRAssemblyIdentityManager {}
 windows_core::imp::define_interface!(ICLRAssemblyReferenceList, ICLRAssemblyReferenceList_Vtbl, 0x1b2c9750_2e66_4bda_8b44_0a642c5cd733);
 windows_core::imp::interface_hierarchy!(ICLRAssemblyReferenceList, windows_core::IUnknown);
 impl ICLRAssemblyReferenceList {
-    pub unsafe fn IsStringAssemblyReferenceInList<P0>(&self, pwzassemblyname: P0) -> windows_core::Result<()>
+    pub unsafe fn IsStringAssemblyReferenceInList<P0>(&self, pwzassemblyname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsStringAssemblyReferenceInList)(windows_core::Interface::as_raw(self), pwzassemblyname.param().abi()).ok() }
     }
-    pub unsafe fn IsAssemblyReferenceInList<P0>(&self, pname: P0) -> windows_core::Result<()>
+    pub unsafe fn IsAssemblyReferenceInList<P0>(&self, pname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -786,8 +786,8 @@ pub struct ICLRAssemblyReferenceList_Vtbl {
     pub IsAssemblyReferenceInList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICLRAssemblyReferenceList_Impl: windows_core::IUnknownImpl {
-    fn IsStringAssemblyReferenceInList(&self, pwzassemblyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn IsAssemblyReferenceInList(&self, pname: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn IsStringAssemblyReferenceInList(&self, pwzassemblyname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsAssemblyReferenceInList(&self, pname: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRAssemblyReferenceList_Vtbl {
     pub const fn new<Identity: ICLRAssemblyReferenceList_Impl, const OFFSET: isize>() -> Self {
@@ -817,10 +817,10 @@ impl windows_core::RuntimeName for ICLRAssemblyReferenceList {}
 windows_core::imp::define_interface!(ICLRControl, ICLRControl_Vtbl, 0x9065597e_d1a1_4fb2_b6ba_7e1fce230f61);
 windows_core::imp::interface_hierarchy!(ICLRControl, windows_core::IUnknown);
 impl ICLRControl {
-    pub unsafe fn GetCLRManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn GetCLRManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCLRManager)(windows_core::Interface::as_raw(self), riid, ppobject as _).ok() }
     }
-    pub unsafe fn SetAppDomainManagerType<P0, P1>(&self, pwzappdomainmanagerassembly: P0, pwzappdomainmanagertype: P1) -> windows_core::Result<()>
+    pub unsafe fn SetAppDomainManagerType<P0, P1>(&self, pwzappdomainmanagerassembly: P0, pwzappdomainmanagertype: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -836,8 +836,8 @@ pub struct ICLRControl_Vtbl {
     pub SetAppDomainManagerType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait ICLRControl_Impl: windows_core::IUnknownImpl {
-    fn GetCLRManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetAppDomainManagerType(&self, pwzappdomainmanagerassembly: &windows_core::PCWSTR, pwzappdomainmanagertype: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetCLRManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn SetAppDomainManagerType(&self, pwzappdomainmanagerassembly: &windows_core::PCWSTR, pwzappdomainmanagertype: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRControl_Vtbl {
     pub const fn new<Identity: ICLRControl_Impl, const OFFSET: isize>() -> Self {
@@ -867,36 +867,36 @@ impl windows_core::RuntimeName for ICLRControl {}
 windows_core::imp::define_interface!(ICLRDebugManager, ICLRDebugManager_Vtbl, 0x00dcaec6_2ac0_43a9_acf9_1e36c139b10d);
 windows_core::imp::interface_hierarchy!(ICLRDebugManager, windows_core::IUnknown);
 impl ICLRDebugManager {
-    pub unsafe fn BeginConnection<P1>(&self, dwconnectionid: u32, szconnectionname: P1) -> windows_core::Result<()>
+    pub unsafe fn BeginConnection<P1>(&self, dwconnectionid: u32, szconnectionname: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).BeginConnection)(windows_core::Interface::as_raw(self), dwconnectionid, szconnectionname.param().abi()).ok() }
     }
-    pub unsafe fn SetConnectionTasks(&self, id: u32, ppclrtask: &[Option<ICLRTask>]) -> windows_core::Result<()> {
+    pub unsafe fn SetConnectionTasks(&self, id: u32, ppclrtask: &[Option<ICLRTask>]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetConnectionTasks)(windows_core::Interface::as_raw(self), id, ppclrtask.len().try_into().unwrap(), core::mem::transmute(ppclrtask.as_ptr())).ok() }
     }
-    pub unsafe fn EndConnection(&self, dwconnectionid: u32) -> windows_core::Result<()> {
+    pub unsafe fn EndConnection(&self, dwconnectionid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndConnection)(windows_core::Interface::as_raw(self), dwconnectionid).ok() }
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn SetDacl(&self, pacl: *const super::super::Security::ACL) -> windows_core::Result<()> {
+    pub unsafe fn SetDacl(&self, pacl: *const super::super::Security::ACL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDacl)(windows_core::Interface::as_raw(self), pacl).ok() }
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn GetDacl(&self) -> windows_core::Result<*mut super::super::Security::ACL> {
+    pub unsafe fn GetDacl(&self) -> Result<*mut super::super::Security::ACL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDacl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDebuggerAttached(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsDebuggerAttached(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDebuggerAttached)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSymbolReadingPolicy(&self, policy: ESymbolReadingPolicy) -> windows_core::Result<()> {
+    pub unsafe fn SetSymbolReadingPolicy(&self, policy: ESymbolReadingPolicy) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSymbolReadingPolicy)(windows_core::Interface::as_raw(self), policy).ok() }
     }
 }
@@ -920,13 +920,13 @@ pub struct ICLRDebugManager_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 pub trait ICLRDebugManager_Impl: windows_core::IUnknownImpl {
-    fn BeginConnection(&self, dwconnectionid: u32, szconnectionname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetConnectionTasks(&self, id: u32, dwcount: u32, ppclrtask: *const Option<ICLRTask>) -> windows_core::Result<()>;
-    fn EndConnection(&self, dwconnectionid: u32) -> windows_core::Result<()>;
-    fn SetDacl(&self, pacl: *const super::super::Security::ACL) -> windows_core::Result<()>;
-    fn GetDacl(&self) -> windows_core::Result<*mut super::super::Security::ACL>;
-    fn IsDebuggerAttached(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetSymbolReadingPolicy(&self, policy: ESymbolReadingPolicy) -> windows_core::Result<()>;
+    fn BeginConnection(&self, dwconnectionid: u32, szconnectionname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetConnectionTasks(&self, id: u32, dwcount: u32, ppclrtask: *const Option<ICLRTask>) -> Result<(), windows_result::HRESULT>;
+    fn EndConnection(&self, dwconnectionid: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetDacl(&self, pacl: *const super::super::Security::ACL) -> Result<(), windows_result::HRESULT>;
+    fn GetDacl(&self) -> Result<*mut super::super::Security::ACL, windows_result::HRESULT>;
+    fn IsDebuggerAttached(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SetSymbolReadingPolicy(&self, policy: ESymbolReadingPolicy) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Security")]
 impl ICLRDebugManager_Vtbl {
@@ -1005,14 +1005,14 @@ impl windows_core::RuntimeName for ICLRDebugManager {}
 windows_core::imp::define_interface!(ICLRDebugging, ICLRDebugging_Vtbl, 0xd28f3c5a_9634_4206_a509_477552eefb10);
 windows_core::imp::interface_hierarchy!(ICLRDebugging, windows_core::IUnknown);
 impl ICLRDebugging {
-    pub unsafe fn OpenVirtualProcess<P1, P2>(&self, modulebaseaddress: u64, pdatatarget: P1, plibraryprovider: P2, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const windows_core::GUID, ppprocess: *mut Option<windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> windows_core::Result<()>
+    pub unsafe fn OpenVirtualProcess<P1, P2>(&self, modulebaseaddress: u64, pdatatarget: P1, plibraryprovider: P2, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const windows_core::GUID, ppprocess: *mut Option<windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<ICLRDebuggingLibraryProvider>,
     {
         unsafe { (windows_core::Interface::vtable(self).OpenVirtualProcess)(windows_core::Interface::as_raw(self), modulebaseaddress, pdatatarget.param().abi(), plibraryprovider.param().abi(), pmaxdebuggersupportedversion, riidprocess, core::mem::transmute(ppprocess), pversion as _, pdwflags as _).ok() }
     }
-    pub unsafe fn CanUnloadNow(&self, hmodule: super::super::Foundation::HMODULE) -> windows_core::Result<()> {
+    pub unsafe fn CanUnloadNow(&self, hmodule: super::super::Foundation::HMODULE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CanUnloadNow)(windows_core::Interface::as_raw(self), hmodule).ok() }
     }
 }
@@ -1024,8 +1024,8 @@ pub struct ICLRDebugging_Vtbl {
     pub CanUnloadNow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HMODULE) -> windows_core::HRESULT,
 }
 pub trait ICLRDebugging_Impl: windows_core::IUnknownImpl {
-    fn OpenVirtualProcess(&self, modulebaseaddress: u64, pdatatarget: windows_core::Ref<'_, windows_core::IUnknown>, plibraryprovider: windows_core::Ref<'_, ICLRDebuggingLibraryProvider>, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const windows_core::GUID, ppprocess: windows_core::OutRef<'_, windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> windows_core::Result<()>;
-    fn CanUnloadNow(&self, hmodule: super::super::Foundation::HMODULE) -> windows_core::Result<()>;
+    fn OpenVirtualProcess(&self, modulebaseaddress: u64, pdatatarget: windows_core::Ref<'_, windows_core::IUnknown>, plibraryprovider: windows_core::Ref<'_, ICLRDebuggingLibraryProvider>, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const windows_core::GUID, ppprocess: windows_core::OutRef<'_, windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> Result<(), windows_result::HRESULT>;
+    fn CanUnloadNow(&self, hmodule: super::super::Foundation::HMODULE) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRDebugging_Vtbl {
     pub const fn new<Identity: ICLRDebugging_Impl, const OFFSET: isize>() -> Self {
@@ -1055,7 +1055,7 @@ impl windows_core::RuntimeName for ICLRDebugging {}
 windows_core::imp::define_interface!(ICLRDebuggingLibraryProvider, ICLRDebuggingLibraryProvider_Vtbl, 0x3151c08d_4d09_4f9b_8838_2880bf18fe51);
 windows_core::imp::interface_hierarchy!(ICLRDebuggingLibraryProvider, windows_core::IUnknown);
 impl ICLRDebuggingLibraryProvider {
-    pub unsafe fn ProvideLibrary<P0>(&self, pwszfilename: P0, dwtimestamp: u32, dwsizeofimage: u32) -> windows_core::Result<super::super::Foundation::HMODULE>
+    pub unsafe fn ProvideLibrary<P0>(&self, pwszfilename: P0, dwtimestamp: u32, dwsizeofimage: u32) -> Result<super::super::Foundation::HMODULE, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1072,7 +1072,7 @@ pub struct ICLRDebuggingLibraryProvider_Vtbl {
     pub ProvideLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, *mut super::super::Foundation::HMODULE) -> windows_core::HRESULT,
 }
 pub trait ICLRDebuggingLibraryProvider_Impl: windows_core::IUnknownImpl {
-    fn ProvideLibrary(&self, pwszfilename: &windows_core::PCWSTR, dwtimestamp: u32, dwsizeofimage: u32) -> windows_core::Result<super::super::Foundation::HMODULE>;
+    fn ProvideLibrary(&self, pwszfilename: &windows_core::PCWSTR, dwtimestamp: u32, dwsizeofimage: u32) -> Result<super::super::Foundation::HMODULE, windows_result::HRESULT>;
 }
 impl ICLRDebuggingLibraryProvider_Vtbl {
     pub const fn new<Identity: ICLRDebuggingLibraryProvider_Impl, const OFFSET: isize>() -> Self {
@@ -1098,14 +1098,14 @@ impl windows_core::RuntimeName for ICLRDebuggingLibraryProvider {}
 windows_core::imp::define_interface!(ICLRDomainManager, ICLRDomainManager_Vtbl, 0x270d00a2_8e15_4d0b_adeb_37bc3e47df77);
 windows_core::imp::interface_hierarchy!(ICLRDomainManager, windows_core::IUnknown);
 impl ICLRDomainManager {
-    pub unsafe fn SetAppDomainManagerType<P0, P1>(&self, wszappdomainmanagerassembly: P0, wszappdomainmanagertype: P1, dwinitializedomainflags: EInitializeNewDomainFlags) -> windows_core::Result<()>
+    pub unsafe fn SetAppDomainManagerType<P0, P1>(&self, wszappdomainmanagerassembly: P0, wszappdomainmanagertype: P1, dwinitializedomainflags: EInitializeNewDomainFlags) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetAppDomainManagerType)(windows_core::Interface::as_raw(self), wszappdomainmanagerassembly.param().abi(), wszappdomainmanagertype.param().abi(), dwinitializedomainflags).ok() }
     }
-    pub unsafe fn SetPropertiesForDefaultAppDomain(&self, nproperties: u32, pwszpropertynames: *const windows_core::PCWSTR, pwszpropertyvalues: *const windows_core::PCWSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPropertiesForDefaultAppDomain(&self, nproperties: u32, pwszpropertynames: *const windows_core::PCWSTR, pwszpropertyvalues: *const windows_core::PCWSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPropertiesForDefaultAppDomain)(windows_core::Interface::as_raw(self), nproperties, pwszpropertynames, pwszpropertyvalues).ok() }
     }
 }
@@ -1117,8 +1117,8 @@ pub struct ICLRDomainManager_Vtbl {
     pub SetPropertiesForDefaultAppDomain: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::PCWSTR, *const windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait ICLRDomainManager_Impl: windows_core::IUnknownImpl {
-    fn SetAppDomainManagerType(&self, wszappdomainmanagerassembly: &windows_core::PCWSTR, wszappdomainmanagertype: &windows_core::PCWSTR, dwinitializedomainflags: EInitializeNewDomainFlags) -> windows_core::Result<()>;
-    fn SetPropertiesForDefaultAppDomain(&self, nproperties: u32, pwszpropertynames: *const windows_core::PCWSTR, pwszpropertyvalues: *const windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetAppDomainManagerType(&self, wszappdomainmanagerassembly: &windows_core::PCWSTR, wszappdomainmanagertype: &windows_core::PCWSTR, dwinitializedomainflags: EInitializeNewDomainFlags) -> Result<(), windows_result::HRESULT>;
+    fn SetPropertiesForDefaultAppDomain(&self, nproperties: u32, pwszpropertynames: *const windows_core::PCWSTR, pwszpropertyvalues: *const windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRDomainManager_Vtbl {
     pub const fn new<Identity: ICLRDomainManager_Impl, const OFFSET: isize>() -> Self {
@@ -1148,13 +1148,13 @@ impl windows_core::RuntimeName for ICLRDomainManager {}
 windows_core::imp::define_interface!(ICLRErrorReportingManager, ICLRErrorReportingManager_Vtbl, 0x980d2f1a_bf79_4c08_812a_bb9778928f78);
 windows_core::imp::interface_hierarchy!(ICLRErrorReportingManager, windows_core::IUnknown);
 impl ICLRErrorReportingManager {
-    pub unsafe fn GetBucketParametersForCurrentException(&self, pparams: *mut BucketParameters) -> windows_core::Result<()> {
+    pub unsafe fn GetBucketParametersForCurrentException(&self, pparams: *mut BucketParameters) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetBucketParametersForCurrentException)(windows_core::Interface::as_raw(self), pparams as _).ok() }
     }
-    pub unsafe fn BeginCustomDump(&self, dwflavor: ECustomDumpFlavor, items: &[CustomDumpItem], dwreserved: u32) -> windows_core::Result<()> {
+    pub unsafe fn BeginCustomDump(&self, dwflavor: ECustomDumpFlavor, items: &[CustomDumpItem], dwreserved: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginCustomDump)(windows_core::Interface::as_raw(self), dwflavor, items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr()), dwreserved).ok() }
     }
-    pub unsafe fn EndCustomDump(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndCustomDump(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndCustomDump)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1167,9 +1167,9 @@ pub struct ICLRErrorReportingManager_Vtbl {
     pub EndCustomDump: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICLRErrorReportingManager_Impl: windows_core::IUnknownImpl {
-    fn GetBucketParametersForCurrentException(&self, pparams: *mut BucketParameters) -> windows_core::Result<()>;
-    fn BeginCustomDump(&self, dwflavor: ECustomDumpFlavor, dwnumitems: u32, items: *const CustomDumpItem, dwreserved: u32) -> windows_core::Result<()>;
-    fn EndCustomDump(&self) -> windows_core::Result<()>;
+    fn GetBucketParametersForCurrentException(&self, pparams: *mut BucketParameters) -> Result<(), windows_result::HRESULT>;
+    fn BeginCustomDump(&self, dwflavor: ECustomDumpFlavor, dwnumitems: u32, items: *const CustomDumpItem, dwreserved: u32) -> Result<(), windows_result::HRESULT>;
+    fn EndCustomDump(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRErrorReportingManager_Vtbl {
     pub const fn new<Identity: ICLRErrorReportingManager_Impl, const OFFSET: isize>() -> Self {
@@ -1206,13 +1206,13 @@ impl windows_core::RuntimeName for ICLRErrorReportingManager {}
 windows_core::imp::define_interface!(ICLRGCManager, ICLRGCManager_Vtbl, 0x54d9007e_a8e2_4885_b7bf_f998deee4f2a);
 windows_core::imp::interface_hierarchy!(ICLRGCManager, windows_core::IUnknown);
 impl ICLRGCManager {
-    pub unsafe fn Collect(&self, generation: i32) -> windows_core::Result<()> {
+    pub unsafe fn Collect(&self, generation: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Collect)(windows_core::Interface::as_raw(self), generation).ok() }
     }
-    pub unsafe fn GetStats(&self, pstats: *mut COR_GC_STATS) -> windows_core::Result<()> {
+    pub unsafe fn GetStats(&self, pstats: *mut COR_GC_STATS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetStats)(windows_core::Interface::as_raw(self), pstats as _).ok() }
     }
-    pub unsafe fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGCStartupLimits)(windows_core::Interface::as_raw(self), segmentsize, maxgen0size).ok() }
     }
 }
@@ -1225,9 +1225,9 @@ pub struct ICLRGCManager_Vtbl {
     pub SetGCStartupLimits: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait ICLRGCManager_Impl: windows_core::IUnknownImpl {
-    fn Collect(&self, generation: i32) -> windows_core::Result<()>;
-    fn GetStats(&self, pstats: *mut COR_GC_STATS) -> windows_core::Result<()>;
-    fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> windows_core::Result<()>;
+    fn Collect(&self, generation: i32) -> Result<(), windows_result::HRESULT>;
+    fn GetStats(&self, pstats: *mut COR_GC_STATS) -> Result<(), windows_result::HRESULT>;
+    fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRGCManager_Vtbl {
     pub const fn new<Identity: ICLRGCManager_Impl, const OFFSET: isize>() -> Self {
@@ -1270,7 +1270,7 @@ impl core::ops::Deref for ICLRGCManager2 {
 }
 windows_core::imp::interface_hierarchy!(ICLRGCManager2, windows_core::IUnknown, ICLRGCManager);
 impl ICLRGCManager2 {
-    pub unsafe fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> windows_core::Result<()> {
+    pub unsafe fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGCStartupLimitsEx)(windows_core::Interface::as_raw(self), segmentsize, maxgen0size).ok() }
     }
 }
@@ -1281,7 +1281,7 @@ pub struct ICLRGCManager2_Vtbl {
     pub SetGCStartupLimitsEx: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
 }
 pub trait ICLRGCManager2_Impl: ICLRGCManager_Impl {
-    fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> windows_core::Result<()>;
+    fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRGCManager2_Vtbl {
     pub const fn new<Identity: ICLRGCManager2_Impl, const OFFSET: isize>() -> Self {
@@ -1301,14 +1301,14 @@ impl windows_core::RuntimeName for ICLRGCManager2 {}
 windows_core::imp::define_interface!(ICLRHostBindingPolicyManager, ICLRHostBindingPolicyManager_Vtbl, 0x4b3545e7_1856_48c9_a8ba_24b21a753c09);
 windows_core::imp::interface_hierarchy!(ICLRHostBindingPolicyManager, windows_core::IUnknown);
 impl ICLRHostBindingPolicyManager {
-    pub unsafe fn ModifyApplicationPolicy<P0, P1>(&self, pwzsourceassemblyidentity: P0, pwztargetassemblyidentity: P1, pbapplicationpolicy: *const u8, cbapppolicysize: u32, dwpolicymodifyflags: u32, pbnewapplicationpolicy: *mut u8, pcbnewapppolicysize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn ModifyApplicationPolicy<P0, P1>(&self, pwzsourceassemblyidentity: P0, pwztargetassemblyidentity: P1, pbapplicationpolicy: *const u8, cbapppolicysize: u32, dwpolicymodifyflags: u32, pbnewapplicationpolicy: *mut u8, pcbnewapppolicysize: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).ModifyApplicationPolicy)(windows_core::Interface::as_raw(self), pwzsourceassemblyidentity.param().abi(), pwztargetassemblyidentity.param().abi(), pbapplicationpolicy, cbapppolicysize, dwpolicymodifyflags, pbnewapplicationpolicy as _, pcbnewapppolicysize as _).ok() }
     }
-    pub unsafe fn EvaluatePolicy<P0>(&self, pwzreferenceidentity: P0, pbapplicationpolicy: *const u8, cbapppolicysize: u32, pwzpostpolicyreferenceidentity: windows_core::PWSTR, pcchpostpolicyreferenceidentity: *mut u32, pdwpoliciesapplied: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn EvaluatePolicy<P0>(&self, pwzreferenceidentity: P0, pbapplicationpolicy: *const u8, cbapppolicysize: u32, pwzpostpolicyreferenceidentity: windows_core::PWSTR, pcchpostpolicyreferenceidentity: *mut u32, pdwpoliciesapplied: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1323,8 +1323,8 @@ pub struct ICLRHostBindingPolicyManager_Vtbl {
     pub EvaluatePolicy: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8, u32, windows_core::PWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICLRHostBindingPolicyManager_Impl: windows_core::IUnknownImpl {
-    fn ModifyApplicationPolicy(&self, pwzsourceassemblyidentity: &windows_core::PCWSTR, pwztargetassemblyidentity: &windows_core::PCWSTR, pbapplicationpolicy: *const u8, cbapppolicysize: u32, dwpolicymodifyflags: u32, pbnewapplicationpolicy: *mut u8, pcbnewapppolicysize: *mut u32) -> windows_core::Result<()>;
-    fn EvaluatePolicy(&self, pwzreferenceidentity: &windows_core::PCWSTR, pbapplicationpolicy: *const u8, cbapppolicysize: u32, pwzpostpolicyreferenceidentity: windows_core::PWSTR, pcchpostpolicyreferenceidentity: *mut u32, pdwpoliciesapplied: *mut u32) -> windows_core::Result<()>;
+    fn ModifyApplicationPolicy(&self, pwzsourceassemblyidentity: &windows_core::PCWSTR, pwztargetassemblyidentity: &windows_core::PCWSTR, pbapplicationpolicy: *const u8, cbapppolicysize: u32, dwpolicymodifyflags: u32, pbnewapplicationpolicy: *mut u8, pcbnewapppolicysize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn EvaluatePolicy(&self, pwzreferenceidentity: &windows_core::PCWSTR, pbapplicationpolicy: *const u8, cbapppolicysize: u32, pwzpostpolicyreferenceidentity: windows_core::PWSTR, pcchpostpolicyreferenceidentity: *mut u32, pdwpoliciesapplied: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRHostBindingPolicyManager_Vtbl {
     pub const fn new<Identity: ICLRHostBindingPolicyManager_Impl, const OFFSET: isize>() -> Self {
@@ -1354,10 +1354,10 @@ impl windows_core::RuntimeName for ICLRHostBindingPolicyManager {}
 windows_core::imp::define_interface!(ICLRHostProtectionManager, ICLRHostProtectionManager_Vtbl, 0x89f25f5c_ceef_43e1_9cfa_a68ce863aaac);
 windows_core::imp::interface_hierarchy!(ICLRHostProtectionManager, windows_core::IUnknown);
 impl ICLRHostProtectionManager {
-    pub unsafe fn SetProtectedCategories(&self, categories: EApiCategories) -> windows_core::Result<()> {
+    pub unsafe fn SetProtectedCategories(&self, categories: EApiCategories) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetProtectedCategories)(windows_core::Interface::as_raw(self), categories).ok() }
     }
-    pub unsafe fn SetEagerSerializeGrantSets(&self) -> windows_core::Result<()> {
+    pub unsafe fn SetEagerSerializeGrantSets(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEagerSerializeGrantSets)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1369,8 +1369,8 @@ pub struct ICLRHostProtectionManager_Vtbl {
     pub SetEagerSerializeGrantSets: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICLRHostProtectionManager_Impl: windows_core::IUnknownImpl {
-    fn SetProtectedCategories(&self, categories: EApiCategories) -> windows_core::Result<()>;
-    fn SetEagerSerializeGrantSets(&self) -> windows_core::Result<()>;
+    fn SetProtectedCategories(&self, categories: EApiCategories) -> Result<(), windows_result::HRESULT>;
+    fn SetEagerSerializeGrantSets(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRHostProtectionManager_Vtbl {
     pub const fn new<Identity: ICLRHostProtectionManager_Impl, const OFFSET: isize>() -> Self {
@@ -1400,7 +1400,7 @@ impl windows_core::RuntimeName for ICLRHostProtectionManager {}
 windows_core::imp::define_interface!(ICLRIoCompletionManager, ICLRIoCompletionManager_Vtbl, 0x2d74ce86_b8d6_4c84_b3a7_9768933b3c12);
 windows_core::imp::interface_hierarchy!(ICLRIoCompletionManager, windows_core::IUnknown);
 impl ICLRIoCompletionManager {
-    pub unsafe fn OnComplete(&self, dwerrorcode: u32, numberofbytestransferred: u32, pvoverlapped: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn OnComplete(&self, dwerrorcode: u32, numberofbytestransferred: u32, pvoverlapped: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnComplete)(windows_core::Interface::as_raw(self), dwerrorcode, numberofbytestransferred, pvoverlapped).ok() }
     }
 }
@@ -1411,7 +1411,7 @@ pub struct ICLRIoCompletionManager_Vtbl {
     pub OnComplete: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICLRIoCompletionManager_Impl: windows_core::IUnknownImpl {
-    fn OnComplete(&self, dwerrorcode: u32, numberofbytestransferred: u32, pvoverlapped: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn OnComplete(&self, dwerrorcode: u32, numberofbytestransferred: u32, pvoverlapped: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRIoCompletionManager_Vtbl {
     pub const fn new<Identity: ICLRIoCompletionManager_Impl, const OFFSET: isize>() -> Self {
@@ -1431,7 +1431,7 @@ impl windows_core::RuntimeName for ICLRIoCompletionManager {}
 windows_core::imp::define_interface!(ICLRMemoryNotificationCallback, ICLRMemoryNotificationCallback_Vtbl, 0x47eb8e57_0846_4546_af76_6f42fcfc2649);
 windows_core::imp::interface_hierarchy!(ICLRMemoryNotificationCallback, windows_core::IUnknown);
 impl ICLRMemoryNotificationCallback {
-    pub unsafe fn OnMemoryNotification(&self, ememoryavailable: EMemoryAvailable) -> windows_core::Result<()> {
+    pub unsafe fn OnMemoryNotification(&self, ememoryavailable: EMemoryAvailable) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnMemoryNotification)(windows_core::Interface::as_raw(self), ememoryavailable).ok() }
     }
 }
@@ -1442,7 +1442,7 @@ pub struct ICLRMemoryNotificationCallback_Vtbl {
     pub OnMemoryNotification: unsafe extern "system" fn(*mut core::ffi::c_void, EMemoryAvailable) -> windows_core::HRESULT,
 }
 pub trait ICLRMemoryNotificationCallback_Impl: windows_core::IUnknownImpl {
-    fn OnMemoryNotification(&self, ememoryavailable: EMemoryAvailable) -> windows_core::Result<()>;
+    fn OnMemoryNotification(&self, ememoryavailable: EMemoryAvailable) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRMemoryNotificationCallback_Vtbl {
     pub const fn new<Identity: ICLRMemoryNotificationCallback_Impl, const OFFSET: isize>() -> Self {
@@ -1462,7 +1462,7 @@ impl windows_core::RuntimeName for ICLRMemoryNotificationCallback {}
 windows_core::imp::define_interface!(ICLRMetaHost, ICLRMetaHost_Vtbl, 0xd332db9e_b9b3_4125_8207_a14884f53216);
 windows_core::imp::interface_hierarchy!(ICLRMetaHost, windows_core::IUnknown);
 impl ICLRMetaHost {
-    pub unsafe fn GetRuntime<P0, T>(&self, pwzversion: P0) -> windows_core::Result<T>
+    pub unsafe fn GetRuntime<P0, T>(&self, pwzversion: P0) -> Result<T, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
@@ -1470,37 +1470,37 @@ impl ICLRMetaHost {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetRuntime)(windows_core::Interface::as_raw(self), pwzversion.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetVersionFromFile<P0>(&self, pwzfilepath: P0, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetVersionFromFile<P0>(&self, pwzfilepath: P0, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetVersionFromFile)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), core::mem::transmute(pwzbuffer), pcchbuffer as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumerateInstalledRuntimes(&self) -> windows_core::Result<super::Com::IEnumUnknown> {
+    pub unsafe fn EnumerateInstalledRuntimes(&self) -> Result<super::Com::IEnumUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateInstalledRuntimes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumerateLoadedRuntimes(&self, hndprocess: super::super::Foundation::HANDLE) -> windows_core::Result<super::Com::IEnumUnknown> {
+    pub unsafe fn EnumerateLoadedRuntimes(&self, hndprocess: super::super::Foundation::HANDLE) -> Result<super::Com::IEnumUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateLoadedRuntimes)(windows_core::Interface::as_raw(self), hndprocess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RequestRuntimeLoadedNotification(&self, pcallbackfunction: RuntimeLoadedCallbackFnPtr) -> windows_core::Result<()> {
+    pub unsafe fn RequestRuntimeLoadedNotification(&self, pcallbackfunction: RuntimeLoadedCallbackFnPtr) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RequestRuntimeLoadedNotification)(windows_core::Interface::as_raw(self), pcallbackfunction).ok() }
     }
-    pub unsafe fn QueryLegacyV2RuntimeBinding<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn QueryLegacyV2RuntimeBinding<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).QueryLegacyV2RuntimeBinding)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn ExitProcess(&self, iexitcode: i32) -> windows_core::Result<()> {
+    pub unsafe fn ExitProcess(&self, iexitcode: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExitProcess)(windows_core::Interface::as_raw(self), iexitcode).ok() }
     }
 }
@@ -1524,13 +1524,13 @@ pub struct ICLRMetaHost_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICLRMetaHost_Impl: windows_core::IUnknownImpl {
-    fn GetRuntime(&self, pwzversion: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppruntime: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetVersionFromFile(&self, pwzfilepath: &windows_core::PCWSTR, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> windows_core::Result<()>;
-    fn EnumerateInstalledRuntimes(&self) -> windows_core::Result<super::Com::IEnumUnknown>;
-    fn EnumerateLoadedRuntimes(&self, hndprocess: super::super::Foundation::HANDLE) -> windows_core::Result<super::Com::IEnumUnknown>;
-    fn RequestRuntimeLoadedNotification(&self, pcallbackfunction: RuntimeLoadedCallbackFnPtr) -> windows_core::Result<()>;
-    fn QueryLegacyV2RuntimeBinding(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ExitProcess(&self, iexitcode: i32) -> windows_core::Result<()>;
+    fn GetRuntime(&self, pwzversion: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppruntime: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn GetVersionFromFile(&self, pwzfilepath: &windows_core::PCWSTR, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn EnumerateInstalledRuntimes(&self) -> Result<super::Com::IEnumUnknown, windows_result::HRESULT>;
+    fn EnumerateLoadedRuntimes(&self, hndprocess: super::super::Foundation::HANDLE) -> Result<super::Com::IEnumUnknown, windows_result::HRESULT>;
+    fn RequestRuntimeLoadedNotification(&self, pcallbackfunction: RuntimeLoadedCallbackFnPtr) -> Result<(), windows_result::HRESULT>;
+    fn QueryLegacyV2RuntimeBinding(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn ExitProcess(&self, iexitcode: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ICLRMetaHost_Vtbl {
@@ -1610,7 +1610,7 @@ windows_core::imp::define_interface!(ICLRMetaHostPolicy, ICLRMetaHostPolicy_Vtbl
 windows_core::imp::interface_hierarchy!(ICLRMetaHostPolicy, windows_core::IUnknown);
 impl ICLRMetaHostPolicy {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRequestedRuntime<P1, P2, T>(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: P1, pcfgstream: P2, pwzversion: Option<windows_core::PWSTR>, pcchversion: *mut u32, pwzimageversion: Option<windows_core::PWSTR>, pcchimageversion: *mut u32, pdwconfigflags: *mut u32) -> windows_core::Result<T>
+    pub unsafe fn GetRequestedRuntime<P1, P2, T>(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: P1, pcfgstream: P2, pwzversion: Option<windows_core::PWSTR>, pcchversion: *mut u32, pwzimageversion: Option<windows_core::PWSTR>, pcchimageversion: *mut u32, pdwconfigflags: *mut u32) -> Result<T, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<super::Com::IStream>,
@@ -1631,7 +1631,7 @@ pub struct ICLRMetaHostPolicy_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICLRMetaHostPolicy_Impl: windows_core::IUnknownImpl {
-    fn GetRequestedRuntime(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: &windows_core::PCWSTR, pcfgstream: windows_core::Ref<'_, super::Com::IStream>, pwzversion: windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32, riid: *const windows_core::GUID, ppruntime: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetRequestedRuntime(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: &windows_core::PCWSTR, pcfgstream: windows_core::Ref<'_, super::Com::IStream>, pwzversion: windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32, riid: *const windows_core::GUID, ppruntime: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ICLRMetaHostPolicy_Vtbl {
@@ -1653,13 +1653,13 @@ impl windows_core::RuntimeName for ICLRMetaHostPolicy {}
 windows_core::imp::define_interface!(ICLROnEventManager, ICLROnEventManager_Vtbl, 0x1d0e0132_e64f_493d_9260_025c0e32c175);
 windows_core::imp::interface_hierarchy!(ICLROnEventManager, windows_core::IUnknown);
 impl ICLROnEventManager {
-    pub unsafe fn RegisterActionOnEvent<P1>(&self, event: EClrEvent, paction: P1) -> windows_core::Result<()>
+    pub unsafe fn RegisterActionOnEvent<P1>(&self, event: EClrEvent, paction: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IActionOnCLREvent>,
     {
         unsafe { (windows_core::Interface::vtable(self).RegisterActionOnEvent)(windows_core::Interface::as_raw(self), event, paction.param().abi()).ok() }
     }
-    pub unsafe fn UnregisterActionOnEvent<P1>(&self, event: EClrEvent, paction: P1) -> windows_core::Result<()>
+    pub unsafe fn UnregisterActionOnEvent<P1>(&self, event: EClrEvent, paction: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IActionOnCLREvent>,
     {
@@ -1674,8 +1674,8 @@ pub struct ICLROnEventManager_Vtbl {
     pub UnregisterActionOnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, EClrEvent, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICLROnEventManager_Impl: windows_core::IUnknownImpl {
-    fn RegisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<'_, IActionOnCLREvent>) -> windows_core::Result<()>;
-    fn UnregisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<'_, IActionOnCLREvent>) -> windows_core::Result<()>;
+    fn RegisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<'_, IActionOnCLREvent>) -> Result<(), windows_result::HRESULT>;
+    fn UnregisterActionOnEvent(&self, event: EClrEvent, paction: windows_core::Ref<'_, IActionOnCLREvent>) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLROnEventManager_Vtbl {
     pub const fn new<Identity: ICLROnEventManager_Impl, const OFFSET: isize>() -> Self {
@@ -1705,22 +1705,22 @@ impl windows_core::RuntimeName for ICLROnEventManager {}
 windows_core::imp::define_interface!(ICLRPolicyManager, ICLRPolicyManager_Vtbl, 0x7d290010_d781_45da_a6f8_aa5d711a730e);
 windows_core::imp::interface_hierarchy!(ICLRPolicyManager, windows_core::IUnknown);
 impl ICLRPolicyManager {
-    pub unsafe fn SetDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultAction)(windows_core::Interface::as_raw(self), operation, action).ok() }
     }
-    pub unsafe fn SetTimeout(&self, operation: EClrOperation, dwmilliseconds: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTimeout(&self, operation: EClrOperation, dwmilliseconds: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTimeout)(windows_core::Interface::as_raw(self), operation, dwmilliseconds).ok() }
     }
-    pub unsafe fn SetActionOnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()> {
+    pub unsafe fn SetActionOnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetActionOnTimeout)(windows_core::Interface::as_raw(self), operation, action).ok() }
     }
-    pub unsafe fn SetTimeoutAndAction(&self, operation: EClrOperation, dwmilliseconds: u32, action: EPolicyAction) -> windows_core::Result<()> {
+    pub unsafe fn SetTimeoutAndAction(&self, operation: EClrOperation, dwmilliseconds: u32, action: EPolicyAction) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTimeoutAndAction)(windows_core::Interface::as_raw(self), operation, dwmilliseconds, action).ok() }
     }
-    pub unsafe fn SetActionOnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> windows_core::Result<()> {
+    pub unsafe fn SetActionOnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetActionOnFailure)(windows_core::Interface::as_raw(self), failure, action).ok() }
     }
-    pub unsafe fn SetUnhandledExceptionPolicy(&self, policy: EClrUnhandledException) -> windows_core::Result<()> {
+    pub unsafe fn SetUnhandledExceptionPolicy(&self, policy: EClrUnhandledException) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUnhandledExceptionPolicy)(windows_core::Interface::as_raw(self), policy).ok() }
     }
 }
@@ -1736,12 +1736,12 @@ pub struct ICLRPolicyManager_Vtbl {
     pub SetUnhandledExceptionPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, EClrUnhandledException) -> windows_core::HRESULT,
 }
 pub trait ICLRPolicyManager_Impl: windows_core::IUnknownImpl {
-    fn SetDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()>;
-    fn SetTimeout(&self, operation: EClrOperation, dwmilliseconds: u32) -> windows_core::Result<()>;
-    fn SetActionOnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()>;
-    fn SetTimeoutAndAction(&self, operation: EClrOperation, dwmilliseconds: u32, action: EPolicyAction) -> windows_core::Result<()>;
-    fn SetActionOnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> windows_core::Result<()>;
-    fn SetUnhandledExceptionPolicy(&self, policy: EClrUnhandledException) -> windows_core::Result<()>;
+    fn SetDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT>;
+    fn SetTimeout(&self, operation: EClrOperation, dwmilliseconds: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetActionOnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT>;
+    fn SetTimeoutAndAction(&self, operation: EClrOperation, dwmilliseconds: u32, action: EPolicyAction) -> Result<(), windows_result::HRESULT>;
+    fn SetActionOnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> Result<(), windows_result::HRESULT>;
+    fn SetUnhandledExceptionPolicy(&self, policy: EClrUnhandledException) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRPolicyManager_Vtbl {
     pub const fn new<Identity: ICLRPolicyManager_Impl, const OFFSET: isize>() -> Self {
@@ -1799,7 +1799,7 @@ impl windows_core::RuntimeName for ICLRPolicyManager {}
 windows_core::imp::define_interface!(ICLRProbingAssemblyEnum, ICLRProbingAssemblyEnum_Vtbl, 0xd0c5fb1f_416b_4f97_81f4_7ac7dc24dd5d);
 windows_core::imp::interface_hierarchy!(ICLRProbingAssemblyEnum, windows_core::IUnknown);
 impl ICLRProbingAssemblyEnum {
-    pub unsafe fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pwzbuffer), pcchbuffersize as _).ok() }
     }
 }
@@ -1810,7 +1810,7 @@ pub struct ICLRProbingAssemblyEnum_Vtbl {
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICLRProbingAssemblyEnum_Impl: windows_core::IUnknownImpl {
-    fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>;
+    fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRProbingAssemblyEnum_Vtbl {
     pub const fn new<Identity: ICLRProbingAssemblyEnum_Impl, const OFFSET: isize>() -> Self {
@@ -1830,7 +1830,7 @@ impl windows_core::RuntimeName for ICLRProbingAssemblyEnum {}
 windows_core::imp::define_interface!(ICLRProfiling, ICLRProfiling_Vtbl, 0xb349abe3_b56f_4689_bfcd_76bf39d888ea);
 windows_core::imp::interface_hierarchy!(ICLRProfiling, windows_core::IUnknown);
 impl ICLRProfiling {
-    pub unsafe fn AttachProfiler<P3>(&self, dwprofileeprocessid: u32, dwmillisecondsmax: u32, pclsidprofiler: *const windows_core::GUID, wszprofilerpath: P3, pvclientdata: &[u8]) -> windows_core::Result<()>
+    pub unsafe fn AttachProfiler<P3>(&self, dwprofileeprocessid: u32, dwmillisecondsmax: u32, pclsidprofiler: *const windows_core::GUID, wszprofilerpath: P3, pvclientdata: &[u8]) -> Result<(), windows_result::HRESULT>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1844,7 +1844,7 @@ pub struct ICLRProfiling_Vtbl {
     pub AttachProfiler: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, windows_core::PCWSTR, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ICLRProfiling_Impl: windows_core::IUnknownImpl {
-    fn AttachProfiler(&self, dwprofileeprocessid: u32, dwmillisecondsmax: u32, pclsidprofiler: *const windows_core::GUID, wszprofilerpath: &windows_core::PCWSTR, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>;
+    fn AttachProfiler(&self, dwprofileeprocessid: u32, dwmillisecondsmax: u32, pclsidprofiler: *const windows_core::GUID, wszprofilerpath: &windows_core::PCWSTR, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRProfiling_Vtbl {
     pub const fn new<Identity: ICLRProfiling_Impl, const OFFSET: isize>() -> Self {
@@ -1864,7 +1864,7 @@ impl windows_core::RuntimeName for ICLRProfiling {}
 windows_core::imp::define_interface!(ICLRReferenceAssemblyEnum, ICLRReferenceAssemblyEnum_Vtbl, 0xd509cb5d_cf32_4876_ae61_67770cf91973);
 windows_core::imp::interface_hierarchy!(ICLRReferenceAssemblyEnum, windows_core::IUnknown);
 impl ICLRReferenceAssemblyEnum {
-    pub unsafe fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pwzbuffer), pcchbuffersize as _).ok() }
     }
 }
@@ -1875,7 +1875,7 @@ pub struct ICLRReferenceAssemblyEnum_Vtbl {
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICLRReferenceAssemblyEnum_Impl: windows_core::IUnknownImpl {
-    fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> windows_core::Result<()>;
+    fn Get(&self, dwindex: u32, pwzbuffer: windows_core::PWSTR, pcchbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRReferenceAssemblyEnum_Vtbl {
     pub const fn new<Identity: ICLRReferenceAssemblyEnum_Impl, const OFFSET: isize>() -> Self {
@@ -1895,37 +1895,37 @@ impl windows_core::RuntimeName for ICLRReferenceAssemblyEnum {}
 windows_core::imp::define_interface!(ICLRRuntimeHost, ICLRRuntimeHost_Vtbl, 0x90f1a06c_7712_4762_86b5_7a5eba6bdb02);
 windows_core::imp::interface_hierarchy!(ICLRRuntimeHost, windows_core::IUnknown);
 impl ICLRRuntimeHost {
-    pub unsafe fn Start(&self) -> windows_core::Result<()> {
+    pub unsafe fn Start(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetHostControl<P0>(&self, phostcontrol: P0) -> windows_core::Result<()>
+    pub unsafe fn SetHostControl<P0>(&self, phostcontrol: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IHostControl>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetHostControl)(windows_core::Interface::as_raw(self), phostcontrol.param().abi()).ok() }
     }
-    pub unsafe fn GetCLRControl(&self) -> windows_core::Result<ICLRControl> {
+    pub unsafe fn GetCLRControl(&self) -> Result<ICLRControl, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCLRControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn UnloadAppDomain(&self, dwappdomainid: u32, fwaituntildone: bool) -> windows_core::Result<()> {
+    pub unsafe fn UnloadAppDomain(&self, dwappdomainid: u32, fwaituntildone: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UnloadAppDomain)(windows_core::Interface::as_raw(self), dwappdomainid, fwaituntildone.into()).ok() }
     }
-    pub unsafe fn ExecuteInAppDomain(&self, dwappdomainid: u32, pcallback: FExecuteInAppDomainCallback, cookie: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn ExecuteInAppDomain(&self, dwappdomainid: u32, pcallback: FExecuteInAppDomainCallback, cookie: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExecuteInAppDomain)(windows_core::Interface::as_raw(self), dwappdomainid, pcallback, cookie).ok() }
     }
-    pub unsafe fn GetCurrentAppDomainId(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCurrentAppDomainId(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentAppDomainId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExecuteApplication<P0>(&self, pwzappfullname: P0, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR) -> windows_core::Result<i32>
+    pub unsafe fn ExecuteApplication<P0>(&self, pwzappfullname: P0, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR) -> Result<i32, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1934,7 +1934,7 @@ impl ICLRRuntimeHost {
             (windows_core::Interface::vtable(self).ExecuteApplication)(windows_core::Interface::as_raw(self), pwzappfullname.param().abi(), dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExecuteInDefaultAppDomain<P0, P1, P2, P3>(&self, pwzassemblypath: P0, pwztypename: P1, pwzmethodname: P2, pwzargument: P3) -> windows_core::Result<u32>
+    pub unsafe fn ExecuteInDefaultAppDomain<P0, P1, P2, P3>(&self, pwzassemblypath: P0, pwztypename: P1, pwzmethodname: P2, pwzargument: P3) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1962,15 +1962,15 @@ pub struct ICLRRuntimeHost_Vtbl {
     pub ExecuteInDefaultAppDomain: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICLRRuntimeHost_Impl: windows_core::IUnknownImpl {
-    fn Start(&self) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn SetHostControl(&self, phostcontrol: windows_core::Ref<'_, IHostControl>) -> windows_core::Result<()>;
-    fn GetCLRControl(&self) -> windows_core::Result<ICLRControl>;
-    fn UnloadAppDomain(&self, dwappdomainid: u32, fwaituntildone: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ExecuteInAppDomain(&self, dwappdomainid: u32, pcallback: FExecuteInAppDomainCallback, cookie: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetCurrentAppDomainId(&self) -> windows_core::Result<u32>;
-    fn ExecuteApplication(&self, pwzappfullname: &windows_core::PCWSTR, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR) -> windows_core::Result<i32>;
-    fn ExecuteInDefaultAppDomain(&self, pwzassemblypath: &windows_core::PCWSTR, pwztypename: &windows_core::PCWSTR, pwzmethodname: &windows_core::PCWSTR, pwzargument: &windows_core::PCWSTR) -> windows_core::Result<u32>;
+    fn Start(&self) -> Result<(), windows_result::HRESULT>;
+    fn Stop(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetHostControl(&self, phostcontrol: windows_core::Ref<'_, IHostControl>) -> Result<(), windows_result::HRESULT>;
+    fn GetCLRControl(&self) -> Result<ICLRControl, windows_result::HRESULT>;
+    fn UnloadAppDomain(&self, dwappdomainid: u32, fwaituntildone: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ExecuteInAppDomain(&self, dwappdomainid: u32, pcallback: FExecuteInAppDomainCallback, cookie: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn GetCurrentAppDomainId(&self) -> Result<u32, windows_result::HRESULT>;
+    fn ExecuteApplication(&self, pwzappfullname: &windows_core::PCWSTR, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR) -> Result<i32, windows_result::HRESULT>;
+    fn ExecuteInDefaultAppDomain(&self, pwzassemblypath: &windows_core::PCWSTR, pwztypename: &windows_core::PCWSTR, pwzmethodname: &windows_core::PCWSTR, pwzargument: &windows_core::PCWSTR) -> Result<u32, windows_result::HRESULT>;
 }
 impl ICLRRuntimeHost_Vtbl {
     pub const fn new<Identity: ICLRRuntimeHost_Impl, const OFFSET: isize>() -> Self {
@@ -2073,22 +2073,22 @@ impl windows_core::RuntimeName for ICLRRuntimeHost {}
 windows_core::imp::define_interface!(ICLRRuntimeInfo, ICLRRuntimeInfo_Vtbl, 0xbd39d1d2_ba2f_486a_89b0_b4b0cb466891);
 windows_core::imp::interface_hierarchy!(ICLRRuntimeInfo, windows_core::IUnknown);
 impl ICLRRuntimeInfo {
-    pub unsafe fn GetVersionString(&self, pwzbuffer: Option<windows_core::PWSTR>, pcchbuffer: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetVersionString(&self, pwzbuffer: Option<windows_core::PWSTR>, pcchbuffer: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetVersionString)(windows_core::Interface::as_raw(self), pwzbuffer.unwrap_or(core::mem::zeroed()) as _, pcchbuffer as _).ok() }
     }
-    pub unsafe fn GetRuntimeDirectory(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetRuntimeDirectory(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetRuntimeDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzbuffer), pcchbuffer as _).ok() }
     }
-    pub unsafe fn IsLoaded(&self, hndprocess: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsLoaded(&self, hndprocess: super::super::Foundation::HANDLE) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLoaded)(windows_core::Interface::as_raw(self), hndprocess, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LoadErrorString(&self, iresourceid: u32, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32, ilocaleid: i32) -> windows_core::Result<()> {
+    pub unsafe fn LoadErrorString(&self, iresourceid: u32, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32, ilocaleid: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LoadErrorString)(windows_core::Interface::as_raw(self), iresourceid, core::mem::transmute(pwzbuffer), pcchbuffer as _, ilocaleid).ok() }
     }
-    pub unsafe fn LoadLibraryA<P0>(&self, pwzdllname: P0) -> windows_core::Result<super::super::Foundation::HMODULE>
+    pub unsafe fn LoadLibraryA<P0>(&self, pwzdllname: P0) -> Result<super::super::Foundation::HMODULE, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2097,7 +2097,7 @@ impl ICLRRuntimeInfo {
             (windows_core::Interface::vtable(self).LoadLibraryA)(windows_core::Interface::as_raw(self), pwzdllname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetProcAddress<P0>(&self, pszprocname: P0) -> windows_core::Result<*mut core::ffi::c_void>
+    pub unsafe fn GetProcAddress<P0>(&self, pszprocname: P0) -> Result<*mut core::ffi::c_void, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
@@ -2106,32 +2106,32 @@ impl ICLRRuntimeInfo {
             (windows_core::Interface::vtable(self).GetProcAddress)(windows_core::Interface::as_raw(self), pszprocname.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetInterface<T>(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<T>
+    pub unsafe fn GetInterface<T>(&self, rclsid: *const windows_core::GUID) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), rclsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn IsLoadable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsLoadable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLoadable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDefaultStartupFlags<P1>(&self, dwstartupflags: u32, pwzhostconfigfile: P1) -> windows_core::Result<()>
+    pub unsafe fn SetDefaultStartupFlags<P1>(&self, dwstartupflags: u32, pwzhostconfigfile: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultStartupFlags)(windows_core::Interface::as_raw(self), dwstartupflags, pwzhostconfigfile.param().abi()).ok() }
     }
-    pub unsafe fn GetDefaultStartupFlags(&self, pdwstartupflags: *mut u32, pwzhostconfigfile: Option<windows_core::PWSTR>, pcchhostconfigfile: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDefaultStartupFlags(&self, pdwstartupflags: *mut u32, pwzhostconfigfile: Option<windows_core::PWSTR>, pcchhostconfigfile: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDefaultStartupFlags)(windows_core::Interface::as_raw(self), pdwstartupflags as _, pwzhostconfigfile.unwrap_or(core::mem::zeroed()) as _, pcchhostconfigfile as _).ok() }
     }
-    pub unsafe fn BindAsLegacyV2Runtime(&self) -> windows_core::Result<()> {
+    pub unsafe fn BindAsLegacyV2Runtime(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BindAsLegacyV2Runtime)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsStarted(&self, pbstarted: *mut windows_core::BOOL, pdwstartupflags: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn IsStarted(&self, pbstarted: *mut windows_core::BOOL, pdwstartupflags: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsStarted)(windows_core::Interface::as_raw(self), pbstarted as _, pdwstartupflags as _).ok() }
     }
 }
@@ -2153,18 +2153,18 @@ pub struct ICLRRuntimeInfo_Vtbl {
     pub IsStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICLRRuntimeInfo_Impl: windows_core::IUnknownImpl {
-    fn GetVersionString(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> windows_core::Result<()>;
-    fn GetRuntimeDirectory(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> windows_core::Result<()>;
-    fn IsLoaded(&self, hndprocess: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::BOOL>;
-    fn LoadErrorString(&self, iresourceid: u32, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32, ilocaleid: i32) -> windows_core::Result<()>;
-    fn LoadLibraryA(&self, pwzdllname: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::HMODULE>;
-    fn GetProcAddress(&self, pszprocname: &windows_core::PCSTR) -> windows_core::Result<*mut core::ffi::c_void>;
-    fn GetInterface(&self, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn IsLoadable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetDefaultStartupFlags(&self, dwstartupflags: u32, pwzhostconfigfile: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetDefaultStartupFlags(&self, pdwstartupflags: *mut u32, pwzhostconfigfile: windows_core::PWSTR, pcchhostconfigfile: *mut u32) -> windows_core::Result<()>;
-    fn BindAsLegacyV2Runtime(&self) -> windows_core::Result<()>;
-    fn IsStarted(&self, pbstarted: *mut windows_core::BOOL, pdwstartupflags: *mut u32) -> windows_core::Result<()>;
+    fn GetVersionString(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetRuntimeDirectory(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn IsLoaded(&self, hndprocess: super::super::Foundation::HANDLE) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn LoadErrorString(&self, iresourceid: u32, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32, ilocaleid: i32) -> Result<(), windows_result::HRESULT>;
+    fn LoadLibraryA(&self, pwzdllname: &windows_core::PCWSTR) -> Result<super::super::Foundation::HMODULE, windows_result::HRESULT>;
+    fn GetProcAddress(&self, pszprocname: &windows_core::PCSTR) -> Result<*mut core::ffi::c_void, windows_result::HRESULT>;
+    fn GetInterface(&self, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn IsLoadable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SetDefaultStartupFlags(&self, dwstartupflags: u32, pwzhostconfigfile: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetDefaultStartupFlags(&self, pdwstartupflags: *mut u32, pwzhostconfigfile: windows_core::PWSTR, pcchhostconfigfile: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn BindAsLegacyV2Runtime(&self) -> Result<(), windows_result::HRESULT>;
+    fn IsStarted(&self, pbstarted: *mut windows_core::BOOL, pdwstartupflags: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRRuntimeInfo_Vtbl {
     pub const fn new<Identity: ICLRRuntimeInfo_Impl, const OFFSET: isize>() -> Self {
@@ -2288,37 +2288,37 @@ impl windows_core::RuntimeName for ICLRRuntimeInfo {}
 windows_core::imp::define_interface!(ICLRStrongName, ICLRStrongName_Vtbl, 0x9fd93ccf_3280_4391_b3a9_96e1cde77c8d);
 windows_core::imp::interface_hierarchy!(ICLRStrongName, windows_core::IUnknown);
 impl ICLRStrongName {
-    pub unsafe fn GetHashFromAssemblyFile<P0>(&self, pszfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetHashFromAssemblyFile<P0>(&self, pszfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetHashFromAssemblyFile)(windows_core::Interface::as_raw(self), pszfilepath.param().abi(), pihashalg as _, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash as _).ok() }
     }
-    pub unsafe fn GetHashFromAssemblyFileW<P0>(&self, pwzfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetHashFromAssemblyFileW<P0>(&self, pwzfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetHashFromAssemblyFileW)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), pihashalg as _, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash as _).ok() }
     }
-    pub unsafe fn GetHashFromBlob(&self, pbblob: *const u8, cchblob: u32, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetHashFromBlob(&self, pbblob: *const u8, cchblob: u32, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetHashFromBlob)(windows_core::Interface::as_raw(self), pbblob, cchblob, pihashalg as _, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash as _).ok() }
     }
-    pub unsafe fn GetHashFromFile<P0>(&self, pszfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetHashFromFile<P0>(&self, pszfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetHashFromFile)(windows_core::Interface::as_raw(self), pszfilepath.param().abi(), pihashalg as _, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash as _).ok() }
     }
-    pub unsafe fn GetHashFromFileW<P0>(&self, pwzfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetHashFromFileW<P0>(&self, pwzfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetHashFromFileW)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), pihashalg as _, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash as _).ok() }
     }
-    pub unsafe fn GetHashFromHandle(&self, hfile: super::super::Foundation::HANDLE, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetHashFromHandle(&self, hfile: super::super::Foundation::HANDLE, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetHashFromHandle)(windows_core::Interface::as_raw(self), hfile, pihashalg as _, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), pchhash as _).ok() }
     }
-    pub unsafe fn StrongNameCompareAssemblies<P0, P1>(&self, pwzassembly1: P0, pwzassembly2: P1) -> windows_core::Result<u32>
+    pub unsafe fn StrongNameCompareAssemblies<P0, P1>(&self, pwzassembly1: P0, pwzassembly2: P1) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -2328,72 +2328,72 @@ impl ICLRStrongName {
             (windows_core::Interface::vtable(self).StrongNameCompareAssemblies)(windows_core::Interface::as_raw(self), pwzassembly1.param().abi(), pwzassembly2.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StrongNameFreeBuffer(&self, pbmemory: *const u8) -> windows_core::Result<()> {
+    pub unsafe fn StrongNameFreeBuffer(&self, pbmemory: *const u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StrongNameFreeBuffer)(windows_core::Interface::as_raw(self), pbmemory).ok() }
     }
-    pub unsafe fn StrongNameGetBlob<P0>(&self, pwzfilepath: P0, pbblob: *mut u8, pcbblob: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameGetBlob<P0>(&self, pwzfilepath: P0, pbblob: *mut u8, pcbblob: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameGetBlob)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), pbblob as _, pcbblob as _).ok() }
     }
-    pub unsafe fn StrongNameGetBlobFromImage(&self, pbbase: &[u8], pbblob: *mut u8, pcbblob: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn StrongNameGetBlobFromImage(&self, pbbase: &[u8], pbblob: *mut u8, pcbblob: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StrongNameGetBlobFromImage)(windows_core::Interface::as_raw(self), core::mem::transmute(pbbase.as_ptr()), pbbase.len().try_into().unwrap(), pbblob as _, pcbblob as _).ok() }
     }
-    pub unsafe fn StrongNameGetPublicKey<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameGetPublicKey<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameGetPublicKey)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi(), pbkeyblob, cbkeyblob, ppbpublickeyblob as _, pcbpublickeyblob as _).ok() }
     }
-    pub unsafe fn StrongNameHashSize(&self, ulhashalg: u32) -> windows_core::Result<u32> {
+    pub unsafe fn StrongNameHashSize(&self, ulhashalg: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StrongNameHashSize)(windows_core::Interface::as_raw(self), ulhashalg, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StrongNameKeyDelete<P0>(&self, pwzkeycontainer: P0) -> windows_core::Result<()>
+    pub unsafe fn StrongNameKeyDelete<P0>(&self, pwzkeycontainer: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameKeyDelete)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi()).ok() }
     }
-    pub unsafe fn StrongNameKeyGen<P0>(&self, pwzkeycontainer: P0, dwflags: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameKeyGen<P0>(&self, pwzkeycontainer: P0, dwflags: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameKeyGen)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi(), dwflags, ppbkeyblob as _, pcbkeyblob as _).ok() }
     }
-    pub unsafe fn StrongNameKeyGenEx<P0>(&self, pwzkeycontainer: P0, dwflags: u32, dwkeysize: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameKeyGenEx<P0>(&self, pwzkeycontainer: P0, dwflags: u32, dwkeysize: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameKeyGenEx)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi(), dwflags, dwkeysize, ppbkeyblob as _, pcbkeyblob as _).ok() }
     }
-    pub unsafe fn StrongNameKeyInstall<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameKeyInstall<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameKeyInstall)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi(), pbkeyblob, cbkeyblob).ok() }
     }
-    pub unsafe fn StrongNameSignatureGeneration<P0, P1>(&self, pwzfilepath: P0, pwzkeycontainer: P1, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameSignatureGeneration<P0, P1>(&self, pwzfilepath: P0, pwzkeycontainer: P1, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameSignatureGeneration)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), pwzkeycontainer.param().abi(), pbkeyblob, cbkeyblob, ppbsignatureblob as _, pcbsignatureblob as _).ok() }
     }
-    pub unsafe fn StrongNameSignatureGenerationEx<P0, P1>(&self, wszfilepath: P0, wszkeycontainer: P1, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameSignatureGenerationEx<P0, P1>(&self, wszfilepath: P0, wszkeycontainer: P1, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameSignatureGenerationEx)(windows_core::Interface::as_raw(self), wszfilepath.param().abi(), wszkeycontainer.param().abi(), pbkeyblob, cbkeyblob, ppbsignatureblob as _, pcbsignatureblob as _, dwflags).ok() }
     }
-    pub unsafe fn StrongNameSignatureSize(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, pcbsize: *const u32) -> windows_core::Result<()> {
+    pub unsafe fn StrongNameSignatureSize(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, pcbsize: *const u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StrongNameSignatureSize)(windows_core::Interface::as_raw(self), pbpublickeyblob, cbpublickeyblob, pcbsize).ok() }
     }
-    pub unsafe fn StrongNameSignatureVerification<P0>(&self, pwzfilepath: P0, dwinflags: u32) -> windows_core::Result<u32>
+    pub unsafe fn StrongNameSignatureVerification<P0>(&self, pwzfilepath: P0, dwinflags: u32) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2402,7 +2402,7 @@ impl ICLRStrongName {
             (windows_core::Interface::vtable(self).StrongNameSignatureVerification)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), dwinflags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StrongNameSignatureVerificationEx<P0>(&self, pwzfilepath: P0, fforceverification: bool) -> windows_core::Result<u8>
+    pub unsafe fn StrongNameSignatureVerificationEx<P0>(&self, pwzfilepath: P0, fforceverification: bool) -> Result<u8, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2411,25 +2411,25 @@ impl ICLRStrongName {
             (windows_core::Interface::vtable(self).StrongNameSignatureVerificationEx)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), fforceverification, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StrongNameSignatureVerificationFromImage(&self, pbbase: *const u8, dwlength: u32, dwinflags: u32) -> windows_core::Result<u32> {
+    pub unsafe fn StrongNameSignatureVerificationFromImage(&self, pbbase: *const u8, dwlength: u32, dwinflags: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StrongNameSignatureVerificationFromImage)(windows_core::Interface::as_raw(self), pbbase, dwlength, dwinflags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StrongNameTokenFromAssembly<P0>(&self, pwzfilepath: P0, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameTokenFromAssembly<P0>(&self, pwzfilepath: P0, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameTokenFromAssembly)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), ppbstrongnametoken as _, pcbstrongnametoken as _).ok() }
     }
-    pub unsafe fn StrongNameTokenFromAssemblyEx<P0>(&self, pwzfilepath: P0, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameTokenFromAssemblyEx<P0>(&self, pwzfilepath: P0, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameTokenFromAssemblyEx)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), ppbstrongnametoken as _, pcbstrongnametoken as _, ppbpublickeyblob as _, pcbpublickeyblob as _).ok() }
     }
-    pub unsafe fn StrongNameTokenFromPublicKey(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn StrongNameTokenFromPublicKey(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StrongNameTokenFromPublicKey)(windows_core::Interface::as_raw(self), pbpublickeyblob, cbpublickeyblob, ppbstrongnametoken as _, pcbstrongnametoken as _).ok() }
     }
 }
@@ -2464,31 +2464,31 @@ pub struct ICLRStrongName_Vtbl {
     pub StrongNameTokenFromPublicKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICLRStrongName_Impl: windows_core::IUnknownImpl {
-    fn GetHashFromAssemblyFile(&self, pszfilepath: &windows_core::PCSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> windows_core::Result<()>;
-    fn GetHashFromAssemblyFileW(&self, pwzfilepath: &windows_core::PCWSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> windows_core::Result<()>;
-    fn GetHashFromBlob(&self, pbblob: *const u8, cchblob: u32, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> windows_core::Result<()>;
-    fn GetHashFromFile(&self, pszfilepath: &windows_core::PCSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> windows_core::Result<()>;
-    fn GetHashFromFileW(&self, pwzfilepath: &windows_core::PCWSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> windows_core::Result<()>;
-    fn GetHashFromHandle(&self, hfile: super::super::Foundation::HANDLE, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameCompareAssemblies(&self, pwzassembly1: &windows_core::PCWSTR, pwzassembly2: &windows_core::PCWSTR) -> windows_core::Result<u32>;
-    fn StrongNameFreeBuffer(&self, pbmemory: *const u8) -> windows_core::Result<()>;
-    fn StrongNameGetBlob(&self, pwzfilepath: &windows_core::PCWSTR, pbblob: *mut u8, pcbblob: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameGetBlobFromImage(&self, pbbase: *const u8, dwlength: u32, pbblob: *mut u8, pcbblob: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameGetPublicKey(&self, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameHashSize(&self, ulhashalg: u32) -> windows_core::Result<u32>;
-    fn StrongNameKeyDelete(&self, pwzkeycontainer: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn StrongNameKeyGen(&self, pwzkeycontainer: &windows_core::PCWSTR, dwflags: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameKeyGenEx(&self, pwzkeycontainer: &windows_core::PCWSTR, dwflags: u32, dwkeysize: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameKeyInstall(&self, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32) -> windows_core::Result<()>;
-    fn StrongNameSignatureGeneration(&self, pwzfilepath: &windows_core::PCWSTR, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameSignatureGenerationEx(&self, wszfilepath: &windows_core::PCWSTR, wszkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> windows_core::Result<()>;
-    fn StrongNameSignatureSize(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, pcbsize: *const u32) -> windows_core::Result<()>;
-    fn StrongNameSignatureVerification(&self, pwzfilepath: &windows_core::PCWSTR, dwinflags: u32) -> windows_core::Result<u32>;
-    fn StrongNameSignatureVerificationEx(&self, pwzfilepath: &windows_core::PCWSTR, fforceverification: bool) -> windows_core::Result<u8>;
-    fn StrongNameSignatureVerificationFromImage(&self, pbbase: *const u8, dwlength: u32, dwinflags: u32) -> windows_core::Result<u32>;
-    fn StrongNameTokenFromAssembly(&self, pwzfilepath: &windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameTokenFromAssemblyEx(&self, pwzfilepath: &windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> windows_core::Result<()>;
-    fn StrongNameTokenFromPublicKey(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> windows_core::Result<()>;
+    fn GetHashFromAssemblyFile(&self, pszfilepath: &windows_core::PCSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetHashFromAssemblyFileW(&self, pwzfilepath: &windows_core::PCWSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetHashFromBlob(&self, pbblob: *const u8, cchblob: u32, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetHashFromFile(&self, pszfilepath: &windows_core::PCSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetHashFromFileW(&self, pwzfilepath: &windows_core::PCWSTR, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetHashFromHandle(&self, hfile: super::super::Foundation::HANDLE, pihashalg: *mut u32, pbhash: *mut u8, cchhash: u32, pchhash: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameCompareAssemblies(&self, pwzassembly1: &windows_core::PCWSTR, pwzassembly2: &windows_core::PCWSTR) -> Result<u32, windows_result::HRESULT>;
+    fn StrongNameFreeBuffer(&self, pbmemory: *const u8) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameGetBlob(&self, pwzfilepath: &windows_core::PCWSTR, pbblob: *mut u8, pcbblob: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameGetBlobFromImage(&self, pbbase: *const u8, dwlength: u32, pbblob: *mut u8, pcbblob: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameGetPublicKey(&self, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameHashSize(&self, ulhashalg: u32) -> Result<u32, windows_result::HRESULT>;
+    fn StrongNameKeyDelete(&self, pwzkeycontainer: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameKeyGen(&self, pwzkeycontainer: &windows_core::PCWSTR, dwflags: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameKeyGenEx(&self, pwzkeycontainer: &windows_core::PCWSTR, dwflags: u32, dwkeysize: u32, ppbkeyblob: *mut *mut u8, pcbkeyblob: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameKeyInstall(&self, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameSignatureGeneration(&self, pwzfilepath: &windows_core::PCWSTR, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameSignatureGenerationEx(&self, wszfilepath: &windows_core::PCWSTR, wszkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameSignatureSize(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, pcbsize: *const u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameSignatureVerification(&self, pwzfilepath: &windows_core::PCWSTR, dwinflags: u32) -> Result<u32, windows_result::HRESULT>;
+    fn StrongNameSignatureVerificationEx(&self, pwzfilepath: &windows_core::PCWSTR, fforceverification: bool) -> Result<u8, windows_result::HRESULT>;
+    fn StrongNameSignatureVerificationFromImage(&self, pbbase: *const u8, dwlength: u32, dwinflags: u32) -> Result<u32, windows_result::HRESULT>;
+    fn StrongNameTokenFromAssembly(&self, pwzfilepath: &windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameTokenFromAssemblyEx(&self, pwzfilepath: &windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameTokenFromPublicKey(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRStrongName_Vtbl {
     pub const fn new<Identity: ICLRStrongName_Impl, const OFFSET: isize>() -> Self {
@@ -2709,13 +2709,13 @@ impl windows_core::RuntimeName for ICLRStrongName {}
 windows_core::imp::define_interface!(ICLRStrongName2, ICLRStrongName2_Vtbl, 0xc22ed5c5_4b59_4975_90eb_85ea55c0069b);
 windows_core::imp::interface_hierarchy!(ICLRStrongName2, windows_core::IUnknown);
 impl ICLRStrongName2 {
-    pub unsafe fn StrongNameGetPublicKeyEx<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameGetPublicKeyEx<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameGetPublicKeyEx)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi(), pbkeyblob, cbkeyblob, ppbpublickeyblob as _, pcbpublickeyblob as _, uhashalgid, ureserved).ok() }
     }
-    pub unsafe fn StrongNameSignatureVerificationEx2<P0>(&self, wszfilepath: P0, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>
+    pub unsafe fn StrongNameSignatureVerificationEx2<P0>(&self, wszfilepath: P0, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32) -> Result<u8, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2733,8 +2733,8 @@ pub struct ICLRStrongName2_Vtbl {
     pub StrongNameSignatureVerificationEx2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, bool, *const u8, u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ICLRStrongName2_Impl: windows_core::IUnknownImpl {
-    fn StrongNameGetPublicKeyEx(&self, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> windows_core::Result<()>;
-    fn StrongNameSignatureVerificationEx2(&self, wszfilepath: &windows_core::PCWSTR, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>;
+    fn StrongNameGetPublicKeyEx(&self, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameSignatureVerificationEx2(&self, wszfilepath: &windows_core::PCWSTR, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32) -> Result<u8, windows_result::HRESULT>;
 }
 impl ICLRStrongName2_Vtbl {
     pub const fn new<Identity: ICLRStrongName2_Impl, const OFFSET: isize>() -> Self {
@@ -2770,19 +2770,19 @@ impl windows_core::RuntimeName for ICLRStrongName2 {}
 windows_core::imp::define_interface!(ICLRStrongName3, ICLRStrongName3_Vtbl, 0x22c7089b_bbd3_414a_b698_210f263f1fed);
 windows_core::imp::interface_hierarchy!(ICLRStrongName3, windows_core::IUnknown);
 impl ICLRStrongName3 {
-    pub unsafe fn StrongNameDigestGenerate<P0>(&self, wszfilepath: P0, ppbdigestblob: *mut *mut u8, pcbdigestblob: *mut u32, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameDigestGenerate<P0>(&self, wszfilepath: P0, ppbdigestblob: *mut *mut u8, pcbdigestblob: *mut u32, dwflags: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameDigestGenerate)(windows_core::Interface::as_raw(self), wszfilepath.param().abi(), ppbdigestblob as _, pcbdigestblob as _, dwflags).ok() }
     }
-    pub unsafe fn StrongNameDigestSign<P0>(&self, wszkeycontainer: P0, pbkeyblob: &[u8], pbdigestblob: &[u8], hashalgid: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn StrongNameDigestSign<P0>(&self, wszkeycontainer: P0, pbkeyblob: &[u8], pbdigestblob: &[u8], hashalgid: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameDigestSign)(windows_core::Interface::as_raw(self), wszkeycontainer.param().abi(), core::mem::transmute(pbkeyblob.as_ptr()), pbkeyblob.len().try_into().unwrap(), core::mem::transmute(pbdigestblob.as_ptr()), pbdigestblob.len().try_into().unwrap(), hashalgid, ppbsignatureblob as _, pcbsignatureblob as _, dwflags).ok() }
     }
-    pub unsafe fn StrongNameDigestEmbed<P0>(&self, wszfilepath: P0, pbsignatureblob: &[u8]) -> windows_core::Result<()>
+    pub unsafe fn StrongNameDigestEmbed<P0>(&self, wszfilepath: P0, pbsignatureblob: &[u8]) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2798,9 +2798,9 @@ pub struct ICLRStrongName3_Vtbl {
     pub StrongNameDigestEmbed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8, u32) -> windows_core::HRESULT,
 }
 pub trait ICLRStrongName3_Impl: windows_core::IUnknownImpl {
-    fn StrongNameDigestGenerate(&self, wszfilepath: &windows_core::PCWSTR, ppbdigestblob: *mut *mut u8, pcbdigestblob: *mut u32, dwflags: u32) -> windows_core::Result<()>;
-    fn StrongNameDigestSign(&self, wszkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, pbdigestblob: *const u8, cbdigestblob: u32, hashalgid: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> windows_core::Result<()>;
-    fn StrongNameDigestEmbed(&self, wszfilepath: &windows_core::PCWSTR, pbsignatureblob: *const u8, cbsignatureblob: u32) -> windows_core::Result<()>;
+    fn StrongNameDigestGenerate(&self, wszfilepath: &windows_core::PCWSTR, ppbdigestblob: *mut *mut u8, pcbdigestblob: *mut u32, dwflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameDigestSign(&self, wszkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, pbdigestblob: *const u8, cbdigestblob: u32, hashalgid: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn StrongNameDigestEmbed(&self, wszfilepath: &windows_core::PCWSTR, pbsignatureblob: *const u8, cbsignatureblob: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRStrongName3_Vtbl {
     pub const fn new<Identity: ICLRStrongName3_Impl, const OFFSET: isize>() -> Self {
@@ -2837,25 +2837,25 @@ impl windows_core::RuntimeName for ICLRStrongName3 {}
 windows_core::imp::define_interface!(ICLRSyncManager, ICLRSyncManager_Vtbl, 0x55ff199d_ad21_48f9_a16c_f24ebbb8727d);
 windows_core::imp::interface_hierarchy!(ICLRSyncManager, windows_core::IUnknown);
 impl ICLRSyncManager {
-    pub unsafe fn GetMonitorOwner(&self, cookie: usize) -> windows_core::Result<IHostTask> {
+    pub unsafe fn GetMonitorOwner(&self, cookie: usize) -> Result<IHostTask, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMonitorOwner)(windows_core::Interface::as_raw(self), cookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateRWLockOwnerIterator(&self, cookie: usize) -> windows_core::Result<usize> {
+    pub unsafe fn CreateRWLockOwnerIterator(&self, cookie: usize) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateRWLockOwnerIterator)(windows_core::Interface::as_raw(self), cookie, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRWLockOwnerNext(&self, iterator: usize) -> windows_core::Result<IHostTask> {
+    pub unsafe fn GetRWLockOwnerNext(&self, iterator: usize) -> Result<IHostTask, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRWLockOwnerNext)(windows_core::Interface::as_raw(self), iterator, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteRWLockOwnerIterator(&self, iterator: usize) -> windows_core::Result<()> {
+    pub unsafe fn DeleteRWLockOwnerIterator(&self, iterator: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteRWLockOwnerIterator)(windows_core::Interface::as_raw(self), iterator).ok() }
     }
 }
@@ -2869,10 +2869,10 @@ pub struct ICLRSyncManager_Vtbl {
     pub DeleteRWLockOwnerIterator: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 pub trait ICLRSyncManager_Impl: windows_core::IUnknownImpl {
-    fn GetMonitorOwner(&self, cookie: usize) -> windows_core::Result<IHostTask>;
-    fn CreateRWLockOwnerIterator(&self, cookie: usize) -> windows_core::Result<usize>;
-    fn GetRWLockOwnerNext(&self, iterator: usize) -> windows_core::Result<IHostTask>;
-    fn DeleteRWLockOwnerIterator(&self, iterator: usize) -> windows_core::Result<()>;
+    fn GetMonitorOwner(&self, cookie: usize) -> Result<IHostTask, windows_result::HRESULT>;
+    fn CreateRWLockOwnerIterator(&self, cookie: usize) -> Result<usize, windows_result::HRESULT>;
+    fn GetRWLockOwnerNext(&self, iterator: usize) -> Result<IHostTask, windows_result::HRESULT>;
+    fn DeleteRWLockOwnerIterator(&self, iterator: usize) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRSyncManager_Vtbl {
     pub const fn new<Identity: ICLRSyncManager_Impl, const OFFSET: isize>() -> Self {
@@ -2934,46 +2934,46 @@ impl windows_core::RuntimeName for ICLRSyncManager {}
 windows_core::imp::define_interface!(ICLRTask, ICLRTask_Vtbl, 0x28e66a4a_9906_4225_b231_9187c3eb8611);
 windows_core::imp::interface_hierarchy!(ICLRTask, windows_core::IUnknown);
 impl ICLRTask {
-    pub unsafe fn SwitchIn(&self, threadhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn SwitchIn(&self, threadhandle: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SwitchIn)(windows_core::Interface::as_raw(self), threadhandle).ok() }
     }
-    pub unsafe fn SwitchOut(&self) -> windows_core::Result<()> {
+    pub unsafe fn SwitchOut(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SwitchOut)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetMemStats(&self) -> windows_core::Result<COR_GC_THREAD_STATS> {
+    pub unsafe fn GetMemStats(&self) -> Result<COR_GC_THREAD_STATS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMemStats)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Reset(&self, ffull: bool) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self, ffull: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), ffull.into()).ok() }
     }
-    pub unsafe fn ExitTask(&self) -> windows_core::Result<()> {
+    pub unsafe fn ExitTask(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExitTask)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
+    pub unsafe fn Abort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RudeAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn RudeAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RudeAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn NeedsPriorityScheduling(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn NeedsPriorityScheduling(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NeedsPriorityScheduling)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn YieldTask(&self) -> windows_core::Result<()> {
+    pub unsafe fn YieldTask(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).YieldTask)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn LocksHeld(&self) -> windows_core::Result<usize> {
+    pub unsafe fn LocksHeld(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocksHeld)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTaskIdentifier(&self, asked: u64) -> windows_core::Result<()> {
+    pub unsafe fn SetTaskIdentifier(&self, asked: u64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTaskIdentifier)(windows_core::Interface::as_raw(self), asked).ok() }
     }
 }
@@ -2994,17 +2994,17 @@ pub struct ICLRTask_Vtbl {
     pub SetTaskIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 pub trait ICLRTask_Impl: windows_core::IUnknownImpl {
-    fn SwitchIn(&self, threadhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn SwitchOut(&self) -> windows_core::Result<()>;
-    fn GetMemStats(&self) -> windows_core::Result<COR_GC_THREAD_STATS>;
-    fn Reset(&self, ffull: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ExitTask(&self) -> windows_core::Result<()>;
-    fn Abort(&self) -> windows_core::Result<()>;
-    fn RudeAbort(&self) -> windows_core::Result<()>;
-    fn NeedsPriorityScheduling(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn YieldTask(&self) -> windows_core::Result<()>;
-    fn LocksHeld(&self) -> windows_core::Result<usize>;
-    fn SetTaskIdentifier(&self, asked: u64) -> windows_core::Result<()>;
+    fn SwitchIn(&self, threadhandle: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>;
+    fn SwitchOut(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetMemStats(&self) -> Result<COR_GC_THREAD_STATS, windows_result::HRESULT>;
+    fn Reset(&self, ffull: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ExitTask(&self) -> Result<(), windows_result::HRESULT>;
+    fn Abort(&self) -> Result<(), windows_result::HRESULT>;
+    fn RudeAbort(&self) -> Result<(), windows_result::HRESULT>;
+    fn NeedsPriorityScheduling(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn YieldTask(&self) -> Result<(), windows_result::HRESULT>;
+    fn LocksHeld(&self) -> Result<usize, windows_result::HRESULT>;
+    fn SetTaskIdentifier(&self, asked: u64) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRTask_Vtbl {
     pub const fn new<Identity: ICLRTask_Impl, const OFFSET: isize>() -> Self {
@@ -3121,10 +3121,10 @@ impl core::ops::Deref for ICLRTask2 {
 }
 windows_core::imp::interface_hierarchy!(ICLRTask2, windows_core::IUnknown, ICLRTask);
 impl ICLRTask2 {
-    pub unsafe fn BeginPreventAsyncAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn BeginPreventAsyncAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginPreventAsyncAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EndPreventAsyncAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndPreventAsyncAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndPreventAsyncAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3136,8 +3136,8 @@ pub struct ICLRTask2_Vtbl {
     pub EndPreventAsyncAbort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICLRTask2_Impl: ICLRTask_Impl {
-    fn BeginPreventAsyncAbort(&self) -> windows_core::Result<()>;
-    fn EndPreventAsyncAbort(&self) -> windows_core::Result<()>;
+    fn BeginPreventAsyncAbort(&self) -> Result<(), windows_result::HRESULT>;
+    fn EndPreventAsyncAbort(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ICLRTask2_Vtbl {
     pub const fn new<Identity: ICLRTask2_Impl, const OFFSET: isize>() -> Self {
@@ -3167,25 +3167,25 @@ impl windows_core::RuntimeName for ICLRTask2 {}
 windows_core::imp::define_interface!(ICLRTaskManager, ICLRTaskManager_Vtbl, 0x4862efbe_3ae5_44f8_8feb_346190ee8a34);
 windows_core::imp::interface_hierarchy!(ICLRTaskManager, windows_core::IUnknown);
 impl ICLRTaskManager {
-    pub unsafe fn CreateTask(&self) -> windows_core::Result<ICLRTask> {
+    pub unsafe fn CreateTask(&self) -> Result<ICLRTask, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetCurrentTask(&self) -> windows_core::Result<ICLRTask> {
+    pub unsafe fn GetCurrentTask(&self) -> Result<ICLRTask, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentTask)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetUILocale(&self, lcid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetUILocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUILocale)(windows_core::Interface::as_raw(self), lcid).ok() }
     }
-    pub unsafe fn SetLocale(&self, lcid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetLocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), lcid).ok() }
     }
-    pub unsafe fn GetCurrentTaskType(&self) -> windows_core::Result<ETaskType> {
+    pub unsafe fn GetCurrentTaskType(&self) -> Result<ETaskType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentTaskType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3203,11 +3203,11 @@ pub struct ICLRTaskManager_Vtbl {
     pub GetCurrentTaskType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ETaskType) -> windows_core::HRESULT,
 }
 pub trait ICLRTaskManager_Impl: windows_core::IUnknownImpl {
-    fn CreateTask(&self) -> windows_core::Result<ICLRTask>;
-    fn GetCurrentTask(&self) -> windows_core::Result<ICLRTask>;
-    fn SetUILocale(&self, lcid: u32) -> windows_core::Result<()>;
-    fn SetLocale(&self, lcid: u32) -> windows_core::Result<()>;
-    fn GetCurrentTaskType(&self) -> windows_core::Result<ETaskType>;
+    fn CreateTask(&self) -> Result<ICLRTask, windows_result::HRESULT>;
+    fn GetCurrentTask(&self) -> Result<ICLRTask, windows_result::HRESULT>;
+    fn SetUILocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetLocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetCurrentTaskType(&self) -> Result<ETaskType, windows_result::HRESULT>;
 }
 impl ICLRTaskManager_Vtbl {
     pub const fn new<Identity: ICLRTaskManager_Impl, const OFFSET: isize>() -> Self {
@@ -3276,10 +3276,10 @@ impl windows_core::RuntimeName for ICLRTaskManager {}
 windows_core::imp::define_interface!(ICatalogServices, ICatalogServices_Vtbl, 0x04c6be1e_1db1_4058_ab7a_700cccfbf254);
 windows_core::imp::interface_hierarchy!(ICatalogServices, windows_core::IUnknown);
 impl ICatalogServices {
-    pub unsafe fn Autodone(&self) -> windows_core::Result<()> {
+    pub unsafe fn Autodone(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Autodone)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn NotAutodone(&self) -> windows_core::Result<()> {
+    pub unsafe fn NotAutodone(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NotAutodone)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3291,8 +3291,8 @@ pub struct ICatalogServices_Vtbl {
     pub NotAutodone: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICatalogServices_Impl: windows_core::IUnknownImpl {
-    fn Autodone(&self) -> windows_core::Result<()>;
-    fn NotAutodone(&self) -> windows_core::Result<()>;
+    fn Autodone(&self) -> Result<(), windows_result::HRESULT>;
+    fn NotAutodone(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ICatalogServices_Vtbl {
     pub const fn new<Identity: ICatalogServices_Impl, const OFFSET: isize>() -> Self {
@@ -3322,25 +3322,25 @@ impl windows_core::RuntimeName for ICatalogServices {}
 windows_core::imp::define_interface!(ICorConfiguration, ICorConfiguration_Vtbl, 0x5c2b07a5_1e98_11d3_872f_00c04f79ed0d);
 windows_core::imp::interface_hierarchy!(ICorConfiguration, windows_core::IUnknown);
 impl ICorConfiguration {
-    pub unsafe fn SetGCThreadControl<P0>(&self, pgcthreadcontrol: P0) -> windows_core::Result<()>
+    pub unsafe fn SetGCThreadControl<P0>(&self, pgcthreadcontrol: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IGCThreadControl>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetGCThreadControl)(windows_core::Interface::as_raw(self), pgcthreadcontrol.param().abi()).ok() }
     }
-    pub unsafe fn SetGCHostControl<P0>(&self, pgchostcontrol: P0) -> windows_core::Result<()>
+    pub unsafe fn SetGCHostControl<P0>(&self, pgchostcontrol: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IGCHostControl>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetGCHostControl)(windows_core::Interface::as_raw(self), pgchostcontrol.param().abi()).ok() }
     }
-    pub unsafe fn SetDebuggerThreadControl<P0>(&self, pdebuggerthreadcontrol: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDebuggerThreadControl<P0>(&self, pdebuggerthreadcontrol: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDebuggerThreadControl>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDebuggerThreadControl)(windows_core::Interface::as_raw(self), pdebuggerthreadcontrol.param().abi()).ok() }
     }
-    pub unsafe fn AddDebuggerSpecialThread(&self, dwspecialthreadid: u32) -> windows_core::Result<()> {
+    pub unsafe fn AddDebuggerSpecialThread(&self, dwspecialthreadid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddDebuggerSpecialThread)(windows_core::Interface::as_raw(self), dwspecialthreadid).ok() }
     }
 }
@@ -3354,10 +3354,10 @@ pub struct ICorConfiguration_Vtbl {
     pub AddDebuggerSpecialThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ICorConfiguration_Impl: windows_core::IUnknownImpl {
-    fn SetGCThreadControl(&self, pgcthreadcontrol: windows_core::Ref<'_, IGCThreadControl>) -> windows_core::Result<()>;
-    fn SetGCHostControl(&self, pgchostcontrol: windows_core::Ref<'_, IGCHostControl>) -> windows_core::Result<()>;
-    fn SetDebuggerThreadControl(&self, pdebuggerthreadcontrol: windows_core::Ref<'_, IDebuggerThreadControl>) -> windows_core::Result<()>;
-    fn AddDebuggerSpecialThread(&self, dwspecialthreadid: u32) -> windows_core::Result<()>;
+    fn SetGCThreadControl(&self, pgcthreadcontrol: windows_core::Ref<'_, IGCThreadControl>) -> Result<(), windows_result::HRESULT>;
+    fn SetGCHostControl(&self, pgchostcontrol: windows_core::Ref<'_, IGCHostControl>) -> Result<(), windows_result::HRESULT>;
+    fn SetDebuggerThreadControl(&self, pdebuggerthreadcontrol: windows_core::Ref<'_, IDebuggerThreadControl>) -> Result<(), windows_result::HRESULT>;
+    fn AddDebuggerSpecialThread(&self, dwspecialthreadid: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICorConfiguration_Vtbl {
     pub const fn new<Identity: ICorConfiguration_Impl, const OFFSET: isize>() -> Self {
@@ -3401,46 +3401,46 @@ impl windows_core::RuntimeName for ICorConfiguration {}
 windows_core::imp::define_interface!(ICorRuntimeHost, ICorRuntimeHost_Vtbl, 0xcb2f6722_ab3a_11d2_9c40_00c04fa30a3e);
 windows_core::imp::interface_hierarchy!(ICorRuntimeHost, windows_core::IUnknown);
 impl ICorRuntimeHost {
-    pub unsafe fn CreateLogicalThreadState(&self) -> windows_core::Result<()> {
+    pub unsafe fn CreateLogicalThreadState(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CreateLogicalThreadState)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DeleteLogicalThreadState(&self) -> windows_core::Result<()> {
+    pub unsafe fn DeleteLogicalThreadState(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteLogicalThreadState)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SwitchInLogicalThreadState(&self, pfibercookie: *const u32) -> windows_core::Result<()> {
+    pub unsafe fn SwitchInLogicalThreadState(&self, pfibercookie: *const u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SwitchInLogicalThreadState)(windows_core::Interface::as_raw(self), pfibercookie).ok() }
     }
-    pub unsafe fn SwitchOutLogicalThreadState(&self) -> windows_core::Result<*mut u32> {
+    pub unsafe fn SwitchOutLogicalThreadState(&self) -> Result<*mut u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SwitchOutLogicalThreadState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LocksHeldByLogicalThread(&self) -> windows_core::Result<u32> {
+    pub unsafe fn LocksHeldByLogicalThread(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocksHeldByLogicalThread)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MapFile(&self, hfile: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::HMODULE> {
+    pub unsafe fn MapFile(&self, hfile: super::super::Foundation::HANDLE) -> Result<super::super::Foundation::HMODULE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MapFile)(windows_core::Interface::as_raw(self), hfile, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetConfiguration(&self) -> windows_core::Result<ICorConfiguration> {
+    pub unsafe fn GetConfiguration(&self) -> Result<ICorConfiguration, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConfiguration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Start(&self) -> windows_core::Result<()> {
+    pub unsafe fn Start(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CreateDomain<P0, P1>(&self, pwzfriendlyname: P0, pidentityarray: P1) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn CreateDomain<P0, P1>(&self, pwzfriendlyname: P0, pidentityarray: P1) -> Result<windows_core::IUnknown, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -3450,25 +3450,25 @@ impl ICorRuntimeHost {
             (windows_core::Interface::vtable(self).CreateDomain)(windows_core::Interface::as_raw(self), pwzfriendlyname.param().abi(), pidentityarray.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDefaultDomain(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetDefaultDomain(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultDomain)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumDomains(&self, henum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn EnumDomains(&self, henum: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnumDomains)(windows_core::Interface::as_raw(self), henum as _).ok() }
     }
-    pub unsafe fn NextDomain(&self, henum: *const core::ffi::c_void) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn NextDomain(&self, henum: *const core::ffi::c_void) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NextDomain)(windows_core::Interface::as_raw(self), henum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CloseEnum(&self, henum: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn CloseEnum(&self, henum: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseEnum)(windows_core::Interface::as_raw(self), henum).ok() }
     }
-    pub unsafe fn CreateDomainEx<P0, P1, P2>(&self, pwzfriendlyname: P0, psetup: P1, pevidence: P2) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn CreateDomainEx<P0, P1, P2>(&self, pwzfriendlyname: P0, psetup: P1, pevidence: P2) -> Result<windows_core::IUnknown, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -3479,25 +3479,25 @@ impl ICorRuntimeHost {
             (windows_core::Interface::vtable(self).CreateDomainEx)(windows_core::Interface::as_raw(self), pwzfriendlyname.param().abi(), psetup.param().abi(), pevidence.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateDomainSetup(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn CreateDomainSetup(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateDomainSetup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateEvidence(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn CreateEvidence(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateEvidence)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn UnloadDomain<P0>(&self, pappdomain: P0) -> windows_core::Result<()>
+    pub unsafe fn UnloadDomain<P0>(&self, pappdomain: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).UnloadDomain)(windows_core::Interface::as_raw(self), pappdomain.param().abi()).ok() }
     }
-    pub unsafe fn CurrentDomain(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn CurrentDomain(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentDomain)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3529,25 +3529,25 @@ pub struct ICorRuntimeHost_Vtbl {
     pub CurrentDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorRuntimeHost_Impl: windows_core::IUnknownImpl {
-    fn CreateLogicalThreadState(&self) -> windows_core::Result<()>;
-    fn DeleteLogicalThreadState(&self) -> windows_core::Result<()>;
-    fn SwitchInLogicalThreadState(&self, pfibercookie: *const u32) -> windows_core::Result<()>;
-    fn SwitchOutLogicalThreadState(&self) -> windows_core::Result<*mut u32>;
-    fn LocksHeldByLogicalThread(&self) -> windows_core::Result<u32>;
-    fn MapFile(&self, hfile: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::HMODULE>;
-    fn GetConfiguration(&self) -> windows_core::Result<ICorConfiguration>;
-    fn Start(&self) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn CreateDomain(&self, pwzfriendlyname: &windows_core::PCWSTR, pidentityarray: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetDefaultDomain(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn EnumDomains(&self, henum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn NextDomain(&self, henum: *const core::ffi::c_void) -> windows_core::Result<windows_core::IUnknown>;
-    fn CloseEnum(&self, henum: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateDomainEx(&self, pwzfriendlyname: &windows_core::PCWSTR, psetup: windows_core::Ref<'_, windows_core::IUnknown>, pevidence: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::IUnknown>;
-    fn CreateDomainSetup(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn CreateEvidence(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn UnloadDomain(&self, pappdomain: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CurrentDomain(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateLogicalThreadState(&self) -> Result<(), windows_result::HRESULT>;
+    fn DeleteLogicalThreadState(&self) -> Result<(), windows_result::HRESULT>;
+    fn SwitchInLogicalThreadState(&self, pfibercookie: *const u32) -> Result<(), windows_result::HRESULT>;
+    fn SwitchOutLogicalThreadState(&self) -> Result<*mut u32, windows_result::HRESULT>;
+    fn LocksHeldByLogicalThread(&self) -> Result<u32, windows_result::HRESULT>;
+    fn MapFile(&self, hfile: super::super::Foundation::HANDLE) -> Result<super::super::Foundation::HMODULE, windows_result::HRESULT>;
+    fn GetConfiguration(&self) -> Result<ICorConfiguration, windows_result::HRESULT>;
+    fn Start(&self) -> Result<(), windows_result::HRESULT>;
+    fn Stop(&self) -> Result<(), windows_result::HRESULT>;
+    fn CreateDomain(&self, pwzfriendlyname: &windows_core::PCWSTR, pidentityarray: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn GetDefaultDomain(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn EnumDomains(&self, henum: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn NextDomain(&self, henum: *const core::ffi::c_void) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn CloseEnum(&self, henum: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn CreateDomainEx(&self, pwzfriendlyname: &windows_core::PCWSTR, psetup: windows_core::Ref<'_, windows_core::IUnknown>, pevidence: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn CreateDomainSetup(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn CreateEvidence(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn UnloadDomain(&self, pappdomain: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
+    fn CurrentDomain(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 impl ICorRuntimeHost_Vtbl {
     pub const fn new<Identity: ICorRuntimeHost_Impl, const OFFSET: isize>() -> Self {
@@ -3763,62 +3763,62 @@ windows_core::imp::define_interface!(ICorThreadpool, ICorThreadpool_Vtbl, 0x8468
 windows_core::imp::interface_hierarchy!(ICorThreadpool, windows_core::IUnknown);
 impl ICorThreadpool {
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn CorRegisterWaitForSingleObject(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const core::ffi::c_void, timeout: u32, executeonlyonce: bool) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CorRegisterWaitForSingleObject(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const core::ffi::c_void, timeout: u32, executeonlyonce: bool) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CorRegisterWaitForSingleObject)(windows_core::Interface::as_raw(self), phnewwaitobject, hwaitobject, callback, context, timeout, executeonlyonce.into(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CorUnregisterWait(&self, hwaitobject: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CorUnregisterWait(&self, hwaitobject: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CorUnregisterWait)(windows_core::Interface::as_raw(self), hwaitobject, completionevent, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn CorQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, executeonlyonce: bool) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CorQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, executeonlyonce: bool) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CorQueueUserWorkItem)(windows_core::Interface::as_raw(self), function, context, executeonlyonce.into(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn CorCreateTimer(&self, phnewtimer: *const super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, parameter: *const core::ffi::c_void, duetime: u32, period: u32) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CorCreateTimer(&self, phnewtimer: *const super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, parameter: *const core::ffi::c_void, duetime: u32, period: u32) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CorCreateTimer)(windows_core::Interface::as_raw(self), phnewtimer, callback, parameter, duetime, period, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CorChangeTimer(&self, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CorChangeTimer(&self, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CorChangeTimer)(windows_core::Interface::as_raw(self), timer, duetime, period, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CorDeleteTimer(&self, timer: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CorDeleteTimer(&self, timer: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CorDeleteTimer)(windows_core::Interface::as_raw(self), timer, completionevent, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_IO")]
-    pub unsafe fn CorBindIoCompletionCallback(&self, filehandle: super::super::Foundation::HANDLE, callback: super::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::Result<()> {
+    pub unsafe fn CorBindIoCompletionCallback(&self, filehandle: super::super::Foundation::HANDLE, callback: super::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CorBindIoCompletionCallback)(windows_core::Interface::as_raw(self), filehandle, callback).ok() }
     }
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn CorCallOrQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CorCallOrQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CorCallOrQueueUserWorkItem)(windows_core::Interface::as_raw(self), function, context, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CorSetMaxThreads(&self, maxworkerthreads: u32, maxiocompletionthreads: u32) -> windows_core::Result<()> {
+    pub unsafe fn CorSetMaxThreads(&self, maxworkerthreads: u32, maxiocompletionthreads: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CorSetMaxThreads)(windows_core::Interface::as_raw(self), maxworkerthreads, maxiocompletionthreads).ok() }
     }
-    pub unsafe fn CorGetMaxThreads(&self, maxworkerthreads: *mut u32, maxiocompletionthreads: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn CorGetMaxThreads(&self, maxworkerthreads: *mut u32, maxiocompletionthreads: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CorGetMaxThreads)(windows_core::Interface::as_raw(self), maxworkerthreads as _, maxiocompletionthreads as _).ok() }
     }
-    pub unsafe fn CorGetAvailableThreads(&self, availableworkerthreads: *mut u32, availableiocompletionthreads: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn CorGetAvailableThreads(&self, availableworkerthreads: *mut u32, availableiocompletionthreads: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CorGetAvailableThreads)(windows_core::Interface::as_raw(self), availableworkerthreads as _, availableiocompletionthreads as _).ok() }
     }
 }
@@ -3855,17 +3855,17 @@ pub struct ICorThreadpool_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
 pub trait ICorThreadpool_Impl: windows_core::IUnknownImpl {
-    fn CorRegisterWaitForSingleObject(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const core::ffi::c_void, timeout: u32, executeonlyonce: windows_core::BOOL) -> windows_core::Result<windows_core::BOOL>;
-    fn CorUnregisterWait(&self, hwaitobject: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::BOOL>;
-    fn CorQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, executeonlyonce: windows_core::BOOL) -> windows_core::Result<windows_core::BOOL>;
-    fn CorCreateTimer(&self, phnewtimer: *const super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, parameter: *const core::ffi::c_void, duetime: u32, period: u32) -> windows_core::Result<windows_core::BOOL>;
-    fn CorChangeTimer(&self, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> windows_core::Result<windows_core::BOOL>;
-    fn CorDeleteTimer(&self, timer: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::BOOL>;
-    fn CorBindIoCompletionCallback(&self, filehandle: super::super::Foundation::HANDLE, callback: super::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::Result<()>;
-    fn CorCallOrQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void) -> windows_core::Result<windows_core::BOOL>;
-    fn CorSetMaxThreads(&self, maxworkerthreads: u32, maxiocompletionthreads: u32) -> windows_core::Result<()>;
-    fn CorGetMaxThreads(&self, maxworkerthreads: *mut u32, maxiocompletionthreads: *mut u32) -> windows_core::Result<()>;
-    fn CorGetAvailableThreads(&self, availableworkerthreads: *mut u32, availableiocompletionthreads: *mut u32) -> windows_core::Result<()>;
+    fn CorRegisterWaitForSingleObject(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const core::ffi::c_void, timeout: u32, executeonlyonce: windows_core::BOOL) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CorUnregisterWait(&self, hwaitobject: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CorQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, executeonlyonce: windows_core::BOOL) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CorCreateTimer(&self, phnewtimer: *const super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, parameter: *const core::ffi::c_void, duetime: u32, period: u32) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CorChangeTimer(&self, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CorDeleteTimer(&self, timer: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CorBindIoCompletionCallback(&self, filehandle: super::super::Foundation::HANDLE, callback: super::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> Result<(), windows_result::HRESULT>;
+    fn CorCallOrQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CorSetMaxThreads(&self, maxworkerthreads: u32, maxiocompletionthreads: u32) -> Result<(), windows_result::HRESULT>;
+    fn CorGetMaxThreads(&self, maxworkerthreads: *mut u32, maxiocompletionthreads: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn CorGetAvailableThreads(&self, availableworkerthreads: *mut u32, availableiocompletionthreads: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
 impl ICorThreadpool_Vtbl {
@@ -4002,7 +4002,7 @@ impl windows_core::RuntimeName for ICorThreadpool {}
 windows_core::imp::define_interface!(IDebuggerInfo, IDebuggerInfo_Vtbl, 0xbf24142d_a47d_4d24_a66d_8c2141944e44);
 windows_core::imp::interface_hierarchy!(IDebuggerInfo, windows_core::IUnknown);
 impl IDebuggerInfo {
-    pub unsafe fn IsDebuggerAttached(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsDebuggerAttached(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDebuggerAttached)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4016,7 +4016,7 @@ pub struct IDebuggerInfo_Vtbl {
     pub IsDebuggerAttached: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IDebuggerInfo_Impl: windows_core::IUnknownImpl {
-    fn IsDebuggerAttached(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsDebuggerAttached(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IDebuggerInfo_Vtbl {
     pub const fn new<Identity: IDebuggerInfo_Impl, const OFFSET: isize>() -> Self {
@@ -4042,13 +4042,13 @@ impl windows_core::RuntimeName for IDebuggerInfo {}
 windows_core::imp::define_interface!(IDebuggerThreadControl, IDebuggerThreadControl_Vtbl, 0x23d86786_0bb5_4774_8fb5_e3522add6246);
 windows_core::imp::interface_hierarchy!(IDebuggerThreadControl, windows_core::IUnknown);
 impl IDebuggerThreadControl {
-    pub unsafe fn ThreadIsBlockingForDebugger(&self) -> windows_core::Result<()> {
+    pub unsafe fn ThreadIsBlockingForDebugger(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ThreadIsBlockingForDebugger)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ReleaseAllRuntimeThreads(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseAllRuntimeThreads(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseAllRuntimeThreads)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn StartBlockingForDebugger(&self, dwunused: u32) -> windows_core::Result<()> {
+    pub unsafe fn StartBlockingForDebugger(&self, dwunused: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StartBlockingForDebugger)(windows_core::Interface::as_raw(self), dwunused).ok() }
     }
 }
@@ -4061,9 +4061,9 @@ pub struct IDebuggerThreadControl_Vtbl {
     pub StartBlockingForDebugger: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IDebuggerThreadControl_Impl: windows_core::IUnknownImpl {
-    fn ThreadIsBlockingForDebugger(&self) -> windows_core::Result<()>;
-    fn ReleaseAllRuntimeThreads(&self) -> windows_core::Result<()>;
-    fn StartBlockingForDebugger(&self, dwunused: u32) -> windows_core::Result<()>;
+    fn ThreadIsBlockingForDebugger(&self) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseAllRuntimeThreads(&self) -> Result<(), windows_result::HRESULT>;
+    fn StartBlockingForDebugger(&self, dwunused: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IDebuggerThreadControl_Vtbl {
     pub const fn new<Identity: IDebuggerThreadControl_Impl, const OFFSET: isize>() -> Self {
@@ -4100,19 +4100,19 @@ impl windows_core::RuntimeName for IDebuggerThreadControl {}
 windows_core::imp::define_interface!(IGCHost, IGCHost_Vtbl, 0xfac34f6e_0dcd_47b5_8021_531bc5ecca63);
 windows_core::imp::interface_hierarchy!(IGCHost, windows_core::IUnknown);
 impl IGCHost {
-    pub unsafe fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGCStartupLimits)(windows_core::Interface::as_raw(self), segmentsize, maxgen0size).ok() }
     }
-    pub unsafe fn Collect(&self, generation: i32) -> windows_core::Result<()> {
+    pub unsafe fn Collect(&self, generation: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Collect)(windows_core::Interface::as_raw(self), generation).ok() }
     }
-    pub unsafe fn GetStats(&self, pstats: *mut COR_GC_STATS) -> windows_core::Result<()> {
+    pub unsafe fn GetStats(&self, pstats: *mut COR_GC_STATS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetStats)(windows_core::Interface::as_raw(self), pstats as _).ok() }
     }
-    pub unsafe fn GetThreadStats(&self, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> windows_core::Result<()> {
+    pub unsafe fn GetThreadStats(&self, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetThreadStats)(windows_core::Interface::as_raw(self), pfibercookie, pstats as _).ok() }
     }
-    pub unsafe fn SetVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> windows_core::Result<()> {
+    pub unsafe fn SetVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVirtualMemLimit)(windows_core::Interface::as_raw(self), sztmaxvirtualmemmb).ok() }
     }
 }
@@ -4127,11 +4127,11 @@ pub struct IGCHost_Vtbl {
     pub SetVirtualMemLimit: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 pub trait IGCHost_Impl: windows_core::IUnknownImpl {
-    fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> windows_core::Result<()>;
-    fn Collect(&self, generation: i32) -> windows_core::Result<()>;
-    fn GetStats(&self, pstats: *mut COR_GC_STATS) -> windows_core::Result<()>;
-    fn GetThreadStats(&self, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> windows_core::Result<()>;
-    fn SetVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> windows_core::Result<()>;
+    fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> Result<(), windows_result::HRESULT>;
+    fn Collect(&self, generation: i32) -> Result<(), windows_result::HRESULT>;
+    fn GetStats(&self, pstats: *mut COR_GC_STATS) -> Result<(), windows_result::HRESULT>;
+    fn GetThreadStats(&self, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> Result<(), windows_result::HRESULT>;
+    fn SetVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> Result<(), windows_result::HRESULT>;
 }
 impl IGCHost_Vtbl {
     pub const fn new<Identity: IGCHost_Impl, const OFFSET: isize>() -> Self {
@@ -4188,7 +4188,7 @@ impl core::ops::Deref for IGCHost2 {
 }
 windows_core::imp::interface_hierarchy!(IGCHost2, windows_core::IUnknown, IGCHost);
 impl IGCHost2 {
-    pub unsafe fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> windows_core::Result<()> {
+    pub unsafe fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGCStartupLimitsEx)(windows_core::Interface::as_raw(self), segmentsize, maxgen0size).ok() }
     }
 }
@@ -4199,7 +4199,7 @@ pub struct IGCHost2_Vtbl {
     pub SetGCStartupLimitsEx: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
 }
 pub trait IGCHost2_Impl: IGCHost_Impl {
-    fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> windows_core::Result<()>;
+    fn SetGCStartupLimitsEx(&self, segmentsize: usize, maxgen0size: usize) -> Result<(), windows_result::HRESULT>;
 }
 impl IGCHost2_Vtbl {
     pub const fn new<Identity: IGCHost2_Impl, const OFFSET: isize>() -> Self {
@@ -4219,7 +4219,7 @@ impl windows_core::RuntimeName for IGCHost2 {}
 windows_core::imp::define_interface!(IGCHostControl, IGCHostControl_Vtbl, 0x5513d564_8374_4cb9_aed9_0083f4160a1d);
 windows_core::imp::interface_hierarchy!(IGCHostControl, windows_core::IUnknown);
 impl IGCHostControl {
-    pub unsafe fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> windows_core::Result<()> {
+    pub unsafe fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RequestVirtualMemLimit)(windows_core::Interface::as_raw(self), sztmaxvirtualmemmb, psztnewmaxvirtualmemmb as _).ok() }
     }
 }
@@ -4230,7 +4230,7 @@ pub struct IGCHostControl_Vtbl {
     pub RequestVirtualMemLimit: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IGCHostControl_Impl: windows_core::IUnknownImpl {
-    fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> windows_core::Result<()>;
+    fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> Result<(), windows_result::HRESULT>;
 }
 impl IGCHostControl_Vtbl {
     pub const fn new<Identity: IGCHostControl_Impl, const OFFSET: isize>() -> Self {
@@ -4250,13 +4250,13 @@ impl windows_core::RuntimeName for IGCHostControl {}
 windows_core::imp::define_interface!(IGCThreadControl, IGCThreadControl_Vtbl, 0xf31d1788_c397_4725_87a5_6af3472c2791);
 windows_core::imp::interface_hierarchy!(IGCThreadControl, windows_core::IUnknown);
 impl IGCThreadControl {
-    pub unsafe fn ThreadIsBlockingForSuspension(&self) -> windows_core::Result<()> {
+    pub unsafe fn ThreadIsBlockingForSuspension(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ThreadIsBlockingForSuspension)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SuspensionStarting(&self) -> windows_core::Result<()> {
+    pub unsafe fn SuspensionStarting(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SuspensionStarting)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SuspensionEnding(&self, generation: u32) -> windows_core::Result<()> {
+    pub unsafe fn SuspensionEnding(&self, generation: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SuspensionEnding)(windows_core::Interface::as_raw(self), generation).ok() }
     }
 }
@@ -4269,9 +4269,9 @@ pub struct IGCThreadControl_Vtbl {
     pub SuspensionEnding: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IGCThreadControl_Impl: windows_core::IUnknownImpl {
-    fn ThreadIsBlockingForSuspension(&self) -> windows_core::Result<()>;
-    fn SuspensionStarting(&self) -> windows_core::Result<()>;
-    fn SuspensionEnding(&self, generation: u32) -> windows_core::Result<()>;
+    fn ThreadIsBlockingForSuspension(&self) -> Result<(), windows_result::HRESULT>;
+    fn SuspensionStarting(&self) -> Result<(), windows_result::HRESULT>;
+    fn SuspensionEnding(&self, generation: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IGCThreadControl_Vtbl {
     pub const fn new<Identity: IGCThreadControl_Impl, const OFFSET: isize>() -> Self {
@@ -4308,13 +4308,13 @@ impl windows_core::RuntimeName for IGCThreadControl {}
 windows_core::imp::define_interface!(IHostAssemblyManager, IHostAssemblyManager_Vtbl, 0x613dabd7_62b2_493e_9e65_c1e32a1e0c5e);
 windows_core::imp::interface_hierarchy!(IHostAssemblyManager, windows_core::IUnknown);
 impl IHostAssemblyManager {
-    pub unsafe fn GetNonHostStoreAssemblies(&self) -> windows_core::Result<ICLRAssemblyReferenceList> {
+    pub unsafe fn GetNonHostStoreAssemblies(&self) -> Result<ICLRAssemblyReferenceList, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNonHostStoreAssemblies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetAssemblyStore(&self) -> windows_core::Result<IHostAssemblyStore> {
+    pub unsafe fn GetAssemblyStore(&self) -> Result<IHostAssemblyStore, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAssemblyStore)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4329,8 +4329,8 @@ pub struct IHostAssemblyManager_Vtbl {
     pub GetAssemblyStore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostAssemblyManager_Impl: windows_core::IUnknownImpl {
-    fn GetNonHostStoreAssemblies(&self) -> windows_core::Result<ICLRAssemblyReferenceList>;
-    fn GetAssemblyStore(&self) -> windows_core::Result<IHostAssemblyStore>;
+    fn GetNonHostStoreAssemblies(&self) -> Result<ICLRAssemblyReferenceList, windows_result::HRESULT>;
+    fn GetAssemblyStore(&self) -> Result<IHostAssemblyStore, windows_result::HRESULT>;
 }
 impl IHostAssemblyManager_Vtbl {
     pub const fn new<Identity: IHostAssemblyManager_Impl, const OFFSET: isize>() -> Self {
@@ -4373,11 +4373,11 @@ windows_core::imp::define_interface!(IHostAssemblyStore, IHostAssemblyStore_Vtbl
 windows_core::imp::interface_hierarchy!(IHostAssemblyStore, windows_core::IUnknown);
 impl IHostAssemblyStore {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ProvideAssembly(&self, pbindinfo: *const AssemblyBindInfo, passemblyid: *mut u64, pcontext: *mut u64, ppstmassemblyimage: *mut Option<super::Com::IStream>, ppstmpdb: *mut Option<super::Com::IStream>) -> windows_core::Result<()> {
+    pub unsafe fn ProvideAssembly(&self, pbindinfo: *const AssemblyBindInfo, passemblyid: *mut u64, pcontext: *mut u64, ppstmassemblyimage: *mut Option<super::Com::IStream>, ppstmpdb: *mut Option<super::Com::IStream>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ProvideAssembly)(windows_core::Interface::as_raw(self), pbindinfo, passemblyid as _, pcontext as _, core::mem::transmute(ppstmassemblyimage), core::mem::transmute(ppstmpdb)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ProvideModule(&self, pbindinfo: *const ModuleBindInfo, pdwmoduleid: *mut u32, ppstmmoduleimage: *mut Option<super::Com::IStream>, ppstmpdb: *mut Option<super::Com::IStream>) -> windows_core::Result<()> {
+    pub unsafe fn ProvideModule(&self, pbindinfo: *const ModuleBindInfo, pdwmoduleid: *mut u32, ppstmmoduleimage: *mut Option<super::Com::IStream>, ppstmpdb: *mut Option<super::Com::IStream>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ProvideModule)(windows_core::Interface::as_raw(self), pbindinfo, pdwmoduleid as _, core::mem::transmute(ppstmmoduleimage), core::mem::transmute(ppstmpdb)).ok() }
     }
 }
@@ -4396,8 +4396,8 @@ pub struct IHostAssemblyStore_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHostAssemblyStore_Impl: windows_core::IUnknownImpl {
-    fn ProvideAssembly(&self, pbindinfo: *const AssemblyBindInfo, passemblyid: *mut u64, pcontext: *mut u64, ppstmassemblyimage: windows_core::OutRef<'_, super::Com::IStream>, ppstmpdb: windows_core::OutRef<'_, super::Com::IStream>) -> windows_core::Result<()>;
-    fn ProvideModule(&self, pbindinfo: *const ModuleBindInfo, pdwmoduleid: *mut u32, ppstmmoduleimage: windows_core::OutRef<'_, super::Com::IStream>, ppstmpdb: windows_core::OutRef<'_, super::Com::IStream>) -> windows_core::Result<()>;
+    fn ProvideAssembly(&self, pbindinfo: *const AssemblyBindInfo, passemblyid: *mut u64, pcontext: *mut u64, ppstmassemblyimage: windows_core::OutRef<'_, super::Com::IStream>, ppstmpdb: windows_core::OutRef<'_, super::Com::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn ProvideModule(&self, pbindinfo: *const ModuleBindInfo, pdwmoduleid: *mut u32, ppstmmoduleimage: windows_core::OutRef<'_, super::Com::IStream>, ppstmpdb: windows_core::OutRef<'_, super::Com::IStream>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IHostAssemblyStore_Vtbl {
@@ -4429,10 +4429,10 @@ impl windows_core::RuntimeName for IHostAssemblyStore {}
 windows_core::imp::define_interface!(IHostAutoEvent, IHostAutoEvent_Vtbl, 0x50b0cfce_4063_4278_9673_e5cb4ed0bdb8);
 windows_core::imp::interface_hierarchy!(IHostAutoEvent, windows_core::IUnknown);
 impl IHostAutoEvent {
-    pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()> {
+    pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), dwmilliseconds, option).ok() }
     }
-    pub unsafe fn Set(&self) -> windows_core::Result<()> {
+    pub unsafe fn Set(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4444,8 +4444,8 @@ pub struct IHostAutoEvent_Vtbl {
     pub Set: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostAutoEvent_Impl: windows_core::IUnknownImpl {
-    fn Wait(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()>;
-    fn Set(&self) -> windows_core::Result<()>;
+    fn Wait(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT>;
+    fn Set(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostAutoEvent_Vtbl {
     pub const fn new<Identity: IHostAutoEvent_Impl, const OFFSET: isize>() -> Self {
@@ -4471,10 +4471,10 @@ impl windows_core::RuntimeName for IHostAutoEvent {}
 windows_core::imp::define_interface!(IHostControl, IHostControl_Vtbl, 0x02ca073c_7079_4860_880a_c2f7a449c991);
 windows_core::imp::interface_hierarchy!(IHostControl, windows_core::IUnknown);
 impl IHostControl {
-    pub unsafe fn GetHostManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn GetHostManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetHostManager)(windows_core::Interface::as_raw(self), riid, ppobject as _).ok() }
     }
-    pub unsafe fn SetAppDomainManager<P1>(&self, dwappdomainid: u32, punkappdomainmanager: P1) -> windows_core::Result<()>
+    pub unsafe fn SetAppDomainManager<P1>(&self, dwappdomainid: u32, punkappdomainmanager: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
@@ -4489,8 +4489,8 @@ pub struct IHostControl_Vtbl {
     pub SetAppDomainManager: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostControl_Impl: windows_core::IUnknownImpl {
-    fn GetHostManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetAppDomainManager(&self, dwappdomainid: u32, punkappdomainmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetHostManager(&self, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn SetAppDomainManager(&self, dwappdomainid: u32, punkappdomainmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostControl_Vtbl {
     pub const fn new<Identity: IHostControl_Impl, const OFFSET: isize>() -> Self {
@@ -4520,19 +4520,19 @@ impl windows_core::RuntimeName for IHostControl {}
 windows_core::imp::define_interface!(IHostCrst, IHostCrst_Vtbl, 0x6df710a6_26a4_4a65_8cd5_7237b8bda8dc);
 windows_core::imp::interface_hierarchy!(IHostCrst, windows_core::IUnknown);
 impl IHostCrst {
-    pub unsafe fn Enter(&self, option: u32) -> windows_core::Result<()> {
+    pub unsafe fn Enter(&self, option: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Enter)(windows_core::Interface::as_raw(self), option).ok() }
     }
-    pub unsafe fn Leave(&self) -> windows_core::Result<()> {
+    pub unsafe fn Leave(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Leave)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn TryEnter(&self, option: u32) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn TryEnter(&self, option: u32) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TryEnter)(windows_core::Interface::as_raw(self), option, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSpinCount(&self, dwspincount: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSpinCount(&self, dwspincount: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSpinCount)(windows_core::Interface::as_raw(self), dwspincount).ok() }
     }
 }
@@ -4546,10 +4546,10 @@ pub struct IHostCrst_Vtbl {
     pub SetSpinCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IHostCrst_Impl: windows_core::IUnknownImpl {
-    fn Enter(&self, option: u32) -> windows_core::Result<()>;
-    fn Leave(&self) -> windows_core::Result<()>;
-    fn TryEnter(&self, option: u32) -> windows_core::Result<windows_core::BOOL>;
-    fn SetSpinCount(&self, dwspincount: u32) -> windows_core::Result<()>;
+    fn Enter(&self, option: u32) -> Result<(), windows_result::HRESULT>;
+    fn Leave(&self) -> Result<(), windows_result::HRESULT>;
+    fn TryEnter(&self, option: u32) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SetSpinCount(&self, dwspincount: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostCrst_Vtbl {
     pub const fn new<Identity: IHostCrst_Impl, const OFFSET: isize>() -> Self {
@@ -4599,13 +4599,13 @@ impl windows_core::RuntimeName for IHostCrst {}
 windows_core::imp::define_interface!(IHostGCManager, IHostGCManager_Vtbl, 0x5d4ec34e_f248_457b_b603_255faaba0d21);
 windows_core::imp::interface_hierarchy!(IHostGCManager, windows_core::IUnknown);
 impl IHostGCManager {
-    pub unsafe fn ThreadIsBlockingForSuspension(&self) -> windows_core::Result<()> {
+    pub unsafe fn ThreadIsBlockingForSuspension(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ThreadIsBlockingForSuspension)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SuspensionStarting(&self) -> windows_core::Result<()> {
+    pub unsafe fn SuspensionStarting(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SuspensionStarting)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SuspensionEnding(&self, generation: u32) -> windows_core::Result<()> {
+    pub unsafe fn SuspensionEnding(&self, generation: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SuspensionEnding)(windows_core::Interface::as_raw(self), generation).ok() }
     }
 }
@@ -4618,9 +4618,9 @@ pub struct IHostGCManager_Vtbl {
     pub SuspensionEnding: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IHostGCManager_Impl: windows_core::IUnknownImpl {
-    fn ThreadIsBlockingForSuspension(&self) -> windows_core::Result<()>;
-    fn SuspensionStarting(&self) -> windows_core::Result<()>;
-    fn SuspensionEnding(&self, generation: u32) -> windows_core::Result<()>;
+    fn ThreadIsBlockingForSuspension(&self) -> Result<(), windows_result::HRESULT>;
+    fn SuspensionStarting(&self) -> Result<(), windows_result::HRESULT>;
+    fn SuspensionEnding(&self, generation: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostGCManager_Vtbl {
     pub const fn new<Identity: IHostGCManager_Impl, const OFFSET: isize>() -> Self {
@@ -4657,52 +4657,52 @@ impl windows_core::RuntimeName for IHostGCManager {}
 windows_core::imp::define_interface!(IHostIoCompletionManager, IHostIoCompletionManager_Vtbl, 0x8bde9d80_ec06_41d6_83e6_22580effcc20);
 windows_core::imp::interface_hierarchy!(IHostIoCompletionManager, windows_core::IUnknown);
 impl IHostIoCompletionManager {
-    pub unsafe fn CreateIoCompletionPort(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateIoCompletionPort(&self) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateIoCompletionPort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CloseIoCompletionPort(&self, hport: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn CloseIoCompletionPort(&self, hport: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseIoCompletionPort)(windows_core::Interface::as_raw(self), hport).ok() }
     }
-    pub unsafe fn SetMaxThreads(&self, dwmaxiocompletionthreads: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaxThreads(&self, dwmaxiocompletionthreads: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxThreads)(windows_core::Interface::as_raw(self), dwmaxiocompletionthreads).ok() }
     }
-    pub unsafe fn GetMaxThreads(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetMaxThreads(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxThreads)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAvailableThreads(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetAvailableThreads(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAvailableThreads)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetHostOverlappedSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetHostOverlappedSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHostOverlappedSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCLRIoCompletionManager<P0>(&self, pmanager: P0) -> windows_core::Result<()>
+    pub unsafe fn SetCLRIoCompletionManager<P0>(&self, pmanager: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ICLRIoCompletionManager>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCLRIoCompletionManager)(windows_core::Interface::as_raw(self), pmanager.param().abi()).ok() }
     }
-    pub unsafe fn InitializeHostOverlapped(&self, pvoverlapped: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn InitializeHostOverlapped(&self, pvoverlapped: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).InitializeHostOverlapped)(windows_core::Interface::as_raw(self), pvoverlapped).ok() }
     }
-    pub unsafe fn Bind(&self, hport: super::super::Foundation::HANDLE, hhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn Bind(&self, hport: super::super::Foundation::HANDLE, hhandle: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), hport, hhandle).ok() }
     }
-    pub unsafe fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMinThreads)(windows_core::Interface::as_raw(self), dwminiocompletionthreads).ok() }
     }
-    pub unsafe fn GetMinThreads(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetMinThreads(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinThreads)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4726,17 +4726,17 @@ pub struct IHostIoCompletionManager_Vtbl {
     pub GetMinThreads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IHostIoCompletionManager_Impl: windows_core::IUnknownImpl {
-    fn CreateIoCompletionPort(&self) -> windows_core::Result<super::super::Foundation::HANDLE>;
-    fn CloseIoCompletionPort(&self, hport: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn SetMaxThreads(&self, dwmaxiocompletionthreads: u32) -> windows_core::Result<()>;
-    fn GetMaxThreads(&self) -> windows_core::Result<u32>;
-    fn GetAvailableThreads(&self) -> windows_core::Result<u32>;
-    fn GetHostOverlappedSize(&self) -> windows_core::Result<u32>;
-    fn SetCLRIoCompletionManager(&self, pmanager: windows_core::Ref<'_, ICLRIoCompletionManager>) -> windows_core::Result<()>;
-    fn InitializeHostOverlapped(&self, pvoverlapped: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn Bind(&self, hport: super::super::Foundation::HANDLE, hhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> windows_core::Result<()>;
-    fn GetMinThreads(&self) -> windows_core::Result<u32>;
+    fn CreateIoCompletionPort(&self) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT>;
+    fn CloseIoCompletionPort(&self, hport: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>;
+    fn SetMaxThreads(&self, dwmaxiocompletionthreads: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetMaxThreads(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetAvailableThreads(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetHostOverlappedSize(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetCLRIoCompletionManager(&self, pmanager: windows_core::Ref<'_, ICLRIoCompletionManager>) -> Result<(), windows_result::HRESULT>;
+    fn InitializeHostOverlapped(&self, pvoverlapped: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn Bind(&self, hport: super::super::Foundation::HANDLE, hhandle: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>;
+    fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetMinThreads(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IHostIoCompletionManager_Vtbl {
     pub const fn new<Identity: IHostIoCompletionManager_Impl, const OFFSET: isize>() -> Self {
@@ -4859,13 +4859,13 @@ impl windows_core::RuntimeName for IHostIoCompletionManager {}
 windows_core::imp::define_interface!(IHostMalloc, IHostMalloc_Vtbl, 0x1831991c_cc53_4a31_b218_04e910446479);
 windows_core::imp::interface_hierarchy!(IHostMalloc, windows_core::IUnknown);
 impl IHostMalloc {
-    pub unsafe fn Alloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn Alloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Alloc)(windows_core::Interface::as_raw(self), cbsize, ecriticallevel, ppmem as _).ok() }
     }
-    pub unsafe fn DebugAlloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, pszfilename: *const u8, ilineno: i32, ppmem: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn DebugAlloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, pszfilename: *const u8, ilineno: i32, ppmem: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DebugAlloc)(windows_core::Interface::as_raw(self), cbsize, ecriticallevel, pszfilename, ilineno, ppmem as _).ok() }
     }
-    pub unsafe fn Free(&self, pmem: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn Free(&self, pmem: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pmem).ok() }
     }
 }
@@ -4878,9 +4878,9 @@ pub struct IHostMalloc_Vtbl {
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostMalloc_Impl: windows_core::IUnknownImpl {
-    fn Alloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn DebugAlloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, pszfilename: *const u8, ilineno: i32, ppmem: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Free(&self, pmem: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn Alloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn DebugAlloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, pszfilename: *const u8, ilineno: i32, ppmem: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn Free(&self, pmem: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostMalloc_Vtbl {
     pub const fn new<Identity: IHostMalloc_Impl, const OFFSET: isize>() -> Self {
@@ -4917,13 +4917,13 @@ impl windows_core::RuntimeName for IHostMalloc {}
 windows_core::imp::define_interface!(IHostManualEvent, IHostManualEvent_Vtbl, 0x1bf4ec38_affe_4fb9_85a6_525268f15b54);
 windows_core::imp::interface_hierarchy!(IHostManualEvent, windows_core::IUnknown);
 impl IHostManualEvent {
-    pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()> {
+    pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), dwmilliseconds, option).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Set(&self) -> windows_core::Result<()> {
+    pub unsafe fn Set(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4936,9 +4936,9 @@ pub struct IHostManualEvent_Vtbl {
     pub Set: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostManualEvent_Impl: windows_core::IUnknownImpl {
-    fn Wait(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Set(&self) -> windows_core::Result<()>;
+    fn Wait(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Set(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostManualEvent_Vtbl {
     pub const fn new<Identity: IHostManualEvent_Impl, const OFFSET: isize>() -> Self {
@@ -4975,43 +4975,43 @@ impl windows_core::RuntimeName for IHostManualEvent {}
 windows_core::imp::define_interface!(IHostMemoryManager, IHostMemoryManager_Vtbl, 0x7bc698d1_f9e3_4460_9cde_d04248e9fa25);
 windows_core::imp::interface_hierarchy!(IHostMemoryManager, windows_core::IUnknown);
 impl IHostMemoryManager {
-    pub unsafe fn CreateMalloc(&self, dwmalloctype: u32) -> windows_core::Result<IHostMalloc> {
+    pub unsafe fn CreateMalloc(&self, dwmalloctype: u32) -> Result<IHostMalloc, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateMalloc)(windows_core::Interface::as_raw(self), dwmalloctype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn VirtualAlloc(&self, paddress: *const core::ffi::c_void, dwsize: usize, flallocationtype: u32, flprotect: u32, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn VirtualAlloc(&self, paddress: *const core::ffi::c_void, dwsize: usize, flallocationtype: u32, flprotect: u32, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).VirtualAlloc)(windows_core::Interface::as_raw(self), paddress, dwsize, flallocationtype, flprotect, ecriticallevel, ppmem as _).ok() }
     }
-    pub unsafe fn VirtualFree(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, dwfreetype: u32) -> windows_core::Result<()> {
+    pub unsafe fn VirtualFree(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, dwfreetype: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).VirtualFree)(windows_core::Interface::as_raw(self), lpaddress, dwsize, dwfreetype).ok() }
     }
-    pub unsafe fn VirtualQuery(&self, lpaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, dwlength: usize, presult: *mut usize) -> windows_core::Result<()> {
+    pub unsafe fn VirtualQuery(&self, lpaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, dwlength: usize, presult: *mut usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).VirtualQuery)(windows_core::Interface::as_raw(self), lpaddress, lpbuffer as _, dwlength, presult as _).ok() }
     }
-    pub unsafe fn VirtualProtect(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32) -> windows_core::Result<u32> {
+    pub unsafe fn VirtualProtect(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VirtualProtect)(windows_core::Interface::as_raw(self), lpaddress, dwsize, flnewprotect, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMemoryLoad(&self, pmemoryload: *mut u32, pavailablebytes: *mut usize) -> windows_core::Result<()> {
+    pub unsafe fn GetMemoryLoad(&self, pmemoryload: *mut u32, pavailablebytes: *mut usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetMemoryLoad)(windows_core::Interface::as_raw(self), pmemoryload as _, pavailablebytes as _).ok() }
     }
-    pub unsafe fn RegisterMemoryNotificationCallback<P0>(&self, pcallback: P0) -> windows_core::Result<()>
+    pub unsafe fn RegisterMemoryNotificationCallback<P0>(&self, pcallback: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ICLRMemoryNotificationCallback>,
     {
         unsafe { (windows_core::Interface::vtable(self).RegisterMemoryNotificationCallback)(windows_core::Interface::as_raw(self), pcallback.param().abi()).ok() }
     }
-    pub unsafe fn NeedsVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> windows_core::Result<()> {
+    pub unsafe fn NeedsVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NeedsVirtualAddressSpace)(windows_core::Interface::as_raw(self), startaddress, size).ok() }
     }
-    pub unsafe fn AcquiredVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> windows_core::Result<()> {
+    pub unsafe fn AcquiredVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AcquiredVirtualAddressSpace)(windows_core::Interface::as_raw(self), startaddress, size).ok() }
     }
-    pub unsafe fn ReleasedVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn ReleasedVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReleasedVirtualAddressSpace)(windows_core::Interface::as_raw(self), startaddress).ok() }
     }
 }
@@ -5031,16 +5031,16 @@ pub struct IHostMemoryManager_Vtbl {
     pub ReleasedVirtualAddressSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostMemoryManager_Impl: windows_core::IUnknownImpl {
-    fn CreateMalloc(&self, dwmalloctype: u32) -> windows_core::Result<IHostMalloc>;
-    fn VirtualAlloc(&self, paddress: *const core::ffi::c_void, dwsize: usize, flallocationtype: u32, flprotect: u32, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn VirtualFree(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, dwfreetype: u32) -> windows_core::Result<()>;
-    fn VirtualQuery(&self, lpaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, dwlength: usize, presult: *mut usize) -> windows_core::Result<()>;
-    fn VirtualProtect(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32) -> windows_core::Result<u32>;
-    fn GetMemoryLoad(&self, pmemoryload: *mut u32, pavailablebytes: *mut usize) -> windows_core::Result<()>;
-    fn RegisterMemoryNotificationCallback(&self, pcallback: windows_core::Ref<'_, ICLRMemoryNotificationCallback>) -> windows_core::Result<()>;
-    fn NeedsVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> windows_core::Result<()>;
-    fn AcquiredVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> windows_core::Result<()>;
-    fn ReleasedVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateMalloc(&self, dwmalloctype: u32) -> Result<IHostMalloc, windows_result::HRESULT>;
+    fn VirtualAlloc(&self, paddress: *const core::ffi::c_void, dwsize: usize, flallocationtype: u32, flprotect: u32, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn VirtualFree(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, dwfreetype: u32) -> Result<(), windows_result::HRESULT>;
+    fn VirtualQuery(&self, lpaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, dwlength: usize, presult: *mut usize) -> Result<(), windows_result::HRESULT>;
+    fn VirtualProtect(&self, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: u32) -> Result<u32, windows_result::HRESULT>;
+    fn GetMemoryLoad(&self, pmemoryload: *mut u32, pavailablebytes: *mut usize) -> Result<(), windows_result::HRESULT>;
+    fn RegisterMemoryNotificationCallback(&self, pcallback: windows_core::Ref<'_, ICLRMemoryNotificationCallback>) -> Result<(), windows_result::HRESULT>;
+    fn NeedsVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> Result<(), windows_result::HRESULT>;
+    fn AcquiredVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void, size: usize) -> Result<(), windows_result::HRESULT>;
+    fn ReleasedVirtualAddressSpace(&self, startaddress: *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostMemoryManager_Vtbl {
     pub const fn new<Identity: IHostMemoryManager_Impl, const OFFSET: isize>() -> Self {
@@ -5138,13 +5138,13 @@ impl windows_core::RuntimeName for IHostMemoryManager {}
 windows_core::imp::define_interface!(IHostPolicyManager, IHostPolicyManager_Vtbl, 0x7ae49844_b1e3_4683_ba7c_1e8212ea3b79);
 windows_core::imp::interface_hierarchy!(IHostPolicyManager, windows_core::IUnknown);
 impl IHostPolicyManager {
-    pub unsafe fn OnDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()> {
+    pub unsafe fn OnDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnDefaultAction)(windows_core::Interface::as_raw(self), operation, action).ok() }
     }
-    pub unsafe fn OnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()> {
+    pub unsafe fn OnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnTimeout)(windows_core::Interface::as_raw(self), operation, action).ok() }
     }
-    pub unsafe fn OnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> windows_core::Result<()> {
+    pub unsafe fn OnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnFailure)(windows_core::Interface::as_raw(self), failure, action).ok() }
     }
 }
@@ -5157,9 +5157,9 @@ pub struct IHostPolicyManager_Vtbl {
     pub OnFailure: unsafe extern "system" fn(*mut core::ffi::c_void, EClrFailure, EPolicyAction) -> windows_core::HRESULT,
 }
 pub trait IHostPolicyManager_Impl: windows_core::IUnknownImpl {
-    fn OnDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()>;
-    fn OnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> windows_core::Result<()>;
-    fn OnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> windows_core::Result<()>;
+    fn OnDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT>;
+    fn OnTimeout(&self, operation: EClrOperation, action: EPolicyAction) -> Result<(), windows_result::HRESULT>;
+    fn OnFailure(&self, failure: EClrFailure, action: EPolicyAction) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostPolicyManager_Vtbl {
     pub const fn new<Identity: IHostPolicyManager_Impl, const OFFSET: isize>() -> Self {
@@ -5196,7 +5196,7 @@ impl windows_core::RuntimeName for IHostPolicyManager {}
 windows_core::imp::define_interface!(IHostSecurityContext, IHostSecurityContext_Vtbl, 0x7e573ce4_0343_4423_98d7_6318348a1d3c);
 windows_core::imp::interface_hierarchy!(IHostSecurityContext, windows_core::IUnknown);
 impl IHostSecurityContext {
-    pub unsafe fn Capture(&self) -> windows_core::Result<IHostSecurityContext> {
+    pub unsafe fn Capture(&self) -> Result<IHostSecurityContext, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Capture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5210,7 +5210,7 @@ pub struct IHostSecurityContext_Vtbl {
     pub Capture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostSecurityContext_Impl: windows_core::IUnknownImpl {
-    fn Capture(&self) -> windows_core::Result<IHostSecurityContext>;
+    fn Capture(&self) -> Result<IHostSecurityContext, windows_result::HRESULT>;
 }
 impl IHostSecurityContext_Vtbl {
     pub const fn new<Identity: IHostSecurityContext_Impl, const OFFSET: isize>() -> Self {
@@ -5236,28 +5236,28 @@ impl windows_core::RuntimeName for IHostSecurityContext {}
 windows_core::imp::define_interface!(IHostSecurityManager, IHostSecurityManager_Vtbl, 0x75ad2468_a349_4d02_a764_76a68aee0c4f);
 windows_core::imp::interface_hierarchy!(IHostSecurityManager, windows_core::IUnknown);
 impl IHostSecurityManager {
-    pub unsafe fn ImpersonateLoggedOnUser(&self, htoken: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn ImpersonateLoggedOnUser(&self, htoken: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ImpersonateLoggedOnUser)(windows_core::Interface::as_raw(self), htoken).ok() }
     }
-    pub unsafe fn RevertToSelf(&self) -> windows_core::Result<()> {
+    pub unsafe fn RevertToSelf(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RevertToSelf)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn OpenThreadToken(&self, dwdesiredaccess: u32, bopenasself: bool) -> windows_core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn OpenThreadToken(&self, dwdesiredaccess: u32, bopenasself: bool) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OpenThreadToken)(windows_core::Interface::as_raw(self), dwdesiredaccess, bopenasself.into(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetThreadToken(&self, htoken: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn SetThreadToken(&self, htoken: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetThreadToken)(windows_core::Interface::as_raw(self), htoken).ok() }
     }
-    pub unsafe fn GetSecurityContext(&self, econtexttype: EContextType) -> windows_core::Result<IHostSecurityContext> {
+    pub unsafe fn GetSecurityContext(&self, econtexttype: EContextType) -> Result<IHostSecurityContext, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSecurityContext)(windows_core::Interface::as_raw(self), econtexttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSecurityContext<P1>(&self, econtexttype: EContextType, psecuritycontext: P1) -> windows_core::Result<()>
+    pub unsafe fn SetSecurityContext<P1>(&self, econtexttype: EContextType, psecuritycontext: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IHostSecurityContext>,
     {
@@ -5276,12 +5276,12 @@ pub struct IHostSecurityManager_Vtbl {
     pub SetSecurityContext: unsafe extern "system" fn(*mut core::ffi::c_void, EContextType, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostSecurityManager_Impl: windows_core::IUnknownImpl {
-    fn ImpersonateLoggedOnUser(&self, htoken: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn RevertToSelf(&self) -> windows_core::Result<()>;
-    fn OpenThreadToken(&self, dwdesiredaccess: u32, bopenasself: windows_core::BOOL) -> windows_core::Result<super::super::Foundation::HANDLE>;
-    fn SetThreadToken(&self, htoken: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn GetSecurityContext(&self, econtexttype: EContextType) -> windows_core::Result<IHostSecurityContext>;
-    fn SetSecurityContext(&self, econtexttype: EContextType, psecuritycontext: windows_core::Ref<'_, IHostSecurityContext>) -> windows_core::Result<()>;
+    fn ImpersonateLoggedOnUser(&self, htoken: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>;
+    fn RevertToSelf(&self) -> Result<(), windows_result::HRESULT>;
+    fn OpenThreadToken(&self, dwdesiredaccess: u32, bopenasself: windows_core::BOOL) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT>;
+    fn SetThreadToken(&self, htoken: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>;
+    fn GetSecurityContext(&self, econtexttype: EContextType) -> Result<IHostSecurityContext, windows_result::HRESULT>;
+    fn SetSecurityContext(&self, econtexttype: EContextType, psecuritycontext: windows_core::Ref<'_, IHostSecurityContext>) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostSecurityManager_Vtbl {
     pub const fn new<Identity: IHostSecurityManager_Impl, const OFFSET: isize>() -> Self {
@@ -5351,10 +5351,10 @@ impl windows_core::RuntimeName for IHostSecurityManager {}
 windows_core::imp::define_interface!(IHostSemaphore, IHostSemaphore_Vtbl, 0x855efd47_cc09_463a_a97d_16acab882661);
 windows_core::imp::interface_hierarchy!(IHostSemaphore, windows_core::IUnknown);
 impl IHostSemaphore {
-    pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()> {
+    pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), dwmilliseconds, option).ok() }
     }
-    pub unsafe fn ReleaseSemaphore(&self, lreleasecount: i32) -> windows_core::Result<i32> {
+    pub unsafe fn ReleaseSemaphore(&self, lreleasecount: i32) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReleaseSemaphore)(windows_core::Interface::as_raw(self), lreleasecount, &mut result__).map(|| result__)
@@ -5369,8 +5369,8 @@ pub struct IHostSemaphore_Vtbl {
     pub ReleaseSemaphore: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IHostSemaphore_Impl: windows_core::IUnknownImpl {
-    fn Wait(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()>;
-    fn ReleaseSemaphore(&self, lreleasecount: i32) -> windows_core::Result<i32>;
+    fn Wait(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseSemaphore(&self, lreleasecount: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl IHostSemaphore_Vtbl {
     pub const fn new<Identity: IHostSemaphore_Impl, const OFFSET: isize>() -> Self {
@@ -5406,55 +5406,55 @@ impl windows_core::RuntimeName for IHostSemaphore {}
 windows_core::imp::define_interface!(IHostSyncManager, IHostSyncManager_Vtbl, 0x234330c7_5f10_4f20_9615_5122dab7a0ac);
 windows_core::imp::interface_hierarchy!(IHostSyncManager, windows_core::IUnknown);
 impl IHostSyncManager {
-    pub unsafe fn SetCLRSyncManager<P0>(&self, pmanager: P0) -> windows_core::Result<()>
+    pub unsafe fn SetCLRSyncManager<P0>(&self, pmanager: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ICLRSyncManager>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCLRSyncManager)(windows_core::Interface::as_raw(self), pmanager.param().abi()).ok() }
     }
-    pub unsafe fn CreateCrst(&self) -> windows_core::Result<IHostCrst> {
+    pub unsafe fn CreateCrst(&self) -> Result<IHostCrst, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateCrst)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateCrstWithSpinCount(&self, dwspincount: u32) -> windows_core::Result<IHostCrst> {
+    pub unsafe fn CreateCrstWithSpinCount(&self, dwspincount: u32) -> Result<IHostCrst, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateCrstWithSpinCount)(windows_core::Interface::as_raw(self), dwspincount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateAutoEvent(&self) -> windows_core::Result<IHostAutoEvent> {
+    pub unsafe fn CreateAutoEvent(&self) -> Result<IHostAutoEvent, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateAutoEvent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateManualEvent(&self, binitialstate: bool) -> windows_core::Result<IHostManualEvent> {
+    pub unsafe fn CreateManualEvent(&self, binitialstate: bool) -> Result<IHostManualEvent, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateManualEvent)(windows_core::Interface::as_raw(self), binitialstate.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateMonitorEvent(&self, cookie: usize) -> windows_core::Result<IHostAutoEvent> {
+    pub unsafe fn CreateMonitorEvent(&self, cookie: usize) -> Result<IHostAutoEvent, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateMonitorEvent)(windows_core::Interface::as_raw(self), cookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateRWLockWriterEvent(&self, cookie: usize) -> windows_core::Result<IHostAutoEvent> {
+    pub unsafe fn CreateRWLockWriterEvent(&self, cookie: usize) -> Result<IHostAutoEvent, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateRWLockWriterEvent)(windows_core::Interface::as_raw(self), cookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateRWLockReaderEvent(&self, binitialstate: bool, cookie: usize) -> windows_core::Result<IHostManualEvent> {
+    pub unsafe fn CreateRWLockReaderEvent(&self, binitialstate: bool, cookie: usize) -> Result<IHostManualEvent, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateRWLockReaderEvent)(windows_core::Interface::as_raw(self), binitialstate.into(), cookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateSemaphoreA(&self, dwinitial: u32, dwmax: u32) -> windows_core::Result<IHostSemaphore> {
+    pub unsafe fn CreateSemaphoreA(&self, dwinitial: u32, dwmax: u32) -> Result<IHostSemaphore, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateSemaphoreA)(windows_core::Interface::as_raw(self), dwinitial, dwmax, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5476,15 +5476,15 @@ pub struct IHostSyncManager_Vtbl {
     pub CreateSemaphoreA: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostSyncManager_Impl: windows_core::IUnknownImpl {
-    fn SetCLRSyncManager(&self, pmanager: windows_core::Ref<'_, ICLRSyncManager>) -> windows_core::Result<()>;
-    fn CreateCrst(&self) -> windows_core::Result<IHostCrst>;
-    fn CreateCrstWithSpinCount(&self, dwspincount: u32) -> windows_core::Result<IHostCrst>;
-    fn CreateAutoEvent(&self) -> windows_core::Result<IHostAutoEvent>;
-    fn CreateManualEvent(&self, binitialstate: windows_core::BOOL) -> windows_core::Result<IHostManualEvent>;
-    fn CreateMonitorEvent(&self, cookie: usize) -> windows_core::Result<IHostAutoEvent>;
-    fn CreateRWLockWriterEvent(&self, cookie: usize) -> windows_core::Result<IHostAutoEvent>;
-    fn CreateRWLockReaderEvent(&self, binitialstate: windows_core::BOOL, cookie: usize) -> windows_core::Result<IHostManualEvent>;
-    fn CreateSemaphoreA(&self, dwinitial: u32, dwmax: u32) -> windows_core::Result<IHostSemaphore>;
+    fn SetCLRSyncManager(&self, pmanager: windows_core::Ref<'_, ICLRSyncManager>) -> Result<(), windows_result::HRESULT>;
+    fn CreateCrst(&self) -> Result<IHostCrst, windows_result::HRESULT>;
+    fn CreateCrstWithSpinCount(&self, dwspincount: u32) -> Result<IHostCrst, windows_result::HRESULT>;
+    fn CreateAutoEvent(&self) -> Result<IHostAutoEvent, windows_result::HRESULT>;
+    fn CreateManualEvent(&self, binitialstate: windows_core::BOOL) -> Result<IHostManualEvent, windows_result::HRESULT>;
+    fn CreateMonitorEvent(&self, cookie: usize) -> Result<IHostAutoEvent, windows_result::HRESULT>;
+    fn CreateRWLockWriterEvent(&self, cookie: usize) -> Result<IHostAutoEvent, windows_result::HRESULT>;
+    fn CreateRWLockReaderEvent(&self, binitialstate: windows_core::BOOL, cookie: usize) -> Result<IHostManualEvent, windows_result::HRESULT>;
+    fn CreateSemaphoreA(&self, dwinitial: u32, dwmax: u32) -> Result<IHostSemaphore, windows_result::HRESULT>;
 }
 impl IHostSyncManager_Vtbl {
     pub const fn new<Identity: IHostSyncManager_Impl, const OFFSET: isize>() -> Self {
@@ -5611,25 +5611,25 @@ impl windows_core::RuntimeName for IHostSyncManager {}
 windows_core::imp::define_interface!(IHostTask, IHostTask_Vtbl, 0xc2275828_c4b1_4b55_82c9_92135f74df1a);
 windows_core::imp::interface_hierarchy!(IHostTask, windows_core::IUnknown);
 impl IHostTask {
-    pub unsafe fn Start(&self) -> windows_core::Result<()> {
+    pub unsafe fn Start(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Alert(&self) -> windows_core::Result<()> {
+    pub unsafe fn Alert(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Alert)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Join(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()> {
+    pub unsafe fn Join(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Join)(windows_core::Interface::as_raw(self), dwmilliseconds, option).ok() }
     }
-    pub unsafe fn SetPriority(&self, newpriority: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPriority(&self, newpriority: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), newpriority).ok() }
     }
-    pub unsafe fn GetPriority(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetPriority(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCLRTask<P0>(&self, pclrtask: P0) -> windows_core::Result<()>
+    pub unsafe fn SetCLRTask<P0>(&self, pclrtask: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ICLRTask>,
     {
@@ -5648,12 +5648,12 @@ pub struct IHostTask_Vtbl {
     pub SetCLRTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostTask_Impl: windows_core::IUnknownImpl {
-    fn Start(&self) -> windows_core::Result<()>;
-    fn Alert(&self) -> windows_core::Result<()>;
-    fn Join(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()>;
-    fn SetPriority(&self, newpriority: i32) -> windows_core::Result<()>;
-    fn GetPriority(&self) -> windows_core::Result<i32>;
-    fn SetCLRTask(&self, pclrtask: windows_core::Ref<'_, ICLRTask>) -> windows_core::Result<()>;
+    fn Start(&self) -> Result<(), windows_result::HRESULT>;
+    fn Alert(&self) -> Result<(), windows_result::HRESULT>;
+    fn Join(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetPriority(&self, newpriority: i32) -> Result<(), windows_result::HRESULT>;
+    fn GetPriority(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetCLRTask(&self, pclrtask: windows_core::Ref<'_, ICLRTask>) -> Result<(), windows_result::HRESULT>;
 }
 impl IHostTask_Vtbl {
     pub const fn new<Identity: IHostTask_Impl, const OFFSET: isize>() -> Self {
@@ -5717,71 +5717,71 @@ impl windows_core::RuntimeName for IHostTask {}
 windows_core::imp::define_interface!(IHostTaskManager, IHostTaskManager_Vtbl, 0x997ff24c_43b7_4352_8667_0dc04fafd354);
 windows_core::imp::interface_hierarchy!(IHostTaskManager, windows_core::IUnknown);
 impl IHostTaskManager {
-    pub unsafe fn GetCurrentTask(&self) -> windows_core::Result<IHostTask> {
+    pub unsafe fn GetCurrentTask(&self) -> Result<IHostTask, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentTask)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn CreateTask(&self, dwstacksize: u32, pstartaddress: super::Threading::LPTHREAD_START_ROUTINE, pparameter: *const core::ffi::c_void) -> windows_core::Result<IHostTask> {
+    pub unsafe fn CreateTask(&self, dwstacksize: u32, pstartaddress: super::Threading::LPTHREAD_START_ROUTINE, pparameter: *const core::ffi::c_void) -> Result<IHostTask, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), dwstacksize, pstartaddress, pparameter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Sleep(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()> {
+    pub unsafe fn Sleep(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Sleep)(windows_core::Interface::as_raw(self), dwmilliseconds, option).ok() }
     }
-    pub unsafe fn SwitchToTask(&self, option: u32) -> windows_core::Result<()> {
+    pub unsafe fn SwitchToTask(&self, option: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SwitchToTask)(windows_core::Interface::as_raw(self), option).ok() }
     }
-    pub unsafe fn SetUILocale(&self, lcid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetUILocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUILocale)(windows_core::Interface::as_raw(self), lcid).ok() }
     }
-    pub unsafe fn SetLocale(&self, lcid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetLocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), lcid).ok() }
     }
-    pub unsafe fn CallNeedsHostHook(&self, target: usize) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn CallNeedsHostHook(&self, target: usize) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CallNeedsHostHook)(windows_core::Interface::as_raw(self), target, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LeaveRuntime(&self, target: usize) -> windows_core::Result<()> {
+    pub unsafe fn LeaveRuntime(&self, target: usize) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LeaveRuntime)(windows_core::Interface::as_raw(self), target).ok() }
     }
-    pub unsafe fn EnterRuntime(&self) -> windows_core::Result<()> {
+    pub unsafe fn EnterRuntime(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnterRuntime)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ReverseLeaveRuntime(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReverseLeaveRuntime(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReverseLeaveRuntime)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ReverseEnterRuntime(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReverseEnterRuntime(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReverseEnterRuntime)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn BeginDelayAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn BeginDelayAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginDelayAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EndDelayAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndDelayAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndDelayAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn BeginThreadAffinity(&self) -> windows_core::Result<()> {
+    pub unsafe fn BeginThreadAffinity(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginThreadAffinity)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EndThreadAffinity(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndThreadAffinity(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndThreadAffinity)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetStackGuarantee(&self, guarantee: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetStackGuarantee(&self, guarantee: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStackGuarantee)(windows_core::Interface::as_raw(self), guarantee).ok() }
     }
-    pub unsafe fn GetStackGuarantee(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStackGuarantee(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStackGuarantee)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCLRTaskManager<P0>(&self, ppmanager: P0) -> windows_core::Result<()>
+    pub unsafe fn SetCLRTaskManager<P0>(&self, ppmanager: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ICLRTaskManager>,
     {
@@ -5816,24 +5816,24 @@ pub struct IHostTaskManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Threading")]
 pub trait IHostTaskManager_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentTask(&self) -> windows_core::Result<IHostTask>;
-    fn CreateTask(&self, dwstacksize: u32, pstartaddress: super::Threading::LPTHREAD_START_ROUTINE, pparameter: *const core::ffi::c_void) -> windows_core::Result<IHostTask>;
-    fn Sleep(&self, dwmilliseconds: u32, option: u32) -> windows_core::Result<()>;
-    fn SwitchToTask(&self, option: u32) -> windows_core::Result<()>;
-    fn SetUILocale(&self, lcid: u32) -> windows_core::Result<()>;
-    fn SetLocale(&self, lcid: u32) -> windows_core::Result<()>;
-    fn CallNeedsHostHook(&self, target: usize) -> windows_core::Result<windows_core::BOOL>;
-    fn LeaveRuntime(&self, target: usize) -> windows_core::Result<()>;
-    fn EnterRuntime(&self) -> windows_core::Result<()>;
-    fn ReverseLeaveRuntime(&self) -> windows_core::Result<()>;
-    fn ReverseEnterRuntime(&self) -> windows_core::Result<()>;
-    fn BeginDelayAbort(&self) -> windows_core::Result<()>;
-    fn EndDelayAbort(&self) -> windows_core::Result<()>;
-    fn BeginThreadAffinity(&self) -> windows_core::Result<()>;
-    fn EndThreadAffinity(&self) -> windows_core::Result<()>;
-    fn SetStackGuarantee(&self, guarantee: u32) -> windows_core::Result<()>;
-    fn GetStackGuarantee(&self) -> windows_core::Result<u32>;
-    fn SetCLRTaskManager(&self, ppmanager: windows_core::Ref<'_, ICLRTaskManager>) -> windows_core::Result<()>;
+    fn GetCurrentTask(&self) -> Result<IHostTask, windows_result::HRESULT>;
+    fn CreateTask(&self, dwstacksize: u32, pstartaddress: super::Threading::LPTHREAD_START_ROUTINE, pparameter: *const core::ffi::c_void) -> Result<IHostTask, windows_result::HRESULT>;
+    fn Sleep(&self, dwmilliseconds: u32, option: u32) -> Result<(), windows_result::HRESULT>;
+    fn SwitchToTask(&self, option: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetUILocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetLocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT>;
+    fn CallNeedsHostHook(&self, target: usize) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn LeaveRuntime(&self, target: usize) -> Result<(), windows_result::HRESULT>;
+    fn EnterRuntime(&self) -> Result<(), windows_result::HRESULT>;
+    fn ReverseLeaveRuntime(&self) -> Result<(), windows_result::HRESULT>;
+    fn ReverseEnterRuntime(&self) -> Result<(), windows_result::HRESULT>;
+    fn BeginDelayAbort(&self) -> Result<(), windows_result::HRESULT>;
+    fn EndDelayAbort(&self) -> Result<(), windows_result::HRESULT>;
+    fn BeginThreadAffinity(&self) -> Result<(), windows_result::HRESULT>;
+    fn EndThreadAffinity(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetStackGuarantee(&self, guarantee: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetStackGuarantee(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetCLRTaskManager(&self, ppmanager: windows_core::Ref<'_, ICLRTaskManager>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Threading")]
 impl IHostTaskManager_Vtbl {
@@ -6002,28 +6002,28 @@ windows_core::imp::define_interface!(IHostThreadpoolManager, IHostThreadpoolMana
 windows_core::imp::interface_hierarchy!(IHostThreadpoolManager, windows_core::IUnknown);
 impl IHostThreadpoolManager {
     #[cfg(feature = "Win32_System_Threading")]
-    pub unsafe fn QueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn QueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, flags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueueUserWorkItem)(windows_core::Interface::as_raw(self), function, context, flags).ok() }
     }
-    pub unsafe fn SetMaxThreads(&self, dwmaxworkerthreads: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaxThreads(&self, dwmaxworkerthreads: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxThreads)(windows_core::Interface::as_raw(self), dwmaxworkerthreads).ok() }
     }
-    pub unsafe fn GetMaxThreads(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetMaxThreads(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxThreads)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAvailableThreads(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetAvailableThreads(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAvailableThreads)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMinThreads)(windows_core::Interface::as_raw(self), dwminiocompletionthreads).ok() }
     }
-    pub unsafe fn GetMinThreads(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetMinThreads(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinThreads)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6046,12 +6046,12 @@ pub struct IHostThreadpoolManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Threading")]
 pub trait IHostThreadpoolManager_Impl: windows_core::IUnknownImpl {
-    fn QueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, flags: u32) -> windows_core::Result<()>;
-    fn SetMaxThreads(&self, dwmaxworkerthreads: u32) -> windows_core::Result<()>;
-    fn GetMaxThreads(&self) -> windows_core::Result<u32>;
-    fn GetAvailableThreads(&self) -> windows_core::Result<u32>;
-    fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> windows_core::Result<()>;
-    fn GetMinThreads(&self) -> windows_core::Result<u32>;
+    fn QueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const core::ffi::c_void, flags: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetMaxThreads(&self, dwmaxworkerthreads: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetMaxThreads(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetAvailableThreads(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetMinThreads(&self, dwminiocompletionthreads: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetMinThreads(&self) -> Result<u32, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Threading")]
 impl IHostThreadpoolManager_Vtbl {
@@ -6129,13 +6129,13 @@ impl windows_core::RuntimeName for IHostThreadpoolManager {}
 windows_core::imp::define_interface!(IManagedObject, IManagedObject_Vtbl, 0xc3fcc19e_a970_11d2_8b5a_00a0c9b7c9c4);
 windows_core::imp::interface_hierarchy!(IManagedObject, windows_core::IUnknown);
 impl IManagedObject {
-    pub unsafe fn GetSerializedBuffer(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetSerializedBuffer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSerializedBuffer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetObjectIdentity(&self, pbstrguid: *mut windows_core::BSTR, appdomainid: *mut i32, pccw: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetObjectIdentity(&self, pbstrguid: *mut windows_core::BSTR, appdomainid: *mut i32, pccw: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetObjectIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrguid), appdomainid as _, pccw as _).ok() }
     }
 }
@@ -6147,8 +6147,8 @@ pub struct IManagedObject_Vtbl {
     pub GetObjectIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IManagedObject_Impl: windows_core::IUnknownImpl {
-    fn GetSerializedBuffer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetObjectIdentity(&self, pbstrguid: *mut windows_core::BSTR, appdomainid: *mut i32, pccw: *mut i32) -> windows_core::Result<()>;
+    fn GetSerializedBuffer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetObjectIdentity(&self, pbstrguid: *mut windows_core::BSTR, appdomainid: *mut i32, pccw: *mut i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IManagedObject_Vtbl {
     pub const fn new<Identity: IManagedObject_Impl, const OFFSET: isize>() -> Self {
@@ -6185,7 +6185,7 @@ windows_core::imp::define_interface!(IObjectHandle, IObjectHandle_Vtbl, 0xc460e2
 windows_core::imp::interface_hierarchy!(IObjectHandle, windows_core::IUnknown);
 impl IObjectHandle {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Unwrap(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn Unwrap(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Unwrap)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -6203,7 +6203,7 @@ pub struct IObjectHandle_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IObjectHandle_Impl: windows_core::IUnknownImpl {
-    fn Unwrap(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn Unwrap(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IObjectHandle_Vtbl {
@@ -6231,43 +6231,43 @@ impl windows_core::RuntimeName for IObjectHandle {}
 windows_core::imp::define_interface!(ITypeName, ITypeName_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b00522);
 windows_core::imp::interface_hierarchy!(ITypeName, windows_core::IUnknown);
 impl ITypeName {
-    pub unsafe fn GetNameCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetNameCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNameCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetNames(&self, count: u32, rgbsznames: *mut windows_core::BSTR) -> windows_core::Result<u32> {
+    pub unsafe fn GetNames(&self, count: u32, rgbsznames: *mut windows_core::BSTR) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNames)(windows_core::Interface::as_raw(self), count, core::mem::transmute(rgbsznames), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTypeArgumentCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetTypeArgumentCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTypeArgumentCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTypeArguments(&self, count: u32, rgparguments: *mut Option<ITypeName>) -> windows_core::Result<u32> {
+    pub unsafe fn GetTypeArguments(&self, count: u32, rgparguments: *mut Option<ITypeName>) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTypeArguments)(windows_core::Interface::as_raw(self), count, core::mem::transmute(rgparguments), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetModifierLength(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetModifierLength(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetModifierLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32) -> windows_core::Result<u32> {
+    pub unsafe fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetModifiers)(windows_core::Interface::as_raw(self), count, rgmodifiers as _, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAssemblyName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetAssemblyName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAssemblyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -6287,13 +6287,13 @@ pub struct ITypeName_Vtbl {
     pub GetAssemblyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITypeName_Impl: windows_core::IUnknownImpl {
-    fn GetNameCount(&self) -> windows_core::Result<u32>;
-    fn GetNames(&self, count: u32, rgbsznames: *mut windows_core::BSTR) -> windows_core::Result<u32>;
-    fn GetTypeArgumentCount(&self) -> windows_core::Result<u32>;
-    fn GetTypeArguments(&self, count: u32, rgparguments: windows_core::OutRef<'_, ITypeName>) -> windows_core::Result<u32>;
-    fn GetModifierLength(&self) -> windows_core::Result<u32>;
-    fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32) -> windows_core::Result<u32>;
-    fn GetAssemblyName(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn GetNameCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetNames(&self, count: u32, rgbsznames: *mut windows_core::BSTR) -> Result<u32, windows_result::HRESULT>;
+    fn GetTypeArgumentCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetTypeArguments(&self, count: u32, rgparguments: windows_core::OutRef<'_, ITypeName>) -> Result<u32, windows_result::HRESULT>;
+    fn GetModifierLength(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32) -> Result<u32, windows_result::HRESULT>;
+    fn GetAssemblyName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 impl ITypeName_Vtbl {
     pub const fn new<Identity: ITypeName_Impl, const OFFSET: isize>() -> Self {
@@ -6400,49 +6400,49 @@ impl windows_core::RuntimeName for ITypeName {}
 windows_core::imp::define_interface!(ITypeNameBuilder, ITypeNameBuilder_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b00523);
 windows_core::imp::interface_hierarchy!(ITypeNameBuilder, windows_core::IUnknown);
 impl ITypeNameBuilder {
-    pub unsafe fn OpenGenericArguments(&self) -> windows_core::Result<()> {
+    pub unsafe fn OpenGenericArguments(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OpenGenericArguments)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CloseGenericArguments(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseGenericArguments(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseGenericArguments)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn OpenGenericArgument(&self) -> windows_core::Result<()> {
+    pub unsafe fn OpenGenericArgument(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OpenGenericArgument)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CloseGenericArgument(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseGenericArgument(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseGenericArgument)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddName<P0>(&self, szname: P0) -> windows_core::Result<()>
+    pub unsafe fn AddName<P0>(&self, szname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddName)(windows_core::Interface::as_raw(self), szname.param().abi()).ok() }
     }
-    pub unsafe fn AddPointer(&self) -> windows_core::Result<()> {
+    pub unsafe fn AddPointer(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddPointer)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddByRef(&self) -> windows_core::Result<()> {
+    pub unsafe fn AddByRef(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddByRef)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddSzArray(&self) -> windows_core::Result<()> {
+    pub unsafe fn AddSzArray(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddSzArray)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddArray(&self, rank: u32) -> windows_core::Result<()> {
+    pub unsafe fn AddArray(&self, rank: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddArray)(windows_core::Interface::as_raw(self), rank).ok() }
     }
-    pub unsafe fn AddAssemblySpec<P0>(&self, szassemblyspec: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAssemblySpec<P0>(&self, szassemblyspec: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAssemblySpec)(windows_core::Interface::as_raw(self), szassemblyspec.param().abi()).ok() }
     }
-    pub unsafe fn ToString(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ToString(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ToString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -6464,18 +6464,18 @@ pub struct ITypeNameBuilder_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITypeNameBuilder_Impl: windows_core::IUnknownImpl {
-    fn OpenGenericArguments(&self) -> windows_core::Result<()>;
-    fn CloseGenericArguments(&self) -> windows_core::Result<()>;
-    fn OpenGenericArgument(&self) -> windows_core::Result<()>;
-    fn CloseGenericArgument(&self) -> windows_core::Result<()>;
-    fn AddName(&self, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AddPointer(&self) -> windows_core::Result<()>;
-    fn AddByRef(&self) -> windows_core::Result<()>;
-    fn AddSzArray(&self) -> windows_core::Result<()>;
-    fn AddArray(&self, rank: u32) -> windows_core::Result<()>;
-    fn AddAssemblySpec(&self, szassemblyspec: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ToString(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn OpenGenericArguments(&self) -> Result<(), windows_result::HRESULT>;
+    fn CloseGenericArguments(&self) -> Result<(), windows_result::HRESULT>;
+    fn OpenGenericArgument(&self) -> Result<(), windows_result::HRESULT>;
+    fn CloseGenericArgument(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddName(&self, szname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn AddPointer(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddByRef(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddSzArray(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddArray(&self, rank: u32) -> Result<(), windows_result::HRESULT>;
+    fn AddAssemblySpec(&self, szassemblyspec: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn ToString(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ITypeNameBuilder_Vtbl {
     pub const fn new<Identity: ITypeNameBuilder_Impl, const OFFSET: isize>() -> Self {
@@ -6581,7 +6581,7 @@ impl windows_core::RuntimeName for ITypeNameBuilder {}
 windows_core::imp::define_interface!(ITypeNameFactory, ITypeNameFactory_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b00521);
 windows_core::imp::interface_hierarchy!(ITypeNameFactory, windows_core::IUnknown);
 impl ITypeNameFactory {
-    pub unsafe fn ParseTypeName<P0>(&self, szname: P0, perror: *mut u32) -> windows_core::Result<ITypeName>
+    pub unsafe fn ParseTypeName<P0>(&self, szname: P0, perror: *mut u32) -> Result<ITypeName, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -6590,7 +6590,7 @@ impl ITypeNameFactory {
             (windows_core::Interface::vtable(self).ParseTypeName)(windows_core::Interface::as_raw(self), szname.param().abi(), perror as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetTypeNameBuilder(&self) -> windows_core::Result<ITypeNameBuilder> {
+    pub unsafe fn GetTypeNameBuilder(&self) -> Result<ITypeNameBuilder, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTypeNameBuilder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6605,8 +6605,8 @@ pub struct ITypeNameFactory_Vtbl {
     pub GetTypeNameBuilder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITypeNameFactory_Impl: windows_core::IUnknownImpl {
-    fn ParseTypeName(&self, szname: &windows_core::PCWSTR, perror: *mut u32) -> windows_core::Result<ITypeName>;
-    fn GetTypeNameBuilder(&self) -> windows_core::Result<ITypeNameBuilder>;
+    fn ParseTypeName(&self, szname: &windows_core::PCWSTR, perror: *mut u32) -> Result<ITypeName, windows_result::HRESULT>;
+    fn GetTypeNameBuilder(&self) -> Result<ITypeNameBuilder, windows_result::HRESULT>;
 }
 impl ITypeNameFactory_Vtbl {
     pub const fn new<Identity: ITypeNameFactory_Impl, const OFFSET: isize>() -> Self {

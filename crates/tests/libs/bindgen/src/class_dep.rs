@@ -32,7 +32,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
-    pub fn First(&self) -> windows_core::Result<IIterator<T>> {
+    pub fn First(&self) -> Result<IIterator<T>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -51,7 +51,7 @@ pub trait IIterable_Impl<T>: windows_core::IUnknownImpl
 where
     T: windows_core::RuntimeType + 'static,
 {
-    fn First(&self) -> windows_core::Result<IIterator<T>>;
+    fn First(&self) -> Result<IIterator<T>, windows_result::HRESULT>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
     pub const fn new<Identity: IIterable_Impl<T>, const OFFSET: isize>() -> Self {
@@ -139,7 +139,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
-    pub fn Current(&self) -> windows_core::Result<T> {
+    pub fn Current(&self) -> Result<T, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -150,7 +150,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub fn HasCurrent(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -161,7 +161,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
             .map(|| result__)
         }
     }
-    pub fn MoveNext(&self) -> windows_core::Result<bool> {
+    pub fn MoveNext(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -175,7 +175,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn GetMany(
         &self,
         items: &mut [<T as windows_core::Type<T>>::Default],
-    ) -> windows_core::Result<u32> {
+    ) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -196,13 +196,13 @@ pub trait IIterator_Impl<T>: windows_core::IUnknownImpl
 where
     T: windows_core::RuntimeType + 'static,
 {
-    fn Current(&self) -> windows_core::Result<T>;
-    fn HasCurrent(&self) -> windows_core::Result<bool>;
-    fn MoveNext(&self) -> windows_core::Result<bool>;
+    fn Current(&self) -> Result<T, windows_result::HRESULT>;
+    fn HasCurrent(&self) -> Result<bool, windows_result::HRESULT>;
+    fn MoveNext(&self) -> Result<bool, windows_result::HRESULT>;
     fn GetMany(
         &self,
         items: &mut [<T as windows_core::Type<T>>::Default],
-    ) -> windows_core::Result<u32>;
+    ) -> Result<u32, windows_result::HRESULT>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
     pub const fn new<Identity: IIterator_Impl<T>, const OFFSET: isize>() -> Self {
@@ -376,7 +376,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterabl
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
+    pub fn GetAt(&self, index: u32) -> Result<T, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -388,7 +388,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -399,7 +399,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
             .map(|| result__)
         }
     }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<T>,
     {
@@ -419,7 +419,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
         &self,
         startindex: u32,
         items: &mut [<T as windows_core::Type<T>>::Default],
-    ) -> windows_core::Result<u32> {
+    ) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -433,7 +433,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
             .map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<IIterator<T>> {
+    pub fn First(&self) -> Result<IIterator<T>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -466,18 +466,18 @@ pub trait IVectorView_Impl<T>: IIterable_Impl<T>
 where
     T: windows_core::RuntimeType + 'static,
 {
-    fn GetAt(&self, index: u32) -> windows_core::Result<T>;
-    fn Size(&self) -> windows_core::Result<u32>;
+    fn GetAt(&self, index: u32) -> Result<T, windows_result::HRESULT>;
+    fn Size(&self) -> Result<u32, windows_result::HRESULT>;
     fn IndexOf(
         &self,
         value: windows_core::Ref<'_, T>,
         index: &mut u32,
-    ) -> windows_core::Result<bool>;
+    ) -> Result<bool, windows_result::HRESULT>;
     fn GetMany(
         &self,
         startIndex: u32,
         items: &mut [<T as windows_core::Type<T>>::Default],
-    ) -> windows_core::Result<u32>;
+    ) -> Result<u32, windows_result::HRESULT>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
     pub const fn new<Identity: IVectorView_Impl<T>, const OFFSET: isize>() -> Self {
@@ -635,7 +635,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IWwwFormUrlDecoderEntry {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -646,7 +646,7 @@ impl IWwwFormUrlDecoderEntry {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Value(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -662,8 +662,8 @@ impl windows_core::RuntimeName for IWwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderEntry";
 }
 pub trait IWwwFormUrlDecoderEntry_Impl: windows_core::IUnknownImpl {
-    fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Value(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn Value(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
 }
 impl IWwwFormUrlDecoderEntry_Vtbl {
     pub const fn new<Identity: IWwwFormUrlDecoderEntry_Impl, const OFFSET: isize>() -> Self {
@@ -783,7 +783,7 @@ windows_core::imp::required_hierarchy!(
     IVectorView<IWwwFormUrlDecoderEntry>
 );
 impl WwwFormUrlDecoder {
-    pub fn First(&self) -> windows_core::Result<IIterator<IWwwFormUrlDecoderEntry>> {
+    pub fn First(&self) -> Result<IIterator<IWwwFormUrlDecoderEntry>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IIterable<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -794,7 +794,7 @@ impl WwwFormUrlDecoder {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<IWwwFormUrlDecoderEntry> {
+    pub fn GetAt(&self, index: u32) -> Result<IWwwFormUrlDecoderEntry, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -806,7 +806,7 @@ impl WwwFormUrlDecoder {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -817,7 +817,7 @@ impl WwwFormUrlDecoder {
             .map(|| result__)
         }
     }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<IWwwFormUrlDecoderEntry>,
     {
@@ -837,7 +837,7 @@ impl WwwFormUrlDecoder {
         &self,
         startindex: u32,
         items: &mut [Option<IWwwFormUrlDecoderEntry>],
-    ) -> windows_core::Result<u32> {
+    ) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -854,7 +854,7 @@ impl WwwFormUrlDecoder {
     pub fn GetFirstValueByName(
         &self,
         name: &windows_core::HSTRING,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -868,7 +868,7 @@ impl WwwFormUrlDecoder {
     }
     pub fn CreateWwwFormUrlDecoder(
         query: &windows_core::HSTRING,
-    ) -> windows_core::Result<WwwFormUrlDecoder> {
+    ) -> Result<WwwFormUrlDecoder, windows_result::HRESULT> {
         Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWwwFormUrlDecoder)(
@@ -881,10 +881,10 @@ impl WwwFormUrlDecoder {
     }
     fn IWwwFormUrlDecoderRuntimeClassFactory<
         R,
-        F: FnOnce(&IWwwFormUrlDecoderRuntimeClassFactory) -> windows_core::Result<R>,
+        F: FnOnce(&IWwwFormUrlDecoderRuntimeClassFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<
             WwwFormUrlDecoder,
             IWwwFormUrlDecoderRuntimeClassFactory,

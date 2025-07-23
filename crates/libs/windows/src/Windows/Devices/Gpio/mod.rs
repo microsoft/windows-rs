@@ -18,51 +18,51 @@ pub struct GpioChangeCounter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioChangeCounter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeCounter, super::super::Foundation::IClosable);
 impl GpioChangeCounter {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SetPolarity(&self, value: GpioChangePolarity) -> windows_core::Result<()> {
+    pub fn SetPolarity(&self, value: GpioChangePolarity) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPolarity)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Polarity(&self) -> windows_core::Result<GpioChangePolarity> {
+    pub fn Polarity(&self) -> Result<GpioChangePolarity, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Polarity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsStarted(&self) -> windows_core::Result<bool> {
+    pub fn IsStarted(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsStarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Read(&self) -> windows_core::Result<GpioChangeCount> {
+    pub fn Read(&self) -> Result<GpioChangeCount, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Reset(&self) -> windows_core::Result<GpioChangeCount> {
+    pub fn Reset(&self) -> Result<GpioChangeCount, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Create<P0>(pin: P0) -> windows_core::Result<GpioChangeCounter>
+    pub fn Create<P0>(pin: P0) -> Result<GpioChangeCounter, windows_result::HRESULT>
     where
         P0: windows_core::Param<GpioPin>,
     {
@@ -71,7 +71,7 @@ impl GpioChangeCounter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGpioChangeCounterFactory<R, F: FnOnce(&IGpioChangeCounterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioChangeCounterFactory<R, F: FnOnce(&IGpioChangeCounterFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GpioChangeCounter, IGpioChangeCounterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -108,97 +108,97 @@ pub struct GpioChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeReader, super::super::Foundation::IClosable);
 impl GpioChangeReader {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Capacity(&self) -> windows_core::Result<i32> {
+    pub fn Capacity(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Capacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Length(&self) -> windows_core::Result<i32> {
+    pub fn Length(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Length)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsEmpty(&self) -> windows_core::Result<bool> {
+    pub fn IsEmpty(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEmpty)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsOverflowed(&self) -> windows_core::Result<bool> {
+    pub fn IsOverflowed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOverflowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPolarity(&self, value: GpioChangePolarity) -> windows_core::Result<()> {
+    pub fn SetPolarity(&self, value: GpioChangePolarity) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPolarity)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Polarity(&self) -> windows_core::Result<GpioChangePolarity> {
+    pub fn Polarity(&self) -> Result<GpioChangePolarity, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Polarity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsStarted(&self) -> windows_core::Result<bool> {
+    pub fn IsStarted(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsStarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetNextItem(&self) -> windows_core::Result<GpioChangeRecord> {
+    pub fn GetNextItem(&self) -> Result<GpioChangeRecord, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNextItem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PeekNextItem(&self) -> windows_core::Result<GpioChangeRecord> {
+    pub fn PeekNextItem(&self) -> Result<GpioChangeRecord, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeekNextItem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetAllItems(&self) -> windows_core::Result<windows_collections::IVector<GpioChangeRecord>> {
+    pub fn GetAllItems(&self) -> Result<windows_collections::IVector<GpioChangeRecord>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllItems)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WaitForItemsAsync(&self, count: i32) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn WaitForItemsAsync(&self, count: i32) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WaitForItemsAsync)(windows_core::Interface::as_raw(this), count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P0>(pin: P0) -> windows_core::Result<GpioChangeReader>
+    pub fn Create<P0>(pin: P0) -> Result<GpioChangeReader, windows_result::HRESULT>
     where
         P0: windows_core::Param<GpioPin>,
     {
@@ -207,7 +207,7 @@ impl GpioChangeReader {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithCapacity<P0>(pin: P0, mincapacity: i32) -> windows_core::Result<GpioChangeReader>
+    pub fn CreateWithCapacity<P0>(pin: P0, mincapacity: i32) -> Result<GpioChangeReader, windows_result::HRESULT>
     where
         P0: windows_core::Param<GpioPin>,
     {
@@ -216,7 +216,7 @@ impl GpioChangeReader {
             (windows_core::Interface::vtable(this).CreateWithCapacity)(windows_core::Interface::as_raw(this), pin.param().abi(), mincapacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGpioChangeReaderFactory<R, F: FnOnce(&IGpioChangeReaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioChangeReaderFactory<R, F: FnOnce(&IGpioChangeReaderFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GpioChangeReader, IGpioChangeReaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -250,42 +250,42 @@ impl windows_core::RuntimeType for GpioChangeRecord {
 pub struct GpioController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioController, windows_core::IUnknown, windows_core::IInspectable);
 impl GpioController {
-    pub fn PinCount(&self) -> windows_core::Result<i32> {
+    pub fn PinCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PinCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OpenPin(&self, pinnumber: i32) -> windows_core::Result<GpioPin> {
+    pub fn OpenPin(&self, pinnumber: i32) -> Result<GpioPin, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenPin)(windows_core::Interface::as_raw(this), pinnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenPinWithSharingMode(&self, pinnumber: i32, sharingmode: GpioSharingMode) -> windows_core::Result<GpioPin> {
+    pub fn OpenPinWithSharingMode(&self, pinnumber: i32, sharingmode: GpioSharingMode) -> Result<GpioPin, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenPinWithSharingMode)(windows_core::Interface::as_raw(this), pinnumber, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryOpenPin(&self, pinnumber: i32, sharingmode: GpioSharingMode, pin: &mut Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> windows_core::Result<bool> {
+    pub fn TryOpenPin(&self, pinnumber: i32, sharingmode: GpioSharingMode, pin: &mut Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryOpenPin)(windows_core::Interface::as_raw(this), pinnumber, sharingmode, pin as *mut _ as _, openstatus, &mut result__).map(|| result__)
         }
     }
-    pub fn GetDefault() -> windows_core::Result<GpioController> {
+    pub fn GetDefault() -> Result<GpioController, windows_result::HRESULT> {
         Self::IGpioControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GpioController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GpioController>>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Provider::IGpioProvider>,
     {
@@ -294,17 +294,17 @@ impl GpioController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<GpioController>> {
+    pub fn GetDefaultAsync() -> Result<windows_future::IAsyncOperation<GpioController>, windows_result::HRESULT> {
         Self::IGpioControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGpioControllerStatics<R, F: FnOnce(&IGpioControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioControllerStatics<R, F: FnOnce(&IGpioControllerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GpioController, IGpioControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGpioControllerStatics2<R, F: FnOnce(&IGpioControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioControllerStatics2<R, F: FnOnce(&IGpioControllerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GpioController, IGpioControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -343,11 +343,11 @@ pub struct GpioPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioPin, super::super::Foundation::IClosable);
 impl GpioPin {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ValueChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>,
     {
@@ -357,58 +357,58 @@ impl GpioPin {
             (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveValueChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveValueChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DebounceTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DebounceTimeout(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DebounceTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDebounceTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDebounceTimeout(&self, value: super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDebounceTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PinNumber(&self) -> windows_core::Result<i32> {
+    pub fn PinNumber(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PinNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SharingMode(&self) -> windows_core::Result<GpioSharingMode> {
+    pub fn SharingMode(&self) -> Result<GpioSharingMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SharingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDriveModeSupported(&self, drivemode: GpioPinDriveMode) -> windows_core::Result<bool> {
+    pub fn IsDriveModeSupported(&self, drivemode: GpioPinDriveMode) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDriveModeSupported)(windows_core::Interface::as_raw(this), drivemode, &mut result__).map(|| result__)
         }
     }
-    pub fn GetDriveMode(&self) -> windows_core::Result<GpioPinDriveMode> {
+    pub fn GetDriveMode(&self) -> Result<GpioPinDriveMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDriveMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDriveMode(&self, value: GpioPinDriveMode) -> windows_core::Result<()> {
+    pub fn SetDriveMode(&self, value: GpioPinDriveMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDriveMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Write(&self, value: GpioPinValue) -> windows_core::Result<()> {
+    pub fn Write(&self, value: GpioPinValue) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Write)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Read(&self) -> windows_core::Result<GpioPinValue> {
+    pub fn Read(&self) -> Result<GpioPinValue, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -478,7 +478,7 @@ impl windows_core::RuntimeType for GpioPinValue {
 pub struct GpioPinValueChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GpioPinValueChangedEventArgs {
-    pub fn Edge(&self) -> windows_core::Result<GpioPinEdge> {
+    pub fn Edge(&self) -> Result<GpioPinEdge, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

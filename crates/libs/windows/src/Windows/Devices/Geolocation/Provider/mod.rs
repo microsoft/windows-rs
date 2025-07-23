@@ -3,32 +3,32 @@
 pub struct GeolocationProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeolocationProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl GeolocationProvider {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GeolocationProvider, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn IsOverridden(&self) -> windows_core::Result<bool> {
+    pub fn IsOverridden(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOverridden)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOverridePosition(&self, newposition: super::BasicGeoposition, positionsource: super::PositionSource, accuracyinmeters: f64) -> windows_core::Result<LocationOverrideStatus> {
+    pub fn SetOverridePosition(&self, newposition: super::BasicGeoposition, positionsource: super::PositionSource, accuracyinmeters: f64) -> Result<LocationOverrideStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetOverridePosition)(windows_core::Interface::as_raw(this), newposition, positionsource, accuracyinmeters, &mut result__).map(|| result__)
         }
     }
-    pub fn ClearOverridePosition(&self) -> windows_core::Result<()> {
+    pub fn ClearOverridePosition(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearOverridePosition)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsOverriddenChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn IsOverriddenChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -38,7 +38,7 @@ impl GeolocationProvider {
             (windows_core::Interface::vtable(this).IsOverriddenChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveIsOverriddenChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveIsOverriddenChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsOverriddenChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }

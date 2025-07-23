@@ -16,23 +16,23 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(Deferral, IClosable);
 impl Deferral {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IClosable>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    fn IDeferralFactory<R, F: FnOnce(&IDeferralFactory) -> windows_core::Result<R>>(
+    fn IDeferralFactory<R, F: FnOnce(&IDeferralFactory) -> Result<R, windows_result::HRESULT>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Deferral, IDeferralFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -66,7 +66,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IClosable {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
@@ -78,7 +78,7 @@ impl windows_core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
 }
 pub trait IClosable_Impl: windows_core::IUnknownImpl {
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IClosable_Vtbl {
     pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {

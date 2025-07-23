@@ -324,7 +324,7 @@ pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
     unsafe { SetServiceW(dwnamespace, dwoperation, dwflags, lpserviceinfo, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _, lpdwstatusflags as _) }
 }
 #[inline]
-pub unsafe fn SetSocketMediaStreamingMode(value: bool) -> windows_core::Result<()> {
+pub unsafe fn SetSocketMediaStreamingMode(value: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("windows.networking.dll" "system" fn SetSocketMediaStreamingMode(value : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { SetSocketMediaStreamingMode(value.into()).ok() }
 }
@@ -341,10 +341,10 @@ pub unsafe fn WPUCompleteOverlappedRequest(s: SOCKET, lpoverlapped: *mut super::
     unsafe { WPUCompleteOverlappedRequest(s, lpoverlapped as _, dwerror, cbtransferred, lperrno as _) }
 }
 #[inline]
-pub unsafe fn WSAAccept(s: SOCKET, addr: Option<*mut SOCKADDR>, addrlen: Option<*mut i32>, lpfncondition: LPCONDITIONPROC, dwcallbackdata: Option<usize>) -> windows_core::Result<SOCKET> {
+pub unsafe fn WSAAccept(s: SOCKET, addr: Option<*mut SOCKADDR>, addrlen: Option<*mut i32>, lpfncondition: LPCONDITIONPROC, dwcallbackdata: Option<usize>) -> Result<SOCKET, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAAccept(s : SOCKET, addr : *mut SOCKADDR, addrlen : *mut i32, lpfncondition : LPCONDITIONPROC, dwcallbackdata : usize) -> SOCKET);
     let result__ = unsafe { WSAAccept(s, addr.unwrap_or(core::mem::zeroed()) as _, addrlen.unwrap_or(core::mem::zeroed()) as _, lpfncondition, dwcallbackdata.unwrap_or(core::mem::zeroed()) as _) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOA>, lpszaddressstring: windows_core::PSTR, lpdwaddressstringlength: *mut u32) -> i32 {
@@ -363,53 +363,53 @@ pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const windows_core::GUID, p
     unsafe { WSAAdvertiseProvider(puuidproviderid, pnspv2routine) }
 }
 #[inline]
-pub unsafe fn WSAAsyncGetHostByAddr(hwnd: super::super::Foundation::HWND, wmsg: u32, addr: &[u8], r#type: i32, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WSAAsyncGetHostByAddr(hwnd: super::super::Foundation::HWND, wmsg: u32, addr: &[u8], r#type: i32, buf: &mut [u8]) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByAddr(hwnd : super::super::Foundation:: HWND, wmsg : u32, addr : windows_core::PCSTR, len : i32, r#type : i32, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { WSAAsyncGetHostByAddr(hwnd, wmsg, core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn WSAAsyncGetHostByName<P2>(hwnd: super::super::Foundation::HWND, wmsg: u32, name: P2, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WSAAsyncGetHostByName<P2>(hwnd: super::super::Foundation::HWND, wmsg: u32, name: P2, buf: &mut [u8]) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { WSAAsyncGetHostByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn WSAAsyncGetProtoByName<P2>(hwnd: super::super::Foundation::HWND, wmsg: u32, name: P2, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WSAAsyncGetProtoByName<P2>(hwnd: super::super::Foundation::HWND, wmsg: u32, name: P2, buf: &mut [u8]) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { WSAAsyncGetProtoByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn WSAAsyncGetProtoByNumber(hwnd: super::super::Foundation::HWND, wmsg: u32, number: i32, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WSAAsyncGetProtoByNumber(hwnd: super::super::Foundation::HWND, wmsg: u32, number: i32, buf: &mut [u8]) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByNumber(hwnd : super::super::Foundation:: HWND, wmsg : u32, number : i32, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { WSAAsyncGetProtoByNumber(hwnd, wmsg, number, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn WSAAsyncGetServByName<P2, P3>(hwnd: super::super::Foundation::HWND, wmsg: u32, name: P2, proto: P3, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WSAAsyncGetServByName<P2, P3>(hwnd: super::super::Foundation::HWND, wmsg: u32, name: P2, proto: P3, buf: &mut [u8]) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("ws2_32.dll" "system" fn WSAAsyncGetServByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, proto : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { WSAAsyncGetServByName(hwnd, wmsg, name.param().abi(), proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn WSAAsyncGetServByPort<P3>(hwnd: super::super::Foundation::HWND, wmsg: u32, port: i32, proto: P3, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WSAAsyncGetServByPort<P3>(hwnd: super::super::Foundation::HWND, wmsg: u32, port: i32, proto: P3, buf: &mut [u8]) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_link::link!("ws2_32.dll" "system" fn WSAAsyncGetServByPort(hwnd : super::super::Foundation:: HWND, wmsg : u32, port : i32, proto : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { WSAAsyncGetServByPort(hwnd, wmsg, port, proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn WSAAsyncSelect(s: SOCKET, hwnd: super::super::Foundation::HWND, wmsg: u32, levent: i32) -> i32 {
@@ -432,7 +432,7 @@ pub unsafe fn WSACleanup() -> i32 {
     unsafe { WSACleanup() }
 }
 #[inline]
-pub unsafe fn WSACloseEvent(hevent: WSAEVENT) -> windows_core::Result<()> {
+pub unsafe fn WSACloseEvent(hevent: WSAEVENT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSACloseEvent(hevent : WSAEVENT) -> windows_core::BOOL);
     unsafe { WSACloseEvent(hevent).ok() }
 }
@@ -443,13 +443,13 @@ pub unsafe fn WSAConnect(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcalle
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn WSAConnectByList(s: SOCKET, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: Option<*mut u32>, localaddress: Option<*mut SOCKADDR>, remoteaddresslength: Option<*mut u32>, remoteaddress: Option<*mut SOCKADDR>, timeout: Option<*const TIMEVAL>, reserved: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
+pub unsafe fn WSAConnectByList(s: SOCKET, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: Option<*mut u32>, localaddress: Option<*mut SOCKADDR>, remoteaddresslength: Option<*mut u32>, remoteaddress: Option<*mut SOCKADDR>, timeout: Option<*const TIMEVAL>, reserved: Option<*const super::super::System::IO::OVERLAPPED>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAConnectByList(s : SOCKET, socketaddress : *const SOCKET_ADDRESS_LIST, localaddresslength : *mut u32, localaddress : *mut SOCKADDR, remoteaddresslength : *mut u32, remoteaddress : *mut SOCKADDR, timeout : *const TIMEVAL, reserved : *const super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
     unsafe { WSAConnectByList(s, socketaddress, localaddresslength.unwrap_or(core::mem::zeroed()) as _, localaddress.unwrap_or(core::mem::zeroed()) as _, remoteaddresslength.unwrap_or(core::mem::zeroed()) as _, remoteaddress.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn WSAConnectByNameA<P1, P2>(s: SOCKET, nodename: P1, servicename: P2, localaddresslength: Option<*mut u32>, localaddress: Option<*mut SOCKADDR>, remoteaddresslength: Option<*mut u32>, remoteaddress: Option<*mut SOCKADDR>, timeout: Option<*const TIMEVAL>, reserved: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
+pub unsafe fn WSAConnectByNameA<P1, P2>(s: SOCKET, nodename: P1, servicename: P2, localaddresslength: Option<*mut u32>, localaddress: Option<*mut SOCKADDR>, remoteaddresslength: Option<*mut u32>, remoteaddress: Option<*mut SOCKADDR>, timeout: Option<*const TIMEVAL>, reserved: Option<*const super::super::System::IO::OVERLAPPED>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -459,7 +459,7 @@ where
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn WSAConnectByNameW<P1, P2>(s: SOCKET, nodename: P1, servicename: P2, localaddresslength: Option<*mut u32>, localaddress: Option<*mut SOCKADDR>, remoteaddresslength: Option<*mut u32>, remoteaddress: Option<*mut SOCKADDR>, timeout: Option<*const TIMEVAL>, reserved: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()>
+pub unsafe fn WSAConnectByNameW<P1, P2>(s: SOCKET, nodename: P1, servicename: P2, localaddresslength: Option<*mut u32>, localaddress: Option<*mut SOCKADDR>, remoteaddresslength: Option<*mut u32>, remoteaddress: Option<*mut SOCKADDR>, timeout: Option<*const TIMEVAL>, reserved: Option<*const super::super::System::IO::OVERLAPPED>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -468,10 +468,10 @@ where
     unsafe { WSAConnectByNameW(s, nodename.param().abi(), servicename.param().abi(), localaddresslength.unwrap_or(core::mem::zeroed()) as _, localaddress.unwrap_or(core::mem::zeroed()) as _, remoteaddresslength.unwrap_or(core::mem::zeroed()) as _, remoteaddress.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WSACreateEvent() -> windows_core::Result<WSAEVENT> {
+pub unsafe fn WSACreateEvent() -> Result<WSAEVENT, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSACreateEvent() -> WSAEVENT);
     let result__ = unsafe { WSACreateEvent() };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -538,12 +538,12 @@ pub unsafe fn WSAGetLastError() -> WSA_ERROR {
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn WSAGetOverlappedResult(s: SOCKET, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: bool, lpdwflags: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WSAGetOverlappedResult(s: SOCKET, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: bool, lpdwflags: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAGetOverlappedResult(s : SOCKET, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpcbtransfer : *mut u32, fwait : windows_core::BOOL, lpdwflags : *mut u32) -> windows_core::BOOL);
     unsafe { WSAGetOverlappedResult(s, lpoverlapped, lpcbtransfer as _, fwait.into(), lpdwflags as _).ok() }
 }
 #[inline]
-pub unsafe fn WSAGetQOSByName(s: SOCKET, lpqosname: *const WSABUF, lpqos: *mut QOS) -> windows_core::Result<()> {
+pub unsafe fn WSAGetQOSByName(s: SOCKET, lpqosname: *const WSABUF, lpqos: *mut QOS) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAGetQOSByName(s : SOCKET, lpqosname : *const WSABUF, lpqos : *mut QOS) -> windows_core::BOOL);
     unsafe { WSAGetQOSByName(s, lpqosname, lpqos as _).ok() }
 }
@@ -599,15 +599,15 @@ pub unsafe fn WSAIoctl(s: SOCKET, dwiocontrolcode: u32, lpvinbuffer: Option<*con
     unsafe { WSAIoctl(s, dwiocontrolcode, lpvinbuffer.unwrap_or(core::mem::zeroed()) as _, cbinbuffer, lpvoutbuffer.unwrap_or(core::mem::zeroed()) as _, cboutbuffer, lpcbbytesreturned as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[inline]
-pub unsafe fn WSAIsBlocking() -> windows_core::Result<()> {
+pub unsafe fn WSAIsBlocking() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAIsBlocking() -> windows_core::BOOL);
     unsafe { WSAIsBlocking().ok() }
 }
 #[inline]
-pub unsafe fn WSAJoinLeaf(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: Option<*const WSABUF>, lpcalleedata: Option<*mut WSABUF>, lpsqos: Option<*const QOS>, lpgqos: Option<*const QOS>, dwflags: u32) -> windows_core::Result<SOCKET> {
+pub unsafe fn WSAJoinLeaf(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: Option<*const WSABUF>, lpcalleedata: Option<*mut WSABUF>, lpsqos: Option<*const QOS>, lpgqos: Option<*const QOS>, dwflags: u32) -> Result<SOCKET, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAJoinLeaf(s : SOCKET, name : *const SOCKADDR, namelen : i32, lpcallerdata : *const WSABUF, lpcalleedata : *mut WSABUF, lpsqos : *const QOS, lpgqos : *const QOS, dwflags : u32) -> SOCKET);
     let result__ = unsafe { WSAJoinLeaf(s, name, namelen, lpcallerdata.unwrap_or(core::mem::zeroed()) as _, lpcalleedata.unwrap_or(core::mem::zeroed()) as _, lpsqos.unwrap_or(core::mem::zeroed()) as _, lpgqos.unwrap_or(core::mem::zeroed()) as _, dwflags) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -704,7 +704,7 @@ pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const windows_core::GUID)
     unsafe { WSARemoveServiceClass(lpserviceclassid) }
 }
 #[inline]
-pub unsafe fn WSAResetEvent(hevent: WSAEVENT) -> windows_core::Result<()> {
+pub unsafe fn WSAResetEvent(hevent: WSAEVENT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSAResetEvent(hevent : WSAEVENT) -> windows_core::BOOL);
     unsafe { WSAResetEvent(hevent).ok() }
 }
@@ -742,7 +742,7 @@ pub unsafe fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC)
     unsafe { WSASetBlockingHook(lpblockfunc) }
 }
 #[inline]
-pub unsafe fn WSASetEvent(hevent: WSAEVENT) -> windows_core::Result<()> {
+pub unsafe fn WSASetEvent(hevent: WSAEVENT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSASetEvent(hevent : WSAEVENT) -> windows_core::BOOL);
     unsafe { WSASetEvent(hevent).ok() }
 }
@@ -776,16 +776,16 @@ pub unsafe fn WSASetSocketSecurity(socket: SOCKET, securitysettings: Option<*con
     unsafe { WSASetSocketSecurity(socket, securitysettings.unwrap_or(core::mem::zeroed()) as _, securitysettingslen, overlapped.unwrap_or(core::mem::zeroed()) as _, completionroutine) }
 }
 #[inline]
-pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOA>, g: u32, dwflags: u32) -> windows_core::Result<SOCKET> {
+pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOA>, g: u32, dwflags: u32) -> Result<SOCKET, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSASocketA(af : i32, r#type : i32, protocol : i32, lpprotocolinfo : *const WSAPROTOCOL_INFOA, g : u32, dwflags : u32) -> SOCKET);
     let result__ = unsafe { WSASocketA(af, r#type, protocol, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, g, dwflags) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOW>, g: u32, dwflags: u32) -> windows_core::Result<SOCKET> {
+pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOW>, g: u32, dwflags: u32) -> Result<SOCKET, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn WSASocketW(af : i32, r#type : i32, protocol : i32, lpprotocolinfo : *const WSAPROTOCOL_INFOW, g : u32, dwflags : u32) -> SOCKET);
     let result__ = unsafe { WSASocketW(af, r#type, protocol, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, g, dwflags) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSADATA) -> i32 {
@@ -1036,10 +1036,10 @@ pub unsafe fn __WSAFDIsSet(fd: SOCKET, param1: *mut FD_SET) -> i32 {
     unsafe { __WSAFDIsSet(fd, param1 as _) }
 }
 #[inline]
-pub unsafe fn accept(s: SOCKET, addr: Option<*mut SOCKADDR>, addrlen: Option<*mut i32>) -> windows_core::Result<SOCKET> {
+pub unsafe fn accept(s: SOCKET, addr: Option<*mut SOCKADDR>, addrlen: Option<*mut i32>) -> Result<SOCKET, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn accept(s : SOCKET, addr : *mut SOCKADDR, addrlen : *mut i32) -> SOCKET);
     let result__ = unsafe { accept(s, addr.unwrap_or(core::mem::zeroed()) as _, addrlen.unwrap_or(core::mem::zeroed()) as _) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn bind(s: SOCKET, name: *const SOCKADDR, namelen: i32) -> i32 {
@@ -1230,10 +1230,10 @@ pub unsafe fn shutdown(s: SOCKET, how: WINSOCK_SHUTDOWN_HOW) -> i32 {
     unsafe { shutdown(s, how) }
 }
 #[inline]
-pub unsafe fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> windows_core::Result<SOCKET> {
+pub unsafe fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> Result<SOCKET, windows_result::HRESULT> {
     windows_link::link!("ws2_32.dll" "system" fn socket(af : i32, r#type : WINSOCK_SOCKET_TYPE, protocol : i32) -> SOCKET);
     let result__ = unsafe { socket(af, r#type, protocol) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 pub const AAL5_MODE_MESSAGE: u32 = 1u32;
 pub const AAL5_MODE_STREAMING: u32 = 2u32;

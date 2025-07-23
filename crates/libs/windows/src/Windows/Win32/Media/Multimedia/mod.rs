@@ -1,15 +1,15 @@
 #[inline]
-pub unsafe fn AVIBuildFilterA(lpszfilter: &mut [u8], fsaving: bool) -> windows_core::Result<()> {
+pub unsafe fn AVIBuildFilterA(lpszfilter: &mut [u8], fsaving: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { AVIBuildFilterA(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()).ok() }
 }
 #[inline]
-pub unsafe fn AVIBuildFilterW(lpszfilter: &mut [u16], fsaving: bool) -> windows_core::Result<()> {
+pub unsafe fn AVIBuildFilterW(lpszfilter: &mut [u16], fsaving: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { AVIBuildFilterW(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()).ok() }
 }
 #[inline]
-pub unsafe fn AVIClearClipboard() -> windows_core::Result<()> {
+pub unsafe fn AVIClearClipboard() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVIClearClipboard() -> windows_core::HRESULT);
     unsafe { AVIClearClipboard().ok() }
 }
@@ -22,7 +22,7 @@ where
     unsafe { AVIFileAddRef(pfile.param().abi()) }
 }
 #[inline]
-pub unsafe fn AVIFileCreateStreamA<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> windows_core::Result<()>
+pub unsafe fn AVIFileCreateStreamA<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -30,7 +30,7 @@ where
     unsafe { AVIFileCreateStreamA(pfile.param().abi(), core::mem::transmute(ppavi), psi).ok() }
 }
 #[inline]
-pub unsafe fn AVIFileCreateStreamW<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>
+pub unsafe fn AVIFileCreateStreamW<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -38,7 +38,7 @@ where
     unsafe { AVIFileCreateStreamW(pfile.param().abi(), core::mem::transmute(ppavi), psi).ok() }
 }
 #[inline]
-pub unsafe fn AVIFileEndRecord<P0>(pfile: P0) -> windows_core::Result<()>
+pub unsafe fn AVIFileEndRecord<P0>(pfile: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -51,7 +51,7 @@ pub unsafe fn AVIFileExit() {
     unsafe { AVIFileExit() }
 }
 #[inline]
-pub unsafe fn AVIFileGetStream<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>
+pub unsafe fn AVIFileGetStream<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -59,7 +59,7 @@ where
     unsafe { AVIFileGetStream(pfile.param().abi(), core::mem::transmute(ppavi), fcctype, lparam).ok() }
 }
 #[inline]
-pub unsafe fn AVIFileInfoA<P0>(pfile: P0, pfi: *mut AVIFILEINFOA, lsize: i32) -> windows_core::Result<()>
+pub unsafe fn AVIFileInfoA<P0>(pfile: P0, pfi: *mut AVIFILEINFOA, lsize: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -67,7 +67,7 @@ where
     unsafe { AVIFileInfoA(pfile.param().abi(), pfi as _, lsize).ok() }
 }
 #[inline]
-pub unsafe fn AVIFileInfoW<P0>(pfile: P0, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>
+pub unsafe fn AVIFileInfoW<P0>(pfile: P0, pfi: *mut AVIFILEINFOW, lsize: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -80,7 +80,7 @@ pub unsafe fn AVIFileInit() {
     unsafe { AVIFileInit() }
 }
 #[inline]
-pub unsafe fn AVIFileOpenA<P1>(ppfile: *mut Option<IAVIFile>, szfile: P1, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIFileOpenA<P1>(ppfile: *mut Option<IAVIFile>, szfile: P1, umode: u32, lphandler: Option<*const windows_core::GUID>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
@@ -88,7 +88,7 @@ where
     unsafe { AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), umode, lphandler.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIFileOpenW<P1>(ppfile: *mut Option<IAVIFile>, szfile: P1, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIFileOpenW<P1>(ppfile: *mut Option<IAVIFile>, szfile: P1, umode: u32, lphandler: Option<*const windows_core::GUID>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -96,7 +96,7 @@ where
     unsafe { AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), umode, lphandler.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIFileReadData<P0>(pfile: P0, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>
+pub unsafe fn AVIFileReadData<P0>(pfile: P0, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -112,7 +112,7 @@ where
     unsafe { AVIFileRelease(pfile.param().abi()) }
 }
 #[inline]
-pub unsafe fn AVIFileWriteData<P0>(pfile: P0, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()>
+pub unsafe fn AVIFileWriteData<P0>(pfile: P0, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -120,7 +120,7 @@ where
     unsafe { AVIFileWriteData(pfile.param().abi(), ckid, lpdata, cbdata).ok() }
 }
 #[inline]
-pub unsafe fn AVIGetFromClipboard() -> windows_core::Result<IAVIFile> {
+pub unsafe fn AVIGetFromClipboard() -> Result<IAVIFile, windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVIGetFromClipboard(lppf : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -128,7 +128,7 @@ pub unsafe fn AVIGetFromClipboard() -> windows_core::Result<IAVIFile> {
     }
 }
 #[inline]
-pub unsafe fn AVIMakeCompressedStream<P1>(ppscompressed: *mut Option<IAVIStream>, ppssource: P1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIMakeCompressedStream<P1>(ppscompressed: *mut Option<IAVIStream>, ppssource: P1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: Option<*const windows_core::GUID>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<IAVIStream>,
 {
@@ -136,12 +136,12 @@ where
     unsafe { AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, pclsidhandler.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: &[Option<IAVIStream>]) -> windows_core::Result<()> {
+pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: &[Option<IAVIStream>]) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut * mut core::ffi::c_void, nstreams : i32, papstreams : *const * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { AVIMakeFileFromStreams(core::mem::transmute(ppfile), papstreams.len().try_into().unwrap(), core::mem::transmute(papstreams.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE) -> windows_core::Result<IAVIStream> {
+pub unsafe fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE) -> Result<IAVIStream, windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -149,7 +149,7 @@ pub unsafe fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::F
     }
 }
 #[inline]
-pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> windows_core::Result<()>
+pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIFile>,
 {
@@ -157,7 +157,7 @@ where
     unsafe { AVIPutFileOnClipboard(pf.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn AVISaveA<P0, P4>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P4, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+pub unsafe fn AVISaveA<P0, P4>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P4, lpoptions: *const AVICOMPRESSOPTIONS) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<IAVIStream>,
@@ -171,12 +171,12 @@ pub unsafe fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32,
     unsafe { AVISaveOptions(hwnd, uiflags, nstreams, core::mem::transmute(ppavi), plpoptions as _) }
 }
 #[inline]
-pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> windows_core::Result<()> {
+pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
     unsafe { AVISaveOptionsFree(plpoptions.len().try_into().unwrap(), core::mem::transmute(plpoptions.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn AVISaveVA<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+pub unsafe fn AVISaveVA<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -184,7 +184,7 @@ where
     unsafe { AVISaveVA(szfile.param().abi(), pclsidhandler.unwrap_or(core::mem::zeroed()) as _, lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok() }
 }
 #[inline]
-pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -192,7 +192,7 @@ where
     unsafe { AVISaveVW(szfile.param().abi(), pclsidhandler.unwrap_or(core::mem::zeroed()) as _, lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok() }
 }
 #[inline]
-pub unsafe fn AVISaveW<P0, P4>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P4, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+pub unsafe fn AVISaveW<P0, P4>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P4, lpoptions: *const AVICOMPRESSOPTIONS) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<IAVIStream>,
@@ -209,7 +209,7 @@ where
     unsafe { AVIStreamAddRef(pavi.param().abi()) }
 }
 #[inline]
-pub unsafe fn AVIStreamBeginStreaming<P0>(pavi: P0, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>
+pub unsafe fn AVIStreamBeginStreaming<P0>(pavi: P0, lstart: i32, lend: i32, lrate: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -217,12 +217,12 @@ where
     unsafe { AVIStreamBeginStreaming(pavi.param().abi(), lstart, lend, lrate).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamCreate(ppavi: *mut Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
+pub unsafe fn AVIStreamCreate(ppavi: *mut Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: Option<*const windows_core::GUID>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut * mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { AVIStreamCreate(core::mem::transmute(ppavi), lparam1, lparam2, pclsidhandler.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> windows_core::Result<()>
+pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -246,7 +246,7 @@ where
     unsafe { AVIStreamGetFrame(pg.param().abi(), lpos) }
 }
 #[inline]
-pub unsafe fn AVIStreamGetFrameClose<P0>(pg: P0) -> windows_core::Result<()>
+pub unsafe fn AVIStreamGetFrameClose<P0>(pg: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IGetFrame>,
 {
@@ -263,7 +263,7 @@ where
     unsafe { AVIStreamGetFrameOpen(pavi.param().abi(), lpbiwanted.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AVIStreamInfoA<P0>(pavi: P0, psi: *mut AVISTREAMINFOA, lsize: i32) -> windows_core::Result<()>
+pub unsafe fn AVIStreamInfoA<P0>(pavi: P0, psi: *mut AVISTREAMINFOA, lsize: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -271,7 +271,7 @@ where
     unsafe { AVIStreamInfoA(pavi.param().abi(), psi as _, lsize).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamInfoW<P0>(pavi: P0, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()>
+pub unsafe fn AVIStreamInfoW<P0>(pavi: P0, psi: *mut AVISTREAMINFOW, lsize: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -287,7 +287,7 @@ where
     unsafe { AVIStreamLength(pavi.param().abi()) }
 }
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileA<P1>(ppavi: *mut Option<IAVIStream>, szfile: P1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIStreamOpenFromFileA<P1>(ppavi: *mut Option<IAVIStream>, szfile: P1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
@@ -295,7 +295,7 @@ where
     unsafe { AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, pclsidhandler.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileW<P1>(ppavi: *mut Option<IAVIStream>, szfile: P1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIStreamOpenFromFileW<P1>(ppavi: *mut Option<IAVIStream>, szfile: P1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -303,7 +303,7 @@ where
     unsafe { AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, pclsidhandler.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamRead<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()>
+pub unsafe fn AVIStreamRead<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -311,7 +311,7 @@ where
     unsafe { AVIStreamRead(pavi.param().abi(), lstart, lsamples, lpbuffer.unwrap_or(core::mem::zeroed()) as _, cbbuffer, plbytes.unwrap_or(core::mem::zeroed()) as _, plsamples.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamReadData<P0>(pavi: P0, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()>
+pub unsafe fn AVIStreamReadData<P0>(pavi: P0, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -319,7 +319,7 @@ where
     unsafe { AVIStreamReadData(pavi.param().abi(), fcc, lp.unwrap_or(core::mem::zeroed()) as _, lpcb as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamReadFormat<P0>(pavi: P0, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()>
+pub unsafe fn AVIStreamReadFormat<P0>(pavi: P0, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -343,7 +343,7 @@ where
     unsafe { AVIStreamSampleToTime(pavi.param().abi(), lsample) }
 }
 #[inline]
-pub unsafe fn AVIStreamSetFormat<P0>(pavi: P0, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()>
+pub unsafe fn AVIStreamSetFormat<P0>(pavi: P0, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -367,7 +367,7 @@ where
     unsafe { AVIStreamTimeToSample(pavi.param().abi(), ltime) }
 }
 #[inline]
-pub unsafe fn AVIStreamWrite<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()>
+pub unsafe fn AVIStreamWrite<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -375,7 +375,7 @@ where
     unsafe { AVIStreamWrite(pavi.param().abi(), lstart, lsamples, lpbuffer, cbbuffer, dwflags, plsampwritten.unwrap_or(core::mem::zeroed()) as _, plbyteswritten.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AVIStreamWriteData<P0>(pavi: P0, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()>
+pub unsafe fn AVIStreamWriteData<P0>(pavi: P0, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -388,7 +388,7 @@ pub unsafe fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPA
     unsafe { CloseDriver(hdriver, lparam1, lparam2) }
 }
 #[inline]
-pub unsafe fn CreateEditableStream<P1>(ppseditable: *mut Option<IAVIStream>, pssource: P1) -> windows_core::Result<()>
+pub unsafe fn CreateEditableStream<P1>(ppseditable: *mut Option<IAVIStream>, pssource: P1) -> Result<(), windows_result::HRESULT>
 where
     P1: windows_core::Param<IAVIStream>,
 {
@@ -489,7 +489,7 @@ pub unsafe fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HM
     unsafe { DrvGetModuleHandle(hdriver) }
 }
 #[inline]
-pub unsafe fn EditStreamClone<P0>(pavi: P0) -> windows_core::Result<IAVIStream>
+pub unsafe fn EditStreamClone<P0>(pavi: P0) -> Result<IAVIStream, windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -500,7 +500,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn EditStreamCopy<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>
+pub unsafe fn EditStreamCopy<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -508,7 +508,7 @@ where
     unsafe { EditStreamCopy(pavi.param().abi(), plstart as _, pllength as _, core::mem::transmute(ppresult)).ok() }
 }
 #[inline]
-pub unsafe fn EditStreamCut<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>
+pub unsafe fn EditStreamCut<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -516,7 +516,7 @@ where
     unsafe { EditStreamCut(pavi.param().abi(), plstart as _, pllength as _, core::mem::transmute(ppresult)).ok() }
 }
 #[inline]
-pub unsafe fn EditStreamPaste<P0, P3>(pavi: P0, plpos: *mut i32, pllength: *mut i32, pstream: P3, lstart: i32, lend: i32) -> windows_core::Result<()>
+pub unsafe fn EditStreamPaste<P0, P3>(pavi: P0, plpos: *mut i32, pllength: *mut i32, pstream: P3, lstart: i32, lend: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
     P3: windows_core::Param<IAVIStream>,
@@ -525,7 +525,7 @@ where
     unsafe { EditStreamPaste(pavi.param().abi(), plpos as _, pllength as _, pstream.param().abi(), lstart, lend).ok() }
 }
 #[inline]
-pub unsafe fn EditStreamSetInfoA<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> windows_core::Result<()>
+pub unsafe fn EditStreamSetInfoA<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -533,7 +533,7 @@ where
     unsafe { EditStreamSetInfoA(pavi.param().abi(), lpinfo, cbinfo).ok() }
 }
 #[inline]
-pub unsafe fn EditStreamSetInfoW<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>
+pub unsafe fn EditStreamSetInfoW<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
 {
@@ -541,7 +541,7 @@ where
     unsafe { EditStreamSetInfoW(pavi.param().abi(), lpinfo, cbinfo).ok() }
 }
 #[inline]
-pub unsafe fn EditStreamSetNameA<P0, P1>(pavi: P0, lpszname: P1) -> windows_core::Result<()>
+pub unsafe fn EditStreamSetNameA<P0, P1>(pavi: P0, lpszname: P1) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -550,7 +550,7 @@ where
     unsafe { EditStreamSetNameA(pavi.param().abi(), lpszname.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn EditStreamSetNameW<P0, P1>(pavi: P0, lpszname: P1) -> windows_core::Result<()>
+pub unsafe fn EditStreamSetNameW<P0, P1>(pavi: P0, lpszname: P1) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<IAVIStream>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -1812,25 +1812,25 @@ impl Default for HVIDEO {
 windows_core::imp::define_interface!(IAVIEditStream, IAVIEditStream_Vtbl, 0x00020024_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIEditStream, windows_core::IUnknown);
 impl IAVIEditStream {
-    pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()> {
+    pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), plstart as _, pllength as _, core::mem::transmute(ppresult)).ok() }
     }
-    pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()> {
+    pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), plstart as _, pllength as _, core::mem::transmute(ppresult)).ok() }
     }
-    pub unsafe fn Paste<P2>(&self, plpos: *mut i32, pllength: *mut i32, pstream: P2, lstart: i32, lend: i32) -> windows_core::Result<()>
+    pub unsafe fn Paste<P2>(&self, plpos: *mut i32, pllength: *mut i32, pstream: P2, lstart: i32, lend: i32) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<IAVIStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), plpos as _, pllength as _, pstream.param().abi(), lstart, lend).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IAVIStream> {
+    pub unsafe fn Clone(&self) -> Result<IAVIStream, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok() }
     }
 }
@@ -1845,11 +1845,11 @@ pub struct IAVIEditStream_Vtbl {
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
 pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
-    fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
-    fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
-    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::Ref<'_, IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IAVIStream>;
-    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>;
+    fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> Result<(), windows_result::HRESULT>;
+    fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> Result<(), windows_result::HRESULT>;
+    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::Ref<'_, IAVIStream>, lstart: i32, lend: i32) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IAVIStream, windows_result::HRESULT>;
+    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IAVIEditStream_Vtbl {
     pub const fn new<Identity: IAVIEditStream_Impl, const OFFSET: isize>() -> Self {
@@ -1906,25 +1906,25 @@ impl windows_core::RuntimeName for IAVIEditStream {}
 windows_core::imp::define_interface!(IAVIFile, IAVIFile_Vtbl, 0x00020020_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIFile, windows_core::IUnknown);
 impl IAVIFile {
-    pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()> {
+    pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), pfi as _, lsize).ok() }
     }
-    pub unsafe fn GetStream(&self, ppstream: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()> {
+    pub unsafe fn GetStream(&self, ppstream: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), fcctype, lparam).ok() }
     }
-    pub unsafe fn CreateStream(&self, ppstream: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()> {
+    pub unsafe fn CreateStream(&self, ppstream: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), psi).ok() }
     }
-    pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()> {
+    pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), ckid, lpdata, cbdata).ok() }
     }
-    pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), ckid, lpdata as _, lpcbdata as _).ok() }
     }
-    pub unsafe fn EndRecord(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndRecord(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndRecord)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> windows_core::Result<()> {
+    pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteStream)(windows_core::Interface::as_raw(self), fcctype, lparam).ok() }
     }
 }
@@ -1941,13 +1941,13 @@ pub struct IAVIFile_Vtbl {
     pub DeleteStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
 }
 pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
-    fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>;
-    fn GetStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
-    fn CreateStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
-    fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()>;
-    fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>;
-    fn EndRecord(&self) -> windows_core::Result<()>;
-    fn DeleteStream(&self, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
+    fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> Result<(), windows_result::HRESULT>;
+    fn GetStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, fcctype: u32, lparam: i32) -> Result<(), windows_result::HRESULT>;
+    fn CreateStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, psi: *const AVISTREAMINFOW) -> Result<(), windows_result::HRESULT>;
+    fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> Result<(), windows_result::HRESULT>;
+    fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn EndRecord(&self) -> Result<(), windows_result::HRESULT>;
+    fn DeleteStream(&self, fcctype: u32, lparam: i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IAVIFile_Vtbl {
     pub const fn new<Identity: IAVIFile_Impl, const OFFSET: isize>() -> Self {
@@ -2022,7 +2022,7 @@ impl core::ops::Deref for IAVIPersistFile {
 windows_core::imp::interface_hierarchy!(IAVIPersistFile, windows_core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistFile);
 #[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile {
-    pub unsafe fn Reserved1(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reserved1(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2035,7 +2035,7 @@ pub struct IAVIPersistFile_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAVIPersistFile_Impl: super::super::System::Com::IPersistFile_Impl {
-    fn Reserved1(&self) -> windows_core::Result<()>;
+    fn Reserved1(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile_Vtbl {
@@ -2057,37 +2057,37 @@ impl windows_core::RuntimeName for IAVIPersistFile {}
 windows_core::imp::define_interface!(IAVIStream, IAVIStream_Vtbl, 0x00020021_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIStream, windows_core::IUnknown);
 impl IAVIStream {
-    pub unsafe fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
+    pub unsafe fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), lparam1, lparam2).ok() }
     }
-    pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()> {
+    pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), psi as _, lsize).ok() }
     }
     pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
         unsafe { (windows_core::Interface::vtable(self).FindSample)(windows_core::Interface::as_raw(self), lpos, lflags) }
     }
-    pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), lpos, lpformat.unwrap_or(core::mem::zeroed()) as _, lpcbformat as _).ok() }
     }
-    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpos, lpformat, cbformat).ok() }
     }
-    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()> {
+    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), lstart, lsamples, lpbuffer.unwrap_or(core::mem::zeroed()) as _, cbbuffer, plbytes.unwrap_or(core::mem::zeroed()) as _, plsamples.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()> {
+    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), lstart, lsamples, lpbuffer, cbbuffer, dwflags, plsampwritten.unwrap_or(core::mem::zeroed()) as _, plbyteswritten.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), lstart, lsamples).ok() }
     }
-    pub unsafe fn ReadData(&self, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn ReadData(&self, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), fcc, lp.unwrap_or(core::mem::zeroed()) as _, lpcb as _).ok() }
     }
-    pub unsafe fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()> {
+    pub unsafe fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), fcc, lp, cb).ok() }
     }
-    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok() }
     }
 }
@@ -2108,17 +2108,17 @@ pub struct IAVIStream_Vtbl {
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
 pub trait IAVIStream_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()>;
+    fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> Result<(), windows_result::HRESULT>;
+    fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> Result<(), windows_result::HRESULT>;
     fn FindSample(&self, lpos: i32, lflags: i32) -> i32;
-    fn ReadFormat(&self, lpos: i32, lpformat: *mut core::ffi::c_void, lpcbformat: *mut i32) -> windows_core::Result<()>;
-    fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()>;
-    fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: *mut core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> windows_core::Result<()>;
-    fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> windows_core::Result<()>;
-    fn Delete(&self, lstart: i32, lsamples: i32) -> windows_core::Result<()>;
-    fn ReadData(&self, fcc: u32, lp: *mut core::ffi::c_void, lpcb: *mut i32) -> windows_core::Result<()>;
-    fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()>;
-    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>;
+    fn ReadFormat(&self, lpos: i32, lpformat: *mut core::ffi::c_void, lpcbformat: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> Result<(), windows_result::HRESULT>;
+    fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: *mut core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self, lstart: i32, lsamples: i32) -> Result<(), windows_result::HRESULT>;
+    fn ReadData(&self, fcc: u32, lp: *mut core::ffi::c_void, lpcb: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> Result<(), windows_result::HRESULT>;
+    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IAVIStream_Vtbl {
     pub const fn new<Identity: IAVIStream_Impl, const OFFSET: isize>() -> Self {
@@ -2211,10 +2211,10 @@ impl windows_core::RuntimeName for IAVIStream {}
 windows_core::imp::define_interface!(IAVIStreaming, IAVIStreaming_Vtbl, 0x00020022_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIStreaming, windows_core::IUnknown);
 impl IAVIStreaming {
-    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()> {
+    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), lstart, lend, lrate).ok() }
     }
-    pub unsafe fn End(&self) -> windows_core::Result<()> {
+    pub unsafe fn End(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2226,8 +2226,8 @@ pub struct IAVIStreaming_Vtbl {
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAVIStreaming_Impl: windows_core::IUnknownImpl {
-    fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>;
-    fn End(&self) -> windows_core::Result<()>;
+    fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> Result<(), windows_result::HRESULT>;
+    fn End(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IAVIStreaming_Vtbl {
     pub const fn new<Identity: IAVIStreaming_Impl, const OFFSET: isize>() -> Self {
@@ -2661,14 +2661,14 @@ impl IGetFrame {
     pub unsafe fn GetFrame(&self, lpos: i32) -> *mut core::ffi::c_void {
         unsafe { (windows_core::Interface::vtable(self).GetFrame)(windows_core::Interface::as_raw(self), lpos) }
     }
-    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()> {
+    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), lstart, lend, lrate).ok() }
     }
-    pub unsafe fn End(&self) -> windows_core::Result<()> {
+    pub unsafe fn End(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: Option<*const core::ffi::c_void>, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: Option<*const core::ffi::c_void>, x: i32, y: i32, dx: i32, dy: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpbi, lpbits.unwrap_or(core::mem::zeroed()) as _, x, y, dx, dy).ok() }
     }
 }
@@ -2687,9 +2687,9 @@ pub struct IGetFrame_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IGetFrame_Impl: windows_core::IUnknownImpl {
     fn GetFrame(&self, lpos: i32) -> *mut core::ffi::c_void;
-    fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>;
-    fn End(&self) -> windows_core::Result<()>;
-    fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()>;
+    fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> Result<(), windows_result::HRESULT>;
+    fn End(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IGetFrame_Vtbl {

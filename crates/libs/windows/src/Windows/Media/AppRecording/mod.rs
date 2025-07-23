@@ -3,7 +3,7 @@
 pub struct AppRecordingManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingManager {
-    pub fn GetStatus(&self) -> windows_core::Result<AppRecordingStatus> {
+    pub fn GetStatus(&self) -> Result<AppRecordingStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11,7 +11,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
+    pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> Result<windows_future::IAsyncOperation<AppRecordingResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -22,7 +22,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
+    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> Result<windows_future::IAsyncOperation<AppRecordingResult>, windows_result::HRESULT>
     where
         P2: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -32,7 +32,7 @@ impl AppRecordingManager {
             (windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(this), starttime, duration, file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -40,7 +40,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn SaveScreenshotToFilesAsync<P0, P3>(&self, folder: P0, filenameprefix: &windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P3) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingSaveScreenshotResult>>
+    pub fn SaveScreenshotToFilesAsync<P0, P3>(&self, folder: P0, filenameprefix: &windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P3) -> Result<windows_future::IAsyncOperation<AppRecordingSaveScreenshotResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::StorageFolder>,
         P3: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
@@ -51,13 +51,13 @@ impl AppRecordingManager {
             (windows_core::Interface::vtable(this).SaveScreenshotToFilesAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), core::mem::transmute_copy(filenameprefix), option, requestedformats.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<AppRecordingManager> {
+    pub fn GetDefault() -> Result<AppRecordingManager, windows_result::HRESULT> {
         Self::IAppRecordingManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAppRecordingManagerStatics<R, F: FnOnce(&IAppRecordingManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppRecordingManagerStatics<R, F: FnOnce(&IAppRecordingManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppRecordingManager, IAppRecordingManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -79,28 +79,28 @@ unsafe impl Sync for AppRecordingManager {}
 pub struct AppRecordingResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingResult {
-    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+    pub fn Succeeded(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsFileTruncated(&self) -> windows_core::Result<bool> {
+    pub fn IsFileTruncated(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -138,21 +138,21 @@ impl windows_core::RuntimeType for AppRecordingSaveScreenshotOption {
 pub struct AppRecordingSaveScreenshotResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingSaveScreenshotResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingSaveScreenshotResult {
-    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+    pub fn Succeeded(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SavedScreenshotInfos(&self) -> windows_core::Result<windows_collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
+    pub fn SavedScreenshotInfos(&self) -> Result<windows_collections::IVectorView<AppRecordingSavedScreenshotInfo>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -178,14 +178,14 @@ pub struct AppRecordingSavedScreenshotInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingSavedScreenshotInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingSavedScreenshotInfo {
     #[cfg(feature = "Storage_Streams")]
-    pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
+    pub fn File(&self) -> Result<super::super::Storage::StorageFile, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MediaEncodingSubtype(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MediaEncodingSubtype(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -210,28 +210,28 @@ unsafe impl Sync for AppRecordingSavedScreenshotInfo {}
 pub struct AppRecordingStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingStatus {
-    pub fn CanRecord(&self) -> windows_core::Result<bool> {
+    pub fn CanRecord(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanRecord)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CanRecordTimeSpan(&self) -> windows_core::Result<bool> {
+    pub fn CanRecordTimeSpan(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanRecordTimeSpan)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HistoricalBufferDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn HistoricalBufferDuration(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HistoricalBufferDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Details(&self) -> windows_core::Result<AppRecordingStatusDetails> {
+    pub fn Details(&self) -> Result<AppRecordingStatusDetails, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -256,63 +256,63 @@ unsafe impl Sync for AppRecordingStatus {}
 pub struct AppRecordingStatusDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingStatusDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingStatusDetails {
-    pub fn IsAnyAppBroadcasting(&self) -> windows_core::Result<bool> {
+    pub fn IsAnyAppBroadcasting(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAnyAppBroadcasting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCaptureResourceUnavailable(&self) -> windows_core::Result<bool> {
+    pub fn IsCaptureResourceUnavailable(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCaptureResourceUnavailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsGameStreamInProgress(&self) -> windows_core::Result<bool> {
+    pub fn IsGameStreamInProgress(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsGameStreamInProgress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsTimeSpanRecordingDisabled(&self) -> windows_core::Result<bool> {
+    pub fn IsTimeSpanRecordingDisabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTimeSpanRecordingDisabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsGpuConstrained(&self) -> windows_core::Result<bool> {
+    pub fn IsGpuConstrained(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsGpuConstrained)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsAppInactive(&self) -> windows_core::Result<bool> {
+    pub fn IsAppInactive(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAppInactive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsBlockedForApp(&self) -> windows_core::Result<bool> {
+    pub fn IsBlockedForApp(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBlockedForApp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDisabledByUser(&self) -> windows_core::Result<bool> {
+    pub fn IsDisabledByUser(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDisabledByUser)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDisabledBySystem(&self) -> windows_core::Result<bool> {
+    pub fn IsDisabledBySystem(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

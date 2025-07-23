@@ -16,19 +16,19 @@ where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,
 {
-    fn GetAt(&self, index: u32) -> Result<T> {
+    fn GetAt(&self, index: u32) -> Result<T, HRESULT> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
     }
 
-    fn Size(&self) -> Result<u32> {
+    fn Size(&self) -> Result<u32, HRESULT> {
         panic!();
     }
 
-    fn IndexOf(&self, _value: Ref<T>, _index: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, _value: Ref<T>, _index: &mut u32) -> Result<bool, HRESULT> {
         panic!();
     }
 
-    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32, HRESULT> {
         panic!();
     }
 }
@@ -44,7 +44,7 @@ where
 }
 
 #[test]
-fn test_implement() -> Result<()> {
+fn test_implement() -> Result<(), HRESULT> {
     let v: IVectorView<i32> = Thing(vec![10, 20, 30]).into();
     assert_eq!(10, v.GetAt(0)?);
     assert_eq!(20, v.GetAt(1)?);

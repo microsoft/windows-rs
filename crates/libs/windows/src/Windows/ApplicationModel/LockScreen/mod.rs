@@ -93,11 +93,11 @@ pub struct ILockScreenUnlockingEventArgs_Vtbl {
 pub struct LockApplicationHost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockApplicationHost, windows_core::IUnknown, windows_core::IInspectable);
 impl LockApplicationHost {
-    pub fn RequestUnlock(&self) -> windows_core::Result<()> {
+    pub fn RequestUnlock(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestUnlock)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Unlocking<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Unlocking<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>>,
     {
@@ -107,17 +107,17 @@ impl LockApplicationHost {
             (windows_core::Interface::vtable(this).Unlocking)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUnlocking(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUnlocking(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnlocking)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<LockApplicationHost> {
+    pub fn GetForCurrentView() -> Result<LockApplicationHost, windows_result::HRESULT> {
         Self::ILockApplicationHostStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ILockApplicationHostStatics<R, F: FnOnce(&ILockApplicationHostStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILockApplicationHostStatics<R, F: FnOnce(&ILockApplicationHostStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LockApplicationHost, ILockApplicationHostStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -140,7 +140,7 @@ pub struct LockScreenBadge(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenBadge, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenBadge {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Logo(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+    pub fn Logo(&self) -> Result<super::super::Storage::Streams::IRandomAccessStream, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -148,28 +148,28 @@ impl LockScreenBadge {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Glyph(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+    pub fn Glyph(&self) -> Result<super::super::Storage::Streams::IRandomAccessStream, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Glyph)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Number(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Number(&self) -> Result<super::super::Foundation::IReference<u32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Number)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AutomationName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AutomationName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomationName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LaunchApp(&self) -> windows_core::Result<()> {
+    pub fn LaunchApp(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).LaunchApp)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -191,7 +191,7 @@ unsafe impl Sync for LockScreenBadge {}
 pub struct LockScreenInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenInfo {
-    pub fn LockScreenImageChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn LockScreenImageChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
     {
@@ -201,19 +201,19 @@ impl LockScreenInfo {
             (windows_core::Interface::vtable(this).LockScreenImageChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveLockScreenImageChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveLockScreenImageChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveLockScreenImageChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LockScreenImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+    pub fn LockScreenImage(&self) -> Result<super::super::Storage::Streams::IRandomAccessStream, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LockScreenImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BadgesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn BadgesChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
     {
@@ -223,18 +223,18 @@ impl LockScreenInfo {
             (windows_core::Interface::vtable(this).BadgesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveBadgesChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveBadgesChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveBadgesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Badges(&self) -> windows_core::Result<windows_collections::IVectorView<LockScreenBadge>> {
+    pub fn Badges(&self) -> Result<windows_collections::IVectorView<LockScreenBadge>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Badges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DetailTextChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DetailTextChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
     {
@@ -244,18 +244,18 @@ impl LockScreenInfo {
             (windows_core::Interface::vtable(this).DetailTextChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDetailTextChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDetailTextChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDetailTextChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DetailText(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn DetailText(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DetailText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AlarmIconChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AlarmIconChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<LockScreenInfo, windows_core::IInspectable>>,
     {
@@ -265,12 +265,12 @@ impl LockScreenInfo {
             (windows_core::Interface::vtable(this).AlarmIconChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAlarmIconChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAlarmIconChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAlarmIconChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn AlarmIcon(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+    pub fn AlarmIcon(&self) -> Result<super::super::Storage::Streams::IRandomAccessStream, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -295,7 +295,7 @@ unsafe impl Sync for LockScreenInfo {}
 pub struct LockScreenUnlockingDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenUnlockingDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -317,14 +317,14 @@ unsafe impl Sync for LockScreenUnlockingDeferral {}
 pub struct LockScreenUnlockingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenUnlockingEventArgs {
-    pub fn GetDeferral(&self) -> windows_core::Result<LockScreenUnlockingDeferral> {
+    pub fn GetDeferral(&self) -> Result<LockScreenUnlockingDeferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

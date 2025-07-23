@@ -8,7 +8,7 @@
 
 pub struct GuidHelper;
 impl GuidHelper {
-    pub fn CreateNewGuid() -> windows_core::Result<windows_core::GUID> {
+    pub fn CreateNewGuid() -> Result<windows_core::GUID, windows_result::HRESULT> {
         Self::IGuidHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNewGuid)(
@@ -18,7 +18,7 @@ impl GuidHelper {
             .map(|| result__)
         })
     }
-    pub fn Empty() -> windows_core::Result<windows_core::GUID> {
+    pub fn Empty() -> Result<windows_core::GUID, windows_result::HRESULT> {
         Self::IGuidHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Empty)(
@@ -31,7 +31,7 @@ impl GuidHelper {
     pub fn Equals(
         target: windows_core::GUID,
         value: windows_core::GUID,
-    ) -> windows_core::Result<bool> {
+    ) -> Result<bool, windows_result::HRESULT> {
         Self::IGuidHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Equals)(
@@ -43,9 +43,12 @@ impl GuidHelper {
             .map(|| result__)
         })
     }
-    fn IGuidHelperStatics<R, F: FnOnce(&IGuidHelperStatics) -> windows_core::Result<R>>(
+    fn IGuidHelperStatics<
+        R,
+        F: FnOnce(&IGuidHelperStatics) -> Result<R, windows_result::HRESULT>,
+    >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GuidHelper, IGuidHelperStatics> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

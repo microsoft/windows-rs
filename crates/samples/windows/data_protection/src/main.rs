@@ -22,7 +22,7 @@ fn main() -> std::io::Result<()> {
     Ok(())
 }
 
-unsafe fn as_mut_bytes(buffer: &IBuffer) -> Result<&mut [u8]> {
+unsafe fn as_mut_bytes(buffer: &IBuffer) -> Result<&mut [u8], HRESULT> {
     let interop = buffer.cast::<IBufferByteAccess>()?;
 
     unsafe {

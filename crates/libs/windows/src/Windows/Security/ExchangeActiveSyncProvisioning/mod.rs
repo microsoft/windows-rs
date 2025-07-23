@@ -3,63 +3,63 @@
 pub struct EasClientDeviceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EasClientDeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl EasClientDeviceInformation {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<EasClientDeviceInformation, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Id(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OperatingSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn OperatingSystem(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OperatingSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FriendlyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemManufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemManufacturer(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemManufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemProductName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemProductName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemProductName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemSku(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemSku(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemSku)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemHardwareVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemHardwareVersion(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemHardwareVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemFirmwareVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemFirmwareVersion(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -82,109 +82,109 @@ impl windows_core::RuntimeName for EasClientDeviceInformation {
 pub struct EasClientSecurityPolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EasClientSecurityPolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl EasClientSecurityPolicy {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<EasClientSecurityPolicy, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RequireEncryption(&self) -> windows_core::Result<bool> {
+    pub fn RequireEncryption(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequireEncryption)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRequireEncryption(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRequireEncryption(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequireEncryption)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MinPasswordLength(&self) -> windows_core::Result<u8> {
+    pub fn MinPasswordLength(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPasswordLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMinPasswordLength(&self, value: u8) -> windows_core::Result<()> {
+    pub fn SetMinPasswordLength(&self, value: u8) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMinPasswordLength)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DisallowConvenienceLogon(&self) -> windows_core::Result<bool> {
+    pub fn DisallowConvenienceLogon(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisallowConvenienceLogon)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDisallowConvenienceLogon(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetDisallowConvenienceLogon(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisallowConvenienceLogon)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MinPasswordComplexCharacters(&self) -> windows_core::Result<u8> {
+    pub fn MinPasswordComplexCharacters(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPasswordComplexCharacters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMinPasswordComplexCharacters(&self, value: u8) -> windows_core::Result<()> {
+    pub fn SetMinPasswordComplexCharacters(&self, value: u8) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMinPasswordComplexCharacters)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PasswordExpiration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn PasswordExpiration(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PasswordExpiration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPasswordExpiration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetPasswordExpiration(&self, value: super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPasswordExpiration)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PasswordHistory(&self) -> windows_core::Result<u32> {
+    pub fn PasswordHistory(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PasswordHistory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPasswordHistory(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetPasswordHistory(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPasswordHistory)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MaxPasswordFailedAttempts(&self) -> windows_core::Result<u8> {
+    pub fn MaxPasswordFailedAttempts(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPasswordFailedAttempts)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMaxPasswordFailedAttempts(&self, value: u8) -> windows_core::Result<()> {
+    pub fn SetMaxPasswordFailedAttempts(&self, value: u8) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxPasswordFailedAttempts)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MaxInactivityTimeLock(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MaxInactivityTimeLock(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxInactivityTimeLock)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMaxInactivityTimeLock(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetMaxInactivityTimeLock(&self, value: super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxInactivityTimeLock)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CheckCompliance(&self) -> windows_core::Result<EasComplianceResults> {
+    pub fn CheckCompliance(&self) -> Result<EasComplianceResults, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckCompliance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ApplyAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<EasComplianceResults>> {
+    pub fn ApplyAsync(&self) -> Result<windows_future::IAsyncOperation<EasComplianceResults>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -207,70 +207,70 @@ impl windows_core::RuntimeName for EasClientSecurityPolicy {
 pub struct EasComplianceResults(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EasComplianceResults, windows_core::IUnknown, windows_core::IInspectable);
 impl EasComplianceResults {
-    pub fn Compliant(&self) -> windows_core::Result<bool> {
+    pub fn Compliant(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Compliant)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RequireEncryptionResult(&self) -> windows_core::Result<EasRequireEncryptionResult> {
+    pub fn RequireEncryptionResult(&self) -> Result<EasRequireEncryptionResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequireEncryptionResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinPasswordLengthResult(&self) -> windows_core::Result<EasMinPasswordLengthResult> {
+    pub fn MinPasswordLengthResult(&self) -> Result<EasMinPasswordLengthResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPasswordLengthResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisallowConvenienceLogonResult(&self) -> windows_core::Result<EasDisallowConvenienceLogonResult> {
+    pub fn DisallowConvenienceLogonResult(&self) -> Result<EasDisallowConvenienceLogonResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisallowConvenienceLogonResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinPasswordComplexCharactersResult(&self) -> windows_core::Result<EasMinPasswordComplexCharactersResult> {
+    pub fn MinPasswordComplexCharactersResult(&self) -> Result<EasMinPasswordComplexCharactersResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPasswordComplexCharactersResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PasswordExpirationResult(&self) -> windows_core::Result<EasPasswordExpirationResult> {
+    pub fn PasswordExpirationResult(&self) -> Result<EasPasswordExpirationResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PasswordExpirationResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PasswordHistoryResult(&self) -> windows_core::Result<EasPasswordHistoryResult> {
+    pub fn PasswordHistoryResult(&self) -> Result<EasPasswordHistoryResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PasswordHistoryResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxPasswordFailedAttemptsResult(&self) -> windows_core::Result<EasMaxPasswordFailedAttemptsResult> {
+    pub fn MaxPasswordFailedAttemptsResult(&self) -> Result<EasMaxPasswordFailedAttemptsResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPasswordFailedAttemptsResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxInactivityTimeLockResult(&self) -> windows_core::Result<EasMaxInactivityTimeLockResult> {
+    pub fn MaxInactivityTimeLockResult(&self) -> Result<EasMaxInactivityTimeLockResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxInactivityTimeLockResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EncryptionProviderType(&self) -> windows_core::Result<EasEncryptionProviderType> {
+    pub fn EncryptionProviderType(&self) -> Result<EasEncryptionProviderType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IEasComplianceResults2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -1,6 +1,6 @@
 use windows::{core::*, Win32::Foundation::*, Win32::UI::Controls::*};
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let mut config = TASKDIALOGCONFIG {
             cbSize: std::mem::size_of::<TASKDIALOGCONFIG>() as _,

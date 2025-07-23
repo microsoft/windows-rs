@@ -12,7 +12,7 @@ pub unsafe fn CreateEventW<P3>(
     bmanualreset: bool,
     binitialstate: bool,
     lpname: P3,
-) -> windows_core::Result<HANDLE>
+) -> Result<HANDLE, windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -27,7 +27,7 @@ where
     };
     (!result__.is_invalid())
         .then_some(result__)
-        .ok_or_else(windows_core::Error::from_win32)
+        .ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn NtWaitForSingleObject(
@@ -39,7 +39,7 @@ pub unsafe fn NtWaitForSingleObject(
     unsafe { NtWaitForSingleObject(handle, alertable, timeout as _) }
 }
 #[inline]
-pub unsafe fn SetEvent(hevent: HANDLE) -> windows_core::Result<()> {
+pub unsafe fn SetEvent(hevent: HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> windows_core::BOOL);
     unsafe { SetEvent(hevent).ok() }
 }

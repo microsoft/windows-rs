@@ -3,7 +3,7 @@ use windows::{
     UI::UIAutomation::*,
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
         let window = FindWindowA(None, s!("Calculator"))?;
@@ -17,9 +17,7 @@ fn main() -> Result<()> {
         println!("window name: {name}");
 
         // Query for WinRT API (will fail on earlier versions of Windows)
-        let element: Result<AutomationElement> = element.cast();
-
-        if let Ok(element) = element {
+        if let Ok(element) = element.cast::<AutomationElement>() {
             // Use WinRT API
             println!("file name: {}", element.ExecutableFileName()?);
         }

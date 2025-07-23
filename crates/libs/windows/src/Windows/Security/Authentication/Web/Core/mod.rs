@@ -4,21 +4,21 @@ pub struct FindAllAccountsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FindAllAccountsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl FindAllAccountsResult {
     #[cfg(feature = "Security_Credentials")]
-    pub fn Accounts(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Credentials::WebAccount>> {
+    pub fn Accounts(&self) -> Result<windows_collections::IVectorView<super::super::super::Credentials::WebAccount>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Accounts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Status(&self) -> windows_core::Result<FindAllWebAccountsStatus> {
+    pub fn Status(&self) -> Result<FindAllWebAccountsStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProviderError(&self) -> windows_core::Result<WebProviderError> {
+    pub fn ProviderError(&self) -> Result<WebProviderError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -415,7 +415,7 @@ pub struct WebAccountEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountEventArgs {
     #[cfg(feature = "Security_Credentials")]
-    pub fn Account(&self) -> windows_core::Result<super::super::super::Credentials::WebAccount> {
+    pub fn Account(&self) -> Result<super::super::super::Credentials::WebAccount, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -440,7 +440,7 @@ unsafe impl Sync for WebAccountEventArgs {}
 pub struct WebAccountMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountMonitor {
-    pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Updated<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>,
     {
@@ -450,11 +450,11 @@ impl WebAccountMonitor {
             (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUpdated(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Removed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>,
     {
@@ -464,11 +464,11 @@ impl WebAccountMonitor {
             (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRemoved(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DefaultSignInAccountChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DefaultSignInAccountChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, windows_core::IInspectable>>,
     {
@@ -478,11 +478,11 @@ impl WebAccountMonitor {
             (windows_core::Interface::vtable(this).DefaultSignInAccountChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDefaultSignInAccountChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDefaultSignInAccountChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDefaultSignInAccountChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AccountPictureUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AccountPictureUpdated<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>>,
     {
@@ -492,7 +492,7 @@ impl WebAccountMonitor {
             (windows_core::Interface::vtable(this).AccountPictureUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAccountPictureUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAccountPictureUpdated(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IWebAccountMonitor2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -515,14 +515,14 @@ pub struct WebAuthenticationAddAccountResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAuthenticationAddAccountResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAuthenticationAddAccountResponse {
     #[cfg(feature = "Security_Credentials")]
-    pub fn WebAccount(&self) -> windows_core::Result<super::super::super::Credentials::WebAccount> {
+    pub fn WebAccount(&self) -> Result<super::super::super::Credentials::WebAccount, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Properties(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -530,7 +530,7 @@ impl WebAuthenticationAddAccountResponse {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithAccount<P0>(webaccount: P0) -> windows_core::Result<WebAuthenticationAddAccountResponse>
+    pub fn CreateWithAccount<P0>(webaccount: P0) -> Result<WebAuthenticationAddAccountResponse, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
     {
@@ -539,7 +539,7 @@ impl WebAuthenticationAddAccountResponse {
             (windows_core::Interface::vtable(this).CreateWithAccount)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebAuthenticationAddAccountResponseFactory<R, F: FnOnce(&IWebAuthenticationAddAccountResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationAddAccountResponseFactory<R, F: FnOnce(&IWebAuthenticationAddAccountResponseFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationAddAccountResponse, IWebAuthenticationAddAccountResponseFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -561,21 +561,21 @@ unsafe impl Sync for WebAuthenticationAddAccountResponse {}
 pub struct WebAuthenticationAddAccountResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAuthenticationAddAccountResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAuthenticationAddAccountResult {
-    pub fn ResponseData(&self) -> windows_core::Result<WebAuthenticationAddAccountResponse> {
+    pub fn ResponseData(&self) -> Result<WebAuthenticationAddAccountResponse, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResponseStatus(&self) -> windows_core::Result<WebAuthenticationAddAccountStatus> {
+    pub fn ResponseStatus(&self) -> Result<WebAuthenticationAddAccountStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ResponseError(&self) -> windows_core::Result<WebProviderError> {
+    pub fn ResponseError(&self) -> Result<WebProviderError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -613,7 +613,7 @@ impl windows_core::RuntimeType for WebAuthenticationAddAccountStatus {
 }
 pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
-    pub fn GetTokenSilentlyAsync<P0>(request: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
+    pub fn GetTokenSilentlyAsync<P0>(request: P0) -> Result<windows_future::IAsyncOperation<WebTokenRequestResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<WebTokenRequest>,
     {
@@ -623,7 +623,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn GetTokenSilentlyWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
+    pub fn GetTokenSilentlyWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> Result<windows_future::IAsyncOperation<WebTokenRequestResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<WebTokenRequest>,
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
@@ -633,7 +633,7 @@ impl WebAuthenticationCoreManager {
             (windows_core::Interface::vtable(this).GetTokenSilentlyWithWebAccountAsync)(windows_core::Interface::as_raw(this), request.param().abi(), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestTokenAsync<P0>(request: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
+    pub fn RequestTokenAsync<P0>(request: P0) -> Result<windows_future::IAsyncOperation<WebTokenRequestResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<WebTokenRequest>,
     {
@@ -643,7 +643,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn RequestTokenWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> windows_core::Result<windows_future::IAsyncOperation<WebTokenRequestResult>>
+    pub fn RequestTokenWithWebAccountAsync<P0, P1>(request: P0, webaccount: P1) -> Result<windows_future::IAsyncOperation<WebTokenRequestResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<WebTokenRequest>,
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
@@ -654,7 +654,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAccountAsync<P0>(provider: P0, webaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    pub fn FindAccountAsync<P0>(provider: P0, webaccountid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccount>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -664,21 +664,21 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>, windows_result::HRESULT> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAccountProviderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>, windows_result::HRESULT> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAccountProviderWithAuthorityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Security_Credentials", feature = "System"))]
-    pub fn FindAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
+    pub fn FindAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>, windows_result::HRESULT>
     where
         P2: windows_core::Param<super::super::super::super::System::User>,
     {
@@ -688,7 +688,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWebAccountMonitor<P0>(webaccounts: P0) -> windows_core::Result<WebAccountMonitor>
+    pub fn CreateWebAccountMonitor<P0>(webaccounts: P0) -> Result<WebAccountMonitor, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::super::Credentials::WebAccount>>,
     {
@@ -698,7 +698,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAllAccountsAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<FindAllAccountsResult>>
+    pub fn FindAllAccountsAsync<P0>(provider: P0) -> Result<windows_future::IAsyncOperation<FindAllAccountsResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -708,7 +708,7 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindAllAccountsWithClientIdAsync<P0>(provider: P0, clientid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<FindAllAccountsResult>>
+    pub fn FindAllAccountsWithClientIdAsync<P0>(provider: P0, clientid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<FindAllAccountsResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -718,21 +718,21 @@ impl WebAuthenticationCoreManager {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindSystemAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindSystemAccountProviderAsync(webaccountproviderid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>, windows_result::HRESULT> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindSystemAccountProviderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn FindSystemAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
+    pub fn FindSystemAccountProviderWithAuthorityAsync(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>, windows_result::HRESULT> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Security_Credentials", feature = "System"))]
-    pub fn FindSystemAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
+    pub fn FindSystemAccountProviderWithAuthorityForUserAsync<P2>(webaccountproviderid: &windows_core::HSTRING, authority: &windows_core::HSTRING, user: P2) -> Result<windows_future::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>, windows_result::HRESULT>
     where
         P2: windows_core::Param<super::super::super::super::System::User>,
     {
@@ -741,7 +741,7 @@ impl WebAuthenticationCoreManager {
             (windows_core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn AddAccountWithTransferTokenAsync<P0>(request: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebAuthenticationAddAccountResult>>
+    pub fn AddAccountWithTransferTokenAsync<P0>(request: P0) -> Result<windows_future::IAsyncOperation<WebAuthenticationAddAccountResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<WebAuthenticationTransferTokenRequest>,
     {
@@ -750,23 +750,23 @@ impl WebAuthenticationCoreManager {
             (windows_core::Interface::vtable(this).AddAccountWithTransferTokenAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebAuthenticationCoreManagerStatics<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IWebAuthenticationCoreManagerStatics2<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics2<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IWebAuthenticationCoreManagerStatics3<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics3<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IWebAuthenticationCoreManagerStatics4<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics4<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics4) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IWebAuthenticationCoreManagerStatics5<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics5<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics5) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics5> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -780,44 +780,44 @@ pub struct WebAuthenticationTransferTokenRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAuthenticationTransferTokenRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAuthenticationTransferTokenRequest {
     #[cfg(feature = "Security_Credentials")]
-    pub fn WebAccountProvider(&self) -> windows_core::Result<super::super::super::Credentials::WebAccountProvider> {
+    pub fn WebAccountProvider(&self) -> Result<super::super::super::Credentials::WebAccountProvider, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TransferToken(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TransferToken(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransferToken)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTransferToken(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTransferToken(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransferToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Properties(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CorrelationId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CorrelationId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CorrelationId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetCorrelationId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetCorrelationId(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCorrelationId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn Create<P0>(provider: P0, transfertoken: &windows_core::HSTRING) -> windows_core::Result<WebAuthenticationTransferTokenRequest>
+    pub fn Create<P0>(provider: P0, transfertoken: &windows_core::HSTRING) -> Result<WebAuthenticationTransferTokenRequest, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -827,7 +827,7 @@ impl WebAuthenticationTransferTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithCorrelationId<P0>(provider: P0, transfertoken: &windows_core::HSTRING, correlationid: &windows_core::HSTRING) -> windows_core::Result<WebAuthenticationTransferTokenRequest>
+    pub fn CreateWithCorrelationId<P0>(provider: P0, transfertoken: &windows_core::HSTRING, correlationid: &windows_core::HSTRING) -> Result<WebAuthenticationTransferTokenRequest, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -836,7 +836,7 @@ impl WebAuthenticationTransferTokenRequest {
             (windows_core::Interface::vtable(this).CreateWithCorrelationId)(windows_core::Interface::as_raw(this), provider.param().abi(), core::mem::transmute_copy(transfertoken), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebAuthenticationTransferTokenRequestFactory<R, F: FnOnce(&IWebAuthenticationTransferTokenRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationTransferTokenRequestFactory<R, F: FnOnce(&IWebAuthenticationTransferTokenRequestFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationTransferTokenRequest, IWebAuthenticationTransferTokenRequestFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -858,34 +858,34 @@ unsafe impl Sync for WebAuthenticationTransferTokenRequest {}
 pub struct WebProviderError(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebProviderError, windows_core::IUnknown, windows_core::IInspectable);
 impl WebProviderError {
-    pub fn ErrorCode(&self) -> windows_core::Result<u32> {
+    pub fn ErrorCode(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ErrorMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ErrorMessage(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Properties(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(errorcode: u32, errormessage: &windows_core::HSTRING) -> windows_core::Result<WebProviderError> {
+    pub fn Create(errorcode: u32, errormessage: &windows_core::HSTRING) -> Result<WebProviderError, windows_result::HRESULT> {
         Self::IWebProviderErrorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), errorcode, core::mem::transmute_copy(errormessage), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebProviderErrorFactory<R, F: FnOnce(&IWebProviderErrorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebProviderErrorFactory<R, F: FnOnce(&IWebProviderErrorFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebProviderError, IWebProviderErrorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -908,61 +908,61 @@ pub struct WebTokenRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebTokenRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl WebTokenRequest {
     #[cfg(feature = "Security_Credentials")]
-    pub fn WebAccountProvider(&self) -> windows_core::Result<super::super::super::Credentials::WebAccountProvider> {
+    pub fn WebAccountProvider(&self) -> Result<super::super::super::Credentials::WebAccountProvider, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Scope(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Scope(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Scope)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ClientId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ClientId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClientId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PromptType(&self) -> windows_core::Result<WebTokenRequestPromptType> {
+    pub fn PromptType(&self) -> Result<WebTokenRequestPromptType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PromptType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Properties(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AppProperties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn AppProperties(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IWebTokenRequest2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CorrelationId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CorrelationId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IWebTokenRequest3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CorrelationId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetCorrelationId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetCorrelationId(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IWebTokenRequest3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCorrelationId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn Create<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING) -> windows_core::Result<WebTokenRequest>
+    pub fn Create<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING) -> Result<WebTokenRequest, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -972,7 +972,7 @@ impl WebTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithPromptType<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING, prompttype: WebTokenRequestPromptType) -> windows_core::Result<WebTokenRequest>
+    pub fn CreateWithPromptType<P0>(provider: P0, scope: &windows_core::HSTRING, clientid: &windows_core::HSTRING, prompttype: WebTokenRequestPromptType) -> Result<WebTokenRequest, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -982,7 +982,7 @@ impl WebTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithProvider<P0>(provider: P0) -> windows_core::Result<WebTokenRequest>
+    pub fn CreateWithProvider<P0>(provider: P0) -> Result<WebTokenRequest, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -992,7 +992,7 @@ impl WebTokenRequest {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithScope<P0>(provider: P0, scope: &windows_core::HSTRING) -> windows_core::Result<WebTokenRequest>
+    pub fn CreateWithScope<P0>(provider: P0, scope: &windows_core::HSTRING) -> Result<WebTokenRequest, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
     {
@@ -1001,7 +1001,7 @@ impl WebTokenRequest {
             (windows_core::Interface::vtable(this).CreateWithScope)(windows_core::Interface::as_raw(this), provider.param().abi(), core::mem::transmute_copy(scope), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebTokenRequestFactory<R, F: FnOnce(&IWebTokenRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebTokenRequestFactory<R, F: FnOnce(&IWebTokenRequestFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebTokenRequest, IWebTokenRequestFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1036,28 +1036,28 @@ impl windows_core::RuntimeType for WebTokenRequestPromptType {
 pub struct WebTokenRequestResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebTokenRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WebTokenRequestResult {
-    pub fn ResponseData(&self) -> windows_core::Result<windows_collections::IVectorView<WebTokenResponse>> {
+    pub fn ResponseData(&self) -> Result<windows_collections::IVectorView<WebTokenResponse>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResponseStatus(&self) -> windows_core::Result<WebTokenRequestStatus> {
+    pub fn ResponseStatus(&self) -> Result<WebTokenRequestStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ResponseError(&self) -> windows_core::Result<WebProviderError> {
+    pub fn ResponseError(&self) -> Result<WebProviderError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InvalidateCacheAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn InvalidateCacheAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1099,21 +1099,21 @@ impl windows_core::RuntimeType for WebTokenRequestStatus {
 pub struct WebTokenResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebTokenResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl WebTokenResponse {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebTokenResponse, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Token(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Token(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Token)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ProviderError(&self) -> windows_core::Result<WebProviderError> {
+    pub fn ProviderError(&self) -> Result<WebProviderError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1121,28 +1121,28 @@ impl WebTokenResponse {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn WebAccount(&self) -> windows_core::Result<super::super::super::Credentials::WebAccount> {
+    pub fn WebAccount(&self) -> Result<super::super::super::Credentials::WebAccount, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Properties(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithToken(token: &windows_core::HSTRING) -> windows_core::Result<WebTokenResponse> {
+    pub fn CreateWithToken(token: &windows_core::HSTRING) -> Result<WebTokenResponse, windows_result::HRESULT> {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithTokenAndAccount<P1>(token: &windows_core::HSTRING, webaccount: P1) -> windows_core::Result<WebTokenResponse>
+    pub fn CreateWithTokenAndAccount<P1>(token: &windows_core::HSTRING, webaccount: P1) -> Result<WebTokenResponse, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
     {
@@ -1152,7 +1152,7 @@ impl WebTokenResponse {
         })
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithTokenAccountAndError<P1, P2>(token: &windows_core::HSTRING, webaccount: P1, error: P2) -> windows_core::Result<WebTokenResponse>
+    pub fn CreateWithTokenAccountAndError<P1, P2>(token: &windows_core::HSTRING, webaccount: P1, error: P2) -> Result<WebTokenResponse, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::super::Credentials::WebAccount>,
         P2: windows_core::Param<WebProviderError>,
@@ -1162,7 +1162,7 @@ impl WebTokenResponse {
             (windows_core::Interface::vtable(this).CreateWithTokenAccountAndError)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), webaccount.param().abi(), error.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebTokenResponseFactory<R, F: FnOnce(&IWebTokenResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebTokenResponseFactory<R, F: FnOnce(&IWebTokenResponseFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebTokenResponse, IWebTokenResponseFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

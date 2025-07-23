@@ -1,7 +1,8 @@
 use windows_registry::*;
+use windows_result::*;
 
 #[test]
-fn values() -> Result<()> {
+fn values() -> Result<(), HRESULT> {
     let test_key = "software\\windows-rs\\tests\\values";
     _ = CURRENT_USER.remove_tree(test_key);
 

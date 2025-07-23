@@ -1,7 +1,7 @@
 use windows::{core::*, Foundation::Collections::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let map = StringMap::new()?;
     map.Insert(h!("key"), h!("value"))?;
     assert!(map.HasKey(h!("key"))?);

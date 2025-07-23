@@ -3,7 +3,7 @@ use windows::{
     Win32::System::Threading::*,
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let mut token = HANDLE::default();
         OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &mut token)?;

@@ -4,7 +4,7 @@ use windows::{
 
 use windows_future::*;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let interop = factory::<UserConsentVerifier, IUserConsentVerifierInterop>()?;
 

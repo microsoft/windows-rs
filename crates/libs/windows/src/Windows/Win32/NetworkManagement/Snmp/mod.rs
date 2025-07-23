@@ -154,7 +154,7 @@ pub unsafe fn SnmpMgrClose(session: *mut core::ffi::c_void) -> windows_core::BOO
     unsafe { SnmpMgrClose(session as _) }
 }
 #[inline]
-pub unsafe fn SnmpMgrCtl(session: *mut core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn SnmpMgrCtl(session: *mut core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mgmtapi.dll" "system" fn SnmpMgrCtl(session : *mut core::ffi::c_void, dwctlcode : u32, lpvinbuffer : *mut core::ffi::c_void, cbinbuffer : u32, lpvoutbuffer : *mut core::ffi::c_void, cboutbuffer : u32, lpcbbytesreturned : *mut u32) -> windows_core::BOOL);
     unsafe { SnmpMgrCtl(session as _, dwctlcode, lpvinbuffer as _, cbinbuffer, lpvoutbuffer as _, cboutbuffer, lpcbbytesreturned as _).ok() }
 }
@@ -196,7 +196,7 @@ where
     unsafe { SnmpMgrStrToOid(string.param().abi(), oid as _) }
 }
 #[inline]
-pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { SnmpMgrTrapListen(phtrapavailable as _).ok() }
 }

@@ -79,7 +79,7 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: *const u32, param1: *const u8, 
     unsafe { CLIPFORMAT_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[inline]
-pub unsafe fn CoGetMarshalSizeMax<P2>(pulsize: *mut u32, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
+pub unsafe fn CoGetMarshalSizeMax<P2>(pulsize: *mut u32, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
@@ -87,7 +87,7 @@ where
     unsafe { CoGetMarshalSizeMax(pulsize as _, riid, punk.param().abi(), dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags).ok() }
 }
 #[inline]
-pub unsafe fn CoGetStandardMarshal<P1>(riid: *const windows_core::GUID, punk: P1, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<IMarshal>
+pub unsafe fn CoGetStandardMarshal<P1>(riid: *const windows_core::GUID, punk: P1, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> Result<IMarshal, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
@@ -98,7 +98,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn CoGetStdMarshalEx<P0>(punkouter: P0, smexflags: u32) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CoGetStdMarshalEx<P0>(punkouter: P0, smexflags: u32) -> Result<windows_core::IUnknown, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
@@ -109,7 +109,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn CoMarshalHresult<P0>(pstm: P0, hresult: windows_core::HRESULT) -> windows_core::Result<()>
+pub unsafe fn CoMarshalHresult<P0>(pstm: P0, hresult: windows_core::HRESULT) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<super::IStream>,
 {
@@ -117,7 +117,7 @@ where
     unsafe { CoMarshalHresult(pstm.param().abi(), hresult).ok() }
 }
 #[inline]
-pub unsafe fn CoMarshalInterThreadInterfaceInStream<P1>(riid: *const windows_core::GUID, punk: P1) -> windows_core::Result<super::IStream>
+pub unsafe fn CoMarshalInterThreadInterfaceInStream<P1>(riid: *const windows_core::GUID, punk: P1) -> Result<super::IStream, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
@@ -128,7 +128,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn CoMarshalInterface<P0, P2>(pstm: P0, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
+pub unsafe fn CoMarshalInterface<P0, P2>(pstm: P0, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<super::IStream>,
     P2: windows_core::Param<windows_core::IUnknown>,
@@ -137,7 +137,7 @@ where
     unsafe { CoMarshalInterface(pstm.param().abi(), riid, punk.param().abi(), dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags).ok() }
 }
 #[inline]
-pub unsafe fn CoReleaseMarshalData<P0>(pstm: P0) -> windows_core::Result<()>
+pub unsafe fn CoReleaseMarshalData<P0>(pstm: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<super::IStream>,
 {
@@ -145,7 +145,7 @@ where
     unsafe { CoReleaseMarshalData(pstm.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn CoUnmarshalHresult<P0>(pstm: P0) -> windows_core::Result<windows_core::HRESULT>
+pub unsafe fn CoUnmarshalHresult<P0>(pstm: P0) -> Result<windows_core::HRESULT, windows_result::HRESULT>
 where
     P0: windows_core::Param<super::IStream>,
 {
@@ -156,7 +156,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn CoUnmarshalInterface<P0, T>(pstm: P0) -> windows_core::Result<T>
+pub unsafe fn CoUnmarshalInterface<P0, T>(pstm: P0) -> Result<T, windows_result::HRESULT>
 where
     P0: windows_core::Param<super::IStream>,
     T: windows_core::Interface,
@@ -664,37 +664,37 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, p
 windows_core::imp::define_interface!(IMarshal, IMarshal_Vtbl, 0x00000003_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IMarshal, windows_core::IUnknown);
 impl IMarshal {
-    pub unsafe fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUnmarshalClass)(windows_core::Interface::as_raw(self), riid, pv.unwrap_or(core::mem::zeroed()) as _, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<u32> {
+    pub unsafe fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMarshalSizeMax)(windows_core::Interface::as_raw(self), riid, pv.unwrap_or(core::mem::zeroed()) as _, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
+    pub unsafe fn MarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).MarshalInterface)(windows_core::Interface::as_raw(self), pstm.param().abi(), riid, pv.unwrap_or(core::mem::zeroed()) as _, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags).ok() }
     }
-    pub unsafe fn UnmarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn UnmarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).UnmarshalInterface)(windows_core::Interface::as_raw(self), pstm.param().abi(), riid, ppv as _).ok() }
     }
-    pub unsafe fn ReleaseMarshalData<P0>(&self, pstm: P0) -> windows_core::Result<()>
+    pub unsafe fn ReleaseMarshalData<P0>(&self, pstm: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).ReleaseMarshalData)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok() }
     }
-    pub unsafe fn DisconnectObject(&self, dwreserved: u32) -> windows_core::Result<()> {
+    pub unsafe fn DisconnectObject(&self, dwreserved: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DisconnectObject)(windows_core::Interface::as_raw(self), dwreserved).ok() }
     }
 }
@@ -710,12 +710,12 @@ pub struct IMarshal_Vtbl {
     pub DisconnectObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IMarshal_Impl: windows_core::IUnknownImpl {
-    fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<windows_core::GUID>;
-    fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<u32>;
-    fn MarshalInterface(&self, pstm: windows_core::Ref<'_, super::IStream>, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<()>;
-    fn UnmarshalInterface(&self, pstm: windows_core::Ref<'_, super::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ReleaseMarshalData(&self, pstm: windows_core::Ref<'_, super::IStream>) -> windows_core::Result<()>;
-    fn DisconnectObject(&self, dwreserved: u32) -> windows_core::Result<()>;
+    fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> Result<u32, windows_result::HRESULT>;
+    fn MarshalInterface(&self, pstm: windows_core::Ref<'_, super::IStream>, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn UnmarshalInterface(&self, pstm: windows_core::Ref<'_, super::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseMarshalData(&self, pstm: windows_core::Ref<'_, super::IStream>) -> Result<(), windows_result::HRESULT>;
+    fn DisconnectObject(&self, dwreserved: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IMarshal_Vtbl {
     pub const fn new<Identity: IMarshal_Impl, const OFFSET: isize>() -> Self {
@@ -814,7 +814,7 @@ impl core::ops::Deref for IMarshalingStream {
 }
 windows_core::imp::interface_hierarchy!(IMarshalingStream, windows_core::IUnknown, super::ISequentialStream, super::IStream);
 impl IMarshalingStream {
-    pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> windows_core::Result<usize> {
+    pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMarshalingContextAttribute)(windows_core::Interface::as_raw(self), attribute, &mut result__).map(|| result__)
@@ -828,7 +828,7 @@ pub struct IMarshalingStream_Vtbl {
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, super::CO_MARSHALING_CONTEXT_ATTRIBUTES, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IMarshalingStream_Impl: super::IStream_Impl {
-    fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> windows_core::Result<usize>;
+    fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> Result<usize, windows_result::HRESULT>;
 }
 impl IMarshalingStream_Vtbl {
     pub const fn new<Identity: IMarshalingStream_Impl, const OFFSET: isize>() -> Self {

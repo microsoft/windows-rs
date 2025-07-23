@@ -24,21 +24,21 @@ pub struct IVibrationDeviceStatics_Vtbl {
 pub struct VibrationDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VibrationDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl VibrationDevice {
-    pub fn Vibrate(&self, duration: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn Vibrate(&self, duration: super::super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Vibrate)(windows_core::Interface::as_raw(this), duration).ok() }
     }
-    pub fn Cancel(&self) -> windows_core::Result<()> {
+    pub fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<VibrationDevice> {
+    pub fn GetDefault() -> Result<VibrationDevice, windows_result::HRESULT> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IVibrationDeviceStatics<R, F: FnOnce(&IVibrationDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVibrationDeviceStatics<R, F: FnOnce(&IVibrationDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<VibrationDevice, IVibrationDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

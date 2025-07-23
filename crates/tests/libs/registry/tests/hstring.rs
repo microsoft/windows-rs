@@ -1,8 +1,9 @@
 use windows_registry::*;
 use windows_strings::*;
+use windows_result::*;
 
 #[test]
-fn hstring() -> Result<()> {
+fn hstring() -> Result<(), HRESULT> {
     let test_key = "software\\windows-rs\\tests\\hstring";
     _ = CURRENT_USER.remove_tree(test_key);
     let key = CURRENT_USER.create(test_key)?;

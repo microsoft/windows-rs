@@ -39,7 +39,6 @@ pub use value_iterator::ValueIterator;
 mod r#type;
 pub use r#type::Type;
 
-pub use windows_result::Result;
 use windows_result::*;
 
 pub use windows_strings::HSTRING;
@@ -60,19 +59,19 @@ pub const LOCAL_MACHINE: &Key = &Key(HKEY_LOCAL_MACHINE);
 /// The predefined `HKEY_USERS` registry key.
 pub const USERS: &Key = &Key(HKEY_USERS);
 
-fn win32_error(result: u32) -> Result<()> {
+fn win32_error(result: u32) -> Result<(), HRESULT> {
     if result == 0 {
         Ok(())
     } else {
-        Err(Error::from_hresult(HRESULT::from_win32(result)))
+        Err(HRESULT::from_win32(result))
     }
 }
 
-fn invalid_data() -> Error {
-    Error::from_hresult(HRESULT::from_win32(ERROR_INVALID_DATA))
+fn invalid_data() -> HRESULT {
+    HRESULT::from_win32(ERROR_INVALID_DATA)
 }
 
-fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64> {
+fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64, HRESULT> {
     match ty {
         Type::U32 if from.len() == 4 => Ok(u32::from_le_bytes(from.try_into().unwrap()).into()),
         Type::U64 if from.len() == 8 => Ok(u64::from_le_bytes(from.try_into().unwrap())),

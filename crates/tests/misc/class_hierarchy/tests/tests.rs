@@ -1,7 +1,7 @@
 use windows::{core::*, Foundation::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let class: MemoryBuffer = MemoryBuffer::Create(10)?;
 
     call_class(&class)?;
@@ -19,20 +19,20 @@ fn test() -> Result<()> {
     Ok(())
 }
 
-fn call_class(b: &MemoryBuffer) -> Result<()> {
+fn call_class(b: &MemoryBuffer) -> Result<(), HRESULT> {
     assert_eq!(10, b.CreateReference()?.Capacity()?);
     Ok(())
 }
 
-fn call_interface(b: &IMemoryBuffer) -> Result<()> {
+fn call_interface(b: &IMemoryBuffer) -> Result<(), HRESULT> {
     assert_eq!(10, b.CreateReference()?.Capacity()?);
     Ok(())
 }
 
-fn as_class<P: Param<MemoryBuffer>>(b: P) -> Result<()> {
+fn as_class<P: Param<MemoryBuffer>>(b: P) -> Result<(), HRESULT> {
     unsafe { call_class(b.param().borrow().as_ref().unwrap()) }
 }
 
-fn as_interface<P: Param<IMemoryBuffer>>(b: P) -> Result<()> {
+fn as_interface<P: Param<IMemoryBuffer>>(b: P) -> Result<(), HRESULT> {
     unsafe { call_interface(b.param().borrow().as_ref().unwrap()) }
 }

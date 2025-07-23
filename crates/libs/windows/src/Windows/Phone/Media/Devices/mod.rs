@@ -22,18 +22,18 @@ impl windows_core::RuntimeType for AudioRoutingEndpoint {
 pub struct AudioRoutingManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioRoutingManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioRoutingManager {
-    pub fn GetAudioEndpoint(&self) -> windows_core::Result<AudioRoutingEndpoint> {
+    pub fn GetAudioEndpoint(&self) -> Result<AudioRoutingEndpoint, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAudioEndpoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> windows_core::Result<()> {
+    pub fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAudioEndpoint)(windows_core::Interface::as_raw(this), endpoint).ok() }
     }
-    pub fn AudioEndpointChanged<P0>(&self, endpointchangehandler: P0) -> windows_core::Result<i64>
+    pub fn AudioEndpointChanged<P0>(&self, endpointchangehandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, windows_core::IInspectable>>,
     {
@@ -43,24 +43,24 @@ impl AudioRoutingManager {
             (windows_core::Interface::vtable(this).AudioEndpointChanged)(windows_core::Interface::as_raw(this), endpointchangehandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAudioEndpointChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAudioEndpointChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioEndpointChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AvailableAudioEndpoints(&self) -> windows_core::Result<AvailableAudioRoutingEndpoints> {
+    pub fn AvailableAudioEndpoints(&self) -> Result<AvailableAudioRoutingEndpoints, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AvailableAudioEndpoints)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDefault() -> windows_core::Result<AudioRoutingManager> {
+    pub fn GetDefault() -> Result<AudioRoutingManager, windows_result::HRESULT> {
         Self::IAudioRoutingManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAudioRoutingManagerStatics<R, F: FnOnce(&IAudioRoutingManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioRoutingManagerStatics<R, F: FnOnce(&IAudioRoutingManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AudioRoutingManager, IAudioRoutingManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

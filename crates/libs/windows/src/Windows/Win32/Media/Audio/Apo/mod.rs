@@ -379,13 +379,13 @@ impl windows_core::RuntimeName for IApoAcousticEchoCancellation {}
 windows_core::imp::define_interface!(IApoAuxiliaryInputConfiguration, IApoAuxiliaryInputConfiguration_Vtbl, 0x4ceb0aab_fa19_48ed_a857_87771ae1b768);
 windows_core::imp::interface_hierarchy!(IApoAuxiliaryInputConfiguration, windows_core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
-    pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> windows_core::Result<()> {
+    pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddAuxiliaryInput)(windows_core::Interface::as_raw(self), dwinputid, pbydata.len().try_into().unwrap(), core::mem::transmute(pbydata.as_ptr()), core::mem::transmute(pinputconnection)).ok() }
     }
-    pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAuxiliaryInput)(windows_core::Interface::as_raw(self), dwinputid).ok() }
     }
-    pub unsafe fn IsInputFormatSupported<P0>(&self, prequestedinputformat: P0) -> windows_core::Result<IAudioMediaType>
+    pub unsafe fn IsInputFormatSupported<P0>(&self, prequestedinputformat: P0) -> Result<IAudioMediaType, windows_result::HRESULT>
     where
         P0: windows_core::Param<IAudioMediaType>,
     {
@@ -404,9 +404,9 @@ pub struct IApoAuxiliaryInputConfiguration_Vtbl {
     pub IsInputFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IApoAuxiliaryInputConfiguration_Impl: windows_core::IUnknownImpl {
-    fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> windows_core::Result<()>;
-    fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> windows_core::Result<()>;
-    fn IsInputFormatSupported(&self, prequestedinputformat: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> Result<(), windows_result::HRESULT>;
+    fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> Result<(), windows_result::HRESULT>;
+    fn IsInputFormatSupported(&self, prequestedinputformat: windows_core::Ref<'_, IAudioMediaType>) -> Result<IAudioMediaType, windows_result::HRESULT>;
 }
 impl IApoAuxiliaryInputConfiguration_Vtbl {
     pub const fn new<Identity: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>() -> Self {
@@ -480,7 +480,7 @@ impl windows_core::RuntimeName for IApoAuxiliaryInputRT {}
 windows_core::imp::define_interface!(IAudioDeviceModulesClient, IAudioDeviceModulesClient_Vtbl, 0x98f37dac_d0b6_49f5_896a_aa4d169a4c48);
 windows_core::imp::interface_hierarchy!(IAudioDeviceModulesClient, windows_core::IUnknown);
 impl IAudioDeviceModulesClient {
-    pub unsafe fn SetAudioDeviceModulesManager<P0>(&self, paudiodevicemodulesmanager: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAudioDeviceModulesManager<P0>(&self, paudiodevicemodulesmanager: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -494,7 +494,7 @@ pub struct IAudioDeviceModulesClient_Vtbl {
     pub SetAudioDeviceModulesManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAudioDeviceModulesClient_Impl: windows_core::IUnknownImpl {
-    fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 impl IAudioDeviceModulesClient_Vtbl {
     pub const fn new<Identity: IAudioDeviceModulesClient_Impl, const OFFSET: isize>() -> Self {
@@ -514,13 +514,13 @@ impl windows_core::RuntimeName for IAudioDeviceModulesClient {}
 windows_core::imp::define_interface!(IAudioMediaType, IAudioMediaType_Vtbl, 0x4e997f73_b71f_4798_873b_ed7dfcf15b4d);
 windows_core::imp::interface_hierarchy!(IAudioMediaType, windows_core::IUnknown);
 impl IAudioMediaType {
-    pub unsafe fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsCompressedFormat(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCompressedFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> windows_core::Result<u32>
+    pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<IAudioMediaType>,
     {
@@ -532,7 +532,7 @@ impl IAudioMediaType {
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
         unsafe { (windows_core::Interface::vtable(self).GetAudioFormat)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> windows_core::Result<()> {
+    pub unsafe fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetUncompressedAudioFormat)(windows_core::Interface::as_raw(self), puncompressedaudioformat as _).ok() }
     }
 }
@@ -546,10 +546,10 @@ pub struct IAudioMediaType_Vtbl {
     pub GetUncompressedAudioFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UNCOMPRESSEDAUDIOFORMAT) -> windows_core::HRESULT,
 }
 pub trait IAudioMediaType_Impl: windows_core::IUnknownImpl {
-    fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsEqual(&self, piaudiotype: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<u32>;
+    fn IsCompressedFormat(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsEqual(&self, piaudiotype: windows_core::Ref<'_, IAudioMediaType>) -> Result<u32, windows_result::HRESULT>;
     fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX;
-    fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> windows_core::Result<()>;
+    fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> Result<(), windows_result::HRESULT>;
 }
 impl IAudioMediaType_Vtbl {
     pub const fn new<Identity: IAudioMediaType_Impl, const OFFSET: isize>() -> Self {
@@ -605,25 +605,25 @@ impl windows_core::RuntimeName for IAudioMediaType {}
 windows_core::imp::define_interface!(IAudioProcessingObject, IAudioProcessingObject_Vtbl, 0xfd7f2b29_24d0_4b5c_b177_592c39f9ca10);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObject, windows_core::IUnknown);
 impl IAudioProcessingObject {
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetLatency(&self) -> windows_core::Result<i64> {
+    pub unsafe fn GetLatency(&self) -> Result<i64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRegistrationProperties(&self) -> windows_core::Result<*mut APO_REG_PROPERTIES> {
+    pub unsafe fn GetRegistrationProperties(&self) -> Result<*mut APO_REG_PROPERTIES, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRegistrationProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Initialize(&self, pbydata: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn Initialize(&self, pbydata: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pbydata.len().try_into().unwrap(), core::mem::transmute(pbydata.as_ptr())).ok() }
     }
-    pub unsafe fn IsInputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedinputformat: P1) -> windows_core::Result<IAudioMediaType>
+    pub unsafe fn IsInputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedinputformat: P1) -> Result<IAudioMediaType, windows_result::HRESULT>
     where
         P0: windows_core::Param<IAudioMediaType>,
         P1: windows_core::Param<IAudioMediaType>,
@@ -633,7 +633,7 @@ impl IAudioProcessingObject {
             (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> windows_core::Result<IAudioMediaType>
+    pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> Result<IAudioMediaType, windows_result::HRESULT>
     where
         P0: windows_core::Param<IAudioMediaType>,
         P1: windows_core::Param<IAudioMediaType>,
@@ -643,7 +643,7 @@ impl IAudioProcessingObject {
             (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedoutputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetInputChannelCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetInputChannelCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInputChannelCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -663,13 +663,13 @@ pub struct IAudioProcessingObject_Vtbl {
     pub GetInputChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IAudioProcessingObject_Impl: windows_core::IUnknownImpl {
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn GetLatency(&self) -> windows_core::Result<i64>;
-    fn GetRegistrationProperties(&self) -> windows_core::Result<*mut APO_REG_PROPERTIES>;
-    fn Initialize(&self, cbdatasize: u32, pbydata: *const u8) -> windows_core::Result<()>;
-    fn IsInputFormatSupported(&self, poppositeformat: windows_core::Ref<'_, IAudioMediaType>, prequestedinputformat: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
-    fn IsOutputFormatSupported(&self, poppositeformat: windows_core::Ref<'_, IAudioMediaType>, prequestedoutputformat: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
-    fn GetInputChannelCount(&self) -> windows_core::Result<u32>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetLatency(&self) -> Result<i64, windows_result::HRESULT>;
+    fn GetRegistrationProperties(&self) -> Result<*mut APO_REG_PROPERTIES, windows_result::HRESULT>;
+    fn Initialize(&self, cbdatasize: u32, pbydata: *const u8) -> Result<(), windows_result::HRESULT>;
+    fn IsInputFormatSupported(&self, poppositeformat: windows_core::Ref<'_, IAudioMediaType>, prequestedinputformat: windows_core::Ref<'_, IAudioMediaType>) -> Result<IAudioMediaType, windows_result::HRESULT>;
+    fn IsOutputFormatSupported(&self, poppositeformat: windows_core::Ref<'_, IAudioMediaType>, prequestedoutputformat: windows_core::Ref<'_, IAudioMediaType>) -> Result<IAudioMediaType, windows_result::HRESULT>;
+    fn GetInputChannelCount(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IAudioProcessingObject_Vtbl {
     pub const fn new<Identity: IAudioProcessingObject_Impl, const OFFSET: isize>() -> Self {
@@ -764,10 +764,10 @@ impl windows_core::RuntimeName for IAudioProcessingObject {}
 windows_core::imp::define_interface!(IAudioProcessingObjectConfiguration, IAudioProcessingObjectConfiguration_Vtbl, 0x0e5ed805_aba6_49c3_8f9a_2b8c889c4fa8);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectConfiguration, windows_core::IUnknown);
 impl IAudioProcessingObjectConfiguration {
-    pub unsafe fn LockForProcess(&self, ppinputconnections: &[*const APO_CONNECTION_DESCRIPTOR], ppoutputconnections: &[*const APO_CONNECTION_DESCRIPTOR]) -> windows_core::Result<()> {
+    pub unsafe fn LockForProcess(&self, ppinputconnections: &[*const APO_CONNECTION_DESCRIPTOR], ppoutputconnections: &[*const APO_CONNECTION_DESCRIPTOR]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LockForProcess)(windows_core::Interface::as_raw(self), ppinputconnections.len().try_into().unwrap(), core::mem::transmute(ppinputconnections.as_ptr()), ppoutputconnections.len().try_into().unwrap(), core::mem::transmute(ppoutputconnections.as_ptr())).ok() }
     }
-    pub unsafe fn UnlockForProcess(&self) -> windows_core::Result<()> {
+    pub unsafe fn UnlockForProcess(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UnlockForProcess)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -779,8 +779,8 @@ pub struct IAudioProcessingObjectConfiguration_Vtbl {
     pub UnlockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAudioProcessingObjectConfiguration_Impl: windows_core::IUnknownImpl {
-    fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> windows_core::Result<()>;
-    fn UnlockForProcess(&self) -> windows_core::Result<()>;
+    fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> Result<(), windows_result::HRESULT>;
+    fn UnlockForProcess(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IAudioProcessingObjectConfiguration_Vtbl {
     pub const fn new<Identity: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>() -> Self {
@@ -844,7 +844,7 @@ impl windows_core::RuntimeName for IAudioProcessingObjectLoggingService {}
 windows_core::imp::define_interface!(IAudioProcessingObjectNotifications, IAudioProcessingObjectNotifications_Vtbl, 0x56b0c76f_02fd_4b21_a52e_9f8219fc86e4);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectNotifications, windows_core::IUnknown);
 impl IAudioProcessingObjectNotifications {
-    pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetApoNotificationRegistrationInfo)(windows_core::Interface::as_raw(self), aponotifications as _, count as _).ok() }
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -864,7 +864,7 @@ pub struct IAudioProcessingObjectNotifications_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioProcessingObjectNotifications_Impl: windows_core::IUnknownImpl {
-    fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> windows_core::Result<()>;
+    fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> Result<(), windows_result::HRESULT>;
     fn HandleNotification(&self, aponotification: *const APO_NOTIFICATION);
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -903,7 +903,7 @@ impl core::ops::Deref for IAudioProcessingObjectNotifications2 {
 }
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectNotifications2, windows_core::IUnknown, IAudioProcessingObjectNotifications);
 impl IAudioProcessingObjectNotifications2 {
-    pub unsafe fn GetApoNotificationRegistrationInfo2(&self, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetApoNotificationRegistrationInfo2(&self, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetApoNotificationRegistrationInfo2)(windows_core::Interface::as_raw(self), maxaponotificationtypesupported, aponotifications as _, count as _).ok() }
     }
 }
@@ -915,7 +915,7 @@ pub struct IAudioProcessingObjectNotifications2_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioProcessingObjectNotifications2_Impl: IAudioProcessingObjectNotifications_Impl {
-    fn GetApoNotificationRegistrationInfo2(&self, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> windows_core::Result<()>;
+    fn GetApoNotificationRegistrationInfo2(&self, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IAudioProcessingObjectNotifications2_Vtbl {
@@ -998,7 +998,7 @@ impl windows_core::RuntimeName for IAudioProcessingObjectRT {}
 windows_core::imp::define_interface!(IAudioProcessingObjectRTQueueService, IAudioProcessingObjectRTQueueService_Vtbl, 0xacd65e2f_955b_4b57_b9bf_ac297bb752c9);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectRTQueueService, windows_core::IUnknown);
 impl IAudioProcessingObjectRTQueueService {
-    pub unsafe fn GetRealTimeWorkQueue(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetRealTimeWorkQueue(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRealTimeWorkQueue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1012,7 +1012,7 @@ pub struct IAudioProcessingObjectRTQueueService_Vtbl {
     pub GetRealTimeWorkQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IAudioProcessingObjectRTQueueService_Impl: windows_core::IUnknownImpl {
-    fn GetRealTimeWorkQueue(&self) -> windows_core::Result<u32>;
+    fn GetRealTimeWorkQueue(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IAudioProcessingObjectRTQueueService_Vtbl {
     pub const fn new<Identity: IAudioProcessingObjectRTQueueService_Impl, const OFFSET: isize>() -> Self {
@@ -1038,13 +1038,13 @@ impl windows_core::RuntimeName for IAudioProcessingObjectRTQueueService {}
 windows_core::imp::define_interface!(IAudioProcessingObjectVBR, IAudioProcessingObjectVBR_Vtbl, 0x7ba1db8f_78ad_49cd_9591_f79d80a17c81);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectVBR, windows_core::IUnknown);
 impl IAudioProcessingObjectVBR {
-    pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> windows_core::Result<u32> {
+    pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CalcMaxInputFrames)(windows_core::Interface::as_raw(self), u32maxoutputframecount, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> windows_core::Result<u32> {
+    pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CalcMaxOutputFrames)(windows_core::Interface::as_raw(self), u32maxinputframecount, &mut result__).map(|| result__)
@@ -1059,8 +1059,8 @@ pub struct IAudioProcessingObjectVBR_Vtbl {
     pub CalcMaxOutputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IAudioProcessingObjectVBR_Impl: windows_core::IUnknownImpl {
-    fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> windows_core::Result<u32>;
-    fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> windows_core::Result<u32>;
+    fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> Result<u32, windows_result::HRESULT>;
+    fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> Result<u32, windows_result::HRESULT>;
 }
 impl IAudioProcessingObjectVBR_Vtbl {
     pub const fn new<Identity: IAudioProcessingObjectVBR_Impl, const OFFSET: isize>() -> Self {
@@ -1125,7 +1125,7 @@ impl core::ops::Deref for IAudioSystemEffects2 {
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects2, windows_core::IUnknown, IAudioSystemEffects);
 impl IAudioSystemEffects2 {
-    pub unsafe fn GetEffectsList(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn GetEffectsList(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetEffectsList)(windows_core::Interface::as_raw(self), ppeffectsids as _, pceffects as _, event).ok() }
     }
 }
@@ -1136,7 +1136,7 @@ pub struct IAudioSystemEffects2_Vtbl {
     pub GetEffectsList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32, super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 pub trait IAudioSystemEffects2_Impl: IAudioSystemEffects_Impl {
-    fn GetEffectsList(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn GetEffectsList(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>;
 }
 impl IAudioSystemEffects2_Vtbl {
     pub const fn new<Identity: IAudioSystemEffects2_Impl, const OFFSET: isize>() -> Self {
@@ -1162,10 +1162,10 @@ impl core::ops::Deref for IAudioSystemEffects3 {
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects3, windows_core::IUnknown, IAudioSystemEffects, IAudioSystemEffects2);
 impl IAudioSystemEffects3 {
-    pub unsafe fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: Option<super::super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
+    pub unsafe fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: Option<super::super::super::Foundation::HANDLE>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetControllableSystemEffectsList)(windows_core::Interface::as_raw(self), effects as _, numeffects as _, event.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetAudioSystemEffectState(&self, effectid: windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> windows_core::Result<()> {
+    pub unsafe fn SetAudioSystemEffectState(&self, effectid: windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAudioSystemEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), state).ok() }
     }
 }
@@ -1177,8 +1177,8 @@ pub struct IAudioSystemEffects3_Vtbl {
     pub SetAudioSystemEffectState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, AUDIO_SYSTEMEFFECT_STATE) -> windows_core::HRESULT,
 }
 pub trait IAudioSystemEffects3_Impl: IAudioSystemEffects2_Impl {
-    fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn SetAudioSystemEffectState(&self, effectid: &windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> windows_core::Result<()>;
+    fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT>;
+    fn SetAudioSystemEffectState(&self, effectid: &windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> Result<(), windows_result::HRESULT>;
 }
 impl IAudioSystemEffects3_Vtbl {
     pub const fn new<Identity: IAudioSystemEffects3_Impl, const OFFSET: isize>() -> Self {
@@ -1208,19 +1208,19 @@ impl windows_core::RuntimeName for IAudioSystemEffects3 {}
 windows_core::imp::define_interface!(IAudioSystemEffectsCustomFormats, IAudioSystemEffectsCustomFormats_Vtbl, 0xb1176e34_bb7f_4f05_bebd_1b18a534e097);
 windows_core::imp::interface_hierarchy!(IAudioSystemEffectsCustomFormats, windows_core::IUnknown);
 impl IAudioSystemEffectsCustomFormats {
-    pub unsafe fn GetFormatCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetFormatCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormatCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFormat(&self, nformat: u32) -> windows_core::Result<IAudioMediaType> {
+    pub unsafe fn GetFormat(&self, nformat: u32) -> Result<IAudioMediaType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), nformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormatRepresentation)(windows_core::Interface::as_raw(self), nformat, &mut result__).map(|| result__)
@@ -1236,9 +1236,9 @@ pub struct IAudioSystemEffectsCustomFormats_Vtbl {
     pub GetFormatRepresentation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IAudioSystemEffectsCustomFormats_Impl: windows_core::IUnknownImpl {
-    fn GetFormatCount(&self) -> windows_core::Result<u32>;
-    fn GetFormat(&self, nformat: u32) -> windows_core::Result<IAudioMediaType>;
-    fn GetFormatRepresentation(&self, nformat: u32) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetFormatCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetFormat(&self, nformat: u32) -> Result<IAudioMediaType, windows_result::HRESULT>;
+    fn GetFormatRepresentation(&self, nformat: u32) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
 }
 impl IAudioSystemEffectsCustomFormats_Vtbl {
     pub const fn new<Identity: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>() -> Self {

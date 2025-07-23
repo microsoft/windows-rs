@@ -1,7 +1,7 @@
 use windows::{core::*, Win32::System::Com::*, Win32::System::WinRT::*, Win32::UI::Shell::*};
 
 #[test]
-fn path() -> Result<()> {
+fn path() -> Result<(), HRESULT> {
     unsafe {
         let extension: PCWSTR = PathCchFindExtension(w!("A:\\file.txt"), 12)?;
         assert_eq!(extension.to_string()?, ".txt");
@@ -10,7 +10,7 @@ fn path() -> Result<()> {
 }
 
 #[test]
-fn hstring() -> Result<()> {
+fn hstring() -> Result<(), HRESULT> {
     unsafe {
         let raw: PCWSTR = WindowsGetStringRawBuffer(h!("test"), None);
         assert_eq!(raw.to_string()?, "test");
@@ -19,7 +19,7 @@ fn hstring() -> Result<()> {
 }
 
 #[test]
-fn uri() -> Result<()> {
+fn uri() -> Result<(), HRESULT> {
     unsafe {
         let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
         let builder = CreateIUriBuilder(&uri, 0, 0)?;

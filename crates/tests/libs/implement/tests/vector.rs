@@ -6,14 +6,6 @@ use windows::Foundation::*;
 use windows::Win32::Foundation::*;
 use windows_collections::*;
 
-pub(crate) fn err_bounds() -> Error {
-    E_BOUNDS.into()
-}
-
-pub(crate) fn err_memory() -> Error {
-    E_OUTOFMEMORY.into()
-}
-
 #[implement(
     IVector<T>,
     IVectorView<T>,
@@ -39,16 +31,16 @@ where
     <T as Type<T>>::Default: PartialEq + Clone,
 {
     // Methods common to IVector and IVectorView:
-    fn GetAt(&self, index: u32) -> Result<T> {
+    fn GetAt(&self, index: u32) -> Result<T, HRESULT> {
         let reader = self.0.read().unwrap();
         let item = reader.get(index as usize).ok_or_else(err_bounds)?;
         T::from_default(item)
     }
-    fn Size(&self) -> Result<u32> {
+    fn Size(&self) -> Result<u32, HRESULT> {
         let reader = self.0.read().unwrap();
         Ok(reader.len() as u32)
     }
-    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool, HRESULT> {
         let reader = self.0.read().unwrap();
         match reader.iter().position(|element| element == &*value) {
             Some(index) => {
@@ -58,7 +50,7 @@ where
             None => Ok(false),
         }
     }
-    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32, HRESULT> {
         unimplemented!();
     }
 }
@@ -68,54 +60,54 @@ where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,
 {
-    fn GetAt(&self, index: u32) -> Result<T> {
+    fn GetAt(&self, index: u32) -> Result<T, HRESULT> {
         self.GetAt(index)
     }
-    fn Size(&self) -> Result<u32> {
+    fn Size(&self) -> Result<u32, HRESULT> {
         self.Size()
     }
-    fn GetView(&self) -> Result<IVectorView<T>> {
+    fn GetView(&self) -> Result<IVectorView<T>, HRESULT> {
         Ok(self.to_interface())
     }
-    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool, HRESULT> {
         self.IndexOf(value, result)
     }
-    fn SetAt(&self, index: u32, value: Ref<T>) -> Result<()> {
+    fn SetAt(&self, index: u32, value: Ref<T>) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
-        let item = writer.get_mut(index as usize).ok_or_else(err_bounds)?;
+        let item = writer.get_mut(index as usize).ok_or_else(E_BOUNDS)?;
         *item = value.clone();
         Ok(())
     }
-    fn InsertAt(&self, index: u32, value: Ref<T>) -> Result<()> {
+    fn InsertAt(&self, index: u32, value: Ref<T>) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         let index = index as usize;
         if index > writer.len() {
-            Err(err_bounds())
+            Err(E_BOUNDS)
         } else {
             let len = writer.len();
-            writer.try_reserve(len + 1).map_err(|_| err_memory())?;
+            writer.try_reserve(len + 1).map_err(|_| E_OUTOFMEMORY)?;
             writer.insert(index, value.clone());
             Ok(())
         }
     }
-    fn RemoveAt(&self, index: u32) -> Result<()> {
+    fn RemoveAt(&self, index: u32) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         let index = index as usize;
         if index < writer.len() {
             writer.remove(index);
             Ok(())
         } else {
-            Err(err_bounds())
+            Err(E_BOUNDS)
         }
     }
-    fn Append(&self, value: Ref<T>) -> Result<()> {
+    fn Append(&self, value: Ref<T>) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         let len = writer.len();
-        writer.try_reserve(len + 1).map_err(|_| err_memory())?;
+        writer.try_reserve(len + 1).map_err(|_| E_OUTOFMEMORY)?;
         writer.insert(len, value.clone());
         Ok(())
     }
-    fn RemoveAtEnd(&self) -> Result<()> {
+    fn RemoveAtEnd(&self) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         if !writer.is_empty() {
             let len = writer.len();
@@ -123,19 +115,19 @@ where
         }
         Ok(())
     }
-    fn Clear(&self) -> Result<()> {
+    fn Clear(&self) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         writer.clear();
         Ok(())
     }
-    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
+    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32, HRESULT> {
         self.GetMany(startindex, items)
     }
-    fn ReplaceAll(&self, items: &[T::Default]) -> Result<()> {
+    fn ReplaceAll(&self, items: &[T::Default]) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         writer
             .try_reserve(items.len() + 1)
-            .map_err(|_| err_memory())?;
+            .map_err(|_| E_OUTOFMEMORY)?;
         for item in items {
             writer.push(item.clone());
         }
@@ -148,16 +140,16 @@ where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,
 {
-    fn GetAt(&self, index: u32) -> Result<T> {
+    fn GetAt(&self, index: u32) -> Result<T, HRESULT> {
         self.GetAt(index)
     }
-    fn Size(&self) -> Result<u32> {
+    fn Size(&self) -> Result<u32, HRESULT> {
         self.Size()
     }
-    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool, HRESULT> {
         self.IndexOf(value, result)
     }
-    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
+    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32, HRESULT> {
         self.GetMany(startindex, items)
     }
 }
@@ -173,10 +165,10 @@ where
 }
 
 #[test]
-fn GetAt() -> Result<()> {
+fn GetAt() -> Result<(), HRESULT> {
     let v: IVector<i32> = Vector::new(vec![123]).into();
     assert_eq!(v.GetAt(0)?, 123);
-    assert_eq!(v.GetAt(1).unwrap_err().code(), E_BOUNDS);
+    assert_eq!(v.GetAt(1).unwrap_err(), E_BOUNDS);
 
     let v: IVector<IStringable> = Vector::new(vec![
         Some(Uri::CreateUri(&HSTRING::from("http://test/"))?.cast()?),
@@ -184,13 +176,13 @@ fn GetAt() -> Result<()> {
     ])
     .into();
     assert_eq!(v.GetAt(0)?.ToString()?, "http://test/");
-    assert_eq!(v.GetAt(1).unwrap_err().code(), S_OK);
+    assert_eq!(v.GetAt(1).unwrap_err(), S_OK);
 
     Ok(())
 }
 
 #[test]
-fn Size() -> Result<()> {
+fn Size() -> Result<(), HRESULT> {
     let v: IVector<i32> = Vector::new(vec![]).into();
     assert_eq!(v.Size()?, 0);
     v.Append(123)?;
@@ -199,7 +191,7 @@ fn Size() -> Result<()> {
 }
 
 #[test]
-fn IndexOf() -> Result<()> {
+fn IndexOf() -> Result<(), HRESULT> {
     let v: IVector<i32> = Vector::new(vec![123, 456]).into();
     let mut index = 0;
     assert!(v.IndexOf(123, &mut index)?);
@@ -225,7 +217,7 @@ fn IndexOf() -> Result<()> {
 }
 
 #[test]
-fn GetView() -> Result<()> {
+fn GetView() -> Result<(), HRESULT> {
     let vector: IVector<i32> = Vector::new(vec![123, 456, 789]).into();
     let view: IVectorView<i32> = vector.GetView()?;
     assert_eq!(view.Size()?, 3);
@@ -233,7 +225,7 @@ fn GetView() -> Result<()> {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let v: IVector<i32> = Vector::new(vec![10, 20, 30]).into();
     assert_eq!(10, v.GetAt(0)?);
     assert_eq!(20, v.GetAt(1)?);
@@ -283,7 +275,7 @@ fn test() -> Result<()> {
 
 // Test for https://github.com/microsoft/windows-rs/issues/2759
 #[test]
-fn test_2759() -> Result<()> {
+fn test_2759() -> Result<(), HRESULT> {
     let v: IVector<IStringable> = Vector::new(vec![]).into();
     let uri = Uri::CreateUri(h!("https://github.com/"))?;
     v.Append(&uri)?;
@@ -298,7 +290,7 @@ fn test_2759() -> Result<()> {
 }
 
 #[test]
-fn test_into_param() -> Result<()> {
+fn test_into_param() -> Result<(), HRESULT> {
     let v: IVector<i32> = Vector::new(vec![]).into();
     v.Append(1)?;
     v.Append(Some(&2))?;

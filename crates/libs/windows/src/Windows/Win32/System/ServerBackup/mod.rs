@@ -1,13 +1,13 @@
 windows_core::imp::define_interface!(IWsbApplicationAsync, IWsbApplicationAsync_Vtbl, 0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
 windows_core::imp::interface_hierarchy!(IWsbApplicationAsync, windows_core::IUnknown);
 impl IWsbApplicationAsync {
-    pub unsafe fn QueryStatus(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub unsafe fn QueryStatus(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
+    pub unsafe fn Abort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -19,8 +19,8 @@ pub struct IWsbApplicationAsync_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWsbApplicationAsync_Impl: windows_core::IUnknownImpl {
-    fn QueryStatus(&self) -> windows_core::Result<windows_core::HRESULT>;
-    fn Abort(&self) -> windows_core::Result<()>;
+    fn QueryStatus(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT>;
+    fn Abort(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IWsbApplicationAsync_Vtbl {
     pub const fn new<Identity: IWsbApplicationAsync_Impl, const OFFSET: isize>() -> Self {
@@ -52,7 +52,7 @@ impl windows_core::RuntimeName for IWsbApplicationAsync {}
 windows_core::imp::define_interface!(IWsbApplicationBackupSupport, IWsbApplicationBackupSupport_Vtbl, 0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
 windows_core::imp::interface_hierarchy!(IWsbApplicationBackupSupport, windows_core::IUnknown);
 impl IWsbApplicationBackupSupport {
-    pub unsafe fn CheckConsistency<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR) -> windows_core::Result<IWsbApplicationAsync>
+    pub unsafe fn CheckConsistency<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR) -> Result<IWsbApplicationAsync, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -71,7 +71,7 @@ pub struct IWsbApplicationBackupSupport_Vtbl {
     pub CheckConsistency: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *const windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWsbApplicationBackupSupport_Impl: windows_core::IUnknownImpl {
-    fn CheckConsistency(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR) -> windows_core::Result<IWsbApplicationAsync>;
+    fn CheckConsistency(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR) -> Result<IWsbApplicationAsync, windows_result::HRESULT>;
 }
 impl IWsbApplicationBackupSupport_Vtbl {
     pub const fn new<Identity: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>() -> Self {
@@ -97,7 +97,7 @@ impl windows_core::RuntimeName for IWsbApplicationBackupSupport {}
 windows_core::imp::define_interface!(IWsbApplicationRestoreSupport, IWsbApplicationRestoreSupport_Vtbl, 0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
 windows_core::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, windows_core::IUnknown);
 impl IWsbApplicationRestoreSupport {
-    pub unsafe fn PreRestore<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: bool) -> windows_core::Result<()>
+    pub unsafe fn PreRestore<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: bool) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -105,7 +105,7 @@ impl IWsbApplicationRestoreSupport {
     {
         unsafe { (windows_core::Interface::vtable(self).PreRestore)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), bnorollforward).ok() }
     }
-    pub unsafe fn PostRestore<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: bool) -> windows_core::Result<()>
+    pub unsafe fn PostRestore<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: bool) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -113,10 +113,10 @@ impl IWsbApplicationRestoreSupport {
     {
         unsafe { (windows_core::Interface::vtable(self).PostRestore)(windows_core::Interface::as_raw(self), wszwritermetadata.param().abi(), wszcomponentname.param().abi(), wszcomponentlogicalpath.param().abi(), bnorollforward).ok() }
     }
-    pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> windows_core::Result<()> {
+    pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OrderComponents)(windows_core::Interface::as_raw(self), ccomponents, rgcomponentname, rgcomponentlogicalpaths, prgcomponentname as _, prgcomponentlogicalpath as _).ok() }
     }
-    pub unsafe fn IsRollForwardSupported(&self) -> windows_core::Result<u8> {
+    pub unsafe fn IsRollForwardSupported(&self) -> Result<u8, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRollForwardSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -133,10 +133,10 @@ pub struct IWsbApplicationRestoreSupport_Vtbl {
     pub IsRollForwardSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 pub trait IWsbApplicationRestoreSupport_Impl: windows_core::IUnknownImpl {
-    fn PreRestore(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, bnorollforward: bool) -> windows_core::Result<()>;
-    fn PostRestore(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, bnorollforward: bool) -> windows_core::Result<()>;
-    fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn IsRollForwardSupported(&self) -> windows_core::Result<u8>;
+    fn PreRestore(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, bnorollforward: bool) -> Result<(), windows_result::HRESULT>;
+    fn PostRestore(&self, wszwritermetadata: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcomponentlogicalpath: &windows_core::PCWSTR, bnorollforward: bool) -> Result<(), windows_result::HRESULT>;
+    fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsRollForwardSupported(&self) -> Result<u8, windows_result::HRESULT>;
 }
 impl IWsbApplicationRestoreSupport_Vtbl {
     pub const fn new<Identity: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>() -> Self {

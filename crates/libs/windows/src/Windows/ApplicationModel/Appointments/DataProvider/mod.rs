@@ -3,56 +3,56 @@
 pub struct AppointmentCalendarCancelMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCancelMeetingRequest {
-    pub fn AppointmentCalendarLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentCalendarLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentCalendarLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentOriginalStartTime(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn AppointmentOriginalStartTime(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentOriginalStartTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subject(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Comment(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn NotifyInvitees(&self) -> windows_core::Result<bool> {
+    pub fn NotifyInvitees(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NotifyInvitees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -77,14 +77,14 @@ unsafe impl Sync for AppointmentCalendarCancelMeetingRequest {}
 pub struct AppointmentCalendarCancelMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCancelMeetingRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<AppointmentCalendarCancelMeetingRequest> {
+    pub fn Request(&self) -> Result<AppointmentCalendarCancelMeetingRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -109,35 +109,35 @@ unsafe impl Sync for AppointmentCalendarCancelMeetingRequestEventArgs {}
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    pub fn AppointmentCalendarLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentCalendarLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentCalendarLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Appointment(&self) -> windows_core::Result<super::Appointment> {
+    pub fn Appointment(&self) -> Result<super::Appointment, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Appointment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NotifyInvitees(&self) -> windows_core::Result<bool> {
+    pub fn NotifyInvitees(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NotifyInvitees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ChangedProperties(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn ChangedProperties(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangedProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompletedAsync<P0>(&self, createdorupdatedappointment: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn ReportCompletedAsync<P0>(&self, createdorupdatedappointment: P0) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Appointment>,
     {
@@ -147,7 +147,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), createdorupdatedappointment.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -172,14 +172,14 @@ unsafe impl Sync for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest> {
+    pub fn Request(&self) -> Result<AppointmentCalendarCreateOrUpdateAppointmentRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -204,63 +204,63 @@ unsafe impl Sync for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArg
 pub struct AppointmentCalendarForwardMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarForwardMeetingRequest {
-    pub fn AppointmentCalendarLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentCalendarLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentCalendarLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentOriginalStartTime(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn AppointmentOriginalStartTime(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentOriginalStartTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Invitees(&self) -> windows_core::Result<windows_collections::IVectorView<super::AppointmentInvitee>> {
+    pub fn Invitees(&self) -> Result<windows_collections::IVectorView<super::AppointmentInvitee>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invitees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subject(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ForwardHeader(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ForwardHeader(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForwardHeader)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Comment(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -285,14 +285,14 @@ unsafe impl Sync for AppointmentCalendarForwardMeetingRequest {}
 pub struct AppointmentCalendarForwardMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarForwardMeetingRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<AppointmentCalendarForwardMeetingRequest> {
+    pub fn Request(&self) -> Result<AppointmentCalendarForwardMeetingRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -317,63 +317,63 @@ unsafe impl Sync for AppointmentCalendarForwardMeetingRequestEventArgs {}
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequest {
-    pub fn AppointmentCalendarLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentCalendarLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentCalendarLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentOriginalStartTime(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn AppointmentOriginalStartTime(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentOriginalStartTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NewStartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn NewStartTime(&self) -> Result<super::super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NewStartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NewDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn NewDuration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NewDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subject(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Comment(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -398,14 +398,14 @@ unsafe impl Sync for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<AppointmentCalendarProposeNewTimeForMeetingRequest> {
+    pub fn Request(&self) -> Result<AppointmentCalendarProposeNewTimeForMeetingRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -430,21 +430,21 @@ unsafe impl Sync for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs
 pub struct AppointmentCalendarSyncManagerSyncRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequest {
-    pub fn AppointmentCalendarLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentCalendarLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentCalendarLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -469,14 +469,14 @@ unsafe impl Sync for AppointmentCalendarSyncManagerSyncRequest {}
 pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<AppointmentCalendarSyncManagerSyncRequest> {
+    pub fn Request(&self) -> Result<AppointmentCalendarSyncManagerSyncRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -501,63 +501,63 @@ unsafe impl Sync for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 pub struct AppointmentCalendarUpdateMeetingResponseRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequest {
-    pub fn AppointmentCalendarLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentCalendarLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentCalendarLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentLocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentLocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentLocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentOriginalStartTime(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn AppointmentOriginalStartTime(&self) -> Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentOriginalStartTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Response(&self) -> windows_core::Result<super::AppointmentParticipantResponse> {
+    pub fn Response(&self) -> Result<super::AppointmentParticipantResponse, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Response)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subject(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Comment(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SendUpdate(&self) -> windows_core::Result<bool> {
+    pub fn SendUpdate(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendUpdate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -582,14 +582,14 @@ unsafe impl Sync for AppointmentCalendarUpdateMeetingResponseRequest {}
 pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<AppointmentCalendarUpdateMeetingResponseRequest> {
+    pub fn Request(&self) -> Result<AppointmentCalendarUpdateMeetingResponseRequest, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -614,7 +614,7 @@ unsafe impl Sync for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 pub struct AppointmentDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentDataProviderConnection {
-    pub fn SyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SyncRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs>>,
     {
@@ -624,11 +624,11 @@ impl AppointmentDataProviderConnection {
             (windows_core::Interface::vtable(this).SyncRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSyncRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSyncRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSyncRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CreateOrUpdateAppointmentRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CreateOrUpdateAppointmentRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>>,
     {
@@ -638,11 +638,11 @@ impl AppointmentDataProviderConnection {
             (windows_core::Interface::vtable(this).CreateOrUpdateAppointmentRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCreateOrUpdateAppointmentRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCreateOrUpdateAppointmentRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCreateOrUpdateAppointmentRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CancelMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CancelMeetingRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs>>,
     {
@@ -652,11 +652,11 @@ impl AppointmentDataProviderConnection {
             (windows_core::Interface::vtable(this).CancelMeetingRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCancelMeetingRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCancelMeetingRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCancelMeetingRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ForwardMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ForwardMeetingRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs>>,
     {
@@ -666,11 +666,11 @@ impl AppointmentDataProviderConnection {
             (windows_core::Interface::vtable(this).ForwardMeetingRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveForwardMeetingRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveForwardMeetingRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveForwardMeetingRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ProposeNewTimeForMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ProposeNewTimeForMeetingRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>>,
     {
@@ -680,11 +680,11 @@ impl AppointmentDataProviderConnection {
             (windows_core::Interface::vtable(this).ProposeNewTimeForMeetingRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveProposeNewTimeForMeetingRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveProposeNewTimeForMeetingRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveProposeNewTimeForMeetingRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UpdateMeetingResponseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn UpdateMeetingResponseRequested<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>>,
     {
@@ -694,11 +694,11 @@ impl AppointmentDataProviderConnection {
             (windows_core::Interface::vtable(this).UpdateMeetingResponseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUpdateMeetingResponseRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUpdateMeetingResponseRequested(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUpdateMeetingResponseRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -720,7 +720,7 @@ unsafe impl Sync for AppointmentDataProviderConnection {}
 pub struct AppointmentDataProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentDataProviderTriggerDetails {
-    pub fn Connection(&self) -> windows_core::Result<AppointmentDataProviderConnection> {
+    pub fn Connection(&self) -> Result<AppointmentDataProviderConnection, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

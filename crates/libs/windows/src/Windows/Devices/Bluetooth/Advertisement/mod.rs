@@ -3,67 +3,67 @@
 pub struct BluetoothLEAdvertisement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisement, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisement {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisement, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Flags(&self) -> windows_core::Result<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>> {
+    pub fn Flags(&self) -> Result<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Flags)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetFlags<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetFlags<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFlags)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn LocalName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LocalName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLocalName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLocalName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocalName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ServiceUuids(&self) -> windows_core::Result<windows_collections::IVector<windows_core::GUID>> {
+    pub fn ServiceUuids(&self) -> Result<windows_collections::IVector<windows_core::GUID>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceUuids)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ManufacturerData(&self) -> windows_core::Result<windows_collections::IVector<BluetoothLEManufacturerData>> {
+    pub fn ManufacturerData(&self) -> Result<windows_collections::IVector<BluetoothLEManufacturerData>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManufacturerData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DataSections(&self) -> windows_core::Result<windows_collections::IVector<BluetoothLEAdvertisementDataSection>> {
+    pub fn DataSections(&self) -> Result<windows_collections::IVector<BluetoothLEAdvertisementDataSection>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataSections)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetManufacturerDataByCompanyId(&self, companyid: u16) -> windows_core::Result<windows_collections::IVectorView<BluetoothLEManufacturerData>> {
+    pub fn GetManufacturerDataByCompanyId(&self, companyid: u16) -> Result<windows_collections::IVectorView<BluetoothLEManufacturerData>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetManufacturerDataByCompanyId)(windows_core::Interface::as_raw(this), companyid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSectionsByType(&self, r#type: u8) -> windows_core::Result<windows_collections::IVectorView<BluetoothLEAdvertisementDataSection>> {
+    pub fn GetSectionsByType(&self, r#type: u8) -> Result<windows_collections::IVectorView<BluetoothLEAdvertisementDataSection>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -88,37 +88,37 @@ unsafe impl Sync for BluetoothLEAdvertisement {}
 pub struct BluetoothLEAdvertisementBytePattern(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementBytePattern, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementBytePattern {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementBytePattern, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn DataType(&self) -> windows_core::Result<u8> {
+    pub fn DataType(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDataType(&self, value: u8) -> windows_core::Result<()> {
+    pub fn SetDataType(&self, value: u8) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDataType)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Offset(&self) -> windows_core::Result<i16> {
+    pub fn Offset(&self) -> Result<i16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOffset(&self, value: i16) -> windows_core::Result<()> {
+    pub fn SetOffset(&self, value: i16) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Data(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Data(&self) -> Result<super::super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -126,7 +126,7 @@ impl BluetoothLEAdvertisementBytePattern {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -134,7 +134,7 @@ impl BluetoothLEAdvertisementBytePattern {
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P2>(datatype: u8, offset: i16, data: P2) -> windows_core::Result<BluetoothLEAdvertisementBytePattern>
+    pub fn Create<P2>(datatype: u8, offset: i16, data: P2) -> Result<BluetoothLEAdvertisementBytePattern, windows_result::HRESULT>
     where
         P2: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -143,7 +143,7 @@ impl BluetoothLEAdvertisementBytePattern {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), datatype, offset, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBluetoothLEAdvertisementBytePatternFactory<R, F: FnOnce(&IBluetoothLEAdvertisementBytePatternFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementBytePatternFactory<R, F: FnOnce(&IBluetoothLEAdvertisementBytePatternFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementBytePattern, IBluetoothLEAdvertisementBytePatternFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -165,26 +165,26 @@ unsafe impl Sync for BluetoothLEAdvertisementBytePattern {}
 pub struct BluetoothLEAdvertisementDataSection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementDataSection, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementDataSection {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementDataSection, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn DataType(&self) -> windows_core::Result<u8> {
+    pub fn DataType(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDataType(&self, value: u8) -> windows_core::Result<()> {
+    pub fn SetDataType(&self, value: u8) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDataType)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Data(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Data(&self) -> Result<super::super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -192,7 +192,7 @@ impl BluetoothLEAdvertisementDataSection {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -200,7 +200,7 @@ impl BluetoothLEAdvertisementDataSection {
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P1>(datatype: u8, data: P1) -> windows_core::Result<BluetoothLEAdvertisementDataSection>
+    pub fn Create<P1>(datatype: u8, data: P1) -> Result<BluetoothLEAdvertisementDataSection, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -209,7 +209,7 @@ impl BluetoothLEAdvertisementDataSection {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), datatype, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBluetoothLEAdvertisementDataSectionFactory<R, F: FnOnce(&IBluetoothLEAdvertisementDataSectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementDataSectionFactory<R, F: FnOnce(&IBluetoothLEAdvertisementDataSectionFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementDataSection, IBluetoothLEAdvertisementDataSectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -228,139 +228,139 @@ unsafe impl Send for BluetoothLEAdvertisementDataSection {}
 unsafe impl Sync for BluetoothLEAdvertisementDataSection {}
 pub struct BluetoothLEAdvertisementDataTypes;
 impl BluetoothLEAdvertisementDataTypes {
-    pub fn Flags() -> windows_core::Result<u8> {
+    pub fn Flags() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Flags)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IncompleteService16BitUuids() -> windows_core::Result<u8> {
+    pub fn IncompleteService16BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IncompleteService16BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CompleteService16BitUuids() -> windows_core::Result<u8> {
+    pub fn CompleteService16BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompleteService16BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IncompleteService32BitUuids() -> windows_core::Result<u8> {
+    pub fn IncompleteService32BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IncompleteService32BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CompleteService32BitUuids() -> windows_core::Result<u8> {
+    pub fn CompleteService32BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompleteService32BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IncompleteService128BitUuids() -> windows_core::Result<u8> {
+    pub fn IncompleteService128BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IncompleteService128BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CompleteService128BitUuids() -> windows_core::Result<u8> {
+    pub fn CompleteService128BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompleteService128BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ShortenedLocalName() -> windows_core::Result<u8> {
+    pub fn ShortenedLocalName() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShortenedLocalName)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CompleteLocalName() -> windows_core::Result<u8> {
+    pub fn CompleteLocalName() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompleteLocalName)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TxPowerLevel() -> windows_core::Result<u8> {
+    pub fn TxPowerLevel() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TxPowerLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PeripheralConnectionIntervalRange() -> windows_core::Result<u8> {
+    pub fn PeripheralConnectionIntervalRange() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeripheralConnectionIntervalRange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ServiceSolicitation16BitUuids() -> windows_core::Result<u8> {
+    pub fn ServiceSolicitation16BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceSolicitation16BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ServiceSolicitation32BitUuids() -> windows_core::Result<u8> {
+    pub fn ServiceSolicitation32BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceSolicitation32BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ServiceSolicitation128BitUuids() -> windows_core::Result<u8> {
+    pub fn ServiceSolicitation128BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceSolicitation128BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ServiceData16BitUuids() -> windows_core::Result<u8> {
+    pub fn ServiceData16BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceData16BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ServiceData32BitUuids() -> windows_core::Result<u8> {
+    pub fn ServiceData32BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceData32BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ServiceData128BitUuids() -> windows_core::Result<u8> {
+    pub fn ServiceData128BitUuids() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceData128BitUuids)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PublicTargetAddress() -> windows_core::Result<u8> {
+    pub fn PublicTargetAddress() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PublicTargetAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RandomTargetAddress() -> windows_core::Result<u8> {
+    pub fn RandomTargetAddress() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RandomTargetAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Appearance() -> windows_core::Result<u8> {
+    pub fn Appearance() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Appearance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AdvertisingInterval() -> windows_core::Result<u8> {
+    pub fn AdvertisingInterval() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AdvertisingInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ManufacturerSpecificData() -> windows_core::Result<u8> {
+    pub fn ManufacturerSpecificData() -> Result<u8, windows_result::HRESULT> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManufacturerSpecificData)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IBluetoothLEAdvertisementDataTypesStatics<R, F: FnOnce(&IBluetoothLEAdvertisementDataTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementDataTypesStatics<R, F: FnOnce(&IBluetoothLEAdvertisementDataTypesStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementDataTypes, IBluetoothLEAdvertisementDataTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -373,28 +373,28 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementDataTypes {
 pub struct BluetoothLEAdvertisementFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementFilter {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementFilter, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Advertisement(&self) -> windows_core::Result<BluetoothLEAdvertisement> {
+    pub fn Advertisement(&self) -> Result<BluetoothLEAdvertisement, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Advertisement)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAdvertisement<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetAdvertisement<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<BluetoothLEAdvertisement>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdvertisement)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn BytePatterns(&self) -> windows_core::Result<windows_collections::IVector<BluetoothLEAdvertisementBytePattern>> {
+    pub fn BytePatterns(&self) -> Result<windows_collections::IVector<BluetoothLEAdvertisementBytePattern>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -469,36 +469,36 @@ impl core::ops::Not for BluetoothLEAdvertisementFlags {
 pub struct BluetoothLEAdvertisementPublisher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisher, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementPublisher {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementPublisher, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Status(&self) -> windows_core::Result<BluetoothLEAdvertisementPublisherStatus> {
+    pub fn Status(&self) -> Result<BluetoothLEAdvertisementPublisherStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Advertisement(&self) -> windows_core::Result<BluetoothLEAdvertisement> {
+    pub fn Advertisement(&self) -> Result<BluetoothLEAdvertisement, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Advertisement)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StatusChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementPublisher, BluetoothLEAdvertisementPublisherStatusChangedEventArgs>>,
     {
@@ -508,58 +508,58 @@ impl BluetoothLEAdvertisementPublisher {
             (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStatusChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PreferredTransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn PreferredTransmitPowerLevelInDBm(&self) -> Result<super::super::super::Foundation::IReference<i16>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPreferredTransmitPowerLevelInDBm<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetPreferredTransmitPowerLevelInDBm<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::IReference<i16>>,
     {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn UseExtendedAdvertisement(&self) -> windows_core::Result<bool> {
+    pub fn UseExtendedAdvertisement(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UseExtendedAdvertisement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUseExtendedAdvertisement(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetUseExtendedAdvertisement(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUseExtendedAdvertisement)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsAnonymous(&self) -> windows_core::Result<bool> {
+    pub fn IsAnonymous(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAnonymous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsAnonymous(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsAnonymous(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsAnonymous)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IncludeTransmitPowerLevel(&self) -> windows_core::Result<bool> {
+    pub fn IncludeTransmitPowerLevel(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IncludeTransmitPowerLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIncludeTransmitPowerLevel(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIncludeTransmitPowerLevel(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIncludeTransmitPowerLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(advertisement: P0) -> windows_core::Result<BluetoothLEAdvertisementPublisher>
+    pub fn Create<P0>(advertisement: P0) -> Result<BluetoothLEAdvertisementPublisher, windows_result::HRESULT>
     where
         P0: windows_core::Param<BluetoothLEAdvertisement>,
     {
@@ -568,7 +568,7 @@ impl BluetoothLEAdvertisementPublisher {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), advertisement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBluetoothLEAdvertisementPublisherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementPublisherFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementPublisherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementPublisherFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementPublisher, IBluetoothLEAdvertisementPublisherFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -607,21 +607,21 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherStatus {
 pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
-    pub fn Status(&self) -> windows_core::Result<BluetoothLEAdvertisementPublisherStatus> {
+    pub fn Status(&self) -> Result<BluetoothLEAdvertisementPublisherStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> Result<super::BluetoothError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedTransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn SelectedTransmitPowerLevelInDBm(&self) -> Result<super::super::super::Foundation::IReference<i16>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -646,84 +646,84 @@ unsafe impl Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 pub struct BluetoothLEAdvertisementReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementReceivedEventArgs {
-    pub fn RawSignalStrengthInDBm(&self) -> windows_core::Result<i16> {
+    pub fn RawSignalStrengthInDBm(&self) -> Result<i16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawSignalStrengthInDBm)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BluetoothAddress(&self) -> windows_core::Result<u64> {
+    pub fn BluetoothAddress(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BluetoothAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AdvertisementType(&self) -> windows_core::Result<BluetoothLEAdvertisementType> {
+    pub fn AdvertisementType(&self) -> Result<BluetoothLEAdvertisementType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AdvertisementType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Advertisement(&self) -> windows_core::Result<BluetoothLEAdvertisement> {
+    pub fn Advertisement(&self) -> Result<BluetoothLEAdvertisement, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Advertisement)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BluetoothAddressType(&self) -> windows_core::Result<super::BluetoothAddressType> {
+    pub fn BluetoothAddressType(&self) -> Result<super::BluetoothAddressType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BluetoothAddressType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn TransmitPowerLevelInDBm(&self) -> Result<super::super::super::Foundation::IReference<i16>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsAnonymous(&self) -> windows_core::Result<bool> {
+    pub fn IsAnonymous(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAnonymous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsConnectable(&self) -> windows_core::Result<bool> {
+    pub fn IsConnectable(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsConnectable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsScannable(&self) -> windows_core::Result<bool> {
+    pub fn IsScannable(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsScannable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDirected(&self) -> windows_core::Result<bool> {
+    pub fn IsDirected(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDirected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsScanResponse(&self) -> windows_core::Result<bool> {
+    pub fn IsScanResponse(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -765,96 +765,96 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementType {
 pub struct BluetoothLEAdvertisementWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementWatcher {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementWatcher, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MinSamplingInterval(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MinSamplingInterval(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinSamplingInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxSamplingInterval(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MaxSamplingInterval(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxSamplingInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinOutOfRangeTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MinOutOfRangeTimeout(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinOutOfRangeTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxOutOfRangeTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MaxOutOfRangeTimeout(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxOutOfRangeTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Status(&self) -> windows_core::Result<BluetoothLEAdvertisementWatcherStatus> {
+    pub fn Status(&self) -> Result<BluetoothLEAdvertisementWatcherStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ScanningMode(&self) -> windows_core::Result<BluetoothLEScanningMode> {
+    pub fn ScanningMode(&self) -> Result<BluetoothLEScanningMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScanningMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetScanningMode(&self, value: BluetoothLEScanningMode) -> windows_core::Result<()> {
+    pub fn SetScanningMode(&self, value: BluetoothLEScanningMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetScanningMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SignalStrengthFilter(&self) -> windows_core::Result<super::BluetoothSignalStrengthFilter> {
+    pub fn SignalStrengthFilter(&self) -> Result<super::BluetoothSignalStrengthFilter, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SignalStrengthFilter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSignalStrengthFilter<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetSignalStrengthFilter<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::BluetoothSignalStrengthFilter>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSignalStrengthFilter)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn AdvertisementFilter(&self) -> windows_core::Result<BluetoothLEAdvertisementFilter> {
+    pub fn AdvertisementFilter(&self) -> Result<BluetoothLEAdvertisementFilter, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AdvertisementFilter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAdvertisementFilter<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetAdvertisementFilter<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<BluetoothLEAdvertisementFilter>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdvertisementFilter)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Received<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Received<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementReceivedEventArgs>>,
     {
@@ -864,11 +864,11 @@ impl BluetoothLEAdvertisementWatcher {
             (windows_core::Interface::vtable(this).Received)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReceived(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Stopped<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementWatcherStoppedEventArgs>>,
     {
@@ -878,22 +878,22 @@ impl BluetoothLEAdvertisementWatcher {
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStopped(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AllowExtendedAdvertisements(&self) -> windows_core::Result<bool> {
+    pub fn AllowExtendedAdvertisements(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowExtendedAdvertisements)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAllowExtendedAdvertisements(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowExtendedAdvertisements(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcher2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAllowExtendedAdvertisements)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(advertisementfilter: P0) -> windows_core::Result<BluetoothLEAdvertisementWatcher>
+    pub fn Create<P0>(advertisementfilter: P0) -> Result<BluetoothLEAdvertisementWatcher, windows_result::HRESULT>
     where
         P0: windows_core::Param<BluetoothLEAdvertisementFilter>,
     {
@@ -902,7 +902,7 @@ impl BluetoothLEAdvertisementWatcher {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), advertisementfilter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBluetoothLEAdvertisementWatcherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementWatcherFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementWatcherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementWatcherFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementWatcher, IBluetoothLEAdvertisementWatcherFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -940,7 +940,7 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherStatus {
 pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherStoppedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementWatcherStoppedEventArgs {
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> Result<super::BluetoothError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -965,26 +965,26 @@ unsafe impl Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 pub struct BluetoothLEManufacturerData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEManufacturerData, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEManufacturerData {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEManufacturerData, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CompanyId(&self) -> windows_core::Result<u16> {
+    pub fn CompanyId(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompanyId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCompanyId(&self, value: u16) -> windows_core::Result<()> {
+    pub fn SetCompanyId(&self, value: u16) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCompanyId)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Data(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Data(&self) -> Result<super::super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -992,7 +992,7 @@ impl BluetoothLEManufacturerData {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1000,7 +1000,7 @@ impl BluetoothLEManufacturerData {
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P1>(companyid: u16, data: P1) -> windows_core::Result<BluetoothLEManufacturerData>
+    pub fn Create<P1>(companyid: u16, data: P1) -> Result<BluetoothLEManufacturerData, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1009,7 +1009,7 @@ impl BluetoothLEManufacturerData {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), companyid, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBluetoothLEManufacturerDataFactory<R, F: FnOnce(&IBluetoothLEManufacturerDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEManufacturerDataFactory<R, F: FnOnce(&IBluetoothLEManufacturerDataFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEManufacturerData, IBluetoothLEManufacturerDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

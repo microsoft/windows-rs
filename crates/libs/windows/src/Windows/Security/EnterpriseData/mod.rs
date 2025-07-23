@@ -4,14 +4,14 @@ pub struct BufferProtectUnprotectResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BufferProtectUnprotectResult, windows_core::IUnknown, windows_core::IInspectable);
 impl BufferProtectUnprotectResult {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Buffer(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Buffer(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Buffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProtectionInfo(&self) -> windows_core::Result<DataProtectionInfo> {
+    pub fn ProtectionInfo(&self) -> Result<DataProtectionInfo, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -36,14 +36,14 @@ unsafe impl Sync for BufferProtectUnprotectResult {}
 pub struct DataProtectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProtectionInfo {
-    pub fn Status(&self) -> windows_core::Result<DataProtectionStatus> {
+    pub fn Status(&self) -> Result<DataProtectionStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Identity(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Identity(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -66,7 +66,7 @@ unsafe impl Sync for DataProtectionInfo {}
 pub struct DataProtectionManager;
 impl DataProtectionManager {
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProtectAsync<P0>(data: P0, identity: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<BufferProtectUnprotectResult>>
+    pub fn ProtectAsync<P0>(data: P0, identity: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<BufferProtectUnprotectResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -76,7 +76,7 @@ impl DataProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnprotectAsync<P0>(data: P0) -> windows_core::Result<windows_future::IAsyncOperation<BufferProtectUnprotectResult>>
+    pub fn UnprotectAsync<P0>(data: P0) -> Result<windows_future::IAsyncOperation<BufferProtectUnprotectResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -86,7 +86,7 @@ impl DataProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ProtectStreamAsync<P0, P2>(unprotectedstream: P0, identity: &windows_core::HSTRING, protectedstream: P2) -> windows_core::Result<windows_future::IAsyncOperation<DataProtectionInfo>>
+    pub fn ProtectStreamAsync<P0, P2>(unprotectedstream: P0, identity: &windows_core::HSTRING, protectedstream: P2) -> Result<windows_future::IAsyncOperation<DataProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
         P2: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
@@ -97,7 +97,7 @@ impl DataProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnprotectStreamAsync<P0, P1>(protectedstream: P0, unprotectedstream: P1) -> windows_core::Result<windows_future::IAsyncOperation<DataProtectionInfo>>
+    pub fn UnprotectStreamAsync<P0, P1>(protectedstream: P0, unprotectedstream: P1) -> Result<windows_future::IAsyncOperation<DataProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
         P1: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
@@ -108,7 +108,7 @@ impl DataProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetProtectionInfoAsync<P0>(protecteddata: P0) -> windows_core::Result<windows_future::IAsyncOperation<DataProtectionInfo>>
+    pub fn GetProtectionInfoAsync<P0>(protecteddata: P0) -> Result<windows_future::IAsyncOperation<DataProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -118,7 +118,7 @@ impl DataProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetStreamProtectionInfoAsync<P0>(protectedstream: P0) -> windows_core::Result<windows_future::IAsyncOperation<DataProtectionInfo>>
+    pub fn GetStreamProtectionInfoAsync<P0>(protectedstream: P0) -> Result<windows_future::IAsyncOperation<DataProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
@@ -127,7 +127,7 @@ impl DataProtectionManager {
             (windows_core::Interface::vtable(this).GetStreamProtectionInfoAsync)(windows_core::Interface::as_raw(this), protectedstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IDataProtectionManagerStatics<R, F: FnOnce(&IDataProtectionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataProtectionManagerStatics<R, F: FnOnce(&IDataProtectionManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DataProtectionManager, IDataProtectionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -172,28 +172,28 @@ impl windows_core::RuntimeType for EnforcementLevel {
 pub struct FileProtectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl FileProtectionInfo {
-    pub fn Status(&self) -> windows_core::Result<FileProtectionStatus> {
+    pub fn Status(&self) -> Result<FileProtectionStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRoamable(&self) -> windows_core::Result<bool> {
+    pub fn IsRoamable(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRoamable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Identity(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Identity(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Identity)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsProtectWhileOpenSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsProtectWhileOpenSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IFileProtectionInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -216,7 +216,7 @@ unsafe impl Sync for FileProtectionInfo {}
 pub struct FileProtectionManager;
 impl FileProtectionManager {
     #[cfg(feature = "Storage")]
-    pub fn ProtectAsync<P0>(target: P0, identity: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<FileProtectionInfo>>
+    pub fn ProtectAsync<P0>(target: P0, identity: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<FileProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -226,7 +226,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn CopyProtectionAsync<P0, P1>(source: P0, target: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn CopyProtectionAsync<P0, P1>(source: P0, target: P1) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
         P1: windows_core::Param<super::super::Storage::IStorageItem>,
@@ -237,7 +237,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn GetProtectionInfoAsync<P0>(source: P0) -> windows_core::Result<windows_future::IAsyncOperation<FileProtectionInfo>>
+    pub fn GetProtectionInfoAsync<P0>(source: P0) -> Result<windows_future::IAsyncOperation<FileProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -247,7 +247,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveFileAsContainerAsync<P0>(protectedfile: P0) -> windows_core::Result<windows_future::IAsyncOperation<ProtectedContainerExportResult>>
+    pub fn SaveFileAsContainerAsync<P0>(protectedfile: P0) -> Result<windows_future::IAsyncOperation<ProtectedContainerExportResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -257,7 +257,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFileFromContainerAsync<P0>(containerfile: P0) -> windows_core::Result<windows_future::IAsyncOperation<ProtectedContainerImportResult>>
+    pub fn LoadFileFromContainerAsync<P0>(containerfile: P0) -> Result<windows_future::IAsyncOperation<ProtectedContainerImportResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -267,7 +267,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFileFromContainerWithTargetAsync<P0, P1>(containerfile: P0, target: P1) -> windows_core::Result<windows_future::IAsyncOperation<ProtectedContainerImportResult>>
+    pub fn LoadFileFromContainerWithTargetAsync<P0, P1>(containerfile: P0, target: P1) -> Result<windows_future::IAsyncOperation<ProtectedContainerImportResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::super::Storage::IStorageItem>,
@@ -278,7 +278,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn CreateProtectedAndOpenAsync<P0>(parentfolder: P0, desiredname: &windows_core::HSTRING, identity: &windows_core::HSTRING, collisionoption: super::super::Storage::CreationCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<ProtectedFileCreateResult>>
+    pub fn CreateProtectedAndOpenAsync<P0>(parentfolder: P0, desiredname: &windows_core::HSTRING, identity: &windows_core::HSTRING, collisionoption: super::super::Storage::CreationCollisionOption) -> Result<windows_future::IAsyncOperation<ProtectedFileCreateResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -288,7 +288,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn IsContainerAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn IsContainerAsync<P0>(file: P0) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -298,7 +298,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync<P0, P1>(containerfile: P0, target: P1, collisionoption: super::super::Storage::NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<ProtectedContainerImportResult>>
+    pub fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync<P0, P1>(containerfile: P0, target: P1, collisionoption: super::super::Storage::NameCollisionOption) -> Result<windows_future::IAsyncOperation<ProtectedContainerImportResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::super::Storage::IStorageItem>,
@@ -309,7 +309,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveFileAsContainerWithSharingAsync<P0, P1>(protectedfile: P0, sharedwithidentities: P1) -> windows_core::Result<windows_future::IAsyncOperation<ProtectedContainerExportResult>>
+    pub fn SaveFileAsContainerWithSharingAsync<P0, P1>(protectedfile: P0, sharedwithidentities: P1) -> Result<windows_future::IAsyncOperation<ProtectedContainerExportResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
@@ -320,7 +320,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn UnprotectAsync<P0>(target: P0) -> windows_core::Result<windows_future::IAsyncOperation<FileProtectionInfo>>
+    pub fn UnprotectAsync<P0>(target: P0) -> Result<windows_future::IAsyncOperation<FileProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -330,7 +330,7 @@ impl FileProtectionManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn UnprotectWithOptionsAsync<P0, P1>(target: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<FileProtectionInfo>>
+    pub fn UnprotectWithOptionsAsync<P0, P1>(target: P0, options: P1) -> Result<windows_future::IAsyncOperation<FileProtectionInfo>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
         P1: windows_core::Param<FileUnprotectOptions>,
@@ -340,15 +340,15 @@ impl FileProtectionManager {
             (windows_core::Interface::vtable(this).UnprotectWithOptionsAsync)(windows_core::Interface::as_raw(this), target.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IFileProtectionManagerStatics<R, F: FnOnce(&IFileProtectionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileProtectionManagerStatics<R, F: FnOnce(&IFileProtectionManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IFileProtectionManagerStatics2<R, F: FnOnce(&IFileProtectionManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileProtectionManagerStatics2<R, F: FnOnce(&IFileProtectionManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IFileProtectionManagerStatics3<R, F: FnOnce(&IFileProtectionManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileProtectionManagerStatics3<R, F: FnOnce(&IFileProtectionManagerStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -382,7 +382,7 @@ impl windows_core::RuntimeType for FileProtectionStatus {
 pub struct FileRevocationManager;
 impl FileRevocationManager {
     #[cfg(feature = "Storage")]
-    pub fn ProtectAsync<P0>(storageitem: P0, enterpriseidentity: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<FileProtectionStatus>>
+    pub fn ProtectAsync<P0>(storageitem: P0, enterpriseidentity: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<FileProtectionStatus>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -392,7 +392,7 @@ impl FileRevocationManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn CopyProtectionAsync<P0, P1>(sourcestorageitem: P0, targetstorageitem: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn CopyProtectionAsync<P0, P1>(sourcestorageitem: P0, targetstorageitem: P1) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
         P1: windows_core::Param<super::super::Storage::IStorageItem>,
@@ -402,11 +402,11 @@ impl FileRevocationManager {
             (windows_core::Interface::vtable(this).CopyProtectionAsync)(windows_core::Interface::as_raw(this), sourcestorageitem.param().abi(), targetstorageitem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Revoke(enterpriseidentity: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn Revoke(enterpriseidentity: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         Self::IFileRevocationManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).Revoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(enterpriseidentity)).ok() })
     }
     #[cfg(feature = "Storage")]
-    pub fn GetStatusAsync<P0>(storageitem: P0) -> windows_core::Result<windows_future::IAsyncOperation<FileProtectionStatus>>
+    pub fn GetStatusAsync<P0>(storageitem: P0) -> Result<windows_future::IAsyncOperation<FileProtectionStatus>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -415,7 +415,7 @@ impl FileRevocationManager {
             (windows_core::Interface::vtable(this).GetStatusAsync)(windows_core::Interface::as_raw(this), storageitem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IFileRevocationManagerStatics<R, F: FnOnce(&IFileRevocationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileRevocationManagerStatics<R, F: FnOnce(&IFileRevocationManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FileRevocationManager, IFileRevocationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -428,24 +428,24 @@ impl windows_core::RuntimeName for FileRevocationManager {
 pub struct FileUnprotectOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileUnprotectOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FileUnprotectOptions {
-    pub fn SetAudit(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAudit(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAudit)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Audit(&self) -> windows_core::Result<bool> {
+    pub fn Audit(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Audit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(audit: bool) -> windows_core::Result<FileUnprotectOptions> {
+    pub fn Create(audit: bool) -> Result<FileUnprotectOptions, windows_result::HRESULT> {
         Self::IFileUnprotectOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IFileUnprotectOptionsFactory<R, F: FnOnce(&IFileUnprotectOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileUnprotectOptionsFactory<R, F: FnOnce(&IFileUnprotectOptionsFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FileUnprotectOptions, IFileUnprotectOptionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -899,7 +899,7 @@ pub struct IThreadNetworkContext_Vtbl {
 pub struct ProtectedAccessResumedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedAccessResumedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedAccessResumedEventArgs {
-    pub fn Identities(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Identities(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -924,21 +924,21 @@ unsafe impl Sync for ProtectedAccessResumedEventArgs {}
 pub struct ProtectedAccessSuspendingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedAccessSuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedAccessSuspendingEventArgs {
-    pub fn Identities(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Identities(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Identities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -963,7 +963,7 @@ unsafe impl Sync for ProtectedAccessSuspendingEventArgs {}
 pub struct ProtectedContainerExportResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedContainerExportResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedContainerExportResult {
-    pub fn Status(&self) -> windows_core::Result<ProtectedImportExportStatus> {
+    pub fn Status(&self) -> Result<ProtectedImportExportStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -971,7 +971,7 @@ impl ProtectedContainerExportResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
+    pub fn File(&self) -> Result<super::super::Storage::StorageFile, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -996,7 +996,7 @@ unsafe impl Sync for ProtectedContainerExportResult {}
 pub struct ProtectedContainerImportResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedContainerImportResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedContainerImportResult {
-    pub fn Status(&self) -> windows_core::Result<ProtectedImportExportStatus> {
+    pub fn Status(&self) -> Result<ProtectedImportExportStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1004,7 +1004,7 @@ impl ProtectedContainerImportResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
+    pub fn File(&self) -> Result<super::super::Storage::StorageFile, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1029,7 +1029,7 @@ unsafe impl Sync for ProtectedContainerImportResult {}
 pub struct ProtectedContentRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedContentRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedContentRevokedEventArgs {
-    pub fn Identities(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Identities(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1055,7 +1055,7 @@ pub struct ProtectedFileCreateResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedFileCreateResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedFileCreateResult {
     #[cfg(feature = "Storage_Streams")]
-    pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
+    pub fn File(&self) -> Result<super::super::Storage::StorageFile, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1063,14 +1063,14 @@ impl ProtectedFileCreateResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Stream(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+    pub fn Stream(&self) -> Result<super::super::Storage::Streams::IRandomAccessStream, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProtectionInfo(&self) -> windows_core::Result<FileProtectionInfo> {
+    pub fn ProtectionInfo(&self) -> Result<FileProtectionInfo, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1129,63 +1129,63 @@ impl windows_core::RuntimeType for ProtectionPolicyAuditAction {
 pub struct ProtectionPolicyAuditInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectionPolicyAuditInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectionPolicyAuditInfo {
-    pub fn SetAction(&self, value: ProtectionPolicyAuditAction) -> windows_core::Result<()> {
+    pub fn SetAction(&self, value: ProtectionPolicyAuditAction) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAction)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Action(&self) -> windows_core::Result<ProtectionPolicyAuditAction> {
+    pub fn Action(&self) -> Result<ProtectionPolicyAuditAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Action)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDataDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDataDescription(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDataDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DataDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DataDescription(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetSourceDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetSourceDescription(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSourceDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn SourceDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourceDescription(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTargetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTargetDescription(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTargetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TargetDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TargetDescription(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TargetDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Create(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING, sourcedescription: &windows_core::HSTRING, targetdescription: &windows_core::HSTRING) -> windows_core::Result<ProtectionPolicyAuditInfo> {
+    pub fn Create(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING, sourcedescription: &windows_core::HSTRING, targetdescription: &windows_core::HSTRING) -> Result<ProtectionPolicyAuditInfo, windows_result::HRESULT> {
         Self::IProtectionPolicyAuditInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), action, core::mem::transmute_copy(datadescription), core::mem::transmute_copy(sourcedescription), core::mem::transmute_copy(targetdescription), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithActionAndDataDescription(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING) -> windows_core::Result<ProtectionPolicyAuditInfo> {
+    pub fn CreateWithActionAndDataDescription(action: ProtectionPolicyAuditAction, datadescription: &windows_core::HSTRING) -> Result<ProtectionPolicyAuditInfo, windows_result::HRESULT> {
         Self::IProtectionPolicyAuditInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithActionAndDataDescription)(windows_core::Interface::as_raw(this), action, core::mem::transmute_copy(datadescription), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IProtectionPolicyAuditInfoFactory<R, F: FnOnce(&IProtectionPolicyAuditInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProtectionPolicyAuditInfoFactory<R, F: FnOnce(&IProtectionPolicyAuditInfoFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ProtectionPolicyAuditInfo, IProtectionPolicyAuditInfoFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1221,51 +1221,51 @@ impl windows_core::RuntimeType for ProtectionPolicyEvaluationResult {
 pub struct ProtectionPolicyManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectionPolicyManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectionPolicyManager {
-    pub fn SetIdentity(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetIdentity(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIdentity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Identity(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Identity(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Identity)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetShowEnterpriseIndicator(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetShowEnterpriseIndicator(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IProtectionPolicyManager2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetShowEnterpriseIndicator)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ShowEnterpriseIndicator(&self) -> windows_core::Result<bool> {
+    pub fn ShowEnterpriseIndicator(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IProtectionPolicyManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowEnterpriseIndicator)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsIdentityManaged(identity: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsIdentityManaged(identity: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsIdentityManaged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).map(|| result__)
         })
     }
-    pub fn TryApplyProcessUIPolicy(identity: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn TryApplyProcessUIPolicy(identity: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryApplyProcessUIPolicy)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).map(|| result__)
         })
     }
-    pub fn ClearProcessUIPolicy() -> windows_core::Result<()> {
+    pub fn ClearProcessUIPolicy() -> Result<(), windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ClearProcessUIPolicy)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn CreateCurrentThreadNetworkContext(identity: &windows_core::HSTRING) -> windows_core::Result<ThreadNetworkContext> {
+    pub fn CreateCurrentThreadNetworkContext(identity: &windows_core::HSTRING) -> Result<ThreadNetworkContext, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCurrentThreadNetworkContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Networking")]
-    pub fn GetPrimaryManagedIdentityForNetworkEndpointAsync<P0>(endpointhost: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetPrimaryManagedIdentityForNetworkEndpointAsync<P0>(endpointhost: P0) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Networking::HostName>,
     {
@@ -1274,16 +1274,16 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).GetPrimaryManagedIdentityForNetworkEndpointAsync)(windows_core::Interface::as_raw(this), endpointhost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RevokeContent(identity: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RevokeContent(identity: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RevokeContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity)).ok() })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ProtectionPolicyManager> {
+    pub fn GetForCurrentView() -> Result<ProtectionPolicyManager, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ProtectedAccessSuspending<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ProtectedAccessSuspending<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>>,
     {
@@ -1292,10 +1292,10 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).ProtectedAccessSuspending)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveProtectedAccessSuspending(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveProtectedAccessSuspending(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveProtectedAccessSuspending)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn ProtectedAccessResumed<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ProtectedAccessResumed<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>>,
     {
@@ -1304,10 +1304,10 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).ProtectedAccessResumed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveProtectedAccessResumed(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveProtectedAccessResumed(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveProtectedAccessResumed)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn ProtectedContentRevoked<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ProtectedContentRevoked<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>>,
     {
@@ -1316,58 +1316,58 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).ProtectedContentRevoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveProtectedContentRevoked(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveProtectedContentRevoked(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveProtectedContentRevoked)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn CheckAccess(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING) -> windows_core::Result<ProtectionPolicyEvaluationResult> {
+    pub fn CheckAccess(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING) -> Result<ProtectionPolicyEvaluationResult, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckAccess)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), &mut result__).map(|| result__)
         })
     }
-    pub fn RequestAccessAsync(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
+    pub fn RequestAccessAsync(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn HasContentBeenRevokedSince(identity: &windows_core::HSTRING, since: super::super::Foundation::DateTime) -> windows_core::Result<bool> {
+    pub fn HasContentBeenRevokedSince(identity: &windows_core::HSTRING, since: super::super::Foundation::DateTime) -> Result<bool, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasContentBeenRevokedSince)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), since, &mut result__).map(|| result__)
         })
     }
-    pub fn CheckAccessForApp(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<ProtectionPolicyEvaluationResult> {
+    pub fn CheckAccessForApp(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING) -> Result<ProtectionPolicyEvaluationResult, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckAccessForApp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), &mut result__).map(|| result__)
         })
     }
-    pub fn RequestAccessForAppAsync(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
+    pub fn RequestAccessForAppAsync(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessForAppAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetEnforcementLevel(identity: &windows_core::HSTRING) -> windows_core::Result<EnforcementLevel> {
+    pub fn GetEnforcementLevel(identity: &windows_core::HSTRING) -> Result<EnforcementLevel, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetEnforcementLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).map(|| result__)
         })
     }
-    pub fn IsUserDecryptionAllowed(identity: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsUserDecryptionAllowed(identity: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsUserDecryptionAllowed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).map(|| result__)
         })
     }
-    pub fn IsProtectionUnderLockRequired(identity: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsProtectionUnderLockRequired(identity: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsProtectionUnderLockRequired)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).map(|| result__)
         })
     }
-    pub fn PolicyChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn PolicyChanged<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -1376,16 +1376,16 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).PolicyChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemovePolicyChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemovePolicyChanged(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemovePolicyChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn IsProtectionEnabled() -> windows_core::Result<bool> {
+    pub fn IsProtectionEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsProtectionEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RequestAccessWithAuditingInfoAsync<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessWithAuditingInfoAsync<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
     {
@@ -1394,7 +1394,7 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).RequestAccessWithAuditingInfoAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessWithMessageAsync<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessWithMessageAsync<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
     {
@@ -1403,7 +1403,7 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).RequestAccessWithMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfo.param().abi(), core::mem::transmute_copy(messagefromapp), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessForAppWithAuditingInfoAsync<P2>(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessForAppWithAuditingInfoAsync<P2>(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
     {
@@ -1412,7 +1412,7 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).RequestAccessForAppWithAuditingInfoAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessForAppWithMessageAsync<P2>(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessForAppWithMessageAsync<P2>(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
     {
@@ -1421,19 +1421,19 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).RequestAccessForAppWithMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(apppackagefamilyname), auditinfo.param().abi(), core::mem::transmute_copy(messagefromapp), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LogAuditEvent<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2) -> windows_core::Result<()>
+    pub fn LogAuditEvent<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
     {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).LogAuditEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfo.param().abi()).ok() })
     }
-    pub fn IsRoamableProtectionEnabled(identity: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsRoamableProtectionEnabled(identity: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRoamableProtectionEnabled)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).map(|| result__)
         })
     }
-    pub fn RequestAccessWithBehaviorAsync<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessWithBehaviorAsync<P2>(sourceidentity: &windows_core::HSTRING, targetidentity: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
     {
@@ -1442,7 +1442,7 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).RequestAccessWithBehaviorAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), auditinfo.param().abi(), core::mem::transmute_copy(messagefromapp), behavior, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessForAppWithBehaviorAsync<P2>(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessForAppWithBehaviorAsync<P2>(sourceidentity: &windows_core::HSTRING, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
     {
@@ -1452,7 +1452,7 @@ impl ProtectionPolicyManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn RequestAccessToFilesForAppAsync<P0, P2>(sourceitemlist: P0, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForAppAsync<P0, P2>(sourceitemlist: P0, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
@@ -1463,7 +1463,7 @@ impl ProtectionPolicyManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync<P0, P2>(sourceitemlist: P0, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync<P0, P2>(sourceitemlist: P0, apppackagefamilyname: &windows_core::HSTRING, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
@@ -1474,7 +1474,7 @@ impl ProtectionPolicyManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn RequestAccessToFilesForProcessAsync<P0, P2>(sourceitemlist: P0, processid: u32, auditinfo: P2) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForProcessAsync<P0, P2>(sourceitemlist: P0, processid: u32, auditinfo: P2) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
@@ -1485,7 +1485,7 @@ impl ProtectionPolicyManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync<P0, P2>(sourceitemlist: P0, processid: u32, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> windows_core::Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync<P0, P2>(sourceitemlist: P0, processid: u32, auditinfo: P2, messagefromapp: &windows_core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> Result<windows_future::IAsyncOperation<ProtectionPolicyEvaluationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
         P2: windows_core::Param<ProtectionPolicyAuditInfo>,
@@ -1496,7 +1496,7 @@ impl ProtectionPolicyManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn IsFileProtectionRequiredAsync<P0>(target: P0, identity: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn IsFileProtectionRequiredAsync<P0>(target: P0, identity: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageItem>,
     {
@@ -1506,7 +1506,7 @@ impl ProtectionPolicyManager {
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn IsFileProtectionRequiredForNewFileAsync<P0>(parentfolder: P0, identity: &windows_core::HSTRING, desiredname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn IsFileProtectionRequiredForNewFileAsync<P0>(parentfolder: P0, identity: &windows_core::HSTRING, desiredname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -1515,31 +1515,31 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).IsFileProtectionRequiredForNewFileAsync)(windows_core::Interface::as_raw(this), parentfolder.param().abi(), core::mem::transmute_copy(identity), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn PrimaryManagedIdentity() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PrimaryManagedIdentity() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrimaryManagedIdentity)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetPrimaryManagedIdentityForIdentity(identity: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetPrimaryManagedIdentityForIdentity(identity: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPrimaryManagedIdentityForIdentity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IProtectionPolicyManagerStatics<R, F: FnOnce(&IProtectionPolicyManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProtectionPolicyManagerStatics<R, F: FnOnce(&IProtectionPolicyManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IProtectionPolicyManagerStatics2<R, F: FnOnce(&IProtectionPolicyManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProtectionPolicyManagerStatics2<R, F: FnOnce(&IProtectionPolicyManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IProtectionPolicyManagerStatics3<R, F: FnOnce(&IProtectionPolicyManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProtectionPolicyManagerStatics3<R, F: FnOnce(&IProtectionPolicyManagerStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IProtectionPolicyManagerStatics4<R, F: FnOnce(&IProtectionPolicyManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProtectionPolicyManagerStatics4<R, F: FnOnce(&IProtectionPolicyManagerStatics4) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1575,7 +1575,7 @@ pub struct ThreadNetworkContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ThreadNetworkContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ThreadNetworkContext, super::super::Foundation::IClosable);
 impl ThreadNetworkContext {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }

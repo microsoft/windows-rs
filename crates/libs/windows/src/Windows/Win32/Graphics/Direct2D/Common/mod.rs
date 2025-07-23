@@ -308,7 +308,7 @@ impl ID2D1SimplifiedGeometrySink {
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
         unsafe { (windows_core::Interface::vtable(self).EndFigure)(windows_core::Interface::as_raw(self), figureend) }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -333,7 +333,7 @@ pub trait ID2D1SimplifiedGeometrySink_Impl: windows_core::IUnknownImpl {
     fn AddLines(&self, points: *const windows_numerics::Vector2, pointscount: u32);
     fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32);
     fn EndFigure(&self, figureend: D2D1_FIGURE_END);
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ID2D1SimplifiedGeometrySink_Vtbl {
     pub const fn new<Identity: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>() -> Self {

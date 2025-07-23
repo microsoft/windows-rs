@@ -42,14 +42,14 @@ pub struct INamedPolicyStatics_Vtbl {
 }
 pub struct NamedPolicy;
 impl NamedPolicy {
-    pub fn GetPolicyFromPath(area: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<NamedPolicyData> {
+    pub fn GetPolicyFromPath(area: &windows_core::HSTRING, name: &windows_core::HSTRING) -> Result<NamedPolicyData, windows_result::HRESULT> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPolicyFromPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetPolicyFromPathForUser<P0>(user: P0, area: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<NamedPolicyData>
+    pub fn GetPolicyFromPathForUser<P0>(user: P0, area: &windows_core::HSTRING, name: &windows_core::HSTRING) -> Result<NamedPolicyData, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -58,7 +58,7 @@ impl NamedPolicy {
             (windows_core::Interface::vtable(this).GetPolicyFromPathForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn INamedPolicyStatics<R, F: FnOnce(&INamedPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INamedPolicyStatics<R, F: FnOnce(&INamedPolicyStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<NamedPolicy, INamedPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -71,35 +71,35 @@ impl windows_core::RuntimeName for NamedPolicy {
 pub struct NamedPolicyData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NamedPolicyData, windows_core::IUnknown, windows_core::IInspectable);
 impl NamedPolicyData {
-    pub fn Area(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Area(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Area)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<NamedPolicyKind> {
+    pub fn Kind(&self) -> Result<NamedPolicyKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsManaged(&self) -> windows_core::Result<bool> {
+    pub fn IsManaged(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsManaged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsUserPolicy(&self) -> windows_core::Result<bool> {
+    pub fn IsUserPolicy(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -107,14 +107,14 @@ impl NamedPolicyData {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+    pub fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -122,35 +122,35 @@ impl NamedPolicyData {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetBinary(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn GetBinary(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBinary)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetInt32(&self) -> windows_core::Result<i32> {
+    pub fn GetInt32(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetInt32)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetInt64(&self) -> windows_core::Result<i64> {
+    pub fn GetInt64(&self) -> Result<i64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetInt64)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Changed<P0>(&self, changedhandler: P0) -> windows_core::Result<i64>
+    pub fn Changed<P0>(&self, changedhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<NamedPolicyData, windows_core::IInspectable>>,
     {
@@ -160,7 +160,7 @@ impl NamedPolicyData {
             (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveChanged(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveChanged(&self, cookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }

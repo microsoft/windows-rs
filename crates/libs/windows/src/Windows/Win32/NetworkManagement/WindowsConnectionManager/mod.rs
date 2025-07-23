@@ -4,7 +4,7 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
     unsafe { FreeInterfaceContextTable(interfacecontexttable) }
 }
 #[inline]
-pub unsafe fn GetInterfaceContextTableForHostName<P0, P1>(hostname: P0, proxyname: P1, flags: u32, connectionprofilefilterrawdata: Option<&[u8]>) -> windows_core::Result<*mut NET_INTERFACE_CONTEXT_TABLE>
+pub unsafe fn GetInterfaceContextTableForHostName<P0, P1>(hostname: P0, proxyname: P1, flags: u32, connectionprofilefilterrawdata: Option<&[u8]>) -> Result<*mut NET_INTERFACE_CONTEXT_TABLE, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -16,7 +16,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn OnDemandGetRoutingHint<P0>(destinationhostname: P0) -> windows_core::Result<u32>
+pub unsafe fn OnDemandGetRoutingHint<P0>(destinationhostname: P0) -> Result<u32, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -27,7 +27,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("ondemandconnroutehelper.dll" "system" fn OnDemandRegisterNotification(callback : ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext : *const core::ffi::c_void, registrationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -35,7 +35,7 @@ pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLB
     }
 }
 #[inline]
-pub unsafe fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("ondemandconnroutehelper.dll" "system" fn OnDemandUnRegisterNotification(registrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe { OnDemandUnRegisterNotification(registrationhandle).ok() }
 }

@@ -34,13 +34,13 @@ pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
 }
 pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
-    pub fn Register(id: &windows_core::HSTRING) -> windows_core::Result<PlatformTelemetryRegistrationResult> {
+    pub fn Register(id: &windows_core::HSTRING) -> Result<PlatformTelemetryRegistrationResult, windows_result::HRESULT> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RegisterWithSettings<P1>(id: &windows_core::HSTRING, settings: P1) -> windows_core::Result<PlatformTelemetryRegistrationResult>
+    pub fn RegisterWithSettings<P1>(id: &windows_core::HSTRING, settings: P1) -> Result<PlatformTelemetryRegistrationResult, windows_result::HRESULT>
     where
         P1: windows_core::Param<PlatformTelemetryRegistrationSettings>,
     {
@@ -49,7 +49,7 @@ impl PlatformTelemetryClient {
             (windows_core::Interface::vtable(this).RegisterWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlatformTelemetryClientStatics<R, F: FnOnce(&IPlatformTelemetryClientStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformTelemetryClientStatics<R, F: FnOnce(&IPlatformTelemetryClientStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PlatformTelemetryClient, IPlatformTelemetryClientStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -62,7 +62,7 @@ impl windows_core::RuntimeName for PlatformTelemetryClient {
 pub struct PlatformTelemetryRegistrationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformTelemetryRegistrationResult {
-    pub fn Status(&self) -> windows_core::Result<PlatformTelemetryRegistrationStatus> {
+    pub fn Status(&self) -> Result<PlatformTelemetryRegistrationStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -87,32 +87,32 @@ unsafe impl Sync for PlatformTelemetryRegistrationResult {}
 pub struct PlatformTelemetryRegistrationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformTelemetryRegistrationSettings {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PlatformTelemetryRegistrationSettings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn StorageSize(&self) -> windows_core::Result<u32> {
+    pub fn StorageSize(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StorageSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStorageSize(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetStorageSize(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStorageSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UploadQuotaSize(&self) -> windows_core::Result<u32> {
+    pub fn UploadQuotaSize(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UploadQuotaSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUploadQuotaSize(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetUploadQuotaSize(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUploadQuotaSize)(windows_core::Interface::as_raw(this), value).ok() }
     }

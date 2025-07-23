@@ -1,8 +1,8 @@
-use windows::{core::w, Win32::System::Registry::*};
+use windows::{core::{w, HRESULT}, Win32::System::Registry::*};
 use windows_registry::*;
 
 #[test]
-fn bad_string() -> Result<()> {
+fn bad_string() -> Result<(), HRESULT> {
     let test_key = "software\\windows-rs\\tests\\bad_string";
     _ = CURRENT_USER.remove_tree(test_key);
     let key = CURRENT_USER.create(test_key)?;

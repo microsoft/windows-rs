@@ -20,14 +20,14 @@ struct TestData {
 struct Test(std::cell::UnsafeCell<TestData>);
 
 impl IDataObject_Impl for Test_Impl {
-    fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
+    fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM, HRESULT> {
         unsafe {
             (*self.0.get()).GetData = true;
             Ok(STGMEDIUM::default())
         }
     }
 
-    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
+    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<(), HRESULT> {
         unsafe {
             (*self.0.get()).GetDataHere = true;
             Ok(())
@@ -48,35 +48,35 @@ impl IDataObject_Impl for Test_Impl {
         }
     }
 
-    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
+    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<(), HRESULT> {
         unsafe {
             (*self.0.get()).SetData = true;
             Ok(())
         }
     }
 
-    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
+    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC, HRESULT> {
         unsafe {
             (*self.0.get()).EnumFormatEtc = true;
-            Err(Error::empty())
+            Err(S_OK)
         }
     }
 
-    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>) -> Result<u32> {
+    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: Ref<IAdviseSink>) -> Result<u32, HRESULT> {
         unsafe {
             (*self.0.get()).DAdvise = true;
             Ok(0)
         }
     }
 
-    fn DUnadvise(&self, _: u32) -> Result<()> {
+    fn DUnadvise(&self, _: u32) -> Result<(), HRESULT> {
         unsafe {
             (*self.0.get()).DUnadvise = true;
             Ok(())
         }
     }
 
-    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
+    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA, HRESULT> {
         unsafe {
             (*self.0.get()).EnumDAdvise = true;
             Err(Error::empty())
@@ -85,7 +85,7 @@ impl IDataObject_Impl for Test_Impl {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let d: IDataObject = Test::default().into();
         d.GetData(&Default::default())?;

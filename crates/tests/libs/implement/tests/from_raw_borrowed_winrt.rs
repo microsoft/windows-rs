@@ -18,44 +18,44 @@ impl IBorrowed_Impl for Borrowed_Impl {
 }
 
 impl IBackgroundTask_Impl for Borrowed_Impl {
-    fn Run(&self, instance: Ref<IBackgroundTaskInstance>) -> Result<()> {
+    fn Run(&self, instance: Ref<IBackgroundTaskInstance>) -> Result<(), HRESULT> {
         assert_eq!(instance.ok()?.SuspendedCount()?, *self.0.read().unwrap());
         Ok(())
     }
 }
 
 impl IBackgroundTaskInstance_Impl for Borrowed_Impl {
-    fn InstanceId(&self) -> Result<GUID> {
+    fn InstanceId(&self) -> Result<GUID, HRESULT> {
         unimplemented!()
     }
-    fn Task(&self) -> Result<BackgroundTaskRegistration> {
+    fn Task(&self) -> Result<BackgroundTaskRegistration, HRESULT> {
         unimplemented!()
     }
-    fn Progress(&self) -> Result<u32> {
+    fn Progress(&self) -> Result<u32, HRESULT> {
         unimplemented!()
     }
-    fn SetProgress(&self, _value: u32) -> Result<()> {
+    fn SetProgress(&self, _value: u32) -> Result<(), HRESULT> {
         unimplemented!()
     }
-    fn TriggerDetails(&self) -> Result<IInspectable> {
+    fn TriggerDetails(&self) -> Result<IInspectable, HRESULT> {
         unimplemented!()
     }
-    fn Canceled(&self, _cancelhandler: Ref<BackgroundTaskCanceledEventHandler>) -> Result<i64> {
+    fn Canceled(&self, _cancelhandler: Ref<BackgroundTaskCanceledEventHandler>) -> Result<i64, HRESULT> {
         unimplemented!()
     }
-    fn RemoveCanceled(&self, _cookie: i64) -> Result<()> {
+    fn RemoveCanceled(&self, _cookie: i64) -> Result<(), HRESULT> {
         unimplemented!()
     }
-    fn SuspendedCount(&self) -> Result<u32> {
+    fn SuspendedCount(&self) -> Result<u32, HRESULT> {
         Ok(*self.0.read().unwrap())
     }
-    fn GetDeferral(&self) -> Result<BackgroundTaskDeferral> {
+    fn GetDeferral(&self) -> Result<BackgroundTaskDeferral, HRESULT> {
         unimplemented!()
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let one_two_three: IBorrowed = Borrowed(RwLock::new(123)).into();
         assert_eq!(one_two_three.Call(), 123);

@@ -34,7 +34,7 @@ fn hresult_last_error() {
 
 // Checks that non-restricted error info is reported.
 #[test]
-fn set_error_info() -> Result<()> {
+fn set_error_info() -> Result<(), HRESULT> {
     unsafe {
         let creator = CreateErrorInfo()?;
         creator.SetDescription(w!("message"))?;
@@ -50,7 +50,7 @@ fn set_error_info() -> Result<()> {
 
 // https://github.com/microsoft/cppwinrt/pull/1386
 #[test]
-fn suppressed_error_info() -> Result<()> {
+fn suppressed_error_info() -> Result<(), HRESULT> {
     unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32)? };
 
     assert_eq!(Error::new(E_FAIL, "message").message(), "Unspecified error");

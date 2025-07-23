@@ -18,21 +18,21 @@ pub struct BluetoothLEAdvertisementPublisherTriggerDetails(windows_core::IUnknow
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementPublisherTriggerDetails {
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
-    pub fn Status(&self) -> windows_core::Result<super::Advertisement::BluetoothLEAdvertisementPublisherStatus> {
+    pub fn Status(&self) -> Result<super::Advertisement::BluetoothLEAdvertisementPublisherStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> Result<super::BluetoothError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedTransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn SelectedTransmitPowerLevelInDBm(&self) -> Result<super::super::super::Foundation::IReference<i16>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -57,7 +57,7 @@ unsafe impl Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementWatcherTriggerDetails {
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> Result<super::BluetoothError, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -65,14 +65,14 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
-    pub fn Advertisements(&self) -> windows_core::Result<windows_collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>> {
+    pub fn Advertisements(&self) -> Result<windows_collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Advertisements)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SignalStrengthFilter(&self) -> windows_core::Result<super::BluetoothSignalStrengthFilter> {
+    pub fn SignalStrengthFilter(&self) -> Result<super::BluetoothSignalStrengthFilter, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -98,7 +98,7 @@ pub struct GattCharacteristicNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristicNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl GattCharacteristicNotificationTriggerDetails {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn Characteristic(&self) -> windows_core::Result<super::GenericAttributeProfile::GattCharacteristic> {
+    pub fn Characteristic(&self) -> Result<super::GenericAttributeProfile::GattCharacteristic, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -106,21 +106,21 @@ impl GattCharacteristicNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Value(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Value(&self) -> Result<super::super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> Result<super::BluetoothError, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EventTriggeringMode(&self) -> windows_core::Result<BluetoothEventTriggeringMode> {
+    pub fn EventTriggeringMode(&self) -> Result<BluetoothEventTriggeringMode, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -128,7 +128,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn ValueChangedEvents(&self) -> windows_core::Result<windows_collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>> {
+    pub fn ValueChangedEvents(&self) -> Result<windows_collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -153,7 +153,7 @@ unsafe impl Sync for GattCharacteristicNotificationTriggerDetails {}
 pub struct GattServiceProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderConnection {
-    pub fn TriggerId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TriggerId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -161,24 +161,24 @@ impl GattServiceProviderConnection {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
-    pub fn Service(&self) -> windows_core::Result<super::GenericAttributeProfile::GattLocalService> {
+    pub fn Service(&self) -> Result<super::GenericAttributeProfile::GattLocalService, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Service)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn AllServices() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, GattServiceProviderConnection>> {
+    pub fn AllServices() -> Result<windows_collections::IMapView<windows_core::HSTRING, GattServiceProviderConnection>, windows_result::HRESULT> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGattServiceProviderConnectionStatics<R, F: FnOnce(&IGattServiceProviderConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceProviderConnectionStatics<R, F: FnOnce(&IGattServiceProviderConnectionStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceProviderConnection, IGattServiceProviderConnectionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -200,7 +200,7 @@ unsafe impl Sync for GattServiceProviderConnection {}
 pub struct GattServiceProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderTriggerDetails {
-    pub fn Connection(&self) -> windows_core::Result<GattServiceProviderConnection> {
+    pub fn Connection(&self) -> Result<GattServiceProviderConnection, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -391,21 +391,21 @@ pub struct RfcommConnectionTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommConnectionTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommConnectionTriggerDetails {
     #[cfg(feature = "Networking_Sockets")]
-    pub fn Socket(&self) -> windows_core::Result<super::super::super::Networking::Sockets::StreamSocket> {
+    pub fn Socket(&self) -> Result<super::super::super::Networking::Sockets::StreamSocket, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Socket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Incoming(&self) -> windows_core::Result<bool> {
+    pub fn Incoming(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Incoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoteDevice(&self) -> windows_core::Result<super::BluetoothDevice> {
+    pub fn RemoteDevice(&self) -> Result<super::BluetoothDevice, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -431,7 +431,7 @@ pub struct RfcommInboundConnectionInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommInboundConnectionInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommInboundConnectionInformation {
     #[cfg(feature = "Storage_Streams")]
-    pub fn SdpRecord(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn SdpRecord(&self) -> Result<super::super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -439,7 +439,7 @@ impl RfcommInboundConnectionInformation {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetSdpRecord<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetSdpRecord<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -447,7 +447,7 @@ impl RfcommInboundConnectionInformation {
         unsafe { (windows_core::Interface::vtable(this).SetSdpRecord)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn LocalServiceId(&self) -> windows_core::Result<super::Rfcomm::RfcommServiceId> {
+    pub fn LocalServiceId(&self) -> Result<super::Rfcomm::RfcommServiceId, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -455,21 +455,21 @@ impl RfcommInboundConnectionInformation {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetLocalServiceId<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLocalServiceId<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Rfcomm::RfcommServiceId>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocalServiceId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ServiceCapabilities(&self) -> windows_core::Result<super::BluetoothServiceCapabilities> {
+    pub fn ServiceCapabilities(&self) -> Result<super::BluetoothServiceCapabilities, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceCapabilities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetServiceCapabilities(&self, value: super::BluetoothServiceCapabilities) -> windows_core::Result<()> {
+    pub fn SetServiceCapabilities(&self, value: super::BluetoothServiceCapabilities) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetServiceCapabilities)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -492,7 +492,7 @@ pub struct RfcommOutboundConnectionInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommOutboundConnectionInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommOutboundConnectionInformation {
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn RemoteServiceId(&self) -> windows_core::Result<super::Rfcomm::RfcommServiceId> {
+    pub fn RemoteServiceId(&self) -> Result<super::Rfcomm::RfcommServiceId, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -500,7 +500,7 @@ impl RfcommOutboundConnectionInformation {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetRemoteServiceId<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetRemoteServiceId<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Rfcomm::RfcommServiceId>,
     {

@@ -1,18 +1,18 @@
 pub struct CommunicationBlockingAccessManager;
 impl CommunicationBlockingAccessManager {
-    pub fn IsBlockingActive() -> windows_core::Result<bool> {
+    pub fn IsBlockingActive() -> Result<bool, windows_result::HRESULT> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBlockingActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsBlockedNumberAsync(number: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn IsBlockedNumberAsync(number: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBlockedNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowBlockNumbersUI<P0>(phonenumbers: P0) -> windows_core::Result<bool>
+    pub fn ShowBlockNumbersUI<P0>(phonenumbers: P0) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -21,7 +21,7 @@ impl CommunicationBlockingAccessManager {
             (windows_core::Interface::vtable(this).ShowBlockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn ShowUnblockNumbersUI<P0>(phonenumbers: P0) -> windows_core::Result<bool>
+    pub fn ShowUnblockNumbersUI<P0>(phonenumbers: P0) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -30,13 +30,13 @@ impl CommunicationBlockingAccessManager {
             (windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn ShowBlockedCallsUI() -> windows_core::Result<()> {
+    pub fn ShowBlockedCallsUI() -> Result<(), windows_result::HRESULT> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowBlockedCallsUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn ShowBlockedMessagesUI() -> windows_core::Result<()> {
+    pub fn ShowBlockedMessagesUI() -> Result<(), windows_result::HRESULT> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowBlockedMessagesUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    fn ICommunicationBlockingAccessManagerStatics<R, F: FnOnce(&ICommunicationBlockingAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICommunicationBlockingAccessManagerStatics<R, F: FnOnce(&ICommunicationBlockingAccessManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CommunicationBlockingAccessManager, ICommunicationBlockingAccessManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -46,26 +46,26 @@ impl windows_core::RuntimeName for CommunicationBlockingAccessManager {
 }
 pub struct CommunicationBlockingAppManager;
 impl CommunicationBlockingAppManager {
-    pub fn IsCurrentAppActiveBlockingApp() -> windows_core::Result<bool> {
+    pub fn IsCurrentAppActiveBlockingApp() -> Result<bool, windows_result::HRESULT> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentAppActiveBlockingApp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ShowCommunicationBlockingSettingsUI() -> windows_core::Result<()> {
+    pub fn ShowCommunicationBlockingSettingsUI() -> Result<(), windows_result::HRESULT> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowCommunicationBlockingSettingsUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn RequestSetAsActiveBlockingAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn RequestSetAsActiveBlockingAppAsync() -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSetAsActiveBlockingAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ICommunicationBlockingAppManagerStatics<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICommunicationBlockingAppManagerStatics<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CommunicationBlockingAppManager, ICommunicationBlockingAppManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ICommunicationBlockingAppManagerStatics2<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICommunicationBlockingAppManagerStatics2<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CommunicationBlockingAppManager, ICommunicationBlockingAppManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

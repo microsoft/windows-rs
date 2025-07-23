@@ -29,7 +29,7 @@ impl<C, I> Default for FactoryCache<C, I> {
 }
 
 impl<C: crate::RuntimeName, I: Interface> FactoryCache<C, I> {
-    pub fn call<R, F: FnOnce(&I) -> crate::Result<R>>(&self, callback: F) -> crate::Result<R> {
+    pub fn call<R, F: FnOnce(&I) -> Result<R, windows_result::HRESULT>>(&self, callback: F) -> Result<R, windows_result::HRESULT> {
         loop {
             // Attempt to load a previously cached factory pointer.
             let ptr = self.shared.load(Ordering::Relaxed);
@@ -70,7 +70,7 @@ unsafe impl<C, I> Sync for FactoryCache<C, I> {}
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.
-pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
+pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> Result<I, windows_result::HRESULT> {
     let mut factory: Option<I> = None;
     let name = crate::HSTRING::from(C::NAME);
 
@@ -102,10 +102,6 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
         return Ok(factory);
     }
 
-    // If not, first capture the error information from the failure above so that we
-    // can ultimately return this error information if all else fails.
-    let original: crate::Error = code.into();
-
     // Reg-free activation should only be attempted if the class is not registered.
     // It should not be attempted if the class is registered but fails to activate.
     if code == REGDB_E_CLASSNOTREG {
@@ -117,7 +113,7 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
         }
     }
 
-    Err(original)
+    Err(code)
 }
 
 // Remove the suffix until a match is found appending `.dll\0` at the end
@@ -128,7 +124,7 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
 ///   2. A.dll
 fn search_path<F, R>(mut path: &str, mut callback: F) -> Option<R>
 where
-    F: FnMut(crate::PCSTR) -> crate::Result<R>,
+    F: FnMut(crate::PCSTR) -> Result<R, windows_result::HRESULT>,
 {
     let suffix = b".dll\0";
     let mut library = alloc::vec![0; path.len() + suffix.len()];
@@ -149,7 +145,7 @@ where
 unsafe fn get_activation_factory(
     library: crate::PCSTR,
     name: &crate::HSTRING,
-) -> crate::Result<IGenericFactory> {
+) -> Result<IGenericFactory, windows_result::HRESULT> {
     unsafe {
         let function =
             delay_load::<DllGetActivationFactory>(library, crate::s!("DllGetActivationFactory"))
@@ -200,7 +196,7 @@ mod tests {
             if unsafe { library.as_bytes() } == &b"A.dll"[..] {
                 Ok(42)
             } else {
-                Err(crate::Error::empty())
+                Err(S_OK)
             }
         });
         assert!(matches!(end_result, Some(42)));
@@ -210,7 +206,7 @@ mod tests {
         let mut results = Vec::new();
         let end_result = search_path(path, |library| {
             results.push(unsafe { library.to_string().unwrap() });
-            crate::Result::<()>::Err(crate::Error::empty())
+            Err(S_OK) // Result::<(), windows_result::HRESULT>::
         });
         assert!(end_result.is_none());
         assert_eq!(results, vec!["A.B.dll", "A.dll"]);

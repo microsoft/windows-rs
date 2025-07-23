@@ -49,39 +49,39 @@ impl windows_core::RuntimeType for IUICommand {
 }
 windows_core::imp::interface_hierarchy!(IUICommand, windows_core::IUnknown, windows_core::IInspectable);
 impl IUICommand {
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Label(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Invoked(&self) -> windows_core::Result<UICommandInvokedHandler> {
+    pub fn Invoked(&self) -> Result<UICommandInvokedHandler, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInvoked<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetInvoked<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<UICommandInvokedHandler>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInvoked)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Id(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetId<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetId<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -93,12 +93,12 @@ impl windows_core::RuntimeName for IUICommand {
     const NAME: &'static str = "Windows.UI.Popups.IUICommand";
 }
 pub trait IUICommand_Impl: windows_core::IUnknownImpl {
-    fn Label(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn Invoked(&self) -> windows_core::Result<UICommandInvokedHandler>;
-    fn SetInvoked(&self, value: windows_core::Ref<'_, UICommandInvokedHandler>) -> windows_core::Result<()>;
-    fn Id(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn SetId(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn Label(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn SetLabel(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>;
+    fn Invoked(&self) -> Result<UICommandInvokedHandler, windows_result::HRESULT>;
+    fn SetInvoked(&self, value: windows_core::Ref<'_, UICommandInvokedHandler>) -> Result<(), windows_result::HRESULT>;
+    fn Id(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT>;
+    fn SetId(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> Result<(), windows_result::HRESULT>;
 }
 impl IUICommand_Vtbl {
     pub const fn new<Identity: IUICommand_Impl, const OFFSET: isize>() -> Self {
@@ -201,88 +201,88 @@ pub struct IUICommandFactory_Vtbl {
 pub struct MessageDialog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MessageDialog, windows_core::IUnknown, windows_core::IInspectable);
 impl MessageDialog {
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<IUICommand>> {
+    pub fn Commands(&self) -> Result<windows_collections::IVector<IUICommand>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DefaultCommandIndex(&self) -> windows_core::Result<u32> {
+    pub fn DefaultCommandIndex(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultCommandIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDefaultCommandIndex(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetDefaultCommandIndex(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultCommandIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CancelCommandIndex(&self) -> windows_core::Result<u32> {
+    pub fn CancelCommandIndex(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CancelCommandIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCancelCommandIndex(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetCancelCommandIndex(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCancelCommandIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Content(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Content(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetContent(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetContent(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsync(&self) -> Result<windows_future::IAsyncOperation<IUICommand>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Options(&self) -> windows_core::Result<MessageDialogOptions> {
+    pub fn Options(&self) -> Result<MessageDialogOptions, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Options)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOptions(&self, value: MessageDialogOptions) -> windows_core::Result<()> {
+    pub fn SetOptions(&self, value: MessageDialogOptions) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOptions)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create(content: &windows_core::HSTRING) -> windows_core::Result<MessageDialog> {
+    pub fn Create(content: &windows_core::HSTRING) -> Result<MessageDialog, windows_result::HRESULT> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithTitle(content: &windows_core::HSTRING, title: &windows_core::HSTRING) -> windows_core::Result<MessageDialog> {
+    pub fn CreateWithTitle(content: &windows_core::HSTRING, title: &windows_core::HSTRING) -> Result<MessageDialog, windows_result::HRESULT> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMessageDialogFactory<R, F: FnOnce(&IMessageDialogFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMessageDialogFactory<R, F: FnOnce(&IMessageDialogFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MessageDialog, IMessageDialogFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -364,35 +364,35 @@ impl windows_core::RuntimeType for Placement {
 pub struct PopupMenu(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PopupMenu, windows_core::IUnknown, windows_core::IInspectable);
 impl PopupMenu {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PopupMenu, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Commands(&self) -> windows_core::Result<windows_collections::IVector<IUICommand>> {
+    pub fn Commands(&self) -> Result<windows_collections::IVector<IUICommand>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> Result<windows_future::IAsyncOperation<IUICommand>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), invocationpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<IUICommand>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsyncWithRect)(windows_core::Interface::as_raw(this), selection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> windows_core::Result<windows_future::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> Result<windows_future::IAsyncOperation<IUICommand>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -415,59 +415,59 @@ impl windows_core::RuntimeName for PopupMenu {
 pub struct UICommand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UICommand, windows_core::IUnknown, windows_core::IInspectable, IUICommand);
 impl UICommand {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<UICommand, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Label(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Invoked(&self) -> windows_core::Result<UICommandInvokedHandler> {
+    pub fn Invoked(&self) -> Result<UICommandInvokedHandler, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInvoked<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetInvoked<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<UICommandInvokedHandler>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInvoked)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Id(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetId<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetId<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Create(label: &windows_core::HSTRING) -> windows_core::Result<UICommand> {
+    pub fn Create(label: &windows_core::HSTRING) -> Result<UICommand, windows_result::HRESULT> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithHandler<P1>(label: &windows_core::HSTRING, action: P1) -> windows_core::Result<UICommand>
+    pub fn CreateWithHandler<P1>(label: &windows_core::HSTRING, action: P1) -> Result<UICommand, windows_result::HRESULT>
     where
         P1: windows_core::Param<UICommandInvokedHandler>,
     {
@@ -476,7 +476,7 @@ impl UICommand {
             (windows_core::Interface::vtable(this).CreateWithHandler)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), action.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithHandlerAndId<P1, P2>(label: &windows_core::HSTRING, action: P1, commandid: P2) -> windows_core::Result<UICommand>
+    pub fn CreateWithHandlerAndId<P1, P2>(label: &windows_core::HSTRING, action: P1, commandid: P2) -> Result<UICommand, windows_result::HRESULT>
     where
         P1: windows_core::Param<UICommandInvokedHandler>,
         P2: windows_core::Param<windows_core::IInspectable>,
@@ -486,7 +486,7 @@ impl UICommand {
             (windows_core::Interface::vtable(this).CreateWithHandlerAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), action.param().abi(), commandid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IUICommandFactory<R, F: FnOnce(&IUICommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUICommandFactory<R, F: FnOnce(&IUICommandFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<UICommand, IUICommandFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -508,11 +508,11 @@ impl windows_core::RuntimeType for UICommandInvokedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl UICommandInvokedHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, IUICommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, IUICommand>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = UICommandInvokedHandlerBox { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, command: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, command: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUICommand>,
     {
@@ -527,12 +527,12 @@ pub struct UICommandInvokedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct UICommandInvokedHandlerBox<F: FnMut(windows_core::Ref<'_, IUICommand>) -> windows_core::Result<()> + Send + 'static> {
+struct UICommandInvokedHandlerBox<F: FnMut(windows_core::Ref<'_, IUICommand>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const UICommandInvokedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, IUICommand>) -> windows_core::Result<()> + Send + 'static> UICommandInvokedHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, IUICommand>) -> Result<(), windows_result::HRESULT> + Send + 'static> UICommandInvokedHandlerBox<F> {
     const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -584,46 +584,46 @@ impl<F: FnMut(windows_core::Ref<'_, IUICommand>) -> windows_core::Result<()> + S
 pub struct UICommandSeparator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UICommandSeparator, windows_core::IUnknown, windows_core::IInspectable, IUICommand);
 impl UICommandSeparator {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<UICommandSeparator, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Label(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Invoked(&self) -> windows_core::Result<UICommandInvokedHandler> {
+    pub fn Invoked(&self) -> Result<UICommandInvokedHandler, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInvoked<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetInvoked<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<UICommandInvokedHandler>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInvoked)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Id(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetId<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetId<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {

@@ -20,14 +20,14 @@ pub struct GUID {
 
 impl GUID {
     /// Creates a unique `GUID` value.
-    pub fn new() -> Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         let mut guid = Self::zeroed();
         let result = unsafe { imp::UuidCreate(&mut guid as *mut _ as _) };
 
         if matches!(result, 0 | imp::RPC_S_UUID_LOCAL_ONLY) {
             Ok(guid)
         } else {
-            Err(Error::from_hresult(HRESULT::from_win32(result as u32)))
+            Err(HRESULT::from_win32(result as u32))
         }
     }
 
@@ -126,9 +126,9 @@ impl core::fmt::Debug for GUID {
 }
 
 impl TryFrom<&str> for GUID {
-    type Error = Error;
+    type Error = HRESULT;
 
-    fn try_from(from: &str) -> Result<Self> {
+    fn try_from(from: &str) -> Result<Self, windows_result::HRESULT> {
         if from.len() != 36 {
             return Err(invalid_guid());
         }
@@ -164,21 +164,21 @@ impl From<GUID> for u128 {
     }
 }
 
-fn invalid_guid() -> Error {
-    Error::from_hresult(imp::E_INVALIDARG)
+fn invalid_guid() -> HRESULT {
+    imp::E_INVALIDARG
 }
 
-fn try_u32(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u32> {
+fn try_u32(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u32, windows_result::HRESULT> {
     next(bytes, 8, delimiter).ok_or_else(invalid_guid)
 }
 
-fn try_u16(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u16> {
+fn try_u16(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u16, windows_result::HRESULT> {
     next(bytes, 4, delimiter)
         .map(|value| value as u16)
         .ok_or_else(invalid_guid)
 }
 
-fn try_u8(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u8> {
+fn try_u8(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u8, windows_result::HRESULT> {
     next(bytes, 2, delimiter)
         .map(|value| value as u8)
         .ok_or_else(invalid_guid)

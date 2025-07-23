@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICo
 windows_core::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionCapabilitiesInteropFactory {
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities> {
+    pub unsafe fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> Result<super::super::super::super::UI::Composition::CompositionCapabilities, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -20,7 +20,7 @@ pub struct ICompositionCapabilitiesInteropFactory_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositionCapabilitiesInteropFactory_Impl: windows_core::IUnknownImpl {
-    fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>;
+    fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> Result<super::super::super::super::UI::Composition::CompositionCapabilities, windows_result::HRESULT>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositionCapabilitiesInteropFactory_Vtbl {
@@ -51,26 +51,26 @@ impl windows_core::RuntimeName for ICompositionCapabilitiesInteropFactory {}
 windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop, ICompositionDrawingSurfaceInterop_Vtbl, 0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop, windows_core::IUnknown);
 impl ICompositionDrawingSurfaceInterop {
-    pub unsafe fn BeginDraw<T>(&self, updaterect: Option<*const super::super::super::Foundation::RECT>, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<T>
+    pub unsafe fn BeginDraw<T>(&self, updaterect: Option<*const super::super::super::Foundation::RECT>, updateoffset: *mut super::super::super::Foundation::POINT) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndDraw(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> windows_core::Result<()> {
+    pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(sizepixels)).ok() }
     }
-    pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
+    pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect.unwrap_or(core::mem::zeroed()) as _, cliprect.unwrap_or(core::mem::zeroed()) as _, offsetx, offsety).ok() }
     }
-    pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
+    pub unsafe fn ResumeDraw(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SuspendDraw(&self) -> windows_core::Result<()> {
+    pub unsafe fn SuspendDraw(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SuspendDraw)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -86,12 +86,12 @@ pub struct ICompositionDrawingSurfaceInterop_Vtbl {
     pub SuspendDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICompositionDrawingSurfaceInterop_Impl: windows_core::IUnknownImpl {
-    fn BeginDraw(&self, updaterect: *const super::super::super::Foundation::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<()>;
-    fn EndDraw(&self) -> windows_core::Result<()>;
-    fn Resize(&self, sizepixels: &super::super::super::Foundation::SIZE) -> windows_core::Result<()>;
-    fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::Result<()>;
-    fn ResumeDraw(&self) -> windows_core::Result<()>;
-    fn SuspendDraw(&self) -> windows_core::Result<()>;
+    fn BeginDraw(&self, updaterect: *const super::super::super::Foundation::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> Result<(), windows_result::HRESULT>;
+    fn EndDraw(&self) -> Result<(), windows_result::HRESULT>;
+    fn Resize(&self, sizepixels: &super::super::super::Foundation::SIZE) -> Result<(), windows_result::HRESULT>;
+    fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> Result<(), windows_result::HRESULT>;
+    fn ResumeDraw(&self) -> Result<(), windows_result::HRESULT>;
+    fn SuspendDraw(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ICompositionDrawingSurfaceInterop_Vtbl {
     pub const fn new<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>() -> Self {
@@ -155,7 +155,7 @@ impl core::ops::Deref for ICompositionDrawingSurfaceInterop2 {
 }
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, windows_core::IUnknown, ICompositionDrawingSurfaceInterop);
 impl ICompositionDrawingSurfaceInterop2 {
-    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: Option<*const super::super::super::Foundation::RECT>) -> windows_core::Result<()>
+    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: Option<*const super::super::super::Foundation::RECT>) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -169,7 +169,7 @@ pub struct ICompositionDrawingSurfaceInterop2_Vtbl {
     pub CopySurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *const super::super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 pub trait ICompositionDrawingSurfaceInterop2_Impl: ICompositionDrawingSurfaceInterop_Impl {
-    fn CopySurface(&self, destinationresource: windows_core::Ref<'_, windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn CopySurface(&self, destinationresource: windows_core::Ref<'_, windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> Result<(), windows_result::HRESULT>;
 }
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
     pub const fn new<Identity: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>() -> Self {
@@ -189,13 +189,13 @@ impl windows_core::RuntimeName for ICompositionDrawingSurfaceInterop2 {}
 windows_core::imp::define_interface!(ICompositionGraphicsDeviceInterop, ICompositionGraphicsDeviceInterop_Vtbl, 0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
 windows_core::imp::interface_hierarchy!(ICompositionGraphicsDeviceInterop, windows_core::IUnknown);
 impl ICompositionGraphicsDeviceInterop {
-    pub unsafe fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetRenderingDevice(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRenderingDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -210,8 +210,8 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
     pub SetRenderingDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICompositionGraphicsDeviceInterop_Impl: windows_core::IUnknownImpl {
-    fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetRenderingDevice(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetRenderingDevice(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn SetRenderingDevice(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 impl ICompositionGraphicsDeviceInterop_Vtbl {
     pub const fn new<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>() -> Self {
@@ -247,7 +247,7 @@ impl windows_core::RuntimeName for ICompositionGraphicsDeviceInterop {}
 windows_core::imp::define_interface!(ICompositionTextureInterop, ICompositionTextureInterop_Vtbl, 0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4);
 windows_core::imp::interface_hierarchy!(ICompositionTextureInterop, windows_core::IUnknown);
 impl ICompositionTextureInterop {
-    pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), fencevalue as _, iid, availablefence as _).ok() }
     }
 }
@@ -258,7 +258,7 @@ pub struct ICompositionTextureInterop_Vtbl {
     pub GetAvailableFence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICompositionTextureInterop_Impl: windows_core::IUnknownImpl {
-    fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 impl ICompositionTextureInterop_Vtbl {
     pub const fn new<Identity: ICompositionTextureInterop_Impl, const OFFSET: isize>() -> Self {
@@ -279,13 +279,13 @@ windows_core::imp::define_interface!(ICompositorDesktopInterop, ICompositorDeskt
 windows_core::imp::interface_hierarchy!(ICompositorDesktopInterop, windows_core::IUnknown);
 impl ICompositorDesktopInterop {
     #[cfg(feature = "UI_Composition_Desktop")]
-    pub unsafe fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: bool) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget> {
+    pub unsafe fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: bool) -> Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget, istopmost.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()> {
+    pub unsafe fn EnsureOnThread(&self, threadid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
 }
@@ -301,8 +301,8 @@ pub struct ICompositorDesktopInterop_Vtbl {
 }
 #[cfg(feature = "UI_Composition_Desktop")]
 pub trait ICompositorDesktopInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: windows_core::BOOL) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>;
-    fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()>;
+    fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: windows_core::BOOL) -> Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget, windows_result::HRESULT>;
+    fn EnsureOnThread(&self, threadid: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "UI_Composition_Desktop")]
 impl ICompositorDesktopInterop_Vtbl {
@@ -341,14 +341,14 @@ windows_core::imp::define_interface!(ICompositorInterop, ICompositorInterop_Vtbl
 windows_core::imp::interface_hierarchy!(ICompositorInterop, windows_core::IUnknown);
 impl ICompositorInterop {
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
+    pub unsafe fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> Result<super::super::super::super::UI::Composition::ICompositionSurface, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), swapchain, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
+    pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> Result<super::super::super::super::UI::Composition::ICompositionSurface, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -358,7 +358,7 @@ impl ICompositorInterop {
         }
     }
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateGraphicsDevice<P0>(&self, renderingdevice: P0) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>
+    pub unsafe fn CreateGraphicsDevice<P0>(&self, renderingdevice: P0) -> Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -387,9 +387,9 @@ pub struct ICompositorInterop_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateCompositionSurfaceForSwapChain(&self, swapchain: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
-    fn CreateGraphicsDevice(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
+    fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> Result<super::super::super::super::UI::Composition::ICompositionSurface, windows_result::HRESULT>;
+    fn CreateCompositionSurfaceForSwapChain(&self, swapchain: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<super::super::super::super::UI::Composition::ICompositionSurface, windows_result::HRESULT>;
+    fn CreateGraphicsDevice(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice, windows_result::HRESULT>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop_Vtbl {
@@ -446,7 +446,7 @@ impl windows_core::RuntimeName for ICompositorInterop {}
 windows_core::imp::define_interface!(ICompositorInterop2, ICompositorInterop2_Vtbl, 0xd3eef34c_0667_4afc_8d13_867607b0fe91);
 windows_core::imp::interface_hierarchy!(ICompositorInterop2, windows_core::IUnknown);
 impl ICompositorInterop2 {
-    pub unsafe fn CheckCompositionTextureSupport<P0>(&self, renderingdevice: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn CheckCompositionTextureSupport<P0>(&self, renderingdevice: P0) -> Result<windows_core::BOOL, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -456,7 +456,7 @@ impl ICompositorInterop2 {
         }
     }
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>
+    pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> Result<super::super::super::super::UI::Composition::CompositionTexture, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -478,8 +478,8 @@ pub struct ICompositorInterop2_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop2_Impl: windows_core::IUnknownImpl {
-    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
-    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>;
+    fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<super::super::super::super::UI::Composition::CompositionTexture, windows_result::HRESULT>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop2_Vtbl {
@@ -523,7 +523,7 @@ impl windows_core::RuntimeName for ICompositorInterop2 {}
 windows_core::imp::define_interface!(IDesktopWindowTargetInterop, IDesktopWindowTargetInterop_Vtbl, 0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 windows_core::imp::interface_hierarchy!(IDesktopWindowTargetInterop, windows_core::IUnknown);
 impl IDesktopWindowTargetInterop {
-    pub unsafe fn Hwnd(&self) -> windows_core::Result<super::super::super::Foundation::HWND> {
+    pub unsafe fn Hwnd(&self) -> Result<super::super::super::Foundation::HWND, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Hwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -537,7 +537,7 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
     pub Hwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 pub trait IDesktopWindowTargetInterop_Impl: windows_core::IUnknownImpl {
-    fn Hwnd(&self) -> windows_core::Result<super::super::super::Foundation::HWND>;
+    fn Hwnd(&self) -> Result<super::super::super::Foundation::HWND, windows_result::HRESULT>;
 }
 impl IDesktopWindowTargetInterop_Vtbl {
     pub const fn new<Identity: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>() -> Self {
@@ -564,7 +564,7 @@ windows_core::imp::define_interface!(IVisualInteractionSourceInterop, IVisualInt
 windows_core::imp::interface_hierarchy!(IVisualInteractionSourceInterop, windows_core::IUnknown);
 impl IVisualInteractionSourceInterop {
     #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()> {
+    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TryRedirectForManipulation)(windows_core::Interface::as_raw(self), pointerinfo).ok() }
     }
 }
@@ -579,7 +579,7 @@ pub struct IVisualInteractionSourceInterop_Vtbl {
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVisualInteractionSourceInterop_Impl: windows_core::IUnknownImpl {
-    fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()>;
+    fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVisualInteractionSourceInterop_Vtbl {

@@ -16,21 +16,21 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(Deferral, IClosable);
 impl Deferral {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IClosable>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn Create<P0>(handler: P0) -> windows_core::Result<Deferral>
+    pub fn Create<P0>(handler: P0) -> Result<Deferral, windows_result::HRESULT>
     where
         P0: windows_core::Param<DeferralCompletedHandler>,
     {
@@ -44,9 +44,9 @@ impl Deferral {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IDeferralFactory<R, F: FnOnce(&IDeferralFactory) -> windows_core::Result<R>>(
+    fn IDeferralFactory<R, F: FnOnce(&IDeferralFactory) -> Result<R, windows_result::HRESULT>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Deferral, IDeferralFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -75,7 +75,9 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeferralCompletedHandler {
-    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
         let com = DeferralCompletedHandlerBox {
             vtable: &DeferralCompletedHandlerBox::<F>::VTABLE,
             count: windows_core::imp::RefCount::new(1),
@@ -83,7 +85,7 @@ impl DeferralCompletedHandler {
         };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke(&self) -> windows_core::Result<()> {
+    pub fn Invoke(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this))
@@ -98,12 +100,16 @@ pub struct DeferralCompletedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeferralCompletedHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+struct DeferralCompletedHandlerBox<
+    F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static,
+> {
     vtable: *const DeferralCompletedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHandlerBox<F> {
+impl<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static>
+    DeferralCompletedHandlerBox<F>
+{
     const VTABLE: DeferralCompletedHandler_Vtbl = DeferralCompletedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: Self::QueryInterface,
@@ -182,7 +188,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IClosable {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
@@ -194,7 +200,7 @@ impl windows_core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
 }
 pub trait IClosable_Impl: windows_core::IUnknownImpl {
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IClosable_Vtbl {
     pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {

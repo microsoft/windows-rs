@@ -150,27 +150,27 @@ pub unsafe fn CloseClusterCryptProvider(hcluscryptprovider: HCLUSCRYPTPROVIDER) 
     unsafe { CloseClusterCryptProvider(hcluscryptprovider) }
 }
 #[inline]
-pub unsafe fn CloseClusterGroup(hgroup: HGROUP) -> windows_core::Result<()> {
+pub unsafe fn CloseClusterGroup(hgroup: HGROUP) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn CloseClusterGroup(hgroup : HGROUP) -> windows_core::BOOL);
     unsafe { CloseClusterGroup(hgroup).ok() }
 }
 #[inline]
-pub unsafe fn CloseClusterGroupSet(hgroupset: HGROUPSET) -> windows_core::Result<()> {
+pub unsafe fn CloseClusterGroupSet(hgroupset: HGROUPSET) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn CloseClusterGroupSet(hgroupset : HGROUPSET) -> windows_core::BOOL);
     unsafe { CloseClusterGroupSet(hgroupset).ok() }
 }
 #[inline]
-pub unsafe fn CloseClusterNetInterface(hnetinterface: HNETINTERFACE) -> windows_core::Result<()> {
+pub unsafe fn CloseClusterNetInterface(hnetinterface: HNETINTERFACE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn CloseClusterNetInterface(hnetinterface : HNETINTERFACE) -> windows_core::BOOL);
     unsafe { CloseClusterNetInterface(hnetinterface).ok() }
 }
 #[inline]
-pub unsafe fn CloseClusterNetwork(hnetwork: HNETWORK) -> windows_core::Result<()> {
+pub unsafe fn CloseClusterNetwork(hnetwork: HNETWORK) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn CloseClusterNetwork(hnetwork : HNETWORK) -> windows_core::BOOL);
     unsafe { CloseClusterNetwork(hnetwork).ok() }
 }
 #[inline]
-pub unsafe fn CloseClusterNode(hnode: HNODE) -> windows_core::Result<()> {
+pub unsafe fn CloseClusterNode(hnode: HNODE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn CloseClusterNode(hnode : HNODE) -> windows_core::BOOL);
     unsafe { CloseClusterNode(hnode).ok() }
 }
@@ -180,7 +180,7 @@ pub unsafe fn CloseClusterNotifyPort(hchange: HCHANGE) -> windows_core::BOOL {
     unsafe { CloseClusterNotifyPort(hchange) }
 }
 #[inline]
-pub unsafe fn CloseClusterResource(hresource: HRESOURCE) -> windows_core::Result<()> {
+pub unsafe fn CloseClusterResource(hresource: HRESOURCE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn CloseClusterResource(hresource : HRESOURCE) -> windows_core::BOOL);
     unsafe { CloseClusterResource(hresource).ok() }
 }
@@ -336,7 +336,7 @@ pub unsafe fn ClusterGetEnumCountEx(hclusterenum: HCLUSENUMEX) -> u32 {
     unsafe { ClusterGetEnumCountEx(hclusterenum) }
 }
 #[inline]
-pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<P0>(lpszvolumemountpoint: P0, lpszvolumename: windows_core::PWSTR, cchbufferlength: u32) -> windows_core::Result<()>
+pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<P0>(lpszvolumemountpoint: P0, lpszvolumename: windows_core::PWSTR, cchbufferlength: u32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -344,7 +344,7 @@ where
     unsafe { ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint.param().abi(), core::mem::transmute(lpszvolumename), cchbufferlength).ok() }
 }
 #[inline]
-pub unsafe fn ClusterGetVolumePathName<P0>(lpszfilename: P0, lpszvolumepathname: windows_core::PWSTR, cchbufferlength: u32) -> windows_core::Result<()>
+pub unsafe fn ClusterGetVolumePathName<P0>(lpszfilename: P0, lpszvolumepathname: windows_core::PWSTR, cchbufferlength: u32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -1259,10 +1259,10 @@ pub unsafe fn GetClusterFromResource(hresource: HRESOURCE) -> HCLUSTER {
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetClusterGroupKey(hgroup: HGROUP, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
+pub unsafe fn GetClusterGroupKey(hgroup: HGROUP, samdesired: u32) -> Result<super::super::System::Registry::HKEY, windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn GetClusterGroupKey(hgroup : HGROUP, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = unsafe { GetClusterGroupKey(hgroup, samdesired) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn GetClusterGroupState(hgroup: HGROUP, lpsznodename: Option<windows_core::PWSTR>, lpcchnodename: Option<*mut u32>) -> CLUSTER_GROUP_STATE {
@@ -1276,10 +1276,10 @@ pub unsafe fn GetClusterInformation(hcluster: HCLUSTER, lpszclustername: windows
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetClusterKey(hcluster: HCLUSTER, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
+pub unsafe fn GetClusterKey(hcluster: HCLUSTER, samdesired: u32) -> Result<super::super::System::Registry::HKEY, windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn GetClusterKey(hcluster : HCLUSTER, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = unsafe { GetClusterKey(hcluster, samdesired) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn GetClusterNetInterface<P1, P2>(hcluster: HCLUSTER, lpsznodename: P1, lpsznetworkname: P2, lpszinterfacename: windows_core::PWSTR, lpcchinterfacename: *mut u32) -> u32
@@ -1292,10 +1292,10 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
+pub unsafe fn GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: u32) -> Result<super::super::System::Registry::HKEY, windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn GetClusterNetInterfaceKey(hnetinterface : HNETINTERFACE, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = unsafe { GetClusterNetInterfaceKey(hnetinterface, samdesired) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn GetClusterNetInterfaceState(hnetinterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE {
@@ -1309,10 +1309,10 @@ pub unsafe fn GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: windows_cor
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
+pub unsafe fn GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: u32) -> Result<super::super::System::Registry::HKEY, windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn GetClusterNetworkKey(hnetwork : HNETWORK, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = unsafe { GetClusterNetworkKey(hnetwork, samdesired) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn GetClusterNetworkState(hnetwork: HNETWORK) -> CLUSTER_NETWORK_STATE {
@@ -1326,10 +1326,10 @@ pub unsafe fn GetClusterNodeId(hnode: Option<HNODE>, lpsznodeid: windows_core::P
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetClusterNodeKey(hnode: HNODE, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
+pub unsafe fn GetClusterNodeKey(hnode: HNODE, samdesired: u32) -> Result<super::super::System::Registry::HKEY, windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn GetClusterNodeKey(hnode : HNODE, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = unsafe { GetClusterNodeKey(hnode, samdesired) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn GetClusterNodeState(hnode: HNODE) -> CLUSTER_NODE_STATE {
@@ -1375,13 +1375,13 @@ pub unsafe fn GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszd
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetClusterResourceKey(hresource: HRESOURCE, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
+pub unsafe fn GetClusterResourceKey(hresource: HRESOURCE, samdesired: u32) -> Result<super::super::System::Registry::HKEY, windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn GetClusterResourceKey(hresource : HRESOURCE, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = unsafe { GetClusterResourceKey(hresource, samdesired) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn GetClusterResourceNetworkName(hresource: HRESOURCE, lpbuffer: windows_core::PWSTR, nsize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetClusterResourceNetworkName(hresource: HRESOURCE, lpbuffer: windows_core::PWSTR, nsize: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("clusapi.dll" "system" fn GetClusterResourceNetworkName(hresource : HRESOURCE, lpbuffer : windows_core::PWSTR, nsize : *mut u32) -> windows_core::BOOL);
     unsafe { GetClusterResourceNetworkName(hresource, core::mem::transmute(lpbuffer), nsize as _).ok() }
 }
@@ -1392,13 +1392,13 @@ pub unsafe fn GetClusterResourceState(hresource: HRESOURCE, lpsznodename: Option
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetClusterResourceTypeKey<P1>(hcluster: HCLUSTER, lpsztypename: P1, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn GetClusterResourceTypeKey<P1>(hcluster: HCLUSTER, lpsztypename: P1, samdesired: u32) -> Result<super::super::System::Registry::HKEY, windows_result::HRESULT>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_link::link!("clusapi.dll" "system" fn GetClusterResourceTypeKey(hcluster : HCLUSTER, lpsztypename : windows_core::PCWSTR, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = unsafe { GetClusterResourceTypeKey(hcluster, lpsztypename.param().abi(), samdesired) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::HRESULT::from_thread)
 }
 #[inline]
 pub unsafe fn GetNodeCloudTypeDW<P0>(ppsznodename: P0, nodecloudtype: *mut u32) -> u32
@@ -5818,7 +5818,7 @@ pub struct HRESTYPEENUM(pub isize);
 windows_core::imp::define_interface!(IGetClusterDataInfo, IGetClusterDataInfo_Vtbl, 0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IGetClusterDataInfo, windows_core::IUnknown);
 impl IGetClusterDataInfo {
-    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _).ok() }
     }
     pub unsafe fn GetClusterHandle(&self) -> HCLUSTER {
@@ -5837,7 +5837,7 @@ pub struct IGetClusterDataInfo_Vtbl {
     pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> i32,
 }
 pub trait IGetClusterDataInfo_Impl: windows_core::IUnknownImpl {
-    fn GetClusterName(&self, lpszname: windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()>;
+    fn GetClusterName(&self, lpszname: windows_core::BSTR, pcchname: *mut i32) -> Result<(), windows_result::HRESULT>;
     fn GetClusterHandle(&self) -> HCLUSTER;
     fn GetObjectCount(&self) -> i32;
 }
@@ -6000,7 +6000,7 @@ impl windows_core::RuntimeName for IGetClusterNodeInfo {}
 windows_core::imp::define_interface!(IGetClusterObjectInfo, IGetClusterObjectInfo_Vtbl, 0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IGetClusterObjectInfo, windows_core::IUnknown);
 impl IGetClusterObjectInfo {
-    pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetObjectName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszname), pcchname as _).ok() }
     }
     pub unsafe fn GetObjectType(&self, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE {
@@ -6015,7 +6015,7 @@ pub struct IGetClusterObjectInfo_Vtbl {
     pub GetObjectType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> CLUADMEX_OBJECT_TYPE,
 }
 pub trait IGetClusterObjectInfo_Impl: windows_core::IUnknownImpl {
-    fn GetObjectName(&self, lobjindex: i32, lpszname: windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()>;
+    fn GetObjectName(&self, lobjindex: i32, lpszname: windows_core::BSTR, pcchname: *mut i32) -> Result<(), windows_result::HRESULT>;
     fn GetObjectType(&self, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE;
 }
 impl IGetClusterObjectInfo_Vtbl {
@@ -6049,7 +6049,7 @@ impl IGetClusterResourceInfo {
     pub unsafe fn GetResourceHandle(&self, lobjindex: i32) -> HRESOURCE {
         unsafe { (windows_core::Interface::vtable(self).GetResourceHandle)(windows_core::Interface::as_raw(self), lobjindex) }
     }
-    pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: &windows_core::BSTR, pcchrestypename: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: &windows_core::BSTR, pcchrestypename: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetResourceTypeName)(windows_core::Interface::as_raw(self), lobjindex, core::mem::transmute_copy(lpszrestypename), pcchrestypename as _).ok() }
     }
     pub unsafe fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: &windows_core::BSTR, pcchnetname: *mut u32) -> windows_core::BOOL {
@@ -6066,7 +6066,7 @@ pub struct IGetClusterResourceInfo_Vtbl {
 }
 pub trait IGetClusterResourceInfo_Impl: windows_core::IUnknownImpl {
     fn GetResourceHandle(&self, lobjindex: i32) -> HRESOURCE;
-    fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: windows_core::BSTR, pcchrestypename: *mut i32) -> windows_core::Result<()>;
+    fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: windows_core::BSTR, pcchrestypename: *mut i32) -> Result<(), windows_result::HRESULT>;
     fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: windows_core::BSTR, pcchnetname: *mut u32) -> windows_core::BOOL;
 }
 impl IGetClusterResourceInfo_Vtbl {
@@ -6104,7 +6104,7 @@ impl windows_core::RuntimeName for IGetClusterResourceInfo {}
 windows_core::imp::define_interface!(IGetClusterUIInfo, IGetClusterUIInfo_Vtbl, 0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IGetClusterUIInfo, windows_core::IUnknown);
 impl IGetClusterUIInfo {
-    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetClusterName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), pcchname as _).ok() }
     }
     pub unsafe fn GetLocale(&self) -> u32 {
@@ -6136,7 +6136,7 @@ pub struct IGetClusterUIInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IGetClusterUIInfo_Impl: windows_core::IUnknownImpl {
-    fn GetClusterName(&self, lpszname: windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()>;
+    fn GetClusterName(&self, lpszname: windows_core::BSTR, pcchname: *mut i32) -> Result<(), windows_result::HRESULT>;
     fn GetLocale(&self) -> u32;
     fn GetFont(&self) -> super::super::Graphics::Gdi::HFONT;
     fn GetIcon(&self) -> super::super::UI::WindowsAndMessaging::HICON;
@@ -6195,19 +6195,19 @@ impl core::ops::Deref for ISClusApplication {
 windows_core::imp::interface_hierarchy!(ISClusApplication, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusApplication {
-    pub unsafe fn DomainNames(&self) -> windows_core::Result<ISDomainNames> {
+    pub unsafe fn DomainNames(&self) -> Result<ISDomainNames, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DomainNames)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_ClusterNames(&self, bstrdomainname: &windows_core::BSTR) -> windows_core::Result<ISClusterNames> {
+    pub unsafe fn get_ClusterNames(&self, bstrdomainname: &windows_core::BSTR) -> Result<ISClusterNames, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ClusterNames)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdomainname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OpenCluster(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<ISCluster> {
+    pub unsafe fn OpenCluster(&self, bstrclustername: &windows_core::BSTR) -> Result<ISCluster, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OpenCluster)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclustername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6225,9 +6225,9 @@ pub struct ISClusApplication_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusApplication_Impl: super::super::System::Com::IDispatch_Impl {
-    fn DomainNames(&self) -> windows_core::Result<ISDomainNames>;
-    fn get_ClusterNames(&self, bstrdomainname: &windows_core::BSTR) -> windows_core::Result<ISClusterNames>;
-    fn OpenCluster(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<ISCluster>;
+    fn DomainNames(&self) -> Result<ISDomainNames, windows_result::HRESULT>;
+    fn get_ClusterNames(&self, bstrdomainname: &windows_core::BSTR) -> Result<ISClusterNames, windows_result::HRESULT>;
+    fn OpenCluster(&self, bstrclustername: &windows_core::BSTR) -> Result<ISCluster, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusApplication_Vtbl {
@@ -6294,33 +6294,33 @@ impl core::ops::Deref for ISClusCryptoKeys {
 windows_core::imp::interface_hierarchy!(ISClusCryptoKeys, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusCryptoKeys {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AddItem(&self, bstrcryptokey: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AddItem(&self, bstrcryptokey: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcryptokey)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -6344,12 +6344,12 @@ pub struct ISClusCryptoKeys_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusCryptoKeys_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn AddItem(&self, bstrcryptokey: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn AddItem(&self, bstrcryptokey: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusCryptoKeys_Vtbl {
@@ -6437,25 +6437,25 @@ impl core::ops::Deref for ISClusDisk {
 windows_core::imp::interface_hierarchy!(ISClusDisk, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisk {
-    pub unsafe fn Signature(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Signature(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Signature)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ScsiAddress(&self) -> windows_core::Result<ISClusScsiAddress> {
+    pub unsafe fn ScsiAddress(&self) -> Result<ISClusScsiAddress, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScsiAddress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DiskNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DiskNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DiskNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Partitions(&self) -> windows_core::Result<ISClusPartitions> {
+    pub unsafe fn Partitions(&self) -> Result<ISClusPartitions, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Partitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6474,10 +6474,10 @@ pub struct ISClusDisk_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusDisk_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Signature(&self) -> windows_core::Result<i32>;
-    fn ScsiAddress(&self) -> windows_core::Result<ISClusScsiAddress>;
-    fn DiskNumber(&self) -> windows_core::Result<i32>;
-    fn Partitions(&self) -> windows_core::Result<ISClusPartitions>;
+    fn Signature(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ScsiAddress(&self) -> Result<ISClusScsiAddress, windows_result::HRESULT>;
+    fn DiskNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Partitions(&self) -> Result<ISClusPartitions, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusDisk_Vtbl {
@@ -6557,20 +6557,20 @@ impl core::ops::Deref for ISClusDisks {
 windows_core::imp::interface_hierarchy!(ISClusDisks, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisks {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusDisk> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusDisk, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6591,9 +6591,9 @@ pub struct ISClusDisks_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusDisks_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusDisk>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusDisk, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusDisks_Vtbl {
@@ -6660,49 +6660,49 @@ impl core::ops::Deref for ISClusNetInterface {
 windows_core::imp::interface_hierarchy!(ISClusNetInterface, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterface {
-    pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
+    pub unsafe fn Handle(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_NETINTERFACE_STATE> {
+    pub unsafe fn State(&self) -> Result<CLUSTER_NETINTERFACE_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
+    pub unsafe fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6725,14 +6725,14 @@ pub struct ISClusNetInterface_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNetInterface_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Handle(&self) -> windows_core::Result<usize>;
-    fn State(&self) -> windows_core::Result<CLUSTER_NETINTERFACE_STATE>;
-    fn Cluster(&self) -> windows_core::Result<ISCluster>;
+    fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Handle(&self) -> Result<usize, windows_result::HRESULT>;
+    fn State(&self) -> Result<CLUSTER_NETINTERFACE_STATE, windows_result::HRESULT>;
+    fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetInterface_Vtbl {
@@ -6864,23 +6864,23 @@ impl core::ops::Deref for ISClusNetInterfaces {
 windows_core::imp::interface_hierarchy!(ISClusNetInterfaces, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterfaces {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetInterface, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6902,10 +6902,10 @@ pub struct ISClusNetInterfaces_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNetInterfaces_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetInterface, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetInterfaces_Vtbl {
@@ -6979,64 +6979,64 @@ impl core::ops::Deref for ISClusNetwork {
 windows_core::imp::interface_hierarchy!(ISClusNetwork, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetwork {
-    pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
+    pub unsafe fn Handle(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrnetworkname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, bstrnetworkname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrnetworkname)).ok() }
     }
-    pub unsafe fn NetworkID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn NetworkID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NetworkID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_NETWORK_STATE> {
+    pub unsafe fn State(&self) -> Result<CLUSTER_NETWORK_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NetInterfaces(&self) -> windows_core::Result<ISClusNetworkNetInterfaces> {
+    pub unsafe fn NetInterfaces(&self) -> Result<ISClusNetworkNetInterfaces, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NetInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
+    pub unsafe fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7062,17 +7062,17 @@ pub struct ISClusNetwork_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNetwork_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn Handle(&self) -> windows_core::Result<usize>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, bstrnetworkname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn NetworkID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn State(&self) -> windows_core::Result<CLUSTER_NETWORK_STATE>;
-    fn NetInterfaces(&self) -> windows_core::Result<ISClusNetworkNetInterfaces>;
-    fn Cluster(&self) -> windows_core::Result<ISCluster>;
+    fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn Handle(&self) -> Result<usize, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, bstrnetworkname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NetworkID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn State(&self) -> Result<CLUSTER_NETWORK_STATE, windows_result::HRESULT>;
+    fn NetInterfaces(&self) -> Result<ISClusNetworkNetInterfaces, windows_result::HRESULT>;
+    fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetwork_Vtbl {
@@ -7237,23 +7237,23 @@ impl core::ops::Deref for ISClusNetworkNetInterfaces {
 windows_core::imp::interface_hierarchy!(ISClusNetworkNetInterfaces, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworkNetInterfaces {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetInterface, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7275,10 +7275,10 @@ pub struct ISClusNetworkNetInterfaces_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNetworkNetInterfaces_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetInterface, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetworkNetInterfaces_Vtbl {
@@ -7352,23 +7352,23 @@ impl core::ops::Deref for ISClusNetworks {
 windows_core::imp::interface_hierarchy!(ISClusNetworks, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworks {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetwork> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetwork, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7390,10 +7390,10 @@ pub struct ISClusNetworks_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNetworks_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetwork>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetwork, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetworks_Vtbl {
@@ -7467,76 +7467,76 @@ impl core::ops::Deref for ISClusNode {
 windows_core::imp::interface_hierarchy!(ISClusNode, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNode {
-    pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
+    pub unsafe fn Handle(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NodeID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn NodeID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NodeID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_NODE_STATE> {
+    pub unsafe fn State(&self) -> Result<CLUSTER_NODE_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
+    pub unsafe fn Pause(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Resume(&self) -> windows_core::Result<()> {
+    pub unsafe fn Resume(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Evict(&self) -> windows_core::Result<()> {
+    pub unsafe fn Evict(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ResourceGroups(&self) -> windows_core::Result<ISClusResGroups> {
+    pub unsafe fn ResourceGroups(&self) -> Result<ISClusResGroups, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResourceGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
+    pub unsafe fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn NetInterfaces(&self) -> windows_core::Result<ISClusNodeNetInterfaces> {
+    pub unsafe fn NetInterfaces(&self) -> Result<ISClusNodeNetInterfaces, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NetInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7565,20 +7565,20 @@ pub struct ISClusNode_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNode_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Handle(&self) -> windows_core::Result<usize>;
-    fn NodeID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn State(&self) -> windows_core::Result<CLUSTER_NODE_STATE>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn Evict(&self) -> windows_core::Result<()>;
-    fn ResourceGroups(&self) -> windows_core::Result<ISClusResGroups>;
-    fn Cluster(&self) -> windows_core::Result<ISCluster>;
-    fn NetInterfaces(&self) -> windows_core::Result<ISClusNodeNetInterfaces>;
+    fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Handle(&self) -> Result<usize, windows_result::HRESULT>;
+    fn NodeID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn State(&self) -> Result<CLUSTER_NODE_STATE, windows_result::HRESULT>;
+    fn Pause(&self) -> Result<(), windows_result::HRESULT>;
+    fn Resume(&self) -> Result<(), windows_result::HRESULT>;
+    fn Evict(&self) -> Result<(), windows_result::HRESULT>;
+    fn ResourceGroups(&self) -> Result<ISClusResGroups, windows_result::HRESULT>;
+    fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT>;
+    fn NetInterfaces(&self) -> Result<ISClusNodeNetInterfaces, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNode_Vtbl {
@@ -7770,23 +7770,23 @@ impl core::ops::Deref for ISClusNodeNetInterfaces {
 windows_core::imp::interface_hierarchy!(ISClusNodeNetInterfaces, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodeNetInterfaces {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetInterface, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7808,10 +7808,10 @@ pub struct ISClusNodeNetInterfaces_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNodeNetInterfaces_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNetInterface, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNodeNetInterfaces_Vtbl {
@@ -7885,23 +7885,23 @@ impl core::ops::Deref for ISClusNodes {
 windows_core::imp::interface_hierarchy!(ISClusNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7923,10 +7923,10 @@ pub struct ISClusNodes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusNodes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNodes_Vtbl {
@@ -8000,43 +8000,43 @@ impl core::ops::Deref for ISClusPartition {
 windows_core::imp::interface_hierarchy!(ISClusPartition, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartition {
-    pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Flags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DeviceName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VolumeLabel(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeLabel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeLabel)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SerialNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SerialNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SerialNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MaximumComponentLength(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MaximumComponentLength(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaximumComponentLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FileSystemFlags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FileSystemFlags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileSystemFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FileSystem(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FileSystem(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileSystem)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -8058,13 +8058,13 @@ pub struct ISClusPartition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusPartition_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Flags(&self) -> windows_core::Result<i32>;
-    fn DeviceName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VolumeLabel(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SerialNumber(&self) -> windows_core::Result<i32>;
-    fn MaximumComponentLength(&self) -> windows_core::Result<i32>;
-    fn FileSystemFlags(&self) -> windows_core::Result<i32>;
-    fn FileSystem(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Flags(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DeviceName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VolumeLabel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SerialNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn MaximumComponentLength(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FileSystemFlags(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FileSystem(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPartition_Vtbl {
@@ -8183,31 +8183,31 @@ impl core::ops::Deref for ISClusPartitionEx {
 windows_core::imp::interface_hierarchy!(ISClusPartitionEx, windows_core::IUnknown, super::super::System::Com::IDispatch, ISClusPartition);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitionEx {
-    pub unsafe fn TotalSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TotalSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FreeSpace(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FreeSpace(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FreeSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DeviceNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PartitionNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PartitionNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PartitionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VolumeGuid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeGuid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -8227,11 +8227,11 @@ pub struct ISClusPartitionEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusPartitionEx_Impl: ISClusPartition_Impl {
-    fn TotalSize(&self) -> windows_core::Result<i32>;
-    fn FreeSpace(&self) -> windows_core::Result<i32>;
-    fn DeviceNumber(&self) -> windows_core::Result<i32>;
-    fn PartitionNumber(&self) -> windows_core::Result<i32>;
-    fn VolumeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn TotalSize(&self) -> Result<i32, windows_result::HRESULT>;
+    fn FreeSpace(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DeviceNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn PartitionNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn VolumeGuid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPartitionEx_Vtbl {
@@ -8324,20 +8324,20 @@ impl core::ops::Deref for ISClusPartitions {
 windows_core::imp::interface_hierarchy!(ISClusPartitions, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitions {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPartition> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusPartition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8358,9 +8358,9 @@ pub struct ISClusPartitions_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusPartitions_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPartition>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusPartition, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPartitions_Vtbl {
@@ -8427,69 +8427,69 @@ impl core::ops::Deref for ISClusProperties {
 windows_core::imp::interface_hierarchy!(ISClusProperties, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusProperties {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusProperty> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusProperty, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusProperty> {
+    pub unsafe fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> Result<ISClusProperty, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(varvalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn UseDefaultValue(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn UseDefaultValue(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UseDefaultValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SaveChanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SaveChanges(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Private(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Private(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Private)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Common(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Common(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Common)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -8539,17 +8539,17 @@ pub struct ISClusProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusProperties_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusProperty>;
-    fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusProperty>;
-    fn UseDefaultValue(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SaveChanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Private(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Common(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusProperty, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> Result<ISClusProperty, windows_result::HRESULT>;
+    fn UseDefaultValue(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn SaveChanges(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Private(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Common(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusProperties_Vtbl {
@@ -8708,88 +8708,88 @@ impl core::ops::Deref for ISClusProperty {
 windows_core::imp::interface_hierarchy!(ISClusProperty, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusProperty {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Length(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Length(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ValueCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ValueCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ValueCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Values(&self) -> windows_core::Result<ISClusPropertyValues> {
+    pub unsafe fn Values(&self) -> Result<ISClusPropertyValues, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Values)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue)).ok() }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<CLUSTER_PROPERTY_TYPE> {
+    pub unsafe fn Type(&self) -> Result<CLUSTER_PROPERTY_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type).ok() }
     }
-    pub unsafe fn Format(&self) -> windows_core::Result<CLUSTER_PROPERTY_FORMAT> {
+    pub unsafe fn Format(&self) -> Result<CLUSTER_PROPERTY_FORMAT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::Result<()> {
+    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), format).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Private(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Private(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Private)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Common(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Common(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Common)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UseDefaultValue(&self) -> windows_core::Result<()> {
+    pub unsafe fn UseDefaultValue(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UseDefaultValue)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -8834,21 +8834,21 @@ pub struct ISClusProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusProperty_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Length(&self) -> windows_core::Result<i32>;
-    fn ValueCount(&self) -> windows_core::Result<i32>;
-    fn Values(&self) -> windows_core::Result<ISClusPropertyValues>;
-    fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Type(&self) -> windows_core::Result<CLUSTER_PROPERTY_TYPE>;
-    fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::Result<()>;
-    fn Format(&self) -> windows_core::Result<CLUSTER_PROPERTY_FORMAT>;
-    fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::Result<()>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Private(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Common(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn UseDefaultValue(&self) -> windows_core::Result<()>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Length(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ValueCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Values(&self) -> Result<ISClusPropertyValues, windows_result::HRESULT>;
+    fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Type(&self) -> Result<CLUSTER_PROPERTY_TYPE, windows_result::HRESULT>;
+    fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> Result<(), windows_result::HRESULT>;
+    fn Format(&self) -> Result<CLUSTER_PROPERTY_FORMAT, windows_result::HRESULT>;
+    fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> Result<(), windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Private(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Common(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn UseDefaultValue(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusProperty_Vtbl {
@@ -9048,47 +9048,47 @@ windows_core::imp::interface_hierarchy!(ISClusPropertyValue, windows_core::IUnkn
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValue {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue)).ok() }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<CLUSTER_PROPERTY_TYPE> {
+    pub unsafe fn Type(&self) -> Result<CLUSTER_PROPERTY_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type).ok() }
     }
-    pub unsafe fn Format(&self) -> windows_core::Result<CLUSTER_PROPERTY_FORMAT> {
+    pub unsafe fn Format(&self) -> Result<CLUSTER_PROPERTY_FORMAT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::Result<()> {
+    pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), format).ok() }
     }
-    pub unsafe fn Length(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Length(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DataCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DataCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Data(&self) -> windows_core::Result<ISClusPropertyValueData> {
+    pub unsafe fn Data(&self) -> Result<ISClusPropertyValueData, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9118,15 +9118,15 @@ pub struct ISClusPropertyValue_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusPropertyValue_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Type(&self) -> windows_core::Result<CLUSTER_PROPERTY_TYPE>;
-    fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> windows_core::Result<()>;
-    fn Format(&self) -> windows_core::Result<CLUSTER_PROPERTY_FORMAT>;
-    fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> windows_core::Result<()>;
-    fn Length(&self) -> windows_core::Result<i32>;
-    fn DataCount(&self) -> windows_core::Result<i32>;
-    fn Data(&self) -> windows_core::Result<ISClusPropertyValueData>;
+    fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Type(&self) -> Result<CLUSTER_PROPERTY_TYPE, windows_result::HRESULT>;
+    fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> Result<(), windows_result::HRESULT>;
+    fn Format(&self) -> Result<CLUSTER_PROPERTY_FORMAT, windows_result::HRESULT>;
+    fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> Result<(), windows_result::HRESULT>;
+    fn Length(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DataCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Data(&self) -> Result<ISClusPropertyValueData, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPropertyValue_Vtbl {
@@ -9253,34 +9253,34 @@ impl core::ops::Deref for ISClusPropertyValueData {
 windows_core::imp::interface_hierarchy!(ISClusPropertyValueData, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValueData {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateItem(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn CreateItem(&self, varvalue: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varvalue), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -9306,11 +9306,11 @@ pub struct ISClusPropertyValueData_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusPropertyValueData_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn CreateItem(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn CreateItem(&self, varvalue: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPropertyValueData_Vtbl {
@@ -9397,34 +9397,34 @@ impl core::ops::Deref for ISClusPropertyValues {
 windows_core::imp::interface_hierarchy!(ISClusPropertyValues, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValues {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPropertyValue> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusPropertyValue, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPropertyValue> {
+    pub unsafe fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> Result<ISClusPropertyValue, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(varvalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -9450,11 +9450,11 @@ pub struct ISClusPropertyValues_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusPropertyValues_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPropertyValue>;
-    fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPropertyValue>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusPropertyValue, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrname: &windows_core::BSTR, varvalue: &super::super::System::Variant::VARIANT) -> Result<ISClusPropertyValue, windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPropertyValues_Vtbl {
@@ -9541,7 +9541,7 @@ impl core::ops::Deref for ISClusRefObject {
 windows_core::imp::interface_hierarchy!(ISClusRefObject, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusRefObject {
-    pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
+    pub unsafe fn Handle(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9557,7 +9557,7 @@ pub struct ISClusRefObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusRefObject_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Handle(&self) -> windows_core::Result<usize>;
+    fn Handle(&self) -> Result<usize, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusRefObject_Vtbl {
@@ -9595,33 +9595,33 @@ impl core::ops::Deref for ISClusRegistryKeys {
 windows_core::imp::interface_hierarchy!(ISClusRegistryKeys, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusRegistryKeys {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AddItem(&self, bstrregistrykey: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AddItem(&self, bstrregistrykey: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrregistrykey)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -9645,12 +9645,12 @@ pub struct ISClusRegistryKeys_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusRegistryKeys_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn AddItem(&self, bstrregistrykey: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn AddItem(&self, bstrregistrykey: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusRegistryKeys_Vtbl {
@@ -9738,46 +9738,46 @@ impl core::ops::Deref for ISClusResDependencies {
 windows_core::imp::interface_hierarchy!(ISClusResDependencies, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependencies {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename), core::mem::transmute_copy(bstrresourcetype), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
-    pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, presource: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusResource>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), presource.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -9806,14 +9806,14 @@ pub struct ISClusResDependencies_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResDependencies_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
-    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResDependencies_Vtbl {
@@ -9921,46 +9921,46 @@ impl core::ops::Deref for ISClusResDependents {
 windows_core::imp::interface_hierarchy!(ISClusResDependents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependents {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename), core::mem::transmute_copy(bstrresourcetype), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
-    pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, presource: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusResource>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), presource.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -9989,14 +9989,14 @@ pub struct ISClusResDependents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResDependents_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
-    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn AddItem(&self, presource: windows_core::Ref<'_, ISClusResource>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResDependents_Vtbl {
@@ -10104,94 +10104,94 @@ impl core::ops::Deref for ISClusResGroup {
 windows_core::imp::interface_hierarchy!(ISClusResGroup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroup {
-    pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
+    pub unsafe fn Handle(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname)).ok() }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_GROUP_STATE> {
+    pub unsafe fn State(&self) -> Result<CLUSTER_GROUP_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OwnerNode(&self) -> windows_core::Result<ISClusNode> {
+    pub unsafe fn OwnerNode(&self) -> Result<ISClusNode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OwnerNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Resources(&self) -> windows_core::Result<ISClusResGroupResources> {
+    pub unsafe fn Resources(&self) -> Result<ISClusResGroupResources, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Resources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PreferredOwnerNodes(&self) -> windows_core::Result<ISClusResGroupPreferredOwnerNodes> {
+    pub unsafe fn PreferredOwnerNodes(&self) -> Result<ISClusResGroupPreferredOwnerNodes, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreferredOwnerNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Online(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Online(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vartimeout), core::mem::transmute_copy(varnode), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Move(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Move(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vartimeout), core::mem::transmute_copy(varnode), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Offline(&self, vartimeout: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Offline(&self, vartimeout: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vartimeout), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
+    pub unsafe fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10231,22 +10231,22 @@ pub struct ISClusResGroup_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResGroup_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn Handle(&self) -> windows_core::Result<usize>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn State(&self) -> windows_core::Result<CLUSTER_GROUP_STATE>;
-    fn OwnerNode(&self) -> windows_core::Result<ISClusNode>;
-    fn Resources(&self) -> windows_core::Result<ISClusResGroupResources>;
-    fn PreferredOwnerNodes(&self) -> windows_core::Result<ISClusResGroupPreferredOwnerNodes>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Online(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Move(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Offline(&self, vartimeout: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Cluster(&self) -> windows_core::Result<ISCluster>;
+    fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn Handle(&self) -> Result<usize, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn State(&self) -> Result<CLUSTER_GROUP_STATE, windows_result::HRESULT>;
+    fn OwnerNode(&self) -> Result<ISClusNode, windows_result::HRESULT>;
+    fn Resources(&self) -> Result<ISClusResGroupResources, windows_result::HRESULT>;
+    fn PreferredOwnerNodes(&self) -> Result<ISClusResGroupPreferredOwnerNodes, windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
+    fn Online(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Move(&self, vartimeout: &super::super::System::Variant::VARIANT, varnode: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Offline(&self, vartimeout: &super::super::System::Variant::VARIANT) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroup_Vtbl {
@@ -10470,49 +10470,49 @@ impl core::ops::Deref for ISClusResGroupPreferredOwnerNodes {
 windows_core::imp::interface_hierarchy!(ISClusResGroupPreferredOwnerNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupPreferredOwnerNodes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn InsertItem<P0>(&self, pnode: P0, nposition: i32) -> windows_core::Result<()>
+    pub unsafe fn InsertItem<P0>(&self, pnode: P0, nposition: i32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusNode>,
     {
         unsafe { (windows_core::Interface::vtable(self).InsertItem)(windows_core::Interface::as_raw(self), pnode.param().abi(), nposition).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SaveChanges(&self) -> windows_core::Result<()> {
+    pub unsafe fn SaveChanges(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusNode>,
     {
@@ -10545,15 +10545,15 @@ pub struct ISClusResGroupPreferredOwnerNodes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResGroupPreferredOwnerNodes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
-    fn InsertItem(&self, pnode: windows_core::Ref<'_, ISClusNode>, nposition: i32) -> windows_core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SaveChanges(&self) -> windows_core::Result<()>;
-    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT>;
+    fn InsertItem(&self, pnode: windows_core::Ref<'_, ISClusNode>, nposition: i32) -> Result<(), windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SaveChanges(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroupPreferredOwnerNodes_Vtbl {
@@ -10668,36 +10668,36 @@ impl core::ops::Deref for ISClusResGroupResources {
 windows_core::imp::interface_hierarchy!(ISClusResGroupResources, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupResources {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename), core::mem::transmute_copy(bstrresourcetype), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -10721,12 +10721,12 @@ pub struct ISClusResGroupResources_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResGroupResources_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
-    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroupResources_Vtbl {
@@ -10820,36 +10820,36 @@ impl core::ops::Deref for ISClusResGroups {
 windows_core::imp::interface_hierarchy!(ISClusResGroups, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroups {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResGroup> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResGroup, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateItem(&self, bstrresourcegroupname: &windows_core::BSTR) -> windows_core::Result<ISClusResGroup> {
+    pub unsafe fn CreateItem(&self, bstrresourcegroupname: &windows_core::BSTR) -> Result<ISClusResGroup, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcegroupname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -10873,12 +10873,12 @@ pub struct ISClusResGroups_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResGroups_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResGroup>;
-    fn CreateItem(&self, bstrresourcegroupname: &windows_core::BSTR) -> windows_core::Result<ISClusResGroup>;
-    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResGroup, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrresourcegroupname: &windows_core::BSTR) -> Result<ISClusResGroup, windows_result::HRESULT>;
+    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroups_Vtbl {
@@ -10972,40 +10972,40 @@ impl core::ops::Deref for ISClusResPossibleOwnerNodes {
 windows_core::imp::interface_hierarchy!(ISClusResPossibleOwnerNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResPossibleOwnerNodes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P0>(&self, pnode: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusNode>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -11036,13 +11036,13 @@ pub struct ISClusResPossibleOwnerNodes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResPossibleOwnerNodes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
-    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT>;
+    fn AddItem(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Modified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResPossibleOwnerNodes_Vtbl {
@@ -11143,58 +11143,58 @@ impl core::ops::Deref for ISClusResType {
 windows_core::imp::interface_hierarchy!(ISClusResType, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResType {
-    pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
+    pub unsafe fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Resources(&self) -> windows_core::Result<ISClusResTypeResources> {
+    pub unsafe fn Resources(&self) -> Result<ISClusResTypeResources, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Resources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResTypePossibleOwnerNodes> {
+    pub unsafe fn PossibleOwnerNodes(&self) -> Result<ISClusResTypePossibleOwnerNodes, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PossibleOwnerNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AvailableDisks(&self) -> windows_core::Result<ISClusDisks> {
+    pub unsafe fn AvailableDisks(&self) -> Result<ISClusDisks, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AvailableDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11219,16 +11219,16 @@ pub struct ISClusResType_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResType_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Cluster(&self) -> windows_core::Result<ISCluster>;
-    fn Resources(&self) -> windows_core::Result<ISClusResTypeResources>;
-    fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResTypePossibleOwnerNodes>;
-    fn AvailableDisks(&self) -> windows_core::Result<ISClusDisks>;
+    fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
+    fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT>;
+    fn Resources(&self) -> Result<ISClusResTypeResources, windows_result::HRESULT>;
+    fn PossibleOwnerNodes(&self) -> Result<ISClusResTypePossibleOwnerNodes, windows_result::HRESULT>;
+    fn AvailableDisks(&self) -> Result<ISClusDisks, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResType_Vtbl {
@@ -11380,23 +11380,23 @@ impl core::ops::Deref for ISClusResTypePossibleOwnerNodes {
 windows_core::imp::interface_hierarchy!(ISClusResTypePossibleOwnerNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypePossibleOwnerNodes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11418,10 +11418,10 @@ pub struct ISClusResTypePossibleOwnerNodes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResTypePossibleOwnerNodes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusNode, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResTypePossibleOwnerNodes_Vtbl {
@@ -11495,36 +11495,36 @@ impl core::ops::Deref for ISClusResTypeResources {
 windows_core::imp::interface_hierarchy!(ISClusResTypeResources, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypeResources {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename), core::mem::transmute_copy(bstrgroupname), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -11548,12 +11548,12 @@ pub struct ISClusResTypeResources_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResTypeResources_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
-    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResTypeResources_Vtbl {
@@ -11647,36 +11647,36 @@ impl core::ops::Deref for ISClusResTypes {
 windows_core::imp::interface_hierarchy!(ISClusResTypes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResType> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateItem(&self, bstrresourcetypename: &windows_core::BSTR, bstrdisplayname: &windows_core::BSTR, bstrresourcetypedll: &windows_core::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> windows_core::Result<ISClusResType> {
+    pub unsafe fn CreateItem(&self, bstrresourcetypename: &windows_core::BSTR, bstrdisplayname: &windows_core::BSTR, bstrresourcetypedll: &windows_core::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> Result<ISClusResType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcetypename), core::mem::transmute_copy(bstrdisplayname), core::mem::transmute_copy(bstrresourcetypedll), dwlooksalivepollinterval, dwisalivepollinterval, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -11700,12 +11700,12 @@ pub struct ISClusResTypes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResTypes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResType>;
-    fn CreateItem(&self, bstrresourcetypename: &windows_core::BSTR, bstrdisplayname: &windows_core::BSTR, bstrresourcetypedll: &windows_core::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> windows_core::Result<ISClusResType>;
-    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResType, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrresourcetypename: &windows_core::BSTR, bstrdisplayname: &windows_core::BSTR, bstrresourcetypedll: &windows_core::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> Result<ISClusResType, windows_result::HRESULT>;
+    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResTypes_Vtbl {
@@ -11799,100 +11799,100 @@ impl core::ops::Deref for ISClusResource {
 windows_core::imp::interface_hierarchy!(ISClusResource, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResource {
-    pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
+    pub unsafe fn Handle(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrresourcename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, bstrresourcename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename)).ok() }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_RESOURCE_STATE> {
+    pub unsafe fn State(&self) -> Result<CLUSTER_RESOURCE_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CoreFlag(&self) -> windows_core::Result<CLUS_FLAGS> {
+    pub unsafe fn CoreFlag(&self) -> Result<CLUS_FLAGS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CoreFlag)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BecomeQuorumResource(&self, bstrdevicepath: &windows_core::BSTR, lmaxlogsize: i32) -> windows_core::Result<()> {
+    pub unsafe fn BecomeQuorumResource(&self, bstrdevicepath: &windows_core::BSTR, lmaxlogsize: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BecomeQuorumResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdevicepath), lmaxlogsize).ok() }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Fail(&self) -> windows_core::Result<()> {
+    pub unsafe fn Fail(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Fail)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Online(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Online(&self, ntimeout: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), ntimeout, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Offline(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Offline(&self, ntimeout: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), ntimeout, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ChangeResourceGroup<P0>(&self, presourcegroup: P0) -> windows_core::Result<()>
+    pub unsafe fn ChangeResourceGroup<P0>(&self, presourcegroup: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusResGroup>,
     {
         unsafe { (windows_core::Interface::vtable(self).ChangeResourceGroup)(windows_core::Interface::as_raw(self), presourcegroup.param().abi()).ok() }
     }
-    pub unsafe fn AddResourceNode<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn AddResourceNode<P0>(&self, pnode: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusNode>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddResourceNode)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
     }
-    pub unsafe fn RemoveResourceNode<P0>(&self, pnode: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveResourceNode<P0>(&self, pnode: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusNode>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveResourceNode)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CanResourceBeDependent<P0>(&self, presource: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn CanResourceBeDependent<P0>(&self, presource: P0) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusResource>,
     {
@@ -11901,85 +11901,85 @@ impl ISClusResource {
             (windows_core::Interface::vtable(self).CanResourceBeDependent)(windows_core::Interface::as_raw(self), presource.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResPossibleOwnerNodes> {
+    pub unsafe fn PossibleOwnerNodes(&self) -> Result<ISClusResPossibleOwnerNodes, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PossibleOwnerNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Dependencies(&self) -> windows_core::Result<ISClusResDependencies> {
+    pub unsafe fn Dependencies(&self) -> Result<ISClusResDependencies, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Dependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Dependents(&self) -> windows_core::Result<ISClusResDependents> {
+    pub unsafe fn Dependents(&self) -> Result<ISClusResDependents, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Dependents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Group(&self) -> windows_core::Result<ISClusResGroup> {
+    pub unsafe fn Group(&self) -> Result<ISClusResGroup, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Group)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OwnerNode(&self) -> windows_core::Result<ISClusNode> {
+    pub unsafe fn OwnerNode(&self) -> Result<ISClusNode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OwnerNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
+    pub unsafe fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ClassInfo(&self) -> windows_core::Result<CLUSTER_RESOURCE_CLASS> {
+    pub unsafe fn ClassInfo(&self) -> Result<CLUSTER_RESOURCE_CLASS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Disk(&self) -> windows_core::Result<ISClusDisk> {
+    pub unsafe fn Disk(&self) -> Result<ISClusDisk, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Disk)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RegistryKeys(&self) -> windows_core::Result<ISClusRegistryKeys> {
+    pub unsafe fn RegistryKeys(&self) -> Result<ISClusRegistryKeys, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegistryKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CryptoKeys(&self) -> windows_core::Result<ISClusCryptoKeys> {
+    pub unsafe fn CryptoKeys(&self) -> Result<ISClusCryptoKeys, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CryptoKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TypeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TypeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<ISClusResType> {
+    pub unsafe fn Type(&self) -> Result<ISClusResType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MaintenanceMode(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn MaintenanceMode(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaintenanceMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaintenanceMode(&self, bmaintenancemode: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetMaintenanceMode(&self, bmaintenancemode: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaintenanceMode)(windows_core::Interface::as_raw(self), bmaintenancemode.into()).ok() }
     }
 }
@@ -12032,38 +12032,38 @@ pub struct ISClusResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResource_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn Handle(&self) -> windows_core::Result<usize>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, bstrresourcename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn State(&self) -> windows_core::Result<CLUSTER_RESOURCE_STATE>;
-    fn CoreFlag(&self) -> windows_core::Result<CLUS_FLAGS>;
-    fn BecomeQuorumResource(&self, bstrdevicepath: &windows_core::BSTR, lmaxlogsize: i32) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Fail(&self) -> windows_core::Result<()>;
-    fn Online(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Offline(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ChangeResourceGroup(&self, presourcegroup: windows_core::Ref<'_, ISClusResGroup>) -> windows_core::Result<()>;
-    fn AddResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
-    fn RemoveResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> windows_core::Result<()>;
-    fn CanResourceBeDependent(&self, presource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResPossibleOwnerNodes>;
-    fn Dependencies(&self) -> windows_core::Result<ISClusResDependencies>;
-    fn Dependents(&self) -> windows_core::Result<ISClusResDependents>;
-    fn Group(&self) -> windows_core::Result<ISClusResGroup>;
-    fn OwnerNode(&self) -> windows_core::Result<ISClusNode>;
-    fn Cluster(&self) -> windows_core::Result<ISCluster>;
-    fn ClassInfo(&self) -> windows_core::Result<CLUSTER_RESOURCE_CLASS>;
-    fn Disk(&self) -> windows_core::Result<ISClusDisk>;
-    fn RegistryKeys(&self) -> windows_core::Result<ISClusRegistryKeys>;
-    fn CryptoKeys(&self) -> windows_core::Result<ISClusCryptoKeys>;
-    fn TypeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Type(&self) -> windows_core::Result<ISClusResType>;
-    fn MaintenanceMode(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetMaintenanceMode(&self, bmaintenancemode: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn Handle(&self) -> Result<usize, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, bstrresourcename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn State(&self) -> Result<CLUSTER_RESOURCE_STATE, windows_result::HRESULT>;
+    fn CoreFlag(&self) -> Result<CLUS_FLAGS, windows_result::HRESULT>;
+    fn BecomeQuorumResource(&self, bstrdevicepath: &windows_core::BSTR, lmaxlogsize: i32) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
+    fn Fail(&self) -> Result<(), windows_result::HRESULT>;
+    fn Online(&self, ntimeout: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Offline(&self, ntimeout: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn ChangeResourceGroup(&self, presourcegroup: windows_core::Ref<'_, ISClusResGroup>) -> Result<(), windows_result::HRESULT>;
+    fn AddResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveResourceNode(&self, pnode: windows_core::Ref<'_, ISClusNode>) -> Result<(), windows_result::HRESULT>;
+    fn CanResourceBeDependent(&self, presource: windows_core::Ref<'_, ISClusResource>) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn PossibleOwnerNodes(&self) -> Result<ISClusResPossibleOwnerNodes, windows_result::HRESULT>;
+    fn Dependencies(&self) -> Result<ISClusResDependencies, windows_result::HRESULT>;
+    fn Dependents(&self) -> Result<ISClusResDependents, windows_result::HRESULT>;
+    fn Group(&self) -> Result<ISClusResGroup, windows_result::HRESULT>;
+    fn OwnerNode(&self) -> Result<ISClusNode, windows_result::HRESULT>;
+    fn Cluster(&self) -> Result<ISCluster, windows_result::HRESULT>;
+    fn ClassInfo(&self) -> Result<CLUSTER_RESOURCE_CLASS, windows_result::HRESULT>;
+    fn Disk(&self) -> Result<ISClusDisk, windows_result::HRESULT>;
+    fn RegistryKeys(&self) -> Result<ISClusRegistryKeys, windows_result::HRESULT>;
+    fn CryptoKeys(&self) -> Result<ISClusCryptoKeys, windows_result::HRESULT>;
+    fn TypeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Type(&self) -> Result<ISClusResType, windows_result::HRESULT>;
+    fn MaintenanceMode(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SetMaintenanceMode(&self, bmaintenancemode: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResource_Vtbl {
@@ -12459,36 +12459,36 @@ impl core::ops::Deref for ISClusResources {
 windows_core::imp::interface_hierarchy!(ISClusResources, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResources {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrresourcename), core::mem::transmute_copy(bstrresourcetype), core::mem::transmute_copy(bstrgroupname), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex)).ok() }
     }
 }
@@ -12512,12 +12512,12 @@ pub struct ISClusResources_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusResources_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusResource>;
-    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn CreateItem(&self, bstrresourcename: &windows_core::BSTR, bstrresourcetype: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResources_Vtbl {
@@ -12612,28 +12612,28 @@ windows_core::imp::interface_hierarchy!(ISClusScsiAddress, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusScsiAddress {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PortNumber(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PortNumber(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PortNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PathId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PathId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PathId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn TargetId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn TargetId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TargetId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Lun(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Lun(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Lun)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -12664,10 +12664,10 @@ pub struct ISClusScsiAddress_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusScsiAddress_Impl: super::super::System::Com::IDispatch_Impl {
-    fn PortNumber(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn PathId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn TargetId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Lun(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn PortNumber(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn PathId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn TargetId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Lun(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusScsiAddress_Vtbl {
@@ -12747,62 +12747,62 @@ impl core::ops::Deref for ISClusVersion {
 windows_core::imp::interface_hierarchy!(ISClusVersion, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusVersion {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MajorVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MajorVersion(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MinorVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MinorVersion(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BuildNumber(&self) -> windows_core::Result<i16> {
+    pub unsafe fn BuildNumber(&self) -> Result<i16, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BuildNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VendorId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VendorId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VendorId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CSDVersion(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CSDVersion(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CSDVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClusterHighestVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ClusterHighestVersion(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClusterHighestVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ClusterLowestVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ClusterLowestVersion(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClusterLowestVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Flags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn MixedVersion(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn MixedVersion(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MixedVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -12830,16 +12830,16 @@ pub struct ISClusVersion_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusVersion_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn MajorVersion(&self) -> windows_core::Result<i32>;
-    fn MinorVersion(&self) -> windows_core::Result<i32>;
-    fn BuildNumber(&self) -> windows_core::Result<i16>;
-    fn VendorId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CSDVersion(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClusterHighestVersion(&self) -> windows_core::Result<i32>;
-    fn ClusterLowestVersion(&self) -> windows_core::Result<i32>;
-    fn Flags(&self) -> windows_core::Result<i32>;
-    fn MixedVersion(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn MajorVersion(&self) -> Result<i32, windows_result::HRESULT>;
+    fn MinorVersion(&self) -> Result<i32, windows_result::HRESULT>;
+    fn BuildNumber(&self) -> Result<i16, windows_result::HRESULT>;
+    fn VendorId(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CSDVersion(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ClusterHighestVersion(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ClusterLowestVersion(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Flags(&self) -> Result<i32, windows_result::HRESULT>;
+    fn MixedVersion(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusVersion_Vtbl {
@@ -12997,115 +12997,115 @@ impl core::ops::Deref for ISCluster {
 windows_core::imp::interface_hierarchy!(ISCluster, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISCluster {
-    pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
+    pub unsafe fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
+    pub unsafe fn Handle(&self) -> Result<usize, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Open(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Open(&self, bstrclustername: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclustername)).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, bstrclustername: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclustername)).ok() }
     }
-    pub unsafe fn Version(&self) -> windows_core::Result<ISClusVersion> {
+    pub unsafe fn Version(&self) -> Result<ISClusVersion, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetQuorumResource<P0>(&self, pclusterresource: P0) -> windows_core::Result<()>
+    pub unsafe fn SetQuorumResource<P0>(&self, pclusterresource: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISClusResource>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetQuorumResource)(windows_core::Interface::as_raw(self), pclusterresource.param().abi()).ok() }
     }
-    pub unsafe fn QuorumResource(&self) -> windows_core::Result<ISClusResource> {
+    pub unsafe fn QuorumResource(&self) -> Result<ISClusResource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuorumResource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QuorumLogSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn QuorumLogSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuorumLogSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetQuorumLogSize(&self, nlogsize: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetQuorumLogSize(&self, nlogsize: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetQuorumLogSize)(windows_core::Interface::as_raw(self), nlogsize).ok() }
     }
-    pub unsafe fn QuorumPath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn QuorumPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuorumPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetQuorumPath(&self, ppath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetQuorumPath(&self, ppath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetQuorumPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(ppath)).ok() }
     }
-    pub unsafe fn Nodes(&self) -> windows_core::Result<ISClusNodes> {
+    pub unsafe fn Nodes(&self) -> Result<ISClusNodes, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Nodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ResourceGroups(&self) -> windows_core::Result<ISClusResGroups> {
+    pub unsafe fn ResourceGroups(&self) -> Result<ISClusResGroups, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResourceGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Resources(&self) -> windows_core::Result<ISClusResources> {
+    pub unsafe fn Resources(&self) -> Result<ISClusResources, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Resources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ResourceTypes(&self) -> windows_core::Result<ISClusResTypes> {
+    pub unsafe fn ResourceTypes(&self) -> Result<ISClusResTypes, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResourceTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Networks(&self) -> windows_core::Result<ISClusNetworks> {
+    pub unsafe fn Networks(&self) -> Result<ISClusNetworks, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Networks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn NetInterfaces(&self) -> windows_core::Result<ISClusNetInterfaces> {
+    pub unsafe fn NetInterfaces(&self) -> Result<ISClusNetInterfaces, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NetInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13141,27 +13141,27 @@ pub struct ISCluster_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISCluster_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties>;
-    fn Handle(&self) -> windows_core::Result<usize>;
-    fn Open(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Version(&self) -> windows_core::Result<ISClusVersion>;
-    fn SetQuorumResource(&self, pclusterresource: windows_core::Ref<'_, ISClusResource>) -> windows_core::Result<()>;
-    fn QuorumResource(&self) -> windows_core::Result<ISClusResource>;
-    fn QuorumLogSize(&self) -> windows_core::Result<i32>;
-    fn SetQuorumLogSize(&self, nlogsize: i32) -> windows_core::Result<()>;
-    fn QuorumPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetQuorumPath(&self, ppath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Nodes(&self) -> windows_core::Result<ISClusNodes>;
-    fn ResourceGroups(&self) -> windows_core::Result<ISClusResGroups>;
-    fn Resources(&self) -> windows_core::Result<ISClusResources>;
-    fn ResourceTypes(&self) -> windows_core::Result<ISClusResTypes>;
-    fn Networks(&self) -> windows_core::Result<ISClusNetworks>;
-    fn NetInterfaces(&self) -> windows_core::Result<ISClusNetInterfaces>;
+    fn CommonProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn CommonROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn PrivateROProperties(&self) -> Result<ISClusProperties, windows_result::HRESULT>;
+    fn Handle(&self) -> Result<usize, windows_result::HRESULT>;
+    fn Open(&self, bstrclustername: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, bstrclustername: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Version(&self) -> Result<ISClusVersion, windows_result::HRESULT>;
+    fn SetQuorumResource(&self, pclusterresource: windows_core::Ref<'_, ISClusResource>) -> Result<(), windows_result::HRESULT>;
+    fn QuorumResource(&self) -> Result<ISClusResource, windows_result::HRESULT>;
+    fn QuorumLogSize(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetQuorumLogSize(&self, nlogsize: i32) -> Result<(), windows_result::HRESULT>;
+    fn QuorumPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetQuorumPath(&self, ppath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Nodes(&self) -> Result<ISClusNodes, windows_result::HRESULT>;
+    fn ResourceGroups(&self) -> Result<ISClusResGroups, windows_result::HRESULT>;
+    fn Resources(&self) -> Result<ISClusResources, windows_result::HRESULT>;
+    fn ResourceTypes(&self) -> Result<ISClusResTypes, windows_result::HRESULT>;
+    fn Networks(&self) -> Result<ISClusNetworks, windows_result::HRESULT>;
+    fn NetInterfaces(&self) -> Result<ISClusNetInterfaces, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISCluster_Vtbl {
@@ -13432,29 +13432,29 @@ impl core::ops::Deref for ISClusterNames {
 windows_core::imp::interface_hierarchy!(ISClusterNames, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusterNames {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DomainName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DomainName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DomainName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -13477,11 +13477,11 @@ pub struct ISClusterNames_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISClusterNames_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn DomainName(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DomainName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusterNames_Vtbl {
@@ -13568,23 +13568,23 @@ impl core::ops::Deref for ISDomainNames {
 windows_core::imp::interface_hierarchy!(ISDomainNames, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISDomainNames {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varindex), &mut result__).map(|| core::mem::transmute(result__))
@@ -13606,10 +13606,10 @@ pub struct ISDomainNames_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISDomainNames_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISDomainNames_Vtbl {
@@ -13673,7 +13673,7 @@ impl windows_core::RuntimeName for ISDomainNames {}
 windows_core::imp::define_interface!(IWCContextMenuCallback, IWCContextMenuCallback_Vtbl, 0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCContextMenuCallback, windows_core::IUnknown);
 impl IWCContextMenuCallback {
-    pub unsafe fn AddExtensionMenuItem(&self, lpszname: &windows_core::BSTR, lpszstatusbartext: &windows_core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn AddExtensionMenuItem(&self, lpszname: &windows_core::BSTR, lpszstatusbartext: &windows_core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddExtensionMenuItem)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(lpszname), core::mem::transmute_copy(lpszstatusbartext), ncommandid, nsubmenucommandid, uflags).ok() }
     }
 }
@@ -13684,7 +13684,7 @@ pub struct IWCContextMenuCallback_Vtbl {
     pub AddExtensionMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IWCContextMenuCallback_Impl: windows_core::IUnknownImpl {
-    fn AddExtensionMenuItem(&self, lpszname: &windows_core::BSTR, lpszstatusbartext: &windows_core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::Result<()>;
+    fn AddExtensionMenuItem(&self, lpszname: &windows_core::BSTR, lpszstatusbartext: &windows_core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IWCContextMenuCallback_Vtbl {
     pub const fn new<Identity: IWCContextMenuCallback_Impl, const OFFSET: isize>() -> Self {
@@ -13704,7 +13704,7 @@ impl windows_core::RuntimeName for IWCContextMenuCallback {}
 windows_core::imp::define_interface!(IWCPropertySheetCallback, IWCPropertySheetCallback_Vtbl, 0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCPropertySheetCallback, windows_core::IUnknown);
 impl IWCPropertySheetCallback {
-    pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> windows_core::Result<()> {
+    pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddPropertySheetPage)(windows_core::Interface::as_raw(self), hpage).ok() }
     }
 }
@@ -13715,7 +13715,7 @@ pub struct IWCPropertySheetCallback_Vtbl {
     pub AddPropertySheetPage: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
 }
 pub trait IWCPropertySheetCallback_Impl: windows_core::IUnknownImpl {
-    fn AddPropertySheetPage(&self, hpage: *const i32) -> windows_core::Result<()>;
+    fn AddPropertySheetPage(&self, hpage: *const i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IWCPropertySheetCallback_Vtbl {
     pub const fn new<Identity: IWCPropertySheetCallback_Impl, const OFFSET: isize>() -> Self {
@@ -13735,10 +13735,10 @@ impl windows_core::RuntimeName for IWCPropertySheetCallback {}
 windows_core::imp::define_interface!(IWCWizard97Callback, IWCWizard97Callback_Vtbl, 0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCWizard97Callback, windows_core::IUnknown);
 impl IWCWizard97Callback {
-    pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::Result<()> {
+    pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddWizard97Page)(windows_core::Interface::as_raw(self), hpage).ok() }
     }
-    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::Result<()> {
+    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.into()).ok() }
     }
 }
@@ -13750,8 +13750,8 @@ pub struct IWCWizard97Callback_Vtbl {
     pub EnableNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWCWizard97Callback_Impl: windows_core::IUnknownImpl {
-    fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::Result<()>;
-    fn EnableNext(&self, hpage: *const i32, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddWizard97Page(&self, hpage: *const i32) -> Result<(), windows_result::HRESULT>;
+    fn EnableNext(&self, hpage: *const i32, benable: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 impl IWCWizard97Callback_Vtbl {
     pub const fn new<Identity: IWCWizard97Callback_Impl, const OFFSET: isize>() -> Self {
@@ -13781,10 +13781,10 @@ impl windows_core::RuntimeName for IWCWizard97Callback {}
 windows_core::imp::define_interface!(IWCWizardCallback, IWCWizardCallback_Vtbl, 0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWCWizardCallback, windows_core::IUnknown);
 impl IWCWizardCallback {
-    pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> windows_core::Result<()> {
+    pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddWizardPage)(windows_core::Interface::as_raw(self), hpage).ok() }
     }
-    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> windows_core::Result<()> {
+    pub unsafe fn EnableNext(&self, hpage: *const i32, benable: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.into()).ok() }
     }
 }
@@ -13796,8 +13796,8 @@ pub struct IWCWizardCallback_Vtbl {
     pub EnableNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWCWizardCallback_Impl: windows_core::IUnknownImpl {
-    fn AddWizardPage(&self, hpage: *const i32) -> windows_core::Result<()>;
-    fn EnableNext(&self, hpage: *const i32, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddWizardPage(&self, hpage: *const i32) -> Result<(), windows_result::HRESULT>;
+    fn EnableNext(&self, hpage: *const i32, benable: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 impl IWCWizardCallback_Vtbl {
     pub const fn new<Identity: IWCWizardCallback_Impl, const OFFSET: isize>() -> Self {
@@ -13827,7 +13827,7 @@ impl windows_core::RuntimeName for IWCWizardCallback {}
 windows_core::imp::define_interface!(IWEExtendContextMenu, IWEExtendContextMenu_Vtbl, 0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendContextMenu, windows_core::IUnknown);
 impl IWEExtendContextMenu {
-    pub unsafe fn AddContextMenuItems<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn AddContextMenuItems<P0, P1>(&self, pidata: P0, picallback: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCContextMenuCallback>,
@@ -13842,7 +13842,7 @@ pub struct IWEExtendContextMenu_Vtbl {
     pub AddContextMenuItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendContextMenu_Impl: windows_core::IUnknownImpl {
-    fn AddContextMenuItems(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCContextMenuCallback>) -> windows_core::Result<()>;
+    fn AddContextMenuItems(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCContextMenuCallback>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWEExtendContextMenu_Vtbl {
     pub const fn new<Identity: IWEExtendContextMenu_Impl, const OFFSET: isize>() -> Self {
@@ -13862,7 +13862,7 @@ impl windows_core::RuntimeName for IWEExtendContextMenu {}
 windows_core::imp::define_interface!(IWEExtendPropertySheet, IWEExtendPropertySheet_Vtbl, 0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendPropertySheet, windows_core::IUnknown);
 impl IWEExtendPropertySheet {
-    pub unsafe fn CreatePropertySheetPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn CreatePropertySheetPages<P0, P1>(&self, pidata: P0, picallback: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCPropertySheetCallback>,
@@ -13877,7 +13877,7 @@ pub struct IWEExtendPropertySheet_Vtbl {
     pub CreatePropertySheetPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendPropertySheet_Impl: windows_core::IUnknownImpl {
-    fn CreatePropertySheetPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCPropertySheetCallback>) -> windows_core::Result<()>;
+    fn CreatePropertySheetPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCPropertySheetCallback>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWEExtendPropertySheet_Vtbl {
     pub const fn new<Identity: IWEExtendPropertySheet_Impl, const OFFSET: isize>() -> Self {
@@ -13897,7 +13897,7 @@ impl windows_core::RuntimeName for IWEExtendPropertySheet {}
 windows_core::imp::define_interface!(IWEExtendWizard, IWEExtendWizard_Vtbl, 0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendWizard, windows_core::IUnknown);
 impl IWEExtendWizard {
-    pub unsafe fn CreateWizardPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn CreateWizardPages<P0, P1>(&self, pidata: P0, picallback: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCWizardCallback>,
@@ -13912,7 +13912,7 @@ pub struct IWEExtendWizard_Vtbl {
     pub CreateWizardPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendWizard_Impl: windows_core::IUnknownImpl {
-    fn CreateWizardPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizardCallback>) -> windows_core::Result<()>;
+    fn CreateWizardPages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizardCallback>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWEExtendWizard_Vtbl {
     pub const fn new<Identity: IWEExtendWizard_Impl, const OFFSET: isize>() -> Self {
@@ -13932,7 +13932,7 @@ impl windows_core::RuntimeName for IWEExtendWizard {}
 windows_core::imp::define_interface!(IWEExtendWizard97, IWEExtendWizard97_Vtbl, 0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEExtendWizard97, windows_core::IUnknown);
 impl IWEExtendWizard97 {
-    pub unsafe fn CreateWizard97Pages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
+    pub unsafe fn CreateWizard97Pages<P0, P1>(&self, pidata: P0, picallback: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<IWCWizard97Callback>,
@@ -13947,7 +13947,7 @@ pub struct IWEExtendWizard97_Vtbl {
     pub CreateWizard97Pages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEExtendWizard97_Impl: windows_core::IUnknownImpl {
-    fn CreateWizard97Pages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizard97Callback>) -> windows_core::Result<()>;
+    fn CreateWizard97Pages(&self, pidata: windows_core::Ref<'_, windows_core::IUnknown>, picallback: windows_core::Ref<'_, IWCWizard97Callback>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWEExtendWizard97_Vtbl {
     pub const fn new<Identity: IWEExtendWizard97_Impl, const OFFSET: isize>() -> Self {
@@ -13967,7 +13967,7 @@ impl windows_core::RuntimeName for IWEExtendWizard97 {}
 windows_core::imp::define_interface!(IWEInvokeCommand, IWEInvokeCommand_Vtbl, 0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);
 windows_core::imp::interface_hierarchy!(IWEInvokeCommand, windows_core::IUnknown);
 impl IWEInvokeCommand {
-    pub unsafe fn InvokeCommand<P1>(&self, ncommandid: u32, pidata: P1) -> windows_core::Result<()>
+    pub unsafe fn InvokeCommand<P1>(&self, ncommandid: u32, pidata: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
@@ -13981,7 +13981,7 @@ pub struct IWEInvokeCommand_Vtbl {
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWEInvokeCommand_Impl: windows_core::IUnknownImpl {
-    fn InvokeCommand(&self, ncommandid: u32, pidata: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn InvokeCommand(&self, ncommandid: u32, pidata: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWEInvokeCommand_Vtbl {
     pub const fn new<Identity: IWEInvokeCommand_Impl, const OFFSET: isize>() -> Self {

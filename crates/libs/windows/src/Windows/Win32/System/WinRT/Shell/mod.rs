@@ -8,7 +8,7 @@ windows_core::imp::define_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30
 windows_core::imp::interface_hierarchy!(IDDEInitializer, windows_core::IUnknown);
 impl IDDEInitializer {
     #[cfg(feature = "Win32_UI_Shell")]
-    pub unsafe fn Initialize<P0, P2, P3, P4, P5, P6, P7, P8>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P2, exectarget: P3, site: P4, application: P5, targetfile: P6, arguments: P7, verb: P8) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P2, P3, P4, P5, P6, P7, P8>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P2, exectarget: P3, site: P4, application: P5, targetfile: P6, arguments: P7, verb: P8) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -33,7 +33,7 @@ pub struct IDDEInitializer_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell")]
 pub trait IDDEInitializer_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, fileextensionorprotocol: &windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: &windows_core::PCWSTR, exectarget: windows_core::Ref<'_, super::super::super::UI::Shell::IShellItem>, site: windows_core::Ref<'_, windows_core::IUnknown>, application: &windows_core::PCWSTR, targetfile: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, verb: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, fileextensionorprotocol: &windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: &windows_core::PCWSTR, exectarget: windows_core::Ref<'_, super::super::super::UI::Shell::IShellItem>, site: windows_core::Ref<'_, windows_core::IUnknown>, application: &windows_core::PCWSTR, targetfile: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, verb: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_UI_Shell")]
 impl IDDEInitializer_Vtbl {

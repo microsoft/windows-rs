@@ -1,11 +1,11 @@
 #[inline]
-pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("crypt32.dll" "system" fn CryptSIPAddProvider(psnewprov : *mut SIP_ADD_NEWPROVIDER) -> windows_core::BOOL);
     unsafe { CryptSIPAddProvider(psnewprov as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
-pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wintrust.dll" "system" fn CryptSIPCreateIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pcbindirectdata : *mut u32, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_core::BOOL);
     unsafe { CryptSIPCreateIndirectData(psubjectinfo as _, pcbindirectdata as _, pindirectdata as _).ok() }
 }
@@ -23,35 +23,35 @@ pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
-pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wintrust.dll" "system" fn CryptSIPGetSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, pdwencodingtype : *mut super:: CERT_QUERY_ENCODING_TYPE, dwindex : u32, pcbsigneddatamsg : *mut u32, pbsigneddatamsg : *mut u8) -> windows_core::BOOL);
     unsafe { CryptSIPGetSignedDataMsg(psubjectinfo as _, pdwencodingtype as _, dwindex, pcbsigneddatamsg as _, pbsigneddatamsg as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
-pub unsafe fn CryptSIPLoad(pgsubject: *const windows_core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPLoad(pgsubject: *const windows_core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("crypt32.dll" "system" fn CryptSIPLoad(pgsubject : *const windows_core::GUID, dwflags : u32, psipdispatch : *mut SIP_DISPATCH_INFO) -> windows_core::BOOL);
     unsafe { CryptSIPLoad(pgsubject, dwflags, psipdispatch as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
-pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wintrust.dll" "system" fn CryptSIPPutSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwencodingtype : super:: CERT_QUERY_ENCODING_TYPE, pdwindex : *mut u32, cbsigneddatamsg : u32, pbsigneddatamsg : *mut u8) -> windows_core::BOOL);
     unsafe { CryptSIPPutSignedDataMsg(psubjectinfo as _, dwencodingtype, pdwindex as _, cbsigneddatamsg, pbsigneddatamsg as _).ok() }
 }
 #[inline]
-pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("crypt32.dll" "system" fn CryptSIPRemoveProvider(pgprov : *mut windows_core::GUID) -> windows_core::BOOL);
     unsafe { CryptSIPRemoveProvider(pgprov as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
-pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wintrust.dll" "system" fn CryptSIPRemoveSignedDataMsg(psubjectinfo : *mut SIP_SUBJECTINFO, dwindex : u32) -> windows_core::BOOL);
     unsafe { CryptSIPRemoveSignedDataMsg(psubjectinfo as _, dwindex).ok() }
 }
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuid<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
+pub unsafe fn CryptSIPRetrieveSubjectGuid<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -59,7 +59,7 @@ where
     unsafe { CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein, pgsubject as _).ok() }
 }
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
+pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -68,7 +68,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
-pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> windows_core::Result<()> {
+pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wintrust.dll" "system" fn CryptSIPVerifyIndirectData(psubjectinfo : *mut SIP_SUBJECTINFO, pindirectdata : *mut SIP_INDIRECT_DATA) -> windows_core::BOOL);
     unsafe { CryptSIPVerifyIndirectData(psubjectinfo as _, pindirectdata as _).ok() }
 }

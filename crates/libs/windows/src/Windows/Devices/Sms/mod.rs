@@ -61,36 +61,36 @@ impl windows_core::RuntimeType for ISmsBinaryMessage {
 windows_core::imp::interface_hierarchy!(ISmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ISmsBinaryMessage, ISmsMessage);
 impl ISmsBinaryMessage {
-    pub fn Format(&self) -> windows_core::Result<SmsDataFormat> {
+    pub fn Format(&self) -> Result<SmsDataFormat, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetFormat(&self, value: SmsDataFormat) -> windows_core::Result<()> {
+    pub fn SetFormat(&self, value: SmsDataFormat) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn GetData(&self) -> Result<windows_core::Array<u8>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetData)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SetData(&self, value: &[u8]) -> windows_core::Result<()> {
+    pub fn SetData(&self, value: &[u8]) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -102,10 +102,10 @@ impl windows_core::RuntimeName for ISmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsBinaryMessage";
 }
 pub trait ISmsBinaryMessage_Impl: ISmsMessage_Impl {
-    fn Format(&self) -> windows_core::Result<SmsDataFormat>;
-    fn SetFormat(&self, value: SmsDataFormat) -> windows_core::Result<()>;
-    fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>>;
-    fn SetData(&self, value: &[u8]) -> windows_core::Result<()>;
+    fn Format(&self) -> Result<SmsDataFormat, windows_result::HRESULT>;
+    fn SetFormat(&self, value: SmsDataFormat) -> Result<(), windows_result::HRESULT>;
+    fn GetData(&self) -> Result<windows_core::Array<u8>, windows_result::HRESULT>;
+    fn SetData(&self, value: &[u8]) -> Result<(), windows_result::HRESULT>;
 }
 impl ISmsBinaryMessage_Vtbl {
     pub const fn new<Identity: ISmsBinaryMessage_Impl, const OFFSET: isize>() -> Self {
@@ -193,7 +193,7 @@ impl windows_core::RuntimeType for ISmsDevice {
 }
 windows_core::imp::interface_hierarchy!(ISmsDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl ISmsDevice {
-    pub fn SendMessageAsync<P0>(&self, message: P0) -> windows_core::Result<SendSmsMessageOperation>
+    pub fn SendMessageAsync<P0>(&self, message: P0) -> Result<SendSmsMessageOperation, windows_result::HRESULT>
     where
         P0: windows_core::Param<ISmsMessage>,
     {
@@ -203,7 +203,7 @@ impl ISmsDevice {
             (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CalculateLength<P0>(&self, message: P0) -> windows_core::Result<SmsEncodedLength>
+    pub fn CalculateLength<P0>(&self, message: P0) -> Result<SmsEncodedLength, windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsTextMessage>,
     {
@@ -213,35 +213,35 @@ impl ISmsDevice {
             (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AccountPhoneNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountPhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageStore(&self) -> windows_core::Result<SmsDeviceMessageStore> {
+    pub fn MessageStore(&self) -> Result<SmsDeviceMessageStore, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageStore)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeviceStatus(&self) -> windows_core::Result<SmsDeviceStatus> {
+    pub fn DeviceStatus(&self) -> Result<SmsDeviceStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SmsMessageReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn SmsMessageReceived<P0>(&self, eventhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsMessageReceivedEventHandler>,
     {
@@ -251,11 +251,11 @@ impl ISmsDevice {
             (windows_core::Interface::vtable(this).SmsMessageReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSmsMessageReceived(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveSmsMessageReceived(&self, eventcookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSmsMessageReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn SmsDeviceStatusChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn SmsDeviceStatusChanged<P0>(&self, eventhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsDeviceStatusChangedEventHandler>,
     {
@@ -265,7 +265,7 @@ impl ISmsDevice {
             (windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
@@ -274,16 +274,16 @@ impl windows_core::RuntimeName for ISmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDevice";
 }
 pub trait ISmsDevice_Impl: windows_core::IUnknownImpl {
-    fn SendMessageAsync(&self, message: windows_core::Ref<'_, ISmsMessage>) -> windows_core::Result<SendSmsMessageOperation>;
-    fn CalculateLength(&self, message: windows_core::Ref<'_, SmsTextMessage>) -> windows_core::Result<SmsEncodedLength>;
-    fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn CellularClass(&self) -> windows_core::Result<CellularClass>;
-    fn MessageStore(&self) -> windows_core::Result<SmsDeviceMessageStore>;
-    fn DeviceStatus(&self) -> windows_core::Result<SmsDeviceStatus>;
-    fn SmsMessageReceived(&self, eventHandler: windows_core::Ref<'_, SmsMessageReceivedEventHandler>) -> windows_core::Result<i64>;
-    fn RemoveSmsMessageReceived(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn SmsDeviceStatusChanged(&self, eventHandler: windows_core::Ref<'_, SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
-    fn RemoveSmsDeviceStatusChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
+    fn SendMessageAsync(&self, message: windows_core::Ref<'_, ISmsMessage>) -> Result<SendSmsMessageOperation, windows_result::HRESULT>;
+    fn CalculateLength(&self, message: windows_core::Ref<'_, SmsTextMessage>) -> Result<SmsEncodedLength, windows_result::HRESULT>;
+    fn AccountPhoneNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT>;
+    fn MessageStore(&self) -> Result<SmsDeviceMessageStore, windows_result::HRESULT>;
+    fn DeviceStatus(&self) -> Result<SmsDeviceStatus, windows_result::HRESULT>;
+    fn SmsMessageReceived(&self, eventHandler: windows_core::Ref<'_, SmsMessageReceivedEventHandler>) -> Result<i64, windows_result::HRESULT>;
+    fn RemoveSmsMessageReceived(&self, eventCookie: i64) -> Result<(), windows_result::HRESULT>;
+    fn SmsDeviceStatusChanged(&self, eventHandler: windows_core::Ref<'_, SmsDeviceStatusChangedEventHandler>) -> Result<i64, windows_result::HRESULT>;
+    fn RemoveSmsDeviceStatusChanged(&self, eventCookie: i64) -> Result<(), windows_result::HRESULT>;
 }
 impl ISmsDevice_Vtbl {
     pub const fn new<Identity: ISmsDevice_Impl, const OFFSET: isize>() -> Self {
@@ -560,14 +560,14 @@ impl windows_core::RuntimeType for ISmsMessage {
 }
 windows_core::imp::interface_hierarchy!(ISmsMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl ISmsMessage {
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -579,8 +579,8 @@ impl windows_core::RuntimeName for ISmsMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessage";
 }
 pub trait ISmsMessage_Impl: windows_core::IUnknownImpl {
-    fn Id(&self) -> windows_core::Result<u32>;
-    fn MessageClass(&self) -> windows_core::Result<SmsMessageClass>;
+    fn Id(&self) -> Result<u32, windows_result::HRESULT>;
+    fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT>;
 }
 impl ISmsMessage_Vtbl {
     pub const fn new<Identity: ISmsMessage_Impl, const OFFSET: isize>() -> Self {
@@ -631,35 +631,35 @@ impl windows_core::RuntimeType for ISmsMessageBase {
 }
 windows_core::imp::interface_hierarchy!(ISmsMessageBase, windows_core::IUnknown, windows_core::IInspectable);
 impl ISmsMessageBase {
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -671,11 +671,11 @@ impl windows_core::RuntimeName for ISmsMessageBase {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageBase";
 }
 pub trait ISmsMessageBase_Impl: windows_core::IUnknownImpl {
-    fn MessageType(&self) -> windows_core::Result<SmsMessageType>;
-    fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn CellularClass(&self) -> windows_core::Result<CellularClass>;
-    fn MessageClass(&self) -> windows_core::Result<SmsMessageClass>;
-    fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT>;
+    fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT>;
+    fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT>;
+    fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
 }
 impl ISmsMessageBase_Vtbl {
     pub const fn new<Identity: ISmsMessageBase_Impl, const OFFSET: isize>() -> Self {
@@ -878,93 +878,93 @@ impl windows_core::RuntimeType for ISmsTextMessage {
 windows_core::imp::interface_hierarchy!(ISmsTextMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ISmsTextMessage, ISmsMessage);
 impl ISmsTextMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PartReferenceId(&self) -> windows_core::Result<u32> {
+    pub fn PartReferenceId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PartReferenceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PartNumber(&self) -> windows_core::Result<u32> {
+    pub fn PartNumber(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PartNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PartCount(&self) -> windows_core::Result<u32> {
+    pub fn PartCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PartCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTo(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTo(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn From(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn From(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).From)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetFrom(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetFrom(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFrom)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetBody(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetBody(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBody)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Encoding(&self) -> windows_core::Result<SmsEncoding> {
+    pub fn Encoding(&self) -> Result<SmsEncoding, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Encoding)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEncoding(&self, value: SmsEncoding) -> windows_core::Result<()> {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncoding)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<windows_collections::IVectorView<ISmsBinaryMessage>> {
+    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> Result<windows_collections::IVectorView<ISmsBinaryMessage>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToBinaryMessages)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -976,19 +976,19 @@ impl windows_core::RuntimeName for ISmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsTextMessage";
 }
 pub trait ISmsTextMessage_Impl: ISmsMessage_Impl {
-    fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime>;
-    fn PartReferenceId(&self) -> windows_core::Result<u32>;
-    fn PartNumber(&self) -> windows_core::Result<u32>;
-    fn PartCount(&self) -> windows_core::Result<u32>;
-    fn To(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetTo(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn From(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetFrom(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn Body(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetBody(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn Encoding(&self) -> windows_core::Result<SmsEncoding>;
-    fn SetEncoding(&self, value: SmsEncoding) -> windows_core::Result<()>;
-    fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<windows_collections::IVectorView<ISmsBinaryMessage>>;
+    fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT>;
+    fn PartReferenceId(&self) -> Result<u32, windows_result::HRESULT>;
+    fn PartNumber(&self) -> Result<u32, windows_result::HRESULT>;
+    fn PartCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn SetTo(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>;
+    fn From(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn SetFrom(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>;
+    fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn SetBody(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>;
+    fn Encoding(&self) -> Result<SmsEncoding, windows_result::HRESULT>;
+    fn SetEncoding(&self, value: SmsEncoding) -> Result<(), windows_result::HRESULT>;
+    fn ToBinaryMessages(&self, format: SmsDataFormat) -> Result<windows_collections::IVectorView<ISmsBinaryMessage>, windows_result::HRESULT>;
 }
 impl ISmsTextMessage_Vtbl {
     pub const fn new<Identity: ISmsTextMessage_Impl, const OFFSET: isize>() -> Self {
@@ -1242,128 +1242,128 @@ pub struct SmsAppMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsAppMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsAppMessage, ISmsMessageBase);
 impl SmsAppMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsAppMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTo(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTo(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn From(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn From(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).From)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetBody(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetBody(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBody)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CallbackNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CallbackNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallbackNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetCallbackNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetCallbackNumber(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCallbackNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn IsDeliveryNotificationEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsDeliveryNotificationEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDeliveryNotificationEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsDeliveryNotificationEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RetryAttemptCount(&self) -> windows_core::Result<i32> {
+    pub fn RetryAttemptCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetryAttemptCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRetryAttemptCount(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetRetryAttemptCount(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRetryAttemptCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Encoding(&self) -> windows_core::Result<SmsEncoding> {
+    pub fn Encoding(&self) -> Result<SmsEncoding, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Encoding)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEncoding(&self, value: SmsEncoding) -> windows_core::Result<()> {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncoding)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PortNumber(&self) -> windows_core::Result<i32> {
+    pub fn PortNumber(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PortNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPortNumber(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetPortNumber(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPortNumber)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TeleserviceId(&self) -> windows_core::Result<i32> {
+    pub fn TeleserviceId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TeleserviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTeleserviceId(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetTeleserviceId(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTeleserviceId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ProtocolId(&self) -> windows_core::Result<i32> {
+    pub fn ProtocolId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetProtocolId(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetProtocolId(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProtocolId)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BinaryBody(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn BinaryBody(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1371,42 +1371,42 @@ impl SmsAppMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBinaryBody<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBinaryBody<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBinaryBody)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1432,43 +1432,43 @@ pub struct SmsBinaryMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable, ISmsBinaryMessage);
 windows_core::imp::required_hierarchy!(SmsBinaryMessage, ISmsMessage);
 impl SmsBinaryMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsBinaryMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Format(&self) -> windows_core::Result<SmsDataFormat> {
+    pub fn Format(&self) -> Result<SmsDataFormat, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetFormat(&self, value: SmsDataFormat) -> windows_core::Result<()> {
+    pub fn SetFormat(&self, value: SmsDataFormat) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetData(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn GetData(&self) -> Result<windows_core::Array<u8>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetData)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SetData(&self, value: &[u8]) -> windows_core::Result<()> {
+    pub fn SetData(&self, value: &[u8]) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1494,105 +1494,105 @@ pub struct SmsBroadcastMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsBroadcastMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsBroadcastMessage, ISmsMessageBase);
 impl SmsBroadcastMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Channel(&self) -> windows_core::Result<i32> {
+    pub fn Channel(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GeographicalScope(&self) -> windows_core::Result<SmsGeographicalScope> {
+    pub fn GeographicalScope(&self) -> Result<SmsGeographicalScope, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GeographicalScope)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageCode(&self) -> windows_core::Result<i32> {
+    pub fn MessageCode(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateNumber(&self) -> windows_core::Result<i32> {
+    pub fn UpdateNumber(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BroadcastType(&self) -> windows_core::Result<SmsBroadcastType> {
+    pub fn BroadcastType(&self) -> Result<SmsBroadcastType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BroadcastType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsEmergencyAlert(&self) -> windows_core::Result<bool> {
+    pub fn IsEmergencyAlert(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEmergencyAlert)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsUserPopupRequested(&self) -> windows_core::Result<bool> {
+    pub fn IsUserPopupRequested(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsUserPopupRequested)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1659,7 +1659,7 @@ impl windows_core::RuntimeType for SmsDataFormat {
 pub struct SmsDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsDevice, windows_core::IUnknown, windows_core::IInspectable, ISmsDevice);
 impl SmsDevice {
-    pub fn SendMessageAsync<P0>(&self, message: P0) -> windows_core::Result<SendSmsMessageOperation>
+    pub fn SendMessageAsync<P0>(&self, message: P0) -> Result<SendSmsMessageOperation, windows_result::HRESULT>
     where
         P0: windows_core::Param<ISmsMessage>,
     {
@@ -1669,7 +1669,7 @@ impl SmsDevice {
             (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CalculateLength<P0>(&self, message: P0) -> windows_core::Result<SmsEncodedLength>
+    pub fn CalculateLength<P0>(&self, message: P0) -> Result<SmsEncodedLength, windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsTextMessage>,
     {
@@ -1679,35 +1679,35 @@ impl SmsDevice {
             (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AccountPhoneNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountPhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageStore(&self) -> windows_core::Result<SmsDeviceMessageStore> {
+    pub fn MessageStore(&self) -> Result<SmsDeviceMessageStore, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageStore)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeviceStatus(&self) -> windows_core::Result<SmsDeviceStatus> {
+    pub fn DeviceStatus(&self) -> Result<SmsDeviceStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SmsMessageReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn SmsMessageReceived<P0>(&self, eventhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsMessageReceivedEventHandler>,
     {
@@ -1717,11 +1717,11 @@ impl SmsDevice {
             (windows_core::Interface::vtable(this).SmsMessageReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSmsMessageReceived(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveSmsMessageReceived(&self, eventcookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSmsMessageReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn SmsDeviceStatusChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn SmsDeviceStatusChanged<P0>(&self, eventhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsDeviceStatusChangedEventHandler>,
     {
@@ -1731,39 +1731,39 @@ impl SmsDevice {
             (windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SmsDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<SmsDevice>, windows_result::HRESULT> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<SmsDevice>> {
+    pub fn GetDefaultAsync() -> Result<windows_future::IAsyncOperation<SmsDevice>, windows_result::HRESULT> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromNetworkAccountIdAsync(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SmsDevice>> {
+    pub fn FromNetworkAccountIdAsync(networkaccountid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<SmsDevice>, windows_result::HRESULT> {
         Self::ISmsDeviceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromNetworkAccountIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISmsDeviceStatics<R, F: FnOnce(&ISmsDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsDeviceStatics<R, F: FnOnce(&ISmsDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsDevice, ISmsDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ISmsDeviceStatics2<R, F: FnOnce(&ISmsDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsDeviceStatics2<R, F: FnOnce(&ISmsDeviceStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsDevice, ISmsDeviceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1783,53 +1783,53 @@ impl windows_core::RuntimeName for SmsDevice {
 pub struct SmsDevice2(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsDevice2, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsDevice2 {
-    pub fn SmscAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SmscAddress(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SmscAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetSmscAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetSmscAddress(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSmscAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ParentDeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ParentDeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ParentDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AccountPhoneNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountPhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceStatus(&self) -> windows_core::Result<SmsDeviceStatus> {
+    pub fn DeviceStatus(&self) -> Result<SmsDeviceStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CalculateLength<P0>(&self, message: P0) -> windows_core::Result<SmsEncodedLength>
+    pub fn CalculateLength<P0>(&self, message: P0) -> Result<SmsEncodedLength, windows_result::HRESULT>
     where
         P0: windows_core::Param<ISmsMessageBase>,
     {
@@ -1839,7 +1839,7 @@ impl SmsDevice2 {
             (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn SendMessageAndGetResultAsync<P0>(&self, message: P0) -> windows_core::Result<windows_future::IAsyncOperation<SmsSendMessageResult>>
+    pub fn SendMessageAndGetResultAsync<P0>(&self, message: P0) -> Result<windows_future::IAsyncOperation<SmsSendMessageResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<ISmsMessageBase>,
     {
@@ -1849,7 +1849,7 @@ impl SmsDevice2 {
             (windows_core::Interface::vtable(this).SendMessageAndGetResultAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeviceStatusChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn DeviceStatusChanged<P0>(&self, eventhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmsDevice2, windows_core::IInspectable>>,
     {
@@ -1859,35 +1859,35 @@ impl SmsDevice2 {
             (windows_core::Interface::vtable(this).DeviceStatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDeviceStatusChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveDeviceStatusChanged(&self, eventcookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<SmsDevice2> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> Result<SmsDevice2, windows_result::HRESULT> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefault() -> windows_core::Result<SmsDevice2> {
+    pub fn GetDefault() -> Result<SmsDevice2, windows_result::HRESULT> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromParentId(parentdeviceid: &windows_core::HSTRING) -> windows_core::Result<SmsDevice2> {
+    pub fn FromParentId(parentdeviceid: &windows_core::HSTRING) -> Result<SmsDevice2, windows_result::HRESULT> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromParentId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(parentdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISmsDevice2Statics<R, F: FnOnce(&ISmsDevice2Statics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsDevice2Statics<R, F: FnOnce(&ISmsDevice2Statics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsDevice2, ISmsDevice2Statics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1907,35 +1907,35 @@ impl windows_core::RuntimeName for SmsDevice2 {
 pub struct SmsDeviceMessageStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsDeviceMessageStore, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsDeviceMessageStore {
-    pub fn DeleteMessageAsync(&self, messageid: u32) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn DeleteMessageAsync(&self, messageid: u32) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteMessageAsync)(windows_core::Interface::as_raw(this), messageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteMessagesAsync)(windows_core::Interface::as_raw(this), messagefilter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMessageAsync(&self, messageid: u32) -> windows_core::Result<windows_future::IAsyncOperation<ISmsMessage>> {
+    pub fn GetMessageAsync(&self, messageid: u32) -> Result<windows_future::IAsyncOperation<ISmsMessage>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageAsync)(windows_core::Interface::as_raw(this), messageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>> {
+    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> Result<windows_future::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessagesAsync)(windows_core::Interface::as_raw(this), messagefilter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MaxMessages(&self) -> windows_core::Result<u32> {
+    pub fn MaxMessages(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1977,11 +1977,11 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SmsDeviceStatusChangedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = SmsDeviceStatusChangedEventHandlerBox { vtable: &SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsDevice>,
     {
@@ -1996,12 +1996,12 @@ pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct SmsDeviceStatusChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static> {
+struct SmsDeviceStatusChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const SmsDeviceStatusChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, SmsDevice>) -> Result<(), windows_result::HRESULT> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
     const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2105,108 +2105,108 @@ impl windows_core::RuntimeType for SmsFilterActionType {
 pub struct SmsFilterRule(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsFilterRule, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsFilterRule {
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ImsiPrefixes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn ImsiPrefixes(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImsiPrefixes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeviceIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn DeviceIds(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SenderNumbers(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn SenderNumbers(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SenderNumbers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TextMessagePrefixes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn TextMessagePrefixes(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextMessagePrefixes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PortNumbers(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
+    pub fn PortNumbers(&self) -> Result<windows_collections::IVector<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PortNumbers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCellularClass(&self, value: CellularClass) -> windows_core::Result<()> {
+    pub fn SetCellularClass(&self, value: CellularClass) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCellularClass)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ProtocolIds(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
+    pub fn ProtocolIds(&self) -> Result<windows_collections::IVector<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TeleserviceIds(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
+    pub fn TeleserviceIds(&self) -> Result<windows_collections::IVector<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TeleserviceIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WapApplicationIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn WapApplicationIds(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WapApplicationIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WapContentTypes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn WapContentTypes(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WapContentTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BroadcastTypes(&self) -> windows_core::Result<windows_collections::IVector<SmsBroadcastType>> {
+    pub fn BroadcastTypes(&self) -> Result<windows_collections::IVector<SmsBroadcastType>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BroadcastTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BroadcastChannels(&self) -> windows_core::Result<windows_collections::IVector<i32>> {
+    pub fn BroadcastChannels(&self) -> Result<windows_collections::IVector<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BroadcastChannels)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFilterRule(messagetype: SmsMessageType) -> windows_core::Result<SmsFilterRule> {
+    pub fn CreateFilterRule(messagetype: SmsMessageType) -> Result<SmsFilterRule, windows_result::HRESULT> {
         Self::ISmsFilterRuleFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFilterRule)(windows_core::Interface::as_raw(this), messagetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISmsFilterRuleFactory<R, F: FnOnce(&ISmsFilterRuleFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsFilterRuleFactory<R, F: FnOnce(&ISmsFilterRuleFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsFilterRule, ISmsFilterRuleFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2228,27 +2228,27 @@ unsafe impl Sync for SmsFilterRule {}
 pub struct SmsFilterRules(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsFilterRules, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsFilterRules {
-    pub fn ActionType(&self) -> windows_core::Result<SmsFilterActionType> {
+    pub fn ActionType(&self) -> Result<SmsFilterActionType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Rules(&self) -> windows_core::Result<windows_collections::IVector<SmsFilterRule>> {
+    pub fn Rules(&self) -> Result<windows_collections::IVector<SmsFilterRule>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rules)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFilterRules(actiontype: SmsFilterActionType) -> windows_core::Result<SmsFilterRules> {
+    pub fn CreateFilterRules(actiontype: SmsFilterActionType) -> Result<SmsFilterRules, windows_result::HRESULT> {
         Self::ISmsFilterRulesFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFilterRules)(windows_core::Interface::as_raw(this), actiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISmsFilterRulesFactory<R, F: FnOnce(&ISmsFilterRulesFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsFilterRulesFactory<R, F: FnOnce(&ISmsFilterRulesFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsFilterRules, ISmsFilterRulesFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2318,14 +2318,14 @@ impl windows_core::RuntimeType for SmsMessageFilter {
 pub struct SmsMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsMessageReceivedEventArgs {
-    pub fn TextMessage(&self) -> windows_core::Result<SmsTextMessage> {
+    pub fn TextMessage(&self) -> Result<SmsTextMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BinaryMessage(&self) -> windows_core::Result<SmsBinaryMessage> {
+    pub fn BinaryMessage(&self) -> Result<SmsBinaryMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2348,11 +2348,11 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SmsMessageReceivedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = SmsMessageReceivedEventHandlerBox { vtable: &SmsMessageReceivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsDevice>,
         P1: windows_core::Param<SmsMessageReceivedEventArgs>,
@@ -2368,12 +2368,12 @@ pub struct SmsMessageReceivedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct SmsMessageReceivedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct SmsMessageReceivedEventHandlerBox<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const SmsMessageReceivedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessageReceivedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
     const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2425,60 +2425,60 @@ impl<F: FnMut(windows_core::Ref<'_, SmsDevice>, windows_core::Ref<'_, SmsMessage
 pub struct SmsMessageReceivedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsMessageReceivedTriggerDetails {
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TextMessage(&self) -> windows_core::Result<SmsTextMessage2> {
+    pub fn TextMessage(&self) -> Result<SmsTextMessage2, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WapMessage(&self) -> windows_core::Result<SmsWapMessage> {
+    pub fn WapMessage(&self) -> Result<SmsWapMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WapMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AppMessage(&self) -> windows_core::Result<SmsAppMessage> {
+    pub fn AppMessage(&self) -> Result<SmsAppMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BroadcastMessage(&self) -> windows_core::Result<SmsBroadcastMessage> {
+    pub fn BroadcastMessage(&self) -> Result<SmsBroadcastMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BroadcastMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VoicemailMessage(&self) -> windows_core::Result<SmsVoicemailMessage> {
+    pub fn VoicemailMessage(&self) -> Result<SmsVoicemailMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VoicemailMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StatusMessage(&self) -> windows_core::Result<SmsStatusMessage> {
+    pub fn StatusMessage(&self) -> Result<SmsStatusMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StatusMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Drop(&self) -> windows_core::Result<()> {
+    pub fn Drop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Drop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Accept(&self) -> windows_core::Result<()> {
+    pub fn Accept(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Accept)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -2500,18 +2500,18 @@ unsafe impl Sync for SmsMessageReceivedTriggerDetails {}
 pub struct SmsMessageRegistration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageRegistration, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsMessageRegistration {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Unregister(&self) -> windows_core::Result<()> {
+    pub fn Unregister(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MessageReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn MessageReceived<P0>(&self, eventhandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>,
     {
@@ -2521,17 +2521,17 @@ impl SmsMessageRegistration {
             (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMessageReceived(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveMessageReceived(&self, eventcookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn AllRegistrations() -> windows_core::Result<windows_collections::IVectorView<SmsMessageRegistration>> {
+    pub fn AllRegistrations() -> Result<windows_collections::IVectorView<SmsMessageRegistration>, windows_result::HRESULT> {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllRegistrations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Register<P1>(id: &windows_core::HSTRING, filterrules: P1) -> windows_core::Result<SmsMessageRegistration>
+    pub fn Register<P1>(id: &windows_core::HSTRING, filterrules: P1) -> Result<SmsMessageRegistration, windows_result::HRESULT>
     where
         P1: windows_core::Param<SmsFilterRules>,
     {
@@ -2540,7 +2540,7 @@ impl SmsMessageRegistration {
             (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISmsMessageRegistrationStatics<R, F: FnOnce(&ISmsMessageRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsMessageRegistrationStatics<R, F: FnOnce(&ISmsMessageRegistrationStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsMessageRegistration, ISmsMessageRegistrationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2601,28 +2601,28 @@ impl windows_core::RuntimeType for SmsModemErrorCode {
 pub struct SmsReceivedEventDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsReceivedEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsReceivedEventDetails {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn MessageIndex(&self) -> windows_core::Result<u32> {
+    pub fn MessageIndex(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsReceivedEventDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BinaryMessage(&self) -> windows_core::Result<SmsBinaryMessage> {
+    pub fn BinaryMessage(&self) -> Result<SmsBinaryMessage, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsReceivedEventDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2647,49 +2647,49 @@ unsafe impl Sync for SmsReceivedEventDetails {}
 pub struct SmsSendMessageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsSendMessageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsSendMessageResult {
-    pub fn IsSuccessful(&self) -> windows_core::Result<bool> {
+    pub fn IsSuccessful(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSuccessful)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageReferenceNumbers(&self) -> windows_core::Result<windows_collections::IVectorView<i32>> {
+    pub fn MessageReferenceNumbers(&self) -> Result<windows_collections::IVectorView<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageReferenceNumbers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ModemErrorCode(&self) -> windows_core::Result<SmsModemErrorCode> {
+    pub fn ModemErrorCode(&self) -> Result<SmsModemErrorCode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ModemErrorCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsErrorTransient(&self) -> windows_core::Result<bool> {
+    pub fn IsErrorTransient(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsErrorTransient)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NetworkCauseCode(&self) -> windows_core::Result<i32> {
+    pub fn NetworkCauseCode(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NetworkCauseCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TransportFailureCause(&self) -> windows_core::Result<i32> {
+    pub fn TransportFailureCause(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2715,84 +2715,84 @@ pub struct SmsStatusMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsStatusMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsStatusMessage, ISmsMessageBase);
 impl SmsStatusMessage {
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn From(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn From(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).From)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Status(&self) -> windows_core::Result<i32> {
+    pub fn Status(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageReferenceNumber(&self) -> windows_core::Result<i32> {
+    pub fn MessageReferenceNumber(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageReferenceNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ServiceCenterTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ServiceCenterTimestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceCenterTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DischargeTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DischargeTime(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2818,107 +2818,107 @@ pub struct SmsTextMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsTextMessage, windows_core::IUnknown, windows_core::IInspectable, ISmsTextMessage);
 windows_core::imp::required_hierarchy!(SmsTextMessage, ISmsMessage);
 impl SmsTextMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsTextMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PartReferenceId(&self) -> windows_core::Result<u32> {
+    pub fn PartReferenceId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PartReferenceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PartNumber(&self) -> windows_core::Result<u32> {
+    pub fn PartNumber(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PartNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PartCount(&self) -> windows_core::Result<u32> {
+    pub fn PartCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PartCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTo(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTo(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn From(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn From(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).From)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetFrom(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetFrom(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFrom)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetBody(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetBody(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBody)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Encoding(&self) -> windows_core::Result<SmsEncoding> {
+    pub fn Encoding(&self) -> Result<SmsEncoding, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Encoding)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEncoding(&self, value: SmsEncoding) -> windows_core::Result<()> {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncoding)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> windows_core::Result<windows_collections::IVectorView<ISmsBinaryMessage>> {
+    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> Result<windows_collections::IVectorView<ISmsBinaryMessage>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToBinaryMessages)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromBinaryMessage<P0>(binarymessage: P0) -> windows_core::Result<SmsTextMessage>
+    pub fn FromBinaryMessage<P0>(binarymessage: P0) -> Result<SmsTextMessage, windows_result::HRESULT>
     where
         P0: windows_core::Param<SmsBinaryMessage>,
     {
@@ -2927,13 +2927,13 @@ impl SmsTextMessage {
             (windows_core::Interface::vtable(this).FromBinaryMessage)(windows_core::Interface::as_raw(this), binarymessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromBinaryData(format: SmsDataFormat, value: &[u8]) -> windows_core::Result<SmsTextMessage> {
+    pub fn FromBinaryData(format: SmsDataFormat, value: &[u8]) -> Result<SmsTextMessage, windows_result::HRESULT> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromBinaryData)(windows_core::Interface::as_raw(this), format, value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISmsTextMessageStatics<R, F: FnOnce(&ISmsTextMessageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsTextMessageStatics<R, F: FnOnce(&ISmsTextMessageStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsTextMessage, ISmsTextMessageStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2956,136 +2956,136 @@ pub struct SmsTextMessage2(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsTextMessage2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsTextMessage2, ISmsMessageBase);
 impl SmsTextMessage2 {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmsTextMessage2, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTo(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTo(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn From(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn From(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).From)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetBody(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetBody(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBody)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Encoding(&self) -> windows_core::Result<SmsEncoding> {
+    pub fn Encoding(&self) -> Result<SmsEncoding, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Encoding)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEncoding(&self, value: SmsEncoding) -> windows_core::Result<()> {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncoding)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CallbackNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CallbackNumber(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallbackNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetCallbackNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetCallbackNumber(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCallbackNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn IsDeliveryNotificationEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsDeliveryNotificationEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDeliveryNotificationEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsDeliveryNotificationEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RetryAttemptCount(&self) -> windows_core::Result<i32> {
+    pub fn RetryAttemptCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetryAttemptCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRetryAttemptCount(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetRetryAttemptCount(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRetryAttemptCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TeleserviceId(&self) -> windows_core::Result<i32> {
+    pub fn TeleserviceId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TeleserviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtocolId(&self) -> windows_core::Result<i32> {
+    pub fn ProtocolId(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3111,63 +3111,63 @@ pub struct SmsVoicemailMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsVoicemailMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsVoicemailMessage, ISmsMessageBase);
 impl SmsVoicemailMessage {
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn MessageCount(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MessageCount(&self) -> Result<super::super::Foundation::IReference<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3193,70 +3193,70 @@ pub struct SmsWapMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsWapMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsWapMessage, ISmsMessageBase);
 impl SmsWapMessage {
-    pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
+    pub fn MessageType(&self) -> Result<SmsMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CellularClass(&self) -> windows_core::Result<CellularClass> {
+    pub fn CellularClass(&self) -> Result<CellularClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CellularClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MessageClass(&self) -> windows_core::Result<SmsMessageClass> {
+    pub fn MessageClass(&self) -> Result<SmsMessageClass, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageClass)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SimIccId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SimIccId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SimIccId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn To(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn To(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).To)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn From(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn From(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).From)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ApplicationId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ApplicationId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContentType(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3264,14 +3264,14 @@ impl SmsWapMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BinaryBody(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn BinaryBody(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BinaryBody)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Headers(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Headers(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

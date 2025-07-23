@@ -3,20 +3,20 @@
 pub struct GpioPinProviderValueChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPinProviderValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GpioPinProviderValueChangedEventArgs {
-    pub fn Edge(&self) -> windows_core::Result<ProviderGpioPinEdge> {
+    pub fn Edge(&self) -> Result<ProviderGpioPinEdge, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Edge)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(edge: ProviderGpioPinEdge) -> windows_core::Result<GpioPinProviderValueChangedEventArgs> {
+    pub fn Create(edge: ProviderGpioPinEdge) -> Result<GpioPinProviderValueChangedEventArgs, windows_result::HRESULT> {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), edge, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGpioPinProviderValueChangedEventArgsFactory<R, F: FnOnce(&IGpioPinProviderValueChangedEventArgsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioPinProviderValueChangedEventArgsFactory<R, F: FnOnce(&IGpioPinProviderValueChangedEventArgsFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -39,14 +39,14 @@ impl windows_core::RuntimeType for IGpioControllerProvider {
 }
 windows_core::imp::interface_hierarchy!(IGpioControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IGpioControllerProvider {
-    pub fn PinCount(&self) -> windows_core::Result<i32> {
+    pub fn PinCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PinCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> windows_core::Result<IGpioPinProvider> {
+    pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> Result<IGpioPinProvider, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -58,8 +58,8 @@ impl windows_core::RuntimeName for IGpioControllerProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioControllerProvider";
 }
 pub trait IGpioControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn PinCount(&self) -> windows_core::Result<i32>;
-    fn OpenPinProvider(&self, pin: i32, sharingMode: ProviderGpioSharingMode) -> windows_core::Result<IGpioPinProvider>;
+    fn PinCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn OpenPinProvider(&self, pin: i32, sharingMode: ProviderGpioSharingMode) -> Result<IGpioPinProvider, windows_result::HRESULT>;
 }
 impl IGpioControllerProvider_Vtbl {
     pub const fn new<Identity: IGpioControllerProvider_Impl, const OFFSET: isize>() -> Self {
@@ -111,7 +111,7 @@ impl windows_core::RuntimeType for IGpioPinProvider {
 }
 windows_core::imp::interface_hierarchy!(IGpioPinProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IGpioPinProvider {
-    pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ValueChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>,
     {
@@ -121,58 +121,58 @@ impl IGpioPinProvider {
             (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveValueChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveValueChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DebounceTimeout(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DebounceTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDebounceTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDebounceTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDebounceTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PinNumber(&self) -> windows_core::Result<i32> {
+    pub fn PinNumber(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PinNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SharingMode(&self) -> windows_core::Result<ProviderGpioSharingMode> {
+    pub fn SharingMode(&self) -> Result<ProviderGpioSharingMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SharingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDriveModeSupported(&self, drivemode: ProviderGpioPinDriveMode) -> windows_core::Result<bool> {
+    pub fn IsDriveModeSupported(&self, drivemode: ProviderGpioPinDriveMode) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDriveModeSupported)(windows_core::Interface::as_raw(this), drivemode, &mut result__).map(|| result__)
         }
     }
-    pub fn GetDriveMode(&self) -> windows_core::Result<ProviderGpioPinDriveMode> {
+    pub fn GetDriveMode(&self) -> Result<ProviderGpioPinDriveMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDriveMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> windows_core::Result<()> {
+    pub fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDriveMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Write(&self, value: ProviderGpioPinValue) -> windows_core::Result<()> {
+    pub fn Write(&self, value: ProviderGpioPinValue) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Write)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Read(&self) -> windows_core::Result<ProviderGpioPinValue> {
+    pub fn Read(&self) -> Result<ProviderGpioPinValue, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -184,17 +184,17 @@ impl windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
 }
 pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
-    fn ValueChanged(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()>;
-    fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
-    fn PinNumber(&self) -> windows_core::Result<i32>;
-    fn SharingMode(&self) -> windows_core::Result<ProviderGpioSharingMode>;
-    fn IsDriveModeSupported(&self, driveMode: ProviderGpioPinDriveMode) -> windows_core::Result<bool>;
-    fn GetDriveMode(&self) -> windows_core::Result<ProviderGpioPinDriveMode>;
-    fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> windows_core::Result<()>;
-    fn Write(&self, value: ProviderGpioPinValue) -> windows_core::Result<()>;
-    fn Read(&self) -> windows_core::Result<ProviderGpioPinValue>;
+    fn ValueChanged(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> Result<i64, windows_result::HRESULT>;
+    fn RemoveValueChanged(&self, token: i64) -> Result<(), windows_result::HRESULT>;
+    fn DebounceTimeout(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT>;
+    fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT>;
+    fn PinNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SharingMode(&self) -> Result<ProviderGpioSharingMode, windows_result::HRESULT>;
+    fn IsDriveModeSupported(&self, driveMode: ProviderGpioPinDriveMode) -> Result<bool, windows_result::HRESULT>;
+    fn GetDriveMode(&self) -> Result<ProviderGpioPinDriveMode, windows_result::HRESULT>;
+    fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> Result<(), windows_result::HRESULT>;
+    fn Write(&self, value: ProviderGpioPinValue) -> Result<(), windows_result::HRESULT>;
+    fn Read(&self) -> Result<ProviderGpioPinValue, windows_result::HRESULT>;
 }
 impl IGpioPinProvider_Vtbl {
     pub const fn new<Identity: IGpioPinProvider_Impl, const OFFSET: isize>() -> Self {
@@ -367,7 +367,7 @@ impl windows_core::RuntimeType for IGpioProvider {
 }
 windows_core::imp::interface_hierarchy!(IGpioProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IGpioProvider {
-    pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IGpioControllerProvider>> {
+    pub fn GetControllers(&self) -> Result<windows_collections::IVectorView<IGpioControllerProvider>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -379,7 +379,7 @@ impl windows_core::RuntimeName for IGpioProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioProvider";
 }
 pub trait IGpioProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IGpioControllerProvider>>;
+    fn GetControllers(&self) -> Result<windows_collections::IVectorView<IGpioControllerProvider>, windows_result::HRESULT>;
 }
 impl IGpioProvider_Vtbl {
     pub const fn new<Identity: IGpioProvider_Impl, const OFFSET: isize>() -> Self {

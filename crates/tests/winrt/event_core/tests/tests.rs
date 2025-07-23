@@ -3,7 +3,7 @@ use std::sync::*;
 use windows::{core::*, Foundation::*};
 
 #[test]
-fn add_remove() -> Result<()> {
+fn add_remove() -> Result<(), HRESULT> {
     let event = Event::<EventHandler<i32>>::new();
 
     // Remove a bogus event handler from an empty event source.
@@ -38,7 +38,7 @@ fn add_remove() -> Result<()> {
 }
 
 #[test]
-fn multiple() -> Result<()> {
+fn multiple() -> Result<(), HRESULT> {
     let event = Event::<EventHandler<i32>>::new();
 
     let a_check = Arc::new(AtomicI32::new(0));
@@ -129,7 +129,7 @@ fn multiple() -> Result<()> {
 }
 
 #[test]
-fn is_send_sync() -> Result<()> {
+fn is_send_sync() -> Result<(), HRESULT> {
     // test that the event can be sent and synced between threads
     let event = Arc::new(Event::<EventHandler<i32>>::new());
     let event_sender = event.clone();

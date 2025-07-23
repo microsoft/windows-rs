@@ -5,9 +5,9 @@ use windows::{core::*, Win32::Foundation::E_BOUNDS};
 use windows_collections::*;
 
 #[test]
-fn primitive() -> Result<()> {
+fn primitive() -> Result<(), HRESULT> {
     let m = IMapView::<i32, u64>::from(BTreeMap::from([]));
-    assert_eq!(m.Lookup(0).unwrap_err().code(), E_BOUNDS);
+    assert_eq!(m.Lookup(0).unwrap_err(), E_BOUNDS);
     assert_eq!(m.Size()?, 0);
     assert!(!(m.HasKey(0)?));
     let mut left = None;
@@ -29,12 +29,12 @@ fn primitive() -> Result<()> {
 }
 
 #[test]
-fn primitive_iterator() -> Result<()> {
+fn primitive_iterator() -> Result<(), HRESULT> {
     let able = IMapView::<i32, u64>::from(BTreeMap::from([]));
     let iter = able.First()?;
 
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
 
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
@@ -69,8 +69,8 @@ fn primitive_iterator() -> Result<()> {
 
     assert!(!iter.MoveNext()?);
     assert!(!iter.MoveNext()?);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
 
@@ -100,7 +100,7 @@ fn primitive_iterator() -> Result<()> {
     Ok(())
 }
 
-fn compare_with<K, V>(pair: &Option<IKeyValuePair<K, V>>, key: &K, value: &V) -> Result<bool>
+fn compare_with<K, V>(pair: &Option<IKeyValuePair<K, V>>, key: &K, value: &V) -> Result<bool, HRESULT>
 where
     K: RuntimeType + std::cmp::PartialEq,
     V: RuntimeType + std::cmp::PartialEq,
@@ -112,9 +112,9 @@ where
 }
 
 #[test]
-fn hstring() -> Result<()> {
+fn hstring() -> Result<(), HRESULT> {
     let m = IMapView::<HSTRING, i32>::from(BTreeMap::new());
-    assert_eq!(m.Lookup(h!("missing")).unwrap_err().code(), E_BOUNDS);
+    assert_eq!(m.Lookup(h!("missing")).unwrap_err(), E_BOUNDS);
     assert_eq!(m.Size()?, 0);
     assert!(!(m.HasKey(h!("missing"))?));
 

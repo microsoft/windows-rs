@@ -15,22 +15,22 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Activatable {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<
             Activatable,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Property(&self) -> windows_core::Result<i32> {
+    pub fn Property(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -41,7 +41,7 @@ impl Activatable {
             .map(|| result__)
         }
     }
-    pub fn WithValue(arg: i32) -> windows_core::Result<Activatable> {
+    pub fn WithValue(arg: i32) -> Result<Activatable, windows_result::HRESULT> {
         Self::IActivatableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WithValue)(
@@ -52,9 +52,12 @@ impl Activatable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IActivatableFactory<R, F: FnOnce(&IActivatableFactory) -> windows_core::Result<R>>(
+    fn IActivatableFactory<
+        R,
+        F: FnOnce(&IActivatableFactory) -> Result<R, windows_result::HRESULT>,
+    >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Activatable, IActivatableFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -82,7 +85,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Composable {
-    pub fn Property(&self) -> windows_core::Result<i32> {
+    pub fn Property(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -93,7 +96,7 @@ impl Composable {
             .map(|| result__)
         }
     }
-    pub fn new() -> windows_core::Result<Composable> {
+    pub fn new() -> Result<Composable, windows_result::HRESULT> {
         Self::IComposableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -105,7 +108,7 @@ impl Composable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn WithValue(arg: i32) -> windows_core::Result<Composable> {
+    pub fn WithValue(arg: i32) -> Result<Composable, windows_result::HRESULT> {
         Self::IComposableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WithValue)(
@@ -118,9 +121,12 @@ impl Composable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
+    fn IComposableFactory<
+        R,
+        F: FnOnce(&IComposableFactory) -> Result<R, windows_result::HRESULT>,
+    >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Composable, IComposableFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -152,7 +158,7 @@ impl windows_core::RuntimeName for IActivatable {
     const NAME: &'static str = "test_constructors.IActivatable";
 }
 pub trait IActivatable_Impl: windows_core::IUnknownImpl {
-    fn Property(&self) -> windows_core::Result<i32>;
+    fn Property(&self) -> Result<i32, windows_result::HRESULT>;
 }
 impl IActivatable_Vtbl {
     pub const fn new<Identity: IActivatable_Impl, const OFFSET: isize>() -> Self {
@@ -201,7 +207,7 @@ impl windows_core::RuntimeName for IActivatableFactory {
     const NAME: &'static str = "test_constructors.IActivatableFactory";
 }
 pub trait IActivatableFactory_Impl: windows_core::IUnknownImpl {
-    fn WithValue(&self, arg: i32) -> windows_core::Result<Activatable>;
+    fn WithValue(&self, arg: i32) -> Result<Activatable, windows_result::HRESULT>;
 }
 impl IActivatableFactory_Vtbl {
     pub const fn new<Identity: IActivatableFactory_Impl, const OFFSET: isize>() -> Self {
@@ -258,7 +264,7 @@ impl windows_core::RuntimeName for IComposable {
     const NAME: &'static str = "test_constructors.IComposable";
 }
 pub trait IComposable_Impl: windows_core::IUnknownImpl {
-    fn Property(&self) -> windows_core::Result<i32>;
+    fn Property(&self) -> Result<i32, windows_result::HRESULT>;
 }
 impl IComposable_Vtbl {
     pub const fn new<Identity: IComposable_Impl, const OFFSET: isize>() -> Self {
@@ -311,13 +317,13 @@ pub trait IComposableFactory_Impl: windows_core::IUnknownImpl {
         &self,
         baseInterface: windows_core::Ref<'_, windows_core::IInspectable>,
         innerInterface: windows_core::OutRef<'_, windows_core::IInspectable>,
-    ) -> windows_core::Result<Composable>;
+    ) -> Result<Composable, windows_result::HRESULT>;
     fn WithValue(
         &self,
         arg: i32,
         baseInterface: windows_core::Ref<'_, windows_core::IInspectable>,
         innerInterface: windows_core::OutRef<'_, windows_core::IInspectable>,
-    ) -> windows_core::Result<Composable>;
+    ) -> Result<Composable, windows_result::HRESULT>;
 }
 impl IComposableFactory_Vtbl {
     pub const fn new<Identity: IComposableFactory_Impl, const OFFSET: isize>() -> Self {

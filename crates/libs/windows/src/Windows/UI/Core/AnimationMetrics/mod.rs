@@ -3,48 +3,48 @@
 pub struct AnimationDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnimationDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl AnimationDescription {
-    pub fn Animations(&self) -> windows_core::Result<windows_collections::IVectorView<IPropertyAnimation>> {
+    pub fn Animations(&self) -> Result<windows_collections::IVectorView<IPropertyAnimation>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Animations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StaggerDelay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn StaggerDelay(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StaggerDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StaggerDelayFactor(&self) -> windows_core::Result<f32> {
+    pub fn StaggerDelayFactor(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StaggerDelayFactor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DelayLimit(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DelayLimit(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ZOrder(&self) -> windows_core::Result<i32> {
+    pub fn ZOrder(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ZOrder)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> windows_core::Result<AnimationDescription> {
+    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> Result<AnimationDescription, windows_result::HRESULT> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effect, target, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -180,35 +180,35 @@ impl windows_core::RuntimeType for IPropertyAnimation {
 }
 windows_core::imp::interface_hierarchy!(IPropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyAnimation {
-    pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> Result<PropertyAnimationType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control1(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control1)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -220,11 +220,11 @@ impl windows_core::RuntimeName for IPropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.IPropertyAnimation";
 }
 pub trait IPropertyAnimation_Impl: windows_core::IUnknownImpl {
-    fn Type(&self) -> windows_core::Result<PropertyAnimationType>;
-    fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Control1(&self) -> windows_core::Result<super::super::super::Foundation::Point>;
-    fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point>;
+    fn Type(&self) -> Result<PropertyAnimationType, windows_result::HRESULT>;
+    fn Delay(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT>;
+    fn Duration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT>;
+    fn Control1(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT>;
+    fn Control2(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT>;
 }
 impl IPropertyAnimation_Vtbl {
     pub const fn new<Identity: IPropertyAnimation_Impl, const OFFSET: isize>() -> Self {
@@ -331,49 +331,49 @@ pub struct OpacityAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OpacityAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OpacityAnimation, IPropertyAnimation);
 impl OpacityAnimation {
-    pub fn InitialOpacity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialOpacity(&self) -> Result<super::super::super::Foundation::IReference<f32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialOpacity)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FinalOpacity(&self) -> windows_core::Result<f32> {
+    pub fn FinalOpacity(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalOpacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> Result<PropertyAnimationType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control1(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control1)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -398,35 +398,35 @@ unsafe impl Sync for OpacityAnimation {}
 pub struct PropertyAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PropertyAnimation, windows_core::IUnknown, windows_core::IInspectable, IPropertyAnimation);
 impl PropertyAnimation {
-    pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> Result<PropertyAnimationType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control1(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control1)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -466,70 +466,70 @@ pub struct ScaleAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScaleAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScaleAnimation, IPropertyAnimation);
 impl ScaleAnimation {
-    pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> Result<PropertyAnimationType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control1(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control1)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control2)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn InitialScaleX(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialScaleX(&self) -> Result<super::super::super::Foundation::IReference<f32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialScaleX)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InitialScaleY(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialScaleY(&self) -> Result<super::super::super::Foundation::IReference<f32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialScaleY)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FinalScaleX(&self) -> windows_core::Result<f32> {
+    pub fn FinalScaleX(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalScaleX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FinalScaleY(&self) -> windows_core::Result<f32> {
+    pub fn FinalScaleY(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinalScaleY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NormalizedOrigin(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn NormalizedOrigin(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -554,35 +554,35 @@ unsafe impl Sync for ScaleAnimation {}
 pub struct TranslationAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TranslationAnimation, windows_core::IUnknown, windows_core::IInspectable, IPropertyAnimation);
 impl TranslationAnimation {
-    pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> Result<PropertyAnimationType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control1(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control1)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> Result<super::super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

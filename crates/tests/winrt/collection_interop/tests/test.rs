@@ -9,17 +9,17 @@ use windows_collections::*;
 struct Test;
 
 impl ITest_Impl for Test_Impl {
-    fn TestIterable(&self, collection: Ref<'_, IIterable<i32>>, values: &[i32]) -> Result<()> {
+    fn TestIterable(&self, collection: Ref<'_, IIterable<i32>>, values: &[i32]) -> Result<(), HRESULT> {
         let collection: Vec<i32> = collection.ok()?.into_iter().collect();
         assert_eq!(collection, values);
         Ok(())
     }
 
-    fn GetIterable(&self, values: &[i32]) -> Result<IIterable<i32>> {
+    fn GetIterable(&self, values: &[i32]) -> Result<IIterable<i32>, HRESULT> {
         Ok(Vec::from(values).into())
     }
 
-    fn GetMapView(&self, values: &[i32]) -> Result<IMapView<i32, IVectorView<i32>>> {
+    fn GetMapView(&self, values: &[i32]) -> Result<IMapView<i32, IVectorView<i32>>, HRESULT> {
         let mut map = BTreeMap::new();
 
         for value in values {

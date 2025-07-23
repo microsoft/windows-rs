@@ -11,20 +11,20 @@
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Class, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Signal(&self, value: i32) -> windows_core::Result<i32> {
+    pub fn Signal(&self, value: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -36,7 +36,7 @@ impl Class {
             .map(|| result__)
         }
     }
-    pub fn Event<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Event<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows::Foundation::TypedEventHandler<Class, i32>>,
     {
@@ -51,7 +51,7 @@ impl Class {
             .map(|| result__)
         }
     }
-    pub fn RemoveEvent(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEvent(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).RemoveEvent)(
@@ -61,7 +61,7 @@ impl Class {
             .ok()
         }
     }
-    pub fn StaticSignal(value: i32) -> windows_core::Result<i32> {
+    pub fn StaticSignal(value: i32) -> Result<i32, windows_result::HRESULT> {
         Self::IClassStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StaticSignal)(
@@ -72,7 +72,7 @@ impl Class {
             .map(|| result__)
         })
     }
-    pub fn StaticEvent<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn StaticEvent<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows::Foundation::EventHandler<i32>>,
     {
@@ -86,7 +86,7 @@ impl Class {
             .map(|| result__)
         })
     }
-    pub fn RemoveStaticEvent(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStaticEvent(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IClassStatics(|this| unsafe {
             (windows_core::Interface::vtable(this).RemoveStaticEvent)(
                 windows_core::Interface::as_raw(this),
@@ -95,9 +95,9 @@ impl Class {
             .ok()
         })
     }
-    fn IClassStatics<R, F: FnOnce(&IClassStatics) -> windows_core::Result<R>>(
+    fn IClassStatics<R, F: FnOnce(&IClassStatics) -> Result<R, windows_result::HRESULT>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Class, IClassStatics> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -125,12 +125,12 @@ impl windows_core::RuntimeName for IClass {
     const NAME: &'static str = "test_events.IClass";
 }
 pub trait IClass_Impl: windows_core::IUnknownImpl {
-    fn Signal(&self, value: i32) -> windows_core::Result<i32>;
+    fn Signal(&self, value: i32) -> Result<i32, windows_result::HRESULT>;
     fn Event(
         &self,
         handler: windows_core::Ref<'_, windows::Foundation::TypedEventHandler<Class, i32>>,
-    ) -> windows_core::Result<i64>;
-    fn RemoveEvent(&self, token: i64) -> windows_core::Result<()>;
+    ) -> Result<i64, windows_result::HRESULT>;
+    fn RemoveEvent(&self, token: i64) -> Result<(), windows_result::HRESULT>;
 }
 impl IClass_Vtbl {
     pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> Self {
@@ -216,12 +216,12 @@ impl windows_core::RuntimeName for IClassStatics {
     const NAME: &'static str = "test_events.IClassStatics";
 }
 pub trait IClassStatics_Impl: windows_core::IUnknownImpl {
-    fn StaticSignal(&self, value: i32) -> windows_core::Result<i32>;
+    fn StaticSignal(&self, value: i32) -> Result<i32, windows_result::HRESULT>;
     fn StaticEvent(
         &self,
         handler: windows_core::Ref<'_, windows::Foundation::EventHandler<i32>>,
-    ) -> windows_core::Result<i64>;
-    fn RemoveStaticEvent(&self, token: i64) -> windows_core::Result<()>;
+    ) -> Result<i64, windows_result::HRESULT>;
+    fn RemoveStaticEvent(&self, token: i64) -> Result<(), windows_result::HRESULT>;
 }
 impl IClassStatics_Vtbl {
     pub const fn new<Identity: IClassStatics_Impl, const OFFSET: isize>() -> Self {

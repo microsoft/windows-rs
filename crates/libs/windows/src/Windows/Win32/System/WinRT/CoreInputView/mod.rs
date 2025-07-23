@@ -1,7 +1,7 @@
 windows_core::imp::define_interface!(ICoreFrameworkInputViewInterop, ICoreFrameworkInputViewInterop_Vtbl, 0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
 windows_core::imp::interface_hierarchy!(ICoreFrameworkInputViewInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreFrameworkInputViewInterop {
-    pub unsafe fn GetForWindow<T>(&self, appwindow: super::super::super::Foundation::HWND) -> windows_core::Result<T>
+    pub unsafe fn GetForWindow<T>(&self, appwindow: super::super::super::Foundation::HWND) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -16,7 +16,7 @@ pub struct ICoreFrameworkInputViewInterop_Vtbl {
     pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICoreFrameworkInputViewInterop_Impl: windows_core::IUnknownImpl {
-    fn GetForWindow(&self, appwindow: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, coreframeworkinputview: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, coreframeworkinputview: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 impl ICoreFrameworkInputViewInterop_Vtbl {
     pub const fn new<Identity: ICoreFrameworkInputViewInterop_Impl, const OFFSET: isize>() -> Self {

@@ -4,7 +4,7 @@ pub struct CustomDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomDevice {
     #[cfg(feature = "Storage_Streams")]
-    pub fn InputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IInputStream> {
+    pub fn InputStream(&self) -> Result<super::super::Storage::Streams::IInputStream, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -12,7 +12,7 @@ impl CustomDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn OutputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IOutputStream> {
+    pub fn OutputStream(&self) -> Result<super::super::Storage::Streams::IOutputStream, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -20,7 +20,7 @@ impl CustomDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
+    pub fn SendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> Result<windows_future::IAsyncOperation<u32>, windows_result::HRESULT>
     where
         P0: windows_core::Param<IIOControlCode>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -33,7 +33,7 @@ impl CustomDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TrySendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TrySendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<IIOControlCode>,
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
@@ -45,19 +45,19 @@ impl CustomDevice {
             (windows_core::Interface::vtable(this).TrySendIOControlAsync)(windows_core::Interface::as_raw(this), iocontrolcode.param().abi(), inputbuffer.param().abi(), outputbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeviceSelector(classguid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector(classguid: windows_core::GUID) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::ICustomDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), classguid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<CustomDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> Result<windows_future::IAsyncOperation<CustomDevice>, windows_result::HRESULT> {
         Self::ICustomDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), desiredaccess, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ICustomDeviceStatics<R, F: FnOnce(&ICustomDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICustomDeviceStatics<R, F: FnOnce(&ICustomDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CustomDevice, ICustomDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -143,35 +143,35 @@ impl windows_core::RuntimeType for IIOControlCode {
 }
 windows_core::imp::interface_hierarchy!(IIOControlCode, windows_core::IUnknown, windows_core::IInspectable);
 impl IIOControlCode {
-    pub fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode> {
+    pub fn AccessMode(&self) -> Result<IOControlAccessMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccessMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BufferingMethod(&self) -> windows_core::Result<IOControlBufferingMethod> {
+    pub fn BufferingMethod(&self) -> Result<IOControlBufferingMethod, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BufferingMethod)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Function(&self) -> windows_core::Result<u16> {
+    pub fn Function(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Function)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceType(&self) -> windows_core::Result<u16> {
+    pub fn DeviceType(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ControlCode(&self) -> windows_core::Result<u32> {
+    pub fn ControlCode(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -183,11 +183,11 @@ impl windows_core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
 }
 pub trait IIOControlCode_Impl: windows_core::IUnknownImpl {
-    fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode>;
-    fn BufferingMethod(&self) -> windows_core::Result<IOControlBufferingMethod>;
-    fn Function(&self) -> windows_core::Result<u16>;
-    fn DeviceType(&self) -> windows_core::Result<u16>;
-    fn ControlCode(&self) -> windows_core::Result<u32>;
+    fn AccessMode(&self) -> Result<IOControlAccessMode, windows_result::HRESULT>;
+    fn BufferingMethod(&self) -> Result<IOControlBufferingMethod, windows_result::HRESULT>;
+    fn Function(&self) -> Result<u16, windows_result::HRESULT>;
+    fn DeviceType(&self) -> Result<u16, windows_result::HRESULT>;
+    fn ControlCode(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IIOControlCode_Vtbl {
     pub const fn new<Identity: IIOControlCode_Impl, const OFFSET: isize>() -> Self {
@@ -329,48 +329,48 @@ impl windows_core::RuntimeType for IOControlBufferingMethod {
 pub struct IOControlCode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable, IIOControlCode);
 impl IOControlCode {
-    pub fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode> {
+    pub fn AccessMode(&self) -> Result<IOControlAccessMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccessMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BufferingMethod(&self) -> windows_core::Result<IOControlBufferingMethod> {
+    pub fn BufferingMethod(&self) -> Result<IOControlBufferingMethod, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BufferingMethod)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Function(&self) -> windows_core::Result<u16> {
+    pub fn Function(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Function)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceType(&self) -> windows_core::Result<u16> {
+    pub fn DeviceType(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ControlCode(&self) -> windows_core::Result<u32> {
+    pub fn ControlCode(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ControlCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateIOControlCode(devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> windows_core::Result<IOControlCode> {
+    pub fn CreateIOControlCode(devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> Result<IOControlCode, windows_result::HRESULT> {
         Self::IIOControlCodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateIOControlCode)(windows_core::Interface::as_raw(this), devicetype, function, accessmode, bufferingmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IIOControlCodeFactory<R, F: FnOnce(&IIOControlCodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIOControlCodeFactory<R, F: FnOnce(&IIOControlCodeFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<IOControlCode, IIOControlCodeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -389,13 +389,13 @@ unsafe impl Send for IOControlCode {}
 unsafe impl Sync for IOControlCode {}
 pub struct KnownDeviceTypes;
 impl KnownDeviceTypes {
-    pub fn Unknown() -> windows_core::Result<u16> {
+    pub fn Unknown() -> Result<u16, windows_result::HRESULT> {
         Self::IKnownDeviceTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Unknown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IKnownDeviceTypesStatics<R, F: FnOnce(&IKnownDeviceTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownDeviceTypesStatics<R, F: FnOnce(&IKnownDeviceTypesStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<KnownDeviceTypes, IKnownDeviceTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

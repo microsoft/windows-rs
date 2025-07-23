@@ -122,28 +122,28 @@ pub struct IPackageExtensionPackageUpdatingEventArgs_Vtbl {
 pub struct PackageExtension(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtension, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtension {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Package(&self) -> windows_core::Result<super::Package> {
+    pub fn Package(&self) -> Result<super::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -151,7 +151,7 @@ impl PackageExtension {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetExtensionProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn GetExtensionProperties(&self) -> Result<super::super::Foundation::Collections::IPropertySet, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -159,14 +159,14 @@ impl PackageExtension {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetExtensionPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Collections::IPropertySet>> {
+    pub fn GetExtensionPropertiesAsync(&self) -> Result<windows_future::IAsyncOperation<super::super::Foundation::Collections::IPropertySet>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetExtensionPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPublicPath(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetPublicPath(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -174,7 +174,7 @@ impl PackageExtension {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetPublicFolder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
+    pub fn GetPublicFolder(&self) -> Result<super::super::Storage::StorageFolder, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -182,7 +182,7 @@ impl PackageExtension {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    pub fn GetPublicFolderAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFolder>> {
+    pub fn GetPublicFolderAsync(&self) -> Result<windows_future::IAsyncOperation<super::super::Storage::StorageFolder>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -207,28 +207,28 @@ unsafe impl Sync for PackageExtension {}
 pub struct PackageExtensionCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionCatalog, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionCatalog {
-    pub fn FindAll(&self) -> windows_core::Result<windows_collections::IVectorView<PackageExtension>> {
+    pub fn FindAll(&self) -> Result<windows_collections::IVectorView<PackageExtension>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PackageExtension>>> {
+    pub fn FindAllAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PackageExtension>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestRemovePackageAsync(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn RequestRemovePackageAsync(&self, packagefullname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestRemovePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PackageInstalled<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageInstalled<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageInstalledEventArgs>>,
     {
@@ -238,11 +238,11 @@ impl PackageExtensionCatalog {
             (windows_core::Interface::vtable(this).PackageInstalled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePackageInstalled(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePackageInstalled(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageInstalled)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PackageUpdating<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageUpdating<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageUpdatingEventArgs>>,
     {
@@ -252,11 +252,11 @@ impl PackageExtensionCatalog {
             (windows_core::Interface::vtable(this).PackageUpdating)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePackageUpdating(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePackageUpdating(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageUpdating)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PackageUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageUpdated<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageUpdatedEventArgs>>,
     {
@@ -266,11 +266,11 @@ impl PackageExtensionCatalog {
             (windows_core::Interface::vtable(this).PackageUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePackageUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePackageUpdated(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PackageUninstalling<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageUninstalling<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageUninstallingEventArgs>>,
     {
@@ -280,11 +280,11 @@ impl PackageExtensionCatalog {
             (windows_core::Interface::vtable(this).PackageUninstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePackageUninstalling(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePackageUninstalling(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageUninstalling)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PackageStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PackageStatusChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageStatusChangedEventArgs>>,
     {
@@ -294,17 +294,17 @@ impl PackageExtensionCatalog {
             (windows_core::Interface::vtable(this).PackageStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePackageStatusChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePackageStatusChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Open(packageextensionname: &windows_core::HSTRING) -> windows_core::Result<PackageExtensionCatalog> {
+    pub fn Open(packageextensionname: &windows_core::HSTRING) -> Result<PackageExtensionCatalog, windows_result::HRESULT> {
         Self::IPackageExtensionCatalogStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packageextensionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPackageExtensionCatalogStatics<R, F: FnOnce(&IPackageExtensionCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPackageExtensionCatalogStatics<R, F: FnOnce(&IPackageExtensionCatalogStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PackageExtensionCatalog, IPackageExtensionCatalogStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -326,21 +326,21 @@ unsafe impl Sync for PackageExtensionCatalog {}
 pub struct PackageExtensionPackageInstalledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageInstalledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageInstalledEventArgs {
-    pub fn PackageExtensionName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageExtensionName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageExtensionName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Package(&self) -> windows_core::Result<super::Package> {
+    pub fn Package(&self) -> Result<super::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Package)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Extensions(&self) -> windows_core::Result<windows_collections::IVectorView<PackageExtension>> {
+    pub fn Extensions(&self) -> Result<windows_collections::IVectorView<PackageExtension>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -365,14 +365,14 @@ unsafe impl Sync for PackageExtensionPackageInstalledEventArgs {}
 pub struct PackageExtensionPackageStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageStatusChangedEventArgs {
-    pub fn PackageExtensionName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageExtensionName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageExtensionName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Package(&self) -> windows_core::Result<super::Package> {
+    pub fn Package(&self) -> Result<super::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -397,14 +397,14 @@ unsafe impl Sync for PackageExtensionPackageStatusChangedEventArgs {}
 pub struct PackageExtensionPackageUninstallingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUninstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageUninstallingEventArgs {
-    pub fn PackageExtensionName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageExtensionName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageExtensionName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Package(&self) -> windows_core::Result<super::Package> {
+    pub fn Package(&self) -> Result<super::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -429,21 +429,21 @@ unsafe impl Sync for PackageExtensionPackageUninstallingEventArgs {}
 pub struct PackageExtensionPackageUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageUpdatedEventArgs {
-    pub fn PackageExtensionName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageExtensionName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageExtensionName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Package(&self) -> windows_core::Result<super::Package> {
+    pub fn Package(&self) -> Result<super::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Package)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Extensions(&self) -> windows_core::Result<windows_collections::IVectorView<PackageExtension>> {
+    pub fn Extensions(&self) -> Result<windows_collections::IVectorView<PackageExtension>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -468,14 +468,14 @@ unsafe impl Sync for PackageExtensionPackageUpdatedEventArgs {}
 pub struct PackageExtensionPackageUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageUpdatingEventArgs {
-    pub fn PackageExtensionName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageExtensionName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageExtensionName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Package(&self) -> windows_core::Result<super::Package> {
+    pub fn Package(&self) -> Result<super::Package, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

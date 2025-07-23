@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
-pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: u32, pfeaturelevels: Option<&[super::Direct3D::D3D_FEATURE_LEVEL]>, ppcommandqueues: Option<&[Option<windows_core::IUnknown>]>, nodemask: u32, ppdevice: Option<*mut Option<super::Direct3D11::ID3D11Device>>, ppimmediatecontext: Option<*mut Option<super::Direct3D11::ID3D11DeviceContext>>, pchosenfeaturelevel: Option<*mut super::Direct3D::D3D_FEATURE_LEVEL>) -> windows_core::Result<()>
+pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: u32, pfeaturelevels: Option<&[super::Direct3D::D3D_FEATURE_LEVEL]>, ppcommandqueues: Option<&[Option<windows_core::IUnknown>]>, nodemask: u32, ppdevice: Option<*mut Option<super::Direct3D11::ID3D11Device>>, ppimmediatecontext: Option<*mut Option<super::Direct3D11::ID3D11DeviceContext>>, pchosenfeaturelevel: Option<*mut super::Direct3D::D3D_FEATURE_LEVEL>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
@@ -33,7 +33,7 @@ windows_core::imp::define_interface!(ID3D11On12Device, ID3D11On12Device_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ID3D11On12Device, windows_core::IUnknown);
 impl ID3D11On12Device {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateWrappedResource<P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateWrappedResource<P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut Option<T>) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
@@ -70,7 +70,7 @@ unsafe impl Send for ID3D11On12Device {}
 unsafe impl Sync for ID3D11On12Device {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device_Impl: windows_core::IUnknownImpl {
-    fn CreateWrappedResource(&self, presource12: windows_core::Ref<'_, windows_core::IUnknown>, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const windows_core::GUID, ppresource11: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateWrappedResource(&self, presource12: windows_core::Ref<'_, windows_core::IUnknown>, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const windows_core::GUID, ppresource11: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
     fn ReleaseWrappedResources(&self, ppresources: *const Option<super::Direct3D11::ID3D11Resource>, numresources: u32);
     fn AcquireWrappedResources(&self, ppresources: *const Option<super::Direct3D11::ID3D11Resource>, numresources: u32);
 }
@@ -117,7 +117,7 @@ impl core::ops::Deref for ID3D11On12Device1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D11On12Device1, windows_core::IUnknown, ID3D11On12Device);
 impl ID3D11On12Device1 {
-    pub unsafe fn GetD3D12Device<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn GetD3D12Device<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -135,7 +135,7 @@ unsafe impl Send for ID3D11On12Device1 {}
 unsafe impl Sync for ID3D11On12Device1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device1_Impl: ID3D11On12Device_Impl {
-    fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D11On12Device1_Vtbl {
@@ -164,7 +164,7 @@ impl core::ops::Deref for ID3D11On12Device2 {
 windows_core::imp::interface_hierarchy!(ID3D11On12Device2, windows_core::IUnknown, ID3D11On12Device, ID3D11On12Device1);
 impl ID3D11On12Device2 {
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
-    pub unsafe fn UnwrapUnderlyingResource<P0, P1, T>(&self, presource11: P0, pcommandqueue: P1) -> windows_core::Result<T>
+    pub unsafe fn UnwrapUnderlyingResource<P0, P1, T>(&self, presource11: P0, pcommandqueue: P1) -> Result<T, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Direct3D11::ID3D11Resource>,
         P1: windows_core::Param<super::Direct3D12::ID3D12CommandQueue>,
@@ -174,7 +174,7 @@ impl ID3D11On12Device2 {
         unsafe { (windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(windows_core::Interface::as_raw(self), presource11.param().abi(), pcommandqueue.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
-    pub unsafe fn ReturnUnderlyingResource<P0>(&self, presource11: P0, numsync: u32, psignalvalues: *const u64, ppfences: *const Option<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>
+    pub unsafe fn ReturnUnderlyingResource<P0>(&self, presource11: P0, numsync: u32, psignalvalues: *const u64, ppfences: *const Option<super::Direct3D12::ID3D12Fence>) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Direct3D11::ID3D11Resource>,
     {
@@ -198,8 +198,8 @@ unsafe impl Send for ID3D11On12Device2 {}
 unsafe impl Sync for ID3D11On12Device2 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device2_Impl: ID3D11On12Device1_Impl {
-    fn UnwrapUnderlyingResource(&self, presource11: windows_core::Ref<'_, super::Direct3D11::ID3D11Resource>, pcommandqueue: windows_core::Ref<'_, super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ReturnUnderlyingResource(&self, presource11: windows_core::Ref<'_, super::Direct3D11::ID3D11Resource>, numsync: u32, psignalvalues: *const u64, ppfences: *const Option<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>;
+    fn UnwrapUnderlyingResource(&self, presource11: windows_core::Ref<'_, super::Direct3D11::ID3D11Resource>, pcommandqueue: windows_core::Ref<'_, super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn ReturnUnderlyingResource(&self, presource11: windows_core::Ref<'_, super::Direct3D11::ID3D11Resource>, numsync: u32, psignalvalues: *const u64, ppfences: *const Option<super::Direct3D12::ID3D12Fence>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D11On12Device2_Vtbl {
