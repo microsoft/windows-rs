@@ -108,7 +108,7 @@ pub unsafe trait Interface: Sized + Clone {
             if let Some(obj) = result.assume_init() {
                 Ok(obj)
             } else {
-                Err(imp::E_POINTER.into())
+                Err(imp::E_POINTER)
             }
         }
     }
@@ -206,7 +206,7 @@ pub unsafe trait Interface: Sized + Clone {
         if let Some(outer) = any.downcast_ref::<T::Outer>() {
             Ok(outer)
         } else {
-            Err(imp::E_NOINTERFACE.into())
+            Err(imp::E_NOINTERFACE)
         }
     }
 

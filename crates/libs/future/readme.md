@@ -18,16 +18,14 @@ Use the Windows async types as needed:
 ```rust
 use windows_future::*;
 
-fn main() {
-    // This result will be available immediately.
-    let ready = IAsyncOperation::ready(Ok(123));
-    assert_eq!(ready.get().unwrap(), 123);
+// This result will be available immediately.
+let ready = IAsyncOperation::ready(Ok(123));
+assert_eq!(ready.get().unwrap(), 123);
 
-    let ready = IAsyncOperation::spawn(|| {
-        // Some lengthy operation goes here...
-        Ok(456)
-    });
+let ready = IAsyncOperation::spawn(|| {
+    // Some lengthy operation goes here...
+    Ok(456)
+});
 
-    assert_eq!(ready.get().unwrap(), 456);
-}
+assert_eq!(ready.get().unwrap(), 456);
 ```

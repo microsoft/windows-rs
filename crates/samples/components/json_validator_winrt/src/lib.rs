@@ -40,7 +40,7 @@ struct JsonValidatorFactory;
 // implementation of `IActivationFactory`.
 impl IActivationFactory_Impl for JsonValidatorFactory_Impl {
     fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
-        Err(E_NOTIMPL.into())
+        Err(E_NOTIMPL)
     }
 }
 

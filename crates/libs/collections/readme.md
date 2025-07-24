@@ -31,18 +31,16 @@ Naturally, the Windows collection types work with other Windows crates:
 use windows_collections::*;
 use windows_strings::*;
 
-fn main() {
-    let greetings =
-        IVectorView::<HSTRING>::from(vec![HSTRING::from("hello"), HSTRING::from("world")]);
+let greetings =
+    IVectorView::<HSTRING>::from(vec![HSTRING::from("hello"), HSTRING::from("world")]);
 
-    for value in greetings {
-        println!("{value}");
-    }
-
-    let map = std::collections::BTreeMap::from([("one".into(), 1), ("two".into(), 2)]);
-    let map = IMapView::<HSTRING, i32>::from(map);
-
-    assert_eq!(map.Lookup(h!("one")).unwrap(), 1);
-    assert_eq!(map.Lookup(h!("two")).unwrap(), 2);
+for value in greetings {
+    println!("{value}");
 }
+
+let map = std::collections::BTreeMap::from([("one".into(), 1), ("two".into(), 2)]);
+let map = IMapView::<HSTRING, i32>::from(map);
+
+assert_eq!(map.Lookup(h!("one")).unwrap(), 1);
+assert_eq!(map.Lookup(h!("two")).unwrap(), 2);
 ```

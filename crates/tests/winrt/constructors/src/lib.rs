@@ -55,7 +55,7 @@ impl IActivationFactory_Impl for ComposableFactory_Impl {
     // Composable types implement their default constructors using custom composable factory interfaces.
     // `IComposableFactory::CreateInstance` in this case.
     fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
-        Err(E_NOTIMPL.into())
+        Err(E_NOTIMPL)
     }
 }
 
@@ -68,7 +68,7 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
         // windows-rs doesn't support binary composition
         _ = inner.write(None);
         if base.is_some() {
-            Err(CLASS_E_NOAGGREGATION.into())
+            Err(CLASS_E_NOAGGREGATION)
         } else {
             Ok(Composable::new(0).into())
         }
@@ -83,7 +83,7 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
         // windows-rs doesn't support binary composition
         _ = inner.write(None);
         if base.is_some() {
-            Err(CLASS_E_NOAGGREGATION.into())
+            Err(CLASS_E_NOAGGREGATION)
         } else {
             Ok(Composable::new(arg).into())
         }

@@ -13,7 +13,7 @@ impl<T: Type<T>> Ref<'_, T> {
 
     /// Converts the argument to a [`Result<&T>`] reference.
     pub fn ok(&self) -> Result<&T, windows_result::HRESULT> {
-        self.as_ref().ok_or_else(|| imp::E_POINTER)
+        self.as_ref().ok_or(imp::E_POINTER)
     }
 
     /// Converts the argument to a [`Option<&T>`] reference.

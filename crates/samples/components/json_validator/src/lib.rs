@@ -56,7 +56,7 @@ unsafe fn create_validator(
             Validator::new(&schema).map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
 
         if handle.is_null() {
-            return Err(E_POINTER.into());
+            return Err(E_POINTER);
         }
 
         // The handle is not null so we can safely dereference it here.
