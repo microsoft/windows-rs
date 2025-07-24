@@ -204,9 +204,9 @@ mod tests {
 
         // Test library never successfully found
         let mut results = Vec::new();
-        let end_result = search_path(path, |library| {
+        let end_result: Option<()> = search_path(path, |library| {
             results.push(unsafe { library.to_string().unwrap() });
-            Err(S_OK) // Result::<(), windows_result::HRESULT>::
+            Err(S_OK)
         });
         assert!(end_result.is_none());
         assert_eq!(results, vec!["A.B.dll", "A.dll"]);
