@@ -1,4 +1,4 @@
-use windows::core::{Interface, RuntimeName};
+use windows::core::*;
 use windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::Win32::System::Com::IAgileObject;
 

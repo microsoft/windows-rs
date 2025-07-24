@@ -1,5 +1,5 @@
 use windows::{
-    core::HSTRING,
+    core::*,
     ApplicationModel::Email::EmailAttachment,
     Devices::WiFiDirect::{
         WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
@@ -16,7 +16,7 @@ fn wifi() -> Result<(), HRESULT> {
     assert!(!a.is_empty());
 
     // from_id_async from IWiFiDirectDeviceStatics
-    assert!(WiFiDirectDevice::FromIdAsync(&a)?.get() == Err(windows::core::Error::empty()));
+    assert!(WiFiDirectDevice::FromIdAsync(&a)?.get().unwrap_err().is_ok());
 
     // get_device_selector overload from IWiFiDirectDeviceStatics2 is renamed to get_device_selector2
     let c = WiFiDirectDevice::GetDeviceSelector2(WiFiDirectDeviceSelectorType::DeviceInterface)?;

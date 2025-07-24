@@ -1,5 +1,4 @@
 use windows_registry::*;
-use windows_result::*;
 use windows_strings::*;
 
 #[test]

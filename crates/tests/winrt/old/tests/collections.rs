@@ -1,6 +1,6 @@
 use core::convert::*;
 
-use windows::{core::Interface, Foundation::Collections::PropertySet, Foundation::*};
+use windows::{core::{HRESULT, Interface}, Foundation::Collections::PropertySet, Foundation::*};
 
 use windows_collections::*;
 

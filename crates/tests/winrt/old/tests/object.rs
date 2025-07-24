@@ -1,4 +1,4 @@
-use windows::core::Interface;
+use windows::core::*;
 use windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]

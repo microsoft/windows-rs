@@ -7,13 +7,13 @@ use test_ref_params::*;
 struct Test(AtomicI32);
 
 impl ITest_Impl for Test_Impl {
-    fn Input(&self, input: Ref<ITest>) -> Result<i32> {
+    fn Input(&self, input: Ref<ITest>) -> Result<i32, HRESULT> {
         input.ok()?.Current()
     }
     fn Output(&self, value: i32, output: OutRef<ITest>) -> Result<(), HRESULT> {
         output.write(Some(Test(value.into()).into()))
     }
-    fn Current(&self) -> Result<i32> {
+    fn Current(&self) -> Result<i32, HRESULT> {
         Ok(self.0.load(Ordering::Relaxed))
     }
     fn SetCurrent(&self, value: i32) -> Result<(), HRESULT> {
@@ -32,7 +32,7 @@ fn test_interface(test: &ITest) -> Result<(), HRESULT> {
 
     assert_eq!(test.Input(&one_two_three)?, 123);
     assert_eq!(test.Input(&four_five_six)?, 456);
-    assert_eq!(test.Input(None).unwrap_err().code(), HRESULT(-2147467261)); // E_POINTER
+    assert_eq!(test.Input(None).unwrap_err(), HRESULT(-2147467261)); // E_POINTER
 
     let mut seven_eight_nine = None;
     test.Output(789, &mut seven_eight_nine)?;

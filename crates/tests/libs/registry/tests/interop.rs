@@ -1,5 +1,4 @@
 use windows_registry::*;
-use windows_result::*;
 
 #[test]
 fn sys_interop() -> Result<(), HRESULT> {

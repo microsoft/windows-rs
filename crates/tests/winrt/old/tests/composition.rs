@@ -1,5 +1,5 @@
 use windows::{
-    core::{Interface, HSTRING},
+    core::*,
     System::DispatcherQueueController,
     Win32::System::WinRT::{
         CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE,

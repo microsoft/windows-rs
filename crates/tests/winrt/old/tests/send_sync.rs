@@ -1,5 +1,5 @@
 use std::thread;
-use windows::core::{Interface, HRESULT, HSTRING};
+use windows::core::*;
 use windows::Foundation::*;
 use windows::Storage::Streams::*;
 use windows_future::*;
@@ -89,7 +89,7 @@ fn send_async_no_class() {
 fn send_sync_err() {
     helpers::set_thread_ui_language();
 
-    let err = Uri::CreateUri(&HSTRING::from("BADURI")).unwrap_err();
+    let err: Error = Uri::CreateUri(&HSTRING::from("BADURI")).unwrap_err().into();
     let code = err.code();
 
     let wait = thread::spawn(move || {

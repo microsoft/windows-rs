@@ -13,7 +13,7 @@ fn win() -> Result<(), HRESULT> {
 
         assert_eq!(TD_ERROR_ICON.0 as i16, -2);
         assert_eq!(
-            LoadIconW(None, TD_ERROR_ICON).unwrap_err().code(),
+            LoadIconW(None, TD_ERROR_ICON).unwrap_err(),
             ERROR_RESOURCE_TYPE_NOT_FOUND.into()
         );
 

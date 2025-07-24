@@ -1,6 +1,5 @@
 use windows_registry::*;
 use windows_strings::*;
-use windows_result::*;
 
 #[test]
 fn u32() -> Result<(), HRESULT> {

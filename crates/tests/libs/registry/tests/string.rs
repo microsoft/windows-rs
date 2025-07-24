@@ -1,7 +1,6 @@
 use std::borrow::Cow;
 use windows_registry::*;
 use windows_strings::*;
-use windows_result::*;
 
 #[test]
 fn string() -> Result<(), HRESULT> {

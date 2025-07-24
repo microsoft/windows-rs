@@ -1,6 +1,8 @@
 // This test ensures that a multi-word namespace "MachineLearning" is properly
 // converted to "machine_learning" and imports correctly.
 
+use windows::core::HRESULT;
+
 #[test]
 fn namespace() -> Result<(), HRESULT> {
     use windows::AI::MachineLearning::{TensorBoolean, TensorKind};

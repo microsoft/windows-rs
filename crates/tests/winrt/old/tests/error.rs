@@ -1,4 +1,4 @@
-use windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
+use windows::{ Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {
@@ -31,7 +31,7 @@ fn bad_uri() {
     helpers::set_thread_ui_language();
 
     let result = Uri::CreateUri(&windows::core::HSTRING::from("INVALID"));
-    let error: windows::core::Error = result.unwrap_err();
+    let error: windows::core::Error = result.unwrap_err().into();
 
     assert_eq!(error.code(), windows::core::HRESULT(-2147024809));
     assert_eq!(error.message(), "INVALID is not a valid absolute URI.");
@@ -39,7 +39,9 @@ fn bad_uri() {
 
 #[test]
 fn convertible() {
-    fn windows_error() -> Result<(), HRESULT> {
+    // TODO: add hresult_error()...
+
+    fn windows_error() -> Result<(), windows::core::Error> {
         Err(windows::core::Error::new(E_NOINTERFACE, "test message"))
     }
 

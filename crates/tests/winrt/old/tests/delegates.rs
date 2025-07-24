@@ -1,6 +1,6 @@
 use core::convert::*;
 
-use windows::core::Interface;
+use windows::core::*;
 use windows::{Foundation::Collections::*, Foundation::*};
 use windows_future::*;
 

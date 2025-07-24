@@ -1,4 +1,4 @@
-use windows::core::HSTRING;
+use windows::core::{HRESULT, HSTRING};
 use windows::Data::Xml::Dom::XmlDocument;
 
 // Simple test to validate that default constructors are projected as static `new` methods.

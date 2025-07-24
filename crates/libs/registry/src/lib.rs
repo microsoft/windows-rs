@@ -39,7 +39,7 @@ pub use value_iterator::ValueIterator;
 mod r#type;
 pub use r#type::Type;
 
-use windows_result::*;
+pub use windows_result::HRESULT;
 
 pub use windows_strings::HSTRING;
 use windows_strings::{PCWSTR, *};

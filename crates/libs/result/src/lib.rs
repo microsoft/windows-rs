@@ -31,7 +31,6 @@ pub use hresult::HRESULT;
 mod bool;
 pub use bool::BOOL;
 
-
 // TODO: define HResult as Result<T, HRESULT> and then Result for compat and maybe deprecate
 //pub type Result<T> = Result<T, Error>;
 //pub type HResult<T> = Result<T, HRESULT>;

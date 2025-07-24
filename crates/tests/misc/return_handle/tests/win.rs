@@ -12,6 +12,6 @@ fn test() {
         // This should fail, since the event name collides with that of the mutex.
         let result = CreateEventA(None, true, false, s!("test"));
         let error = result.unwrap_err();
-        assert_eq!(error.code(), ERROR_INVALID_HANDLE.into());
+        assert_eq!(error, ERROR_INVALID_HANDLE.into());
     }
 }

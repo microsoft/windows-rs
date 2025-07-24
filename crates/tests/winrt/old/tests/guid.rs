@@ -1,4 +1,5 @@
 use windows::Foundation::GuidHelper;
+use windows::core::HRESULT;
 
 #[test]
 fn guid_helper() -> Result<(), HRESULT> {

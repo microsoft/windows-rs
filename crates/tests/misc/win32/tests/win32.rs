@@ -132,7 +132,7 @@ fn bool_as_error() {
         helpers::set_thread_ui_language();
         let error = SetEvent(HANDLE(0 as _)).unwrap_err();
 
-        assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
+        assert_eq!(error, windows::core::HRESULT(-2147024890));
         let message: String = error.message().try_into().unwrap();
         assert_eq!(message, "The handle is invalid.");
     }
@@ -194,7 +194,7 @@ fn com_inheritance() {
             factory
                 .RegisterAdaptersChangedEvent(HANDLE::default())
                 .unwrap_err()
-                .code()
+                
                 == DXGI_ERROR_INVALID_CALL
         );
     }
@@ -211,7 +211,7 @@ fn onecore_imports() -> Result<(), HRESULT> {
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        MiniDumpWriteDump(
+        _ = MiniDumpWriteDump(
             Default::default(),
             0,
             Default::default(),

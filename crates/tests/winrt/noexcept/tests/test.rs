@@ -42,7 +42,7 @@ impl ITest_Impl for Test_Impl {
     }
     fn Test(&self) -> Result<ITest, HRESULT> {
         let this = self.0.read().unwrap();
-        this.2.clone().ok_or_else(S_OK)
+        this.2.clone().ok_or(HRESULT(0))
     }
     fn SetTest(&self, value: Ref<ITest>) -> Result<(), HRESULT> {
         let mut this = self.0.write().unwrap();
