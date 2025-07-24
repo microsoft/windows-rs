@@ -100,7 +100,11 @@ fn primitive_iterator() -> Result<(), HRESULT> {
     Ok(())
 }
 
-fn compare_with<K, V>(pair: &Option<IKeyValuePair<K, V>>, key: &K, value: &V) -> Result<bool, HRESULT>
+fn compare_with<K, V>(
+    pair: &Option<IKeyValuePair<K, V>>,
+    key: &K,
+    value: &V,
+) -> Result<bool, HRESULT>
 where
     K: RuntimeType + std::cmp::PartialEq,
     V: RuntimeType + std::cmp::PartialEq,

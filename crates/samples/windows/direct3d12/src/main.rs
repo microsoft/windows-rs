@@ -499,7 +499,9 @@ mod d3d12_hello_triangle {
         }
     }
 
-    fn create_device(command_line: &SampleCommandLine) -> Result<(IDXGIFactory4, ID3D12Device), HRESULT> {
+    fn create_device(
+        command_line: &SampleCommandLine,
+    ) -> Result<(IDXGIFactory4, ID3D12Device), HRESULT> {
         if cfg!(debug_assertions) {
             unsafe {
                 let mut debug: Option<ID3D12Debug> = None;

@@ -2,7 +2,6 @@ use windows::{core::HRESULT, Storage::Streams::*};
 
 #[test]
 fn async_get() -> Result<(), HRESULT> {
-
     let stream = &InMemoryRandomAccessStream::new()?;
 
     let writer = DataWriter::CreateDataWriter(stream)?;

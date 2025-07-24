@@ -44,7 +44,11 @@ unsafe extern "system" fn CloseJsonValidator(handle: usize) {
 }
 
 // Implementation of the `CreateJsonValidator` function so we can use `Result` for simplicity.
-unsafe fn create_validator(schema: *const u8, schema_len: usize, handle: *mut usize) -> Result<(), HRESULT> {
+unsafe fn create_validator(
+    schema: *const u8,
+    schema_len: usize,
+    handle: *mut usize,
+) -> Result<(), HRESULT> {
     unsafe {
         let schema = json_from_raw_parts(schema, schema_len)?;
 
@@ -69,7 +73,7 @@ unsafe fn validate(
     value_len: usize,
     sanitized_value: *mut *mut u8,
     sanitized_value_len: *mut usize,
-) -> Result<(),  Error> {
+) -> Result<(), Error> {
     unsafe {
         if handle == 0 {
             return Err(E_HANDLE.into());
@@ -111,7 +115,10 @@ unsafe fn validate(
 }
 
 // Takes care of all the JSON parsing and parameter validation.
-unsafe fn json_from_raw_parts(value: *const u8, value_len: usize) -> Result<serde_json::Value, Error> {
+unsafe fn json_from_raw_parts(
+    value: *const u8,
+    value_len: usize,
+) -> Result<serde_json::Value, Error> {
     unsafe {
         if value.is_null() {
             return Err(E_POINTER.into());

@@ -1,4 +1,4 @@
-use windows::{ core::HRESULT, Win32::Foundation::*};
+use windows::{core::HRESULT, Win32::Foundation::*};
 use windows_strings::*;
 
 #[test]

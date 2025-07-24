@@ -608,7 +608,7 @@ impl InterfaceMethod {
                     let ident = segment.ident.to_string();
                     if ident == "Result" {
                         if let syn::PathArguments::AngleBracketed(_) = &segment.arguments {
-                                return true;
+                            return true;
                         }
                     }
                 }

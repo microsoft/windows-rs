@@ -41,10 +41,7 @@ fn map() {
 fn and_then() {
     assert_eq!(123, S_OK.and_then(|| Ok(123)).unwrap());
 
-    assert_eq!(
-        E_INVALIDARG,
-        E_INVALIDARG.and_then(|| Ok(123)).unwrap_err()
-    );
+    assert_eq!(E_INVALIDARG, E_INVALIDARG.and_then(|| Ok(123)).unwrap_err());
 }
 
 #[test]

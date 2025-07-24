@@ -114,12 +114,7 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn AsSampler(&self) -> core::option::Option<ID3D10EffectSamplerVariable> {
         unimplemented!();
     }
-    fn SetRawValue(
-        &self,
-        _: *const core::ffi::c_void,
-        _: u32,
-        _: u32,
-    ) -> Result<(), HRESULT> {
+    fn SetRawValue(&self, _: *const core::ffi::c_void, _: u32, _: u32) -> Result<(), HRESULT> {
         unimplemented!();
     }
     fn GetRawValue(&self, _: *mut core::ffi::c_void, _: u32, _: u32) -> Result<(), HRESULT> {

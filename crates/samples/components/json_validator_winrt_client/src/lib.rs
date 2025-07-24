@@ -13,7 +13,10 @@ fn test() -> Result<(), HRESULT> {
     validator.Validate(h!(r#""Hello""#))?;
 
     // Check validation failure provides reasonable error information.
-    let error: Error = validator.Validate(h!(r#""Hello World""#)).unwrap_err().into();
+    let error: Error = validator
+        .Validate(h!(r#""Hello World""#))
+        .unwrap_err()
+        .into();
     assert_eq!(error.code(), E_INVALIDARG);
     assert_eq!(
         error.message(),
@@ -21,7 +24,9 @@ fn test() -> Result<(), HRESULT> {
     );
 
     // Check schema parsing failure provides reasonable error information.
-    let error: Error = JsonValidator::CreateInstance(h!(r#"{ "invalid"#)).unwrap_err().into();
+    let error: Error = JsonValidator::CreateInstance(h!(r#"{ "invalid"#))
+        .unwrap_err()
+        .into();
     assert_eq!(error.code(), E_INVALIDARG);
     assert_eq!(
         error.message(),

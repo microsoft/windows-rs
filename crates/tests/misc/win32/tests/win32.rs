@@ -194,7 +194,6 @@ fn com_inheritance() {
             factory
                 .RegisterAdaptersChangedEvent(HANDLE::default())
                 .unwrap_err()
-                
                 == DXGI_ERROR_INVALID_CALL
         );
     }

@@ -40,7 +40,10 @@ impl IBackgroundTaskInstance_Impl for Borrowed_Impl {
     fn TriggerDetails(&self) -> Result<IInspectable, HRESULT> {
         unimplemented!()
     }
-    fn Canceled(&self, _cancelhandler: Ref<BackgroundTaskCanceledEventHandler>) -> Result<i64, HRESULT> {
+    fn Canceled(
+        &self,
+        _cancelhandler: Ref<BackgroundTaskCanceledEventHandler>,
+    ) -> Result<i64, HRESULT> {
         unimplemented!()
     }
     fn RemoveCanceled(&self, _cookie: i64) -> Result<(), HRESULT> {

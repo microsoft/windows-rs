@@ -168,17 +168,26 @@ fn invalid_guid() -> HRESULT {
     imp::E_INVALIDARG
 }
 
-fn try_u32(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u32, windows_result::HRESULT> {
+fn try_u32(
+    bytes: &mut core::str::Bytes<'_>,
+    delimiter: bool,
+) -> Result<u32, windows_result::HRESULT> {
     next(bytes, 8, delimiter).ok_or_else(invalid_guid)
 }
 
-fn try_u16(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u16, windows_result::HRESULT> {
+fn try_u16(
+    bytes: &mut core::str::Bytes<'_>,
+    delimiter: bool,
+) -> Result<u16, windows_result::HRESULT> {
     next(bytes, 4, delimiter)
         .map(|value| value as u16)
         .ok_or_else(invalid_guid)
 }
 
-fn try_u8(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u8, windows_result::HRESULT> {
+fn try_u8(
+    bytes: &mut core::str::Bytes<'_>,
+    delimiter: bool,
+) -> Result<u8, windows_result::HRESULT> {
     next(bytes, 2, delimiter)
         .map(|value| value as u8)
         .ok_or_else(invalid_guid)

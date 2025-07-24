@@ -24,7 +24,11 @@ impl<T: Async> ReadyState<T> {
 
     // The "Ready" implementations don't need to store the handler since the handler is invoked immediately
     // but still need to confirm that `SetCompleted` is called at most once.
-    fn invoke_completed(&self, sender: &T, handler: Ref<'_, T::CompletedHandler>) -> Result<(), HRESULT> {
+    fn invoke_completed(
+        &self,
+        sender: &T,
+        handler: Ref<'_, T::CompletedHandler>,
+    ) -> Result<(), HRESULT> {
         if !self.set_completed.swap(true, Ordering::SeqCst) {
             sender.invoke_completed(handler.ok()?, self.status());
             Ok(())
@@ -154,7 +158,10 @@ impl IAsyncAction_Impl for ReadyAction_Impl {
 }
 
 impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncOperationCompletedHandler<T>>) -> Result<(), HRESULT> {
+    fn SetCompleted(
+        &self,
+        handler: Ref<'_, AsyncOperationCompletedHandler<T>>,
+    ) -> Result<(), HRESULT> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncOperationCompletedHandler<T>, HRESULT> {

@@ -82,9 +82,7 @@ fn test_variant() -> Result<(), HRESULT> {
     assert_eq!(unknown.cast::<Uri>()?.Domain()?, "github.com");
     assert_eq!(i32::try_from(&v).unwrap_err(), TYPE_E_TYPEMISMATCH);
     assert_eq!(
-        IUnknown::try_from(&VARIANT::from(3.5f64))
-            .unwrap_err()
-            ,
+        IUnknown::try_from(&VARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 
@@ -95,9 +93,7 @@ fn test_variant() -> Result<(), HRESULT> {
     dispatch.cast::<Com::Events::IEventSystem>()?;
     assert_eq!(i32::try_from(&v).unwrap_err(), E_INVALIDARG);
     assert_eq!(
-        Com::IDispatch::try_from(&VARIANT::from(3.5f64))
-            .unwrap_err()
-            ,
+        Com::IDispatch::try_from(&VARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 
@@ -214,9 +210,7 @@ fn test_propvariant() -> Result<(), HRESULT> {
     assert_eq!(unknown.cast::<Uri>()?.Domain()?, "github.com");
     assert_eq!(i32::try_from(&v).unwrap_err(), TYPE_E_TYPEMISMATCH);
     assert_eq!(
-        IUnknown::try_from(&PROPVARIANT::from(3.5f64))
-            .unwrap_err()
-            ,
+        IUnknown::try_from(&PROPVARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 
@@ -227,9 +221,7 @@ fn test_propvariant() -> Result<(), HRESULT> {
     dispatch.cast::<Com::Events::IEventSystem>()?;
     assert_eq!(i32::try_from(&v).unwrap_err(), E_INVALIDARG);
     assert_eq!(
-        Com::IDispatch::try_from(&PROPVARIANT::from(3.5f64))
-            .unwrap_err()
-            ,
+        Com::IDispatch::try_from(&PROPVARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 

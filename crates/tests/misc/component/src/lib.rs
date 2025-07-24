@@ -18,7 +18,12 @@ impl bindings::IClass_Impl for Class_Impl {
     fn Flags(&self) -> Result<bindings::Flags, HRESULT> {
         Ok(bindings::Flags::Ok)
     }
-    fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut Array<i32>) -> Result<Array<i32>, HRESULT> {
+    fn Int32Array(
+        &self,
+        a: &[i32],
+        b: &mut [i32],
+        c: &mut Array<i32>,
+    ) -> Result<Array<i32>, HRESULT> {
         assert_eq!(a.len(), b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);

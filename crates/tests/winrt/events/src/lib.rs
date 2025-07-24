@@ -64,10 +64,7 @@ impl bindings::IClass_Impl for Class_Impl {
         Ok(counter)
     }
 
-    fn Event(
-        &self,
-        handler: Ref<TypedEventHandler<bindings::Class, i32>>,
-    ) -> Result<i64, HRESULT> {
+    fn Event(&self, handler: Ref<TypedEventHandler<bindings::Class, i32>>) -> Result<i64, HRESULT> {
         self.0.add(handler.unwrap())
     }
 

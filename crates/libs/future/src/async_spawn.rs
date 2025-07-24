@@ -25,10 +25,10 @@ impl<T: Async> State<T> {
 
     fn get_results(&self) -> Result<T::Output, HRESULT> {
         match &self.result {
-            Some(result) =>         match result {
-            Ok(result) => Ok(result.clone()),
-            Err(error) => Err(error.to_thread()),
-        },
+            Some(result) => match result {
+                Ok(result) => Ok(result.clone()),
+                Err(error) => Err(error.to_thread()),
+            },
             None => Err(HRESULT(0x8000000Eu32 as i32)), // E_ILLEGAL_METHOD_CALL
         }
     }
@@ -57,7 +57,11 @@ impl<T: Async> SyncState<T> {
         self.0.lock().unwrap().get_results()
     }
 
-    fn set_completed(&self, sender: &T, handler: Ref<'_, T::CompletedHandler>) -> Result<(), HRESULT> {
+    fn set_completed(
+        &self,
+        sender: &T,
+        handler: Ref<'_, T::CompletedHandler>,
+    ) -> Result<(), HRESULT> {
         let mut guard = self.0.lock().unwrap();
 
         if guard.completed_assigned {
@@ -203,7 +207,10 @@ impl IAsyncAction_Impl for Action_Impl {
 }
 
 impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncOperationCompletedHandler<T>>) -> Result<(), HRESULT> {
+    fn SetCompleted(
+        &self,
+        handler: Ref<'_, AsyncOperationCompletedHandler<T>>,
+    ) -> Result<(), HRESULT> {
         self.0.set_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncOperationCompletedHandler<T>, HRESULT> {

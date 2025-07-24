@@ -18,7 +18,9 @@ impl<I: Interface> Weak<I> {
             .and_then(|inner| unsafe { inner.Resolve().ok() })
     }
 
-    pub(crate) fn downgrade(source: &imp::IWeakReferenceSource) -> Result<Self, windows_result::HRESULT> {
+    pub(crate) fn downgrade(
+        source: &imp::IWeakReferenceSource,
+    ) -> Result<Self, windows_result::HRESULT> {
         let reference = unsafe { source.GetWeakReference().ok() };
         Ok(Self(reference, PhantomData))
     }

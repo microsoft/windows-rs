@@ -60,7 +60,8 @@ impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory_Impl {
 fn json_from_hstring(value: &HSTRING) -> Result<serde_json::Value, HRESULT> {
     let value = String::try_from(value)?;
 
-    serde_json::from_str(&value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")).into())
+    serde_json::from_str(&value)
+        .map_err(|error| Error::new(E_INVALIDARG, format!("{error}")).into())
 }
 
 static JSON_VALIDATOR_FACTORY: StaticComObject<JsonValidatorFactory> =

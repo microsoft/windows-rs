@@ -1,5 +1,5 @@
 use windows::{
-    core::{HRESULT, Owned},
+    core::{Owned, HRESULT},
     Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
 };
 

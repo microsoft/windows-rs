@@ -1,5 +1,5 @@
-use windows_strings::*;
 use windows_result::*;
+use windows_strings::*;
 
 #[test]
 fn hstring_works() {

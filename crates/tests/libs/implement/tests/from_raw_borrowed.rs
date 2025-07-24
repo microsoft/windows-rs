@@ -29,7 +29,11 @@ impl IServiceProvider_Impl for Borrowed_Impl {
 }
 
 impl IProfferService_Impl for Borrowed_Impl {
-    fn ProfferService(&self, _: *const GUID, provider: Ref<IServiceProvider>) -> Result<u32, HRESULT> {
+    fn ProfferService(
+        &self,
+        _: *const GUID,
+        provider: Ref<IServiceProvider>,
+    ) -> Result<u32, HRESULT> {
         unsafe {
             if let Ok(provider) = provider.ok() {
                 Ok(provider.cast::<IBorrowed>()?.Call())

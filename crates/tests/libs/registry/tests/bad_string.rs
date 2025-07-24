@@ -1,4 +1,7 @@
-use windows::{core::{w, HRESULT}, Win32::System::Registry::*};
+use windows::{
+    core::{w, HRESULT},
+    Win32::System::Registry::*,
+};
 use windows_registry::*;
 
 #[test]

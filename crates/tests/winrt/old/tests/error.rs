@@ -1,4 +1,4 @@
-use windows::{ Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
+use windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {

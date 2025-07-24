@@ -72,7 +72,7 @@ where
         unsafe { abi.assume_init_ref() }
     }
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self, windows_result::HRESULT > {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self, windows_result::HRESULT> {
         unsafe { Ok(abi.assume_init()) }
     }
 

@@ -8,6 +8,4 @@ fn from_into() {
     let error = Error::from(code); // GetErrorInfo is called to retrieve the error info.
     assert_eq!(error.code(), E_FAIL);
     assert_eq!(error.message(), "test info");
-
-
 }

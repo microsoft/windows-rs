@@ -479,7 +479,10 @@ fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush, HRE
     unsafe { target.CreateSolidColorBrush(&color, Some(&properties)) }
 }
 
-fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect, HRESULT> {
+fn create_shadow(
+    target: &ID2D1DeviceContext,
+    clock: &ID2D1Bitmap1,
+) -> Result<ID2D1Effect, HRESULT> {
     unsafe {
         let shadow = target.CreateEffect(&CLSID_D2D1Shadow)?;
 
@@ -545,7 +548,7 @@ fn create_device() -> Result<ID3D11Device, HRESULT> {
     let mut result = create_device_with_type(D3D_DRIVER_TYPE_HARDWARE);
 
     if result == Err(DXGI_ERROR_UNSUPPORTED) {
-            result = create_device_with_type(D3D_DRIVER_TYPE_WARP);
+        result = create_device_with_type(D3D_DRIVER_TYPE_WARP);
     }
 
     result
@@ -571,7 +574,10 @@ fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2, HRESULT> {
     unsafe { dxdevice.GetAdapter()?.GetParent() }
 }
 
-fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceContext) -> Result<(), HRESULT> {
+fn create_swapchain_bitmap(
+    swapchain: &IDXGISwapChain1,
+    target: &ID2D1DeviceContext,
+) -> Result<(), HRESULT> {
     let surface: IDXGISurface = unsafe { swapchain.GetBuffer(0)? };
 
     let props = D2D1_BITMAP_PROPERTIES1 {
